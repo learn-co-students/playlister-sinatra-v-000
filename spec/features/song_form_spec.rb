@@ -7,8 +7,8 @@ describe "Song Forms" do
   let(:song_name) { "That One with the Guitar" }
 
   before do
-    @genre_1 = Genre.create(name: genre_1_name)
-    @genre_2 = Genre.create(name: genre_2_name)
+    genre_1 = Genre.create(name: genre_1_name)
+    genre_2 = Genre.create(name: genre_2_name)
   end
 
   describe "/songs/new" do
@@ -32,7 +32,7 @@ describe "Song Forms" do
 
     context "with an existing artist" do
       before do
-        @artist = Artist.create(name: artist_name)
+        artist = Artist.create(name: artist_name)
       end
 
       it "creates a new song and associates it with an existing artist" do
@@ -52,11 +52,11 @@ describe "Song Forms" do
   describe "/songs/:slug/edit" do
     before do
       @song = Song.create(name: artist_name)
-      @genre = Genre.create(name: genre_1_name)
-      @artist = Artist.create(name: artist_name)
+      genre = Genre.create(name: genre_1_name)
+      artist = Artist.create(name: artist_name)
 
       @song.song_genres.create(genre: genre)
-      @song.artist = @artist
+      @song.artist = artist
   
       @song.save
 
