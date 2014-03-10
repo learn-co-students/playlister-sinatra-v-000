@@ -45,7 +45,7 @@ Notice that there are no forms involved yet. Get the basics of the app working f
   * I should be able to create a new song
   * Genres should be presented as checkboxes
   * I should be able to enter the Artist's name in a text field (only one Artist per song.)
-2. `/songs/:id/edit`
+2. `/songs/:slug/edit`
   * I should be able to change everything about a song, including the genres associated with it and its artist.
 
 Think about the custom writer or writers you may need to write to make these features work. Make the feature specs in `spec/features/song_form_specs.rb` pass.
