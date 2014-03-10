@@ -6,7 +6,7 @@ describe "Playlister Basics" do
   let(:song_name) { "That One with the Guitar" }
 
   before do
-    @song = Song.create(name: artist_name)
+    @song = Song.create(name: song_name)
     @genre = Genre.create(name: genre_name)
     @artist = Artist.create(name: artist_name)
 
