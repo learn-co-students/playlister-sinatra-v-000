@@ -1,6 +1,7 @@
 ---
 tags: sinatra, orm, activerecord
 languages: ruby
+  resources: 2
 ---
 
 # Sinatra Playlister
@@ -58,3 +59,7 @@ Once you've finished, think about how you might make the app look nicer. Also, w
 ### Extra Special Bonus
 
 Write some controller and model specs!
+
+## Resources
+* [Sinatra Up and Running](http://books.flatironschool.com/books/101) - [Fundamentals](http://books.flatironschool.com/books/101), page 29
+* [Wikipedia](http://en.wikipedia.org/) - [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
