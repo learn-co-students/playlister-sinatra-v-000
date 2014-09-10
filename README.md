@@ -6,12 +6,14 @@
 
 # Sinatra Playlister
 
+### Overview
+
 In the theme of moving from simple command line application to static website to dynamic web app, it's time to move Playlister to the interwebs using Sinatra. In this lab, you'll be:
 
   1. Giving our "library" of songs a dynamic web interface
   2. Creating a few complex forms that allow you to create and edit Songs, Artists and Genres.
 
-## Instructions
+### Instructions
 
 The first thing you should aim to do is create a Sinatra interface for the data in `db/data`. There is a `LibraryParser` class included in the `lib` folder that you may use, though it may need some tweaking to work with your specific application. Your associations should follow this pattern:
 
@@ -60,6 +62,6 @@ Once you've finished, think about how you might make the app look nicer. Also, w
 
 Write some controller and model specs!
 
-## Resources
+### Resources
 * [Sinatra Up and Running](http://books.flatironschool.com/books/101) - [Fundamentals](http://books.flatironschool.com/books/101), page 29
 * [Wikipedia](http://en.wikipedia.org/) - [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
