@@ -56,32 +56,38 @@ describe "Song Forms" do
 
       @song.song_genres.create(genre: genre_1)
       @song.artist = artist
-  
+
       @song.save
 
       visit "/songs/#{@song.slug}/edit"
     end
 
     context "changing a song's artist" do
+      it "has a checkbox element on the form" do
+        expect(page.body).to include("checkbox")
+      end
+
       it "updates the song's artist" do
         fill_in "Artist Name", with: "Some Nobody"
         click_on "Save"
 
         expect(page).to have_content("Song successfully updated.")
-        expect(page).to have_content(genre_1_name)
         expect(page).to have_content(song_name)
         expect(page).to have_content("Some Nobody")
       end
     end
 
     context "changing a song's genres" do
+      it "has a checkbox element on the form" do
+        expect(page.body).to include("checkbox")
+      end
+
       it "updates the song's genres" do
         uncheck "New Age Garbage"
         check "Hippity Hop"
         click_on "Save"
 
         expect(page).to have_content("Song successfully updated.")
-        expect(page).to have_content(genre_2_name)
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
       end
