@@ -5,11 +5,8 @@ describe "Song Forms" do
   let(:genre_1_name) { "New Age Garbage" }
   let(:genre_2_name) { "Hippity Hop" }
   let(:song_name) { "That One with the Guitar" }
-
-  before do
-    genre_1 = Genre.create(name: genre_1_name)
-    genre_2 = Genre.create(name: genre_2_name)
-  end
+  let!(:genre_1) { Genre.create(name: genre_1_name) }
+  let!(:genre_2) { Genre.create(name: genre_2_name) }
 
   describe "/songs/new" do
     before do
