@@ -11,6 +11,7 @@ rescue ActiveRecord::PendingMigrationError => err
 end
 
 use Rack::MethodOverride
+
 use GenresController
 use ArtistsController
 use SongsController
