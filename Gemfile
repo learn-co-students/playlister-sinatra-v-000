@@ -13,6 +13,7 @@ gem 'pry'
 gem 'tux'
 
 group :test do
+  gem 'launchy'
   gem 'rspec'
   gem 'capybara'
   gem 'rack-test'
