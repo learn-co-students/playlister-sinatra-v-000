@@ -11,6 +11,7 @@ gem 'shotgun'
 gem 'pry'
 
 group :test do
+  gem 'launchy'
   gem 'rspec'
   gem 'capybara'
   gem 'rack-test'
