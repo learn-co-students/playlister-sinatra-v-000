@@ -97,6 +97,7 @@ DEPENDENCIES
   activerecord
   capybara
   database_cleaner!
+  launchy
   pry
   rack-test
   rake
