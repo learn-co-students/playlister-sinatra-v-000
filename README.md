@@ -63,5 +63,4 @@ Once you've finished, think about how you might make the app look nicer. Also, w
 Write some controller and model specs!
 
 ### Resources
-* [Sinatra Up and Running](http://books.flatironschool.com/books/101) - [Fundamentals](http://books.flatironschool.com/books/101), page 29
 * [Wikipedia](http://en.wikipedia.org/) - [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
