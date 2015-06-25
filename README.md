@@ -1,10 +1,10 @@
----
-  tags: sinatra, orm, activerecord
-  languages: ruby
-  resources: 2
----
-
 # Sinatra Playlister
+
+##Objectives 
+
+1. Solidify your ActiveRecord understanding 
+2. Build views for your models
+
 
 ### Overview
 
