@@ -2,8 +2,9 @@
 
 ##Objectives 
 
-1. Solidify your ActiveRecord understanding 
-2. Build views and forms for your models
+* Solidify your ActiveRecord understanding 
+* Build out basic views for all your models
+* Create forms for editing and creating a new song that returns a well-structured params hash 
 
 
 ### Overview
@@ -11,7 +12,7 @@
 In the theme of moving from simple command line application to static website to dynamic web app, it's time to move Playlister to the interwebs using Sinatra. In this lab, you'll be:
 
   1. Giving our "library" of songs a dynamic web interface
-  2. Creating a few complex forms that allow you to create and edit Songs, Artists and Genres.
+  2. Creating a few complex forms that allow you to create and edit Artists, Songs and Genres.
 
 ### Instructions
 
@@ -22,16 +23,16 @@ The first thing you should aim to do is create a Sinatra interface for the data 
 3. A Song can belong to ONE Artist and multiple genres
 4. There will be a join table needed somewhere here
 
-I should be able to visit the following routes:
+You should build the following routes:
 
 1. `/songs`
-  * This should present me with a list of all songs in the libaray.
+  * This should present the user with a list of all songs in the libaray.
   * Each song should be a clickable link to that particular song's show page.
 2. `/genres`
-  * This should present me with a list of all genres in the library.
+  * This should present the user with a list of all genres in the library.
   * Each genre should be a clickable link to that particular genre's show page.
 3. `/artists`
-  * This should present me with a list of all artists in the library.
+  * This should present the user with a list of all artists in the library.
   * Each artist should be a clickable link to that particular artist's show page.
 4. `/songs/:slug`
   * Any given song's show page should have links to that song's artist and the each genre associated with the song.
@@ -45,7 +46,7 @@ To get the data into your database, you will want to figure out how to use your 
 
 ### How to approach this lab
 
-Notice that there are no forms involved yet. Get the basics of the app working first, which means we have five specs in total and you should first pass all three model specs. 
+Get the basics of the app working first, which means we have five specs in total and you should first pass all three model specs. 
 
 By typing 
 
@@ -64,8 +65,7 @@ For the last spec `05_song_form_spec.rb` you need to implement the following fea
 2. `/songs/:slug/edit`
   * I should be able to change everything about a song, including the genres associated with it and its artist.
 
-Think about the custom writer or writers you may need to write to make these features work. Make the feature specs in `spec/features/song_form_specs.rb` pass.
-
+Think about the custom writer or writers you may need to write to make these features work. 
 
 ### Resources
-* [Wikipedia](http://en.wikipedia.org/) - [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
+* [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
