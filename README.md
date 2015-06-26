@@ -3,7 +3,7 @@
 ##Objectives 
 
 1. Solidify your ActiveRecord understanding 
-2. Build views for your models
+2. Build views and forms for your models
 
 
 ### Overview
@@ -22,7 +22,7 @@ The first thing you should aim to do is create a Sinatra interface for the data 
 3. A Song can belong to ONE Artist and multiple genres
 4. There will be a join table needed somewhere here
 
-I should be able to visit the following routes:
+You should be able to visit the following routes:
 
 1. `/songs`
   * This should present me with a list of all songs in the libaray.
@@ -42,7 +42,20 @@ I should be able to visit the following routes:
 
 To get the data into your database, you will want to figure out how to use your `LibraryParser` class in the `db/seeds.rb` file.
 
-Notice that there are no forms involved yet. Get the basics of the app working first, making all of the feature specs in `spec/features/basic_view_specs.rb` pass and then move on to implementing the following features:
+
+### How to approach this lab
+
+Notice that there are no forms involved yet. Get the basics of the app working first, which means we have five specs in total and you should first pass all three model specs. 
+
+By typing 
+
+```bash
+rspec spec/models/01_song_spec.rb 
+
+```
+in your bash/ command line you will only run that spec. This is important for this lab. Run all the specs in there numeric order. 
+
+For the last spec `05_song_form_spec.rb` you need to implement the following features:
 
 1. `/songs/new`
   * I should be able to create a new song
@@ -53,14 +66,6 @@ Notice that there are no forms involved yet. Get the basics of the app working f
 
 Think about the custom writer or writers you may need to write to make these features work. Make the feature specs in `spec/features/song_form_specs.rb` pass.
 
-
-### Bonus
-
-Once you've finished, think about how you might make the app look nicer. Also, what bonus features can you implement? It'd be nice if I could, say, sort the list of songs by their name or their artist's name. Maybe I could search for an artist? The sky's the limit, really! Make sure you've gotten the basics of the application working first, though, before you approach any of these additional features.
-
-### Extra Special Bonus
-
-Write some controller and model specs!
 
 ### Resources
 * [Wikipedia](http://en.wikipedia.org/) - [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
