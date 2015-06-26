@@ -22,7 +22,7 @@ The first thing you should aim to do is create a Sinatra interface for the data 
 3. A Song can belong to ONE Artist and multiple genres
 4. There will be a join table needed somewhere here
 
-You should be able to visit the following routes:
+I should be able to visit the following routes:
 
 1. `/songs`
   * This should present me with a list of all songs in the libaray.
@@ -51,9 +51,9 @@ By typing
 
 ```bash
 rspec spec/models/01_artist_spec.rb 
-
 ```
-in your bash/ command line you will only run that spec. This is important for this lab. Run all the specs in there numeric order. 
+
+in your bash/ command line you will only run that spec. It is important to run the specs in there numeric order. You will notice even after adding a table, model, and controller your specs are still not passing, but the error messages are changing. You have to read every errror message carefully to understand what to do next.
 
 For the last spec `05_song_form_spec.rb` you need to implement the following features:
 
