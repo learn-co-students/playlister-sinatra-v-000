@@ -50,7 +50,7 @@ Notice that there are no forms involved yet. Get the basics of the app working f
 By typing 
 
 ```bash
-rspec spec/models/01_song_spec.rb 
+rspec spec/models/01_artist_spec.rb 
 
 ```
 in your bash/ command line you will only run that spec. This is important for this lab. Run all the specs in there numeric order. 

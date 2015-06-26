@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Genre" do
-  let(:genre) { Genre.create(:name => "Pop") }
+  let!(:genre) { Genre.create(:name => "Pop") }
 
   let!(:taylor_swift) { Artist.create(:name => "Taylor Swift") }
   let!(:mark_ronson) { Artist.create(:name => "Mark Ronson") }

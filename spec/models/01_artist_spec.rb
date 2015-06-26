@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Artist" do
-  let(:artist) { Artist.create(:name => "Taylor Swift") }
+  let!(:artist) { Artist.create(:name => "Taylor Swift") }
 
   let!(:blank_space) { Song.create(:name => "Blank Space", :artist => artist) }
   let!(:shake_it_off) { Song.create(:name => "Shake It Off", :artist => artist) }
