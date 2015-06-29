@@ -1,4 +1,5 @@
 <% unless locals.empty? %>
+
   <%= message %>
 <% end %>
 
@@ -9,3 +10,4 @@
 <% @song.genres.each do |genre| %>
   <a href="/genres/<%= genre.slug %>"><%= genre.name %> </a>
 <% end %>
+

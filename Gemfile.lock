@@ -20,6 +20,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.3.7)
     arel (6.0.0)
     builder (3.2.2)
     capybara (2.4.4)
@@ -34,6 +35,8 @@ GEM
     eventmachine (1.0.7)
     i18n (0.7.0)
     json (1.8.2)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.2)
@@ -93,6 +96,7 @@ DEPENDENCIES
   activerecord
   capybara
   database_cleaner!
+  launchy
   pry
   rack-test
   rake
