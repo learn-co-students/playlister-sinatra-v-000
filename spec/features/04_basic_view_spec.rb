@@ -22,6 +22,11 @@ describe "Playlister Basics" do
         visit "/songs"
       end
 
+      it 'responds with a 200 status code' do
+        visit '/songs'
+        expect(page.status_code).to eq(200)
+      end
+
       it "displays a list of songs" do
         expect(page).to have_content(song_name)
       end
@@ -34,6 +39,11 @@ describe "Playlister Basics" do
     describe "/artists" do
       before do
         visit "/artists"
+      end
+
+      it 'responds with a 200 status code' do
+        visit '/artists'
+        expect(page.status_code).to eq(200)
       end
 
       it "displays a list of artists" do
@@ -50,6 +60,11 @@ describe "Playlister Basics" do
         visit "/genres"
       end
 
+      it 'responds with a 200 status code' do
+        visit '/genres'
+        expect(page.status_code).to eq(200)
+      end
+
       it "displays a list of genres" do
         expect(page).to have_content(genre_name)
       end
@@ -64,6 +79,11 @@ describe "Playlister Basics" do
     describe "/songs/:slug" do
       before do
         visit "/songs/#{@song.slug}"
+      end
+
+      it 'responds with a 200 status code' do
+        visit "/songs/#{@song.slug}"
+        expect(page.status_code).to eq(200)
       end
 
       it "displays the song's artist" do
@@ -88,6 +108,11 @@ describe "Playlister Basics" do
         visit "/artists/#{@artist.slug}"
       end
 
+      it 'responds with a 200 status code' do
+        visit "/artists/#{@artist.slug}"
+        expect(page.status_code).to eq(200)
+      end
+
       it "displays the artist's songs" do
         expect(page).to have_content(song_name)
       end
@@ -108,6 +133,11 @@ describe "Playlister Basics" do
     describe "/genres/:slug" do
       before do
         visit "/genres/#{@genre.slug}"
+      end
+
+      it 'responds with a 200 status code' do
+        visit "/genres/#{@genre.slug}"
+        expect(page.status_code).to eq(200)
       end
 
       it "displays the genre's artists" do
