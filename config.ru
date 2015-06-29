@@ -11,8 +11,15 @@ rescue ActiveRecord::PendingMigrationError => err
 end
 
 use Rack::MethodOverride
+<<<<<<< HEAD
 
 use GenresController
 use ArtistsController
 use SongsController
 run ApplicationController
+=======
+use GenresController
+use ArtistsController
+use SongsController
+run ApplicationController
+>>>>>>> add solutions
