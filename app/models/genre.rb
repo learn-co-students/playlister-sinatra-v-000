@@ -1,13 +1,13 @@
-class Song < ActiveRecord::Base
-  belongs_to :artist
+class Genre < ActiveRecord::Base
   has_many :song_genres
-  has_many :genres, :through => :song_genres
+  has_many :songs, :through => :song_genres
+  has_many :artists, :through => :songs
 
-  def slug 
+  def slug
     name.downcase.gsub(" ","-")
   end
 
   def self.find_by_slug(slug)
-    Song.all.find{|song| song.slug == slug}
+    Genre.all.find{|genre| genre.slug == slug}
   end
 end
