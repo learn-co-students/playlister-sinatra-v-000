@@ -1,11 +1,11 @@
 # Guide to Solving and Reviewing Playlister Sinatra
 
-For this lab it is important that you run your spec files one by one or in numeric order. We are going to start with are model spec first.
+For this lab it is important that you run your spec files one by one or in numeric order. We are going to start with are model spec first. 
 
 
 ## `spec/models/01_artist_spec.rb`
 
-By typing `rspec spec/models/01_artist_spec.rb` in your command line you will just run the `01_artist_spec.rb` spec in your `spec/models` file. You can even chain the `--fail-fast` to it.
+By typing  `rspec spec/models/01_artist_spec.rb` in your command line you will just run the `01_artist_spec.rb` spec in your `spec/models` file. You can even chain the `--fail-fast` to it.
 
 ```bash
 Artist
@@ -18,7 +18,6 @@ Failures:
      NameError:
        uninitialized constant Artist
 ```
-
 Lets create our Artist Model `artist.rb` in our `app/model` folder.
 
 ```ruby
@@ -39,8 +38,7 @@ Failures:
      ActiveRecord::StatementInvalid:
        Could not find table 'artists'
 ```
-
-To create a table for the artists type `rake db:create_migration NAME=create_artists` in your bash. After hitting enter the outline of our migration file should be in your `db/migrate` folder. We still need to add the `name` attribute to our schema.
+To create a table for the artists type `rake db:create_migration NAME=create_artists` in your bash. After hitting enter the outline of our migration file should be in your `db/migrate` folder. We still need to add the the `name` attribute to our schema.
 
 ```ruby
 class CreateArtists < ActiveRecord::Migration
@@ -51,10 +49,9 @@ class CreateArtists < ActiveRecord::Migration
   end
 end
 ```
-
 Lets migrate our test database now by running `rake db:migrate SINATRA_ENV=test`.
 
-Our test is still not passing, but now it is telling us `uninitialized constant Song`. Let's setup our `song.rb` in our `app/model` folder and after that let us also create our songs table with the `name` attribute.
+Our test is still not passing, but now it is telling us `uninitialized constant Song`. Let's setup our `song.rb` in our `app/model` folder and after that lets also create our songs table.
 
 ```ruby
 class Song < ActiveRecord::Base
@@ -70,12 +67,7 @@ class CreateSongs < ActiveRecord::Migration
   end
 end
 ```
-
-After migrating our table we are getting a new error message `unknown attribute 'artist' for Song`. This means we created our song and artist models but did not associate them.
-
-Lets thing about this for a minute. An artist can `has_many` songs and a song `belongs_to` an artist. Whenever we have a `belong_to` in our model we also have to add a foreign key to to that table.
-
-For us that means we need to add `artist_id` column to our songs table. To do this we need to alter our `songs` table. But we cannot just go to our existing migration and add a column. We need to write a new migration which adds the the new field by typing `rake db:create_migration NAME=add_artist_to_songs` this again will just give us a outline of our migration. To add `artists_id` to your table, your migration file should look like this.
+After migrating our table we are getting a new error message `unknown attribute 'artist' for Song`. This means we created our song and artist models but did not associate them. Lets thing about this for a minute. An artist can `has_many` songs and a song `belongs_to` an artist. Whenever we have a `belong_to` in our model we also have to add a foreign key to to that table. For us that means we need to add `artist_id` column to our songs table. To do this we need to alter our migration by typing `rake db:create_migration NAME=add_artist_to_songs`
 
 ```ruby
 class AddArtistToSongs < ActiveRecord::Migration
@@ -84,8 +76,8 @@ class AddArtistToSongs < ActiveRecord::Migration
   end
 end
 ```
-
 The new error message we are getting is `uninitialized constant Genre`. We need to create `genre.rb` file in the `app/model` folder and we also need to create the genres table.
+
 
 ```ruby
 class Genre < ActiveRecord::Base
@@ -100,15 +92,14 @@ class CreateGenres < ActiveRecord::Migration
     end
   end
 end
-```
+``` 
 
-After running rspec again we are getting `uninitialized constant SongGenre`. This is because a Song can have multiple Genres. To persist this we need to create a joined table and model `song_genre.rb`.
+After running rspec again we are getting `uninitialized constant SongGenre`. This is because a Song can have multiple Genres. To persist this we need to create a joined table and model `song_genre.rb`. 
 
 ```ruby
 class SongGenre < ActiveRecord::Base
 end
 ```
-
 ```ruby
 class CreateSongGenres < ActiveRecord::Migration
   def change
@@ -133,12 +124,12 @@ Failures:
   1) Artist can have many genres
      Failure/Error: expect(artist.genres.count).to eq(2)
      NoMethodError:
-       undefined method `genres' for #<Artist id: 1, name: "Taylor Swift">
+       undefined method `genres' for #<Artist id: 1, name: "Taylor Swift"> 
 ```
 
-We need more associates here to pass this test. How are our models connected?
+We need more associates here to pass this test. How are our models connected? 
 
-* An artists `has_many :songs` and `has_many :genres, :through => :songs`.
+* An artists `has_many :songs` and `has_many :genres, :through => :songs`. 
 * A song `belongs_to :artist`, `has_many :song_genres` and `has_many :genres, :through => :song_genres`.
 * A genre `has_many :song_genres`, `has_many :songs, :through => :song_genres` and `has_many :artists, :through => :songs`.
 * A song_genre `belongs_to :genre` and `belongs_to :song`.
@@ -166,7 +157,7 @@ def slug
 end
 ```
 
-Our last spec for our Actors model is
+Our last spec for our Actors model is 
 
 ```bash
 Artist
@@ -182,7 +173,7 @@ Failures:
        undefined method `find_by_slug' for Artist(id: integer, name: string):Class
 ```
 
-From the error message we can see that this method `find_by_slug` should be a class method. Given a slug this method will find the corresponding artist object.
+From the error message we can see that this method `find_by_slug` should be a class method. Given a slug this method will find the corresponding artist.
 
 ```ruby
 def self.find_by_slug(slug)
@@ -241,12 +232,12 @@ class Genre < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    Genre.all.find{|genre| genre.slug == slug}
+    Genre.all.find{|artist| artist.slug == slug}
   end
 end
 ```
 
-All our model specs are passing now.
+All our model specs are passing now. 
 
 ## `rspec spec/features/04_basic_view_spec.rb`
 
@@ -266,7 +257,7 @@ Failures:
 
   1) Playlister Basics index pages /songs responds with a 200 status code
      Failure/Error: expect(page.status_code).to eq(200)
-
+       
        expected: 200
             got: 404
 ```
@@ -280,10 +271,9 @@ class SongsController < ApplicationController
     @songs = Song.all
     erb :'/songs/index'
   end
-
+  
 end
 ```
-
 Add a `songs` folder with a `index.erb` file to your `app/views` folder.
 
 For our app to load our controller we need to add it to the `config.ru` file.
@@ -293,8 +283,7 @@ use Rack::MethodOverride
 use SongsController
 run ApplicationController
 ```
-
-Now our first test should be passing.
+Now our first test should be passing. 
 
 ```bash
 Playlister Basics
@@ -309,10 +298,7 @@ Failures:
      Failure/Error: expect(page).to have_content(song_name)
        expected #has_content?("That One with the Guitar") to return true, got false
 ```
-
-Before we add any code to our `index.erb` we should seed our production database. We already have a file `LibraryParser.rb` in our `lib` folder that does all the work for us. Which is turning all the files in our `db/data` in to objects that we can use to seed our database.
-
-Add this code to your `db/seeds.rb` file
+Before we add any code to our `index.erb` we should seed our production database. We already have a file `LibraryParser.rb` in our `lib` folder. That is pre coded for us. Add this code to your `db/seeds.rb` file.
 
 ```ruby
 LibraryParser.parse
@@ -322,11 +308,10 @@ and run `rake db:seed`.
 Now we can build out our `index.erb`.
 
 ```html
-<% @songs.each do |song| %>
+<% @songs.each do |song| %> 
   <li> <a href="/songs/<%= song.slug %>"> <%= song.name %> </a></li>
 <% end %>
 ```
-
 The songs index page test are passing now, We need to recreate all the steps for the artists index page.
 
 
@@ -335,7 +320,7 @@ Add a `artists_controller.rb` to our `app/controllers` and also add the route to
 
 ```ruby
 class ArtistsController < ApplicationController
-
+  
   get '/artists' do
     @artists = Artist.all
     erb:'artists/index'
@@ -357,8 +342,8 @@ run ApplicationController
 Build out the `artists/index.erb`.
 
 ```html
-<% @artists.each do |artist| %>
-  <li> <a href="/artists/<%= artist.slug %>"> <%= artist.name %> </a></li>
+<% @artists.each do |artist| %> 
+  <li> <a href="/artists/<%= artist.slug %>"> <%= artist.name %> </a></li> 
 <% end %>
 ```
 
@@ -383,7 +368,6 @@ get '/songs/:slug' do
   erb :'songs/show'
 end
 ```
-
 Add a new file `show.erb` to your `views/songs`
 
 ```html
@@ -471,7 +455,7 @@ Failures:
      NoMethodError:
        undefined method `join' for #<String:0x007fb93d686c78>
 ```
-We will start to solve this test by adding a new route to our songs model. The `'/songs/new' ` route will render the new form to our user.
+We will start to solve this test by adding a new route to our songs model.
 
 ```ruby
 class SongsController < ApplicationController
@@ -484,7 +468,7 @@ class SongsController < ApplicationController
   get '/songs/new' do
     erb :'/songs/new'
   end
-
+  
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     erb :'songs/show'
@@ -493,8 +477,8 @@ class SongsController < ApplicationController
 end
 ```
 
-It is important that the `/songs/new` route is before `/songs/:slug`, else you will get an error.
-
+It is important that the `/songs/new` route is before `/songs/:slug`, else you will get an error. 
+-------------
 
 ```bash
 Song Forms
@@ -509,7 +493,7 @@ Failures:
        expected #has_content?("That One with the Guitar") to return true, got false
 ```
 
-To pass our newest error message we need to add our `new.erb` file to our `views/songs' folder
+To pass our newest error message we need to add our `new.erb` file to our `views/songs' folder 
 
 ```html
 <h1>Add a New Song</h1>
@@ -530,9 +514,7 @@ To pass our newest error message we need to add our `new.erb` file to our `views
 </form>
 ```
 
-We are still getting the same error message, because our app does not know what to do after we submitted the form. For this we need a new route `post '/songs'`.
-
-This new route will create a new song with the title we entered into our form. If the artist exists in our database it will take that artists and use that as the songs artist or if the artists does not exist it will create a new artist with the name we added to our form and add all the genres we clicked on our form.
+We are still getting the same error message, now we need to add 
 
 ```ruby
 post '/songs' do
@@ -544,6 +526,8 @@ post '/songs' do
     erb :'songs/show'
   end
 ```
+
+to our controller.
 
 Now the test requires a message for this we need to modify our `songs/show` page
 
@@ -560,8 +544,7 @@ Now the test requires a message for this we need to modify our `songs/show` page
   <a href="/genres/<%= genre.slug %>"><%= genre.name %> </a>
 <% end %>
 ```
-
-and our `post '/songs'` route
+and our post route
 
 ```ruby
 post '/songs' do
@@ -630,9 +613,9 @@ and also
 get '/songs/:slug/edit' do
   @song = Song.find_by_slug(params[:slug])
 
-  erb :'songs/edit'
+  erb :'songs/edit' 
 end
-
+  
 patch '/songs/:slug' do
   @song = Song.find_by_slug(params[:slug])
 
