@@ -11,3 +11,4 @@ class Song < ActiveRecord::Base
     Song.all.find{|song| song.slug == slug}
   end
 end
+
