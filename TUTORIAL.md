@@ -39,9 +39,7 @@ Failures:
        Could not find table 'artists'
 ```
 
-To create a table for the artists type `rake db:create_migration NAME=create_artists` in your bash. After hitting enter the outline of our
-migration file should be in your `db/migrate` folder. We still need to add the
-`name` attribute to our schema.
+To create a table for the artists type `rake db:create_migration NAME=create_artists` in your bash. After hitting enter the outline of our migration file should be in your `db/migrate` folder. We still need to add the `name` attribute to our schema.
 
 ```ruby
 class CreateArtists < ActiveRecord::Migration
@@ -55,8 +53,7 @@ end
 
 Lets migrate our test database now by running `rake db:migrate SINATRA_ENV=test`.
 
-Our test is still not passing, but now it is telling us `uninitialized constant Song`. Let's setup our `song.rb` in our `app/model` folder and after that let us
-also create our songs table with the `name` attribute.
+Our test is still not passing, but now it is telling us `uninitialized constant Song`. Let's setup our `song.rb` in our `app/model` folder and after that let us also create our songs table with the `name` attribute.
 
 ```ruby
 class Song < ActiveRecord::Base
@@ -77,12 +74,7 @@ After migrating our table we are getting a new error message `unknown attribute 
 
 Lets thing about this for a minute. An artist can `has_many` songs and a song `belongs_to` an artist. Whenever we have a `belong_to` in our model we also have to add a foreign key to to that table.
 
-For us that means we need to add `artist_id` column to our songs table. To do
-this we need to alter our `songs` table. But we cannot just go to our existing
-migration and add a column. We need to write a new migration which adds the the
-new field by typing `rake db:create_migration NAME=add_artist_to_songs` this
-again will just give us a outline of our migration. To add `artists_id` to your
-table, your migration file should look like this.
+For us that means we need to add `artist_id` column to our songs table. To do this we need to alter our `songs` table. But we cannot just go to our existing migration and add a column. We need to write a new migration which adds the the new field by typing `rake db:create_migration NAME=add_artist_to_songs` this again will just give us a outline of our migration. To add `artists_id` to your table, your migration file should look like this.
 
 ```ruby
 class AddArtistToSongs < ActiveRecord::Migration
