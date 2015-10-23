@@ -60,9 +60,6 @@ describe "Song Forms" do
     end
 
     context "changing a song's artist" do
-      it "has a checkbox element on the form" do
-        expect(page.body).to include("checkbox")
-      end
 
       it "updates the song's artist" do
         fill_in "Artist Name", with: "Some Nobody"
