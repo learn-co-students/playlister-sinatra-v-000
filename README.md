@@ -69,3 +69,5 @@ Think about the custom writer or writers you may need to write to make these fea
 
 ### Resources
 * [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
+
+<a href='https://learn.co/lessons/playlister-sinatra' data-visibility='hidden'>View this lesson on Learn.co</a>
