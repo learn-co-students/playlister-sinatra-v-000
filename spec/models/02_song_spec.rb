@@ -29,7 +29,6 @@ describe "Song" do
   end
 
   it "can slugify it's name" do
-    @song.slug
 
     expect(@song.slug).to eq("blank-space")
   end
