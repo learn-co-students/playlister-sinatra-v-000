@@ -34,9 +34,8 @@ describe "Artist" do
 
   describe "Class methods" do
     it "given the slug can find a Artist" do
-      Artist.find_by_slug(@artist.slug)
-
-      expect((Artist.find_by_slug(@artist.slug)).name).to eq("Taylor Swift")
+      slug = "taylor-swift"
+      expect((Artist.find_by_slug(slug)).name).to eq("Taylor Swift")
     end
   end
 
