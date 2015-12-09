@@ -1,15 +1,15 @@
 require 'spec_helper'
 
 describe "Artist" do
-  before do 
-    @artist = Artist.create(:name => "Taylor Swift") 
+  before do
+    @artist = Artist.create(:name => "Taylor Swift")
 
-    blank_space =  Song.create(:name => "Blank Space", :artist => @artist) 
+    blank_space =  Song.create(:name => "Blank Space", :artist => @artist)
 
     pop = Genre.create(:name => "Pop")
 
     blank_space.genre_ids = pop.id
-    
+
   end
   it "can be initialized" do
     expect(@artist).to be_an_instance_of(Artist)
@@ -27,7 +27,7 @@ describe "Artist" do
     expect(@artist.genres.count).to eq(1)
   end
 
-  it "can slugify its name" do
+  it "can slugify it's name" do
 
     expect(@artist.slug).to eq("taylor-swift")
   end
