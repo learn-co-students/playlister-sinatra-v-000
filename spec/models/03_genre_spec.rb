@@ -1,16 +1,16 @@
 require 'spec_helper'
 
 describe "Genre" do
-  let!(:genre) { Genre.create(:name => "Pop") }
+  before do 
+    @artist = Artist.create(:name => "Taylor Swift") 
 
-  let!(:taylor_swift) { Artist.create(:name => "Taylor Swift") }
-  let!(:mark_ronson) { Artist.create(:name => "Mark Ronson") }
+    blank_space =  Song.create(:name => "Blank Space", :artist => @artist) 
 
-  let!(:blank_space) { Song.create(:name => "Blank Space", :artist => taylor_swift) }
-  let!(:uptown_funk) { Song.create(:name => "Uptown Funk!", :artist => mark_ronson) }
+    pop = Genre.create(:name => "Pop")
 
-  let!(:blank_pop) { SongGenre.create(:song_id => blank_space.id, :genre_id => genre.id) }
-  let!(:uptown_pop) { SongGenre.create(:song_id => uptown_funk.id, :genre_id => genre.id) }
+    blank_space.genre_ids = pop.id
+    
+  end
 
 
   it "can initialize a genre" do
@@ -22,11 +22,11 @@ describe "Genre" do
   end
 
   it "has many songs" do
-    expect(genre.songs.count).to eq(2)
+    expect(genre.songs.count).to eq(1)
   end
 
   it "has many artists" do
-    expect(genre.artists.count).to eq(2)
+    expect(genre.artists.count).to eq(1)
   end
 
   it "can slugify it's name" do

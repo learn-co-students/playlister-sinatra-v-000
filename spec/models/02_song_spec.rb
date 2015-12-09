@@ -1,15 +1,16 @@
 require 'spec_helper'
 
 describe "Song" do
-  let!(:artist) { Artist.create(:name => "Taylor Swift") }
+  before do 
+    @artist = Artist.create(:name => "Taylor Swift") 
 
-  let!(:song) { Song.create(:name => "Blank Space", :artist => artist) }
+    blank_space =  Song.create(:name => "Blank Space", :artist => @artist) 
 
-  let!(:pop) { Genre.create(:name => "Pop") }
-  let!(:funk) { Genre.create(:name => "Funk") }
+    pop = Genre.create(:name => "Pop")
 
-  let!(:song_genres_pop) { SongGenre.create(:song_id => song.id, :genre_id => pop.id) }
-  let!(:song_genres_funk) { SongGenre.create(:song_id => song.id, :genre_id => funk.id) }
+    blank_space.genre_ids = pop.id
+    
+  end
 
   it "can initialize a song" do
     expect(Song.new).to be_an_instance_of(Song)
