@@ -30,6 +30,7 @@
   <label> Genres </label>
   <% Genre.all.each do |genre| %>
     <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+    <label><%=genre.name%></label>
   <% end %>
 
   <input type="submit" value="Create">
