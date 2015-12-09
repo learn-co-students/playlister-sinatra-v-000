@@ -4,11 +4,11 @@ describe "Song" do
   before do 
     @artist = Artist.create(:name => "Taylor Swift") 
 
-    blank_space =  Song.create(:name => "Blank Space", :artist => @artist) 
+    @song =  Song.create(:name => "Blank Space", :artist => @artist) 
 
     pop = Genre.create(:name => "Pop")
 
-    blank_space.genre_ids = pop.id
+    @song.genre_ids = pop.id
     
   end
 
@@ -17,28 +17,28 @@ describe "Song" do
   end
 
   it "can have a name" do
-    expect(song.name).to eq("Blank Space")
+    expect(@song.name).to eq("Blank Space")
   end
 
   it "can have many genres" do 
-    expect(SongGenre.count).to eq(2)
+    expect(SongGenre.count).to eq(1)
   end
 
   it "has an artist" do
-    expect(song.artist).to eq(artist)
+    expect(@song.artist).to eq(@artist)
   end
 
   it "can slugify it's name" do
-    song.slug
+    @song.slug
 
-    expect(song.slug).to eq("blank-space")
+    expect(@song.slug).to eq("blank-space")
   end
 
   describe "Class methods" do
     it "given the slug can find a song" do
-      Song.find_by_slug(song.slug)
+      Song.find_by_slug(@song.slug)
 
-      expect((Song.find_by_slug(song.slug)).name).to eq("Blank Space")
+      expect((Song.find_by_slug(@song.slug)).name).to eq("Blank Space")
     end
   end
 end
