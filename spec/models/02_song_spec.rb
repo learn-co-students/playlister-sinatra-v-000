@@ -9,7 +9,6 @@ describe 'Song' do
     pop = Genre.create(name: 'Pop')
 
     @song.genre_ids = pop.id
-
   end
 
   it 'can initialize a song' do
