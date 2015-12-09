@@ -1,14 +1,26 @@
 require 'spec_helper'
 
+<<<<<<< HEAD
 describe 'Song' do
   before do
     @artist = Artist.create(name: 'Taylor Swift')
 
     @song = Song.create(name: 'Blank Space', artist: @artist)
+=======
+describe "Song" do
+  before do
+    @artist = Artist.create(:name => "Taylor Swift")
+
+    @song =  Song.create(:name => "Blank Space", :artist => @artist)
+>>>>>>> song varibales
 
     pop = Genre.create(name: 'Pop')
 
     @song.genre_ids = pop.id
+<<<<<<< HEAD
+=======
+
+>>>>>>> song varibales
   end
 
   it 'can initialize a song' do
@@ -19,7 +31,11 @@ describe 'Song' do
     expect(@song.name).to eq('Blank Space')
   end
 
+<<<<<<< HEAD
   it 'can have many genres' do
+=======
+  it "can have many genres" do
+>>>>>>> song varibales
     expect(SongGenre.count).to eq(1)
   end
 
