@@ -31,7 +31,6 @@ describe "Genre" do
 
   it "can slugify it's name" do
     genre = Genre.create(:name => "Alternative Rock")
-    genre.slug
 
     expect(genre.slug).to eq("alternative-rock")
   end
