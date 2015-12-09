@@ -250,4 +250,16 @@ left off.
 
 - [Clean URL - Slugs](<http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug>)
 
+<<<<<<< HEAD
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/playlister-sinatra' title='Sinatra Playlister'>Sinatra Playlister</a> on Learn.co and start learning to code for free.</p>
+=======
+### Slugs
+
+You are going to need to create some slugs in this lab. A slug is used to create a name that is not acceptable as a URL for various reasons (special characters, spaces, etc). This is great because instead of having a route like `/songs/1`, you can have a route `/songs/hotline-bling` which is a much more descriptive route name.
+
+Each class you build will need to have a method to slugify each object's name. This means you'll need to strip out any special characters, and replace all spaces with `-`. 
+
+
+### Resources
+* [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
+>>>>>>> trying to fix textbox and slugs
