@@ -27,15 +27,17 @@ describe "Artist" do
     expect(@artist.genres.count).to eq(1)
   end
 
-  it "can slugify its name" do
+  it "can slugify it's name" do
+    @artist.slug
 
     expect(@artist.slug).to eq("taylor-swift")
   end
 
   describe "Class methods" do
-    it "given the slug can find an Artist" do
-      slug = "taylor-swift"
-      expect((Artist.find_by_slug(slug)).name).to eq("Taylor Swift")
+    it "given the slug can find a Artist" do
+      Artist.find_by_slug(@artist.slug)
+
+      expect((Artist.find_by_slug(@artist.slug)).name).to eq("Taylor Swift")
     end
   end
 
