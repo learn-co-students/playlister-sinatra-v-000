@@ -29,14 +29,15 @@ describe "Song" do
   end
 
   it "can slugify it's name" do
+
     expect(@song.slug).to eq("blank-space")
   end
 
   describe "Class methods" do
     it "given the slug can find a song" do
-      Song.find_by_slug(@song.slug)
+      slug = "blank-space"
 
-      expect((Song.find_by_slug(@song.slug)).name).to eq("Blank Space")
+      expect((Song.find_by_slug(slug)).name).to eq("Blank Space")
     end
   end
 end
