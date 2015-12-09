@@ -23,7 +23,6 @@ describe "Playlister Basics" do
       end
 
       it 'responds with a 200 status code' do
-        visit '/songs'
         expect(page.status_code).to eq(200)
       end
 
@@ -42,7 +41,6 @@ describe "Playlister Basics" do
       end
 
       it 'responds with a 200 status code' do
-        visit '/artists'
         expect(page.status_code).to eq(200)
       end
 
@@ -61,7 +59,6 @@ describe "Playlister Basics" do
       end
 
       it 'responds with a 200 status code' do
-        visit '/genres'
         expect(page.status_code).to eq(200)
       end
 
@@ -82,7 +79,6 @@ describe "Playlister Basics" do
       end
 
       it 'responds with a 200 status code' do
-        visit "/songs/#{@song.slug}"
         expect(page.status_code).to eq(200)
       end
 
@@ -109,7 +105,6 @@ describe "Playlister Basics" do
       end
 
       it 'responds with a 200 status code' do
-        visit "/artists/#{@artist.slug}"
         expect(page.status_code).to eq(200)
       end
 
@@ -136,7 +131,6 @@ describe "Playlister Basics" do
       end
 
       it 'responds with a 200 status code' do
-        visit "/genres/#{@genre.slug}"
         expect(page.status_code).to eq(200)
       end
 
