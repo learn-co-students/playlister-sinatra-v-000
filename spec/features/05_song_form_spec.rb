@@ -23,12 +23,11 @@ describe 'Song Forms' do
         end.to change(Artist, :count).by(1)
       end
 
-      it 'creates a new song on submit' do
-        fill_in 'Name', with: song_name
-        check 'New Age Garbage'
-        fill_in 'Artist Name', with: artist_name
-        click_on 'Create'
-
+      it "creates a new song on submit" do
+        fill_in "Name", with: song_name
+        check "New Age Garbage"
+        fill_in "Artist Name", with: artist_name
+        click_on "Create"
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
         expect(page).to have_content(genre_2_name)
