@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "Song Forms" do
   let(:artist_name) { "Person with a Face" }
-  let(:genre_1_name) { "New Age Garbage" }
-  let(:genre_2_name) { "Hippity Hop" }
+  let(:genre_1_name) { "Hippity Hop" }
+  let(:genre_2_name) { "New Age Garbage" }
   let(:song_name) { "That One with the Guitar" }
   let!(:genre_1) { Genre.create(name: genre_1_name) }
   let!(:genre_2) { Genre.create(name: genre_2_name) }
@@ -19,10 +19,9 @@ describe "Song Forms" do
         check "New Age Garbage"
         fill_in "Artist Name", with: artist_name
         click_on "Create"
-
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
-        expect(page).to have_content(genre_1_name)
+        expect(page).to have_content(genre_2_name)
         expect(page).to have_content("Successfully created song.")
       end
     end
@@ -34,13 +33,14 @@ describe "Song Forms" do
 
       it "creates a new song and associates it with an existing artist" do
         fill_in "Name", with: song_name
-        check "Hippity Hop"
+        binding.pry
+        # checkbox.first
         fill_in "Artist Name", with: artist_name
         click_on "Create"
 
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
-        expect(page).to have_content(genre_2_name)
+        expect(page).to have_content(genre_1_name)
         expect(page).to have_content("Successfully created song.")
       end
     end
