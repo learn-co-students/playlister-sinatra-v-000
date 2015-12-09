@@ -33,7 +33,7 @@ describe "Artist" do
   end
 
   describe "Class methods" do
-    it "given the slug can find an Artist" do
+    it "given the slug can find a Artist" do
       slug = "taylor-swift"
       expect((Artist.find_by_slug(slug)).name).to eq("Taylor Swift")
     end
