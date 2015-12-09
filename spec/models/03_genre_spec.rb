@@ -6,9 +6,9 @@ describe "Genre" do
 
     blank_space =  Song.create(:name => "Blank Space", :artist => @artist) 
 
-    pop = Genre.create(:name => "Pop")
+    @genre = Genre.create(:name => "Pop")
 
-    blank_space.genre_ids = pop.id
+    blank_space.genre_ids = @genre.id
     
   end
 
@@ -18,15 +18,15 @@ describe "Genre" do
   end
 
   it "has a name" do
-    expect(genre.name).to eq("Pop")
+    expect(@genre.name).to eq("Pop")
   end
 
   it "has many songs" do
-    expect(genre.songs.count).to eq(1)
+    expect(@genre.songs.count).to eq(1)
   end
 
   it "has many artists" do
-    expect(genre.artists.count).to eq(1)
+    expect(@genre.artists.count).to eq(1)
   end
 
   it "can slugify it's name" do
