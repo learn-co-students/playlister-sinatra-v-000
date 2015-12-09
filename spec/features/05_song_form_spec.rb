@@ -28,7 +28,6 @@ describe "Song Forms" do
         check "New Age Garbage"
         fill_in "Artist Name", with: artist_name
         click_on "Create"
-
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
         expect(page).to have_content(genre_2_name)
@@ -60,7 +59,8 @@ describe "Song Forms" do
 
       it "creates a new song and associates it with an existing artist" do
         fill_in "Name", with: song_name
-        check "Hippity Hop"
+        binding.pry
+        # checkbox.first
         fill_in "Artist Name", with: artist_name
         click_on "Create"
 
