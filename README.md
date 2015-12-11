@@ -67,6 +67,17 @@ For the last spec `05_song_form_spec.rb` you need to implement the following fea
 
 Think about the custom writer or writers you may need to write to make these features work. 
 
+### Slugs
+
+Having a URL like `/songs/1` sort of sucks. Imagine trying to email that song to a friend. They would literally have no idea what the song would be until they click the link. You could be sending them literally anything. It would be much better to have a URL like `/songs/hot line bling`.
+
+But again, we run into a problem here. We can't have spaces in a URL. In order to make it a proper URL, we have to convert the spaces to `-` in the song name. This is called a slug.
+
+You are going to need to create some slugs in this lab. A slug is used to create a name that is not acceptable as a URL for various reasons (special characters, spaces, etc). This is great because instead of having a route like `/songs/1`, you can have a route `/songs/hotline-bling` which is a much more descriptive route name.
+
+Each class you build will need to have a method to slugify each object's name. This means you'll need to strip out any special characters, and replace all spaces with `-`. 
+
+
 ### Resources
 * [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
 

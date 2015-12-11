@@ -16,14 +16,13 @@ describe "Playlister Basics" do
     @song.save
   end
 
-  context "index pages" do
+  describe "index pages" do
     describe "/songs" do
       before do
         visit "/songs"
       end
 
       it 'responds with a 200 status code' do
-        visit '/songs'
         expect(page.status_code).to eq(200)
       end
 
@@ -42,7 +41,6 @@ describe "Playlister Basics" do
       end
 
       it 'responds with a 200 status code' do
-        visit '/artists'
         expect(page.status_code).to eq(200)
       end
 
@@ -50,7 +48,7 @@ describe "Playlister Basics" do
         expect(page).to have_content(artist_name)
       end
 
-      it "contains links to each song's show page" do
+      it "contains links to each artist's show page" do
         expect(page).to have_css("a[href='/artists/#{@artist.slug}']")
       end
     end
@@ -61,7 +59,6 @@ describe "Playlister Basics" do
       end
 
       it 'responds with a 200 status code' do
-        visit '/genres'
         expect(page.status_code).to eq(200)
       end
 
@@ -69,20 +66,19 @@ describe "Playlister Basics" do
         expect(page).to have_content(genre_name)
       end
 
-      it "contains links to each song's show page" do
+      it "contains links to each genre's show page" do
         expect(page).to have_css("a[href='/genres/#{@genre.slug}']")
       end
     end
   end
 
-  context "show pages" do
+  describe "show pages" do
     describe "/songs/:slug" do
       before do
         visit "/songs/#{@song.slug}"
       end
 
       it 'responds with a 200 status code' do
-        visit "/songs/#{@song.slug}"
         expect(page.status_code).to eq(200)
       end
 
@@ -109,7 +105,6 @@ describe "Playlister Basics" do
       end
 
       it 'responds with a 200 status code' do
-        visit "/artists/#{@artist.slug}"
         expect(page.status_code).to eq(200)
       end
 
@@ -136,7 +131,6 @@ describe "Playlister Basics" do
       end
 
       it 'responds with a 200 status code' do
-        visit "/genres/#{@genre.slug}"
         expect(page.status_code).to eq(200)
       end
 
