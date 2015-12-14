@@ -34,13 +34,14 @@ describe "Song Forms" do
 
       it "creates a new song and associates it with an existing artist" do
         fill_in "Name", with: song_name
+        # binding.pry
         check "Hippity Hop"
         fill_in "Artist Name", with: artist_name
         click_on "Create"
 
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
-        expect(page).to have_content(genre_2_name)
+        expect(page).to have_content(genre_1_name)
         expect(page).to have_content("Successfully created song.")
       end
     end
