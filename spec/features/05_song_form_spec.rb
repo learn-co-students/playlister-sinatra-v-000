@@ -34,7 +34,6 @@ describe "Song Forms" do
 
       it "creates a new song and associates it with an existing artist" do
         fill_in "Name", with: song_name
-        # binding.pry
         check "Hippity Hop"
         fill_in "Artist Name", with: artist_name
         click_on "Create"
