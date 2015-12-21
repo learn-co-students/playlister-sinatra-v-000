@@ -17,13 +17,13 @@ ActiveRecord::Schema.define(version: 4) do
     t.string "name"
   end
 
-  create_table "genre_songs", force: :cascade do |t|
-    t.integer "genre_id"
-    t.integer "song_id"
-  end
-
   create_table "genres", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "song_genres", force: :cascade do |t|
+    t.integer "genre_id"
+    t.integer "song_id"
   end
 
   create_table "songs", force: :cascade do |t|
