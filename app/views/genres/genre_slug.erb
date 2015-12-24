@@ -2,7 +2,7 @@
 
 <ul>Artists:
 
-<% @genre.artists.each do |artist| %>
+<% @genre.artists.uniq.each do |artist| %>
 
 <li><a href="/artists/<%=artist.slug%>"><%=artist.name%></a></li>
 
