@@ -1,4 +1,4 @@
-module Slugable
+module Sluggable
   module InstanceMethods
     def slug
       name.downcase.gsub(" ", "-")
