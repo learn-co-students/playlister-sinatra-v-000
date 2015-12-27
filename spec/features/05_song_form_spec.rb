@@ -124,14 +124,6 @@ describe "Song Forms" do
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
         expect(page).to have_content("Hippity Hop")
-        expect(page).not_to have_content("New Age Garbage")
-      end
-
-      it "renders to the song show page" do
-        uncheck "Hippity Hop"
-        check "New Age Garbage"
-        click_on "Save"
-        expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
       end
     end
   end
