@@ -125,6 +125,7 @@ describe "Song Forms" do
         expect(page).to have_content(artist_name)
         expect(page).to have_content("Hippity Hop")
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect(page).not_to have_content("New Age Garbage")
       end
 
@@ -133,6 +134,8 @@ describe "Song Forms" do
         check "New Age Garbage"
         click_on "Save"
         expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
+=======
+>>>>>>> made last test of edit form for song more rigorous
 =======
 >>>>>>> made last test of edit form for song more rigorous
       end
