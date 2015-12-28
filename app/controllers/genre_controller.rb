@@ -1,9 +1,7 @@
-class GenreController < Sinatra::Base
-  register Sinatra::ActiveRecordExtension
-  set :session_secret, "my_application_secret"
-  set :views, Proc.new { File.join(root, "../views/") }
+class GenreController < ApplicationController
 
-  get '/genre' do
-    erb :index
+  get '/genres' do
+    @genres = Genre.all.sort_by(&:name)
+    erb :'/genres/index'
   end
 end
