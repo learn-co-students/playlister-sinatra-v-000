@@ -9,7 +9,7 @@
 
 <p class="lead">Genres</p>
 <ul>
-  <% @artist.genres.each do |genre| %>
+  <% @artist.genres.uniq.each do |genre| %>
   <li><p class="lead"><a href="/genres/<%=genre.slug%>"><%= genre.name %></a></li>
   <% end %>
 </ul>

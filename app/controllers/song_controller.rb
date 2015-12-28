@@ -2,11 +2,11 @@ class SongController < ApplicationController
 
   get '/songs' do
     @songs = Song.all.sort_by(&:name)
-    erb :'/songs/index'
+    erb :'songs/index'
   end
 
   get '/songs/new' do
-    erb :'/songs/new'
+    erb :'songs/new'
   end
 
   get '/songs/:slug' do
@@ -15,7 +15,7 @@ class SongController < ApplicationController
   end
 
   post '/songs' do
-    @song = Song.create(name: params[:song_name])
+    @song = Song.new(name: params[:song_name])
     @song.artist = Artist.find_or_create_by(name: params[:artist_name])
     @song.genre_ids = params[:genre]
     @song.save
@@ -36,6 +36,5 @@ class SongController < ApplicationController
 
     erb :'songs/show', :locals => { success: "Song successfully updated." }
   end
-
-
+  
 end
