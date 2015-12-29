@@ -4,4 +4,8 @@ class Song < ActiveRecord::Base
   has_many :genres, through: :song_genres
   include Sluggable::InstanceMethods
   extend Sluggable::ClassMethods
+
+  def artist_name=(name)
+    self.artist = Artist.find_or_create_by(name: name)
+  end
 end
