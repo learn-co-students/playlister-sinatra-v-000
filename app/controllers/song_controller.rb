@@ -36,6 +36,4 @@ class SongController < ApplicationController
     erb :'/songs/show', locals: {success: "Song successfully updated."}
   end
 
-
-
 end
