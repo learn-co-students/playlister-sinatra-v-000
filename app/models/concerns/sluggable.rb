@@ -7,11 +7,7 @@ module Sluggable
 
   module ClassMethods
     def find_by_slug(slug)
-      all.find{|instance| instance.name.downcase == normalize(slug).downcase}
-    end
-
-    def normalize(slug)
-      slug.split("-").map(&:capitalize).join(" ")
+      all.find{|object| object.slug == slug}
     end
   end
 end
