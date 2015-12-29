@@ -1,0 +1,19 @@
+<% if !locals.empty? %>
+  <p class="lead"><%= success %></p>
+<% end %>
+
+<h2><em><%= @song.name %></em></h2><br>
+
+<p class="lead">Artist</p>
+<ul>
+  <li><p class="lead"><a href="/artists/<%=@song.artist.slug%>"><%= @song.artist.name %></a></p></li>
+</ul>
+
+<p class="lead">Genre</p>
+<ul>
+  <% @song.genres.each do |genre| %>
+  <li><p class="lead"><a href="/genres/<%=genre.slug%>"><%= genre.name %></a></p></li>
+  <% end %>
+</ul><br><br>
+
+<p class="lead"><a href="/songs/<%=@song.slug%>/edit">Edit Song</a></p>
