@@ -1,6 +1,6 @@
-<h2><em><%=@genre.name.capitalize%></em></h2>
+<h2><em><%= @genre.name %></em></h2><br>
 
-<p class="lead">Artists - Song</p>
+<p class="lead">Artist - Song</p>
 
 <ul>
   <% @genre.songs.each do |song| %>

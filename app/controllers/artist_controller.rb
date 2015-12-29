@@ -2,11 +2,11 @@ class ArtistController < ApplicationController
 
   get '/artists' do
     @artists = Artist.all.sort_by(&:name)
-    erb :'artists/index'
+    erb :'/artists/index'
   end
 
   get '/artists/:slug' do
-    @artist = Artist.find_by_slug(params[:slug])
-    erb :'artists/show'
+    @artist = Artist.all.find_by_slug(params[:slug])
+    erb :'/artists/show'
   end
 end

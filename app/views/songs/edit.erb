@@ -12,7 +12,7 @@
   <div class="form-group row">
     <label for="song" class="col-sm-2 form-control-label">Song</label>
     <div class="col-sm-3">
-      <input type="text" name="song_name" value="<%=@song.name%>" class="form-control" placeholder="Song">
+      <input type="text" name="song[name]" value="<%=@song.name%>" class="form-control" placeholder="Song">
     </div>
   </div>
 
@@ -24,7 +24,7 @@
         <label>
           <% Genre.all.each do |genre| %>
           <div class="row">
-            <input id="<%=genre.name%>" type="checkbox" name="genre[]" value="<%=genre.id%>"> <%= genre.name %>
+            <input id="<%=genre.name%>" type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>"> <%= genre.name %>
           </div>
           <% end %>
         </label>
