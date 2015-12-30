@@ -1,5 +1,5 @@
 module Slug
   def slug
-    self.name.gsub(' ','-').downcase
+    self.name.downcase.gsub(' ','-')
   end
 end
