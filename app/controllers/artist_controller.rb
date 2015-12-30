@@ -1,5 +1,5 @@
 class ArtistController < ApplicationController
-   set :views, Proc.new { File.join(root, "../views/artists")}
+  set :views, Proc.new { File.join(root, "../views/artists")}
 
   get '/artists' do
     @artists = Artist.all

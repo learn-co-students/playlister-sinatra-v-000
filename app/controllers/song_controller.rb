@@ -1,3 +1,4 @@
+require 'pry'
 class SongController < ApplicationController
   set :views, Proc.new { File.join(root, "../views/songs")}
   
