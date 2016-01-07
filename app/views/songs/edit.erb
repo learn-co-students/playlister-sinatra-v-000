@@ -2,9 +2,9 @@
 
 <form action="/songs/<%= @song.slug %>" method="post">
 
-  Artist Name: <input type="text" name="Artist Name"></br>
+  Artist Name: <input type="text" name="Artist Name" value="<%= @song.artist.name %>"></br>
 
-  Song Name: <input type="text" name="Name"></br>
+  Song Name: <input type="text" name="Name" value="<%= @song.name %>"></br>
 
   Genres:
   <% Genre.all.each do |genre| %>
