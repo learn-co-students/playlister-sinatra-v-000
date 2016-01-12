@@ -131,6 +131,28 @@ params = {
 <% end %>
 ``` 
 
+## Flash Message
+
+You can add a flash message for when a new instance is created. Let's take a new song creation. The controller action that handles the POST request will look something like this:
+
+```ruby
+post '/songs' do
+  #code to create a new song and save to DB
+  erb :'songs/show', locals: {message: "Successfully created song."}
+end
+```
+
+The `locals: {message: "Successfully created song."}` will create the message `"Successfully created song."`. To display that on the view, You will need to include this at the top:
+
+```html
+views/songs/new.erb
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+```
+
+This checks to see if the variable `locals` is empty. If it isn't, then it displays message, which we set in the controller to store `"Successfully created song."`
+
 ### Resources
 * [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
 
