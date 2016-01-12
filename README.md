@@ -9,7 +9,7 @@
 
 ### Overview
 
-In the theme of moving from simple command line application to static website to dynamic web app, it's time to move Playlister to the interwebs using Sinatra. In this lab, you'll be:
+In the theme of moving from a simple command line application static website to dynamic web app, it's time to move Playlister to the interwebs using Sinatra. In this lab, you'll be:
 
   1. Giving our "library" of songs a dynamic web interface
   2. Creating a few complex forms that allow you to create and edit Artists, Songs and Genres.
