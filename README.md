@@ -59,11 +59,11 @@ in your bash/ command line you will only run that spec. It is important to run t
 For the last spec `05_song_form_spec.rb` you need to implement the following features:
 
 1. `/songs/new`
-  * I should be able to create a new song
+  * Be able to create a new song
   * Genres should be presented as checkboxes
-  * I should be able to enter the Artist's name in a text field (only one Artist per song.)
+  * Be able to enter the Artist's name in a text field (only one Artist per song.)
 2. `/songs/:slug/edit`
-  * I should be able to change everything about a song, including the genres associated with it and its artist.
+  * Be able to change everything about a song, including the genres associated with it and its artist.
 
 Think about the custom writer or writers you may need to write to make these features work. 
 
