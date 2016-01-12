@@ -2,14 +2,14 @@
 
 <form action="/songs/new" method="POST">
 	<label for="artist">Name of Artist: </label>
-	<input type="text" id="artist_name" name="artist_name">
+	<input type="text" name="Artist Name">
 	<br>
 	<label for ="song">Name of Song: </label>
-	<input type="text" id="song_name" name="song_name">
+	<input type="text" id="song_name" name="Name">
 	<br>
 	<label for ="genre">Genre: </label>
 	<% Genre.all.uniq.each do |genre| %>
-		<%= genre.name %><input id="<%= genre.name %>" type="checkbox" name="genre" value="<%= genre.name %>">
+		<%= genre.name %><input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.name %>">
 	<% end %>
-	<input type="submit" value="submit">
+	<input type="submit" value="Create">
 </form>
