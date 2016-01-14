@@ -25,6 +25,13 @@ describe "Song Forms" do
         expect(page).to have_content(genre_2_name)
         expect(page).to have_content("Successfully created song.")
       end
+      it "redirects to the '/songs'" do
+        fill_in "Name", with: song_name
+        check "New Age Garbage"
+        fill_in "Artist Name", with: artist_name
+        click_on "Create"
+        expect(page.current_path).to eq('/songs')
+      end
     end
 
     context "with an existing artist" do
@@ -69,6 +76,12 @@ describe "Song Forms" do
         expect(page).to have_content(song_name)
         expect(page).to have_content("Some Nobody")
       end
+
+      it "redirects to the song show page" do 
+        fill_in "Artist Name", with: "That singer"
+        click_on "Save"
+        expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
+      end
     end
 
     context "changing a song's genres" do
@@ -86,6 +99,14 @@ describe "Song Forms" do
         expect(page).to have_content(artist_name)
         expect(page).to have_content("Hippity Hop")
       end
+
+      it "redirects to the song show page" do 
+        uncheck "Hippity Hop"
+        check "New Age Garbage"
+        click_on "Save"
+        expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
+      end
+
     end
   end
 end

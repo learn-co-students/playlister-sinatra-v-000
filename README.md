@@ -14,6 +14,38 @@ In the theme of moving from a simple command line application static website to 
   1. Giving our "library" of songs a dynamic web interface
   2. Creating a few complex forms that allow you to create and edit Artists, Songs and Genres.
 
+## File Structure
+
+Your application should use the following file structure. Notice how there are separate controllers for songs, artists, and genres. Separately, we have sub-directories for  views for songs, artists, and genres.
+
+├── app
+│   ├── controllers
+│   │   ├── application_controller.rb
+│   │   ├── artists_controller.rb
+│   │   ├── genres_controller.rb
+│   │   └── songs_controller.rb
+│   ├── models
+│   │   ├── artist.rb
+│   │   ├── concerns
+│   │   │   └── slugifiable.rb
+│   │   ├── genre.rb
+│   │   ├── song.rb
+│   │   └── song_genre.rb
+│   └── views
+│       ├── artists
+│       │   ├── index.erb
+│       │   └── show.erb
+│       ├── genres
+│       │   ├── index.erb
+│       │   └── show.erb
+│       ├── index.erb
+│       ├── layout.erb
+│       └── songs
+│           ├── edit.erb
+│           ├── index.erb
+│           ├── new.erb
+│           └── show.erb
+
 ### Instructions
 
 The first thing you should aim to do is create a Sinatra interface for the data in `db/data`. There is a `LibraryParser` class included in the `lib` folder that you may use, though it may need some tweaking to work with your specific application. Your associations should follow this pattern:
@@ -21,7 +53,7 @@ The first thing you should aim to do is create a Sinatra interface for the data 
 1. An Artist can have multiple songs and multiple genres
 2. A Genre can have multiple artists and multiple songs
 3. A Song can belong to ONE Artist and multiple genres
-4. There will be a join table needed somewhere here
+4. How would we implement the relationship of a song having many genres and genre having many songs? In order to establish a "many-to-many" relationship, we'll need a join table. You will need a `SongsGenre` class to go along with this table in the database
 
 You should build the following routes:
 
@@ -77,6 +109,49 @@ You are going to need to create some slugs in this lab. A slug is used to create
 
 Each class you build will need to have a method to slugify each object's name. This means you'll need to strip out any special characters, and replace all spaces with `-`. 
 
+You'll need to build a method `slug` which takes a given song/artist/genre name and create the "slugified" version".
+
+The `find_by_slug` method should use the `slug` method to retrieve a song/artist/genre from the database and return that entry.
+
+## Check Boxes
+
+In order to create a check box of all the genres on a new song form, you'll need to iterate over all the Genres in the database. From there, you'll want to set the genre name as the ID of the input tag. 
+
+The value attribute should be set to the genre id.
+
+The name attribute should be set to set to `genres[]` because we're dealing with a collection of attributes. This will make the params hash look like this: 
+```ruby
+params = {
+  genres => [ genre1, genre2, genre2]
+}
+
+```HTML
+<% Genre.all.each do |genre| %>
+  <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+<% end %>
+``` 
+
+## Flash Message
+
+You can add a flash message for when a new instance is created. Let's take a new song creation. The controller action that handles the POST request will look something like this:
+
+```ruby
+post '/songs' do
+  #code to create a new song and save to DB
+  erb :'songs/show', locals: {message: "Successfully created song."}
+end
+```
+
+The `locals: {message: "Successfully created song."}` will create the message `"Successfully created song."`. To display that on the view, You will need to include this at the top:
+
+```html
+views/songs/new.erb
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+```
+
+This checks to see if the variable `locals` is empty. If it isn't, then it displays message, which we set in the controller to store `"Successfully created song."`
 
 ### Resources
 * [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
