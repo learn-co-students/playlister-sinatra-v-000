@@ -1,0 +1,7 @@
+Successfully created song.
+
+<%= @song.name %>
+<%= @song.artist.name %>
+<% @song.genres.each do |genre| %>
+  <%= genre.name %>
+<% end %>
