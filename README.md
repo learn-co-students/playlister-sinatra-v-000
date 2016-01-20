@@ -68,6 +68,7 @@ You should build the following routes:
   * Each artist should be a clickable link to that particular artist's show page.
 4. `/songs/:slug`
   * Any given song's show page should have links to that song's artist and the each genre associated with the song.
+  * Pay attention to the order of `/songs/new` and `/songs/:slug`. The route `/songs/new` could interpret `new` as a slug if that controller action isn't defined first.
 5. `/artists/:slug`
   * Any given artist's show page should have links to each of his or her songs and genres.
 6. `/genres/:slug`
