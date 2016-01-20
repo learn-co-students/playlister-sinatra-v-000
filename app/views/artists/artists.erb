@@ -1,0 +1,6 @@
+<h4>Artists:</h4>
+<% Artist.all.uniq.each do |artist| %>
+
+  <li><a href="/artists/<%=artist.slug%>"><%= artist.name %></a></li>
+
+<% end %>
