@@ -1,0 +1,9 @@
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+<h2><%=@song.name%></h2>
+<h2><a href="/artists/<%=@song.artist.slug if @song.artist%>">By: <%=@song.artist.name if @song.artist%></a></h2>
+<h2><ul><%@song.genres.each do |g|%>
+		<li><a href="/genres/<%=g.slug%>"><%=g.name%></a></li>
+		<%end%>
+</ul></h2>
