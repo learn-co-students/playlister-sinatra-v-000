@@ -1,0 +1,22 @@
+<h3>Genre: </h3>
+	<p><%= @genre.name %></p>
+
+<h3>Artists: </h3>
+<% @genre.artists.uniq.each do |artist| %>
+	<p><a href='/artists/<%=artist.slug%>'><%= artist.name %></a></p>
+<% end %>
+
+<h2>Songs: </h2>
+<% @genre.songs.uniq.each do |song| %>
+	<p><a href='/songs/<%=song.slug%>'><%= song.name %></a></p>
+<% end %>
+	
+<form action=<%="/genres/#{@genre.slug}/delete"%> method="POST">
+	<input type="submit" value="delete">
+</form>
+<br>
+<form action=<%="/genres/#{@genre.slug}/edit"%> method="GET">
+	<input type="submit" value="edit">
+</form>
+<br>
+<a href='/genres'>Click To See All Recipes</a>

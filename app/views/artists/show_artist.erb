@@ -1,0 +1,23 @@
+<h3>Artist: </h3>
+	<p><%= @artist.name %></p>
+
+<h3>Songs: </h3>
+<% @artist.songs.uniq.each do |song| %>
+	<p><a href='/songs/<%=song.slug%>'><%= song.name %></a></p>
+<% end %>
+
+<h2>Genres: </h2>
+<% @artist.genres.uniq.each do |genre| %>
+	<p><a href='/genres/<%=genre.slug%>'><%= genre.name %></a></p>
+<% end %>
+
+	
+<form action=<%="/artists/#{@artist.slug}/delete"%> method="POST">
+	<input type="submit" value="delete">
+</form>
+<br>
+<form action=<%="/artists/#{@artist.slug}/edit"%> method="GET">
+	<input type="submit" value="edit">
+</form>
+<br>
+<a href='/artists'>Click To See All Artists</a>
