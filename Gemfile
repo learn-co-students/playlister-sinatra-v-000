@@ -11,7 +11,7 @@ gem 'shotgun'
 gem 'pry'
 
 group :test do
-  gem 'rspec'
+  gem 'rspec', '3.4.0'
   gem 'capybara'
   gem 'rack-test'
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
