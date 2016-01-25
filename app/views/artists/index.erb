@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Artists</title>
+</head>
+<body>
+  <h1>Artists</h1>
+  <% @artists.to_a.sort_by! {|artist| artist.name} %>
+    <% @artists.each do |artist| %>
+      <a href="/artists/<%= artist.slug %>"><%= artist.name %></a><br>
+    <% end %>
+</body>
+</html>

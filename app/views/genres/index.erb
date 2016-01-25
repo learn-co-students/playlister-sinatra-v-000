@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Genres</title>
+</head>
+<body>
+  <h1>Genres</h1>
+  <% @genres.to_a.sort_by! {|genre| genre.name} %>
+    <% @genres.each do |genre| %>
+      <a href="/genres/<%= genre.slug %>"><%= genre.name.split(" ").collect {|word| word.capitalize}.join(" ") %></a><br>
+    <% end %>
+</body>
+</html>
