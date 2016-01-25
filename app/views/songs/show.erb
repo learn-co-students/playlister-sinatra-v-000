@@ -12,6 +12,7 @@
   <h3>Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></h3>
   <% @song.genres.each do |genre| %>
     <h3>Genre: <a href="/genres/<%= genre.slug %>"><%= genre.name.split(" ").collect {|word| word.capitalize}.join(" ")%></a></h3>
-  <% end %>
+  <% end %><br>
+  <p><a href="/songs/<%= @song.slug %>/edit">Click here</a> to edit song.</p>
 </body>
 </html>
