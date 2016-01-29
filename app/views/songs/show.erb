@@ -1,0 +1,19 @@
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+
+<h1><%=@song.name%></h1>
+
+<h2>Artist:</h2>
+  <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a>
+
+
+<h2>Genres:</h2>
+<%@song.genres.each do |genre|%>
+  <a href="/genres/<%=genre.slug%>"><%=genre.name%></a>
+<% end %>
+<form action="/songs/<%=@song.slug%>/edit" method="post">
+  <br>
+  <input type="submit" value="Edit Song">
+</form>
+
