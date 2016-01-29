@@ -157,4 +157,4 @@ This checks to see if the variable `locals` is empty. If it isn't, then it displ
 ### Resources
 * [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
 
-<a href='https://learn.co/lessons/playlister-sinatra' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/playlister-sinatra' title='Sinatra Playlister'>Sinatra Playlister</a> on Learn.co and start learning to code for free.</p>
