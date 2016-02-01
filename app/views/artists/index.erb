@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Playlister</title>
+  </head>
+
+  <body>
+    <ol>
+    <% @artists.each do |s| %>
+      <li><a href="/artists/<%= s.slug %>"><%= s.name %></a></li>
+    <% end %>
+    </ol>
+  </body>
+</html>

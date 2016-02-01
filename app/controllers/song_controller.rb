@@ -1,18 +1,19 @@
 require 'pry'
 class SongController < Sinatra::Base
-get '/songs' do
+  set :views, 'app/views'
+
+  get '/songs' do
     @songs = Song.all
-    @songs.collect do |s|
-      "<ol><a href='/songs/#{s.slug}'>#{s.name}</a></ol>"
-    end
+    erb :"songs/index"
   end
 
   get '/songs/:slug' do
-    binding.pry
-    song_name=Song.find_by_slug(params[:slug])
-    artist_id=Song.find_by(name: song_name)
-    artist_name = Artist.find_by(id: artist_id)
-    "#{artist_name}"
+    @song = Song.find_by_slug(params[:slug])
+    @artist = Artist.find_by(@song.artist_id).name
+    @genre = Genre.find_by(SongGenre.find_by(@song.id).genre_id).name
+    @artist_slug = Artist.find_by(@song.artist_id).slug
+    @genre_slug = Genre.find_by(SongGenre.find_by(@song.id).genre_id).slug
+    erb :"songs/show"
   end
 
 
