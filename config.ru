@@ -10,3 +10,6 @@ use ArtistController
 use GenreController
 use SongController
 run ApplicationController
+require "rails_erd/diagram/graphviz"
+
+RailsERD::Diagram::Graphviz.create
