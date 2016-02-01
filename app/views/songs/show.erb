@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Playlister</title>
+  </head>
+
+  <body>
+    <h1><%= @song.name %></h1>
+    <h3>Artist </h3>
+    <a href="/artists/<%= @artist.slug %>"><%= @song.artist.name %></a><br>
+    <h3>Genre</h3>
+    <a href="/genres/<%= @genre.slug %>"><%= @genre.name %></a>
+  </body>
+</html>
