@@ -1,4 +1,7 @@
-song page
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+
 <p><%= @song.name %></p>
 <p><%= @song.artist.name %></p>
 

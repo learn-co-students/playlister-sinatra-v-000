@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'sinatra-fix_951', require: 'sinatra/fix_951'
 
 group :test do
   gem 'rspec'
