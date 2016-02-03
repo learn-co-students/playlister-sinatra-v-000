@@ -1,0 +1,10 @@
+require 'pry'
+require_relative '../../config/environment'
+class Artist < ActiveRecord::Base
+  has_many :songs
+  has_many :genres, through: :songs
+  
+  include Slug
+  extend FindBySlug
+ 
+end
