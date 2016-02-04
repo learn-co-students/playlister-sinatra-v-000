@@ -8,6 +8,7 @@ module Slugify
 
   end
 
+
   module ClassMethods
 
     def find_by_slug(slug)
@@ -17,5 +18,6 @@ module Slugify
     end
 
   end
+
 
 end

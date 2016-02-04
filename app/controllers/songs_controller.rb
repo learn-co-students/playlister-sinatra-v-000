@@ -33,6 +33,9 @@ class SongsController < ApplicationController
 
   post '/songs/:slug' do
     @song = Song.find_by_slug(params["slug"])
+    if params["Name"] != ""
+      @song.name = params["Name"]
+    end
     if params["Artist Name"] != ""
       @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
     end
@@ -43,6 +46,7 @@ class SongsController < ApplicationController
       end
     end
 
+    @song.save
     erb :"songs/show", locals: {message: "Song successfully updated."}
   end
 
