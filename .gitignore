@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.sw?
 .DS_Store
 coverage
@@ -13,3 +14,7 @@ db/test.sqlite3
 .rvmrc
 .ruby-version
 .vagrant
+=======
+*.db
+*.sqlite
+>>>>>>> resolution
