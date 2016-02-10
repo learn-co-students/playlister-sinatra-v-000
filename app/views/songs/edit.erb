@@ -1,0 +1,14 @@
+<h2>Edit From for <%=@song.name%></h2>
+
+<form method="post" action ="/songs/<%=params[:slug]%>">
+	<input id="hidden" type="hidden" name="_method" value="patch"/>
+	
+	Artist's name:<input id="Artist Name" type="text" name="artist_name"/><br>
+  Pick Genres: <br>
+	<% @genres.each_with_index do |genre,i| %>
+  	<%=genre.name%> <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>" <%=@checked[i]%> ><br>
+	<% end %>
+
+	<input type="submit" value="Save"/>
+
+</form>
