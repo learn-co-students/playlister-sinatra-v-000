@@ -16,7 +16,7 @@ In the theme of moving from a simple command line application static website to 
 
 ## File Structure
 
-Your application should use the following file structure. Notice how there are separate controllers for songs, artists, and genres. Separately, we have sub-directories for  views for songs, artists, and genres.
+Your application should use the following file structure. Notice how there are separate controllers for songs, artists, and genres. Separately, we have sub-directories for views for songs, artists, and genres.
 
 ├── app
 │   ├── controllers
@@ -58,7 +58,7 @@ The first thing you should aim to do is create a Sinatra interface for the data 
 You should build the following routes:
 
 1. `/songs`
-  * This should present the user with a list of all songs in the libaray.
+  * This should present the user with a list of all songs in the library.
   * Each song should be a clickable link to that particular song's show page.
 2. `/genres`
   * This should present the user with a list of all genres in the library.
@@ -87,7 +87,7 @@ By typing
 rspec spec/models/01_artist_spec.rb 
 ```
 
-in your bash/ command line you will only run that spec. It is important to run the specs in there numeric order. You will notice even after adding a table, model, and controller your specs are still not passing, but the error messages are changing. You have to read every errror message carefully to understand what to do next.
+in your bash/ command line you will only run that spec. It is important to run the specs in their numeric order. You will notice even after adding a table, model, and controller your specs are still not passing, but the error messages are changing. You have to read every error message carefully to understand what to do next.
 
 For the last spec `05_song_form_spec.rb` you need to implement the following features:
 
@@ -158,3 +158,5 @@ This checks to see if the variable `locals` is empty. If it isn't, then it displ
 * [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/playlister-sinatra' title='Sinatra Playlister'>Sinatra Playlister</a> on Learn.co and start learning to code for free.</p>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/playlister-sinatra'>Sinatra Playlister</a> on Learn.co and start learning to code for free.</p>
