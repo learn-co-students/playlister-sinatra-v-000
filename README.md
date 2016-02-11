@@ -16,7 +16,7 @@ In the theme of moving from a simple command line application static website to 
 
 ## File Structure
 
-Your application should use the following file structure. Notice how there are separate controllers for songs, artists, and genres. Separately, we have sub-directories for  views for songs, artists, and genres.
+Your application should use the following file structure. Notice how there are separate controllers for songs, artists, and genres. Separately, we have sub-directories for views for songs, artists, and genres.
 
 ├── app
 │   ├── controllers
@@ -87,7 +87,7 @@ By typing
 rspec spec/models/01_artist_spec.rb 
 ```
 
-in your bash/ command line you will only run that spec. It is important to run the specs in there numeric order. You will notice even after adding a table, model, and controller your specs are still not passing, but the error messages are changing. You have to read every errror message carefully to understand what to do next.
+in your bash/ command line you will only run that spec. It is important to run the specs in their numeric order. You will notice even after adding a table, model, and controller your specs are still not passing, but the error messages are changing. You have to read every error message carefully to understand what to do next.
 
 For the last spec `05_song_form_spec.rb` you need to implement the following features:
 
@@ -110,7 +110,7 @@ You are going to need to create some slugs in this lab. A slug is used to create
 
 Each class you build will need to have a method to slugify each object's name. This means you'll need to strip out any special characters, and replace all spaces with `-`. 
 
-You'll need to build a method `slug` which takes a given song/artist/genre name and create the "slugified" version".
+You'll need to build a method `slug` which takes a given song/artist/genre name and create the "slugified" version.
 
 The `find_by_slug` method should use the `slug` method to retrieve a song/artist/genre from the database and return that entry.
 
@@ -158,3 +158,5 @@ This checks to see if the variable `locals` is empty. If it isn't, then it displ
 * [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/playlister-sinatra' title='Sinatra Playlister'>Sinatra Playlister</a> on Learn.co and start learning to code for free.</p>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/playlister-sinatra'>Sinatra Playlister</a> on Learn.co and start learning to code for free.</p>
