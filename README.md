@@ -58,7 +58,7 @@ The first thing you should aim to do is create a Sinatra interface for the data 
 You should build the following routes:
 
 1. `/songs`
-  * This should present the user with a list of all songs in the libaray.
+  * This should present the user with a list of all songs in the library.
   * Each song should be a clickable link to that particular song's show page.
 2. `/genres`
   * This should present the user with a list of all genres in the library.
@@ -106,7 +106,11 @@ Having a URL like `/songs/1` sort of sucks. Imagine trying to email that song to
 
 But again, we run into a problem here. We can't have spaces in a URL. In order to make it a proper URL, we have to convert the spaces to `-` in the song name. This is called a slug.
 
-You'll need to build a method `slug` which takes a given song/artist/genre name and create the "slugified" version".
+You are going to need to create some slugs in this lab. A slug is used to create a name that is not acceptable as a URL for various reasons (special characters, spaces, etc). This is great because instead of having a route like `/songs/1`, you can have a route `/songs/hotline-bling` which is a much more descriptive route name.
+
+Each class you build will need to have a method to slugify each object's name. This means you'll need to strip out any special characters, and replace all spaces with `-`. 
+
+You'll need to build a method `slug` which takes a given song/artist/genre name and create the "slugified" version.
 
 The `find_by_slug` method should use the `slug` method to retrieve a song/artist/genre from the database and return that entry.
 
@@ -149,11 +153,10 @@ views/songs/new.erb
 ```
 
 This checks to see if the variable `locals` is empty. If it isn't, then it displays message, which we set in the controller to store `"Successfully created song."`
->>>>>>> master
 
 ### Resources
-* [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
+* [Clean URL - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/playlister-sinatra' title='Sinatra Playlister'>Sinatra Playlister</a> on Learn.co and start learning to code for free.</p>
 
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/playlister-sinatra'>Sinatra Playlister</a> on Learn.co and start learning to code for free.</p>
+
