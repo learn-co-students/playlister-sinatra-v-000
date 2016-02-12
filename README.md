@@ -58,7 +58,7 @@ The first thing you should aim to do is create a Sinatra interface for the data 
 You should build the following routes:
 
 1. `/songs`
-  * This should present the user with a list of all songs in the libaray.
+  * This should present the user with a list of all songs in the library.
   * Each song should be a clickable link to that particular song's show page.
 2. `/genres`
   * This should present the user with a list of all genres in the library.
