@@ -159,4 +159,3 @@ This checks to see if the variable `locals` is empty. If it isn't, then it displ
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/playlister-sinatra' title='Sinatra Playlister'>Sinatra Playlister</a> on Learn.co and start learning to code for free.</p>
 
-
