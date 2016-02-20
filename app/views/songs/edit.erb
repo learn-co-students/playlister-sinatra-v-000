@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+
+  <body>
+    <h1>Old Song Information</h1>
+    <h3><%=@song.name%></h3>
+    <h3><%=@song.artist.name%></h3>
+    <%@song.genres.each do |genre|%>
+      <h3><%=genre.name%></h3>
+    <%end%>
+    
+    <form method="post" action="/songs/<%=@song.slug%>">
+      <h1>Update Song</h1>
+      <h1>Please enter the name, artist, or select genres you wish to change</h1>
+          <p>Song Name:<input id="Name" type="text" name="Name"></p>
+          <p>Artist Name:<input id="Artist Name" type="text" name="Artist Name"></p>
+          <%@genres.each do |genre|%>
+          <input type="checkbox" id="<%=genre.name%>" name="genres[]" value="<%=genre.id%>" <%='checked' if @song.genres.include?(genre) %>> <%=genre.name%></input>
+          <%end%>
+          
+      <input id="hidden" type="hidden" name="_method" value="patch">
+      <input type="submit" value="Save">
+    </form>
+  </body>
+</html>
