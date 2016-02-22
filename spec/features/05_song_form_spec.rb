@@ -15,9 +15,9 @@ describe "Song Forms" do
 
     context "without an existing artist" do
       it "creates a new song and a new artist and associates them" do
-        fill_in "Name", with: song_name
+        fill_in "name", with: song_name
         check "New Age Garbage"
-        fill_in "Artist Name", with: artist_name
+        fill_in "artist_name", with: artist_name
         click_on "Create"
 
         expect(page).to have_content(song_name)
@@ -26,9 +26,9 @@ describe "Song Forms" do
         expect(page).to have_content("Successfully created song.")
       end
       it "redirects to the '/songs'" do
-        fill_in "Name", with: song_name
+        fill_in "name", with: song_name
         check "New Age Garbage"
-        fill_in "Artist Name", with: artist_name
+        fill_in "artist_name", with: artist_name
         click_on "Create"
         expect(page.current_path).to eq('/songs')
       end
@@ -40,9 +40,9 @@ describe "Song Forms" do
       end
 
       it "creates a new song and associates it with an existing artist" do
-        fill_in "Name", with: song_name
+        fill_in "name", with: song_name
         check "Hippity Hop"
-        fill_in "Artist Name", with: artist_name
+        fill_in "artist_name", with: artist_name
         click_on "Create"
 
         expect(page).to have_content(song_name)
@@ -58,7 +58,7 @@ describe "Song Forms" do
       @song = Song.create(name: song_name)
       artist = Artist.create(name: artist_name)
 
-      @song.song_genres.create(genre: genre_1)
+      @song.songs_genres.create(genre: genre_1)
       @song.artist = artist
 
       @song.save
@@ -69,7 +69,7 @@ describe "Song Forms" do
     context "changing a song's artist" do
 
       it "updates the song's artist" do
-        fill_in "Artist Name", with: "Some Nobody"
+        fill_in "artist_name", with: "Some Nobody"
         click_on "Save"
 
         expect(page).to have_content("Song successfully updated.")
@@ -78,7 +78,7 @@ describe "Song Forms" do
       end
 
       it "redirects to the song show page" do 
-        fill_in "Artist Name", with: "That singer"
+        fill_in "artist_name", with: "That singer"
         click_on "Save"
         expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
       end
