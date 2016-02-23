@@ -1,0 +1,14 @@
+
+<%unless locals.empty?%>
+	<%= message %>
+<%end%>
+
+
+<h1>Songs</h1>
+<%Song.all.each do |song|%>
+
+<h3><%=song.name%></h3>
+<br></br>
+<h5><a href="/songs/<%=song.slug%>">Song Page</a></h5>
+
+<%end%>
