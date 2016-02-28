@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title>Playlister</title>
   </head>
 
   <body>
+    <br></br>
+    <button><a href="/artists">All Artists</a></button>  
+    <button><a href="/songs">All Songs</a></button>
+    <button><a href="/genres">All Genres</a></button> 
     <%= yield %>
+    <br></br>
+    <button>New Song</button>
+    <button>New Artist</button>
+    <button>New Genre</button>
   </body>
-  <ul>
-    <li><a href="/artists">See all Artists</a></li>
-    <li><a href="/songs">See all Songs</a></li>
-    <li><a href="/genres">See all Genres</a></li>
-  </ul>
-</html>
+      
+  
+  </html>
