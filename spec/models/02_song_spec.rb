@@ -20,7 +20,8 @@ describe "Song" do
     expect(@song.name).to eq("Blank Space")
   end
 
-  it "can have many genres" do 
+  it "can have many genres" do
+# binding.pry 
     expect(SongGenre.count).to eq(1)
   end
 
