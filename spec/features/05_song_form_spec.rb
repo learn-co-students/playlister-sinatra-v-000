@@ -15,9 +15,10 @@ describe "Song Forms" do
 
     context "without an existing artist" do
       it "creates a new song and a new artist and associates them" do
+
         fill_in "Name", with: song_name
         check "New Age Garbage"
-        fill_in "Artist Name", with: artist_name
+        fill_in "Artist Name", with: artist_name        
         click_on "Create"
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
