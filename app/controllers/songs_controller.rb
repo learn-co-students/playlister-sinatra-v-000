@@ -28,16 +28,11 @@ class SongsController < ApplicationController
   end
 
   post '/songs/:slug' do
-  params.to_s
-  @song=Song.find_by_slug(params[:slug])
-  @song.artist = Artist.find_or_create_by(name: params[:artist_name])
-  @song.genre_ids = params[:genres]
-  # @song.artist.name
-  # @song.genre_ids = params[:genres]  # @song = Song.find_by_slug(params[:slug])
-    # @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
-    # @song.genre_ids = params[:genres]
-     @song.save
-     erb :'/songs/show', locals: {message: "Song successfully updated."}
+    @song=Song.find_by_slug(params[:slug])
+    @song.artist = Artist.find_or_create_by(name: params[:artist_name])
+    @song.genre_ids = params[:genres]
+    @song.save
+    erb :'/songs/show', locals: {message: "Song successfully updated."}
   end
 
 
