@@ -1,3 +1,4 @@
+
 require './config/environment'
 
 if ActiveRecord::Migrator.needs_migration?
@@ -5,4 +6,8 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
+
+use SongsController
+use ArtistsController
+use GenresController
 run ApplicationController
