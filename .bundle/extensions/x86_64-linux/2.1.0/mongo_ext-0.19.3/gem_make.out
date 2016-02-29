@@ -1,0 +1,40 @@
+/usr/local/opt/rbenv/versions/2.1.5/bin/ruby -r ./siteconf20160228-4348-1fe7dv0.rb extconf.rb
+checking for asprintf()... yes
+checking for ruby/st.h... yes
+checking for ruby/regex.h... yes
+checking for ruby/encoding.h... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling cbson.c
+cbson.c: In function ‘write_utf8’:
+cbson.c:80:36: warning: pointer targets in passing argument 1 of ‘check_string’ differ in signedness [-Wpointer-sign]
+                                    0, check_null);
+                                    ^
+In file included from cbson.c:46:0:
+encoding_helpers.h:26:10: note: expected ‘const unsigned char *’ but argument is of type ‘char *’
+ result_t check_string(const unsigned char* string, const int length,
+          ^
+cbson.c: In function ‘objectid_generate’:
+cbson.c:858:5: warning: implicit declaration of function ‘htonl’ [-Wimplicit-function-declaration]
+     t = htonl(time(NULL));
+     ^
+cbson.c:867:5: warning: implicit declaration of function ‘htons’ [-Wimplicit-function-declaration]
+     pid = htons(getpid());
+     ^
+cbson.c: In function ‘write_element’:
+cbson.c:128:39: warning: ignoring return value of ‘asprintf’, declared with attribute warn_unused_result [-Wunused-result]
+ #define INT2STRING(buffer, i) asprintf(buffer, "%d", i);
+                                       ^
+cbson.c:264:17: note: in expansion of macro ‘INT2STRING’
+                 INT2STRING(&name, i);
+                 ^
+compiling buffer.c
+compiling encoding_helpers.c
+linking shared-object mongo_ext/cbson.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cbson.so ./.gem.20160228-4348-7w6os4/mongo_ext
+installing default cbson libraries
