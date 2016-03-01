@@ -18,6 +18,7 @@ In the theme of moving from a simple command line application static website to 
 
 Your application should use the following file structure. Notice how there are separate controllers for songs, artists, and genres. Separately, we have sub-directories for views for songs, artists, and genres.
 
+```
 ├── app
 │   ├── controllers
 │   │   ├── application_controller.rb
@@ -45,6 +46,8 @@ Your application should use the following file structure. Notice how there are s
 │           ├── index.erb
 │           ├── new.erb
 │           └── show.erb
+
+```
 
 ### Instructions
 
