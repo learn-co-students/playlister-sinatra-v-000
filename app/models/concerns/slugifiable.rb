@@ -7,8 +7,7 @@ module Slugifiable
 	
 	module ClassMethods
 		def find_by_slug(slug)
-			name = slug.split("-").map {|w| w.capitalize}.join(" ")
-			self.all.find_by(name: name)
+			self.all.find { |instance| instance.slug == slug}
 		end
 	end
 	
