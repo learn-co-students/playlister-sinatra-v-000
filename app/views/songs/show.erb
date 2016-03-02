@@ -1,3 +1,7 @@
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+<a href="/songs/<%= @song.slug %>/edit">Edit</a>
 <h1><%= @song.name %></h1>
 
 <h2>Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></h2>
