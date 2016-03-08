@@ -133,7 +133,7 @@ params = {
 <% Genre.all.each do |genre| %>
   <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
 <% end %>
-``` 
+```
 
 ## Flash Message
 
