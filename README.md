@@ -56,7 +56,7 @@ The first thing you should aim to do is create a Sinatra interface for the data 
 1. An Artist can have multiple songs and multiple genres
 2. A Genre can have multiple artists and multiple songs
 3. A Song can belong to ONE Artist and multiple genres
-4. How would we implement the relationship of a song having many genres and genre having many songs? In order to establish a "many-to-many" relationship, we'll need a join table. You will need a `SongsGenre` class to go along with this table in the database
+4. How would we implement the relationship of a song having many genres and genre having many songs? In order to establish a "many-to-many" relationship, we'll need a join table. You will need a `SongGenre` class to go along with this table in the database
 
 You should build the following routes:
 
