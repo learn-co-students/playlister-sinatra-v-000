@@ -129,7 +129,7 @@ params = {
   genres => [ genre1, genre2, genre2]
 }
 
-```HTML
+```html
 <% Genre.all.each do |genre| %>
   <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
 <% end %>
