@@ -38,7 +38,7 @@ class SongsController < ApplicationController
     @song.artist = Artist.find_or_create_by(name: params["artist"]["name"]) unless params["artist"]["name"].empty?
     Genre.find(params["genres"]).each { |genre| @song.genres << genre } unless params["genres"].empty?
     @song.save
-    erb :"/songs/show", locals: {message: "Song successfully updated."} # this redirect is not working at all
+    redirect to "/songs/#{@song.slug}", locals: {message: "Song successfully updated."} 
   end
 
 

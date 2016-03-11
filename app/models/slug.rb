@@ -6,7 +6,7 @@ module Slug
   end
   module ClassMethods
     def find_by_slug(slug)
-      exceptions = ["a", "with", "the", "and", "to"]
+      exceptions = ["a", "with", "the", "and", "to", "for"]
       i = 0
       name = slug.split("-").map do |word| 
         i += 1 
