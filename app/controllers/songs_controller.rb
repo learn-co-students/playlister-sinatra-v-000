@@ -24,6 +24,15 @@ class SongsController < ApplicationController
     erb :"/songs", locals: {message: "Successfully created song."}
   end
 
+# read one
+
+  get "/songs/:slug" do 
+    @song = Song.find_by_slug(params[:slug])
+    erb :"/songs/show"
+  end
+
+
+
 # edit
 
   get "/songs/:slug/edit" do 
@@ -36,18 +45,15 @@ class SongsController < ApplicationController
     @song = Song.find_by_slug(params[:slug])
     @song.update(params["song"]) unless params["song"]["name"].empty? 
     @song.artist = Artist.find_or_create_by(name: params["artist"]["name"]) unless params["artist"]["name"].empty?
-    Genre.find(params["genres"]).each { |genre| @song.genres << genre } unless params["genres"].empty?
+    unless params["genres"].empty?
+      int_genres = params["genres"].map { |id| id.to_i }
+      Genre.find(int_genres).each { |genre| @song.genres << genre } 
+    end
     @song.save
-    redirect to "/songs/#{@song.slug}", locals: {message: "Song successfully updated."} 
+    erb :"/songs/show", locals: {message: "Song successfully updated."} 
   end
 
 
-# read one
-
-  get "/songs/:slug" do 
-    @song = Song.find_by_slug(params[:slug])
-    erb :"/songs/show"
-  end
 
 
 
