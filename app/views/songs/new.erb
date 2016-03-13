@@ -1,1 +1,67 @@
-new.erb
+
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>  
+
+<h1>Create a new song!</h1>
+
+<form action="/songs" method="post">
+  <h3>Song name: <input type="text" name="Name"></h3>
+  <br>
+  Artist: <input type="text" name="Artist Name">
+  
+  <h3>Genres: </h3>
+  <% Genre.all.each do |genre| %>
+    <input type="checkbox" id="<%=genre.name%>" name="genres[]" value="<%= genre.id %>"><%=genre.name%>
+    <% end %>
+    <br><br>
+
+
+
+  <input type="submit" value="Create">
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

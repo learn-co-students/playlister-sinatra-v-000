@@ -1,8 +1,20 @@
-<h1>Show Song:</h1>
-
-<h2><%= @song.name %></h2>
-<h3>Artist: <%= @song.artist.name %></h3>
-
-<% @song.genres.each do |genre| %>
-<h3>Genres: <%= genre.name %></h3>
+<% unless locals.empty? %>
+  <%= message %>
 <% end %>
+
+
+<h1>Song Info</h1>
+
+<h1>Name: <%= @song.name %></h1>
+
+<h2>Artist: <a href="/artists/<%=@song.artist.slug%> "><%= @song.artist.name %></a></h2>
+
+<h2>Genres:</h2>
+<% @song.genres.each do |genre| %>
+ <h3><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></h3>
+<% end %> 
+
+
+
+
+
