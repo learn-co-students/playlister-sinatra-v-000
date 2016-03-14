@@ -58,7 +58,7 @@ describe "Song Forms" do
       @song = Song.create(name: song_name)
       artist = Artist.create(name: artist_name)
 
-      @song.song_genres.create(genre: genre_1)
+      @song.song_genre_binds.create(genre: genre_1)
       @song.artist = artist
 
       @song.save
@@ -77,7 +77,7 @@ describe "Song Forms" do
         expect(page).to have_content("Some Nobody")
       end
 
-      it "redirects to the song show page" do 
+      it "redirects to the song show page" do
         fill_in "Artist Name", with: "That singer"
         click_on "Save"
         expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
@@ -100,7 +100,7 @@ describe "Song Forms" do
         expect(page).to have_content("Hippity Hop")
       end
 
-      it "redirects to the song show page" do 
+      it "redirects to the song show page" do
         uncheck "Hippity Hop"
         check "New Age Garbage"
         click_on "Save"
