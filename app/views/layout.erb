@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title>Sinatra Playlister</title>
+    <style>
+      body { margin: 0; padding: 0; }
+      .container { width: 85%; margin: 0 auto; }
+      .header { background: tan; border-bottom: 2px solid purple; }
+      .header h1 { margin: 0; padding: 10px 0; text-align: center; border-bottom: 2px solid purple; }
+      .main-menu { list-style: none; margin: 0; padding: 0; }
+      .main-menu li { display: inline-block; padding: 15px 15px 15px 0; }
+      .main-menu a { text-decoration: none; color: purple; font-weight: bold; }
+    </style>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="header">
+      <h1>Sinatra Playlister</h1>
+      <div class="container">
+        
+        <ul class="main-menu">
+          <li><a href="/songs">Songs</a></li>
+          <li><a href="/artists">Artists</a></li>
+          <li><a href="/genres">Genres</a></li>
+          <li><a href="/songs/new">New Song</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

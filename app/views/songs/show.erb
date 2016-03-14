@@ -1,0 +1,7 @@
+<% unless locals.empty? %>
+    <%= message %>
+<% end %>
+<h1><%= @song.name %></h1>
+<h3>Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a> </h3>
+<h3>Genres: <%= @song.genres.collect { |g| '<a href="/genres/' + g.slug + '">' + g.name + '</a>' }.join(", ")%></h3>
+<p><a href="/songs/<%= @song.slug %>/edit">Edit Song</a></p>
