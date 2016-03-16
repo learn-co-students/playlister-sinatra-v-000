@@ -1,0 +1,10 @@
+<h2>Your Songs:</h2>
+
+<ol>
+  <%@songs.each do |song|%>
+  <li><a href="/songs/<%=song.slug%>"><%=song.name%></li></a>
+  <%end%>
+  <br><br>
+
+
+</ol>
