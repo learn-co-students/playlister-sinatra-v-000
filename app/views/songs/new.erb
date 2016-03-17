@@ -1,0 +1,32 @@
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+
+<form action="/songs" method="post">
+
+  Song Name:
+
+  <br></br>
+
+  <input type="text" name="Name">
+
+  <br></br>
+
+  Artist Name:
+
+  <br></br>
+
+  <input type="text" name="Artist Name">
+
+  <br></br>
+
+  Genres:
+
+  <br></br>
+
+  <% Genre.all.each do |genre| %>
+    <input type="checkbox" name="genres[]" id="<%= genre.name %>" value="<%= genre.id %>">
+  <% end %>
+
+  <input type="submit" value="Create Song">
+</form>
