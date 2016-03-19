@@ -1,7 +1,15 @@
-<h1>Songs:</h1>
-<br>
+<h1>Welcome To Sinatra Playlister!</h1>
 
-<br>
+<p> Click to
+<a href="/songs/new"><input type="submit" value="Add Song"></a>
+<a href="/artists"><input type="submit" value="See Artists"></a>
+<a href="/genres"><input type="submit" value="See Genres"></a></p>
+
+
+
+
+<h1>Songs:</h1>
+
 <% @songs.each do |song| %> 
-  <a href="/songs/<%= song.slug %>"> <p><%= song.name %></p> </a>
+  <li><a href="/songs/<%= song.slug %>"><%= song.name %> </a></li>
 <% end %>

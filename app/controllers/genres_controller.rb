@@ -10,7 +10,4 @@ class GenresController < ApplicationController
     erb :'/genres/index'
   end
 
-
-
-
 end
