@@ -7,7 +7,7 @@ class Artist < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    self.find_by(name: slug.split("-").map(&:capitalize).join(' '))
+    self.all.find{ |find| find.slug == slug}
   end
 
 end
