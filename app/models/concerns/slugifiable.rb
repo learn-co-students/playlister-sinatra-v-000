@@ -1,0 +1,2 @@
+class Slugifiable
+end
