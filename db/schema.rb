@@ -11,26 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160325021215) do
+ActiveRecord::Schema.define(version: 20160325015724) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
   end
 
-  create_table "artists_genres", force: :cascade do |t|
-    t.integer "genre_id"
-    t.integer "artist_id"
-  end
-
-  add_index "artists_genres", ["artist_id"], name: "index_artists_genres_on_artist_id"
-  add_index "artists_genres", ["genre_id"], name: "index_artists_genres_on_genre_id"
-
   create_table "genres", force: :cascade do |t|
-    t.integer "artist_id"
-    t.string  "name"
+    t.string "name"
   end
-
-  add_index "genres", ["artist_id"], name: "index_genres_on_artist_id"
 
   create_table "song_genres", force: :cascade do |t|
     t.integer "genre_id"

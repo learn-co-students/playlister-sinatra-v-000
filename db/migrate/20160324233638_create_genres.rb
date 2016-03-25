@@ -1,7 +1,6 @@
 class CreateGenres < ActiveRecord::Migration
   def change
     create_table :genres do |t|
-      t.belongs_to :artist, index: true
       t.string :name
     end
   end
