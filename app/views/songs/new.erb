@@ -1,0 +1,11 @@
+<form class="" action="/songs" method="post">
+  <label for="song_name">Name</label>
+  <input id="song_name" type="text" name="song[name]" placeholder="song name" >
+  <br></br>
+  <% Genre.all.each do |g| %>
+  <% binding.pry %>
+    <%= g.name %>
+    <input type="checkbox" name="owner[pet_ids][]" id="<%=g.id%>" value="<%=g.id%>"><%=g.name%></input>
+  <% end %>
+  <br></br>
+</form>
