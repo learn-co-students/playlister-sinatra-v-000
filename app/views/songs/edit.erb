@@ -1,0 +1,22 @@
+<form action="/songs/<%= @song.slug %>" method="POST">
+  <label>Name:</label>
+  <input type="text" name="song[name]" id="song_name" value="<%=@song.name%>">
+  <br></br>
+  <label>Choose an existing genre:</label>
+  <br></br>
+  <%Genre.all.each do |genre|%>
+    <input type="checkbox" name="genre" id="<%= genre.name%>" value="<%=genre.name%>" <%='checked' if @song.genres.include?(genre) %>><%=genre.name%></input>
+  <%end%>
+  <br></br>
+  <label>and/or, create a new genre:</label>
+  <br></br>
+  <label>name:</label>
+  <br></br>
+  <input type="text" name="artist[name]" placeholder="Artist Name">
+  <!-- <input type="submit" value="save"> -->
+  <button type="submit" name="save">Save</button>
+</form>
+
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>

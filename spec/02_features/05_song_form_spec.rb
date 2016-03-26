@@ -18,7 +18,6 @@ describe "Song Forms" do
         fill_in "Name", with: song_name
         check "New Age Garbage"
         fill_in "Artist Name", with: artist_name
-        binding.pry
         click_on "Create"
 
         expect(page).to have_content(song_name)
