@@ -1,0 +1,13 @@
+<%= @song.name %>
+<%= @song.artist.name %>
+<% @song.genres.each do |g| %>
+  <%= g.name %>
+  <a href="/genres/<%= g.slug %>"></a>
+<% end %>
+
+<a href="/artists/<%= @song.artist.slug %>"></a>
+<a href="/artists/<%= @song.artist.slug %>/edit"></a>
+
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
