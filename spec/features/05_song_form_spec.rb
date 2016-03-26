@@ -18,6 +18,7 @@ describe "Song Forms" do
         fill_in "Name", with: song_name
         check "New Age Garbage"
         fill_in "Artist Name", with: artist_name
+        binding.pry
         click_on "Create"
 
         expect(page).to have_content(song_name)
@@ -77,7 +78,7 @@ describe "Song Forms" do
         expect(page).to have_content("Some Nobody")
       end
 
-      it "redirects to the song show page" do 
+      it "redirects to the song show page" do
         fill_in "Artist Name", with: "That singer"
         click_on "Save"
         expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
@@ -100,7 +101,7 @@ describe "Song Forms" do
         expect(page).to have_content("Hippity Hop")
       end
 
-      it "redirects to the song show page" do 
+      it "redirects to the song show page" do
         uncheck "Hippity Hop"
         check "New Age Garbage"
         click_on "Save"

@@ -6,3 +6,7 @@
 <% end %>
 
 <a href="/artists/<%= @song.artist.slug %>"></a>
+
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
