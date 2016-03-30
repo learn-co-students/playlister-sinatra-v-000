@@ -14,6 +14,7 @@ describe "Song Forms" do
     end
 
     context "without an existing artist" do
+      
       it "creates a new song and a new artist and associates them" do
         fill_in "Name", with: song_name
         check "New Age Garbage"
