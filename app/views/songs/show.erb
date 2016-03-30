@@ -1,0 +1,27 @@
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+
+<h1><%= @song.name %> Show Page</h1>
+<h4>Artist</h4>
+<p><a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></p><br>
+
+<h4>Genres</h4>
+<ul>
+<% @song.genres.each do |genre| %>
+  <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></li>
+<% end %>
+</ul>
+<br></br>
+
+<form method="get" action="/songs/<%= @song.slug %>/edit">
+  <input type="submit" value="Edit Song">
+</form>
+<br></br> 
+<h5>Other Indexes:</h5>
+<ul>
+  <li><a href="/">Playlister Home</a></li>
+  <li><a href="/songs">Song Index</a></li>
+  <li><a href="/artists">Artist Index</a></li>
+  <li><a href="/genres">Genre Index</a></li>
+</ul> 

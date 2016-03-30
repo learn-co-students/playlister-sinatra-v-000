@@ -1,0 +1,14 @@
+<h1>Genres Index</h1>
+<h4>Click on a Genre to visit their homepage:</h4>
+<ul>
+<% Genre.all.each do |genre| %>
+  <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></li>
+<% end %>  
+</ul>
+<br></br>
+<h5>Other Indexes:</h5>
+<ul>
+  <li><a href="/">Playlister Home</a></li>
+  <li><a href="/songs">Song Index</a></li>
+  <li><a href="/artists">Artist Index</a></li>
+</ul>  
