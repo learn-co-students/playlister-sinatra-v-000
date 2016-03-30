@@ -5,20 +5,40 @@
 <h1>Create a New Song</h1>
 <form method="post" action="/songs">
 
-  <label>Name: </label>
+  <label>Song Name: </label>
   <input type="text" name="song[name]" id="Name">
+  
   <br></br>
 
-  <label>Choose Genres: </label>
+  <label>Choose From Existing Artists: </label>
+  <% Artist.all.each do |artist|%>
+    <input type="checkbox" name="song[artist]" id="<%= artist.name %>" value="<%= artist.id %>"><%= artist.name %></input>
+  <% end %>
+  
+  <br></br>
+
+  <label>or Create New Artist: </label>
+  <input type="text" name="artist[name]" id="Artist Name">
+  
+  <br></br>
+
+  <label>Choose From Existing Genres: </label>
   <% Genre.all.each do |genre| %>
-    <%= genre.name %>
-    <input id="<%=genre.name%>" type="checkbox"  name="genres[]" value="<%= genre.id %>">
+    <input type="checkbox" name="song[genre_ids][]" id="<%=genre.name%>" value="<%= genre.id %>"><%= genre.name %></input>
   <% end %>
   <br></br>
-
-  <label>Artist: </label>
-  <input id="Artist Name" type="text" name="artist[name]">
+  <label>or Create New Genre: </label>
+  <input type="text" name="genre[name]" id="Genre Name">
+  
   <br></br>
 
   <input type="submit" value="Create"> 
 </form>
+<br></br>
+<h5>Other Indexes:</h5>
+<ul>
+  <li><a href="/">Playlister Home</a></li>
+  <li><a href="/songs">Song Index</a></li>
+  <li><a href="/artists">Artist Index</a></li>
+  <li><a href="/genres">Genre Index</a></li>
+</ul> 

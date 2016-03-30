@@ -11,6 +11,16 @@
   <% @genre.artists.each do |artist| %>
     <li><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></li>
   <% end %>
-</ul><br>
-
-<a href="/genres">Back to Index</a>
+</ul>
+<br></br>
+<form method="get" action="/songs/new">
+  <input type="submit" value="Create New Song">  
+</form>
+<br></br>
+<h5>Other Indexes:</h5>
+<ul>
+  <li><a href="/">Playlister Home</a></li>
+  <li><a href="/songs">Song Index</a></li>
+  <li><a href="/artists">Artist Index</a></li>
+  <li><a href="/genres">Genre Index</a></li>
+</ul> 
