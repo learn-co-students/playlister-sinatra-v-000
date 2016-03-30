@@ -1,0 +1,18 @@
+<% unless locals.empty? %>
+  <h2><%=message%></h2>
+<%end%>
+
+<h1>Song</h1>
+<h2><%=@song.name%></h2>
+
+<h3>Artist</h3>
+<p><a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></p></a>
+
+<h3>Genres</h3>
+<%@song.genres.each do |genre|%>
+  <p><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></p>
+<%end%>
+
+<br></br>
+
+<h4><a href="/songs/<%=@song.slug%>/edit">Edit Info</a></h4>
