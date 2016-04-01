@@ -1,0 +1,11 @@
+<h3>This song rocks!</h3><h1>
+
+<p><%=@song.name%> by: <a href="/artists/<%=@song.artist.slug%>" ><%=@song.artist.name%></a></p>
+
+<div class="genre-column">
+  <ol>
+    <%@song.genres.each do |genre|%>
+    <li> <a href="/genres/<%=genre.slug%>"> <%=genre.name%> </a> </li>
+    <%end%>
+  </ol>
+</div>

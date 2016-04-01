@@ -1,0 +1,17 @@
+<h3>Your favorite songs and genres by:</h3><h1><%=@artist.name%></h1>
+
+<div class="artist-song-column"> <!--left column on artist page -->
+  <ol>
+    <%@artist.songs.each do |song|%>
+      <a href="/songs/<%=song.slug%>"<li><%=song.name%></li></a>
+    <%end%>
+  </ol>
+</div>
+
+<div class="artist-genre-column"> <!--right column on artist page -->
+  <ol>
+    <%@artist.genres.each do |genre|%>
+      <a href="/genres/<%=genre.slug%>"<li><%=genre.name%></li></a>
+    <%end%>
+  </ol>
+</div>
