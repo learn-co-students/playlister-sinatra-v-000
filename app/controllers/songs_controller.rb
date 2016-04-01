@@ -18,7 +18,7 @@ class SongsController < ApplicationController
   post '/songs' do
     song = Song.create(name: params[:name],
                      artist: Artist.find_or_create_by(name: params[:artist]),
-                     genres: params[:genres])
+                  genres_id: params[:genres])
     song.save
     erb :'songs/show'
   end
@@ -28,11 +28,12 @@ class SongsController < ApplicationController
     erb :'songs/edit'
   end
 
-  patch '/songs/:slug' do 
+  patch '/songs/:slug' do
     song = Song.find_by_slug(params[:slug])
-    song.update_all(name: params[:name],
-                  artist: params[:artist],
-                  genres: params[:genres])
+    song.update(name: params[:song])
+    song.artist = Artist.find_or_create_by(name: params[:artist][:name]),
+    song.save
     erb :'songs/show'
   end
+
 end
