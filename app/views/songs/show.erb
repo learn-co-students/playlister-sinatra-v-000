@@ -1,1 +1,20 @@
-show.erb
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Song Show Page</title>
+</head>
+<body>
+  <h1><%= @song.name %></h1>
+  <h3>Artist:</h3>
+    <a href="/artists/<%=@song.artist.slug%>">
+      <%= @song.artist.name %></a><br>
+
+  <h3>Genres:</h3>
+    <% @song.genres.each_with_index do |genre, i| %>
+    <%= "#{i+1}. " %>
+    <a href="/genres/<%=genre.slug%>">
+      <%= genre.name %></a><br>
+    <%end%>
+</body>
+</html>
