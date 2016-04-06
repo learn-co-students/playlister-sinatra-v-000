@@ -1,1 +1,24 @@
-new.erb
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Song Form</title>
+</head>
+<body>
+  <h1>Create New Song</h1>
+  <form action="/songs" method="post">
+    <label for="song_name">Name: </label>
+    <input type="text" name="name" id="Name" placeholder="Song Name"><br></br>
+
+    <label for="genres">Song Genres: </label><br></br>
+      <%Genre.all.each do |genre|%>
+        <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.id%>"><%=" #{genre.name}"%></input><br>
+      <%end%><br>
+
+    <label for="artist_name">Artist Name: </label>
+    <input type="text" name="artist_name" id="Artist Name" placeholder="Artist Name"><br></br>
+
+    <input type="submit" value="Create">
+  </form>
+</body>
+</html>
