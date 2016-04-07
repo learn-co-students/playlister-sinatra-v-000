@@ -5,17 +5,17 @@
   <title>Edit Song</title>
 </head>
 <body>
-  <h1>Edit Song</h1>
+  <h1>Edit <%= @song.name %></h1>
   <form action="/songs/<%=@song.slug%>" method="POST">
-  <label>Edit Artist Name:</label>
- 
+  <input type="hidden" name="_method" value="PATCH">
+  
+  <label>Artist Name:</label>
   <br></br>
- 
   <input type="text" name="song[artist]" id="Artist Name" value="<%=@song.artist.name%>">
  
   <br></br>
  
-  <label>Edit Genres:</label>
+  <label>Genres:</label>
  
   <br></br>
  
