@@ -5,4 +5,12 @@ class Song < ActiveRecord::Base
 
   include Slugify
   extend FindBySlug
+
+  def add_genres(params)
+    params[:genres].each do |genre|
+      g = Genre.find_by_id(genre.to_i)
+      self.genres << g
+    end
+  end
+
 end
