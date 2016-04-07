@@ -1,7 +1,13 @@
-<h1><%=@owner.name%></h1>
-<h4>Pets:</h4>
+<h1>Artist: <%=@artist.name%></h1>
+<h2>Songs: </h2>
 <ul>
-  <%@owner.pets.each do |pet|%>
-  <li><%=pet.name%></li>
+  <%@artist.songs.each do |song|%>
+    <li><a href="/songs/<%=song.slug%>"><%=song.name%></a></li>
+  <%end%>
+</ul>
+<h2>Genres: </h2>
+<ul>
+  <%@artist.genres.each do |genre|%>
+    <li><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
   <%end%>
 </ul>

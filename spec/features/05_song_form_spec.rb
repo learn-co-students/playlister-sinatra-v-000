@@ -70,6 +70,7 @@ describe "Song Forms" do
 
       it "updates the song's artist" do
         fill_in "Artist Name", with: "Some Nobody"
+        uncheck "#{@song.artist.name}"
         click_on "Save"
 
         expect(page).to have_content("Song successfully updated.")
