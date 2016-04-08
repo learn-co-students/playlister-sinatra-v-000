@@ -7,8 +7,8 @@ module Slugifiable
 
   module ClassMethods
     def find_by_slug(slug)
-      name = slug.split("-").map {|w| w.capitalize }.join(" ")
-      self.find_by(name: name)
+      name = slug.split("-").join(" ")
+      self.where("lower(name) = ?", name.downcase).limit(1).first
     end
   end
 end
