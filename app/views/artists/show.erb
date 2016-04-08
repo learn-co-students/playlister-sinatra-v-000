@@ -1,0 +1,9 @@
+<h1><strong style="color: blue">Artist Name:</strong> <%= @artist.name %></h1>
+<h2><strong style="color: red">Songs:</strong></h2>
+<% @artist.songs.all.each do |song| %>
+  <p><a href="/songs/<%= song.slug %>"><%= song.name %></a></p>
+<% end %>
+<h2><strong style="color: green">Genres:</strong></h2>
+<% @artist.genres.all.each do |genre| %>
+  <p><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></p>
+<% end %>

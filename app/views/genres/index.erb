@@ -1,0 +1,10 @@
+<% Genre.all.each do |genre| %>
+  <h3><strong style="color: green">Genre Name:</strong> <%= genre.name %></h3>
+  <% genre.songs.all.each do |song| %>
+    <p><strong style="color: red">Song Name:</strong> <%= song.name %></p>
+  <% end %>
+  <% genre.artists.all.each do |artist| %>
+    <p><strong style="color: blue">Artist Name:</strong> <%= artist.name %></p>
+  <% end %>
+  <a href="/genres/<%= genre.slug %>">Show Genre</a>
+<% end %>
