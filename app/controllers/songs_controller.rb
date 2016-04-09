@@ -11,11 +11,8 @@ class SongsController < ApplicationController
 
   post '/songs' do
     @song = Song.create(params[:song])
-    @artist = Artist.find_or_create_by(params[:artist])
-    @artist.songs << @song
-    params[:genre_ids].each do |genre_id|
-      SongGenre.create({genre_id: genre_id, song_id: @song.id})
-    end
+    Artist.find_or_create_by(params[:artist]).songs << @song
+    @song.genres = params[:genres]
     erb :'/songs/show', locals: {message: "Successfully created song."}
   end
 
@@ -32,12 +29,8 @@ class SongsController < ApplicationController
   patch '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     @song.update(params[:song])
-    @artist = Artist.find_or_create_by(params[:artist])
-    @artist.songs << @song
-    SongGenre.where(song_id: @song.id).destroy_all
-    params[:genre_ids].each do |genre_id|
-      SongGenre.find_or_create_by({genre_id: genre_id, song_id: @song.id})
-    end
+    Artist.find_or_create_by(params[:artist]).songs << @song
+    @song.genres = params[:genres]
     erb :'/songs/show', locals: {message: "Song successfully updated."}
   end
 end
