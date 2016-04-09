@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Song</title>
+</head>
+<body>
+  <label><h1>Individual Song</h1></label>
+
+<form action="/songs/show" method="get">
+  <p><h3>Name:</h3><%= @song.name %></p>
+  <p><h4>Artist: </h4></p>
+  <p><a href="/artists/<%=@artist.slug %>"><%= @artist.name%></a></p>
+ 
+
+
+
+
+
+
+ 
+<p><h4>SongGenres that include this song: </h4></p>
+  <% @sg_ary.each do |sg| %>
+  <% g = Genre.find(sg.genre_id) %> 
+  <p><a href="/genres/<%= g.slug %>"><%= g.name %></a></p>
+  <% end %>
+</form>
+
+</body>
+</html>

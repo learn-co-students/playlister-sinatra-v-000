@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Artist</title>
+</head>
+<body>
+  <label><h1>Individual artist</h1></label>
+
+<form action="/artists/show" method="get">
+  <p><h3>Name:</h3><%= @artist.name %></p>
+  <p><h4>Songs by this Artist: </h4></p>
+  <% @artist.songs.each do |as|%>
+  <p><a href="/songs/<%= as.slug %>"><%= as.name%></a></p>
+  <% end %>
+
+  <p><h4>SongGenres that include this Artist: </h4></p>
+  <% @artist_genres.each do |ag| %>
+  <% g = Genre.find(ag.genre_id) %> 
+  <p><a href="/genres/<%= g.slug %>"><%= g.name %></a></p>
+  <% end %>
+
+</form>
+
+</body>
+</html>
