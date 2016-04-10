@@ -18,8 +18,7 @@ class GenresController < ApplicationController
       @songs.each do |s|
         @artists << Artist.find(s.id)
       end
-     erb :'/genres/show'
+    erb :'/genres/show'
   end
- 
 
 end

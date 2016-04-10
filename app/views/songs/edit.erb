@@ -1,1 +1,36 @@
-edit.erb
+<h1>Update Song</h1>
+
+<form action = "/songs/<%=@song.slug%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Name:</label>
+    <br></br>
+  <input type="text" name="song[name]" id="song_name" value="<%=@song.name%>">
+    <br></br>
+
+
+<p>Choose an existing genre:</p>
+  <br></br>
+    <%Genre.all.each do |genre|%>
+      <input type="checkbox" name="existing_genre_name[]" value="<%=genre.name%>" id="<%=genre.name%>" <%='checked' if @song.genres.include?(genre)%>><%=genre.name%></input>
+    <%end%>
+      <br></br>
+    and/or, create a new genre:
+      <br></br>
+    <label>Name:</label>
+      <input type="text" name="genre_name"></input>
+      <br></br>
+
+
+    <p>Choose an existing Artist:</p>
+      <br></br>
+    <%Artist.all.each do |artist|%>
+      <input type="checkbox" name="song[artist_id]" value="<%=artist.id%>" id="<%=artist.name%>" <%='checked' if @song.artist == artist%>><%=artist.name%></input>
+    <%end%>
+      <br></br>
+    and/or, create a new Artist:
+      <br></br>
+    <label>Artist Name:</label>
+      <input type="text" name="artist_name" id="Artist Name"></input>
+      <br></br>
+    <input type="submit" value="Save">
+</form>

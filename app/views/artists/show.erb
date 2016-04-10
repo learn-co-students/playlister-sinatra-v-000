@@ -4,7 +4,7 @@
   <title>Artist</title>
 </head>
 <body>
-  <label><h1>Individual artist</h1></label>
+  <label><h1>Individual Artist</h1></label>
 
 <form action="/artists/show" method="get">
   <p><h3>Name:</h3><%= @artist.name %></p>
@@ -13,7 +13,7 @@
   <p><a href="/songs/<%= as.slug %>"><%= as.name%></a></p>
   <% end %>
 
-  <p><h4>SongGenres that include this Artist: </h4></p>
+  <p><h4>Genres that include this Artist: </h4></p>
   <% @artist_genres.each do |ag| %>
   <% g = Genre.find(ag.genre_id) %> 
   <p><a href="/genres/<%= g.slug %>"><%= g.name %></a></p>
