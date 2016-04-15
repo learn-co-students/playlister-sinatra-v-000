@@ -10,7 +10,7 @@ module Concerns
 
     module ClassMethods
       def find_by_slug(slug)
-        self.where('name = ? COLLATE NOCASE', slug.split('-').map(&:capitalize).join(" ")).take
+        self.where('name = ? COLLATE NOCASE', slug.split('-').join(" ")).take
         # self.find_by(name: slug.split('-').map(&:capitalize).join(" "))
       end
     end
