@@ -5,12 +5,20 @@ class SongsController < ApplicationController
     erb :'songs/index'
   end
 
+  get '/songs/new' do
+    erb :'songs/new'
+  end
+
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     erb :'songs/show'
   end
 
-  get 'songs/new' do
-    erb :'songs/new'
+  post '/songs' do
+    @song = Song.new(params[:song])
+    @song.artist = Artist.create(params[:artist]) if !params[:artist][:name].empty?
+    @song.genres << Genre.create(params[:genre]) if !params[:genre][:name].empty?
+    @song.save
+    redirect "/songs/new", locals: {message: "Successfully created song."}
   end
 end
