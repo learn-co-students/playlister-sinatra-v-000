@@ -22,12 +22,17 @@ class SongsController < ApplicationController
     redirect "/songs/new", locals: {message: "Successfully created song."}
   end
 
-  get '/songs/:id/edit' do
-    @song = Song.find(params[:id])
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
     erb :'songs/edit'
   end
 
-  patch '/songs/:id' do
-    
+  patch '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    @song.update(params[:song])
+    @song.artist = Artist.create(params[:artist]) if !params[:artist][:name].empty?
+    @song.genres << Genre.create(params[:genre]) if !params[:genre][:name].empty?
+    @song.save
+    redirect "/songs/#{@song.slug}", locals: {message: "Song successfully updated."}
   end
 end
