@@ -1,7 +1,3 @@
-<% unless locals.empty? %>
-  <p><strong><%= message %></strong></p>
-<% end %>
-  
 <h1>Add a new song</h1>
 
 <form method="POST" action="/songs">
@@ -14,7 +10,7 @@
   <p>
     <% Artist.all.each do |artist| %>
       <p>
-        <input type="checkbox" name="song[artists][]" value="<%= artist.id %>"><%= artist.name %></input>
+        <input type="checkbox" name="song[artist_id]" value="<%= artist.id %>"><%= artist.name %></input>
       </p>
     <% end %>
   </p>
@@ -32,7 +28,7 @@
   <p>
     <% Genre.all.each do |genre| %>
       <p>
-        <label><input type="checkbox" name="song[genres][]" value="<%= genre.id %>"><%= genre.name %></input></label>
+        <label><input type="checkbox" name="song[genre_ids][]" value="<%= genre.id %>"><%= genre.name %></input></label>
       </p>
     <% end %>
   </p>

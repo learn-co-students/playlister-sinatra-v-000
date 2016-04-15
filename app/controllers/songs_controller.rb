@@ -19,7 +19,7 @@ class SongsController < ApplicationController
     @song.artist = Artist.create(params[:artist]) if !params[:artist][:name].empty?
     @song.genres << Genre.create(params[:genre]) if !params[:genre][:name].empty?
     @song.save
-    redirect "/songs/new", locals: {message: "Successfully created song."}
+    erb :"songs", locals: {message: "Successfully created song."}
   end
 
   get '/songs/:slug/edit' do
@@ -33,6 +33,6 @@ class SongsController < ApplicationController
     @song.artist = Artist.create(params[:artist]) if !params[:artist][:name].empty?
     @song.genres << Genre.create(params[:genre]) if !params[:genre][:name].empty?
     @song.save
-    redirect "/songs/#{@song.slug}", locals: {message: "Song successfully updated."}
+    erb :"songs/show", locals: {message: "Song successfully updated."}
   end
 end

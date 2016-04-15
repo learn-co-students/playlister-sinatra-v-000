@@ -1,7 +1,3 @@
-<% unless locals.empty? %>
-  <p><strong><%= message %></strong></p>
-<% end %>
-
 <h1>Update song</h1>
 
 <form method="POST" action="/songs/<%= @song.slug %>">
@@ -33,7 +29,7 @@
   <p>
     <% Genre.all.each do |genre| %>
       <p>
-        <label><input type="checkbox" name="song[genres][]" value="<%= genre.id %>" <%= "checked" if @song.genres.include? genre %>><%= genre.name %></input></label>
+        <label><input type="checkbox" name="song[genre_ids][]" value="<%= genre.id %>" <%= "checked" if @song.genres.include? genre %>><%= genre.name %></input></label>
       </p>
     <% end %>
   </p>
