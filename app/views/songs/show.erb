@@ -2,5 +2,5 @@
 <h3>Song Data</h3>
 <ul>
   <li>Artist: <%= @song.artist.name %></li>
-  <li>Genres: <%= @song.genres.join(", ") %></li>
+  <li>Genres: <%= @song.genres.map {|genre| genre.name}.join(', ') %></li>
 </ul>
