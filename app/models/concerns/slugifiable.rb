@@ -3,5 +3,15 @@ module Concerns
     def slug
       self.name.split(' ').join('-').downcase
     end
+
+    def self.included(base)
+      base.extend ClassMethods
+    end
+
+    module ClassMethods
+      def find_by_slug(slug)
+        self.find_by(name: slug.split('-').map(&:capitalize).join(" "))
+      end
+    end
   end
 end
