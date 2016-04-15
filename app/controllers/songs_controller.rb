@@ -21,4 +21,13 @@ class SongsController < ApplicationController
     @song.save
     redirect "/songs/new", locals: {message: "Successfully created song."}
   end
+
+  get '/songs/:id/edit' do
+    @song = Song.find(params[:id])
+    erb :'songs/edit'
+  end
+
+  patch '/songs/:id' do
+    
+  end
 end
