@@ -1,0 +1,10 @@
+<% unless locals.empty? %>
+  <p><strong><%= message %></strong></p>
+<% end %>
+
+<h1><%= @song.name %></h1>
+<h3>Song Data</h3>
+<ul>
+  <li>Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></li>
+  <li>Genres: <%= @song.genres.map {|genre| "<a href='/genres/#{genre.slug}'>#{genre.name}</a>"}.join(', ') %></li>
+</ul>
