@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Edit Song</title>
+</head>
+<body>
+
+  <% unless locals.empty? %>
+  <%= message %>
+<% end %>
+
+<h1><%=@song.name%></h1>
+<h4><a href="../artists/<%=@artist.slug%>"><%=@artist.name%></a></h4>
+<h4><a href="../genres/<%=@genre.slug%>"><%=@genre.name%></a></h4>
+
+
+<form action="/songs/<%=@song.slug%>" method="POST">
+   <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Name:</label>
+  
+  <br></br>
+  
+  <input type="text" name="song[name]" value="Name" id="Name">
+  
+  <br></br>
+  <% @artists.each do |artist|%>
+    <input type="checkbox" name="song[artist_id][]" value="<%=artist.id%>" id="<%artist.name%>"><%=artist.name%></input><br>
+  <%end%>
+
+  <label>and/or, create a new owner:</label>
+  <br></br>
+  <label>name:</label>
+  <input  type="text" name="artist_name" value="Artist Name" id="Artist Name"></input>
+  <br></br>
+
+  <br></br>
+  <% @genres.each do |genre|%>
+    <input type="checkbox" name="song[genre_id][]"  value="<%=genre.id%>" id="<%=genre.name%>"><%=genre.name%></input><br>
+  <%end%>
+
+  <label>and/or, create a new owner:</label>
+  <br></br>
+  <label>name:</label>
+  <input  type="text" name="genre_name"></input>
+  <br></br>
+
+  <input type="submit" value="Save">
+</form>
+
+</body>
+</html>
