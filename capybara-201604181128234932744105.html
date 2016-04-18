@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+<title>Edit Song</title>
+</head>
+<body>
+
+
+
+<h1>That One with the Guitar</h1>
+<h4><a href="../artists/person-with-a-face">Person with a Face</a></h4>
+<h4><a href="../genres/hippity-hop">Hippity Hop</a></h4>
+
+
+<form action="/songs/that-one-with-the-guitar" method="POST">
+   <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Name:</label>
+  
+  <br></br>
+  
+  <input type="text" name="song[name]" value="That One with the Guitar" id="Name">
+  
+  <br></br>
+  
+    <input type="checkbox" name="song[artist_id][]" value="1" id="">Person with a Face</input><br>
+  
+
+  <label>and/or, create a new owner:</label>
+  <br></br>
+  <label>name:</label>
+  <input  type="text" name="artist_name"  id="Artist Name"></input>
+  <br></br>
+
+  <br></br>
+  
+    <input type="checkbox" name="song[genre_id][]"  value="1" id="Hippity Hop">Hippity Hop</input><br>
+  
+    <input type="checkbox" name="song[genre_id][]"  value="2" id="New Age Garbage">New Age Garbage</input><br>
+  
+
+  <label>and/or, create a new owner:</label>
+  <br></br>
+  <label>name:</label>
+  <input  type="text" name="genre_name"></input>
+  <br></br>
+
+  <input type="submit" value="Save">
+</form>
+
+</body>
+</html>
+
+  </body>
+</html>

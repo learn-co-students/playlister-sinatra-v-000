@@ -1,3 +1,8 @@
+
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,9 +10,7 @@
 </head>
 <body>
 
-  <% unless locals.empty? %>
-  <%= message %>
-<% end %>
+
 
 <h1><%=@song.name%></h1>
 <h4><a href="../artists/<%=@artist.slug%>"><%=@artist.name%></a></h4>
@@ -20,17 +23,17 @@
   
   <br></br>
   
-  <input type="text" name="song[name]" value="Name" id="Name">
+  <input type="text" name="song[name]" value="<%=@song.name%>" id="Name">
   
   <br></br>
   <% @artists.each do |artist|%>
-    <input type="checkbox" name="song[artist_id][]" value="<%=artist.id%>" id="<%artist.name%>"><%=artist.name%></input><br>
+    <input type="checkbox" name="song[artist_id][]" value="<%=artist.id%>" id="<%artist.name%>" <%='checked' if @song.artist == artist %>><%=artist.name%></input><br>
   <%end%>
 
   <label>and/or, create a new owner:</label>
   <br></br>
   <label>name:</label>
-  <input  type="text" name="artist_name" value="Artist Name" id="Artist Name"></input>
+  <input  type="text" name="artist_name"  id="Artist Name"></input>
   <br></br>
 
   <br></br>

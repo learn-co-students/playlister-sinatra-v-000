@@ -8,14 +8,14 @@
 <h1><%=@genre.name%></h1>
 <h3><%=@genre.name%>'s songs</h3>
 <ul><%@songs.each do |x|%>
-<li><a href="../songs/<%= x.slug%>"><%=x.name%></a></li>
+<li><a href="/songs/<%= x.slug%>"><%=x.name%></a></li>
 <%end%>
 
 </ul>
 
 <h3><%=@genre.name%>'s artists</h3>
 <ul><%@artists.each do |x|%>
-<li><a href="../artists/<%= x.slug%>"><%=x.name%></a></li>
+<li><a href="/artists/<%= x.slug%>"><%=x.name%></a></li>
 <%end%>
 
 </ul>

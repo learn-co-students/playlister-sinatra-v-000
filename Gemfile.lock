@@ -36,6 +36,8 @@ GEM
     eventmachine (1.2.0.1)
     i18n (0.7.0)
     json (1.8.3)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     method_source (0.8.2)
     mime-types (3.0)
       mime-types-data (~> 3.2015)
@@ -97,6 +99,7 @@ DEPENDENCIES
   activerecord
   capybara
   database_cleaner!
+  launchy
   pry
   rack-test
   rake

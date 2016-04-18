@@ -1,15 +1,16 @@
-<% unless locals.empty? %>
-  <%= message %>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
 
-
-<!DOCTYPE html>
+  <body>
+    <!DOCTYPE html>
 <html>
 <head>
 <title>New Song</title>
 </head>
 <body>
-
 
 <h1>Create a New Song</h1>
 
@@ -21,9 +22,7 @@
   <input type="text" id="Name"  name="song[name]" ></label>
   
   <br></br>
-  <% @artists.each do |artist|%>
-    <input type="checkbox" name="song[artist_id][]"  value="<%=artist.id%>" id="<%=artist.name%>" ><%=artist.name%></input><br>
-  <%end%>
+  
 
   <label>and/or, create a new owner:</label>
   <br></br>
@@ -32,9 +31,11 @@
   <br></br>
 
   <br></br>
-  <% @genres.each do |genre|%>
-    <input type="checkbox" name="song[genre_id][]" value="<%=genre.id%>" id="<%=genre.name%>"><%=genre.name%></input><br>
-  <%end%>
+  
+    <input type="checkbox" name="song[genre_id][]" value="1" id="Hippity Hop">Hippity Hop</input><br>
+  
+    <input type="checkbox" name="song[genre_id][]" value="2" id="New Age Garbage">New Age Garbage</input><br>
+  
 
   <label>and/or, create a new owner:</label>
   <br></br>
@@ -46,4 +47,7 @@
 </form>
 
 </body>
+</html>
+
+  </body>
 </html>
