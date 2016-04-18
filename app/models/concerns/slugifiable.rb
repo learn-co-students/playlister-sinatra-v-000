@@ -5,18 +5,12 @@ module Slugifiable
   end
 
   def slug
-    parts = self.name.split(" ")
-    parts.collect! {|part| part.downcase }
-    parts.join("-")
+    self.name.gsub(" ","-").downcase
   end
 
   module ClassMethods
     def find_by_slug(slug)
-      parts = slug.split("-")
-      parts.collect! {|part| part.capitalize }
-      name_of_object = parts.join(" ")
-      object = find_by(name: name_of_object)
-      object
+      self.all.find {|instance| instance.slug == slug}
     end
   end
 end
