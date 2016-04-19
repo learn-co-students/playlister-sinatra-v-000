@@ -6,4 +6,16 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index
   end
+  
+    post '/songs/new' do
+    @song = Song.create(:name => params["Name"])
+    @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
+    @song.genre_ids = params[:genres]
+    @song.save
+
+    erb :'songs/show', locals: {message: "Successfully created song."}
+  end
+
+
+
 end
