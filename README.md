@@ -137,17 +137,12 @@ For the last spec `05_song_form_spec.rb` you need to implement the following fea
 
 2.  `/songs/:slug/edit`
 
-<<<<<<< HEAD
 - Be able to change everything about a song, including the genres associated
   with it and its artist.
-=======
-Having a URL like `/songs/1` sort of sucks. Imagine trying to email that song to a friend. They would literally have no idea what the song would be until they click the link. You could be sending them literally anything. It would be much better to have a URL like `/songs/hot line bling`.
->>>>>>> changes
 
 Think about the custom writer or writers you may need to write to make these
 features work.
 
-<<<<<<< HEAD
 ## Fixing Migration Errors
 
 While creating your databases, if you make a mistake or want to edit your
@@ -174,9 +169,6 @@ a name that is not acceptable as a URL for various reasons (special characters,
 spaces, etc). This is great because instead of having a route like `/songs/1`,
 you can have a route `/songs/hotline-bling` which is a much more descriptive
 route name.
-=======
-You'll need to build a method `slug` which takes a given song/artist/genre name and create the "slugified" version".
->>>>>>> changes
 
 Each class you build will need to have a method to slugify each object's name.
 This means you'll need to strip out any special characters, and replace all
@@ -258,16 +250,4 @@ left off.
 
 - [Clean URL - Slugs](<http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug>)
 
-<<<<<<< HEAD
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/playlister-sinatra' title='Sinatra Playlister'>Sinatra Playlister</a> on Learn.co and start learning to code for free.</p>
-=======
-### Slugs
-
-You are going to need to create some slugs in this lab. A slug is used to create a name that is not acceptable as a URL for various reasons (special characters, spaces, etc). This is great because instead of having a route like `/songs/1`, you can have a route `/songs/hotline-bling` which is a much more descriptive route name.
-
-Each class you build will need to have a method to slugify each object's name. This means you'll need to strip out any special characters, and replace all spaces with `-`. 
-
-
-### Resources
-* [Clean ULR - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
->>>>>>> trying to fix textbox and slugs
