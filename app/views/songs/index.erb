@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Songs</title>
+</head>
+<body>
+
+  
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+
+<ul>Songs
+<%@songs.each do |x|%>
+<li><a href="/songs/<%=x.slug%>"><%=x.name%></a></li>
+<%end%>
+</ul>
+</body>
+</html>

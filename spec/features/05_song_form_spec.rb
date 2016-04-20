@@ -18,7 +18,9 @@ describe "Song Forms" do
         fill_in "Name", with: song_name
         check "New Age Garbage"
         fill_in "Artist Name", with: artist_name
+
         click_on "Create"
+
 
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
@@ -43,7 +45,9 @@ describe "Song Forms" do
         fill_in "Name", with: song_name
         check "Hippity Hop"
         fill_in "Artist Name", with: artist_name
+        
         click_on "Create"
+        
 
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
@@ -90,11 +94,13 @@ describe "Song Forms" do
       end
 
       it "updates the song's genres" do
+
         uncheck "New Age Garbage"
         check "Hippity Hop"
         click_on "Save"
-
+        save_and_open_page
         expect(page).to have_content("Song successfully updated.")
+      
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
         expect(page).to have_content("Hippity Hop")

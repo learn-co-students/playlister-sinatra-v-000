@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Artist</title>
+</head>
+<body>
+
+<h1><%=@artist.name%></h1>
+<h3><%=@artist.name%>'s songs</h3>
+<ul><%@songs.each do |x|%>
+<li><a href="/songs/<%= x.slug%>"><%=x.name%></a></li>
+<%end%>
+</ul>
+
+
+
+<h3><%=@artist.name%>'s genres</h3>
+<ul><%@genres.each do |x|%>
+<li><a href="/genres/<%= x.slug%>"><%=x.name%></a></li>
+<%end%>
+</ul>
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Genres</title>
+</head>
+<body>
+
+<ul>Genres
+<%@genres.each do |x|%>
+<li><a href="/genres/<%=x.slug%>"><%=x.name%></a></li>
+<%end%>
+</ul>
+</body>
+</html>
