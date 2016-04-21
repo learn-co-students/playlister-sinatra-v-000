@@ -1,1 +1,5 @@
-index.erb
+Welcome, here are your genres
+
+<% @genres.each do |genre| %>
+  <a href="/genres/<%=genre.slug%>"> <%= genre.name %> </a>
+<% end %>

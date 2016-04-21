@@ -1,1 +1,9 @@
-index.erb
+<%if @redirect%>
+<h2>Song successfully updated.</h2>
+<%end%>
+
+Welcome, here are your songs
+
+<% @songs.each do |song| %>
+  <a href="/songs/<%=song.slug%>"> <%= song.name %> </a>
+<% end %>

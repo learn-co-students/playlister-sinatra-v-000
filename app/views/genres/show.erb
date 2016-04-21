@@ -1,1 +1,4 @@
-show.erb
+<h1>Genre Details</h1>
+<p>Name: <%=@genre.name%></p>
+<p><a href="/songs/<%= @genre_songs.slug%>">Songs: <%=@genre_songs.name%></a></p>
+<p><a href="/artists/<%= @genre_artists.slug%>">Artists: <%=@genre_artists.name%></a></p>
