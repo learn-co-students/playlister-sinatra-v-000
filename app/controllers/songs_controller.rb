@@ -15,10 +15,9 @@ class SongsController < ApplicationController
 	end
 	
 	post '/songs' do
-    #binding.pry
 		@song = Song.create(name: params[:song][:name])
     @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
-    @song.genres = params[:genres]
+    @song.genre_ids = params[:genres]
     @song.save
 		erb :'/songs/show', locals: {message: "Successfully created song."}
 	end
@@ -30,11 +29,8 @@ class SongsController < ApplicationController
 
   patch '/songs/:slug' do
     @song= Song.find_by_slug(params[:slug])
-    #binding.pry
     @song.update(params[:song])
-    if !(params[:artist][:name]).empty?
-      @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
-    end
+    @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
     @song.save
     erb :'/songs/show', locals: {message: "Song successfully updated."}
   end
