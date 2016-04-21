@@ -4,7 +4,7 @@ class SongsController < ApplicationController
     #session[:referrer] = request.referrer
     #@redirect = session[:referrer]
     @songs = Song.all
-    binding.pry
+    #binding.pry
     erb :'/songs/index'
   end
 
@@ -17,22 +17,13 @@ class SongsController < ApplicationController
 
   post '/songs' do
     #binding.pry
-    # more testing with redirect in order 
-    # to have index show when artist is successfully updated
-    
     session[:referrer] = request.referrer
 
     @redirect = session[:referrer]
     binding.pry
+    @artist = Artist.all.find_or_create_by(name: params["Artist Name"])
 
-    #artist_id = Song.all.
-    #@song = Song.update(params) <<-- this will not work 
-    #because Song.update will not update artist name
-    
-    #below is the code that should update my artist
-    #Artist.all.find_by_id(artist_id.to_i).update(name: t)
-    
-    erb :'/songs/index'
+    erb :'/songs/show'
   end
 
   get '/songs/:slug' do
@@ -55,7 +46,7 @@ class SongsController < ApplicationController
     session[:referrer] = request.referrer
     
     @song = Song.find_by_slug(params[:slug])
-    binding.pry
+    #binding.pry
     erb :'/songs/edit'
   end
 
