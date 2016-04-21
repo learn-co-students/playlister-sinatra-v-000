@@ -15,13 +15,12 @@ class SongsController < ApplicationController
    erb :'/songs/new'
   end
 
-  post '/songs' do
-    #binding.pry
+  post '/songs/:slug' do
     session[:referrer] = request.referrer
-
-    @redirect = session[:referrer]
     binding.pry
+    @redirect = session[:referrer]
     @artist = Artist.all.find_or_create_by(name: params["Artist Name"])
+    @song = Song.all.find_or_create_by(artist_id: @artist.id)
 
     erb :'/songs/show'
   end
@@ -31,11 +30,12 @@ class SongsController < ApplicationController
     #code below is for testing in order to 
     #have my index page know when a song was successfully updated
     session[:referrer] = request.referrer
+    #binding.pry
 
     @song = Song.find_by_slug(params[:slug])
     @song_artist = Artist.all.find_by(:id => @song.artist_id)
     genre_id = SongGenre.all.find_by(:song_id => @song.id).genre_id
-    @song_genre = Genre.all.find_by(:id => genre_id)
+    @song_genre = Genre.all.find_by(:id => @song.id)
 
     erb :'/songs/show'
   end
@@ -49,5 +49,16 @@ class SongsController < ApplicationController
     #binding.pry
     erb :'/songs/edit'
   end
+
+  #patch '/songs/:slug' do
+  #  binding.pry
+  #  session[:referrer] = request.referrer
+  #  
+  #  @redirect = session[:referrer]
+  #  @artist = Artist.all.find_or_create_by(name: params["Artist Name"])
+  #  @song = Song.all.find_or_create_by(artist_id: @artist.id)
+
+  #  erb :'/songs/show'
+  #end
 
 end
