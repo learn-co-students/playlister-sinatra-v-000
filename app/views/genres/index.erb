@@ -1,0 +1,11 @@
+<div class="genre-list">
+  <ul>
+    <% @genres.each do |g| %>
+    <a class="genre-link" href="/genres/<%=g.slug%>"> <!-- link to genres show page -->
+      <div class="genre-info">
+       <h2 class="genre_name"><%= g.name %></h2>
+      </div>
+    </a>
+    <%end%>
+  </ul>
+</div>

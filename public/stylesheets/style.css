@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.song-link {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: block;
+  overflow: auto;
+  border-bottom: 1px solid #c1c4ca
+}
+
+.song-info {
+  font-family: "helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: #141c22
+}
+
+@media (min-width: 899px) and (min-width: 600px){
+  .song-info {
+    width: 75%;
+  }
+}
+@media (min_width: 600px){
+  .song-info {
+    padding-right: 4%;
+    float: left;
+  }
+}
