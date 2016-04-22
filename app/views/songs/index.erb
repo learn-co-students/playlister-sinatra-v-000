@@ -1,0 +1,13 @@
+<h1>Check out all of these tunes!</h1>
+<div class="song-list">
+  <ul>
+    <% @songs.each do |song| %>
+    <a class="song-link" href="/songs/<%=song.slug%>"> <!-- link to songs show page -->
+      <div class="song-info">
+       <h2 class="song_name"><%= song.name %></h2>
+      </div>
+    </a>
+    <%end%>
+  </ul>
+</div>
+
