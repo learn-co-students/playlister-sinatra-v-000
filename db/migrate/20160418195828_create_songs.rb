@@ -3,6 +3,7 @@ class CreateSongs < ActiveRecord::Migration
     create_table :songs do |t|
       t.string :name
       t.string :artist_id
+      t.string  :artist
     end
   end
 end

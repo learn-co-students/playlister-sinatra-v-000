@@ -6,5 +6,5 @@
 <h1>Song Details: </h1>
 
 <p>Name: <%=@song.name%></p>
-<p><a href="/artists/<%= @song_artist.slug %>"> Artist: <%=@song_artist.name%></a></p>
+<p><a href="/artists/<%= @song.artist.slug %>"> Artist: <%=@song.artist.name%></a></p>
 <p><a href="/genres/<%= @song_genre.slug %>"> Genres: <%=@song_genre.name%></a></p>
