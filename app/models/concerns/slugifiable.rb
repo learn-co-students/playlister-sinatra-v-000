@@ -1,8 +1,7 @@
 module Slugifiable
 
   def find_by_slug(arg)
-    test = arg.split('-').map(&:capitalize).join(' ')
-    self.all.detect {|object| object.name.downcase == test.downcase}
+    self.all.detect {|object| object.slug == arg}
   end
 
   def slug
