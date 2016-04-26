@@ -13,9 +13,19 @@ class SongsController < ApplicationController
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    @song_genre = Genre.find_by(:id => @song.id)
-
+    
     erb :'/songs/show'
+  end
+
+  post '/songs' do
+    @song = Song.find_or_create_by(name: params["Name"])
+    @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
+    @song.genre_ids = params[:genres]
+    #binding.pry
+    @song.update(params[:song])
+    @song.save
+
+    erb :'/show', :locals => {:name => "Successfully created song."}
   end
 
   get '/songs/:slug/edit' do
@@ -24,22 +34,12 @@ class SongsController < ApplicationController
     erb :'/songs/edit'
   end
 
-  post '/songs' do
-    #binding.pry
-    @song = Song.find_or_create_by(name: params["Name"])
-    @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
-    #@song.genre_id = params[:genres]
-    @song.genre_id = params[:song][:genre_id]
-    @song.update(params[:song])
-
-    erb :"/songs"
-  end
-
   patch '/songs/:slug' do
-    @song = Song.find_or_create_by(artist_id: @artist.id)
+    @song = Song.find_by_slug(params[:slug])
     @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
-    #may have to assign genre ids to song from params song genre id
+    @song.genre_ids = params[:genres]
     @song.update(params[:song])
+    @song.save
 
     erb :'songs/show', locals: {message: "Song successfully updated."}
   end
