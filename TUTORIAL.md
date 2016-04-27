@@ -1,6 +1,6 @@
 # Guide to Solving and Reviewing Playlister Sinatra
 
-For this lab it is important that you run your spec files one by one or in numeric order. We are going to start with are model spec first. 
+For this lab it is important that you run your spec files one by one or in numeric order. We are going to start with are model spec first.
 
 
 ## `spec/models/01_artist_spec.rb`
@@ -71,9 +71,9 @@ class CreateSongs < ActiveRecord::Migration
 end
 ```
 
-After migrating our table we are getting a new error message `unknown attribute 'artist' for Song`. This means we created our song and artist models but did not associate them. 
+After migrating our table we are getting a new error message `unknown attribute 'artist' for Song`. This means we created our song and artist models but did not associate them.
 
-Lets thing about this for a minute. An artist can `has_many` songs and a song `belongs_to` an artist. Whenever we have a `belong_to` in our model we also have to add a foreign key to to that table. 
+Lets thing about this for a minute. An artist can `has_many` songs and a song `belongs_to` an artist. Whenever we have a `belong_to` in our model we also have to add a foreign key to to that table.
 
 For us that means we need to add `artist_id` column to our songs table. To do this we need to alter our `songs` table. But we cannot just go to our existing migration and add a column. We need to write a new migration which adds the the new field by typing `rake db:create_migration NAME=add_artist_to_songs` this again will just give us a outline of our migration. To add `artists_id` to your table, your migration file should look like this.
 
@@ -100,9 +100,9 @@ class CreateGenres < ActiveRecord::Migration
     end
   end
 end
-``` 
+```
 
-After running rspec again we are getting `uninitialized constant SongGenre`. This is because a Song can have multiple Genres. To persist this we need to create a joined table and model `song_genre.rb`. 
+After running rspec again we are getting `uninitialized constant SongGenre`. This is because a Song can have multiple Genres. To persist this we need to create a joined table and model `song_genre.rb`.
 
 ```ruby
 class SongGenre < ActiveRecord::Base
@@ -133,12 +133,12 @@ Failures:
   1) Artist can have many genres
      Failure/Error: expect(artist.genres.count).to eq(2)
      NoMethodError:
-       undefined method `genres' for #<Artist id: 1, name: "Taylor Swift"> 
+       undefined method `genres' for #<Artist id: 1, name: "Taylor Swift">
 ```
 
-We need more associates here to pass this test. How are our models connected? 
+We need more associates here to pass this test. How are our models connected?
 
-* An artists `has_many :songs` and `has_many :genres, :through => :songs`. 
+* An artists `has_many :songs` and `has_many :genres, :through => :songs`.
 * A song `belongs_to :artist`, `has_many :song_genres` and `has_many :genres, :through => :song_genres`.
 * A genre `has_many :song_genres`, `has_many :songs, :through => :song_genres` and `has_many :artists, :through => :songs`.
 * A song_genre `belongs_to :genre` and `belongs_to :song`.
@@ -166,7 +166,7 @@ def slug
 end
 ```
 
-Our last spec for our Actors model is 
+Our last spec for our Actors model is
 
 ```bash
 Artist
@@ -246,7 +246,7 @@ class Genre < ActiveRecord::Base
 end
 ```
 
-All our model specs are passing now. 
+All our model specs are passing now.
 
 ## `rspec spec/features/04_basic_view_spec.rb`
 
@@ -266,7 +266,7 @@ Failures:
 
   1) Playlister Basics index pages /songs responds with a 200 status code
      Failure/Error: expect(page.status_code).to eq(200)
-       
+
        expected: 200
             got: 404
 ```
@@ -280,7 +280,7 @@ class SongsController < ApplicationController
     @songs = Song.all
     erb :'/songs/index'
   end
-  
+
 end
 ```
 
@@ -294,7 +294,7 @@ use SongsController
 run ApplicationController
 ```
 
-Now our first test should be passing. 
+Now our first test should be passing.
 
 ```bash
 Playlister Basics
@@ -310,7 +310,7 @@ Failures:
        expected #has_content?("That One with the Guitar") to return true, got false
 ```
 
-Before we add any code to our `index.erb` we should seed our production database. We already have a file `LibraryParser.rb` in our `lib` folder that does all the work for us. Which is turning all the files in our `db/data` in to objects that we can use to seed our database. 
+Before we add any code to our `index.erb` we should seed our production database. We already have a file `LibraryParser.rb` in our `lib` folder that does all the work for us. Which is turning all the files in our `db/data` in to objects that we can use to seed our database.
 
 Add this code to your `db/seeds.rb` file
 
@@ -322,7 +322,7 @@ and run `rake db:seed`.
 Now we can build out our `index.erb`.
 
 ```html
-<% @songs.each do |song| %> 
+<% @songs.each do |song| %>
   <li> <a href="/songs/<%= song.slug %>"> <%= song.name %> </a></li>
 <% end %>
 ```
@@ -335,7 +335,7 @@ Add a `artists_controller.rb` to our `app/controllers` and also add the route to
 
 ```ruby
 class ArtistsController < ApplicationController
-  
+
   get '/artists' do
     @artists = Artist.all
     erb:'artists/index'
@@ -357,8 +357,8 @@ run ApplicationController
 Build out the `artists/index.erb`.
 
 ```html
-<% @artists.each do |artist| %> 
-  <li> <a href="/artists/<%= artist.slug %>"> <%= artist.name %> </a></li> 
+<% @artists.each do |artist| %>
+  <li> <a href="/artists/<%= artist.slug %>"> <%= artist.name %> </a></li>
 <% end %>
 ```
 
@@ -484,7 +484,7 @@ class SongsController < ApplicationController
   get '/songs/new' do
     erb :'/songs/new'
   end
-  
+
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     erb :'songs/show'
@@ -493,7 +493,7 @@ class SongsController < ApplicationController
 end
 ```
 
-It is important that the `/songs/new` route is before `/songs/:slug`, else you will get an error. 
+It is important that the `/songs/new` route is before `/songs/:slug`, else you will get an error.
 
 
 ```bash
@@ -509,7 +509,7 @@ Failures:
        expected #has_content?("That One with the Guitar") to return true, got false
 ```
 
-To pass our newest error message we need to add our `new.erb` file to our `views/songs' folder 
+To pass our newest error message we need to add our `new.erb` file to our `views/songs' folder
 
 ```html
 <h1>Add a New Song</h1>
@@ -630,9 +630,9 @@ and also
 get '/songs/:slug/edit' do
   @song = Song.find_by_slug(params[:slug])
 
-  erb :'songs/edit' 
+  erb :'songs/edit'
 end
-  
+
 patch '/songs/:slug' do
   @song = Song.find_by_slug(params[:slug])
 
