@@ -124,10 +124,12 @@ In order to create a check box of all the genres on a new song form, you'll need
 The value attribute should be set to the genre id.
 
 The name attribute should be set to set to `genres[]` because we're dealing with a collection of attributes. This will make the params hash look like this:
+
 ```ruby
 params = {
   genres => [ genre1, genre2, genre2]
 }
+```
 
 ```html
 <% Genre.all.each do |genre| %>
@@ -137,31 +139,45 @@ params = {
 
 ## Flash Message
 
-You can add a flash message for when a new instance is created. Let's take a new song creation. The controller action that handles the POST request will look something like this:
+You can add a flash message for when a new instance is created. Let's take a new song creation as an example.
+
+First, add `gem 'rack-flash3'` to the Gemfile; run `bundle` to install it.
+
+You can see in Rack Flash's [Sinatra](https://github.com/treeder/rack-flash#sinatra)
+section the basics for getting flash messages working with Sinatra.
+
+(Note: You'll need to `enable :sessions` for your application and `use Rack::Flash`
+in the appropriate controller.)
+
+You'll want to add a flash message to the `post '/songs'` and
+`patch '/songs/:slug'` actions. `post '/songs'` might look something like:
 
 ```ruby
 post '/songs' do
-  #code to create a new song and save to DB
-  erb :'songs/show', locals: {message: "Successfully created song."}
+  # ...
+  # ^ code for creating and saving a new song
+  flash[:message] = "Successfully created song."
+  redirect to("/songs/#{@song.slug}")
 end
 ```
 
-The `locals: {message: "Successfully created song."}` will create the message `"Successfully created song."`. To display that on the view, You will need to include this at the top:
+To display this message in the view, just add
 
 ```html
-views/songs/new.erb
-<% unless locals.empty? %>
-  <%= message %>
+<!-- views/songs/show.erb -->
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
 <% end %>
 ```
+
+to the top of the view.
 
 ## A Note on the Database
 
 Remember too that you can drop and recreate your database as much as you need
 to. If you hit a jam, just reset the db, run migrations, and pick up where you
 left off.
-
-This checks to see if the variable `locals` is empty. If it isn't, then it displays message, which we set in the controller to store `"Successfully created song."`
 
 ### Resources
 * [Clean URL - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
