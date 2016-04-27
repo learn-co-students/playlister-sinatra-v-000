@@ -29,10 +29,10 @@ class SongsController < ApplicationController
     @song = Song.find_by_slug(params[:slug])
     @song.update(params[:song])
     if !(params[:artist][:name]).empty?
-      @song.artist = Artist.find_or_crate_by(name: params[:artist][:name])
+      @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
     end
     @song.save
-    erb :'songs/show', locals: {message: "Successfully created song."}
+    erb :'songs/show', locals: {message: "Song successfully updated."}
   end
 
 end
