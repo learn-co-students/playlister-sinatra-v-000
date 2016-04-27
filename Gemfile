@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'string_helpers'
 
 group :test do
   gem 'rspec'
