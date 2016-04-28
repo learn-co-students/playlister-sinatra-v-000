@@ -1,0 +1,6 @@
+Your Songs:<br>
+<% Song.all.each do |song| %>
+
+<a href="/songs/<%= song.name%>"><%= song.name %></a>
+
+<% end %>
