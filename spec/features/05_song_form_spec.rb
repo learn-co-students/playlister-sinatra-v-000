@@ -55,7 +55,7 @@ describe "Song Forms" do
           check "Hippity Hop"
           fill_in "Artist Name", with: artist_name
           click_on "Create"
-        }.to change(Artist, :count).by(0)
+        }.not_to change(Artist, :count)
       end
 
       it "creates a new song and associates it with an existing artist" do
