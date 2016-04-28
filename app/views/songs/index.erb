@@ -1,0 +1,7 @@
+<h1>All Songs</h1>
+
+<form action="/songs/songs" method="POST"> 
+    <% @songs.each do |s|%>
+    <p><a href="/songs/<%= s.slug %>"><%= s.name %></a></p>
+    <% end %>
+</form>

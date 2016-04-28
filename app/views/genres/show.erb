@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Genre</title>
+</head>
+<body>
+  <label><h1>Individual Genre</h1></label>
+
+<form action="/genres/show" method="get">
+  <p><h3>Name:</h3><%= @genre.name %></p>
+  
+  <p><h4>Songs in this Genre: </h4></p>
+  <% @songs.each do |s| %>
+    <p><a href="/songs/<%=s.slug%>"><%= s.name %></a></p>
+    <% end %>
+  
+  <p><h4>Artists in this Genre: </h4></p>
+  <% @artists.each do |a| %>
+    <p><a href="/artists/<%=a.slug%>"><%= a.name %></a></p>
+  <% end %>
+
+</form>
+
+</body>
+</html>
