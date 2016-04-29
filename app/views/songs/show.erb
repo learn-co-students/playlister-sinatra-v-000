@@ -1,0 +1,10 @@
+<%= message if locals[:message] %>
+
+<h3><%= @song.name %></h3>
+<p><strong>Artist:</strong>
+  <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></p>
+
+<p><strong>Genres:</strong>
+  <% @song.genres.each do |genre| %>
+    <a href="/genres/<%= genre.slug %>"><%= genre.name %></a>,
+  <% end %></p>
