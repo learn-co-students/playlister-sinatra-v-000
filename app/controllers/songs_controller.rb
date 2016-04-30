@@ -1,5 +1,6 @@
 class SongsController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
+  enable :sessions
   set :session_secret, "my_application_secret"
   set :views, Proc.new { File.join(root, "../views/") }
 
@@ -34,12 +35,13 @@ class SongsController < Sinatra::Base
   patch '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     session[:message] = "Song successfully updated."
-    unless !!params["Artist Name"]
+    #  binding.pry
+    if params["Artist Name"].present?
       @song.update(artist_id: Artist.find_or_create_by(name: params["Artist Name"]).id)
     end
     @song.update(genre_ids: params[:Genre])
+    #  binding.pry
     @song.save
-  #  binding.pry
     redirect "/songs/#{@song.slug}"
   end
 
