@@ -7,8 +7,8 @@ class GenresController < Sinatra::Base
     erb :'/genres/index'
   end
 
-
-    get '/genres/:slug' do
-      erb :'/genres/show'
-    end
+  get '/genres/:slug' do
+    @genre = Genre.find_by_slug(params[:slug])
+    erb :'/genres/show'
+  end
 end

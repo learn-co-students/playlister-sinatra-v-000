@@ -1,6 +1,8 @@
 Your Genres:<br>
-<% Genre.all.each do |genre| %>
+<% Genre.all.uniq.each do |genre| %>
+<ul>
+  <li><a href="/genres/<%= genre.slug%>"> <%= genre.name %> </a></li>
+</ul>
 
-<a href="/genre/<%= genre.slug%>"><%= genre.name %></a>
 
 <% end %>

@@ -1,0 +1,7 @@
+<%= @song.name %>
+<br><br>
+<% unless session.empty? %>
+<%= session[:message] %>
+<% end %>
+<a href="/artists/<%= @song.artist.slug %>"><li><%= @song.artist.name %></li></a><br>
+<a href="/genres/<%= @song.genres[0].slug %>"><li><%= @song.genres[0].name %></li></a><br>

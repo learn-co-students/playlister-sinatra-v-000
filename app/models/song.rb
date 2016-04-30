@@ -6,3 +6,13 @@ include SlugName
   has_many   :genres, through: :song_genres
 
 end
+
+
+
+
+#Artist-------------------------------
+#   |
+#   |                                |
+#   |
+#  Song - - - - - Song_Genres - - - Genres
+                                    
