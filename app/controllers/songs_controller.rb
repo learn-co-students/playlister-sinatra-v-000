@@ -1,6 +1,8 @@
+require 'pry'
 class SongsController < ApplicationController
 
   get '/songs' do
+    #binding.pry
     @songs = Song.all
     erb :"/songs/index"
   end
@@ -36,7 +38,7 @@ class SongsController < ApplicationController
       @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
     end
     @song.save
-    erb :'songs/show', locals: {message: "Song successfully updated."}
+    erb :'songs/show', locals: {message: "Successfully updated song."}
   end
 
 end
