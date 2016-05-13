@@ -6,5 +6,10 @@
   </head>
   <body>
     <h2>Genre index</h2>
+    <ul>
+      <% Genre.all.each do |genre| %>
+        <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></li>
+      <% end %>
+    </ul>
   </body>
 </html>
