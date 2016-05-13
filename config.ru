@@ -4,10 +4,10 @@ if ActiveRecord::Migrator.needs_migration?
   raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
 end
 
-use Sinatra::MethodOverride
+use Rack::MethodOverride
 
-use SongsController
 use ArtistsController
+use SongsController
 use GenresController
 
 run ApplicationController
