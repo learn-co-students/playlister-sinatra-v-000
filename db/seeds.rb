@@ -4,7 +4,7 @@
 # floaton = Song.create(name: "Float On", artist: modestmouse)
 # alternative = Genre.create(name: "Alternative")
 # floaton.genre_ids = alternative.id
-
+#
 # etherwood = Artist.create(name: "Etherwood")
 # lightmywayhome = Song.create(name: "Light My Way Home", artist: etherwood)
 # dnb = Genre.create(name: "Drum n Bass")
