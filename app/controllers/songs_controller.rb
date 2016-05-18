@@ -22,7 +22,7 @@ class SongsController < ApplicationController
 
     flash[:message] = "Successfully created song."
     redirect to("/songs/#{@song.slug}")
-    erb :'songs/show'
+
   end
 
   get '/songs/:slug' do

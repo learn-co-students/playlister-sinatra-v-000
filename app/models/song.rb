@@ -12,5 +12,4 @@ has_many :genres, :through => :song_genres
     Song.all.find{|name| name.slug == slug}
   end
 
-
 end
