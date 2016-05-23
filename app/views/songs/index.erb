@@ -1,0 +1,7 @@
+<h1>All Your Songs</h1>
+
+<ul>
+<% @songs.each do |song| %>
+  <li><%= song.name %> - <a href="/songs/<%= song.slug %>">Click Here</a> to view more details.</li>
+<% end %>
+</ul>
