@@ -38,3 +38,5 @@ class LibraryParser
     song.save
   end
 end
+
+#puts LibraryParser.new.class.parse
