@@ -9,9 +9,11 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'rack-flash3'
 
 group :test do
   gem 'rspec'
+  gem 'rack-flash3'
   gem 'capybara'
   gem 'rack-test'
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
