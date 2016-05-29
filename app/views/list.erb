@@ -1,0 +1,5 @@
+<h1><%= @list.class.to_s.split("::").first+"s" %></h1>
+
+<% @list.each do |item| %>
+<p><a href="/<%= @list.class.to_s.split("::").first.downcase+"s/"+item.slug %>"><%= item.name %></a></p>
+<% end %>

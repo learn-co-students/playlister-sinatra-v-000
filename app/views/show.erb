@@ -1,0 +1,31 @@
+Successfully created song.
+Successfully updated song.
+
+<p>NAME:</p>
+<p><%= @item.name %></p>
+
+<% if @item.respond_to?(:artist) %>
+<p>ARTIST:</p>
+<p><a href="/artists/<%= @item.artist.slug %>"><%= @item.artist.name %></a></p>
+<% end %>
+
+<% if @item.respond_to?(:genres) %>
+<p>GENRES:</p>
+    <% @item.genres.each do |x| %>
+    <p><a href="/genres/<%= x.slug %>"><%= x.name %></a></p>
+    <% end %>
+<% end %>
+
+<% if @item.respond_to?(:songs) %>
+<p>SONGS:</p>
+    <% @item.songs.each do |x| %>
+    <p><a href="/songs/<%= x.slug %>"><%= x.name %></a></p>
+    <% end %>
+<% end %>
+
+<% if @item.respond_to?(:artists) %>
+<p>ARTISTS:</p>
+    <% @item.artists.each do |x| %>
+    <p><a href="/artists/<%= x.slug %>"><%= x.name %></a></p>
+    <% end %>
+<% end %>
