@@ -7,8 +7,4 @@ class Song < ActiveRecord::Base
   has_many :song_genres
   has_many :genres, through: :song_genres
 
-  def self.find_by_slug(slug)
-    name = Slugs.unslug(slug)
-    self.find_by_name(name)
-  end
 end
