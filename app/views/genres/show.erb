@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
-</html>
+<h1>Genre Name: <%= @genre.name %></h1>
+<h2>Artists:</h2>
+<% @genre.artists.all.each do |artist| %>
+  <p><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></p>
+<% end %>
+<h2>Songs:</h2>
+<% @genre.songs.all.each do |song| %>
+  <p><a href="/songs/<%= song.slug %>"><%= song.name %></a></p>
+<% end %>

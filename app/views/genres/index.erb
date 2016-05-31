@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-  </head>
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+    <% Genre.all.each do |genre| %>
+  <h2>Genre Name: <%= genre.name %></h2>
+  <% genre.songs.all.each do |song| %>
+    <p>Song Name: <%= song.name %></p>
+  <% end %>
+  <% genre.artists.all.each do |artist| %>
+    <p>Artist: <%= artist.name %></p>
+  <% end %>
+  <a href='/genres/<%= genre.slug %>'>Show Genre</a>
+<% end %>

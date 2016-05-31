@@ -5,6 +5,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% Song.all.each do |song| %>
+      <h2>Song Name: <%= song.name %></h2>
+      <p>Artist Name: <%= song.artist.name %></p>
+      <% song.genres.each do |genre| %>
+        <p>Genre: <%= genre.name %></p>
+      <% end %>
+      <a href='/songs/<%= song.slug %>'>Show Song</a>
+    <% end %>
   </body>
 </html>

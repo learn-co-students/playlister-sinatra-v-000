@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
-</html>
+<h1>Create a new Song</h1>
+<form method="POST" action="/songs">
+  <p>Song Name: <input type="text" name="song[name]" id="Name"></p>
+  <br/>
+  <p>Select Artist to add</p>
+  <%Artist.all.each do |artist|%>
+    <input type="checkbox" name="song[artist_id]" id="<%=artist.id%>" value="<%=artist.id%>"><%=artist.name%></input>
+  <%end%>
+  <br/>
+  <p>Create a new Artist</p>
+  <p>Artist Name: <input type="text" name="artist[name]" id="Artist Name"></p>
+  <p>Select Genre to add</p>
+  <%Genre.all.each do |genre|%>
+    <input type="checkbox" name="song[genre_ids][]" id="<%=genre.name%>" value="<%=genre.id%>"><%=genre.name%></input>
+  <% end %>
+  <br/>
+  <p>Create a new Genre</p>
+  <p>Genre Name: <input type="text" name="genre[name]" id="genre_name"></p>
+  <input type="submit" value="Create">
+</form>
