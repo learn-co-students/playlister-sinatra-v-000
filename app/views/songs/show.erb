@@ -1,10 +1,10 @@
 <%unless locals.empty?%>
   <h4><%= message%></h4>
 <%end%>
-    <h1>Song Name: <%= @song.name %></h1>
-    <h2>Artist Name:</h2>
+    <h1>Song: <%= @song.name %></h1>
+    <h2>Artist:</h2>
     <p><a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></p>
-    <h2>Genres :</h2>
+    <h2>Genre:</h2>
     <% @song.genres.all.each do |genre| %>
       <p><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></p>
     <% end %>
