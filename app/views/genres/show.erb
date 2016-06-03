@@ -5,7 +5,3 @@
 <% @artists.each do |artist| %>
   <h3><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></h3>
 <% end %>
-<form action="/genres/<%= @genre.slug %>/delete" method="post">
-  <input type="hidden" name="_method" value="delete" id="hidden">
-  <input type="submit" value="delete">
-</form>
