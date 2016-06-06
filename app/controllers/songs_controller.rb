@@ -1,6 +1,7 @@
 class SongsController < ApplicationController
 
 get '/songs' do
+  @songs = Song.all
     erb :"/songs/index"
   end
 
@@ -14,7 +15,7 @@ get '/songs' do
     @song.genre_ids = params[:genre]
     @song.save
 
-    erb :'songs/:slug', locals: {message: "Successfully created song."}
+    erb :'songs/show', locals: {message: "Successfully created song."}
   end
 
   get '/songs/:slug' do
@@ -24,7 +25,6 @@ get '/songs' do
 
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
-
     erb :'songs/edit'
   end
 
