@@ -1,11 +1,13 @@
-class GenresController < Sinatra::Base 
+class GenresController < Sinatra::Base
+  set :views, Proc.new { File.join(root, "../views/genres") }
+
   get '/genres' do
-    erb :'/genres/index'
+    erb :index
   end
 
   get '/genres/:slug' do
     @genre = Genre.find_by_slug(params[:slug])
-    erb :'/genres/show'
+    erb :show
   end
 
 end
