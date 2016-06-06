@@ -9,48 +9,33 @@ get '/songs' do
   end
 
   post '/songs' do
-    @song = Song.create(params[:song])
-    if !params["artist"]["name"].empty?
-      @artist = Artist.find_or_create_by(name: params["artist"]["name"])
-      @song.artist = @artist
-      @artist.songs << @song
-      @artist.save
-    end
-    if !params["genre"]["name"].empty?
-      @genre = Genre.find_or_create_by(name: params["genre"]["name"])
-      @song.genres << @genre
-      @genre.songs << @song
-      @genre.save
-    end
+    artist = Artist.find_or_create_by(name: params["Artist Name"])
+    @song = Song.create(name: params["Name"], artist: artist)
+    @song.genre_ids = params[:genre]
     @song.save
-    erb :"/songs/show", locals:{message: "Successfully created song."}
-    #redirect to("/songs/#{@song.slug}")
+
+    erb :'songs/:slug', locals: {message: "Successfully created song."}
   end
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    erb :"/songs/show"
+    erb :'songs/show'
   end
 
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
-    erb :"/songs/edit"
+
+    erb :'songs/edit'
   end
 
-  patch '/songs/:slug' do
+  post '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    if !params[:song][:name].empty?
-      @song.update(params[:song])
-    end
-    if !params[:song][:artist].empty?
-      @song.artist = Artist.find_or_create_by(name: params[:song][:artist])
-    end
-    @genre = Genre.find_by_id(params[:song][:genre_ids])
-    if !@song.genres.include?(@genre)
-      @song.genre_ids = params[:song][:genre_ids]
-    end
+    artist = Artist.find_or_create_by(name: params["Artist Name"])
+    @song.update(name: params["Name"], artist: artist)
+    @song.genre_ids = params[:genre]
     @song.save
-    erb :'/songs/show', locals:{message: "Song successfully updated."}
+
+    erb :"songs/show", locals: {message: "Successfully updated song."}
   end
 
 end
