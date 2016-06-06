@@ -1,6 +1,6 @@
 module Slugify
   def slug
-    self.name.downcase.gsub(" ", "-")
+    self.name.gsub(" ", "-").downcase
   end
 end
 

@@ -1,4 +1,4 @@
-class GenresController < ApplicationController
+class GenresController < Sinatra::Base 
   get '/genres' do
     erb :'/genres/index'
   end
