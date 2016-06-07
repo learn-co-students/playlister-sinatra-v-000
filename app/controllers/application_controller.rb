@@ -6,4 +6,18 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index
   end
+
+  get '/songs' do
+    @songs = Song.all
+
+  end
+
+  get '/genres' do
+    @genres = Genre.all
+
+  end
+
+  get '/artists' do
+    @artists = Artist.all
+  end
 end
