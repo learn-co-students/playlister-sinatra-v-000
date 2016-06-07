@@ -1,4 +1,5 @@
 require "rack-flash"
+require "pry"
 
 class SongsController < Sinatra::Base
   enable :sessions
@@ -19,7 +20,7 @@ class SongsController < Sinatra::Base
     erb :show
   end
 
-  post "/songs" do
+  post '/songs' do
     @song = Song.create(params[:song])
     if !params[:artist][:name].empty?
       @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
@@ -32,15 +33,17 @@ class SongsController < Sinatra::Base
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
     erb :edit
+
+  # binding.pry
+
   end
 
-  post '/songs/:slug' do
+  patch '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     @song.update(artist: Artist.find_or_create_by(name: params[:artist][:name]))
     @song.save
-
     flash[:message] = "Successfully updated song."
-    redirect "/songs/#{@song.slug}"
+    redirect to "/songs/#{@song.slug}"
   end
 
 

@@ -4,5 +4,5 @@ class Artist < ActiveRecord::Base
 
   include Slugify
   extend SlugFindBy
-  
+
 end
