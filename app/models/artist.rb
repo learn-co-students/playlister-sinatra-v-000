@@ -1,7 +1,7 @@
 class Artist < ActiveRecord::Base
   has_many :songs
-  has_many :genres, :through => :song_genres
+  has_many :genres, :through => :songs
 
-  extend Slugifiable::InstanceMethods
-  include Slugifiable::ClassMethods
+  extend Slugifiable::ClassMethods
+  include Slugifiable::InstanceMethods
 end

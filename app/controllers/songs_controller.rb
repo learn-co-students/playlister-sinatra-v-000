@@ -1,7 +1,8 @@
 require 'rack-flash'
+require 'rack/flash/test'
 class SongsController < ApplicationController
   use Rack::Flash
-  
+
   get '/songs' do
     @songs = Song.all
     erb :'/songs/index'
