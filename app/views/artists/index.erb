@@ -1,0 +1,8 @@
+<h1>Here is your music library</h1>
+<h2>Which artist would you like to view?</h2>
+
+  <ul>
+  <% Artist.all.each do |artist| %>
+  <li><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></li>
+  <% end %>
+  </ul>
