@@ -20,3 +20,7 @@
  <% @song.genres.each do |genre| %>
    <li><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
  <%end%>
+
+ <form action="/songs/<%= @song.slug %>/edit">
+  <input type="submit" value="Edit">
+</form>
