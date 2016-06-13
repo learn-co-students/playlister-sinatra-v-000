@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
 
-get '/songs' do
-  @songs = Song.all
+  get '/songs' do
+    @songs = Song.all
     erb :"/songs/index"
   end
 
@@ -16,6 +16,7 @@ get '/songs' do
     @song.save
 
     erb :'songs/show', locals: {message: "Successfully created song."}
+  
   end
 
   get '/songs/:slug' do
