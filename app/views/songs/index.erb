@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Songs Index Page</title>
+</head>
+<body>
+  <h2>Song Index Page</h2>
+  <br></br>
+  <% @songs.each do |song| %>
+    <h2><a href="/songs/<%= song.slug %>"><%= song.name %></a></h2>
+    <h4><%= song.artist.name %></h4>
+    <br></br>
+  <% end %>
+</body>
+</html>

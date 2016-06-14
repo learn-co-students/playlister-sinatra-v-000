@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Song Show Page</title>
+</head>
+<body>
+  <h1><%= @song.name %></h1>
+
+  <h3>Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></h3>
+  <h3>Genre: <a href="/genres/<%= @song.genres[0].slug %>"><%= @song.genres[0].name %></h3>
+</body>
+</html>
