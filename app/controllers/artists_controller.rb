@@ -1,4 +1,4 @@
-class ArtistsController < Sinatra::Base
+class ArtistsController < ApplicationController
   set :views, Proc.new { File.join(root, "../views/artists/") }
 
   get '/artists' do
