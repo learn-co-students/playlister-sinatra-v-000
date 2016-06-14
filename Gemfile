@@ -11,6 +11,7 @@ gem 'pry'
 gem 'pry-nav'
 gem 'learn-co'
 gem 'tux'
+gem 'rack-flash3'
 gem 'require_all'
 
 group :test do
