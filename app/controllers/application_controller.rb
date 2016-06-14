@@ -3,15 +3,18 @@ class ApplicationController < Sinatra::Base
   set :session_secret, "my_application_secret"
   set :views, Proc.new { File.join(root, "../views/") }
 
+  enable :session
+
     get '/' do
       erb :index
     end
+end
 
-    =begin
-    all
-    this will
-    be commented
-    =end
+    # =begin
+    # all
+    # this will
+    # be commented
+    # =end
     # get /songs/:slug #Where does this block go?
     # # Any given song's show page should have links to that song's artist and the each genre associated with the song.
     #
@@ -30,5 +33,3 @@ class ApplicationController < Sinatra::Base
     #
     #   erb :'/genre/index'
     # end
-
-end

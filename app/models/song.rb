@@ -1,15 +1,9 @@
 class Song < ActiveRecord::Base
   belongs_to :artist
-  has_many :genres
-  @@songs = []
-  def initialize(params)
-    @name = name
-    @artist = artist
-    @genre = genre
-    @@songs << self
-  end
+  has_many :song_genres
+  has_many :genres, :through => :song_genres
 
-  def self.all
-    @@songs
-  end
+  extend Slugifiable::ClassMethods
+  include Slugifiable::InstanceMethods
+
 end
