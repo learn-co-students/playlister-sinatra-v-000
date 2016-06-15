@@ -10,6 +10,8 @@ class Artist < ActiveRecord::Base
     name.downcase.gsub(/[^A-Za-z0-9-]+/, '-')
   end
 
+ 
+
   def self.find_by_slug(slug)
     Artist.all.find{|artist| artist.slug == slug}
   end
