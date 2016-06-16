@@ -17,7 +17,7 @@ class SongsController < ApplicationController
   post '/songs' do
     @song = Song.create(:name => params[:song_name])
     @song.artist = Artist.find_or_create_by(:name => params[:artist_name])
-    @song.genre_id = params[:genres]
+    @song.genre_ids = params[:genres]
     @song.save
     redirect to "/songs/#{@song.slug}"
   end
@@ -33,7 +33,6 @@ class SongsController < ApplicationController
     @song.artist = Artist.find_or_create_by(:name => params[:artist][:name])
     @song.save
     redirect to("/songs/#{@song.slug}")
-
   end
 
 
