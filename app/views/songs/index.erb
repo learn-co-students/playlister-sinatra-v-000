@@ -1,0 +1,3 @@
+<% @songs.each do |song| %>
+	<li>Click <a href="/songs/<%= song.slug %>">Here</a> for more info.<%= song.name %>
+<% end %>
