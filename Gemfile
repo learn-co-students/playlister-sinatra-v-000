@@ -10,6 +10,7 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry'
 gem 'pry-rails'
+gem 'rack-flash3'
 
 group :test do
   gem 'rspec'
