@@ -1,0 +1,9 @@
+<h2><%=@artist.songs.map{|x| x.name}%></h2>
+<h2><%=@artist.songs.map{|x| x.genres[0].name}%></h2>
+<br>
+<a href="/songs/<%=@artist.songs[0].slug%>">
+<br>
+<a href="/genres/<%=@artist.songs[0].genres[0].slug%>">
+<br>
+
+

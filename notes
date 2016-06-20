@@ -1,0 +1,76 @@
+
+ 37) Song Class methods given the slug can find a song
+      Failure/Error: expect((Song.find_by_slug(slug)).name).to eq("Blank Space")
+      
+      NoMethodError:
+        undefined method `find_by_slug' for Song(id: integer, name: string, artist_id: integer):Class
+      # /Users/ericloos/.rvm/gems/ruby-2.2.3/gems/activerecord-4.2.6/lib/active_record/dynamic_matchers.rb:26:in `method_missing'
+      # ./spec/models/02_song_spec.rb:40:in `block (3 levels) in <top (required)>'
+
+
+
+
+
+
+
+
+Artist has many songs, has many genres
+Genre has many artists, has many songs
+Song belongs to an artist, Song belongs to many genres
+
+
+artist table - name
+genre table - name
+song table - name, artist 
+
+Songs - artist_id, name, genre_id
+Artists -name
+genre - names
+
+Artists:
+Name
+
+Songs:
+Name
+Artist
+
+Genre:
+Name
+
+
+Artist: initialize
+can have a name
+has many songs
+can have many genres
+can slugify its name
+
+Song: initialize
+can have a name
+can have many genres
+has an artist
+can slugify its name
+
+genre
+can initialize a genre
+has a name
+has many songs
+has many artists
+can slugify its name
+
+Artist
+has_many :songs
+has_many :genres, through: :songs
+
+Genre
+has_many :song_genres
+has_many :songs, through: :song_genres
+has_many :artists, through: songs
+
+song_genre
+belongs_to :genre
+belongs_to :song
+
+song
+belongs_to :artist
+has_many :song_genres
+has_many :genres, through: :song_genres

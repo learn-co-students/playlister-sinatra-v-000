@@ -1,0 +1,7 @@
+<h2><%=@artists.map do |x|
+"#{x.name}"
+end%></h2>
+<%@artists.map do |x|%>
+<a href=<%="/artists/#{x.slug}"%>>
+<%end%>
+
