@@ -32,17 +32,17 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/songs/:slug' do
-    @artist = Artist.find_by(name: params["Artist Name"])
-    @song = Song.create(name: params[:Name])
-    @genre = Genre.find_by_id(params[:genres][0])
-    @song.genres << @genre
-    if @artist
-      @artist.songs << @song
-    else
-      @artist = Artist.create(name: params["Artist Name"])
-      @artist.songs << @song
-    end
-    flash[:message] = "Successfully created song."
+      @artist = Artist.find_by(name: params["Artist Name"])
+      @song = Song.create(name: params[:Name])
+      @genre = Genre.find_by_id(params[:genres][0])
+      @song.genres << @genre
+        if @artist
+          @artist.songs << @song
+        else
+          @artist = Artist.create(name: params["Artist Name"])
+          @artist.songs << @song
+        end
+      flash[:message] = "Successfully created song."
     redirect "/songs/#{@song.slug}"
   end
 
@@ -54,23 +54,21 @@ class ApplicationController < Sinatra::Base
   end
 
   patch '/songs/:slug/edit' do
-    @artist_check = Artist.find_by(name: params["Artist Name"])
-      if @artist_check
-        @artist = Artist.find_by(name: params["Artist Name"])
-      else
-        @artist = Artist.create(name: params["Artist Name"])
-      end
-    @song_check = Song.find_by(name: params["Name"])
-      if @song_check
-        @song = Song.find_by(name: params["Name"])
-        @song.artist = @artist
-      else
-        @song = Song.create(name: params["Name"], artist_id: @artist.id)
-      end
-      @genre = Genre.find_by_id(params[:genres])
-      @song.genres << @genre
+      @artist_check = Artist.find_by(name: params["Artist Name"])
+        if @artist_check
+          @artist = Artist.find_by(name: params["Artist Name"])
+        else
+          @artist = Artist.create(name: params["Artist Name"])
+        end
+      
+        @song_check = Song.find_by(name: params["Name"])
+        if @song_check
+          @song = Song.find_by(name: params["Name"])
+          @song.artist = @artist
+        else
+          @song = Song.create(name: params["Name"], artist_id: @artist.id)
+        end
       @song.save
-      @artist.save
       flash[:message] = "Successfully updated song."
     redirect "/songs/#{@song.slug}"
   end
