@@ -1,7 +1,7 @@
 class Artist < ActiveRecord::Base
   has_many :songs
   has_many :genres, through: :songs
-  
+
 
   def slug
     #binding.pry
@@ -10,7 +10,6 @@ class Artist < ActiveRecord::Base
 
   def self.find_by_slug(slug)
     #binding.pry
-    i_slug = slug.split('-').collect{|i| i.capitalize}.join(" ")
-    self.find_by(name: i_slug)
+    Artist.all.find{|artist| artist.slug == slug}
   end
 end

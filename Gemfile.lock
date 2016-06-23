@@ -115,6 +115,3 @@ DEPENDENCIES
   sinatra-flash
   sqlite3
   thin
-
-BUNDLED WITH
-   1.12.5
