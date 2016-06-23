@@ -17,7 +17,8 @@ class SongsController < ApplicationController
       # trying to build out the join table relationship
       # @song.song_genres.build(genre: genre)
 
-      SongGenre.create(song_id: @song.id, genre_id: genre.id) #didn't seem to work
+      SongGenre.create(song_id: @song.id, genre_id: genre.id)
+      ### works, but there was a problem with a duplicate record (ignore for now?)
     end
 
     @song.save
@@ -33,6 +34,5 @@ class SongsController < ApplicationController
     @song = Song.find_by_slug(params[:slug])
     erb :'songs/show'
   end
-
 
 end
