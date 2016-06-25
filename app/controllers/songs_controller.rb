@@ -14,15 +14,21 @@ class SongsController < ApplicationController
     @song = Song.create(name: params[:song][:name])
     @song.artist = @artist
 
-    # iterate through genre ids and add these to the song_genres join table
-    params[:song][:genre_ids].each do |id|
-      genre = Genre.find(id)
-      # trying to build out the join table relationship
-      # @song.song_genres.build(genre: genre)
-
-      SongGenre.create(song_id: @song.id, genre_id: genre.id)
-      ### works, but there was a problem with a duplicate record (ignore for now?)
+    # update the song's genres
+    genres = []
+    if !params[:song][:genre_ids].empty?
+      params[:song][:genre_ids].each do |genre_id|
+        genres << Genre.find(genre_id)
+      end
     end
+
+    if !params[:genre][:name].empty?
+      genre = Genre.find_or_create_by(name: params[:genre][:name])
+      if !genres.include?(genre)
+        genres << genre
+      end
+    end
+    @song.genres = genres
 
     @song.save
 
