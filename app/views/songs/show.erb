@@ -1,0 +1,15 @@
+<% if @last %>
+  <h4>Successfully created song.</h4>
+<%end%>
+
+  <h4>Successfully updated song.</h4>
+
+
+
+<h3>Name: <%= @song.name %></h3>
+<a href="/artists/<%=@song.artist.slug%>"><h4>Artist: <%= @song.artist.name %></h4></a>
+<h4>Genres:</h4>
+
+<% @song.genres.each do |g| %>
+  <a href="/genres/<%= g.slug %>"><p><%= g.name %></p></a>
+<% end %>
