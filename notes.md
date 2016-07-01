@@ -1,6 +1,6 @@
 All controllers must be "used"/"run" in the config.ru file. There are two ways (that I know of) to manage this:
 
-# At very end of file...
+# At the very end of file...
 
 use Rack::MethodOverride
 
