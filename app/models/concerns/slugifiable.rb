@@ -3,7 +3,7 @@ module Slugifiable
 
     def slug
       name = self.name
-      name.strip.downcase.gsub(/[^a-zA-Z\d]/, "-").gsub(/\-{2,}/, "-")  
+      name.strip.gsub(/[^a-zA-Z\d]/, "-").gsub(/\-{2,}/, "-").downcase 
     end
 
   end
@@ -11,7 +11,7 @@ module Slugifiable
   module ClassMethods
 
     def find_by_slug(slug)
-      self.all.detect { |object| object.slug == slug }
+      self.all.detect { |instance| instance.slug == slug }
 
       ## SECOND ATTEMPT (using #slug method)
       # self.all.each do |object|
