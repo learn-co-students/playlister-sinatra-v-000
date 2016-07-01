@@ -6,8 +6,16 @@ module Slugifiable
 
   module ClassMethods
     def find_by_slug(slug)
-      slug = slug.gsub("-", " ").titleize
-      self.find_by(name: slug)
+      downcase_names = downcase_all
+      slug = slug.gsub("-", " ").downcase
+      id = downcase_names.index(slug) + 1
+      thing = self.find(id)
+    end
+
+    def downcase_all
+      self.all.collect do |thing|
+        thing.name.downcase
+      end
     end
   end
 

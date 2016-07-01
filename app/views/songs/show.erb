@@ -1,0 +1,7 @@
+<h1><%=@song.name%></h1>
+<h2>Artist: <%=@song.artist.name%></h2>
+<h3><a href="/artists/<%=@song.artist.slug%>">View Artist's Page</a></h3>
+<h3>Genre(s): <%@song.genres.collect do |genre|%>
+                  <a href="/genres/<%=genre.slug%>"><%=genre.name%></a>
+              <%end.join(", ")%>
+</h3>
