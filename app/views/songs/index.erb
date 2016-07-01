@@ -1,0 +1,13 @@
+<h3>Songs in Your Library:</h3>
+<ul>
+  <%@songs.each do |song|%>
+    <h5>Title: <%=song.name%></h5>
+    <%binding.pry%>
+    <li>Artist: <%=song.artist.name%></li>
+    <li>Genre(s):
+      <%=song.genres.collect do |genre|
+          genre.name
+        end.join(", ")%>
+  </li>
+  <%end%>
+</ul>
