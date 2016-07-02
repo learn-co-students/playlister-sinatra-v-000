@@ -19,15 +19,14 @@
     <br></br>
     <label>Choose an existing genre:</label>
     <br></br>
-    <%Genre.all.each do |genre|%>
-      <input type="checkbox" name="Genre Name" id="<%=genre.name%>" value="<%=genre.name%>"><%=genre.name%></input><br>
-    <%end%>
+    <%Genre.all.each do |genre| %>
+      <input id="<%=genre.name%>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+    <% end %>
 
     <br></br>
 
       <label>and/or, create a new genre:</label>
       <br></br>
-
-        <input  type="text" name="Genre Name" id="Genre Name"></input>
+        <input  type="text" name="genre_name" id="Genre Name"></input>
   <input type="submit" value="Create">
 </form>
