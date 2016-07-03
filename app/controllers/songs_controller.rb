@@ -1,9 +1,10 @@
 
-class SongController < ApplicationController
+class SongsController < ApplicationController
 
   get '/songs' do
     @songs = Song.all
-    erb :'/songs/index'
+    # render songs index page
+    erb :"songs/index"
   end
 
 end
