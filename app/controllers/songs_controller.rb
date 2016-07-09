@@ -15,7 +15,7 @@ class SongsController < ApplicationController
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-      raise @song.inspect
+#      raise @song.inspect
     erb :'/songs/show'
   end
 
