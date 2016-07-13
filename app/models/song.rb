@@ -4,7 +4,7 @@ class Song < ActiveRecord::Base
   has_many :song_genres
   has_many :genres, through: :song_genres
 
-  include Slugifiable::Slug 
+  include Slugifiable::SlugMethod 
   extend Slugifiable::FindBySlug
 
 end

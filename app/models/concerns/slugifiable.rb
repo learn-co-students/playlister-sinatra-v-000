@@ -1,6 +1,6 @@
 module Slugifiable
 
-  module Slug
+  module SlugMethod
     def slug
       self.name.gsub(" ", "-").downcase
     end
