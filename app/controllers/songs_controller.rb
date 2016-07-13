@@ -24,6 +24,8 @@ class SongsController < ApplicationController
     @artist = Artist.find_or_create_by(:name => params["Artist Name"])
     @song.genre_ids = params[:genres]
     # WHY IS GENRE_IDS BEING USED HERE?
+    # DOESN'T THIS HAVE TO BE DEFINED IN THE MIGRATION?
+    # WHY DOES SONG HAVE GENRE_IDS IF IT'S HAS MANY; HOW CAN IT BE HAS_MANY AND NOT BELONGS_TO
 
     @song.artist = @artist
     @song.save 
@@ -36,16 +38,14 @@ class SongsController < ApplicationController
     erb :'songs/edit'
   end 
 
-  patch '/songs/:slug' do
-    binding.pry
-    @song = Song.find_by_slug(params[:slug])
-  
-    @song.update(params[:song])
-    @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
-    @song.save
+  patch "/songs/:slug" do
 
+    @song = Song.find_by_slug(params[:slug])
+    @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
+    @song.save 
     flash[:message] = "Successfully updated song."
     redirect("/songs/#{@song.slug}")
+
   end 
    
 end 
