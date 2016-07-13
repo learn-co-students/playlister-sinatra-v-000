@@ -2,6 +2,7 @@ module Slugs #include
 
   module InstanceMethods #include
     def slug
+      #binding.pry
       self.name.gsub(/\s/,'-').downcase
       #self.name.split(" ").join("-")
     end

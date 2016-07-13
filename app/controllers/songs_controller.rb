@@ -1,6 +1,8 @@
 require 'rack-flash'
 
 class SongsController < ApplicationController
+  enable :sessions
+  use Rack::Flash
 
   get '/songs' do
     @all_songs = Song.all
@@ -15,7 +17,7 @@ class SongsController < ApplicationController
     @song = Song.find_by_slug(params[:slug])
     if @song != nil 
       @artist = @song.artist
-      @genre = @song.genre
+      @genres = @song.genres
       erb :'/songs/show'
     else
       erb :'/songs/new'
