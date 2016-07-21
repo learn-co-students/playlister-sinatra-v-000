@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body>
+    <h1>Welcome</h1>
+    <%@genres.each_with_index do |genre, index|%>
+      <h3><%=index%>. <%=genre.name%></h3>
+      <h4><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></h4>
+    <%end%>
+  </body>
+</html>
