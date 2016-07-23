@@ -1,11 +1,11 @@
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>Songs Index</title>
-</head>
-<body>
-  <% @songs.each do |song| %>
-    <h3>Song Name: <%= song.name %> | <a href="/songs/<%= song.slug %>">Link</a></h3>
-  <% end %>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Songs Index</title>
+  </head>
+  <body>
+    <% @songs.each do |song| %>
+      <h3>Song Name: <%= song.name %> | <a href="/songs/<%= song.slug %>">Link</a></h3>
+    <% end %>
+  </body>
 </html>
