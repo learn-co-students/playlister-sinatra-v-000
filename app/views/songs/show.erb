@@ -4,6 +4,10 @@
     <title>Show Song</title>
   </head>
   <body>
+    <% if flash.has?(:message) %>
+      <%= flash[:message] %>
+    <% end %>
+
     <h3>Song Artist: <%= @song.artist.name %></h3>
     <h3>Song Name: <%= @song.name %></h3>
     <h3>
