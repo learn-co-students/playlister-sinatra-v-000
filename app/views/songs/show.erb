@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Show Song</title>
+  </head>
+  <body>
+    <h3>Song Artist: <%= @song %></h3>
+    <h3>Song Name: <%= @song.name %></h3>
+    <h3>Song Link: <a href="/songs/<%= @song.slug %>">Link</h3>
+  </body>
+</html>
