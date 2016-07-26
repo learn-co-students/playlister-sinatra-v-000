@@ -1,9 +1,4 @@
-class SongsController < ApplicationController
+class SongGenre < ActiveRecord::Base
 
-  get '/songs' do
-    @songs = Song.all
-#    "Hello World"
-    erb :'/songs/index'
-  end
 
 end

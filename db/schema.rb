@@ -17,17 +17,17 @@ ActiveRecord::Schema.define(version: 20160726014752) do
     t.string "name"
   end
 
-  create_table "genre_songs", id: false, force: :cascade do |t|
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "genres_songs", id: false, force: :cascade do |t|
     t.integer "genre_id"
     t.integer "song_id"
   end
 
-  add_index "genre_songs", ["genre_id"], name: "index_genre_songs_on_genre_id"
-  add_index "genre_songs", ["song_id"], name: "index_genre_songs_on_song_id"
-
-  create_table "genres", force: :cascade do |t|
-    t.string "name"
-  end
+  add_index "genres_songs", ["genre_id"], name: "index_genres_songs_on_genre_id"
+  add_index "genres_songs", ["song_id"], name: "index_genres_songs_on_song_id"
 
   create_table "songs", force: :cascade do |t|
     t.string  "name"
