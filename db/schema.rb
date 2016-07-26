@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 20160726014752) do
 
   create_table "songs", force: :cascade do |t|
     t.string  "name"
-    t.integer "artst_id"
+    t.integer "artist_id"
   end
 
-  add_index "songs", ["artst_id"], name: "index_songs_on_artst_id"
+  add_index "songs", ["artist_id"], name: "index_songs_on_artist_id"
 
 end
