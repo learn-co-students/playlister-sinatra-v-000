@@ -2,7 +2,7 @@ class CreateSongs < ActiveRecord::Migration
   def change
     create_table :songs do |t|
       t.string :name
-      t.belongs_to :artst, index: true
+      t.belongs_to :artist, index: true
     end
   end
 end
