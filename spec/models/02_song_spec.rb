@@ -21,7 +21,7 @@ describe "Song" do
   end
 
   it "can have many genres" do
-    expect(GenresSong.count).to eq(1)
+    expect(GenreSong.count).to eq(1)
   end
 
   it "has an artist" do

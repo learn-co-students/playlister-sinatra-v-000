@@ -5,7 +5,8 @@ class Artist < ActiveRecord::Base
   include Slugifiable
 
   def self.find_by_slug(slug)
-    name = slug.split("-").map { |name| name.capitalize }.join(" ")
+    stop_words = %w{a an and the or for of nor with}
+    name = slug.split("-").each_with_index.map { |word, index| stop_words.include?(word) && index > 0 ? word : word.capitalize }.join(" ")
     self.find_by_name(name)
   end
 
