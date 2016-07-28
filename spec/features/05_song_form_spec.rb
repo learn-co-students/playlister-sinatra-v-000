@@ -99,7 +99,7 @@ describe "Song Forms" do
         click_on "Save"
 
         expect(page).to have_content("Successfully updated song.")
-        expect(page).to have_content(song_name)
+        expect(page).to have_content("That One with the Guitar")
         expect(page).to have_content("Some Nobody")
       end
 
