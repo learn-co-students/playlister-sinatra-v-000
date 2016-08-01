@@ -1,6 +1,6 @@
 GIT
-  remote: https://github.com/bmabey/database_cleaner.git
-  revision: f15d7610a801e40d1570b56e869e563cdcff198a
+  remote: http://github.com/bmabey/database_cleaner.git
+  revision: f052d64d3be9351a98a99e932a59be528ccc561c
   specs:
     database_cleaner (1.5.3)
 
@@ -109,4 +109,4 @@ DEPENDENCIES
   thin
 
 BUNDLED WITH
-   1.11.2
+   1.12.5
