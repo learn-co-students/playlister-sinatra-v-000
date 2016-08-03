@@ -1,0 +1,6 @@
+<h1>Song List:</h1>
+<% Song.all.each do |song| %>
+  <%= "#{song.id} - #{song.name}" %>
+  <a href=<%="/songs/#{song.slug}"%>>Click here:</a>
+  <br>
+<% end %>
