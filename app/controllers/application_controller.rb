@@ -19,9 +19,22 @@ class ApplicationController < Sinatra::Base
     erb :genres
   end
 
+  get '/songs/new' do
+    erb :setup_new
+  end
+
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    binding.pry
     erb :songs_slug
+  end
+
+  get '/artists/:slug' do
+    @artist = Artist.find_by_slug(params[:slug])
+    erb :artists_slug
+  end
+
+  get '/genres/:slug' do
+    @genre = Genre.find_by_slug(params[:slug])
+    erb :genres_slug
   end
 end
