@@ -15,6 +15,7 @@ class SongController < Sinatra::Base
     puts params
     @song = Song.create(name: params["Name"])
     @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
+    binding.pry
     params["genres"].each {|genre_id| @song.genre = Genre.find(genre_id)}
     @song.save
     redirect '/songs/#{@song.slug}'
