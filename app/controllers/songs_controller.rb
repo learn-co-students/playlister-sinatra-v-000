@@ -45,7 +45,7 @@ class SongController < Sinatra::Base
     @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
     @song.save
     flash[:message] = "Successfully updated song."
-    redirect "/songs/#{@song.slug}"
+    redirect to "/songs/#{@song.slug}"
   end
 
 end
