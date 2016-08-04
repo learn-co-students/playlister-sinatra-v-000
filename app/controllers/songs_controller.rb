@@ -37,7 +37,7 @@ class SongController < Sinatra::Base
     erb :'songs/edit'
   end
 
-  post '/songs/:slug' do
+  patch '/songs/:slug' do
     puts params
     @song = Song.find_by_slug(params["slug"])
     @song.name = params["Name"]
