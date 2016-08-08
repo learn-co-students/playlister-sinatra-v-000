@@ -2,6 +2,6 @@
 
 <ul class="songs">
   <% @songs.each do |song| %>
-    <a href="#"><%= song.name %></a>
+    <a href="/songs/<%= song.slug %>"><%= song.name %></a>
   <% end %>
 </ul>
