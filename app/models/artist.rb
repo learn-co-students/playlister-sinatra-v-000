@@ -1,6 +1,7 @@
 class Artist < ActiveRecord::Base
 
-  include Slugifiable
+  extend Slugifiable::ClassMethods
+  include Slugifiable::InstanceMethods
 
   # An Artist can have multiple songs and multiple genres
   has_many :songs

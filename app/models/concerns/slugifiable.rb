@@ -3,15 +3,17 @@ module Slugifiable
   module InstanceMethods
 
     def slug
-      self.name.gsub(" ", "-")
+      self.name.gsub(" ", "-").downcase
     end
 
   end
 
   module ClassMethods
 
-    def find_by_slug
-
+    def find_by_slug(slug)
+      self.all.find do |item|
+        item.slug == slug
+      end
     end
 
   end
