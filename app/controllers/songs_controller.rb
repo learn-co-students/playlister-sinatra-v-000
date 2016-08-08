@@ -6,6 +6,7 @@ class SongsController < ApplicationController
 
   post '/songs' do
     @song = Song.create(params[:song])
+    # raise params.inspect
     @song.artist = Artist.find_or_create_by(params[:artist])
     @song.save
     redirect "/songs/#{@song.slug}"

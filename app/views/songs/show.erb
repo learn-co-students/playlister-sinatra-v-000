@@ -3,3 +3,11 @@
 <!-- Any given song's show page should have links to that song's artist and the each genre associated with the song. -->
 
 <%= @song.name %>
+
+<a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a>
+
+<% @song.genres.each do |genre| %>
+<ul>
+  <a href="/genres/<%= genre.slug %>"><%= genre.name %></a>
+</ul>
+<% end %>
