@@ -1,1 +1,7 @@
 <h1>Artists Index</h1>
+
+<ul class="artists">
+  <% @artists.each do |artist| %>
+    <a href="#"><%= artist.name %></a>
+  <% end %>
+</ul>

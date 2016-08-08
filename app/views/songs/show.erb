@@ -1,1 +1,8 @@
 <h1>Songs Show</h1>
+
+<!-- Any given song's show page should have links to that song's artist and the each genre associated with the song. -->
+
+<%= @song.name %>
+
+<a href="#"><%= @song.artist.name %></a>
+<a href="#"><%= @song.genre.name %></a>
