@@ -29,18 +29,24 @@ class SongsController < ApplicationController
     erb :'songs/show'
   end
 
-  get '/songs/:slug/edit' do 
+  get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
     @artist = @song.artist
-    @genres = @song.genres
+    @genres = Genre.all
     erb :'songs/edit'
   end
 
-  patch '/songs/edit' do 
-    binding.pry
-    #update everything about the song based on all info from edit.erb
-    #will have many genres and belong to one artist
-    #go somewhere
+  post '/songs/:slug' do 
+    song = Song.find_by_slug(params[:slug])
+    song.artist = Artist.find_or_create_by(name: params[:song][:artist]) if !params[:song][:artist].empty?
+    if params[:song].include?(:genres)
+      params[:song][:genres].each do |genre_id|
+        song.genres << Genre.find(genre_id) if !song.genres.include?(Genre.find(genre_id))
+      end
+    end
+    song.save
+    flash[:message] = "Successfully updated song."
+    redirect "/songs/#{song.slug}"
   end
 
   
