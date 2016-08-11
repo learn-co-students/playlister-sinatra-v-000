@@ -1,0 +1,9 @@
+<!-- This should present the user with a list of all artists in the library.
+Each artist should be a clickable link to that particular artist's show page. -->
+
+<h3>All Artists:</h3>
+<ol>
+<%@artists.each do |artist|%>
+  <li><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></li>
+<%end%>
+</ol>
