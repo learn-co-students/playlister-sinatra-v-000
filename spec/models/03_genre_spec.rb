@@ -29,7 +29,7 @@ describe "Genre" do
     expect(@genre.artists.count).to eq(1)
   end
 
-  it "can slugify it's name" do
+  it "can slugify its name" do
     genre = Genre.create(:name => "Alternative Rock")
 
     expect(genre.slug).to eq("alternative-rock")
