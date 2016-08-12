@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'pry'
+
 
 describe "Playlister Basics" do
   let(:artist_name) { "Person with a Face" }

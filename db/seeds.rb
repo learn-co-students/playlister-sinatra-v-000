@@ -5,6 +5,6 @@ alt = Genre.create(:name => "alt")
 big_dance.genre_ids = alt.id
 
 @artist2 = Artist.create(:name => "Jeff")
-suck_balls = Song.create(:name => "Suck Balls", :artist => @artist2)
-gay = Genre.create(:name => "gay")
-suck_balls.genre_ids = gay.id
+happy_days = Song.create(:name => "Happy Days", :artist => @artist2)
+pop = Genre.create(:name => "pop")
+happy_days.genre_ids = pop.id

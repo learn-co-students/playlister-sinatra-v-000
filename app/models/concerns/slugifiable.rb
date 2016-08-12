@@ -1,3 +1,4 @@
+require 'pry'
 module Slug
 
   def slug
@@ -8,6 +9,7 @@ end
 module ClassSlug
 
   def find_by_slug(name)
-    self.find_by(:name => name.gsub("-", " ").titleize)
+    binding.pry
+    find(name.gsub("-", " ").titleize)
   end
 end
