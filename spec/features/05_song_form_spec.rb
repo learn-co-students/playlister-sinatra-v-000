@@ -85,7 +85,7 @@ describe "Song Forms" do
       @song = Song.create(name: song_name)
       artist = Artist.create(name: artist_name)
 
-      @song.song_genres.create(genre: genre_1)
+      @song.genre_songs.create(genre: genre_1)
       @song.artist = artist
 
       @song.save
@@ -99,7 +99,7 @@ describe "Song Forms" do
         click_on "Save"
 
         expect(page).to have_content("Successfully updated song.")
-        expect(page).to have_content(song_name)
+        expect(page).to have_content("That One with the Guitar")
         expect(page).to have_content("Some Nobody")
       end
 
