@@ -1,0 +1,34 @@
+<!-- Be able to change everything about a song, including the genres associated with it and its artist.
+
+In order to create a check box of all the genres on a new song form, you'll need to iterate over all the Genres in the database. From there, you'll want to set the genre name as the ID of the input tag.
+The value attribute should be set to the genre id.
+The name attribute should be set to set to genres[] because we're dealing with a collection of attributes. This will make the params hash look like this:
+
+params = {
+  genres => [ genre1, genre2, genre2]
+}
+<% Genre.all.each do |genre| %>
+  <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+<% end %>
+ -->
+
+ Edit Song Form
+
+<form action="/songs/<%= @song.slug %>" method="post">
+
+
+  <label for="name">Name</label>
+  <input type="text" name="song[name]" id="name">
+
+  <% @genres.each do |genre| %>
+    <input type="checkbox" name="song[genres][]" value="<%= genre.id %>" id="<%= genre.name %>">
+      <%= genre.name %>
+    </input>
+  <% end %>
+
+  <label for="artist_name">Artist Name</label>
+  <input type="text" name="song[artist]" id="artist_name">
+
+  <input type="submit" name="submit" value="Save">Save</input>
+  
+</form>

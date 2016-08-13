@@ -1,0 +1,9 @@
+<!-- This should present the user with a list of all songs in the library.
+Each song should be a clickable link to that particular song's show page. -->
+
+<h3>All Songs:</h3>
+<ol>
+<%@songs.each do |song|%>
+  <li><a href="/songs/<%= song.slug %>"><%= song.name %></a></li>
+<%end%>
+</ol>

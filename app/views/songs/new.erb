@@ -1,0 +1,25 @@
+<!-- 
+Be able to create a new song
+Genres should be presented as checkboxes
+Be able to enter the Artist's name in a text field (only one Artist per song.) 
+-->
+
+New Song Form
+
+<form action="/songs/new" method="POST">
+  
+  <label for="name">Name</label>
+  <input type="text" name="song[name]" id="name">
+
+  <% @genres.each do |genre| %>
+    <input type="checkbox" name="song[genres][]" value="<%= genre.id %>" id="<%= genre.name %>">
+      <%= genre.name %>
+    </input>
+  <% end %>
+
+  <label for="artist_name">Artist Name</label>
+  <input type="text" name="song[artist]" id="artist_name">
+
+  <input type="submit" name="submit" value="Create">Create</input>
+  
+</form>
