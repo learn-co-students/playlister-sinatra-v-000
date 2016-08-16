@@ -23,10 +23,8 @@ class SongsController < ApplicationController
     @song = Song.create(:name => params["Name"]) 
     @artist = Artist.find_or_create_by(:name => params["Artist Name"])
     @song.genre_ids = params[:genres]
-    # WHY IS GENRE_IDS BEING USED HERE?
-    # DOESN'T THIS HAVE TO BE DEFINED IN THE MIGRATION?
     # WHY DOES SONG HAVE GENRE_IDS IF IT'S HAS MANY; HOW CAN IT BE HAS_MANY AND NOT BELONGS_TO
-
+    # BECAUSE IT'S A MANY TO MANY RELATIONSHIP?
     @song.artist = @artist
     @song.save 
     flash[:message] = "Successfully created song."
@@ -39,7 +37,6 @@ class SongsController < ApplicationController
   end 
 
   patch "/songs/:slug" do
-
     @song = Song.find_by_slug(params[:slug])
     @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
     @song.save 
