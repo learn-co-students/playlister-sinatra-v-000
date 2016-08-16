@@ -5,6 +5,7 @@ class SongsController < ApplicationController
   use Rack::Flash
 
   get '/songs/new' do
+    redirect to '/songs/:slug'
     erb :'/songs/new'
   end
 
@@ -32,6 +33,7 @@ class SongsController < ApplicationController
    @song = Song.find_by_slug(params[:slug])
    @artist = @song.artist
    @genres = Genre.all
+
    erb :'songs/edit'
  end
 
