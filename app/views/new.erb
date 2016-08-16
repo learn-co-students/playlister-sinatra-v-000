@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+  <head>
+    <meta charset="utf-8">
+    <title>Playlister - New Song</title>
+  </head>
+  <body>
+    <form class="" action="/songs" method="post">
+      <label>Name:</label><input type="text" id="Name" name="name">
+      <label>Artist:</label><input type="text" id="Artist Name" name="artist">
+      <label>Genres:</label>
+      <%Genre.all.each do |genre| %>
+        <label><%=genre.name%></label><input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+      <% end %>
+      <input type="submit" name="submit" value="Create" id="Create">
+    </form>
+
+  </body>
+</html>

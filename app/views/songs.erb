@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+  <head>
+    <meta charset="utf-8">
+    <title>Playlister - All Songs</title>
+  </head>
+  <body>
+    <% if flash.has?(:message) %>
+      <%= flash[:message] %>
+    <% end %>
+    <h1>All Songs</h1>
+    <%@songs.each do |song|%>
+  <p><a href="/songs/<%=song.slug%>"><%=song.artist.name%> - <%=song.name%></a></p>
+    <%end%>
+  </body>
+</html>
