@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Show Song</title>
+  </head>
+  <body>
+    <% if flash.has?(:message) %>
+      <%= flash[:message] %>
+    <% end %>
+
+    <h3>Song Artist: <%= @song.artist.name %></h3>
+    <h3>Song Name: <%= @song.name %></h3>
+    <h3>
+      Song Genres:
+        <% @song.genres.each do |genre| %>
+          <%= genre.name %>
+        <% end %>
+    </h3>
+    <h4>
+      <a href="/artists/<%= @song.artist.slug %>">See More <%= @song.artist.name %></a>
+      |
+      <% @song.genres.each do |genre| %>
+      <a href="/genres/<%= genre.slug %>">See More <%= genre.name.capitalize %></a>
+      <% end %>
+     </h4>
+  </body>
+</html>
