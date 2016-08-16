@@ -1,0 +1,27 @@
+<h1>Edit Song: <%= @song.name %></h1>
+<h2>Artist:</h2> <a href=<%="/artists/#{@song.slug}"%>><%= @song.artist.name %></a><br>
+<h2>Genres:</h2>
+<% @song.genre.each do |genre| %>
+  <%= "#{genre.id} - #{genre.name}" %>
+  <a href=<%="/genres/#{genre.slug}"%>><%= genre.name %></a>
+  <br>
+<% end %>
+<br>
+<h2>Edit Song:</h2>
+<form action="/songs/<%=@song.slug%>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Name:</label>
+  <br>
+  <input type="text" name="Name" id="Name" value="<%=@song.name%>">
+  <br></br>
+  <label>Genre:</label><br>
+  <% Genre.all.each do |genre| %>
+    <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>" <%='checked' if @song.genre.include?(genre) %>><%=genre.name%></input>
+    <br>
+  <% end %>
+  <br>
+  <label>Artist:</label><br>
+  <input type="text" name="Artist Name" value="<%=@song.artist.name%>">
+  <br><br>
+  <input type="submit" value="Save">
+</form>
