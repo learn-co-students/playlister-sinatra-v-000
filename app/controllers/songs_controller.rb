@@ -1,5 +1,9 @@
 require 'pry'
+require 'sinatra/base'
+require 'rack-flash'
+
 class SongsController < ApplicationController
+  use Rack::Flash
 
   get '/songs' do
     @songs = Song.all
@@ -12,18 +16,33 @@ class SongsController < ApplicationController
   end
 
   get '/songs/:slug' do
-    
+    @song = Song.find_by_slug(params[:slug])
     erb :"/songs/show"
   end
 
-
   post '/songs' do
+    @song = Song.create(params[:song])
+    @song.genres = Genre.find(params[:genres])
+    @artist = (Artist.find_by(params[:artist]) ||  Artist.create(params[:artist]))
+    @song.artist = @artist
+    @song.save
+    flash[:message] = "Successfully created song."
+    redirect to "/songs/#{@song.slug}"
+  end
 
-    @song = Song.new(:name => params[name])
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :"/songs/edit"
+  end
 
-    @song.genres =
-
-    redirect to("/songs/#{@song.slug}")
+  patch '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    artist = (Artist.find_by(params[:artist]) || Artist.create(params[:artist]))
+    @song.genres = Genre.find(params[:genres])
+    @song.artist = artist
+    @song.save
+    flash[:message] = "Successfully updated song."
+    redirect to "/songs/#{@song.slug}"
   end
 
 end

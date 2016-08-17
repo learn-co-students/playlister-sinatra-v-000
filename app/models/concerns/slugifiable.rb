@@ -9,7 +9,6 @@ end
 module ClassSlug
 
   def find_by_slug(name)
-    binding.pry
-    find(name.gsub("-", " ").titleize)
+    self.all.detect { |n| n.slug == name }
   end
 end
