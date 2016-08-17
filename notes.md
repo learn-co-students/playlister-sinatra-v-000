@@ -1,11 +1,17 @@
 notes.md
 
 I. Build out file structure
-   A.controllers  
-   B.models       
-   C.views        
+   A.controllers  -x
+   B.models       -x
+   C.views        -x
 II.Migrations
-   A.Create Tables (and SAVE THEM PLEASE THANK YOU!!!)
+   A.Create Tables  
+     1.Artists
+     2.Genres
+     3.Songs
+     4.Song_genres (join table)
+   B.Add column to songs table 
+   SAVE THEM PLEASE THANK YOU!!!
    B.Migrate DB 
      1.test out in pry
 IV.Build Out Routes
