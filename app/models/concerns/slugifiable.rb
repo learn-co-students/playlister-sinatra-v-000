@@ -1,0 +1,1 @@
+class Slugifiable < ActiveRecord::Base
