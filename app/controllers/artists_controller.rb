@@ -7,8 +7,8 @@ class ArtistsController < ApplicationController
   end
 
   get '/artists/:slug' do
-    @title = '<%= @artist.name.capitalize %>'
     @artist = Artist.find_by_slug(params[:slug])
+    @title = "#{@artist.name.capitalize}"
     erb :'artists/show'
   end
 end

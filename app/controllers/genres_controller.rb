@@ -7,8 +7,8 @@ class GenresController < ApplicationController
   end
 
   get '/genres/:slug' do
-    @title = '<%= @genre.name.capitalize %>'
     @genre = Genre.find_by_slug(params[:slug])
+    @title =  "#{@genre.name.capitalize}"
     erb :'genres/show'
   end
 end
