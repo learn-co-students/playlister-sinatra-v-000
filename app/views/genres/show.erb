@@ -1,0 +1,22 @@
+<h1>Genre</h1>
+<h2>Name: <%= @genre.name %></h2>
+<h4>Songs:</h4>
+<ul>
+  <%@genre.songs.each do |song|%>
+    <li> <%=song.name%>
+      <a href="/songs/<%= song.slug %>">Show</a>
+    </li>
+  <%end%>
+</ul>
+<h4>Artists:</h4>
+<ul>
+  <%@genre.artists.each do |artist|%>
+    <li> <%=artist.name%>
+      <a href="/artists/<%= artist.slug %>">Show</a>
+    </li>
+  <%end%>
+</ul>
+<form method="post" action="/genres/<%= @genre.slug %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
