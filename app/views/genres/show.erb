@@ -1,0 +1,21 @@
+<h1>Genre Type: <%=@genre.name.capitalize%></h1>
+
+<br><br>
+
+<!--Displays Genres Songs list-->
+<h2>Songs:</h2>
+<%@genre_songs.each do |song|%>
+  <label>
+    <a href="/songs/<%=song.slug%>"><%=song.name%></a>
+  </label><br>
+<%end%>
+
+<br><br>
+
+<!--Displays Genres Genres List-->
+<h2>Genres:</h2>
+<%@genre_artists.each do |artist|%>
+  <label>
+    <a href="/artists/<%=artist.slug%>"><%=artist.name%></a>
+  </label><br>
+<%end%>
