@@ -1,27 +1,12 @@
 class GenresController < ApplicationController
 
   get '/genres' do
-
+    @genres = Genre.all
+    erb :'/genres/index'
   end
 
-  get '/genres/new' do
-
-  end
-
-  post '/genres' do
-
-  end
-
-  get '/genres/:id/edit' do
-
-  end
-
-  get '/genres/:id' do
-
-  end
-
-  post '/genres/:id' do
-
+  get '/genres/:slug' do
+    erb :'/genres/show'
   end
 
 end

@@ -1,27 +1,13 @@
 class ArtistsController < ApplicationController
 
   get '/artists' do
-
+    @artists = Artist.all
+    erb :'/artists/index'
   end
 
-  get '/artists/new' do
-
-  end
-
-  post '/artists' do
-
-  end
-
-  get '/artists/:id/edit' do
-
-  end
-
-  get '/artists/:id' do
-
-  end
-
-  post '/artists/:id' do
-
+  get '/artists/:slug' do
+    @artist = Artist.find_by_slug(params[:slug])
+    erb :'/artists/show'
   end
 
 end

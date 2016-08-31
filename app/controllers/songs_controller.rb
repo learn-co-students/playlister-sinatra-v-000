@@ -1,7 +1,8 @@
 class SongsController < ApplicationController
 
   get '/songs' do
-
+    @songs = Song.all
+    erb :'/songs/index'
   end
 
   get '/songs/new' do
@@ -12,15 +13,15 @@ class SongsController < ApplicationController
 
   end
 
-  get '/songs/:id/edit' do
+  get '/songs/:slug/edit' do
 
   end
 
-  get '/songs/:id' do
-
+  get '/songs/:slug' do
+    erb :'/songs/show'
   end
 
-  post '/songs/:id' do
+  post '/songs/:slug' do
 
   end
 
