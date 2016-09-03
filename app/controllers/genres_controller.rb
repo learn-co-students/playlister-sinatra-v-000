@@ -16,4 +16,9 @@ class GenresController < ApplicationController
     redirect "genres/#{@genres.slug}"
   end
 
+  get '/genres/show' do
+    @genre = Genre.find_by_slug(params[:slug])
+    erb :"genres/show"
+  end
+
 end

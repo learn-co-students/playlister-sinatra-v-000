@@ -1,0 +1,23 @@
+<h1>Update Songs</h1>
+
+<form action="/songs/<%=@song.slug%>" method="POST">
+  <label>Song Name:</label><br>
+  <input type="text" name="Name"><br>
+
+  <br></br>
+
+  <h4>Choose an existing genre:</h4>
+  <label>Genre</label>
+  <%Genre.all.each do |genre|%>
+    <input type="checkbox" name="genres[]" id="<%=pet.id%>" value="<%=pet.id%>" <%="checked" if @owner.pets.include?(pet) %>><%=pet.name%></input>
+  <%end%>
+
+  <br></br>
+
+  <label>and/or, create a new pet:</label>
+  <br></br>
+  <label>name:</label>
+    <input  type="text" name="pet[name]" id="pet_name"></input>
+  <br></br>
+  <input type="submit" value="Update Owner">
+</form>
