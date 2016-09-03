@@ -9,15 +9,14 @@
   <h4>Choose an existing genre:</h4>
   <label>Genre</label>
   <%Genre.all.each do |genre|%>
-    <input type="checkbox" name="genres[]" id="<%=pet.id%>" value="<%=pet.id%>" <%="checked" if @owner.pets.include?(pet) %>><%=pet.name%></input>
+    <input type="checkbox" name="genres[]" id="<%=genre.name %>" value="<%= genre.id%>" <%="checked" if @song.genres.include?(genre) %>><%=pet.name%>
   <%end%>
 
-  <br></br>
+  <br>
 
-  <label>and/or, create a new pet:</label>
-  <br></br>
-  <label>name:</label>
-    <input  type="text" name="pet[name]" id="pet_name"></input>
-  <br></br>
-  <input type="submit" value="Update Owner">
+  <h4>Create a new Artist</h4>
+  <label>Artist</label> <!--song only has one artist -->
+  <input type="text" name="Artist Name"><br>
+  <input type="submit" value="Update Song">
+
 </form>
