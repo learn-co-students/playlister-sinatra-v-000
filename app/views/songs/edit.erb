@@ -1,8 +1,10 @@
-<h1>Update Songs</h1>
+<h1>Update <%= @song.name %></h1>
 
 <form action="/songs/<%=@song.slug%>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+
   <label>Song Name:</label><br>
-  <input type="text" name="Name"><br>
+  <input type="text" name="song[name]" value="<%=@song.name%>"><br>
 
   <br></br>
 
@@ -16,7 +18,7 @@
 
   <h4>Create a new Artist</h4>
   <label>Artist</label> <!--song only has one artist -->
-  <input type="text" name="Artist Name"><br>
+  <input type="text" name="artist[name]" value="<%@song.artist.name%>" id="artist_name">
   <input type="submit" value="Update Song">
 
 </form>
