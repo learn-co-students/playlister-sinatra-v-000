@@ -2,7 +2,7 @@ class ArtistsController < ApplicationController
 
 # artists route controller
   get '/artists' do
-    @artists = Song.all
+    @artists = Artist.all
     erb :'artists/index'
   end
 
@@ -11,6 +11,7 @@ class ArtistsController < ApplicationController
   end
 
   get '/artists/:slug' do
+    # Artist.find_by_slug(slug)
     redirect "artists/#{@artist.slug}"
   end
 
