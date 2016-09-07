@@ -1,0 +1,90 @@
+[33mff1869e[m Done. [31m(Marcel Galang, 13 minutes ago)[m
+[33ma79e0d8[m Done. [31m(Marcel Galang, 46 minutes ago)[m
+[33m655366f[m Merge pull request #56 from gj/patch-2 [31m(AnnJohn, 4 weeks ago)[m
+[33m55db3c6[m it's --> its [31m(gabe, 4 weeks ago)[m
+[33m89d50ac[m it's --> its [31m(gabe, 4 weeks ago)[m
+[33m4a104f5[m it's --> its; a --> an [31m(gabe, 4 weeks ago)[m
+[33m23ef9c7[m Merge pull request #53 from learn-co-curriculum/wip-master [31m(Sophie DeBenedetto, 4 months ago)[m
+[33m4320e73[m Add Gemfile.lock, update spec for clarity [31m(Charles Pletcher, 4 months ago)[m
+[33me4c76e0[m Add instructions for rack-flash3 [31m(Charles Pletcher, 4 months ago)[m
+[33mbb28464[m Add note about dropping db [31m(Charles Pletcher, 5 months ago)[m
+[33mf03d97b[m "Render" not "redirect" [31m(Charles Pletcher, 5 months ago)[m
+[33m5c82e36[m Remove deprecated RSpec config [31m(Charles Pletcher, 5 months ago)[m
+[33me226dd4[m Merge pull request #49 from learn-co-curriculum/wip [31m(Victoria Friedman, 6 months ago)[m
+[33m41851cd[m linter [31m(vicfriedman, 6 months ago)[m
+[33m5857c41[m code snippet [31m(vicfriedman, 6 months ago)[m
+[33m208c748[m issue #48 [31m(vicfriedman, 6 months ago)[m
+[33m4cec349[m add backticks to file structure [31m(deniznida, 6 months ago)[m
+[33m5e69086[m typo [31m(AnnJohn, 7 months ago)[m
+[33m299b019[m Merge pull request #47 from preetdha/preetdha-1455204151 [31m(AnnJohn, 7 months ago)[m
+[33m50f092a[m Merge pull request #46 from preetdha/preetdha-1455157112 [31m(AnnJohn, 7 months ago)[m
+[33m2039137[m Updated README.md [31m(Preet Dha, 7 months ago)[m
+[33m4b25a8e[m Updated README.md [31m(Preet Dha, 7 months ago)[m
+[33m68fe4b8[m Merge pull request #45 from preetdha/preetdha-1454874938 [31m(AnnJohn, 7 months ago)[m
+[33m184392a[m Updated README.md [31m(Preet Dha, 7 months ago)[m
+[33md0d4b4d[m Removing Gemfile.lock with bad Rack version [31m(Avi Flombaum, 7 months ago)[m
+[33mfc02f69[m optimize learn link [processing skip] [31m(Adam Jonas, 7 months ago)[m
+[33me1b5a5c[m Merge pull request #42 from learn-co-curriculum/wip [31m(Sophie DeBenedetto, 8 months ago)[m
+[33mb579a99[m issue #40 - explain order of song controller actions [31m(vicfriedman, 8 months ago)[m
+[33me343282[m Merge pull request #39 from learn-co-curriculum/wip [31m(Sophie DeBenedetto, 8 months ago)[m
+[33m06c0cbc[m add redirect tests for create and edit [31m(vicfriedman, 8 months ago)[m
+[33m9280542[m flash message [31m(vicfriedman, 8 months ago)[m
+[33mae3ac3f[m file structure, slug, check boxes, and join table more instructions [31m(vicfriedman, 8 months ago)[m
+[33m2dc462b[m Merge branch 'master' into wip [31m(vicfriedman, 8 months ago)[m
+[33m8f594e8[m Merge pull request #38 from learn-co-curriculum/wip [31m(Victoria Friedman, 8 months ago)[m
+[33m73a4fd8[m removed I [31m(vicfriedman, 8 months ago)[m
+[33mdd1202b[m fix genre_1/genre_2 mix up [31m(Sophie DeBenedetto, 8 months ago)[m
+[33m98201c3[m Merge pull request #30 from frankNowinski/frankNowinski-1451207241 [31m(Sophie DeBenedetto, 8 months ago)[m
+[33m69e4fdc[m made last test of edit form for song more rigorous prev. test would fill out form but not test if song's show page reflected the changes made by what was filled out in form. Now, tests for show page reflecting new genre that was selected via edit form [31m(SOPHIE DEBENEDETTO, 8 months ago)[m
+[33m4745e33[m fix order of genre names in form spec [31m(SOPHIE DEBENEDETTO, 8 months ago)[m
+[33m3be8c83[m Updated README.md [31m(Frank Nowinski, 9 months ago)[m
+[33m103155a[m [processing skip] [31m(vicfriedman, 9 months ago)[m
+[33mc4cfdb4[m Merge pull request #27 from learn-co-curriculum/wip [31m(Victoria Friedman, 9 months ago)[m
+[33m919a733[m removed comment [31m(vicfriedman, 9 months ago)[m
+[33m4cff0bc[m genre 1 name [31m(vicfriedman, 9 months ago)[m
+[33m28cd3a1[m Merge pull request #26 from learn-co-curriculum/wip [31m(Victoria Friedman, 9 months ago)[m
+[33m6330ef0[m slug problem setup [31m(vicfriedman, 9 months ago)[m
+[33m68fb1ef[m remove extra visit [31m(vicfriedman, 9 months ago)[m
+[33mb2bfd30[m find by slug artist test [31m(vicfriedman, 9 months ago)[m
+[33mef953d5[m find by slug song test [31m(vicfriedman, 9 months ago)[m
+[33m4a39956[m find by slug test [31m(vicfriedman, 9 months ago)[m
+[33m13a0690[m remove extra slug call [31m(vicfriedman, 9 months ago)[m
+[33m6832213[m song variables [31m(vicfriedman, 9 months ago)[m
+[33mc4cbca2[m genre variables [31m(vicfriedman, 9 months ago)[m
+[33m06828b5[m song and genre variables [31m(vicfriedman, 9 months ago)[m
+[33m30bd3fe[m removed unnecessary song variables [31m(vicfriedman, 9 months ago)[m
+[33me18e2f0[m slugs; [31m(vicfriedman, 9 months ago)[m
+[33mc6c6478[m issues 16, 17, 19 [31m(vicfriedman, 9 months ago)[m
+[33maf3bbe8[m add learn link [processing skip] [31m(Adam Jonas, 9 months ago)[m
+[33m8369fde[m remove checkbox test from artist context [31m(Ian Candy, 11 months ago)[m
+[33m1ffc1e2[m changes order in Rakefile [31m(deniznida, 11 months ago)[m
+[33m8ef7747[m Add contributing instructions [31m(Spencer Rogers, 1 year ago)[m
+[33m5214709[m Merge pull request #8 from learn-co-curriculum/improvement [31m(Benjamin Gross, 1 year, 2 months ago)[m
+[33m6483bf5[m fixed issue #1 [31m(deniznida, 1 year, 2 months ago)[m
+[33m656bc40[m add new tests for 404 [31m(deniznida, 1 year, 2 months ago)[m
+[33ma9abbfe[m change spec names [31m(deniznida, 1 year, 2 months ago)[m
+[33mde92e55[m add changes to readme [31m(deniznida, 1 year, 2 months ago)[m
+[33m196a21c[m add new specs [31m(deniznida, 1 year, 2 months ago)[m
+[33mdb0ed53[m Add content license [31m(The Learn Team, 1 year, 3 months ago)[m
+[33m6fe72ec[m update resources section [31m(Amanda Himmelstoss, 1 year, 4 months ago)[m
+[33mf0d0b5c[m change require_relative to require [31m(joshuabamboo, 1 year, 5 months ago)[m
+[33m4c911d0[m dot learn added by fs-lms-bot [31m(Beyonce Jabroni, 1 year, 6 months ago)[m
+[33m8e583b1[m added fix for failing checkbox test [31m(Ian Miller, 1 year, 6 months ago)[m
+[33m326f9f3[m updated gemfile.lock [31m(Ian Miller, 1 year, 6 months ago)[m
+[33ma5d0b65[m resolved capybara checkbox bug [31m(Ian Miller, 1 year, 10 months ago)[m
+[33mceebc05[m update capybara syntax and fix song_form_spec to avoid genre duplication [31m(ahimmelstoss, 1 year, 10 months ago)[m
+[33m0cbfb9e[m updated readme [31m(Ian Miller, 2 years ago)[m
+[33m8425a17[m fix url [31m(Katie Hoffman, 2 years, 4 months ago)[m
+[33mf52ffdd[m updates formatting and link [31m(Katie Hoffman, 2 years, 4 months ago)[m
+[33m8fb935e[m add resources to frontmatter and a resource section at the bottom [31m(Katie Hoffman, 2 years, 4 months ago)[m
+[33m38f1de2[m Update README.md [31m(Arel English, 2 years, 4 months ago)[m
+[33m1806487[m Fix more broken specs [31m(Logan Hasson, 2 years, 6 months ago)[m
+[33m224b917[m Fix broken specs [31m(Logan Hasson, 2 years, 6 months ago)[m
+[33mf0665d5[m Add .rspec and .gitignore files [31m(Logan Hasson, 2 years, 6 months ago)[m
+[33md0bb05a[m Fix broken spec file names [31m(Logan Hasson, 2 years, 6 months ago)[m
+[33m2ef8f9f[m Complete specs [31m(Logan Hasson, 2 years, 6 months ago)[m
+[33m4bebd97[m Write basic view feature specs [31m(Logan Hasson, 2 years, 6 months ago)[m
+[33mae34f47[m Write first steps in README [31m(Logan Hasson, 2 years, 6 months ago)[m
+[33m6a46667[m Update DatabaseCleaner implementation in spec_helper [31m(Logan Hasson, 2 years, 6 months ago)[m
+[33m0fcccf3[m Add song data files and rewrite LibraryParser [31m(Logan Hasson, 2 years, 6 months ago)[m
+[33m944bea0[m Initial commit [31m(Logan Hasson, 2 years, 6 months ago)[m
