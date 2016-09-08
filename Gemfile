@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'rack-flash3'
+gem 'sinatra-redirect-with-flash'
 
 group :test do
   gem 'rspec'
