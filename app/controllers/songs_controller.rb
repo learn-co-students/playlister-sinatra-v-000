@@ -1,5 +1,12 @@
+# require 'rack-flash'
+
 class SongsController < ApplicationController
 
+
+  get '/songs' do
+    @songs = Song.all
+    erb :'songs/index'
+  end
 
 #--CREATE
 
@@ -29,10 +36,6 @@ class SongsController < ApplicationController
     erb :show
   end
 
-  get '/songs' do
-    @songs = Song.all
-    erb :'show/index'
-  end
 
   #--UPDATE
 

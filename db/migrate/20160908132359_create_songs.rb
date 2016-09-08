@@ -3,5 +3,6 @@ class CreateSongs < ActiveRecord::Migration
     create_table :songs do |t|
       t.string :name
     end
+    
   end
 end
