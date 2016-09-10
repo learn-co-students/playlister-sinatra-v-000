@@ -6,4 +6,16 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index
   end
+
+  get '/songs' do
+    redirect '/song_controller'
+  end
+
+  get '/artists' do
+    redirect '/artist_controller'
+  end
+
+  get '/genres' do
+    redirect '/genre_controller'
+  end
 end
