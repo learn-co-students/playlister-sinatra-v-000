@@ -1,0 +1,4 @@
+<%@artists = Artist.all.sort_by{ |artist| artist.name.downcase }%>
+<%@artists.each do |artist|%>
+  <a href="/artists/<%=artist.slug%>"><%=artist.name%></a><br>
+  <%end%>
