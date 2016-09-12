@@ -1,62 +1,48 @@
 require 'rack-flash'
 
 class SongsController < ApplicationController
-
   use Rack::Flash
-
 
   get '/songs' do
     @songs = Song.all
-    erb :'songs/index'
+    erb :'/songs/index'
   end
-
-#--CREATE
 
   get '/songs/new' do
-    erb :new
-  end
-#--SLUG
-  get '/songs/:slug/edit' do
-    @song = Song.find_by_slug(params[:slug])
-    erb :'/songs/edit'
+    erb :'/songs/new'
   end
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    erb :'/songs/show'
+
+    erb :'songs/show'
   end
 
-  # post '/songs' do
-  #   @song = Song.create(name: params["Name"])
-  #   redirect to '/songs/#{song.id}'
-  # end
-
-  #--READ
-
-  get '/songs/:id' do
-    @song = Song.find_by_id(params[:id])
-    erb :show
-  end
-
-
-  #--UPDATE
-
-  get '/songs/:id/edit' do  #load edit form
-    @song = Song.find_by_id(params[:id])
-    erb :edit
-  end
-
-  patch '/songs/:id' do #edit action
-    @song = Post.find_by_id(params[:id])
-    @song.title = params[:name]
+  post '/songs' do
+    @song = Song.create(:name => params["Name"])
+    @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
+    @song.genre_ids = params[:genres]
     @song.save
-    redirect to "/songs/#{@song.id}"
+
+    flash[:message] = "Successfully created song."
+
+    redirect("/songs/#{@song.slug}")
   end
 
-  #--DELETE
-  delete '/songs/:id/delete' do #delete action
-    @song = Post.find_by_id(params[:id])
-    @song.delete
-    redirect to '/songs'
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+
+    erb :'songs/edit'
   end
+
+  patch '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    @song.update(params[:song])
+    @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
+    @song.save
+
+    flash[:message] = "Successfully updated song."
+    redirect("/songs/#{@song.slug}")
+  end
+
 end
