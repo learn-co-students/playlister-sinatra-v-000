@@ -1,3 +1,22 @@
 successful link
 
-<h1><%= @artist.name %></h1>
+
+    <% @artist.songs.each do |song| %> 
+<h3><a href="/songs/<%=song.slug%>"><%=song.name%> page</a></h3> 
+<% end %>
+
+
+  <% @artist.genres.each do |genre| %> 
+<h3><a href="/genres/<%=genre.slug%>"><%=genre.name%> page</a></h3> 
+<% end %>
+
+
+<!-- 
+    it "contains links to each song's show page" do
+        expect(page).to have_css("a[href='/songs/#{@song.slug}']")
+      end
+
+      it "contains links to each genre's show page" do
+        expect(page).to have_css("a[href='/genres/#{@genre.slug}']")
+      end
+      end -->

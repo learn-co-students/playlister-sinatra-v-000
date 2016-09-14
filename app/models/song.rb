@@ -8,11 +8,10 @@ class Song < ActiveRecord::Base
   end
 
 
-  def self.find_by_slug(slug)  # need the string you undid above to revert to its original object based on the slug name
-    target = slug.split("-").map { |el| el.capitalize}.join(" ")
+  def Song.find_by_slug(slug)  # need the string you undid above to revert to its original object based on the slug name
 
     Song.all.detect do |song|
-      song.name == target 
+      song.slug == slug 
     end
   end
 
