@@ -2,7 +2,6 @@ succesful connection to songs new.erb
 
 <h1> Create a new Song </h1>
 
-
 <!-- below name turns params into a "song" hash with a nested name hash hash ex: {"song"=>{"Name"=>"test 636"}} -->
 <h1>Add a new song!</h1>
 <form method="post" action="/songs">
@@ -12,8 +11,7 @@ succesful connection to songs new.erb
   <%Genre.all.each do |genre| %>
     <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>"><%= genre.name %>
   <%end%>
-  <br><br>
-    <input type="submit" value="Create">
+  <input type="submit" id="Create">
 </form>
 
   <!-- /songs/new
