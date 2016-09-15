@@ -9,13 +9,13 @@
 <br>
   <h2>Edit Genres:</h2> 
   <%Genre.all.each do |genre| %>
-    <input type="checkbox" name="genres[]" id="<%= genre.name %>"  value="<%= genre.id %>"  <%='checked' if @song.genres.first.id == genre.id %>>         <%= genre.name %>
+    <input type="checkbox" name="genres[]" id="<%= genre.name %>"  value="<%= genre.id %>"  <%='checked' if @song.genres.include?(genre) %>>         <%= genre.name %>
   <%end%>
   <br><br>
 
     <h2>Edit Artist:</h2> 
   <%Artist.all.each do |artist| %>
-    <input type="checkbox" name="artists[]" id="<%= artist.name %>"  value="<%= artist.id %>"  <%='checked' if @song.artist.id == artist.id %>>         <%= artist.name %>
+    <input type="checkbox" name="artists[]" id="<%= artist.name %>"  value="<%= artist.id %>"  <%='checked' if @song.artist == artist %>>         <%= artist.name %>
   <%end%>
 
    <h2>Or, create a new Artist:</h2>

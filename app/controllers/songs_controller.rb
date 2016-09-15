@@ -38,11 +38,13 @@ use Rack::Flash
 
   get '/songs/:slug/edit' do 
     @song = Song.find_by_slug(params[:slug])
+ 
     erb :'/songs/edit'
   end
 
 
-#need to figure out how to get the genre to properly update
+#THE GENRES MAY STILL NOT BE PROPERLY UPDATING BUT THIS IS VERY CLOSE
+# WIPE THE DB AND TINKER TOMORROW!
 
   post '/songs/:slug' do 
 
