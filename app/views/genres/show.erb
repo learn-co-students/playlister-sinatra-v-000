@@ -3,7 +3,7 @@ successful link
 <h1> <%=@genre.name.capitalize %> Artists <h1>
 
   <% @genre.artists.each do |artist| %> 
-  <h3><a href="/artists/<%=artist.slug%>"><%=artist.name%></h3>
+  <h3><a href="/artists/<%=artist.slug%>"><%=artist.name%></a></h3>
   <% end %>
 
 
@@ -15,27 +15,4 @@ successful link
   <h3><a href="/songs/<%=song.slug%>"><%=song.name%></h3>
   <% end %>
 
-
-<br><br>
-
-
-
-      it "contains links to each artist's show page" do
-        expect(page).to have_css("a[href='/artists/#{@artist.slug}']")
-      end
-
-      it "contains links to each song's show page" do
-        expect(page).to have_css("a[href='/songs/#{@song.slug}']")
-      end
-
-
-  1) Playlister Basics show pages /genres/:slug contains links to each artist's show page
-     Failure/Error: expect(page).to have_css("a[href='/artists/#{@artist.slug}']")
-       expected #has_css?("a[href='/artists/person-with-a-face']") to return true, got false
-     # ./spec/features/04_basic_view_spec.rb:146:in `block (4 levels) in <top (required)>'
-
-  2) Playlister Basics show pages /genres/:slug contains links to each song's show page
-     Failure/Error: expect(page).to have_css("a[href='/songs/#{@song.slug}']")
-       expected #has_css?("a[href='/songs/that-one-with-the-guitar']") to return true, got false
-     # ./spec/features/04_basic_view_spec.rb:150:in `block (4 levels) in <top (required)>'
 

@@ -1,17 +1,11 @@
-<h1><%=@song.name %> </h1>
-
-<h3><a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%> page</a></h3>
-
-<% @song.genres.each do |genre| %> 
-<h3><a href="/genres/<%=genre.slug%>"><%=genre.name%> page</a></h3> 
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
 <% end %>
 
+<h1><%=@song.name %> </h1>
 
+<h3>Artist: <a href="/artists/<%= @song.artist.slug %>"><%=@song.artist.name%></a></h3>
 
-<!--   it "contains links to the artist's show page" do
-        expect(page).to have_css("a[href='/artists/#{@artist.slug}']")
-      end
-
-      it "contains links to each genre's show page" do
-        expect(page).to have_css("a[href='/genres/#{@genre.slug}']")
-      end -->
+<% @song.genres.each do |genre| %> 
+<h3>Genre: <a href="/genres/<%=genre.slug%>"><%=genre.name%></a></h3> 
+<% end %>
