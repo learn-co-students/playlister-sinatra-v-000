@@ -1,0 +1,44 @@
+<h1><%=@song.name %>  edit me page</h1> 
+
+<h1>Edit your song!</h1>
+
+<form method="post" action="/songs/<%=@song.slug%>">
+  <p>Song Name:</p> <input type="text" name="name" id="Name">
+<!--   <p>Artist Name:</p> <input type="text" name="artist[name]" id="Artist Name" placeholder="<%=@song.artist.name%>" -->
+
+<br>
+  <h2>Edit Genres:</h2> 
+  <%Genre.all.each do |genre| %>
+    <input type="checkbox" name="genres[]" id="<%= genre.name %>"  value="<%= genre.id %>"  <%='checked' if @song.genres.include?(genre) %>>         <%= genre.name %>
+  <%end%>
+  <br><br>
+
+    <h2>Edit Artist:</h2> 
+  <%Artist.all.each do |artist| %>
+    <input type="checkbox" name="artists[]" id="<%= artist.name %>"  value="<%= artist.id %>"  <%='checked' if @song.artist == artist %>>         <%= artist.name %>
+  <%end%>
+
+   <h2>Or, create a new Artist:</h2>
+    <p>Artist Name:</p> <input type="text" name="artist[name]" id="Artist Name">
+
+  <br><br>
+  <input type="submit" value="Save">
+</form>
+
+
+<!-- THE FORM 
+<h1>Add a new song!</h1>
+<form method="post" action="/songs">
+  <p>Song Name:</p> <input type="text" name="name" id="Name">
+  <p>Artist Name:</p> <input type="text" name="artist[name]" id="Artist Name">
+  <p>Choose Genres:</p> 
+  <%Genre.all.each do |genre| %>
+    <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>"><%= genre.name %>
+  <%end%>
+  <br><br>
+    <input type="submit" value="Create">
+</form>
+
+ -->
+<!-- 
+ Be able to change everything about a song, including the genres associated with it and its artist. -->
