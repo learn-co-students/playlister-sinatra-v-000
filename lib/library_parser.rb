@@ -15,7 +15,7 @@ class LibraryParser
 
     artist = artist_match && artist_match[1]
     song   = song_match   && song_match[1]
-    genre  = genre_match.capitalize  && genre_match[1].capitalize
+    genre  = genre_match  && genre_match[1]
 
     [artist, song, genre]
   end
