@@ -20,6 +20,7 @@ describe "Song Forms" do
           check "New Age Garbage"
           fill_in "Artist Name", with: artist_name
           click_on "Create"
+
         }.to change(Artist, :count).by(1)
       end
 

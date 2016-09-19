@@ -11,10 +11,11 @@ class SongsController < ApplicationController
 
   post '/songs' do
     artist = Artist.find_or_create_by(name: params[:artist])
-    @song = Song.create(name: params[:Name], artist: artist, genre_ids: params[:genre])
+    @song = Song.create(params[:song])
+    @song.artist = artist
     @song.save
-    @message = "Successfully created song."
-    redirect to "songs/#{@song.slug}"
+    flash.now[:message] = "Successfully created song."
+    redirect_to "songs/#{@song.slug}"
   end
 
   get '/songs/:slug' do
@@ -30,10 +31,9 @@ class SongsController < ApplicationController
   post '/songs/:slug/edit' do
     artist = Artist.find_or_create_by(name: params[:artist])
     @song = Song.find_by_slug(params[:slug])
-    @song.update(artist: artist, genre_ids: params[:genre])
     @song.save
-    @message = "Successfully updated song."
-    redirect to "songs/#{@song.slug}"
+    flash.now[:message] = "Successfully updated song."
+    redirect_to "songs/#{@song.slug}"
   end
 
 end
