@@ -20,6 +20,7 @@ describe "Song Forms" do
           check "New Age Garbage"
           fill_in "Artist Name", with: artist_name
           click_on "Create"
+
         }.to change(Artist, :count).by(1)
       end
 
@@ -98,9 +99,10 @@ describe "Song Forms" do
         fill_in "Artist Name", with: "Some Nobody"
         click_on "Save"
 
-        expect(page).to have_content("Successfully updated song.")
+
         expect(page).to have_content(song_name)
         expect(page).to have_content("Some Nobody")
+        expect(page).to have_content("Successfully updated song.")
       end
 
       it "renders to the song show page" do
@@ -120,10 +122,11 @@ describe "Song Forms" do
         check "Hippity Hop"
         click_on "Save"
 
-        expect(page).to have_content("Successfully updated song.")
+
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
         expect(page).to have_content("Hippity Hop")
+        expect(page).to have_content("Successfully updated song.")
       end
 
       it "renders to the song show page" do
