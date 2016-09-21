@@ -14,5 +14,5 @@ use GenresController
 use ArtistsController
 
 
-
+LibraryParser.parse
 run ApplicationController
