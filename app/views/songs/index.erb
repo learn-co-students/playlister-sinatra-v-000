@@ -1,1 +1,7 @@
-songs - index.erb
+<h1>All Songs</h1>
+
+<ul>
+  <% @songs.each do |s| %>
+    <ul><a href="/songs/<%= s.id %>"><%= s.name %></a></ul>
+  <% end %>
+</ul>
