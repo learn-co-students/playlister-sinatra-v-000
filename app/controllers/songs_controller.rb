@@ -1,3 +1,5 @@
+#getting boot error on /songs/new
+
 require 'rack-flash'
 
 class SongsController < ApplicationController
