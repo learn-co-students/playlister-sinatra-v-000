@@ -19,7 +19,11 @@ class SongsController < ApplicationController
 
   post '/songs' do 
     @song = Song.create(name: params[:song_name])
-    @artist = Artist.create(name: params[:new_artist_name])
+    if params.key?(:song_artist)
+      @artist = Artist.find_by_slug(params[:song_artist])
+    else
+      @artist = Artist.create(name: params[:new_artist_name])
+    end
     @song.artist = @artist
     @genre_all = []
       if params[:song_genre]

@@ -8,7 +8,7 @@
   <br></br>
   <ol>
     <% @artists.each do |a| %>
-      <ul><input type="checkbox" name="song_artist" id="<%= a.name %>" value="<%= a.slug %>"> <%= a.name %></input></ul>
+      <ul><input type="checkbox" name="artist_name" id="<%= a.name %>" value="<%= a.slug %>"> <%= a.name %></input></ul>
     <% end %>
   </ol>
 
