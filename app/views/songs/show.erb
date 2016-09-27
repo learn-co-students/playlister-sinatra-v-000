@@ -9,3 +9,5 @@
 <% @song.genres.each do |genre| %>
   <h4>Genre: <a href="/genres/<%= genre.slug %>"><%= genre.name %></a></h4>
 <% end %>
+
+<p><a href="/songs/<%=@song.slug%>/edit">Edit Song</a></p>
