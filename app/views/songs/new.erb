@@ -2,7 +2,7 @@
 
 <form action="/songs" method="POST">
   <label>Artist Name:</label>
-  <input type="text" name="Artist Name" >
+  <input type="text" name="Artist Name" id="Artist Name">
 
   <br></br>
 
@@ -14,5 +14,5 @@
     <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
   <% end %>
 
-  <input type="submit" value="submit">
+  <input type="submit" value="Create">
 </form>
