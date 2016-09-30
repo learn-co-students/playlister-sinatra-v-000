@@ -1,0 +1,16 @@
+<!-- Should have links to that song's artist and each genre associated with the song -->
+
+<h2>Artist: </h2>
+<%=@songs.artist.name%> 
+
+
+
+<!-- Iterate through @songs to get each genre associated with song -->
+<h2>Genre: </h2>
+<% @songs.genres.each do |song| %>
+<h3><%= song.name %></h3>
+<a href="/genres/<%=song.slug%>"></a>
+<% end %>
+
+
+
