@@ -19,6 +19,22 @@ class SongsController < ApplicationController
       @song.artist = Artist.create(name: params["artist"]["name"])
     end
   @song.save
+    flash[:message] = "Successfully created song"
     redirect "songs/#{@song.slug}"
+  end
+
+  get '/owners/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'/songs/edit'
+  end
+
+  post '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    @song.update(params["artist"])
+    if !params["artist"]["name"].empty?
+      @song.artist = Artist.create(name: params["artist"]["name"])
+    end
+    @song.save
+    redirect to "songs/#{@song.slug}"
   end
 end
