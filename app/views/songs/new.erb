@@ -2,11 +2,11 @@
 
 <form action="/songs" method="POST">
 
-  <label>Name</label>
-  <input type="text" name="Name"/>
+  <label>Song Name:</label>
+  <input type="text" name="song[name]" id="Name">
 
-  <label>Artist Name</label>
-    <input type="text" name="Artist Name" />
+  <label>Artist Name:</label>
+  <input type="text" name="artist[name]" id="Artist Name">
   <br></br>
 
 	<% Genre.all.each do |genre|%>
