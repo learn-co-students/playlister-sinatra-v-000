@@ -1,2 +1,2 @@
-class SongGenres < ActiveRecord::Base
+class SongGenre < ActiveRecord::Base
 end
