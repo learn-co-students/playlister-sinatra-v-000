@@ -9,7 +9,7 @@ class SongController < ApplicationController
     end
 
     post '/songs' do
-        @song = Song.create(:name => params["Name"], :genre_ids => params[:song][:genre_ids],)
+        @song = Song.create(:name => params["Name"], :genre_ids => params[:song][:genre_ids])
         artists = []
         Artist.all.each do |artist|
             artists << artist.name
@@ -24,10 +24,7 @@ class SongController < ApplicationController
           end
         end
           @song.save
-                  binding.pry
-
-          @song.slug = @song.slug
-         redirect('/songs/#{@song.slug}')
+         redirect("/songs/#{@song.slug}")
     end
     
     get '/songs/:slug/edit' do 
@@ -38,6 +35,14 @@ class SongController < ApplicationController
     get '/songs/:slug' do
         @song = Song.find_by_slug(params[:slug])
         erb :'song/show'
+    end
+    
+    patch '/songs/:slug' do 
+        @song = Song.find_by(:name => params["Name"])
+        @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
+        @song.update(:name => params["Name"], :genre_ids => params["song"]["genre_ids"])
+        @song.save
+        redirect("/songs/#{@song.slug}")
     end
     
 end
