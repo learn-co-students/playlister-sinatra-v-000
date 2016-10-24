@@ -1,7 +1,10 @@
 songs/show.erb
 
 <h2> Name: <%= @song.name %> </h2>
-<h3> Artist Name: <a href='/songs/#{@song.slug}' > <%= @song.artist.name %> </h2>
-<h3> Genre: <%= @song.genre %> </h3>
-
-#Need to add all the items in the form.
+<h3> Artist Name: <a href='/artists/<%= @song.artist.slug %>'> <%= @song.artist.name %> </h3>
+<h3> Genres: </h3>
+  <ol>
+    <% @song.genres.all.each do |genre|%>
+    <h3><li><a href='/genres/<%= genre.slug %>'> <%= genre.name%></a></li></h3>
+    <% end %>
+  </ol>

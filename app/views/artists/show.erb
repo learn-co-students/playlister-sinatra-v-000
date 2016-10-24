@@ -1,1 +1,13 @@
 artists/show.erb
+
+<h2> Artist: <%= @artist.name %> </h2>
+
+<h3> Songs: </h3>
+<% @artist.songs.all.each do |song|%>
+<a href='/songs/<%= song.slug %>'> <%= song.name%></a>
+<% end %>
+
+<h3> Genres: </h3>
+<% @artist.genres.all.each do |genre|%>
+<a href='/genres/<%= genre.slug %>'> <%= genre.name%></a>
+<% end %>
