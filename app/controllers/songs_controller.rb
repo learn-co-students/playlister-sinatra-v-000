@@ -40,6 +40,8 @@ class SongsController < ApplicationController
     @song = Song.find_by_slug(params["slug"])
     @song.update(:name => params["Name"])
     @song.artist.update(:name => params["Artist Name"])
+    #code below needs review. 10/2016
+    @song.genre_ids.update(:genre_ids => params["song"]["genre_ids"])
     @song.save
 
     flash[:message] = "Successfully updated song."
