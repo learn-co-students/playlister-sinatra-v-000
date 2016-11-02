@@ -7,7 +7,8 @@ class SongsController < ApplicationController
   get '/songs' do
     #presents user list of all songs in lib.
     #each song should be clickable link
-
+    @songs = Song.all
+    erb :'/songs/index'
   end
 
   get '/songs/:slug' do
