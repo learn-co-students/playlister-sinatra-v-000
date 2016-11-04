@@ -23,6 +23,12 @@ class SongsController < ApplicationController
     #be able to create new song
     #genres should be presented as checkboxes
     #be able to enter artist's name in text field(1 per song)
+    erb :'/songs/new'
+  end
+
+  post '/songs' do
+
+    
   end
 
   get '/songs/:slug/edit' do
