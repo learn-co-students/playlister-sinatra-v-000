@@ -9,16 +9,18 @@ module Slugifiable
     def find_by_slug(input)
 
       unsluged_array = []
-      "that-one-with-the-guitar".gsub("-", " ").split.each do |word|
-        binding.pry
-        if word.downcase == "with" || word.downcase == "the"
+      input.gsub("-", " ").split.each do |word|
+        #binding.pry
+        if word.downcase == "with" || word.downcase == "the" || word.downcase == "a"
           unsluged_array << word
-        elsif word.downcase != "with" || word.downcase != "the"
+        elsif word.downcase != "with" || word.downcase != "the" || word.downcase != "a"
             unsluged_array << word.capitalize
         end
       end
-      unsluged_array
+      self.find_by(name: unsluged_array.join(" "))
     end
+
   end
-#self.find_by(name: unsluged.join(" "))
+
 end
+#"that-one-with-the-guitar"
