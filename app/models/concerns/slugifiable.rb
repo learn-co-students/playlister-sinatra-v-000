@@ -8,10 +8,17 @@ module Slugifiable
   module ClassMethods
     def find_by_slug(input)
 
-
-      unsluged = input.gsub("-", " ").split.map { |e| e.capitalize }
-      self.find_by(name: unsluged.join(" "))
+      unsluged_array = []
+      "that-one-with-the-guitar".gsub("-", " ").split.each do |word|
+        binding.pry
+        if word.downcase == "with" || word.downcase == "the"
+          unsluged_array << word
+        elsif word.downcase != "with" || word.downcase != "the"
+            unsluged_array << word.capitalize
+        end
+      end
+      unsluged_array
     end
   end
-
+#self.find_by(name: unsluged.join(" "))
 end

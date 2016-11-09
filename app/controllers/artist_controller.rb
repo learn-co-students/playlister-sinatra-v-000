@@ -7,4 +7,7 @@ set :views, Proc.new { File.join(root, "../views/") }
     erb :"artists/index"
   end
 
+
+
+
 end
