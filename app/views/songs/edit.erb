@@ -5,12 +5,12 @@
   <p>
     Genre:<br><br>
     <%Genre.all.each do |genre|%>
-    <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>"><%=genre.name%></input>
+    <input type="checkbox" name="genres[]" value="<%=genre.id%>" <%= 'checked' if @song.genres.include?(genre)%> id="<%=genre.name%>"><%=genre.name%></input>
     <%end%>
   </p>
   <p>
     <label>Artist Name:</label>
-    <input type="text" id="Artist Name" name="Artist Name" value="Artist Name" >
+    <input type="text" id="Artist Name" name="Artist Name" value="<%=@song.artist.name%>" >
   </p>
   <input type="submit"  value="Save">
 

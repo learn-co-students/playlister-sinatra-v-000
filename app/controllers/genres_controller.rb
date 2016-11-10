@@ -8,7 +8,8 @@ class GenresController < Sinatra::Base
     end
 
     get "/genres/:slug" do
-      @genre = Genre.find_by_slug(params[:slug])
+      @genre = Genre.find_by(name: params[:slug])
+      @genre ||= Genre.find_by_slug(params[:slug])
       erb :"genres/show"
     end
 
