@@ -1,0 +1,15 @@
+<h1>Song List</h1>
+
+<ul>
+<% Song.all.each do |song|%>
+  <li>
+    <a href="/songs/<%=song.slug%>"><%=song.name%></a>
+    <p>Artist: <%=song.artist.name%></p>
+    <p>Genre:
+      <%genres=[]%>
+      <%song.genres.each {|genre| genres<<genre.name}%>
+      <%=genres.join("/")%>
+    </p>
+  </li>
+<% end %>
+</ul>
