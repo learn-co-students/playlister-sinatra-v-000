@@ -10,8 +10,13 @@ class LibraryParser
 
   def parse_filename(filename)
     artist_match = filename.match(/^(.*) -/)
+    # string starts with several characters followed by " -"
+    # artist_match = filename.match(/^(.*) -/)          
+    # => #<MatchData "A Rocky -" 1:"A Rocky">
     song_match   = filename.match(/- (.*) \[/)
+    # string starts with "- " and any character until " [" (escaped [)
     genre_match  = filename.match(/\[([^\]]*)\]/)
+    # string starts with "[", followed by 0 or more (*) occurences of something that's not "]" and ends with "]"
 
     artist = artist_match && artist_match[1]
     song   = song_match   && song_match[1]
@@ -33,8 +38,9 @@ class LibraryParser
     artist = Artist.find_or_create_by(name: artist_name)
 
     song.song_genres.build(genre: genre)
+    # build is an alias of new
     song.artist = artist
-    
+
     song.save
   end
 end
