@@ -1,3 +1,5 @@
+
+
 class CreateSong < ActiveRecord::Migration
   def change
      create_table :songs do |t|
@@ -7,5 +9,3 @@ class CreateSong < ActiveRecord::Migration
       end
   end
 end
-
-
