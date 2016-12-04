@@ -7,6 +7,14 @@ class SongsController < ApplicationController
     erb :'/songs/index'
   end
 
+
+  get '/songs/:slug' do
+    @song = 
+
+
+    erb :'/songs/show'
+  end
+
 end
 
 

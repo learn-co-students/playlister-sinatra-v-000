@@ -3,6 +3,6 @@
 
 <h2> Genres: </h2>
 <h2><% @genres.each do |genre| %></h2>
-    <%= genre.name %>
-
+    <a href='/genres/<%= genre.slug %>'><%= genre.name %></a>
 <% end %>
+
