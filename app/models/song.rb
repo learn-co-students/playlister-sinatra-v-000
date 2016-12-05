@@ -11,9 +11,10 @@ class Song < ActiveRecord::Base
     #no_slug = slug.split("-").map(&:capitalize).join(" ")
     no_slug = slug.split("-").join(" ")
     #Song.find_by name: no_slug
-    Song.select do |song|
+    song =Song.select do |song|
       song.name.downcase == no_slug
     end
+    song[0]
   end
 
 end
