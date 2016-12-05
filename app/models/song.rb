@@ -8,8 +8,12 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    no_slug = slug.split("-").map(&:capitalize).join(" ")
-    Song.find_by name: no_slug
+    #no_slug = slug.split("-").map(&:capitalize).join(" ")
+    no_slug = slug.split("-").join(" ")
+    #Song.find_by name: no_slug
+    Song.select do |song|
+      song.name.downcase == no_slug
+    end
   end
 
 end
