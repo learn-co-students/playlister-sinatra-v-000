@@ -1,7 +1,7 @@
 <html>
 <form action="/artists" method="POST">
   <%Artist.all.each do |artist|%>
-    <input type="checkbox" name="artist_id" value="<%=artist.id%>"><%=artist.name%></input>
+    <a href="/artists/<%=artist.slug%>">Artist: </a><%=artist.name%><br>
   <%end%>
 </form>
 </html>

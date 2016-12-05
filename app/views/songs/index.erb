@@ -1,7 +1,7 @@
 <html>
 <form action="/artists" method="POST">
   <%Song.all.each do |song|%>
-    <input name="song_name" value="<a[href='/songs/#{@song.slug}']>"></input>
+    <a href="/songs/<%=song.slug%>">Song: </a><%=song.name%><br>
   <%end%>
 </form>
 </html>

@@ -1,0 +1,7 @@
+<html>
+<form action="/genres" method="POST">
+  <%Genre.all.each do |genre|%>
+    <a href="/genres/<%=genre.slug%>">Genre: </a><%=genre.name%><br>
+  <%end%>
+</form>
+</html>

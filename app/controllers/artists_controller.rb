@@ -1,12 +1,11 @@
 require 'pry'
-class ArtistsController < Sinatra::Base
+class ArtistsController < ApplicationController
 
   get '/artists' do
-    #binding.pry
     erb :'/artists/index'
   end
 
   get '/artists/:slug' do
-    #binding.pry
+    erb :'/genres/show'
   end
 end
