@@ -2,16 +2,16 @@ require "sinatra/base"
 require "rack-flash"
 require "pry"
 
-class SongController < ApplicationController
+class SongsController < ApplicationController
   enable :sessions
   use Rack::Flash
 
-  # get '/' do
-    
-  # end
+  get '/' do
+
+  end
 
   get '/songs' do
-    binding.pry
+    # binding.pry
     @songs = Song.all
     erb :'/songs/index'
   end
