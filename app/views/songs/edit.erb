@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Song Edit</title>
+  </head>
+  <body>
+    <h1>Edit Your Song</h1>
+    <form action="/songs/<%= @song.slug %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <label>Name</label>
+      <input type="text" name="song[name]" value="<%= @song.name %>">
+    </form>
+  </body>
+</html>
