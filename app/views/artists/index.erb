@@ -1,0 +1,7 @@
+<html>
+<form action="/artists" method="POST">
+  <%Artist.all.each do |artist|%>
+    <a href="/artists/<%=artist.slug%>">Artist: </a><%=artist.name%><br>
+  <%end%>
+</form>
+</html>
