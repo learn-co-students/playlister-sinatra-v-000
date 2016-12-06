@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+  use Rack::Flash
   configure do
     enable :sessions
   end
