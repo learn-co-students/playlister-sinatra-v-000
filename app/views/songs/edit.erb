@@ -1,0 +1,30 @@
+<h1>Update Song</h1>
+asdfa
+<form action="/songs/<%=@song.slug%>" method="post">
+  <label>Name:</label>
+
+  <br></br>
+
+  <input type="text" name="name" id="song_name" value="<%=@song.name%>">
+
+  <br></br>
+
+  <label>Choose a genre:</label>
+
+  <br></br>
+
+  <% Genre.all.each do |genre| %>
+    <input id="<%= genre.name %>" type="checkbox" name="genre" value="<%= @song.genres %>"><%=genre.name%></input>
+  <% end %>
+
+  <br></br>
+
+    <label>Artist Name:</label>
+
+    <br></br>
+
+    <label>name:</label>
+      <input  type="text" name="Artist Name" id="artist_name" value="<%= @song.artist.name %>"></input>
+    <br></br>
+  <input type="submit" value="Save" name="Save" id="Save">
+</form>
