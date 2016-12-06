@@ -10,9 +10,16 @@ class SongsController < ApplicationController
     # list of all songs
     # each song w/ clickable link
     # "The Greatest"
-    # binding.pry
     @songs = Song.all
     erb :'/songs/index'
+  end
+
+  get '/songs/new' do
+    # able to create new song
+    # genres as checkboxes
+    # able to enter 1 artist's name per song
+    # "new song"
+    erb :'/songs/new'
   end
 
   get '/songs/:slug' do
