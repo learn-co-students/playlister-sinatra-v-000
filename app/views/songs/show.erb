@@ -2,16 +2,16 @@
 
 <h3>Song Info:</h3>
 
-<h2>Song Name: <%= @songs.name %> </h2>
+<h2>Song Name: <%= @song.name %> </h2>
 
 <h2>Song Artist:</h2>
   
-  </h3><a href="/artists/<%= @songs.artist.slug%>"><%= @songs.artist.name %><a></h3>
+  </h3><a href="/artists/<%= @songs.artist.slug%>"><%= @song.artist.name %><a></h3>
   
 
 <h2>Song Genre: </h2>
 
-  <% @songs.genres.each do |genre| %></h2>
+  <% @song.genres.each do |genre| %></h2>
     <h3><a href="/genres/<%=genre.slug%>"><%= genre.name %></a></h3>
   <% end %>
 
