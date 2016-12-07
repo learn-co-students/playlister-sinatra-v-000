@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204055711) do
+ActiveRecord::Schema.define(version: 20161207035548) do
 
   create_table "artists", force: :cascade do |t|
     t.string  "name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20161204055711) do
     t.integer "artist_id"
     t.integer "genre_id"
     t.text    "slug"
+    t.text    "genres"
   end
 
 end

@@ -6,7 +6,7 @@ class Genre < ActiveRecord::Base
   has_many :songs, through: :song_genres
 
   def slug
-    self.name.downcase.gsub(/ /, '-')
+    name.downcase.gsub(/ /, '-')
   end
 
   def self.find_by_slug(slug)
