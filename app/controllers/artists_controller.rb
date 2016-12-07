@@ -1,8 +1,7 @@
 class ArtistsController < ApplicationController
 
   get '/artists' do
-    # list of all artists
-    # each artist w/ clickable link
+    # list of all artists, each artist w/ clickable link
     # "Disclosure ft Lorde"
     @artists = Artist.all
     erb :'/artists/index'
