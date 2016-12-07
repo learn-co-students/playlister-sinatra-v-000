@@ -25,12 +25,20 @@ class SongsController < ApplicationController
     erb :'/songs/show'
   end
 
+#
+
 
   post '/songs/new' do 
     @new_song = Song.create(:name => params[:song][:name])#, :genre => params[:genres])
-    artist = Artist.find_or_create_by(params[:artist])
-    artist.songs << @new_song
-    @new_song.genre_ids = params[:genres]  
+    #if params[:name], get redirect errors - goes 
+    #to songs/new instead of slug
+
+    #if params[:song][:name], get create new song 
+    #error / genre not displayed on page
+
+    @artist = Artist.find_or_create_by(params[:artist])
+    @artist.songs << @new_song
+    @new_song.genre_ids << params[:genres]  
     #binding.pry
     @new_song.save
 
