@@ -13,8 +13,7 @@ use Rack::Flash
 
   post '/songs' do
     @song = Song.create(name: params[:song][:name])
-    artist = Artist.find_or_create_by(params[:artist])
-    artist.songs << @song
+    @song.artist = Artist.find_or_create_by(params[:artist])
     @song.genre_ids = params[:song][:genre_ids]
     @song.save
     flash[:message] = "Successfully created song."
@@ -33,15 +32,8 @@ use Rack::Flash
 
   patch '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    old_artist = @song.artist
     @song.update(name: params[:song][:name])
-    new_artist = Artist.find_or_create_by(name: params[:artist][:name])
-    if old_artist != new_artist
-      old_artist.songs.delete(@song)
-      new_artist.songs << @song
-      old_artist.save
-      new_artist.save
-    end
+    @song.artist =Artist.find_or_create_by(name: params[:artist][:name])
     @song.genre_ids = params[:song][:genre_ids]
     @song.save
     flash[:message] = "Successfully updated song."
