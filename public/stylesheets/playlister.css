@@ -1,0 +1,71 @@
+body {
+  font-family: 'Lato', sans-serif;
+  background-image: url("/images/ipod.png");
+  background-repeat: no-repeat;
+  background-position: center 50px;
+
+}
+
+div.wrapper {
+  margin: 0 auto;
+}
+
+div#ipod {
+  display: block;
+  margin-top: 94px;
+  height: 313px;
+  width: 415px;
+  background: #fff;
+}
+
+
+
+div#menu {
+  display: block;
+  height: 27px;
+  width: 415px;
+  background: #f6f8f9;
+  background: -webkit-linear-gradient(#f6f8f9 0%, #dee3e5 23%, #e5ebee 50%, #d7dee3 54%, #d1d4d6 76%, #d9dddd 100%);
+  background: -o-linear-gradient(#f6f8f9 0%, #dee3e5 23%, #e5ebee 50%, #d7dee3 54%, #d1d4d6 76%, #d9dddd 100%);
+  background: linear-gradient(#f6f8f9 0%, #dee3e5 23%, #e5ebee 50%, #d7dee3 54%, #d1d4d6 76%, #d9dddd 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#d9dddd',GradientType=0 );
+  border-bottom: 2px #666 solid;
+}
+
+div#menu a {
+  text-decoration: none;
+  display: block;
+  float: left;
+  font-weight: 400;
+  color: black;
+  padding-left: 4px;
+  padding-top: 3px;
+}
+
+
+
+div#menu img {
+  float: right;
+  position: relative;
+  padding-right: 6px;
+  padding-top: 4px;
+  max-height: 23px;
+
+}
+
+/*//////// FIXES //////////*/
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
