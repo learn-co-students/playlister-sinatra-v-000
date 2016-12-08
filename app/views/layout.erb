@@ -2,19 +2,19 @@
 <html>
   <head>
     <title></title>
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/playlister.css">
   </head>
 
   <body>
     <div class="wrapper" id="ipod"> <!-- ipod screen -->
-      <nav>
-        <div id="menu"> <!-- wrapper -->
-          <a href="/">iPlaylister</a>
-          <img id="battery" src="/images/battiers.png" alt="battery" />
-        </div> <!-- /wrapper -->
-      </nav>
-      <%= yield %>
+      <div id="menu"> <!-- wrapper -->
+        <a href="/">iPlaylister</a>
+        <img id="battery" src="/images/battiers.png" alt="battery" />
+      </div> <!-- /wrapper -->
+
+      <div id="contents">
+        <%= yield %>
+      </div>
     </div> <!-- ipod wrapper -->
   </body>
 </html>
