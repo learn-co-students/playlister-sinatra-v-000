@@ -58,7 +58,7 @@ div#menu img {
 
 div#contents {
   position: relative;
-  height: 286px;
+  height: 284px;
   overflow-y: auto;
   overflow-x: hidden;
   max-width: 415px;
@@ -92,6 +92,22 @@ div#contents a span {
   float: left;
   padding-left: 6px;
   padding-top: 4px;
+}
+
+div#contents ul li {
+  display: block;
+  list-style: none;
+}
+
+div#contents h1, h2 {
+  margin: 0 auto;
+  font-size: 1.25em;
+  display: block;
+  width: 415px;
+  float: left;
+  padding: 4px 0 4px 6px;
+  border-bottom: #666 1px solid;
+  border-top: #666 1px solid;
 }
 
 

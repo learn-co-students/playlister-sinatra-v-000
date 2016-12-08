@@ -4,7 +4,7 @@ module Slugifiable
       self.all.find {|object| object.slug == slug}
     end
   end
-  
+
   module InstanceMethods
     def slug
       slug_name = self.name.downcase.scan(/[a-z]*/).reject! {|i| i.empty?}

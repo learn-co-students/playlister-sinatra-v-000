@@ -3,7 +3,7 @@ enable :sessions
 use Rack::Flash
 
   get '/songs' do
-    @songs = Song.all
+    @songs = Song.all.sort_by {|song| song.name}
     erb :'/songs/index'
   end
 

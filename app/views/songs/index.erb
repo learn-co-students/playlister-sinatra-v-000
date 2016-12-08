@@ -1,7 +1,5 @@
-<h1>Songs</h1>
+<h1>Home > Songs</h1>
 
 <% @songs.each do |song| %>
-<p>
-  <a href="/songs/<%= song.slug %>"><%= song.name %></a>
-</p>
+  <a href="/songs/<%= song.slug %>"><span><%= song.display_name %></span></a>
 <% end %>
