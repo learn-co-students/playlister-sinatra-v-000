@@ -1,5 +1,6 @@
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
+  enable :sessions
   set :session_secret, "tarnation"
   set :views, Proc.new { File.join(root, "../views/") }
 
