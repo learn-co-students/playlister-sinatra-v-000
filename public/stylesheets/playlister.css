@@ -34,12 +34,15 @@ div#menu {
   border-bottom: 2px #666 solid;
 }
 
-div#menu a {
+a {
   text-decoration: none;
+  color: black;
+}
+
+div#menu a {
   display: block;
   float: left;
   font-weight: 600;
-  color: black;
   padding-left: 6px;
   padding-top: 4px;
   font-size: 1.1em;
@@ -54,6 +57,8 @@ div#menu img {
 
 }
 
+
+
 /*///////// CONTENT ////////*/
 
 div#contents {
@@ -64,19 +69,38 @@ div#contents {
   max-width: 415px;
 }
 
-div#contents a {
-  display: block;
+div#contents a.list-item {
+  display: inline-block;
   height: 31px;
   width: 415px;
   font-size: 1.25em;
   font-weight: 600;
-  text-decoration: none;
-  color: black;
-  display: block;
   float: left;
 }
 
-div#contents a:hover {
+div#contents a.list-item span {
+  display: inline-block;
+  float: left;
+  padding-left: 6px;
+  padding-top: 4px;
+}
+
+div#contents h1, h2 {
+  margin: 0 auto;
+  font-size: 1.25em;
+  display: inline-block;
+  width: 415px;
+  float: left;
+  padding: 4px 0 4px 6px;
+  text-decoration: none;
+}
+
+div#contents h1 {
+  border-bottom: #666 1px solid;
+  border-top: #666 1px solid;
+}
+
+div#contents a.list-item:hover {
   border-top: #fff 1px solid;
   color: #fff;
   background: #89d9ff;
@@ -87,29 +111,13 @@ div#contents a:hover {
   border-bottom: #666 1px solid;
 }
 
-div#contents a span {
-  display: block;
-  float: left;
-  padding-left: 6px;
+div#contents a.list-item:hover img {
+  display: inline-block;
+  float: right;
+  max-height: 25px;
   padding-top: 4px;
+  padding-right: 6px;
 }
-
-div#contents ul li {
-  display: block;
-  list-style: none;
-}
-
-div#contents h1, h2 {
-  margin: 0 auto;
-  font-size: 1.25em;
-  display: block;
-  width: 415px;
-  float: left;
-  padding: 4px 0 4px 6px;
-  border-bottom: #666 1px solid;
-  border-top: #666 1px solid;
-}
-
 
 /*///////SCROLLBAR CODE////////*/
 

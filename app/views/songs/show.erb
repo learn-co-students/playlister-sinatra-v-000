@@ -2,11 +2,13 @@
   <%= flash[:message] %>
 <% end %>
 
-<h1>Song > <%= @song.name %></h1>
+<h1><a href="/">Music</a> > <a href="/songs">Songs</a></h1>
+
+<h2>Song: <%= @song.name %></h2>
 
 <h2>Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a>
 
 <h2>Genre<% if @song.genres.count > 1 %><%= "s:" %><% else %><%= ":" %><% end %></h2>
 <% @song.genres.each do |genre| %>
-<li><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></li>
+  <a href="/genres/<%= genre.slug %>" class="list-item"><img src="/images/arrow.png"/><span><%= genre.name %></span></a>
 <% end %>

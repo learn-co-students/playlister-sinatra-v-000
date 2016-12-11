@@ -1,11 +1,14 @@
-<h1>Artist > <%= @artist.name %></h1>
+<h1><a href="/">Music</a> > <a href="/artists">Artists</a></h1>
+
+<h2>Artist: <%= @artist.name %></h2>
+
 
 <h2>Song<% if @artist.songs.count > 1 %><%= "s:" %><% else %><%= ":" %><% end %></h2>
   <% @artist.songs.each do |song| %>
-  <a href="/songs/<%= song.slug %>"><span><%= song.name %></span></a>
+  <a href="/songs/<%= song.slug %>" class="list-item"><img src="/images/arrow.png"/><span><%= song.name %></span></a>
   <% end %>
 
 <h2>Genre<% if @artist.genres.count > 1 %><%= "s:" %><% else %><%= ":" %><% end %></h2>
   <% @artist.genres.each do |genre| %>
-    <a href="/genres/<%= genre.slug %>"><span><%= genre.name %></span></a>
+    <a href="/genres/<%= genre.slug %>" class="list-item"><img src="/images/arrow.png"/><span><%= genre.name %></span></a>
   <% end %>

@@ -1,5 +1,5 @@
-<h1>Home > Songs</h1>
+<h1><a href="/">Music</a> > <a href="/songs">Songs</a></h1>
 
 <% @songs.each do |song| %>
-  <a href="/songs/<%= song.slug %>"><span><%= song.display_name %></span></a>
+  <a href="/songs/<%= song.slug %>" class="list-item"><img src="/images/arrow.png"/><span><%= song.display_name %></span></a>
 <% end %>
