@@ -1,0 +1,217 @@
+/*////// GENERAL ///////*/
+
+body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  background-image: url("/images/ipod.png");
+  background-repeat: no-repeat;
+  background-position: center 50px;
+  height: 100%;
+
+}
+
+div.wrapper {
+  margin: 0 auto;
+}
+
+div#ipod {
+  display: block;
+  margin-top: 94px;
+  height: 313px;
+  width: 415px;
+  background: #fff;
+}
+
+
+div#menu {
+  display: block;
+  height: 29px;
+  width: 415px;
+  background: #f6f8f9;
+  background: -webkit-linear-gradient(#f6f8f9 0%, #dee3e5 23%, #e5ebee 50%, #d7dee3 54%, #d1d4d6 76%, #d9dddd 100%);
+  background: -o-linear-gradient(#f6f8f9 0%, #dee3e5 23%, #e5ebee 50%, #d7dee3 54%, #d1d4d6 76%, #d9dddd 100%);
+  background: linear-gradient(#f6f8f9 0%, #dee3e5 23%, #e5ebee 50%, #d7dee3 54%, #d1d4d6 76%, #d9dddd 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#d9dddd',GradientType=0 );
+  border-bottom: 2px #666 solid;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+div#menu a {
+  display: block;
+  float: left;
+  font-weight: 600;
+  padding-left: 6px;
+  padding-top: 4px;
+  font-size: 1.1em;
+}
+
+div#menu img {
+  float: right;
+  position: relative;
+  padding-right: 6px;
+  padding-top: 4px;
+  max-height: 23px;
+
+}
+
+
+
+/*///////// CONTENT ////////*/
+
+div#contents {
+  position: relative;
+  height: 284px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-width: 415px;
+}
+
+div#contents a.list-item {
+  display: inline-block;
+  height: 31px;
+  width: 415px;
+  font-size: 1.25em;
+  font-weight: 600;
+  float: left;
+}
+
+div#contents a.list-item span {
+  display: inline-block;
+  float: left;
+  padding-left: 6px;
+  padding-top: 4px;
+}
+
+div#contents h1, h2 {
+  margin: 0 auto;
+  font-size: 1.25em;
+  display: inline-block;
+  width: 415px;
+  float: left;
+  padding: 4px 0 4px 6px;
+  text-decoration: none;
+}
+
+div#contents h1 {
+  border-bottom: #666 1px solid;
+  border-top: #666 1px solid;
+}
+
+div#contents a.list-item:hover {
+  border-top: #fff 1px solid;
+  color: #fff;
+  background: #89d9ff;
+  background: -moz-linear-gradient(top,  #89d9ff 0%, #067ad3 100%);
+  background: -webkit-linear-gradient(top,  #89d9ff 0%,#067ad3 100%);
+  background: linear-gradient(to bottom,  #89d9ff 0%,#067ad3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#89d9ff', endColorstr='#067ad3',GradientType=0 );
+  border-bottom: #666 1px solid;
+}
+
+div#contents a.list-item:hover img {
+  display: inline-block;
+  float: right;
+  max-height: 25px;
+  padding-top: 4px;
+  padding-right: 6px;
+}
+
+/*///////SCROLLBAR CODE////////*/
+
+::-webkit-scrollbar {
+	width: 15px;
+	height: 0px;
+}
+
+::-webkit-resizer {
+	background-image: url(http://i.stack.imgur.com/aKKDY.png?resizer.png);
+	background-repeat: no-repeat;
+	background-position: bottom right;
+}
+
+::-webkit-scrollbar-button:start {
+	display: none;
+}
+ ::-webkit-scrollbar-button:end {
+	display: block;
+}
+ ::-webkit-scrollbar:vertical {
+	-webkit-border-image: url(http://i.stack.imgur.com/NdaTT.png?vertical-button.png) 2 0 2 0;
+	border-color: transparent;
+	border-width: 2px 0;
+	background-image: url(http://i.stack.imgur.com/p7j9a.png?vertical-button-background.png);
+	background-repeat: repeat-y;
+}
+
+ ::-webkit-scrollbar-thumb:vertical {
+	-webkit-border-image: url(http://i.stack.imgur.com/rPEsZ.png?vertical-thumb.png) 15 0 15 0;
+	border-color: transparent;
+	border-width: 15px 0;
+	min-height: 20px;
+}
+ ::-webkit-scrollbar-track-piece:vertical:start {
+	margin-top: 6px;
+}
+ ::-webkit-scrollbar-track-piece:vertical:end {
+	margin-bottom: -6px;
+}
+ ::-webkit-scrollbar-track-piece:vertical:decrement {
+	-webkit-border-image: url(http://i.stack.imgur.com/Rb6ru.png?vertical-track.png) 15 0 15 0;
+	border-color: transparent;
+	border-width: 15px 0 0 0;
+}
+
+ ::-webkit-scrollbar-track-piece:vertical:increment {
+	-webkit-border-image: url(http://i.stack.imgur.com/Rb6ru.png?vertical-track.png) 15 0 15 0;
+	border-color: transparent;
+	border-width: 0 0 15px 0;
+}
+
+ ::-webkit-scrollbar-button:vertical {
+	height: 21px;
+	-webkit-border-image: url(http://i.stack.imgur.com/NdaTT.png?vertical-button.png) 2 0 2 0;
+	border-color: transparent;
+	border-width: 2px 0;
+}
+
+ ::-webkit-scrollbar-button:vertical:decrement {
+	background-image: url(http://i.stack.imgur.com/KQvwk.png?vertical-decrement-arrow.png), url(http://i.stack.imgur.com/p7j9a.png?vertical-button-background.png);
+	background-repeat: no-repeat, repeat-y;
+	background-position: 4px 7px, 0 0;
+}
+ ::-webkit-scrollbar-button:vertical:decrement:active {
+	-webkit-border-image: url(http://i.stack.imgur.com/uW3TL.png?vertical-button-active.png) 2 0 2 0;
+	background-image: url(http://i.stack.imgur.com/KQvwk.png?vertical-decrement-arrow.png), url(http://i.stack.imgur.com/puDsH.png?vertical-button-background-active.png);
+}
+ ::-webkit-scrollbar-button:vertical:increment {
+	background-image: url(http://i.stack.imgur.com/UjkVR.png?vertical-increment-arrow.png), url(http://i.stack.imgur.com/p7j9a.png?vertical-button-background.png);
+	background-repeat: no-repeat, repeat-y;
+	height: 16px;
+	border-top-width: 0;
+	background-position: 4px 5px, 0 0;
+}
+ ::-webkit-scrollbar-button:vertical:increment:active {
+	-webkit-border-image: url(http://i.stack.imgur.com/uW3TL.png?vertical-button-active.png) 2 0 2 0;
+	background-image: url(http://i.stack.imgur.com/UjkVR.png?vertical-increment-arrow.png), url(http://i.stack.imgur.com/puDsH.png?vertical-button-background-active.png);
+}
+
+
+/*//////// FIXES //////////*/
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}

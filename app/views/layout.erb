@@ -2,9 +2,19 @@
 <html>
   <head>
     <title></title>
+    <link rel="stylesheet" href="/stylesheets/playlister.css">
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper" id="ipod"> <!-- ipod screen -->
+      <div id="menu"> <!-- wrapper -->
+        <a href="/">iPlaylister</a>
+        <img id="battery" src="/images/battiers.png" alt="battery" />
+      </div> <!-- /wrapper -->
+
+      <div id="contents">
+        <%= yield %>
+      </div>
+    </div> <!-- ipod wrapper -->
   </body>
 </html>
