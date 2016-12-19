@@ -1,0 +1,4 @@
+views/songs/index.erb
+<% @songs.each do |song| %>
+  <h3><%= song.name if song.name %></h3>
+<% end %>
