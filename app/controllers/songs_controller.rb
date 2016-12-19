@@ -3,9 +3,6 @@ require 'rack-flash'
 class SongsController < ApplicationController
   use Rack::Flash
 
-  require 'pry'
-
- 
   get '/songs' do 
     @songs = Song.all
     erb :'/songs/index'
@@ -14,7 +11,6 @@ class SongsController < ApplicationController
   get '/songs/new' do
     erb :'/songs/new'
   end
-
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
@@ -34,9 +30,8 @@ class SongsController < ApplicationController
     erb :'/songs/edit'
   end
 
-
   patch '/songs/:slug' do
-     @song = Song.find_by_slug(params[:slug])
+    @song = Song.find_by_slug(params[:slug])
     @song.update(params[:song])
     @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
     @song.save
