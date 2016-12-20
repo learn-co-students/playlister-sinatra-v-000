@@ -1,0 +1,11 @@
+views/artists/show via /artists/:slug
+<br></br>
+<%= @artist.name %>
+<br></br>
+<% @artist.songs.each do |s| %>
+  <a href="/songs/<%=s.slug%>"><%=s.name%></a>
+<% end %>
+
+<% @artist.genres.each do |g| %>
+  <a href="/genres/<%=g.slug%>"><%=g.name%></a>
+<% end %>
