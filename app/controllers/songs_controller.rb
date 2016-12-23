@@ -5,7 +5,6 @@ class SongsController < ApplicationController
   end
 
   get "/songs/new" do
-    # HERE IS WHERE YOU LEFT OFF!
     erb :"/songs/new"
   end
 
