@@ -13,4 +13,5 @@ class Artist < ActiveRecord::Base
       end
     end
   end
+  
 end
