@@ -8,7 +8,7 @@ new song form page
   <input type="text" name="Name"></input>
   <label>Genre(s)</label>
     <% Genre.all.each do |genre| %>
-       <input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%=genre.id%>"></input>
+       <input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%=genre.id%>"><%=genre.name%></input>
     <% end %>
 
     <input type="submit" value="Create">
