@@ -1,0 +1,9 @@
+<%= r=""
+@artist.genres.each{|g| r+=g.name
+r+="<a href=\"/genres/"+g.slug+"\">link</a>"
+}
+@artist.songs.each{|g| r+=g.name
+r+="<a href=\"/songs/"+g.slug+"\">link</a>"
+}
+r
+%>

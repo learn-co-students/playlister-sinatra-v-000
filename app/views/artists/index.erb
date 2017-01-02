@@ -1,0 +1,5 @@
+<%= r=""
+Artist.all.each{|s| r+="<a href=\"/artists/"+s.slug+"\">"+s.name+"</a>"
+}
+r
+%>
