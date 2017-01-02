@@ -1,0 +1,18 @@
+class CreateArtists < ActiveRecord::Migration
+  def change
+    create_table :artists do |t|
+      t.string :name
+       t.timestamps
+    end
+     create_table :songs do |t|
+         t.string :name
+         t.belongs_to :artist, index: true
+         t.integer :genre, index: true
+                   t.timestamps
+     end
+     create_table :genres do |t|
+         t.string :name
+                   t.timestamps
+     end
+  end
+end

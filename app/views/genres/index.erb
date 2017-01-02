@@ -1,0 +1,5 @@
+<%= r=""
+Genre.all.each{|s| r+="<a href=\"/genres/"+s.slug+"\">"+s.name+"</a>"
+}
+r
+%>
