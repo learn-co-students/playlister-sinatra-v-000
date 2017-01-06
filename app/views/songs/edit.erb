@@ -4,6 +4,7 @@
 
   <label for="">Name</label>
   </br>
+  <input type="hidden" name="Original Name" value="<%=@song.name%>">
   <input type="text" name="Name" value="<%=@song.name%>">>
 
   <%genre_names = []%>
@@ -16,7 +17,7 @@
 
   <br></br>
   <label>Artist name:</label>
-    <input type="text" name="Artist Name" id="Artist Name"></input>
+    <input type="text" name="Artist Name" id="Artist Name" value="<%=@song.artist.name%>"></input>
   <br></br>
   <input type="submit" value="Save">
 </form>

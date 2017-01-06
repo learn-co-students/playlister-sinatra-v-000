@@ -28,7 +28,10 @@ class SongsController < ApplicationController
   end
 
   post '/songs/edit' do
-    @song = Song.find_or_create_by(name: params[:"Name"])
+    @song = Song.find_or_create_by(name: params[:"Original Name"])
+    if !params[:"Name"].empty?
+      @song.name = params[:"Name"]
+    end
     if !params[:"Artist Name"].empty?
       @song.artist = Artist.find_or_create_by(name: params[:"Artist Name"])
     end
