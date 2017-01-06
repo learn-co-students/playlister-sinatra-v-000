@@ -9,9 +9,11 @@ class SongsController < ApplicationController
     @song = Song.create(name: params["Name"])
     @song.artist = Artist.find_or_create_by(:name => params[:"Artist Name"])
     params["genres"].each do |g|
-      @song.genres << Genre.find_by_id(g.name)
+      # binding.pry
+      @song.genres << Genre.find_by_id(g)
     end
     @song.save
+    flash[:message] = "Successfully created song."
     redirect "songs/#{@song.slug}"
   end
 
