@@ -28,6 +28,9 @@ class SongsController < ApplicationController
   post '/songs/edit' do
     @song = Song.find_or_create_by(name: params[:"Name"])
     @song.artist = Artist.find_or_create_by(name: params[:"Artist Name"])
+    params["genres"].each do |g|
+      @song.genres << Genre.find_by_id(g)
+    end
     @song.save
     flash[:message] = "Successfully updated song."
     redirect "songs/#{@song.slug}"
