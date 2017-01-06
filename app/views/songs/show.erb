@@ -4,7 +4,7 @@
 
 Song's name: <%= @song.name %> </br>
 Song's artist: <%= @song.artist.name %> </br>
-Song's artist's link: <a href="/artists/<%=@song.artist.slug%>"></a> </br>
+<a href="/artists/<%=@song.artist.slug%>">Song's artist's link</a> </br>
 Song's artist's genres: </br>
 
 <%@song.genres.each do |g|%>
