@@ -8,8 +8,10 @@ class SongsController < ApplicationController
   post '/songs' do
     @song = Song.create(name: params["Name"])
     @song.artist = Artist.find_or_create_by(name: params[:"Artist Name"])
-    params["genres"].each do |g|
-      @song.genres << Genre.find_by_id(g)
+    if !params["genres"].empty?
+      params["genres"].each do |g|
+        @song.genres << Genre.find_by_id(g)
+      end
     end
     @song.save
     flash[:message] = "Successfully created song."
@@ -27,12 +29,17 @@ class SongsController < ApplicationController
 
   post '/songs/edit' do
     @song = Song.find_or_create_by(name: params[:"Name"])
-    @song.artist = Artist.find_or_create_by(name: params[:"Artist Name"])
-    params["genres"].each do |g|
-      @song.genres << Genre.find_by_id(g)
+    if !params[:"Artist Name"].empty?
+      @song.artist = Artist.find_or_create_by(name: params[:"Artist Name"])
+    end
+    if !params["genres"].empty?
+      params["genres"].each do |g|
+        @song.genres << Genre.find_by_id(g)
+      end
     end
     @song.save
     flash[:message] = "Successfully updated song."
+    # binding.pry
     redirect "songs/#{@song.slug}"
   end
 
