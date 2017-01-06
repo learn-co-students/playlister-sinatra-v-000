@@ -1,5 +1,6 @@
-flash[:message] = "Successfully created song."
-redirect to("/songs/#{@song.slug}")
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
 
 Song's name: <%= @song.name %> </br>
 Song's artist: <%= @song.artist.name %> </br>
