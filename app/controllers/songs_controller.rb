@@ -9,7 +9,6 @@ class SongsController < ApplicationController
     @song = Song.create(name: params["Name"])
     @song.artist = Artist.find_or_create_by(:name => params[:"Artist Name"])
     params["genres"].each do |g|
-      # binding.pry
       @song.genres << Genre.find_by_id(g)
     end
     @song.save
@@ -19,6 +18,12 @@ class SongsController < ApplicationController
 
   get '/songs/new' do
     erb :'/songs/new'
+  end
+
+  get '/songs/:slug/edit' do
+    # binding.pry
+    @song = Song.find_by_slug(params[:slug])
+    erb :'/songs/edit'
   end
 
   get '/songs/:slug' do
