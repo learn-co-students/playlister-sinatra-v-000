@@ -1,8 +1,18 @@
 module Slugifiable
   module ClassMethods
-    def find_by_slug
+    def find_by_slug(slugified_name)
+      self.all.find {|instance| instance.slug == slugified_name}
     end
+
+
+    # this version of find_by_slug, below, doesn't appear to work. It appears to return the correct object, but the attributes aren't accessible.  hold for later testing
+    # def find_by_slug(slugified_name)
+    #   # takes slug name, returns corresponding Artist object from database
+    #   test1 = self.where("LOWER(name) = ?", slugified_name.gsub("-", " "))
+    #   binding.pry
+    # end
   end
+
   module InstanceMethods
     def slug
       name.downcase.gsub(" ","-")
