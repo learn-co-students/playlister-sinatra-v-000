@@ -1,11 +1,11 @@
-module Slug 
+module Slug
    module InstanceMethods
 
      def slug
        name.downcase.gsub(/ /, "-")
-     end 
+     end
 
-   end 
+   end
 
 
   module ClassMethods
@@ -14,6 +14,6 @@ module Slug
      new_name = slug.split("-").collect { |name| name.capitalize }.join(" ")
      self.find_by name: new_name
    end
-  end 
+  end
 
 end
