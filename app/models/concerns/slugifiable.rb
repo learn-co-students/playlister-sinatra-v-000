@@ -5,10 +5,11 @@ module Slugifiable
     end
 
 
-    # this version of find_by_slug, below, doesn't appear to work. It appears to return the correct object, but the attributes aren't accessible.  hold for later testing
+    # this version of find_by_slug, below, doesn't appear to work. It returns the correct object in a collection, but accessing that collection at index 0 doesn't seem to work.  hold for later testing
     # def find_by_slug(slugified_name)
-    #   # takes slug name, returns corresponding Artist object from database
-    #   test1 = self.where("LOWER(name) = ?", slugified_name.gsub("-", " "))
+    # #   # takes slug name, returns corresponding Artist object from database
+    #   value = self.where("LOWER(name) = ?", slugified_name.gsub("-", " "))
+    #   value[0]
     #   binding.pry
     # end
   end
