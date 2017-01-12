@@ -15,6 +15,7 @@ class SongsController < ApplicationController
     else
       @song.artist = params["Artist Name"]
     end
+    @song.save
 
     redirect to "/songs/#{@song.slug}"
   end
