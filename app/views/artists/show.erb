@@ -1,8 +1,8 @@
 <html>
   <%@artist.genres.each do |n|%>
-  <p>Genre: <%=n.name%></p>
+    <p><a href="/genres/<%=n.slug%>">Genre: <%=n.name%></p></a>
   <%end%>
   <%@artist.songs.each do |n|%>
-  <p>Song: <%=n.name%></p>
+    <p><a href="/songs/<%=n.slug%>"> Song: <%=n.name%></p>
   <%end%>
 </html>
