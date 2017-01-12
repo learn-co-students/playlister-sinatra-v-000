@@ -11,9 +11,7 @@ module Slug
   module ClassMethods
 
    def find_by_slug(slug) #Taylor Swift
-     new_name = slug.split("-").collect { |name| name.capitalize }.join(" ")
-     self.find_by name: new_name
+     self.all.find{|a| a.slug == slug}
    end
-  end
-
+ end
 end
