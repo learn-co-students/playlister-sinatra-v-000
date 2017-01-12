@@ -1,0 +1,4 @@
+<h1> Here is a list of all genres available: </h1>
+<% @genres.each.with_index(1) do |genre, i| %>
+<label><a href="/genres/<%=genre.slug%>"> <%= "#{i}. #{genre.name}"%></a><br></label>
+<% end %>
