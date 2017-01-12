@@ -9,7 +9,10 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-  
+    if !Song.find_by_name(params["Name"])
+      Song.create(name: params["Name"])
+      Artist.create(name: params["Artist Name"])
+    end
   end
 
   get '/songs/:slug' do
