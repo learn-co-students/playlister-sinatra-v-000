@@ -1,10 +1,10 @@
 <h1> Update Song </h1>
 
-  <form action="/songs/:slug" method="post">
+  <form action="/songs/<%=@song.slug%>" method="post">
 
     <h2>Song: </h2>
 
-      <input type="text" name="Name" Value=<%=@song.name%>>
+      <input type="text" name="Name" value=<%=@song.name%>>
 
     <h2>Genre: </h2>
 
@@ -17,7 +17,7 @@
 
     <h2>Artist: </h2>
 
-      <input type="text" name="Artist Name" value=<%=@song.artist.name%>>
+      <input type="text" name="Artist Name" value="<%=@song.artist.name%>">
 
       <br></br>
 
