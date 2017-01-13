@@ -5,6 +5,7 @@
 
   <p><%=@song.name%></p>
   <p><a href="/artists/<%=@song.artist.slug%>"> Artist: <%=@song.artist.name%></a></p>
+
   <%@song.genres.each do |n|%>
     <p><a href="/genres/<%=n.slug%>"> Genre: <%=n.name%></a></p>
   <%end%>
