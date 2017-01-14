@@ -18,7 +18,11 @@ class SongsController < ApplicationController
 		@song = Song.create(name: params[:name])
 		# binding.pry
 		@song.artist = Artist.find_or_create_by(name: params[:artist_name])
-		redirect "/songs/#{@song.slug}"
+		@song.genre_ids = params[:genres]
+		@song.save
+		binding.pry
+		flash[:message] = "Successfully created song."
+		redirect to "/songs/#{@song.slug}"
 	end 
 
 
