@@ -35,7 +35,6 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do
-    #binding.pry
     @song = Song.find_by_slug(params[:slug])
     @song.name = params["Name"]
     artist = Artist.find_or_create_by(name: params["Artist Name"])
@@ -45,11 +44,3 @@ class SongsController < ApplicationController
     redirect to ("songs/#{@song.slug}")
   end
 end
-
-# {"_method"=>"patch",
-#  "Name"=>"Somebody that I used to Know",
-#  "Artist Name"=>"Gotye",
-#  "genres"=>["1"],
-#  "splat"=>[],
-#  "captures"=>["somebody-that-i-used-to-know"],
-#  "slug"=>"somebody-that-i-used-to-know"}
