@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+	  label.solor {
+		color: DarkSlateGrey;
+	}	
+	</style>
+
+	<style>
+	  .DoTheHorizontalGenre {
+    display: inline-block;
+}
+	</style> 
+  <meta charset="UTF-8">
+  <title>Songs</title>
+</head>
+<body style="background-color: Gainsboro;color:DarkSlateGrey;">
+<h1>Add A New Song </h1>
+<form action="/songs" method="POST">
+
+<p>
+<label>Artist: 
+<input type="text" name="Artist Name">
+</label>
+</p>
+
+<p>
+<label>Song:
+<input type="text" name="Name">
+</label> 
+</p>
+
+<label>Genres</label>
+<fieldset>
+<legend>Click the Box With the Appropriate Genre</legend>
+	<% @all_genres.all.each do |genre| %>
+	<li class="DoTheHorizontalGenre">
+  <p><label class="solor"> <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>"><%=genre.name%></label></p>
+  </li>
+	<% end %>
+</fieldset>
+
+<input style="color:OrangeRed;" type="submit" value="Create">
+
+
+</form>
+  
+</body>
+</html>
