@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    label.solor {
+    color: DarkSlateGrey;
+  } 
+  </style>
+
+  <style>
+    .DoTheHorizontalGenre {
+    display: inline-block;
+}
+  </style> 
+  <meta charset="UTF-8">
+  <title>Songs</title>
+</head>
+<body style="background-color: Gainsboro;color:DarkSlateGrey;">
+<h1>Edit <%= @song.name %> </h1>
+
+<form action="/songs/<%=@song.slug %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+
+<p>
+<label>Song:
+<input type="text" name="Name" value="<%= @song.name %>">
+</label> 
+</p>
+
+<p>
+<label>Artist: 
+<input type="text" name="Artist Name" value="<%= @song.artist.name %>">
+</label>
+</p>
+
+<label>Genres</label>
+<fieldset>
+<legend>Click the Box With the Appropriate Genre</legend>
+  <% @genres.all.each do |genre| %>
+
+  <li class="DoTheHorizontalGenre">
+  <p><label class="solor"></label> <input type="checkbox" name="song[genre_ids][]" value="<%= genre.id %>" id="<%= genre.name %>" <%='checked' if @song.genres.include?(genre) %>><%=genre.name%></p>
+  </li>
+  <% end %>
+</fieldset>
+
+<input style="color:OrangeRed;" type="submit" value="Save">
+
+
+</form>
+  
+</body>
+</html>

@@ -1,78 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<style>
+	  label.solor {
+		color: DarkSlateGrey;
+	}	
+	</style>
+
+	<style>
+	  .DoTheHorizontalGenre {
+    display: inline-block;
+}
+	</style> 
   <meta charset="UTF-8">
   <title>Songs</title>
 </head>
-<body>
+<body style="background-color: Gainsboro;color:DarkSlateGrey;">
+<h1>Add A New Song </h1>
+<form action="/songs" method="POST">
+
 <p>
-<label>Name
-<input type="text" name="customer_name" required>
+<label>Artist: 
+<input type="text" name="Artist Name">
+</label>
+</p>
+
+<p>
+<label>Song:
+<input type="text" name="Name">
 </label> 
 </p>
 
-<p>
-<label>Phone 
-<input type="tel" name="phone_number">
-</label>
-</p>
-
-<p>
-<label>Email 
-<input type="email" name="email_address">
-</label>
-</p>
-
+<label>Genres</label>
 <fieldset>
-<legend>Which taxi do you require?</legend>
-<p><label> <input type="radio" name="taxi" required value="car"> Car </label></p>
-<p><label> <input type="radio" name="taxi" required value="van"> Van </label></p>
-<p><label> <input type="radio" name="taxi" required value="tuktuk"> Tuk Tuk </label></p>
+<legend>Click the Box With the Appropriate Genre</legend>
+	<% @all_genres.all.each do |genre| %>
+	<li class="DoTheHorizontalGenre">
+  <p><label class="solor"> <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>"><%=genre.name%></label></p>
+  </li>
+	<% end %>
 </fieldset>
 
-<fieldset>
-<legend>Extras</legend>
-<p><label> <input type="checkbox" name="extras" value="baby"> Baby Seat </label></p>
-<p><label> <input type="checkbox" name="extras" value="wheelchair"> Wheelchair Access </label></p>
-<p><label> <input type="checkbox" name="extras" value="tip"> Stock Tip </label></p>
-</fieldset>
+<input style="color:OrangeRed;" type="submit" value="Create">
 
-<p>
-<label>Pickup Date/Time
-<input type="datetime-local" name="pickup_time" required>
-</label>
-</p>
-  
-<p>
-<label>Pickup Place
-<select id="pickup_place" name="pickup_place">
-<option value="" selected="selected">Select One</option>
-<option value="office" >Taxi Office</option>
-<option value="town_hall" >Town Hall</option>
-<option value="telepathy" >We'll Guess!</option>
-</select>
-</label> 
-</p>
-
-<p>
-<label>Dropoff Place
-<input type="text" name="dropoff_place" required list="destinations">
-</label>
-
-<datalist id="destinations">
-<option value="Airport">
-<option value="Beach">
-<option value="Fred Flinstone's House">
-</datalist>
-</p>
-
-<p>
-<label>Special Instructions
-<textarea name="comments" maxlength="500"></textarea>
-</label>
-</p>
-
-<p><button>Submit Booking</button></p>
 
 </form>
   

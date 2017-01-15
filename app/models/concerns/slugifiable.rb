@@ -3,6 +3,7 @@ module Slugifiable
 
 	  def slug
       name.downcase.gsub(" ", "-")	
+
     end	
   end
 
