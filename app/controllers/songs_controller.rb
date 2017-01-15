@@ -45,6 +45,7 @@ class SongController < Sinatra::Base
   patch '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     @song.update(params["song"])
+    # binding.pry
     if !params["artist"]["name"].empty?
         if !Artist.find_by(name: params["artist"]["name"]) #if artist doesn't exist
             # @song.artist = Artist.create(name: params["artist"]["name"])
