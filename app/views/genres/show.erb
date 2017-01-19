@@ -1,6 +1,6 @@
 <h1><%= @genre.name %></h1>
 <% @genre.songs.each do |song|%>
-<l1><%= song.name %></li>
-<li><%= song.artist.name %>/li>
+<li><a href='/songs/<%= song.slug %>'><%= song.name %></a></li>
+<li><a href='/artists/<%= song.artist.slug %>'><%= song.artist.name %></a></li>
 <br>
 <% end %>
