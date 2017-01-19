@@ -1,5 +1,11 @@
 class SongGenre < ActiveRecord::Base
 
-  many-to-many :
+#confused
+song
+  has_many :genres
+  has_many :genres, through: :artists
 
-end 
+genre
+  has_many :songs
+  has_many :songs, through: :artists
+end
