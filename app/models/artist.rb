@@ -2,15 +2,10 @@ class Artist < ActiveRecord::Base
     attr_accessor :name
     
     has_many :songs
-    has_many :genres
+    has_many :genres, through: :songs
+    #has_many => <#Artist>.songs || <#artist>.genres
     
     def initialize
-    end 
-    
-    def songs
-    end 
-    
-    def genres
     end 
     
     def slug
