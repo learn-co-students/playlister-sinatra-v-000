@@ -1,6 +1,10 @@
+require 'pry'
+
 class SongsController < ApplicationController
     
     get '/songs' do
+      puts "-------------------------SOMETHING -----------------------------"
+      binding.pry
       @songs = Song.all
       erb :'songs/index'
     end

@@ -3,15 +3,6 @@ class Genre < ActiveRecord::Base
   
   has_many :artists, through: :songs
   has_many :songs, through: :song_genre 
-
-  def initialize
-  end 
-    
-  def songs
-  end 
-  
-  def artists
-  end 
   
   def slug
   end 

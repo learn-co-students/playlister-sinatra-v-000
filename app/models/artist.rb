@@ -5,9 +5,6 @@ class Artist < ActiveRecord::Base
     has_many :genres, through: :songs
     #has_many => <#Artist>.songs || <#artist>.genres
     
-    def initialize
-    end 
-    
     def slug
     end 
     
