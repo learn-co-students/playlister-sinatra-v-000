@@ -3,8 +3,8 @@ require 'pry'
 class SongsController < ApplicationController
 
     get '/songs' do
-      # @songs = Song.all
-      # erb :'songs/index'
+      @songs = Song.all
+      erb :'songs/index'
     end
 
 
@@ -43,4 +43,7 @@ class SongsController < ApplicationController
     get '/songs/:slug' do
 
     end
+
+    patch '/songs/:slug' do
+    end 
 end
