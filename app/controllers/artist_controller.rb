@@ -2,13 +2,17 @@ class ArtistsController < ApplicationController
 
     get '/artists' do
       @artists = Artist.all
-      # binding.pry
       erb :'artists/index'
     end
 
 
     get '/artists/new' do
-    erb :'artists/new' #show new artists view
+      erb :'artists/new' #show new artists view
+    end
+    
+    get '/artists/:slug' do
+      @artist = Artist.find_by_slug(params[:slug])
+      erb :'artists/show'
     end
 
 
@@ -24,7 +28,5 @@ class ArtistsController < ApplicationController
     end
 
 
-    get '/artists/:slug' do
-
-    end
+    
 end
