@@ -14,7 +14,6 @@ class SongsController < ApplicationController
     
     
     get '/songs/:slug' do
-      # binding.pry
       @song = Song.find_by_slug(params[:slug])
       erb :'songs/show'
     end
@@ -22,7 +21,8 @@ class SongsController < ApplicationController
 
     post '/songs' do
     @song = Song.create(params[:song])
-    redirect "/songs/#{@song.id}"
+    flash[:message] = "Successfully created song."
+    redirect to("/songs/#{@song.slug}")
     end
 
 
@@ -40,9 +40,11 @@ class SongsController < ApplicationController
 
 
     patch '/songs/:id' do
-      @song = Song.find(params[:id])
-      @song.assign_attributes(params[:Song])
-      redirect "/songs/#{@song.id}"
+    # @song = Song.find(params[:id])
+    # @song.assign_attributes(params[:Song])
+    # redirect "/songs/#{@song.id}"
+    # flash[:message] = "Successfully created song."
+    redirect to("/songs/#{@song.slug}")
     end
 
 

@@ -1,0 +1,16 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<form method="POST" action="/songs"
+
+<label for="song_name">Create New Artist</label>
+<input Name: type="text" name="song.name value=song_name">
+<input Artist Name: type="text" name="artist.name">
+<input type="submit" value="Create">
+
+<label>Create New Song</label>
+<input Name: type="text" name="song.name">
+<input Artist Name: type="text" name="artist.name">
+<input type="submit" value="Create">
+</form>
