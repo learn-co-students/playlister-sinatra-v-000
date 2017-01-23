@@ -10,7 +10,7 @@ module Slugifiable
   module ClassMethods
     def find_by_slug(slug)
       #uses the `slug` method to retrieve a song/artist/genre from the database and return that entry
-      self.all.select {|element| element.slug == slug } #find a specific instance that contains our slug
+      self.all.select {|element| element.slug == slug} #find a specific instance that contains our slug
     end
   end
   #Artist.find_by_slug(:slug)
