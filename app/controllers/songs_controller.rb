@@ -13,15 +13,15 @@ class SongsController < ApplicationController
     get '/songs/new' do
       erb :'songs/new' #show new songs view
     end
-    
-    
+
+
     get '/songs/:slug' do
       @song = Song.find_by_slug(params[:slug])
-      erb :'songs/show'
+      erb :'songs/show'   #possible if/else statement
     end
 
 
-    post '/songs' do
+    post '/songs' do  #not getting hit
     @song = Song.create(name: params["Name"])
     @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
     @song.genre_ids = params[:genres]
@@ -31,9 +31,9 @@ class SongsController < ApplicationController
     end
 
 
-    get '/songs/:id/edit' do
+    get '/songs/:slug/edit' do
       @song = Song.find_by_slug(params[:slug])
-      erb 'songs/edit'
+      erb :'songs/edit'
     end
 
 
