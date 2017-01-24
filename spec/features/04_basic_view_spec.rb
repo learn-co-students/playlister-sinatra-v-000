@@ -14,6 +14,7 @@ describe "Playlister Basics" do
     @song.artist = @artist
   
     @song.save
+    @artist.save
   end
 
   describe "index pages" do
