@@ -7,8 +7,10 @@ gem 'rake'
 gem 'require_all'
 gem 'sqlite3'
 gem 'thin'
+gem 'tux'
 gem 'shotgun'
 gem 'pry'
+gem 'rack-flash3'
 
 group :test do
   gem 'rspec'

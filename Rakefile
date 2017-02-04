@@ -8,3 +8,10 @@ require 'sinatra/activerecord/rake'
 task :console do
   Pry.start
 end
+
+task :clear_data do
+  Artist.delete_all
+  Song.delete_all
+  Genre.delete_all
+  SongGenre.delete_all
+end

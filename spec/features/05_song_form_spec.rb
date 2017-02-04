@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe "Song Forms" do
-  let(:artist_name) { "Person with a Face" }
+  let(:artist_name) { "Person With A Face" }
   let(:genre_1_name) { "Hippity Hop" }
   let(:genre_2_name) { "New Age Garbage" }
-  let(:song_name) { "That One with the Guitar" }
+  let(:song_name) { "That One With The Guitar" }
   let!(:genre_1) { Genre.create(name: genre_1_name) }
   let!(:genre_2) { Genre.create(name: genre_2_name) }
 
