@@ -17,7 +17,7 @@ class LibraryParser
     song   = song_match   && song_match[1]
     genre  = genre_match  && genre_match[1]
 
-    [artist.split(" ").map(&:capitalize).join(' '), song.split(" ").map(&:capitalize).join(' '), genre.split(" ").map(&:capitalize).join(' ')]
+    [artist, song, genre]
   end
 
   def call

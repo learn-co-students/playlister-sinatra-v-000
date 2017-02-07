@@ -8,8 +8,8 @@ class ApplicationController < Sinatra::Base
   enable :sessions
   use Rack::Flash
 
-#  get '/' do
-#    erb :index
-#  end
+  get '/' do
+    erb :index
+  end
 
 end
