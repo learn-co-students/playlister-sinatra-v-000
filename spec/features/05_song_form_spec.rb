@@ -87,9 +87,7 @@ describe "Song Forms" do
 
       @song.song_genres.create(genre: genre_1)
       @song.artist = artist
-
       @song.save
-
       visit "/songs/#{@song.slug}/edit"
     end
 
