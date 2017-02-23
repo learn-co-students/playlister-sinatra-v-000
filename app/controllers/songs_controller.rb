@@ -21,7 +21,7 @@ set :views, Proc.new { File.join(root, "../views/") }
       @song.artist = Artist.create(name: params[:artist_name])
     end
     @song.save
-    redirect to '/songs/#{@song.slug}'
+    redirect to "/songs/#{@song.slug}"
   end
 
   get '/songs/:slug' do
