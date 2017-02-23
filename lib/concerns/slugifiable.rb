@@ -1,9 +1,8 @@
-module Slugifiable  
+module Slugifiable
   module ClassMethods
 
     def find_by_slug(slug)
-      name = slug.gsub("-", " ").split(" ").each{|w| w.capitalize!}.join(" ").strip
-      self.find_by_name(name)
+      self.all.find{|i| i.slug == slug}
     end
   end
 

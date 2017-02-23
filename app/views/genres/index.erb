@@ -1,5 +1,5 @@
 <h1>Genres Index</h1>
 
 <% @genres.each.with_index(1) do |genre, index| %>
-<h3><a href="/songs/<%=genre.slug%>"><%= "#{index}. #{genre.name}" %></a></h3>
-<%end%> 
+<h3><a href="/genres/<%=genre.slug%>"><%= "#{index}. #{genre.name}" %></a></h3>
+<%end%>
