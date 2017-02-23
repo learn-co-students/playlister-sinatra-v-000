@@ -1,6 +1,7 @@
 ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'
+require 'rack-flash' #added rack flash to environment
 require_relative '../lib/concerns/slugifiable'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
