@@ -8,8 +8,27 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/songs' do
-    binding.pry
     @songs = Song.all
     erb :'songs/index'
   end
+
+  get '/artists' do
+    @artists = Artist.all
+    erb :'artists/index'
+  end
+
+  get '/genres' do
+    @genres = Genre.all
+    erb :'genres/index'
+  end
+
+  get '/songs/:slug' do
+    binding.pry
+    name = find_by_slug(params[:slug])
+    @song = Song.find_by(name: name)
+    # erb :
+  end
+
+helpers Slugifiable
+
 end
