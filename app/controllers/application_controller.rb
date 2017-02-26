@@ -7,11 +7,6 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get '/songs' do
-    @songs = Song.all
-    erb :'songs/index'
-  end
-
   post '/songs' do
     raise params.inspect
   end

@@ -1,2 +1,5 @@
-class ArtistsController < Sinatra::Base
+class ArtistsController < ApplicationController
+
+
+
 end
