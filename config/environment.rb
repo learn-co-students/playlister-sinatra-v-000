@@ -10,3 +10,8 @@ ActiveRecord::Base.establish_connection(
 
 require_all 'app'
 require_all 'lib'
+
+use ApplicationController
+run ArtistsController
+run GenresController
+run SongsController
