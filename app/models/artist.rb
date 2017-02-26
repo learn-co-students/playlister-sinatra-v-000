@@ -2,6 +2,6 @@ require 'pry'
 class Artist < ActiveRecord::Base
   has_many :songs
   has_many :genres, through: :songs
-  include Slugifiable
-  extend Slugifiable
+  include Slugifiable::InstanceMethods
+  extend Slugifiable::ClassMethods
 end
