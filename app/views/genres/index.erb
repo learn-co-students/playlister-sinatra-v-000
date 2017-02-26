@@ -5,9 +5,11 @@
     <title></title>
   </head>
   <body>
-    <h1>You have hit the index page</h1>
+    <h1>Genres</h1>
     <% @genres.each do |genre| %>
-      <a href="/genres/<%= genre.slug %>"><%= genre.name %></a>
+      <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></li>
     <% end %>
+    <br>
+    <a href="/">Back to Home</a>
   </body>
 </html>

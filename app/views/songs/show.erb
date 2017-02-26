@@ -5,8 +5,11 @@
     <title></title>
   </head>
   <body>
-    <h1>Does this work</h1>
-    <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a>
-    <a href="/genres/<%= @song.genres[0].slug %>"><%= @song.genres[0].name %></a>
+    <h1><%= @song.name %></h1>
+    <h2>Artist Name</h2>
+      <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a>
+    <br>
+    <h2>Genres</h2>
+      <a href="/genres/<%= @song.genres[0].slug %>"><%= @song.genres[0].name %></a>
   </body>
 </html>

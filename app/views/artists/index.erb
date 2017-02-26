@@ -5,8 +5,13 @@
     <title></title>
   </head>
   <body>
-    <% @artists.each do |artist| %>
-      <a href="/artists/<%= artist.slug %>"><%= artist.name %></a>
-    <% end %>
+    <h1>Library Artists</h1>
+    <a href="/">Back to Home</a>
+    <br>
+    <ol>
+      <% @artists.each do |artist| %>
+        <li><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></li>
+      <% end %>
+    </ol>
   </body>
 </html>

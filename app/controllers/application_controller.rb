@@ -7,13 +7,27 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get 'songs/new' do
-    erb :'songs/new'
-  end
-
   get '/songs' do
     @songs = Song.all
     erb :'songs/index'
+  end
+
+  post '/songs' do
+    raise params.inspect
+  end
+
+  get '/artists' do
+    @artists = Artist.all
+    erb :'artists/index'
+  end
+
+  get '/genres' do
+    @genres = Genre.all
+    erb :'genres/index'
+  end
+
+  get '/songs/new' do
+    erb :'songs/new'
   end
 
   get '/artists' do
@@ -40,8 +54,6 @@ class ApplicationController < Sinatra::Base
     @genre = Genre.find_by_slug(params[:slug])
     erb :'genres/show'
   end
-
-
 
 helpers Slugifiable
 
