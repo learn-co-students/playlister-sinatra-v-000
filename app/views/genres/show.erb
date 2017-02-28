@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+
+  <body>
+    <h1>
+     <%=@genre.name%>
+   </h1>
+
+   <br></br>
+
+   <h3>Songs: </h3><br>
+    <ul>
+    <%@genre.songs.each do |s|%>
+    <li><a href = "/songs/<%=s.slug%>"><%=s.name%></a></li>
+    <%end%>
+    </ul>
+    <br></br>
+
+    <h3>Artists: </h3><br>
+     <ul>
+     <%@genre.artists.each do |a|%>
+     <li><a href = "/artists/<%=a.slug%>"><%=a.name%></a></li>
+     <%end%>
+     </ul>
+
+
+
+  </body>
+
+</html>
