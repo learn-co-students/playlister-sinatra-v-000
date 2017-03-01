@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
   end
 
   def self.slug(name)
-    name.tr(" '", '-').tr("'", "")
+    name.tr(' ', '-').tr("'", "").downcase
   end
 
 end

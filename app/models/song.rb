@@ -8,7 +8,8 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    Song.all.detect { |song| song.slug == slug }
+    mod_slug = slug.downcase
+    Song.all.detect { |song| song.slug.downcase == mod_slug }
   end
 
 end
