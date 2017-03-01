@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<header>
+</header>
+<body>
+  <h1>Songs</h1>
+  <% @songs.sort {|a,b| a[:name]<=>b[:name]}.each do |song| %>
+    <a href='/songs/<%= song.slug %>'><%= song.name %></a> <br>
+  <% end %>
+</body>
+</html>

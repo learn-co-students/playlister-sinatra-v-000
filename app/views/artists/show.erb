@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<header>
+</header>
+<body>
+  Artist: <%= @artist.name %> <br>
+  Id: <%= @artist.id %><br>
+  Genres: <br>
+    <% @artist.genres.sort {|a,b| a[:name]<=>b[:name]}.each do |genre| %>
+      <a href='/genres/<%= genre.slug %>'><%= genre.name %></a> <br>
+    <% end %>
+  Songs: <br>
+    <% @artist.songs.sort {|a,b| a[:name]<=>b[:name]}.each do |song| %>
+      <a href='/songs/<%= song.slug %>'><%= song.name %></a> <br>
+    <% end %>
+</body>
+</html>
