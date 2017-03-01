@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+
+  <body>
+    <h1>Songs</h1>
+
+    <br> </br>
+    <h3>Click on a title to see more:</h3>
+    <br></br>
+      <ul>
+      <%@songs.all.each do |s|%>
+        <li><a href = "/songs/<%=s.slug%>"><%=s.name%></a></li>
+      <%end%>
+    </ul>
+  </body>
+
+</html>
