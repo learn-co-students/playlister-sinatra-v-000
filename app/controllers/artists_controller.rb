@@ -1,14 +1,13 @@
 class ArtistsController < ApplicationController
-  set :views, Proc.new { File.join(root, "../views/artists") }
 
   get '/artists' do
     @artists = Artist.all
-    erb :index
+    erb :'/artists/index'
   end
 
   get '/artists/:slug' do
     @artist = Artist.find_by_slug(params[:slug])
-    erb :show
+    erb :'/artists/show'
   end
 
 end
