@@ -10,10 +10,10 @@
     <ol>
       <% @artist.songs.each do |song| %>
 
-        <li><a href="/songs/<%= song.slug %>"><%= song.name %></li>
+        <li><a href="/songs/<%= song.slug %>"><%= song.name %></a></li>
       <% end %>
     </ol>
-  <p>Genres:</p>
+  <p>Genres: </p>
     <ol>
       <% @artist.genres.each do |genre| %>
         <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></li>

@@ -1,2 +1,10 @@
 # Add seed data here. Seed your database with `rake db:seed`
-
+Genre.create(name: "Pop")
+Genre.create(name: "Dance")
+Genre.create(name: "Alternative")
+adele = Artist.create(name: "Adele")
+usher = Artist.create(name: "Usher")
+blink182 = Artist.create(name: "blink-182")
+Song.create(name: "Hello", artist: adele)
+Song.create(name: "Yeah!", artist: usher)
+Song.create(name: "All the Small Things", artist: blink182)
