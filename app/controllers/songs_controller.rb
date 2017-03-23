@@ -26,13 +26,11 @@ class SongsController < Sinatra::Base
 
   post '/songs' do
     @song = Song.create(params["song"])
-
     if !params["artist"]["name"].empty?
       @song.artist = Artist.find_or_create_by(params["artist"])
-      @song.genres << params[:genres]
-      @song.save
     end
-    binding.pry
+    @song.genres << params[:genres].map {|g_id| Genre.find_by(id: g_id)}
+    @song.save
     flash[:message] = "Successfully created song."
     redirect to "/songs/#{@song.slug}"
   end
