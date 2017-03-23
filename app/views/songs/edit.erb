@@ -5,15 +5,13 @@
   <title>Edit Song</title>
  </head>
  <body>
-   <h1>Editing: <%=@song.name %></h1>
+   <h1>Editing: <%= @song.name %></h1>
    <form action="/songs/<%= @song.slug %>" method="post">
-     <input id="hidden" type="hidden" name="_method" value="patch">
      Artist Name: <br><input id="Artist Name" type="text" name="artist[name]" size="75" value="<%= @song.artist.name %>"></input><br><br>
-     Genres: <ol><% Genre.all.each do |genre| %>
-       <%binding.pry%>
-        <li><input type="checkbox" name="genres[]" id="<%= genre.name %>" value="<%= genre.id %>" checked = "<%='checked' if @song.genres.include?(genre.name) %>"><%=genre.name%></input></li>
-     <% end %></ol>
-     <input type="submit" value="submit">
+     Genres: <% Genre.all.each do |genre| %>
+        <input type="checkbox" name="genres[]" id="<%= genre.name %>" value="<%= genre.id %>"><%=genre.name%></input>
+     <% end %>
+     <input type="submit" value="Save">
    </form>
 
   </body>
