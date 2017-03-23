@@ -8,18 +8,16 @@
 
 
   <form action="/songs" method="post">
-      Name:
+      Song Name:
 
       <br><input type="text" id="Name" name="song[name]" size="75"></input>
 
       <br></br>
-      Genre:
+      Genre Name:
 
-      <ul><% Genre.all.each do |genre| %>
+      <ul style="list-style: none;"><% Genre.all.each do |genre| %>
           <li><input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>"><%= genre.name %></li>
-      <% end %>
-      </ul>
-      <br></br>
+      <% end %></ul>
 
       Artist Name:<br><input id="Artist Name" type="text" name="artist[name]" size="75"></input>
 

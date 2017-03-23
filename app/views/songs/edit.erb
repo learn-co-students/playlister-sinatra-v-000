@@ -9,7 +9,7 @@
    <form action="/songs/<%= @song.slug %>" method="post">
      Artist Name: <br><input id="Artist Name" type="text" name="artist[name]" size="75" value="<%= @song.artist.name %>"></input><br><br>
      Genres: <% Genre.all.each do |genre| %>
-        <input type="checkbox" name="genres[]" id="<%= genre.name %>" value="<%= genre.id %>" checked = "<%='checked' if @song.genres.map {|x| x.name}.include?(genre.name) %>"><%=genre.name%></input>
+        <input type="checkbox" name="genres[]" id="<%= genre.name %>" value="<%= genre.id %>" <%="checked" if @song.genres.map {|x| x.name}.include?(genre.name) %>><%=genre.name%></input>
      <% end %>
      <input type="submit" value="Save">
    </form>
