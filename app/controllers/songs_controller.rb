@@ -11,6 +11,7 @@ class SongsController < Sinatra::Base
   use Rack::Flash
 
   get '/songs' do
+    @songs = Song.all
     erb :'/songs/index'
   end
 
@@ -28,9 +29,10 @@ class SongsController < Sinatra::Base
 
     if !params["artist"]["name"].empty?
       @song.artist = Artist.find_or_create_by(params["artist"])
+      @song.genres << params[:genres]
       @song.save
     end
-
+    binding.pry
     flash[:message] = "Successfully created song."
     redirect to "/songs/#{@song.slug}"
   end
