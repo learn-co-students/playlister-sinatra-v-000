@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Artists Index Page</title>
+ </head>
+ <body>
+
+  <h1>Artists</h1>
+    <ol>
+      <% @artists.each do |artist| %>
+        <li><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></li>
+      <% end %>
+    </ol>
+  </body>
+</html>
