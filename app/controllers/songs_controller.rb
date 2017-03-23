@@ -45,6 +45,7 @@ class SongsController < Sinatra::Base
     if !params["artist"]["name"].empty?
       @song.artist = Artist.find_or_create_by(params["artist"])
     end
+    @song.genres = params[:genres].map {|g_id| Genre.find_by(id: g_id)}
     @song.save
     flash[:message] = "Successfully updated song."
     redirect to "/songs/#{@song.slug}"
