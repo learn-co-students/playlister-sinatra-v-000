@@ -4,5 +4,6 @@ class Song < ActiveRecord::Base
   has_many :genres, through: :song_genres
 
   include Slugifiable::InstanceMethods
+  extend Slugifiable::ClassMethods
 
 end
