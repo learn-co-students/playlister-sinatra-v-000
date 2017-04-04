@@ -7,9 +7,9 @@ class ApplicationController < Sinatra::Base
     erb :'/artists/index'
   end
 
-  get '/artists/:id' do
-    name = params[:slug].gsub("-", " ")
-    @artist = Artist.find(name: name)
+  get '/artists/:slug' do
+    @artist = Artist.find_by_slug(params[:slug])
+    # binding.pry
     erb :"/artists/show"
   end
 
