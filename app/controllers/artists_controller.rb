@@ -1,13 +1,13 @@
-require 'pry'
 class ArtistsController < ApplicationController
 
+
   get '/artists' do
-    binding.pry
-    erb :index
+    @artists = Artist.all
+    erb:'artists/index'
   end
 
   get '/artists/:slug' do
-    erb :index
+    @artist = Artist.find_by_slug(params[:slug])
+    erb :'artists/show'
   end
-
 end
