@@ -1,0 +1,33 @@
+<h2>Current info for '<%= @song.name %>'</h2>
+ <h4>Artist:</h4>
+   <p><a href="/artists/<%=@song.artist.slug%>"><%= @song.artist.name %></a></p>
+ <h4>Genres:</h4>
+ <ul><% @song.genres.each do |genre| %>
+   <li><a href="/genres/<%=genre.slug%>"><%= genre.name %></a></li>
+   <% end %></ul>
+
+ <br></br>
+
+ <h2>Update this song:</h2>
+ <form action="/songs/<%=@song.slug%>" method="POST">
+
+   <label>Artist:</label>
+
+   <br></br>
+
+   <input type="text" name="artist_name" id="Artist Name">
+
+   <br></br>
+
+   <label>Genre(s):</label>
+
+   <br></br>
+
+   <% @genres.each do |genre| %>
+     <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>"><%= genre.name %></input>
+   <% end %>
+
+   <br></br>
+
+   <input type="submit" value="Save">
+ </form>
