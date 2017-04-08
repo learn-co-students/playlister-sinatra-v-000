@@ -1,0 +1,12 @@
+<h1>Edit Song</h1> <!--basically a tweaked version of the sinatra-ar-crud-lab -->
+
+<form action="/songs/<%=@song.slug%>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <p>Song Title: <input type='text' id="Name" name="name" value="<%=@song.name%>"> </p>
+    <p>Artist: <input type="text" id="Artist Name" name="artist" value="<%=@song.artist.name%>"></p>
+    <% Genre.all.each do |genre| %>
+      <label><%=genre.name%><input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>"></label> <!-- provided by lesson-->
+    <% end %>
+
+    <input type="submit" value = "Save">
+</form>
