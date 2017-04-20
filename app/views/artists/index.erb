@@ -1,1 +1,9 @@
-views/artists/index.erb
+<h1>All Artists</h1>
+
+<hr>
+<% @artists.each do |artist| %>
+<a href="/artist/<%=artist.id%>">
+  <h3>Artist name: <%= artist.name %></h3>
+</a>
+<hr>
+<% end %>
