@@ -6,6 +6,7 @@ module Slugifiable
   end
   module ClassMethods
     def find_by_slug(slug)
+      # is there a better way to do this?
       self.all.detect {|i| i.name.parameterize == slug}
     end
   end
