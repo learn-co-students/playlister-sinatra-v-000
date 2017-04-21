@@ -1,0 +1,15 @@
+
+<h1>New Song Page</h1>
+
+<form action="/songs/<%= @song.last.slug %>" method="post">
+
+	<label>Name</label>
+	<input type="text" name="name" id="Name"/></br></br>
+	<label>Artist Name</label>
+	<input type="text" name="artist_name" id="Artist Name"/></br></br>
+	<% Genre.all.each do |genre| %>
+		<input type="checkbox" name="genre"><%= genre.name %></input>
+	<% end %></br></br>
+	<input type="submit" value="Create" />
+</form>
+

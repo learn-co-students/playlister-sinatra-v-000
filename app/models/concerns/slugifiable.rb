@@ -6,10 +6,7 @@ module Concerns::Slugifiable
   end
 
   def find_by_slug(slug)
-    name = slug.split("-")
-	name.each {|word| word.capitalize!}
-	name = name.join(" ")
-    self.find_by(name: name)
+    full_name = slug.split("-").join(" ")
+    name_result = self.all.detect {|item| item.name.downcase == full_name}
   end
-
 end
