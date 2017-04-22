@@ -1,0 +1,20 @@
+<form action="/songs" method="post">
+
+ <label>Name</label>
+  <input type="text" name="song[name]" id="Name">
+ <br></br>
+  <label>Artist Name</label>
+  <%Artist.all.each do |a|%>
+  <% binding.pry %>
+    <input type="checkbox" name="artist[id][]" id="<%= a.id%>" value="<%=a.id%>" <%='checked' if @songs.artist.include?(a) %>><%=a.name%></input>
+  <%end%>
+   <br></br>
+   <label>Create New Artist Name</label>
+  <input type="text" name="artist[name]" id="artist_name">
+   <br></br>
+  <label for="genre_name">Genre</label>
+  <input type="text" name="genre[name]" id="genre_name">
+
+  <input type="submit" name="Create">
+
+</form>
