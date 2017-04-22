@@ -4,6 +4,7 @@ require 'bundler/setup'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
 require 'shotgun'
+require 'rack-flash'
 
 module Concerns
 end
