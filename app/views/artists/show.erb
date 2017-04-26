@@ -1,0 +1,24 @@
+<h1><%= @artist.name %></h1>
+
+
+<% if !@artist.songs.blank? %>
+    <h3>Songs</h3>
+    <ol>
+      <% @artist.songs.each do |song| %>
+        <li><h4><a href="/songs/<%= song.slug %>"><%=song.name %></a></h4></li>
+      <% end %>
+    </ol>
+<% else %>
+  No Songs
+<% end %>
+
+<% if !@artist.genres.blank? %>
+  <h3>Genres:</h3>
+  <ol>
+    <% @artist.genres.each do |genre| %>
+      <li><h4><a href="/genres/<%= genre.slug %>"><%=genre.name %></a></h4></li>
+    <% end %>
+  </ol>
+<% else %>
+  No Genre
+<% end %>

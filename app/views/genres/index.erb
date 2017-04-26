@@ -1,0 +1,10 @@
+<% if !@genres.blank? %>
+  <h1>Genres</h1>
+  <ol>
+    <% @genres.each do |genre|  %>
+    <h3><li><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></li></h3>
+    <% end %>
+  </ol>
+<% else %>
+  <h2>You have no genres yet.</h2>
+<% end %>
