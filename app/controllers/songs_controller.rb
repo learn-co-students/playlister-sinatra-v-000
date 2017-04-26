@@ -1,7 +1,12 @@
+require 'rack-flash'
+
 class SongsController < ApplicationController
   set :views, Proc.new { File.join(root, "../views/songs/") }
+  enable :sessions
+  use Rack::Flash
 
   get '/' do
+    @songs = Song.all
     erb :index
   end
 
@@ -32,6 +37,7 @@ class SongsController < ApplicationController
     song.genre_ids = params[:genres]
     song.artist = artistt
     song.save
+    flash[:message] = "Successfully created song."
     redirect to("/songs/#{song.slug}")
   end
 
