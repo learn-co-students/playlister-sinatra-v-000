@@ -7,6 +7,7 @@ module Slugifiable
 
 	module ClassMethods
 		def find_by_slug(slug)
+			# binding.pry
 			self.all.detect{|x| slug == x.slug}
 		end
 	end
