@@ -1,4 +1,4 @@
-require 'rack-flash' #find better place for it
+require 'rack-flash'
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   set :session_secret, "my_application_secret"
@@ -29,11 +29,14 @@ class ApplicationController < Sinatra::Base
   	erb :'songs/new'
   end
 
-
   get '/songs/:slug' do
   	@song = Song.find_by_slug(params[:slug])
-  	# binding.pry
   	erb :'songs/show'
+  end
+
+  get '/songs/:slug/edit' do
+  	@song = Song.find_by_slug(params[:slug])
+  	erb :"/songs/edit"
   end
 
   get '/artists/:slug' do
@@ -54,5 +57,15 @@ class ApplicationController < Sinatra::Base
 
   	flash[:message] = "Successfully created song."
   	redirect "/songs/#{@song.slug}"
+  end
+
+  post '/songs/:slug' do
+    @song = Song.find_by_slug(name: params[:name])
+    @song.artist = Artist.find_by(name: params[:artist_name])
+    @song.genres << params[:genres].collect {|g| Genre.find(g)}
+    @song.save
+
+    flash[:message] = "Successfully edited song."
+    redirect "/songs/#{@song.slug}"
   end
 end
