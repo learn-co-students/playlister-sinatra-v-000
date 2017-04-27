@@ -5,5 +5,6 @@ class ArtistsController < ApplicationController
   end
 
   get '/artists/:slug' do
+    
   end
 end
