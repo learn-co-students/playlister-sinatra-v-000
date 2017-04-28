@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+require 'pry'
 describe "Playlister Basics" do
   let(:artist_name) { "Person with a Face" }
   let(:genre_name) { "New Age Garbage" }
@@ -12,7 +12,7 @@ describe "Playlister Basics" do
 
     @song.song_genres.create(genre: @genre)
     @song.artist = @artist
-  
+
     @song.save
   end
 

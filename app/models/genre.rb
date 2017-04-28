@@ -1,7 +1,9 @@
 class Genre < ActiveRecord::Base
+  attr_accessor :slug
   has_many :song_genres
   has_many :songs, through: :song_genres
   has_many :artists, through: :song_genres, :source => :song
+
 
 
   def slug
