@@ -1,0 +1,25 @@
+<style>
+    #success {
+        background: #c7e5cf;
+    }
+</style>
+<h2>Song Title: <%= @song.name %></h2>
+<h3>Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></h3>
+<h3>Genres: </h3>
+<ul>
+    <% @song.genres.each do |genre| %>
+        <li><h4><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></h4></li>
+    <% end %>
+</ul>
+
+<% if flash.has?(:success) %>
+    <div id="success">
+        <%= flash[:success] %>
+    </div>
+<% end %>
+
+<% if flash.has?(:update) %>
+    <div id="success">
+        <%= flash[:update] %>
+    </div>
+<% end %>
