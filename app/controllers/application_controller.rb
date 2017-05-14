@@ -6,4 +6,8 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index
   end
+
+  get '/import' do
+    LibraryParser.parse
+  end
 end
