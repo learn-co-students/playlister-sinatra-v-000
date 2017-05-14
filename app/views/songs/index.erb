@@ -1,5 +1,9 @@
 <h1>All Songs</h1>
 
+<button type="button" name="button"><a href="/songs/new">Add Song</a></button>
+
+<br></br>
+
 <% @songs.each do |song| %>
 
   <a href="/songs/<%= song.slug %>"><%= song.name %></a>

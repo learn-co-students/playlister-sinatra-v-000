@@ -7,3 +7,11 @@
   <a href="/genres/<%= genre.slug %>"><%= genre.name %></a>
   <% end %>
 </h3>
+
+<form action="/songs/<%= @song.slug %>/edit" method="get">
+  <button type="submit" name="button">Edit</button>
+</form>
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
