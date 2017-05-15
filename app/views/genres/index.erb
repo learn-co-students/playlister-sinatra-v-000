@@ -1,0 +1,7 @@
+index
+
+<% Genre.all.each do |g| %>
+
+
+<li><a href="/genres/<%= g.slug %>"><%= g.name %></a></li>
+<% end %>
