@@ -10,7 +10,7 @@ class GenresController < ApplicationController
   	@artists = []
   	@songs = []
   	
-  	binding.pry
+  	
     @genre = Genre.find_by_slug(params[:slug])
     @songs << Song.find_by_id(@genre.song_ids)
     @artists << Artist.find_by_id(@genre.artist_ids)
