@@ -172,7 +172,7 @@ To display this message in the view, just add
 ```
 
 to the top of the view.
-
+ 
 ## A Note on the Database
 
 Remember too that you can drop and recreate your database as much as you need
