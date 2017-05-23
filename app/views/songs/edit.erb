@@ -1,0 +1,18 @@
+<h2>Add a new song to your playlist!</h2>
+<form action='/songs/<%=@song.slug%>' method="POST">
+  <label>Title: </label>
+  <input type="text" name="name" id="Name" value="<%=@song.name%>">
+  <br></br>
+  <label>Artist: </label>
+  <input type="text" name="artist_name" id="Artist Name" value="<%=@song.artist.name%>">
+  <br></br>
+  <label>Genre: </label>
+  <%Genre.all.each do |genre|%>
+    <div>
+      <input type="checkbox" name="song[genre]" value="<%=genre.name%>" id="<%=genre.name%>">
+        <%=genre.name.split.map { |i| i.capitalize }.join(' ')%>
+      </input>
+    </div>
+  <%end%>
+  <input type="submit" value="Save">
+</form>
