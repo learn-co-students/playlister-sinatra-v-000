@@ -6,7 +6,7 @@ get '/genres' do
 end
 
 get '/genres/:slug' do
-  @gener = Genre.find_by_slug(params[:slug])
+  @genre = Genre.find_by_slug(params[:slug])
   erb :'/genres/show'
 end
 
