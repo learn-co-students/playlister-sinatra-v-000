@@ -1,0 +1,8 @@
+<h1>Genres!</h1>
+<ul>
+  <% Genre.all.sort_by{|obj| obj.name}.each do |genre| %>
+  <li>
+    <a href="/genres/<%=genre.slug%>"><%= genre.name %></a>
+  </li>
+  <% end %>
+</ul>
