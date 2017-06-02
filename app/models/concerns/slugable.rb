@@ -1,7 +1,7 @@
 module Slugable
 	module InstanceMethods
 		def slug
-			self.name.downcase.gsub(' ', '-').gsub(/[^\w-]/, '')
+			self.name.to_s.downcase.gsub(' ', '-').gsub(/[^\w-]/, '')
 		end
 	end
 
