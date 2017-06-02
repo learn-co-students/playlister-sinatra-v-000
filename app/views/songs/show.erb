@@ -5,8 +5,17 @@
     <title>Show Page</title>
   </head>
   <body>
+    <% if flash.has?(:message) %>
+      <%= flash[:message] %>
+    <% end %>
      <h2><%=@slug_song.name%></h2>
-     <h3><a href = "/artists/<%=@slug_song.artist.slug%>"><%=@slug_song.artist.name%></a></h3>
-     <h3><a href = "/genres/<%=@slug_song.genres[0].slug%>"><%=@slug_song.genres[0].name%></h3></a>
+      <%if @slug_song.artist%>
+        <a href = "/artists/<%=@slug_song.artist.slug%>"><%= @slug_song.artist.name %></a>
+      <%end%>
+    <ul>
+     <%@slug_song.genres.each do |genre|%>
+          <li><a href = "/genres/<%=genre.slug%>"><%=genre.name%></a></li>
+     <%end%>
+   </ul>
   </body>
 </html>
