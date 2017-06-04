@@ -15,7 +15,20 @@ use Rack::Flash
     @song = Song.find_by_slug(params[:slug])
     erb :'songs/show'
   end
-  
+
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'songs/edit'
+  end
+
+  post '/songs/:slug' do
+    @artist = Artist.find_or_create_by(name: params["Artist Name"])
+    @song = Song.find_by_slug(params[:slug])
+    @song.update(artist: artist, name: params["Name"])
+    binding.pry
+
+  end
+
   post '/songs' do
     @artist = Artist.find_or_create_by(name: params["Artist Name"])
     @song = Song.create(name: params["Name"], artist: @artist)
