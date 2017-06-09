@@ -1,0 +1,6 @@
+# Outputing Rspec Tests to HTML
+rspec spec/models/01_artist_spec.rb --format=html > ./spec/html/01_artist_spec.html
+rspec spec/models/02_song_spec.rb --format=html > ./spec/html/02_song_spec.html
+rspec spec/models/03_genre_spec.rb --format=html > ./spec/html/03_genre_spec.html
+rspec spec/features/04_basic_view_spec.rb --format=html > ./spec/html/04_basic_view_spec.html
+rspec spec/features/05_song_form_spec.rb --format=html > ./spec/html/05_song_form_spec.html
