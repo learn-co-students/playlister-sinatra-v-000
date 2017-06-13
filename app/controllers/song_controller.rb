@@ -12,14 +12,10 @@ class SongController < ApplicationController
   post '/songs' do
     song = Song.new(name: params[:song][:name])
     song.artist = Artist.find_or_create_by(name: params[:song][:artist])
-    params[:song][:genre].each do |genre|
-      if !genre.nil?
-        song.genres << Genre.find_or_create_by(name: genre)
-      end
-    end
-    if song.save
-      flash[:success] = "Successfully created song."
-    end
+    song.genre_ids = params[:song][:genre_ids]
+    song.genres.build(params[:song][:new_genre]) unless params[:song][:new_genre].nil?
+    flash[:success] = "Successfully created song." if song.save
+
     redirect "/songs/#{song.slug}"
   end
 

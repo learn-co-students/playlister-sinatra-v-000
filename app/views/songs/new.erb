@@ -2,26 +2,26 @@
 <h4><a href="/artists">Artists</a> - <a href="/songs">Songs</a> - <a href="/genres">Genres</a></h4>
 
   <form method='post' action='/songs'>
-    <label for='name'>Name:</label>
+    <label for='Name'>Name:</label>
       <input type='text' name='song[name]' id='Name'/>
 
       <br></br>
 
-    <label for='artist_name'>Artist Name:</label>
+    <label for='Artist Name'>Artist Name:</label>
       <input type='text' name='song[artist]' id='Artist Name'/>
 
       <br></br>
 
     <p>Choose a Genre:</p>
       <% @genres.each do |genre| %>
-        <label for="song_genre">
-            <input type='checkbox' value='<%= genre.name %>' name='song[genre][]' class='song_genre'/>
+        <label for="genre_<%= genre.id %>">
+            <input type='checkbox' value='<%= genre.id %>' name='song[genre_ids][]' id='genre_<%= genre.id %>'/>
             <%= genre.name %><br>
         </label>
       <% end %>
       <br>
     <label for='song_genre'>or, Create one:</label>
-      <input type='text' name='song[genre][]' class='song_genre'/>
+      <input type='text' name='song[new_genre][name]' class='song_genre'/>
 
       <br></br>
 
