@@ -1,8 +1,8 @@
 <h1>Edit '<%= @song.name %>'...</h1>
 <h4><a href="/artists">Artists</a> - <a href="/songs">Songs</a> - <a href="/genres">Genres</a></h4>
 
-  <form method='post' action='/songs'>
-    <input type='hidden' name='_method' value='patch'>
+  <form method='post' action='/songs/<%= @song.slug %>'>
+    <input type="hidden" value="patch" name="_method">
     <label for='name'>Name:</label>
       <input type='text' name='song[name]' id='Name' value='<%= @song.name %>'/>
 
@@ -26,5 +26,5 @@
 
       <br></br>
 
-    <input type='submit' value='Edit'/>
+    <input type='submit' value='Save'/>
   </form>
