@@ -1,0 +1,7 @@
+<h2>Successfully created song.</h2>
+
+<%= @song.name %>
+<%= @song.artist.name %>
+ <%= @song.genres[0].name %>
+<a href="/artists/<%= @song.artist.slug %>"><%=@song.artist.name%></a>
+<a href="/genres/<%= @song.genres[0].slug %>"><%=@song.genres[0].name%></a>
