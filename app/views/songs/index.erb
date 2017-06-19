@@ -8,13 +8,15 @@
  <body>
   <h1> Songs </h1>
   <% if @songs.size > 0%>
-    <% @songs.each do |song| %>
-    <%binding.pry%>
-       <a href="http://138.197.214.116:30005/songs/<%=song.id%>"><%=song.name%></a><br>
-    <% end %>
-    <br><br><a href="http://138.197.214.116:30010/songs/new">Add A New Song</a><br>
+    <ul>
+      <% @songs.each do |song| %>
+         <li><a href="http://138.197.214.116:30005/songs/<%=song.slug%>"><%=song.name%></a><br></li>
+      <% end %>
+    </ul>
+      <br><br><a href="http://138.197.214.116:30010/songs/new">Add A New Song</a><br>
   <%else%>
   <h2>There are no songs to display!</h2>
   <%end%>
+
  </body>
 </html>
