@@ -12,7 +12,7 @@ describe "Playlister Basics" do
 
     @song.song_genres.create(genre: @genre)
     @song.artist = @artist
-  
+
     @song.save
   end
 
@@ -32,6 +32,7 @@ describe "Playlister Basics" do
 
       it "contains links to each song's show page" do
         expect(page).to have_css("a[href='/songs/#{@song.slug}']")
+
       end
     end
 

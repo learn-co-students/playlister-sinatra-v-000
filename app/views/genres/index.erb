@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+
+<%@genres.each do |genre| %>
+  <p>Genre Name: <%=genre.name%><a href="/genres/<%=genre.slug%>">  Select</a></p>
+
+<%end%>
+
+</html>

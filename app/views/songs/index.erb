@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+
+<%@songs.each do |song| %>
+  <p>Song Name: <%=song.name%><a href="/songs/<%=song.slug%>">  Select</a></p>
+<%end%>
+
+</html>
