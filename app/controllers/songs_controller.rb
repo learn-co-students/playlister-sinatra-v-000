@@ -16,7 +16,8 @@ class SongsController < ApplicationController
 	end
 
 	get '/songs/:slug' do
-
+		binding.pry
+		Song.slug
 	end
 
 	get '/songs/:slug/edit' do
