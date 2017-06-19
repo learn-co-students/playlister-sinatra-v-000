@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Songs List</title>
+  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+ </head>
+ <body>
+  <h1> Songs </h1>
+  <% if @songs.size > 0%>
+    <% @osongs.each do |song| %>
+    binding.pry
+      <a href="http://138.197.214.116:30010/songs/<%=song.id%>"><%=song.name%></a><br>
+    <% end %>
+    <br><br><a href="http://138.197.214.116:30010/songs/new">Add A New Song</a><br>
+  <%else%>
+  <h2>There are no songs to display!</h2>
+  <%end%>
+ </body>
+</html>

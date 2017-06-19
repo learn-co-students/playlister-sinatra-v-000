@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Artists List</title>
+  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+ </head>
+ <body>
+  <h1> Artists </h1>
+  <% if @artists.size > 0%>
+    <% @artists.each do |artist| %>
+      <a href="http://138.197.214.116:30005/artists/<%=artist.id%>"><%=artist.name%></a><br>
+    <% end %>
+    <br><br><a href="http://138.197.214.116:30005/artists/new">Add A New Artist</a><br>
+  <%else%>
+  <h2>There are no artists to display!</h2>
+  <%end%>
+ </body>
+</html>
