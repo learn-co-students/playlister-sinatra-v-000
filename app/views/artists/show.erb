@@ -1,0 +1,5 @@
+<%=@artist.name%><br>
+<%=@artist.songs[0].name%><br>
+<%=@artist.genres[0].name%><br>
+<a href="/songs/<%=@artist.songs[0].slug%>">song's show page</a><br>
+<a href="/genres/<%=@artist.genres[0].slug%>">genre's show page</a><br>
