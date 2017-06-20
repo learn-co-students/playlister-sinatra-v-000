@@ -8,12 +8,12 @@
  <body>
   <h1> Genres </h1>
   <% if @genres.size > 0%>
-  <ul>
-    <% @genres.each do |genre| %>
-      <a href="http://138.197.214.116:30005/genres/<%=artist.id%>"><%=genre.name%></a><br>
-    <% end %>
-  </ul>
-    <br><br><a href="http://138.197.214.116:30005/genres/new">Add A New Genre</a><br>
+    <ul>
+      <% @genres.each do |genre| %>
+        <li><a href="http://138.197.214.116:30010/genres/<%=artist.id%>"><%=genre.name%></a><br></li>
+      <% end %>
+    </ul>
+      <br><br><a href="http://138.197.214.116:30010/genres/new">Add A New Genre</a><br>
   <%else%>
   <h2>There are no genres to display!</h2>
   <%end%>
