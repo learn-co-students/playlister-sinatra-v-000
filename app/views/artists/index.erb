@@ -10,10 +10,10 @@
   <% if @artists.size > 0%>
     <ul>
       <% @artists.each do |artist| %>
-        <li><a href="http://138.197.214.116:30010/artists/<%=artist.id%>"><%=artist.name%></a><br></li>
+        <li><a href="/artists/<%=artist.slug%>"><%=artist.name%></a><br></li>
       <% end %>
     </ul>
-      <br><br><a href="http://138.197.214.116:30010/artists/new">Add A New Artist</a><br>
+      <br><br><a href="/artists/new">Add A New Artist</a><br>
   <%else%>
   <h2>There are no artists to display!</h2>
   <%end%>
