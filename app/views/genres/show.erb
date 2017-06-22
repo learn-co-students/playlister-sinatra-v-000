@@ -1,0 +1,23 @@
+<h1><%=@genre.name.upcase%></h1>
+
+
+
+<table>
+<tr><th>Artists</th><th>Songs</th></tr>
+
+<%@genre.artists.each{|artist|%>
+                     <tr>
+                     <td><a href="/artists/<%=artist.slug%>"><%=artist.name%></a></td>
+                     
+                     
+                     <td>
+                     <%artist.songs.each{|song|%>
+                     <a href="/songs/<%=song.slug%>"><%=song.name%></a><br>
+                     <%}%>
+                     </td>
+                     
+                     
+                     </tr>
+                <%}%>
+</table>
+

@@ -1,0 +1,13 @@
+<h1>All Songs </h1>
+
+<table>
+<tr><th>Song</th><th>Details</th></tr>
+
+<%@songs.each{|song|%>
+              <tr>
+              <td><%=song.name%></td>
+              <td><a href="/songs/<%=song.slug%>">Details</a></td>
+              </tr>
+              <%}%>
+</table>
+
