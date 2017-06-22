@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe "Song" do
   before do 
-    @artist = Artist.create(:name => "Taylor Swift") 
+    # @artist = Artist.create(:name => "Taylor Swift") 
 
-    @song =  Song.create(:name => "Blank Space", :artist => @artist) 
+    @song =  Song.create(:name => "Blank Space") #, :artist => @artist) 
 
     pop = Genre.create(:name => "Pop")
-
+    #binding.pry
     @song.genre_ids = pop.id
     
   end
