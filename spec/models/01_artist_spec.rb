@@ -7,7 +7,6 @@ describe "Artist" do
     blank_space =  Song.create(:name => "Blank Space", :artist => @artist) 
 
     pop = Genre.create(:name => "Pop")
-    binding.pry
 
     blank_space.genre_ids = pop.id
     
