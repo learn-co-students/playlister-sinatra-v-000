@@ -1,1 +1,12 @@
-<%=@song_name%>
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Show Song</title>
+ </head>
+ <body>
+	<h1>Song: <%=@song_name%></h1>
+	   <h3>Artist: <a href="/artists/<%=@song.artist_id%>"><%=@song_artist%></a></h3>
+  <br><br><a href="/songs">Return To Songs List</a>
+ </body>
+</html>
