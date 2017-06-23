@@ -6,7 +6,8 @@
  </head>
  <body>
 	<h1>Song: <%=@song_name%></h1>
-	   <h3>Artist: <a href="/artists/<%=@song.artist_id%>"><%=@song_artist%></a></h3>
+	   <h3>Artist: <a href="/artists/<%=@song_artist.slug%>"><%=@song_artist.name%></a></h3>
+     <h3>Genre: <a href="/genres/<%=@song_genre.slug%>"><%=@song_genre.name%></a></h3>
   <br><br><a href="/songs">Return To Songs List</a>
  </body>
 </html>
