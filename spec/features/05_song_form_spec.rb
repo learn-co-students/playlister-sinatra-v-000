@@ -5,8 +5,11 @@ describe "Song Forms" do
   let(:genre_1_name) { "Hippity Hop" }
   let(:genre_2_name) { "New Age Garbage" }
   let(:song_name) { "That One with the Guitar" }
+  
+  
   let!(:genre_1) { Genre.create(name: genre_1_name) }
   let!(:genre_2) { Genre.create(name: genre_2_name) }
+
 
   describe "/songs/new" do
     before do
@@ -15,6 +18,8 @@ describe "Song Forms" do
 
     context "without an existing artist" do
       it "creates a new artist on submit" do
+
+
         expect {
           fill_in "Name", with: song_name
           check "New Age Garbage"

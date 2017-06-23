@@ -7,12 +7,38 @@ get '/songs' do
 
 erb :'/songs/index'
 end
+# #create
 
-#new form
 get '/songs/new' do
 
-erb :'/songs/new'
+    erb :'/songs/new'
 end
+
+
+post '/songs' do
+      binding.pry
+     @song = Song.create(:name => params[:song][:name])
+     
+
+     @genres = []
+    #  binding.pry
+     params["song"]["genres"].each {|genre| 
+                                   binding.pry
+                                   @genre = Genre.find_or_create_by(:name => genre[:name])
+                                   @genres << @genre
+     }
+     @song.genres = @genres
+
+     
+     @song.artist = Artist.find_or_create_by(:name => params["song"]["artist"])
+     @song.save
+
+
+
+redirect "/songs/#{@song.slug}"
+end
+
+#new form
 
 #show
 get '/songs/:slug' do
@@ -23,30 +49,14 @@ erb :'/songs/show'
 end
 
 
-#create
-post '/songs' do
-      
-     @song = Song.create(:name => params[:song][:name])
-     
-
-     @genres = []
-     params[:song][:genres].each {|genre| 
-                                   @genre = Genre.find_or_create(:id => genre)
-                                   @genres << @genre
-     }
-     @song.genres = @genres
-
-     
-     @song.artist = Artist.find_or_create(params[:song][:artist])
-     @song.save
-
-
-
-redirect "/songs/#{@song.slug}"
+get '/songs/:slug/edit' do
+    
 end
 
 
-#update
+
+
+# #update
 post '/songs/:slug' do
     
 end

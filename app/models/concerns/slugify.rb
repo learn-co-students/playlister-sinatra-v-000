@@ -7,7 +7,8 @@ module Slugify_class
 #explicit self still refers to class here
 
     def find_by_slug (slug)
-      self.all.find {|instance| instance.slug == slug}    
+      self.all.find {|instance|
+       instance.slug == slug}    
       end
 
 end #end of Slugify_class
