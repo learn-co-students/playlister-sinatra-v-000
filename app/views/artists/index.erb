@@ -1,0 +1,13 @@
+<h1>All Artists</h1>
+
+<table>
+<tr><th>Artist</th><th>Details</th></tr>
+
+<%@artists.each{|artist|%>
+              <tr>
+              <td><%=artist.name%></td>
+              <td><a href="/artists/<%=artist.slug%>">Details</a></td>
+              </tr>
+              <%}%>
+</table>
+
