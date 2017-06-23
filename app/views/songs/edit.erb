@@ -3,7 +3,7 @@
 Name: <%= @song.name %><br>
 Artist: <%= @song.artist.name %><br>
 Genres: <% @song.genres.each do |genre| %>
-<%= genre.name %>
+<%= genre.name %>, 
 <% end %>
 
 <br></br>
@@ -12,7 +12,7 @@ Genres: <% @song.genres.each do |genre| %>
 New Name: <input type="text" name="song[name]" value="<%= @song.name %>" id="name"><br>
 New Artist: <input type="text" name="song[artist]" value="<%= @song.artist.name %>" id="Artist Name"><br>
 Genres: <% Genre.all.each do |genre| %>
-  <input type="checkbox" name="song[genres][]" value="<%= genre.id %>" id="<%= genre.name %>">
+  <input type="checkbox" name="song[genres][]" value="<%= genre.id %>" id="<%= genre.name %>" <%='checked' if @song.genres.include?(genre) %> >
     <%= genre.name %>
   </input>
 <% end %>
