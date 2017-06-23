@@ -1,8 +1,5 @@
-<%binding.pry%>
-    <h1>Artists: </h1>
-
-    <ul>
-    <%@artists.each do |artist|%>
-      <li><a href="/artist/<%=#{artist.name.slug}"><%=artist.name%></a></li>
-      <%end%>
-    </ul>
+<% @artists.each do |artist| %>
+  <a href="/artists/<%= artist.slug%>">
+    <%=artist.name%>
+  </a>
+  <%end%>
