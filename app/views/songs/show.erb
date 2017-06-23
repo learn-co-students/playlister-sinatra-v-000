@@ -1,7 +1,6 @@
 <h1><%=@song.name%></h1>
 
 
-
 <table>
 <tr><th>Artist</th><th>Genre</th></tr>
 
@@ -21,3 +20,8 @@
 
 </table>
 
+<br><br>
+
+<form method="get" action="/songs/<%=@song.slug%>/edit">
+<input type="submit" id="edit" name="edit" value="Click to edit">
+</form

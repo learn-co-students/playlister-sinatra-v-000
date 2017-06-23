@@ -12,7 +12,7 @@
 <p>Select all applicable genres</p>
 <%Genre.all.each{|genre|%>
 
-                      <input id="<%= genre.name %>" type="checkbox" name="song[genres][][name]" value="<%= genre.name %>"><%=genre.name%></input><br>
+                      <input id="<%=genre.name%>" type="checkbox" name="song[genres][][name]" value="<%=genre.name%>"><%=genre.name%></input><br>
             <%}%>
 
 <input type="submit" name="Create" id="Create" value="Create">
