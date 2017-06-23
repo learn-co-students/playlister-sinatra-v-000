@@ -1,0 +1,18 @@
+<form action="/songs/<%= @song.slug %>/edit" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label for="name">Song Name:</label><input type="text" name="name" id="name" value="<%= @song.name %>">
+  <br></br>
+  Choose an existing artist:
+  <% @artists.each do |artist| %>
+    <input type="radio" name="artist" value="<%= artist.id %>" id="<%= artist.name %>" <%='checked' if artist.songs.include?(@song) %>><%= artist.name %></input>
+  <% end %>
+  <br></br>
+  Or, create a new artist:
+  <label for="new_artist">Artist Name:</label><input type="text" name="new_artist" id="Artist Name">
+  <br></br>
+  Choose a genre:
+  <% @genres.each do |genre| %>
+    <input type="checkbox" name="genres[]" value="<%= genre.id %>" id="<%= genre.name %>" <%='checked' if genre.songs.include?(@song) %>><%= genre.name %></input>
+  <% end %>
+  <input type="submit" value="Save">
+</form>
