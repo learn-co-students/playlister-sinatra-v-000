@@ -29,7 +29,7 @@ post '/songs' do
       
       @song.artist = Artist.find_or_create_by(:name => params["song"]["artist"])
       @song.save
-
+      flash[:message] = "Successfully created song."
 redirect "/songs/#{@song.slug}"
 end
 
@@ -67,7 +67,7 @@ post '/songs/:slug' do
      }
      @song.genres = @genres
      @song.save
-
+     flash[:message] = "Successfully updated song."
      redirect "/songs/#{@song.slug}"
 end
 

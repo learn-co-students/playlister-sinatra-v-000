@@ -8,8 +8,8 @@
 <input type="text" name="song[name]" id="Name" value="<%=@song.name%>">
 
 
-<label for="song[artist]">Song Artist:</label>
-<input type="text" name="song[artist]" id="Artist Name" value="<%=@song.artist.name%>">
+<label for="song[artist]">Artist Name</label>
+<input type="text" name="song[artist]" id="Artist_Name" value="<%=@song.artist.name%>">
 
 <p>Select all applicable genres</p>
 <%@current_genres = @song.genres.map{|genre| genre.name}%>
