@@ -1,11 +1,13 @@
 class GenresController < ApplicationController
 
   get '/genres' do
-    erb :'/genres/index'
+    @genres = Genre.all
+    erb :'genres/index'
   end
 
-  get '/genres/:id' do
-    erb :'/genres/:id/show'
+  get '/genres/:slug' do
+    @genre = Genre.find_by_slug(params[:slug])
+    erb :'genres/:slug/show'
   end
 
 
