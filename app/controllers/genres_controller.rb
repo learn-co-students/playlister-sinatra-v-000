@@ -5,13 +5,14 @@ class GenresController < ApplicationController
 	  erb :'/genres/index'
 	end
 
-	get '/genres/:id' do
-
+	get '/genres/:slug' do
+		binding.pry
 		erb :'/genres/show'
 	end
 
-	get '/genres/:slug' do
-
+	get '/genres/:id' do
+		binding.pry
+		erb :'/genres/show'
 	end
 
 end
