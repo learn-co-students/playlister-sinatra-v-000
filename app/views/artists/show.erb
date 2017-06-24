@@ -2,14 +2,14 @@
 
 <ul>
 <h3>Songs: </h3>
-  <%@artist.songs.each do |a| %>
-    <li><a href= "/songs/<%=a.songs.name.slug%>"><%=a.songs.name%></a></li>
+  <%@artist.songs.each do |s| %>
+    <li><a href= "/songs/<%= s.slug %>"><%= s.name %></a></li>
   <%end%>
 </ul>
 
 <ul>
 <h3>Genres: </h3>
-  <%@artist.genres.each do |a| %>
-    <li><a href= "/genres/<%=a.genres.name.slug%>"><%=s.genres.name%></a></li>
+  <%@artist.genres.each do |g| %>
+    <li><a href= "/genres/<%=g.slug%>"><%= g.name %></a></li>
   <%end%>
 </ul>
