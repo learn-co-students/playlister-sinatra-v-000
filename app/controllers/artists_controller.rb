@@ -16,7 +16,12 @@ class ArtistsController < ApplicationController
 				@artist_songs << song
 			end
     end
-		binding.pry
+		@genres = Genre.all
+		@genres.each do |genre|
+			if genre.artist_id == @artist.id
+				@artist_genres << genre
+			end
+    end
 		erb :'/artists/show'
 	end
 
