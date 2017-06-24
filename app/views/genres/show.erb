@@ -1,0 +1,15 @@
+<h1><%=@genre.name%></h1>
+<!-- List Songs -->
+<h3>Songs</h3>
+<%if !@genre.songs.empty?%>
+<%@genre.songs.each do |song|%>
+<a href="/songs/<%=song.slug%>"><%=song.name%></a>
+<%end%>
+<%end%>
+<!-- List Artists -->
+<h3>Artists</h3>
+<%if !@genre.artists.empty?%>
+<%@genre.artists.each do |artist|%>
+<a href="/artists/<%=artist.slug%>"><%=artist.name%></a>
+<%end%>
+<%end%>
