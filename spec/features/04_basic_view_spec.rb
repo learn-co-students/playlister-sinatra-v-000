@@ -13,8 +13,12 @@ describe "Playlister Basics" do
     @song.song_genres.create(genre: @genre)
     @song.artist = @artist
     @song.genre = @genre
-
     @song.save
+    @artist.genre_id = @genre.id
+    @artist.save
+    @genre.song_id = @song.id
+    @genre.artist_id = @artist.id
+    @genre.save
   end
 
   describe "index pages" do
