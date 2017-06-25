@@ -1,5 +1,6 @@
 class Artist < ActiveRecord::Base
 	has_many :songs
+	has_many :song_genres
 	has_many :genres, through: :songs
 
 	def slug
@@ -10,8 +11,7 @@ class Artist < ActiveRecord::Base
 	end
 
 	def self.find_by_slug(slug)
-		unslug_name = slug.gsub(/-/, ' ') # replace all dashes with spaces
-		Artist.find_by_name(unslug_name)
+		Artist.find_by(url_slug: slug)
 	end
 
 end
