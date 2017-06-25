@@ -2,9 +2,9 @@
 
 <ul>
 <h3>Songs: </h3>
-  <%@artist.songs.each do |s| %>
+  <% @artist.songs.each do |s| %>
     <li><a href= "/songs/<%= s.slug %>"><%= s.name %></a></li>
-  <%end%>
+  <% end %>
 </ul>
 
 <ul>

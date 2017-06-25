@@ -1,8 +1,7 @@
-require 'pry'
 class SongsController < ApplicationController
 
   get '/songs' do
-    erb :"songs/index"
+    erb :'songs/index'
   end
 
   get '/songs/new' do
@@ -16,9 +15,9 @@ class SongsController < ApplicationController
 
   post '/songs' do
     song = Song.new
-    song.name = param["Name"]
+    song.name = params["Name"]
     if params["Artist Name"] != ""
-      if Artist.exists?(name: params["Artist Name"])
+      if Artist.exists?(:name => params["Artist Name"])
         song.artist = Artist.find_by(name: params["Artist Name"])
       else
         song.build_artist(name: params["Artist Name"])
@@ -26,21 +25,45 @@ class SongsController < ApplicationController
     else
       song.artist = Artist.find(params["Artist"])
     end
+    params.each do |key, value|
+      Genre.all.each do |genre|
+        if genre.name == key
+          song.genres << Genre.find(value)
+        end
+      end
+    end
     song.save
-
     flash[:message] = "Successfully created song."
-    redirect to ("songs/#{song.slug}")
-  end
-
-  get '/songs/:slug/edit' do
-    @song = Song.find_by_slug(params[:slug])
-
-    erb :'songs/edit'
+    redirect "/songs/#{song.slug}"
   end
 
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
     erb :'songs/edit'
+  end
+
+  post '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    @song.name = params["Name"]
+    if params["Artist Name"] != ""
+      if Artist.exists?(:name => params["Artist Name"])
+        @song.artist = Artist.find_by(name: params["Artist Name"])
+      else
+        @song.build_artist(name: params["Artist Name"])
+      end
+    else
+      @song.artist = Artist.find(params["Artist"])
+    end
+    params.each do |key, value|
+      Genre.all.each do |genre|
+        if genre.name == key
+          @song.genres << Genre.find(value)
+        end
+      end
+    end
+    @song.save
+    flash[:notice] = "Successfully updated song."
+    redirect "/songs/#{@song.slug}"
   end
 
 end
