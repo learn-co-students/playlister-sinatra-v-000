@@ -25,9 +25,4 @@ class GenresController < ApplicationController
 		erb :'/genres/show'
 	end
 
-	get '/genres/:id' do
-		binding.pry
-		erb :'/genres/show'
-	end
-
 end

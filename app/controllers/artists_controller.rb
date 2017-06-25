@@ -25,9 +25,4 @@ class ArtistsController < ApplicationController
 		erb :'/artists/show'
 	end
 
-	get '/artists/:id' do
-		binding.pry
-		erb :'/artists/show'
-	end
-
 end
