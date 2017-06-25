@@ -19,6 +19,7 @@ class SongsController < ApplicationController
 		# @song.artist = Artist.find_by_id(@song.artist_id)
 		# @song.genre = Genre.find_by_id(@song.genre_id)
 		# @song.save
+		binding.pry
 		@song_name = @song.name
 		@song_artist = @song.artist
 		@song_genre = @song.genre
