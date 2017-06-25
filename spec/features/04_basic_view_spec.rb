@@ -4,9 +4,10 @@ describe "Playlister Basics" do
   let(:artist_name) { "Person with a Face" }
   let(:genre_name) { "New Age Garbage" }
   let(:song_name) { "That One with the Guitar" }
+  let(:slug_name) { "that-one-with-the-guitar" }
 
   before do
-    @song = Song.create(name: song_name)
+    @song = Song.create(name: song_name, slug: slug_name)
     @genre = Genre.create(name: genre_name)
     @artist = Artist.create(name: artist_name)
 

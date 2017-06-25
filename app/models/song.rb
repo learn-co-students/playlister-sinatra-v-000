@@ -1,4 +1,5 @@
 class Song < ActiveRecord::Base
+
 	belongs_to :artist
 	belongs_to :genre
 	has_many :song_genres
@@ -8,8 +9,6 @@ class Song < ActiveRecord::Base
 			@slug = self.name.downcase
 	   	@slug = @slug.gsub(/[^a-zA-Z0-9 ]+/,"")  # remove all punctuations
 	   	@slug = @slug.gsub(/\s+/, "-")  # replace all spaces with dashes
-			# Song.slug = @slug
-			# Song.save
 	   	@slug
 	end
 
