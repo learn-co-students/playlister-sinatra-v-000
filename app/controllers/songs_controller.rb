@@ -42,6 +42,7 @@ class SongsController < ApplicationController
 		@song.artist = @artist
 		@song.genre = @genre
 		@song.save
+		flash[:message] = "Successfully created song."
 		redirect to "songs/#{@song.slug}"
 	end
 
