@@ -16,7 +16,7 @@ class Song < ActiveRecord::Base
 		binding.pry
 		# unslug_name = slug.gsub(/-/, ' ') # replace all dashes with spaces
 		# unslug_name = unslug_name.split.map(&:capitalize).join(' ') # Capatalize first letters
-		Song.find_by(slug: slug)
+		Song.find_by(url_slug: slug)
 	end
 
 end
