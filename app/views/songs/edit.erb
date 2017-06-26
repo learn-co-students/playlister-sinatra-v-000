@@ -10,12 +10,12 @@
   <%=@song.name%>
   <br></br>
   <label>Artist:</label>
-  <input  type="text" name="Song Name" id="Artist Name" value="<%=@song.artist.name%>">
+    <input  type="text" name="Artist Name" id="Artist Name" value="<%=@song.artist.name%>">
   <br></br>
   <label>Genres:</label>
-  <%@genres.each do |genre|%>
-  <input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%=genre.id%>" <%='checked' if genre.id == @song.genre_id%>><%=genre.name%>
-  <%end%>
+    <%@genres.each do |genre|%>
+      <input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%=genre.id%>" <%='checked' if genre.id == @song.genre_id%>><%=genre.name%>
+      <%end%>
   <br></br>
-  <input type="submit" value="Save">
+    <input type="submit" value="Save">
 </form>
