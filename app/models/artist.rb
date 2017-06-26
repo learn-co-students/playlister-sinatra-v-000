@@ -10,7 +10,7 @@ class Artist < ActiveRecord::Base
 		@slug
 	end
 
-	def self.find_by_slug(slug)
+	def self.find_by_slug(slug)	
 		Artist.find_by(url_slug: slug)
 	end
 

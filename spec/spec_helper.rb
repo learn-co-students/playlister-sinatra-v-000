@@ -33,4 +33,6 @@ def app
   Rack::Builder.parse_file('config.ru').first
 end
 
+Capybara.ignore_hidden_elements = false
+
 Capybara.app = app

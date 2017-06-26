@@ -21,7 +21,7 @@ class SongsController < ApplicationController
 	get '/songs/:slug/edit' do
 		@song = Song.find_by_slug(params[:slug])
 		@genres = Genre.all
-		flash[:message] = "Successfully updated song."
+		@msg = "edit"
 		erb :'songs/edit'
 	end
 
@@ -43,8 +43,12 @@ class SongsController < ApplicationController
 		@song.save
 		@song.song_genres.create(genre: @genre)
 		@song.genre_ids = @genre.id
-		binding.pry
-		flash[:message] = "Successfully created song."
+		if @msg == "edit"
+			flash[:message] = "Successfully updated song."
+			@msg = ""
+		else
+			flash[:message] = "Successfully created song."
+		end
 		redirect to "songs/#{@song.slug}"
 	end
 

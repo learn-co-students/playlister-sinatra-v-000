@@ -4,12 +4,18 @@ describe "Playlister Basics" do
   let(:artist_name) { "Person with a Face" }
   let(:genre_name) { "New Age Garbage" }
   let(:song_name) { "That One with the Guitar" }
+
+  # added-start
   let(:slug_name) { "that-one-with-the-guitar" }
+  let(:slug_genre) { "new-age-garbage" }
+  let(:slug_artist) { "person-with-a-face" }
+  # added-end
 
   before do
+    # edited to add url_slug
     @song = Song.create(name: song_name, url_slug: slug_name)
-    @genre = Genre.create(name: genre_name)
-    @artist = Artist.create(name: artist_name)
+    @genre = Genre.create(name: genre_name, url_slug: slug_genre)
+    @artist = Artist.create(name: artist_name, url_slug: slug_artist)
 
     @song.song_genres.create(genre: @genre)
     @song.artist = @artist
