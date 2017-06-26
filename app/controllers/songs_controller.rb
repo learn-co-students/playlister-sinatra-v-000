@@ -19,37 +19,47 @@ class SongsController < ApplicationController
 	end
 
 	get '/songs/:slug/edit' do
+		binding.pry
 		@song = Song.find_by_slug(params[:slug])
 		@genres = Genre.all
-		@msg = "edit"
+		session[:msg] = "edit"
+		session[:song] = @song
 		erb :'songs/edit'
 	end
 
 	post '/songs' do
-		@song = Song.new(name: params[:Name])
-		if !@genre = Genre.find_by_id(params[:genres][0])
-				@genre = Genre.new(name: params[:genres][0])
-				@genre.url_slug = @genre.slug
-				@genre.save
-		end
-		if !@artist = Artist.find_by(name: params[:"Artist Name"])
-				@artist = Artist.new(name: params[:"Artist Name"])
+		binding.pry
+		if !@artist = Artist.find_by(name: params[:name])
+				@artist = Artist.new(name: params[:name])
 				@artist.url_slug = @artist.slug
 				@artist.save
 		end
-		@song.artist = @artist
-		@song.genre = @genre
-		@song.url_slug = @song.slug
-		@song.save
-		@song.song_genres.create(genre: @genre)
-		@song.genre_ids = @genre.id
-		if @msg == "edit"
-			flash[:message] = "Successfully updated song."
-			@msg = ""
-		else
-			flash[:message] = "Successfully created song."
+		binding.pry
+		if !@genre = Genre.find_by_id(params[:genres][0])
+			@genre = Genre.new(name: params[:genres][0])
+			@genre.url_slug = @genre.slug
+			@genre.save
 		end
-		redirect to "songs/#{@song.slug}"
+		if session[:msg] != "edit"
+			binding.pry
+			@song = Song.new(name: params[:Name])
+			@song.artist = @artist
+			@song.genre = @genre
+			@song.url_slug = @song.slug
+			@song.save
+			@song.song_genres.create(genre: @genre)
+			@song.genre_ids = @genre.id
+			flash[:message] = "Successfully created song."
+			redirect to "songs/#{@song.slug}"
+		else
+			binding.pry
+			session[:song].artist = @artist
+			session[:song].genre = @genre
+			session[:song].save
+			flash[:message] = "Successfully updated song."
+			session[:msg] = ""
+			redirect to "songs/#{session[:song].slug}"
+		end
 	end
 
 end

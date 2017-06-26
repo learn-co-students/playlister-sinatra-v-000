@@ -4,10 +4,10 @@ class Genre < ActiveRecord::Base
 	has_many :songs, through: :song_genres
 
 	def slug
-	   	@slug = self.name.downcase
-	   	@slug = @slug.gsub(/(^\s+|[^a-zA-Z0-9 ]+|\s+$)/,"") # remove all punctuations
-	   	@slug = @slug.gsub(/\s+/, "-")  # replace all spaces with dashes
-	   	@slug
+   	@slug = self.name.downcase
+   	@slug = @slug.gsub(/(^\s+|[^a-zA-Z0-9 ]+|\s+$)/,"") # remove all punctuations
+   	@slug = @slug.gsub(/\s+/, "-")  # replace all spaces with dashes
+   	@slug
 	end
 
 	def self.find_by_slug(slug)
