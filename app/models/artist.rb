@@ -4,7 +4,7 @@ class Artist < ActiveRecord::Base
 	has_many :genres, through: :songs
 
 	def slug
-		@slug = self.name
+		@slug = self.name.downcase
 		@slug = @slug.gsub(/(^\s+|[^a-zA-Z0-9 ]+|\s+$)/,"") # remove all punctuations
 		@slug = @slug.gsub(/\s+/, "-") # replace all spaces with dashes
 		@slug
