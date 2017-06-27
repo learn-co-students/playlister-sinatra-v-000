@@ -5,8 +5,6 @@ describe "Song" do
     @artist = Artist.create(:name => "Taylor Swift")
 
     @song =  Song.create(:name => "Blank Space", :artist => @artist)
-    @song.url_slug = "blank-space" # added
-    @song.save # added
 
     pop = Genre.create(:name => "Pop")
 
@@ -30,7 +28,7 @@ describe "Song" do
     expect(@song.artist).to eq(@artist)
   end
 
-  it "can slugify its name" do
+  it "can slugify it's name" do
 
     expect(@song.slug).to eq("blank-space")
   end

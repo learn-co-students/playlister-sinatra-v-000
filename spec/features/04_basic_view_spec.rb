@@ -5,29 +5,15 @@ describe "Playlister Basics" do
   let(:genre_name) { "New Age Garbage" }
   let(:song_name) { "That One with the Guitar" }
 
-  # added-start
-  let(:slug_name) { "that-one-with-the-guitar" }
-  let(:slug_genre) { "new-age-garbage" }
-  let(:slug_artist) { "person-with-a-face" }
-  # added-end
-
   before do
-    # edited to add url_slug
-    @song = Song.create(name: song_name, url_slug: slug_name)
-    @genre = Genre.create(name: genre_name, url_slug: slug_genre)
-    @artist = Artist.create(name: artist_name, url_slug: slug_artist)
+    @song = Song.create(name: song_name)
+    @genre = Genre.create(name: genre_name)
+    @artist = Artist.create(name: artist_name)
 
     @song.song_genres.create(genre: @genre)
     @song.artist = @artist
-    @song.genre = @genre # added
+
     @song.save
-    # added-start
-    @artist.genre_id = @genre.id
-    @artist.save
-    @genre.song_id = @song.id
-    @genre.artist_id = @artist.id
-    @genre.save
-    # added-end
   end
 
   describe "index pages" do
