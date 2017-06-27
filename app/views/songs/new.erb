@@ -1,19 +1,25 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
 <!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Show Song</title>
+ </head>
+ <body>
 
-<h1>Add a New Song</h1>
+    <h1>Add a New Song</h1>
 
-<form action="/songs" method="POST">
-  <br>
-    Artist Name: <input  type="text" name="Artist Name">
-  <br></br>
-    Song Name: <input type="text" name="Name">
-  <br></br>
-    <%Genre.all.each do |genre|%>
-      Genres: <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>"><%=genre.name%></input>
-    <%end%>
-  <br>
-    <input type="submit" value="Create">
-</form>
+    <form action="/songs" method="POST">
+      <br>
+        Artist Name: <input  type="text" name="Artist Name">
+      <br></br>
+        Song Name: <input type="text" name="Name">
+      <br></br>
+        <%Genre.all.each do |genre|%>
+          Genres: <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>"><%=genre.name%></input>
+        <%end%>
+      <br><br>
+        <input type="submit" value="Create">
+    </form>
+
+  </body>
+</html>
