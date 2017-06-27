@@ -6,15 +6,13 @@
 <h1>Edit a Song</h1>
 
 <form action="/songs" method="POST">
-  <label>Name:</label>
+  <label>Song Name:</label>
   <%=@song.name%>
   <br></br>
-  <label>Artist:</label>
-    <input  type="text" name="Artist Name" id="Artist Name" value="<%=@song.artist.name%>">
+    Artist Name: <input  type="text" name="Artist Name" id="Artist Name" value="<%=@song.artist.name%>">
   <br></br>
-  <label>Genres:</label>
     <%@genres.each do |genre|%>
-      <input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%=genre.id%>" <%='checked' if genre.id == @song.genre_id%>><%=genre.name%>
+      Genres: <input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%=genre.id%>" <%='checked' if genre.id == @song.genre_id%>><%=genre.name%>
       <%end%>
   <br></br>
     <input type="submit" value="Save">
