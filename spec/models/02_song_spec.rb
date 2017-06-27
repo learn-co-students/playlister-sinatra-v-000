@@ -5,6 +5,8 @@ describe "Song" do
     @artist = Artist.create(:name => "Taylor Swift")
 
     @song =  Song.create(:name => "Blank Space", :artist => @artist)
+    @song.url_slug = "blank-space" # added
+    @song.save # added
 
     pop = Genre.create(:name => "Pop")
 

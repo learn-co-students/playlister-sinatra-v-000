@@ -81,6 +81,7 @@ describe "Song Forms" do
   end
 
   describe "/songs/:slug/edit" do
+
     before do
       @song = Song.create(name: song_name)
       artist = Artist.create(name: artist_name)
@@ -88,12 +89,15 @@ describe "Song Forms" do
       @song.song_genres.create(genre: genre_1)
       @song.artist = artist
 
+      @song.url_slug = @song.slug # added
+      @song.genre = genre_1 # added
+
       @song.save
 
       visit "/songs/#{@song.slug}/edit"
     end
 
-    context "changing a song's artist" do
+    context "changing a song's artist" , :type => :feature do
       it "updates the song's artist" do
         fill_in "Artist Name", with: "Some Nobody"
         click_on "Save"

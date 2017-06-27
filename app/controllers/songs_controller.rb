@@ -54,9 +54,10 @@ class SongsController < ApplicationController
 			session[:song].genre = @genre
 			session[:song].save
 			session[:msg] = ""
+			@song = session[:song]
 			session[:song] = ""
 			flash[:message] = "Successfully updated song."
-			redirect to "songs/#{session[:song].slug}"
+			redirect to "songs/#{@song.slug}"
 		end
 	end
 
