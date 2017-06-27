@@ -5,15 +5,15 @@
   <title>Show Artist</title>
  </head>
  <body>
-	<h1>Artist: <%=@artist_name%></h1>
+	<h1>Artist: <%=@artist.name%></h1>
     <h2>Songs</h2>
-    <%@artist_songs.each do |song|%>
+    <%@artist.songs.each do |song|%>
       <ul>
   	   <li><h3><a href="/songs/<%=song.slug%>"><%=song.name%></a></h3></li>
      </ul>
     <%end%>
     <h2>Genres</h2>
-    <%@artist_genres.each do |genre|%>
+    <%@artist.genres.each do |genre|%>
       <ul>
   	   <li><h3><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></h3></li>
      </ul>

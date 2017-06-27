@@ -7,6 +7,8 @@
 
 <form action="/songs" method="POST">
   <br>
+    Artist Name: <input  type="text" name="Artist Name">
+  <br></br>
     Song Name: <input type="text" name="Name" id="song_name">
   <br></br>
     <%@genres.each do |genre|%>
@@ -15,7 +17,6 @@
   <br></br>
   <label>Enter an existing artist or a new artist:</label>
   <br></br>
-    Artist Name: <input  type="text" name="Artist Name">
-  <br></br>
+
     <input type="submit" value="Create">
 </form>
