@@ -10,8 +10,10 @@
  </head>
  <body>
 	<h1>Song: <%=@song_name%></h1>
-	   <h3>Artist: <a href="/artists/<%=@song_artist.slug%>"><%=@song_artist.name%></a></h3>
-     <h3>Genre: <a href="/genres/<%=@song_genre.slug%>"><%=@song_genre.name%></a></h3>
+	  <h3>Artist: <a href="/artists/<%=@song_artist.slug%>"><%=@song_artist.name%></a></h3>
+    <% @song.genres.each do |genre| %>
+      <h3>Genre: <a href="/genres/<%= genre.slug %>"><%= genre.name %> </a></h3>
+    <% end %>
   <br><br><a href="/songs">Return To Songs List</a>
  </body>
 </html>

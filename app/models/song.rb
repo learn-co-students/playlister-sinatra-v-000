@@ -1,18 +1,14 @@
 class Song < ActiveRecord::Base
-	belongs_to :artist
-	belongs_to :genre
-	has_many :song_genres
-	has_many :genres, through: :song_genres
+  belongs_to :artist
+  has_many :song_genres
+  has_many :genres, :through => :song_genres
 
 	def slug
-		@slug = self.name.downcase
-   	@slug = @slug.gsub(/(^\s+|[^a-zA-Z0-9 ]+|\s+$)/,"") # remove all punctuations
-   	@slug = @slug.gsub(/\s+/, "-")  # replace all spaces with dashes
-   	@slug
+		name.downcase.squish.gsub(" ","-")
 	end
 
 	def self.find_by_slug(slug)
-		Song.find_by(url_slug: slug)
+		Song.all.find{|song| song.slug == slug}
 	end
 
 end
