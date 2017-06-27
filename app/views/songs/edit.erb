@@ -9,9 +9,9 @@
 
     Song Name: <input type="text" name="song[name]" id="name" value="<%= @song.name %>">
   <br></br>
-    Artist Name: <input  type="text" name="artist[name]" id="artist_name" value="<%=@song.artist.name%>">
+    Artist Name: <input  type="text" name="artist[name]" id="Artist Name" value="<%=@song.artist.name%>">
   <br></br>
-    <%@genres.each do |genre|%>
+    <%Genre.all.each do |genre|%>
       Genres: <input type="checkbox" name="song[genre_ids][]" id="<%=genre.name%>" value="<%=genre.id%>" <%='checked' if @song.genres.include?(genre)%>><%=genre.name%>
       <%end%>
   <br></br>

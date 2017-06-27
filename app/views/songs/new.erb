@@ -3,20 +3,17 @@
 <% end %>
 <!DOCTYPE html>
 
-<h1>Create a new Song</h1>
+<h1>Add a New Song</h1>
 
 <form action="/songs" method="POST">
   <br>
     Artist Name: <input  type="text" name="Artist Name">
   <br></br>
-    Song Name: <input type="text" name="Name" id="song_name">
+    Song Name: <input type="text" name="Name">
   <br></br>
-    <%@genres.each do |genre|%>
+    <%Genre.all.each do |genre|%>
       Genres: <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>"><%=genre.name%></input>
     <%end%>
-  <br></br>
-  <label>Enter an existing artist or a new artist:</label>
-  <br></br>
-
+  <br>
     <input type="submit" value="Create">
 </form>
