@@ -9,6 +9,7 @@ describe "Artist" do
     blank_space =  Song.create(:name => "Blank Space", :artist => @artist)
 
     pop = Genre.create(:name => "Pop")
+    @artist.genre_id = pop # added
 
     blank_space.genre_ids = pop.id
 
