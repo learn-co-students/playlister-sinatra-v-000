@@ -25,9 +25,9 @@ describe "Artist" do
     expect(@artist.songs.count).to eq(1)
   end
 
-  # it "can have many genres" do
-  #   expect(@artist.genres.count).to eq(1)
-  # end
+  it "can have many genres" do
+    expect(@artist.genres.count).to eq(1)
+  end
 
   it "can slugify its name" do
 
