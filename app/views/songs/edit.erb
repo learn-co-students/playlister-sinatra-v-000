@@ -5,11 +5,9 @@
   <title>Edit a Song</title>
  </head>
  <body>
-<%binding.pry%>
   <h1>Edit a Song</h1>
-    <form action="/songs/<%=@song.slug%>" method="POST">
-      <input type="hidden" name="_method" value="PATCH">
-
+    <form action="/songs/<%= @song.slug %>" method="post">
+	    <input id="hidden" type="hidden" name="_method" value="patch">
         Song Name: <input type="text" name="song[name]" id="name" value="<%= @song.name %>">
       <br></br>
         Artist Name: <input  type="text" name="artist[name]" id="Artist Name" value="<%=@song.artist.name%>">
