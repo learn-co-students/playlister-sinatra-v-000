@@ -10,9 +10,10 @@
   <% if @artists.size > 0%>
     <ul>
       <% @artists.each do |artist| %>
-        <li><a href="/artists/<%=artist.slug%>"><%=artist.name%></a><br></li>
+        <li><a href="/artists/<%=artist.slug%>"><%=artist.name%></a></li>
       <% end %>
     </ul>
+    <br><a href="/">Return to Menu</a>
   <%else%>
   <h2>There are no artists to display!</h2>
   <%end%>
