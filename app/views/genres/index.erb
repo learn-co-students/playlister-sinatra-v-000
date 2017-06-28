@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Genres List</title>
+  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+ </head>
+ <body>
+  <h1> Genres </h1>
+  <% if @genres.size > 0%>
+    <ul>
+      <% @genres.each do |genre| %>
+        <li><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
+      <% end %>
+    </ul>
+    <br><a href="/">Return to Menu</a>
+  <%else%>
+  <h2>There are no genres to display!</h2>
+  <br><a href="/">Return to Menu</a>
+  <%end%>
+ </body>
+</html>

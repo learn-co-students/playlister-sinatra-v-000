@@ -16,6 +16,7 @@ RSpec.configure do |config|
   config.filter_run :focus
   config.include Rack::Test::Methods
   config.include Capybara::DSL
+  config.include Capybara::RSpecMatchers
   DatabaseCleaner.strategy = :truncation
 
   config.before do
@@ -32,5 +33,7 @@ end
 def app
   Rack::Builder.parse_file('config.ru').first
 end
+
+Capybara.ignore_hidden_elements = false
 
 Capybara.app = app

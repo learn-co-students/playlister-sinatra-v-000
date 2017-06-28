@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Songs List</title>
+  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+ </head>
+ <body>
+  <h1> Songs </h1>
+  <% if @songs.size > 0%>
+    <ul>
+      <% @songs.each do |song| %>
+         <li><a href="/songs/<%=song.slug%>"><%=song.name%></a></li>
+      <% end %>
+    </ul>
+      <br><a href="/songs/new">Add A New Song</a>
+      <br><br><a href="/">Return to Menu</a>
+  <%else%>
+  <h2>There are no songs to display!</h2>
+  <br><br><a href="/">Return to Menu</a>
+  <%end%>
+
+ </body>
+</html>
