@@ -14,9 +14,12 @@
       <br></br>
         Song Name: <input type="text" name="Name">
       <br></br>
+      <h3>Genres:</h3>
+      <ul>
         <%Genre.all.each do |genre|%>
-          Genres: <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>"><%=genre.name%></input>
+      </li><input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>"><%=genre.name%></input></li>
         <%end%>
+      </ul>
       <br><br>
         <input type="submit" value="Create">
     </form>
