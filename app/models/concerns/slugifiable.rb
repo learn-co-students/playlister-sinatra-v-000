@@ -2,7 +2,9 @@
 module Slugifiable
   module InstanceMethods
     def slug
-      self.name.gsub(" ", "-").downcase
+      # remove leading and trailing spaces & replace multiple spaces with a single space(.squish)
+      # Remove all punctuations & replace spaces with a dash
+      self.name.downcase.squish.gsub(/(^\s+|[^a-zA-Z0-9 ]+|\s+$)/,"").gsub(" ","-")
     end
   end
 
