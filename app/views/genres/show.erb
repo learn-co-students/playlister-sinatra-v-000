@@ -1,1 +1,19 @@
-<h1>genres show <%= @genre.name%></h1>
+<h1><%= @genre.name%></h1>
+
+<h3>Artists</h3>
+<ul>
+	<% @genre.artists.each do |artist| %>
+		<li>
+			<h4>Artist:</h4> <a href="/artists/<%= artist.slug %>"><%= artist.name %></a>
+			<h4>Songs</h4>
+			<ul>
+				<% artist.songs.each do |song| %>
+					<% next unless song.genres.include? @genre %>
+					<li><a href="/songs/<%= song.slug %>"><%= song.name %></a></li>
+				<% end %>
+			</ul>
+		</li>
+		<br>
+		<hr>
+	<% end %>
+</ul>
