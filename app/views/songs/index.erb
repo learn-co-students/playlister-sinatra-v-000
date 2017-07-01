@@ -1,0 +1,5 @@
+<% @songs.each_with_index do |song, index| %>
+  <ul>
+    <li><a href="/songs/<%=song.slug%>"><%= index + 1 %>. <%= song.name %></a></li>
+  </ul>
+<% end %>
