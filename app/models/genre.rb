@@ -1,4 +1,5 @@
 class Genre < ActiveRecord::Base
+  
   extend Slugify::ClassMethod
   include Slugify::InstanceMethod
 

@@ -7,4 +7,9 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index
   end
+
+  def genre_help
+    "genre_" + "#{genre.id}" + "_name"
+  end
+
 end

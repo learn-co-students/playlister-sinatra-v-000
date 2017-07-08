@@ -1,5 +1,6 @@
 require 'pry'
 class Artist < ActiveRecord::Base
+  
   extend Slugify::ClassMethod
   include Slugify::InstanceMethod
 

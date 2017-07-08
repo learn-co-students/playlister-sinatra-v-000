@@ -1,6 +1,6 @@
 require 'pry'
 class Song < ActiveRecord::Base
-  
+
   extend Slugify::ClassMethod
   include Slugify::InstanceMethod
 

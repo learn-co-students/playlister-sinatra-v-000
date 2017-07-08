@@ -1,3 +1,6 @@
+<% if flash.has?(:message) %>
+  <h1><%=flash[:message]%></h1>
+<%end%>
 <h2><%= @song.name %></h2>
 
 
@@ -5,6 +8,9 @@
 
 <% @song.genres.each do |genre| %>
   <li>
-    <a href="/genres/<%=genre.slug%>"><%= genre %></a>
+    <a href="/genres/<%=genre.slug%>"><%= genre.name %></a>
   </li>
 <% end %>
+
+<!-- <br></br>
+<h4><a href="/songs/edit">edit song</a></h4> -->

@@ -8,14 +8,15 @@
   <body>
     <h1>My Songs</h1>
     <form method="post" action="/songs">
-      <p>Create a New Song</p>
-      Song: <input type="text" name="Name" id="song[name]" value="song">
+      <p>Create a New Song:</p>
+      <input type="text" name="Name" id="song[name]" placeholder="song_name">
       <br></br>
-      Artist: <input type="text" name="Artist Name" id="artist[name]" value="artist">
+      <input type="text" name="Artist Name" id="artist[name]" placeholder="artist_name">
       <br></br>
-      Choose a genre: <% Genre.all.each do |genre| %>
-        <input type="checkbox" name="song[genre_name]" id="<%=genre.name%>" value="<%= genre.id %>"><%=genre.name%></input>
+      Choose a genre: <br></br>
+      <% Genre.all.each do |genre| %>
+        <input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%= genre.id %>"><%=genre.name%></input>
       <% end %>
-      <br>
+      <br></br>
       <button type="submit" value="submit">Create</button>
     </form>
