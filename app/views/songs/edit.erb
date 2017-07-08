@@ -10,7 +10,11 @@
 
   <br></br>
 
-  <input type="text" name="Artist Name" id="artist_name" placeholder="Artist">
+  <input type="text" name="song[name]" id="song_name" placeholder="Song" value="<%= @song.name%>">
+
+  <br></br>
+
+  <input type="text" name="Artist Name" id="artist_name" placeholder="Artist" value="<%= @song.artist.name%>">
 
   <br></br>
 
