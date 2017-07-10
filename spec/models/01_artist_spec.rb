@@ -8,7 +8,7 @@ describe "Artist" do
 
     pop = Genre.create(:name => "Pop")
 
-    blank_space.genre_ids = pop.id
+    blank_space.genre_id = pop.id
     
   end
   it "can be initialized" do
