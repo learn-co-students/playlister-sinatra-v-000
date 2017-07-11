@@ -6,7 +6,7 @@ class SongsController < ApplicationController
     get '/songs' do
         @songs = Songs.all
 
-    erb :index
+    erb :"/songs/index"
     end
 
     # Be able to create a new song
@@ -14,8 +14,10 @@ class SongsController < ApplicationController
     # Be able to enter the Artist's name in a text field 
     # (only one Artist per song.)
     get '/songs/new' do
+        binding.pry
+        @genres = Genre.all
 
-        erb :new
+        erb :"/songs/new"
     end
     
     # extracts the form data from the params 
@@ -31,14 +33,14 @@ class SongsController < ApplicationController
     # Any given song's show page with links to song's artist and genre.
     get '/songs/:slug' do
 
-        erb :show
+        erb :"/songs/show"
     end
 
     # Be able to change everything about a song, 
     # including the genres and artist.
     get '/songs/:slug/edit' do
 
-        erb :edit
+        erb :"/songs/edit"
     end
 
     patch '/songs/:slug' do
