@@ -22,7 +22,6 @@ module Slugify
         #takes a given song/artist/genre name 
         #create the "slugified" version
         def slug
-            binding.pry
             downcased = self.name.downcase
             dasherized = downcased.gsub(/[\s,]+/,"-")
         end

@@ -22,7 +22,6 @@ class SongsController < ApplicationController
     # extracts the form data from the params 
     # create a new instance of Song
     post '/songs' do
-        binding.pry
         @song = Song.create(params[:song])
 
         if !params[:artist][:name].empty?
