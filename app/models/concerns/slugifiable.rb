@@ -6,8 +6,15 @@ module Slugify
         # retrieve a song/artist/genre from the database
         # return that entry
 
-        # def find_by_slug(slug_name)
-        # end
+        def find_by_slug(slugged)
+            found = []
+            self.all.each {|obj|
+                if slugged == obj.slug
+                    found << obj
+                end
+            }
+            found[0]
+        end
     end
     
     module InstanceMethods
