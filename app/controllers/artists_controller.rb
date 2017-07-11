@@ -10,7 +10,7 @@ class ArtistsController < ApplicationController
 
     # Any given artist's show page with links to artist's songs and genres.
     get '/artists/:slug' do
-
+        @artist = Artist.find_by_slug(params[:slug])
         erb :"/artists/show"
     end
     
