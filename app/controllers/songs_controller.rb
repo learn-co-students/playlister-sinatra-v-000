@@ -14,7 +14,6 @@ class SongsController < ApplicationController
     # Be able to enter the Artist's name in a text field 
     # (only one Artist per song.)
     get '/songs/new' do
-        binding.pry
         @genres = Genre.all
 
         erb :"/songs/new"
