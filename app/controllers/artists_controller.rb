@@ -4,7 +4,7 @@ class ArtistsController < ApplicationController
     # Each artist should be a clickable link to artist's show page.
 
     get '/artists' do
-
+        @artists = Artist.all
     erb :index
     end
 

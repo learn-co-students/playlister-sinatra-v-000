@@ -4,7 +4,7 @@ class SongsController < ApplicationController
     # Each song should be a clickable link to song's show page.
 
     get '/songs' do
-        @songs = Songs.all
+        @songs = Song.all
 
     erb :"/songs/index"
     end
@@ -22,7 +22,15 @@ class SongsController < ApplicationController
     # extracts the form data from the params 
     # create a new instance of Song
     post '/songs' do
+        binding.pry
+        @song = Song.create(params[:song])
 
+        if !params[:artist][:name].empty?
+        @song.artist = Artist.find_or_create_by(params[:artist])
+        else
+        @song.genre_ids = params[:genres]
+        end
+        @song.save
 
         redirect to "/song/:slug"
     end

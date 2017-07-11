@@ -8,8 +8,14 @@
 
     <h3>Select a genre:</h3>
     <% @genres.each do |genre|%>
-        <input type="checkbox" name="genres[]" id="<%=genre.name%>" 
+        <input type="checkbox" name="genres[name]" id="<%=genre.name%>" 
             value="<%=genre.id%>"><%=genre.name%></input>
     <%end%>
+
+    <h3>and/or, create a new Artist:</h3>
+  <p><label>Artist name:</label></p>
+  <p><input type="text" name="artist[name]" id="artist_name"></p>
+
+  <p><input type="submit" value="Create Song"></p>
 
 </form>

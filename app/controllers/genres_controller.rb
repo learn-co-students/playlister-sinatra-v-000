@@ -4,7 +4,7 @@ class GenresController < ApplicationController
     # Each genre should be a clickable link to genre's show page.
 
     get '/genres' do
-
+        @genres = Genre.all
     erb :index
     end
 
