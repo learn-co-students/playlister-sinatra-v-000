@@ -5,13 +5,13 @@ class GenresController < ApplicationController
 
     get '/genres' do
         @genres = Genre.all
-    erb :index
+    erb :"/genres/index"
     end
 
     # Any given genre's show page with links to genre's artists and songs.
     get '/genres/:slug' do
 
-        erb :show
+        erb :"/genres/show"
     end
 
 end

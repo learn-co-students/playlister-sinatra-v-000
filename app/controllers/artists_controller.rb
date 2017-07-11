@@ -5,13 +5,13 @@ class ArtistsController < ApplicationController
 
     get '/artists' do
         @artists = Artist.all
-    erb :index
+    erb :"/artists/index"
     end
 
     # Any given artist's show page with links to artist's songs and genres.
     get '/artists/:slug' do
 
-        erb :show
+        erb :"/artists/show"
     end
     
 end

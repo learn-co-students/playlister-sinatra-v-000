@@ -34,11 +34,9 @@ class SongsController < ApplicationController
         redirect to "/song/:slug"
     end
 
-
-
     # Any given song's show page with links to song's artist and genre.
     get '/songs/:slug' do
-
+        @song = Song.find_by_slug(params[:slug])
         erb :"/songs/show"
     end
 
