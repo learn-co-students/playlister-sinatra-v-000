@@ -4,6 +4,7 @@ class Createartist < ActiveRecord::Migration
       t.string :name
       t.string :song
       t.string :genre
+      t.string :genre_id
 
       end
   end
