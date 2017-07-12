@@ -1,4 +1,6 @@
 class SongsController < ApplicationController
+    enable :sessions
+    use Rack::Flash
 
     # present the user with a list of all songs, with clickable link to song's show page.
     get '/songs' do
@@ -14,7 +16,6 @@ class SongsController < ApplicationController
         erb :"/songs/new"
     end
     
-    # extracts the form data from the params, and create a new instance of Song
     post '/songs' do
         @song = Song.create(name: params["Name"])
 
@@ -40,6 +41,7 @@ class SongsController < ApplicationController
         
         @song.save
 
+        flash[:message] = "Successfully created song."
         redirect to "/songs/#{@song.slug}"
     end
 
@@ -61,7 +63,7 @@ class SongsController < ApplicationController
         erb :"/songs/edit"
     end
 
-    post '/songs/:slug' do
+    patch '/songs/:slug' do
         @song = Song.find_by_slug(params[:slug])
 
         if !params["Name"].empty? 
@@ -72,7 +74,9 @@ class SongsController < ApplicationController
             @song.genre_ids = params[:genres][:ids]
             
         end
+        @song.save
 
+        flash[:message] = "Successfully updated song."
         redirect to "/songs/#{@song.slug}"
     end
     
