@@ -1,0 +1,15 @@
+<h1>Edit a Song</h1>
+
+<form action="/songs/<%= @song.slug %>" method="POST">
+  <p><label>Name: </label><input type="text" name="song[name]" id="Name" value="<%= @song.name %>"></p>
+  <label>Choose a Genre:</label>
+  <br/>
+  <% @genres.each do |genre| %>
+    <input type="checkbox" name="song[genres_ids][]" id="<%= genre.name %>" value="<%= genre.id %>" <%='checked' if @song.genres.include?(genre) %>><%= genre.name %></input>
+  <% end %>
+  <br/>
+  <p><label>Artist: </label><input type="text" name="Artist Name" value="<%= @song.artist.name %>"></p>
+  <br/>
+  <input type="submit" value="Save">
+</form>
+Contact GitHub API Training Shop Blog About
