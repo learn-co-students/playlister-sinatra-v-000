@@ -5,5 +5,5 @@
 
 <%@genres.songs.each do |song|%>
 
-<%=song.name%>
+<li><a href="/genres/<%song.slug%>"><%=song.name%>
 <%end%>
