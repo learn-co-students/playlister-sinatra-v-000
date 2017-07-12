@@ -1,4 +1,9 @@
 
-<%@genres.each do |genre|%>
-    <%=genre.name%>
+<%@genres.artists.each do |artist|%>
+    <%=artist.name%>
+<%end%>
+
+<%@genres.songs.each do |song|%>
+
+<%=song.name%>
 <%end%>
