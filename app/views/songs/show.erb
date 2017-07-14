@@ -1,10 +1,12 @@
 
 <%=@songs.name%>
-<%=@songs.artist.name%>
+<%if @songs.artist %>
+    <%=@songs.artist ? @songs.artist.name : " " %>
 <li> <a href="/artists/<%= @songs.artist.slug %>"> </a></li>
+    <%end%>
 
 <% @songs.genres.each do |genre| %>
 
-<li> <a href="/genres/<%= genre.slug %>"><%=genre.name%> </a></li>
+<li> <a href="/genres/<%= genre.slug %>"><%=genre.name%><%= genre.name%>
 
 <%end%>
