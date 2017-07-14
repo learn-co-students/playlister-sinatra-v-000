@@ -28,9 +28,10 @@ end
 
 
 
-    get 'songs/:slug/edit' do
-
-        redirect to "/songs/#{@song.slug}"
+    get '/songs/:slug/edit' do
+        @songs = Song.find_by_slug(params["slug"])
+        @genres = Genre.all
+        erb :"/songs/edit"
     end
 
     get '/songs/:slug' do
@@ -38,6 +39,14 @@ end
         @songs = Song.find_by_slug(params["slug"])
         
         erb :'songs/show'
+    end
+
+    post '/songs/:slug' do
+        @song = Song.find_by_slug(params[:slug])
+        @song.artist = Artist.find_or_update_by(:name => params["artist"]["name"])
+        @song.update(params["song"])
+
+        redirect to "/songs/#{@song.slug}"
     end
 
 
