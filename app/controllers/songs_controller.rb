@@ -16,10 +16,9 @@ end
     end 
 
     post '/songs' do
-        # if params["artist"]["name"].empty?
-        # @artist = Artist.create(:name =>params["artist"]["name"])
+      
             @song = Song.create(:name =>params["song"]["name"])
-            @song.artist = Artist.create(:name => params["artist"]["name"])
+            @song.artist = Artist.find_or_create_by(:name => params["artist"]["name"])
             @song.genre_ids = params["genres"]
             @song.save
                 flash[:message] = "Successfully created song."
