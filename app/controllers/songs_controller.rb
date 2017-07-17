@@ -1,18 +1,13 @@
 class SongsController < ApplicationController
 
   get '/songs' do
-    @songs = Song.all
+    @songs =  Song.all
     erb :'/songs/index'
   end
 
-  get '/songs/new' do
-    @songs = Song.all
-    erb :'/songs/new'
+  get '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'songs/show'
   end
-
-  post '/songs/new' do
-    @song = Song.find(params[:name])
-  end
-
 
 end
