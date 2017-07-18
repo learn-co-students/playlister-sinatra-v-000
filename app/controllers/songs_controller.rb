@@ -52,8 +52,6 @@ class SongsController < ApplicationController
   patch '/songs/:slug' do
     Song.find_by_slug(params[:slug]).tap do |song|
 
-      binding.pry
-
       unless params[:song_name] == ""
         song.name = params[:song_name]
       end
