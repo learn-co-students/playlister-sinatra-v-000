@@ -32,7 +32,6 @@ describe "Song Forms" do
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
         expect(page).to have_content(genre_2_name)
-        save_and_open_page
         expect(page).to have_content("Successfully created song.")
       end
 

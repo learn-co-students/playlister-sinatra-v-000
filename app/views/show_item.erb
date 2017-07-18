@@ -26,7 +26,7 @@
   <% end %>
 <% end %>
 
-<% if flash.has?(:message) %>
+<% if defined?(flash) && flash.respond_to?(:has?) && flash.has?(:message) %>
   <br>
   <p><%= flash[:message] %></p>
 <% end %>
