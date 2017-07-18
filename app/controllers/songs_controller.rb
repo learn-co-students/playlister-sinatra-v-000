@@ -17,7 +17,7 @@ class SongsController < ApplicationController
         if Artist.find_by(name: params[:artist_name])
           song.artist = Artist.find_by(name: params[:artist_name])
         else
-          song.artist.build(name: params[:artist_name])
+          song.build_artist(name: params[:artist_name])
         end
       end
 
@@ -27,7 +27,7 @@ class SongsController < ApplicationController
 
       song.save
 
-      flash[:message] = "Successfully created song."
+      # flash[:message] = "Successfully created song."
       redirect "/songs/#{song.slug}"
     end
   end
@@ -52,26 +52,29 @@ class SongsController < ApplicationController
   patch '/songs/:slug' do
     Song.find_by_slug(params[:slug]).tap do |song|
 
-      unless params[:name] == ""
-        song.name = params[:name]
+      binding.pry
+
+      unless params[:song_name] == ""
+        song.name = params[:song_name]
       end
 
       unless params[:artist_name] == ""
-        song.artists.clear
         if Artist.find_by(name: params[:artist_name])
           song.artist = Artist.find_by(name: params[:artist_name])
         else
-          song.artist.build(name: params[:artist_name])
+          song.build_artist(name: params[:artist_name])
         end
       end
 
       if params[:genre_ids]
         song.genres.replace(params[:genre_ids].collect{|id| Genre.find(id)})
+      else
+        song.genres.clear
       end
 
       song.save
 
-      flash[:message] = "Successfully updated song."
+      # flash[:message] = "Successfully updated song."
       redirect "/songs/#{song.slug}"
     end
   end

@@ -1,6 +1,6 @@
 <h1><%= @item.class %>: <%= @item.name%></h1>
 
-<% if @item.respond_to?(:artist) %>
+<% if @item.respond_to?(:artist) && !@item.artist.nil? %>
   <h2>Artist:</h2>
   <a href="/artists/<%=@item.artist.slug%>"><%= @item.artist.name %></a>
 <% end %>
