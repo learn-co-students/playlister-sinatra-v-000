@@ -1,0 +1,7 @@
+<h1><%= @category.to_s.pluralize %> </h1>
+
+<% @category.all.each do |item| %>
+    <a href="/<%= item.class.to_s.pluralize.downcase %>/<%=item.slug%>">
+      <%= item.name %>
+    </a>
+<% end %>

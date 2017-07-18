@@ -1,0 +1,27 @@
+<h1><%= @item.class %>: <%= @item.name%></h1>
+
+<% if @item.respond_to?(:artist) %>
+  <h2>Artist:</h2>
+  <a href="/artists/<%=@item.artist.slug%>"><%= @item.artist.name %></a>
+<% end %>
+
+<% if @item.respond_to?(:artists) && @item.artists.any? %>
+  <h2>Artists:</h2>
+  <% @item.artists.each do |artist| %>
+    <a href="/artists/<%=artist.slug%>"><%= artist.name %></a>
+  <% end %>
+<% end %>
+
+<% if @item.respond_to?(:songs) && @item.songs.any? %>
+  <h2>Songs:</h2>
+  <% @item.songs.each do |song| %>
+    <a href="/songs/<%=song.slug%>"><%= song.name %></a>
+  <% end %>
+<% end %>
+
+<% if @item.respond_to?(:genres) && @item.genres.any? %>
+  <h2>Genres:</h2>
+  <% @item.genres.each do |genre| %>
+    <a href="/genres/<%=genre.slug%>"><%= genre.name %></a>
+  <% end %>
+<% end %>
