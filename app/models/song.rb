@@ -12,5 +12,5 @@ class Song < ActiveRecord::Base
       x.slug == slug
     end
   end
-  
+
 end
