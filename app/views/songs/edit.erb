@@ -6,6 +6,11 @@
   <input id="hidden" type="hidden" name="_method" value="patch">
   <h4>Change Artist</h4>
   <label for="Artist Name">Name: </label>
-  <input type="text" name="Artist Name" value="Artist Name" id="Artist Name">
-  <input type="submit" name="" value="Save">
+  <input type="text" name="Artist Name" id="Artist Name" value="<%=@song.artist.name%>">
+
+  <% Genre.all.each do |genre| %>
+    <label> <%= genre.name %> </label>
+    <input type="checkbox" name="genre_ids[]" id="<%=genre.name%>" value="<%=genre.id%>" <%='checked' if @song.genres.include?(genre)%>>
+  <%end%>
+  <input type="submit" value="Save">
 </form>
