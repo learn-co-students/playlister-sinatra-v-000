@@ -6,6 +6,5 @@ class Genre < ActiveRecord::Base
     has_many :song_genres
     has_many :songs, through: :song_genres
     has_many :artists, through: :songs
-    #note: check that even though this isn't a join table
-    #that has_many through is the correct way to portray this
+
 end
