@@ -1,4 +1,4 @@
-<h1>Edit Song <%= @song.name %></h1>
+<h1>Edit Song: <%= @song.name %></h1>
 
 <form action="/songs/<%= @song.slug %>"  method="POST">
     <input type="hidden" id="hidden" name="_method" value="patch">
