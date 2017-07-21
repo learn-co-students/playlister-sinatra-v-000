@@ -48,10 +48,10 @@ class SongsController < ApplicationController
 
         song = Song.find_by_slug(params[:slug])
         artist = Artist.find_or_create_by(params[:artist])
+        
+        song.genres.destroy
+        
         song.artist = artist
-
-        song.genres.clear
-
         params[:genres].each { |genre_id|
             song.genres << Genre.find(genre_id.to_i)
         }
