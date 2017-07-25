@@ -1,6 +1,7 @@
-<h3>Song name: <%= @song_name %></h3>
-<h3>Song artist:<%= @song_artist_name %></h3>
-<h3>Song genre:<%= @song_genre_name %></h3>
-
+<h3>Song name: </h3>
+<%= @song_name %>
+<h3>Song artist:</h3>
 <a href="/artists/<%= @song_artist_slugged %>"><%= @song_artist_name %></a>
+
+<h3>Song genre:</h3>
 <a href="/genres/<%= @song_genre_slugged %>"><%= @song_genre_name %></a>

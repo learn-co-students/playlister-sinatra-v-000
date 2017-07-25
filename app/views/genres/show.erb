@@ -1,4 +1,7 @@
-<h3>Genre artists:<%= @genre_artist %></h3><br>
+<h3>Genre artists:</h3>
+
+<a href="/artists/<%= @genre_artist.slug %>"><%= @genre_artist.name %></a>
 
 <h3>Genre songs:</h3>
-<%= @genre_songs.name %>
+
+<a href="/songs/<%= @genre_songs.slug %>"><%= @genre_songs.name %></a>

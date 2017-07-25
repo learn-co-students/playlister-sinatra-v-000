@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
     @artist_songs = artist.songs
     @artist_song_ids = @artist_songs.collect {|song| song.id}
     @genre_ids = @artist_song_ids.collect {|id| SongGenre.find_by(id).genre_id}
-    @artist_genres = @genre_ids.collect {|id| Genre.find_by(id).name }
+    @artist_genres = @genre_ids.collect {|id| Genre.find_by(id) }
 
     @artist_songs_slugged = @artist_songs.collect {|song| song.slug}
 
