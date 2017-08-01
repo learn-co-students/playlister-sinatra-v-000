@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Genres</title>
+</head>
+<body>
+  <h1>All Genres:</h1>
+  <% @genres.each_with_index do |genre,id| %>
+    <a href="/genres/<%=genre.slug%>"><%=id%>. <%=genre.name%></a><br>
+  <% end %>
+</body>
+</html>
