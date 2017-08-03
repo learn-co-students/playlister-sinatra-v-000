@@ -4,7 +4,7 @@ class Artist < ActiveRecord::Base
 
   def slug
     #Taylor Swift -> taylor-swift
-    name.downcase.gsub(" ","-") unless name.nil?
+    name.downcase.gsub(" ", "-") unless name.nil?
   end
 
   def self.find_by_slug(slug)
