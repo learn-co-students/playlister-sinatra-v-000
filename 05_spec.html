@@ -1,0 +1,578 @@
+D, [2017-08-03T13:00:21.859464 #10226] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Run options: include {:focus=>true}
+
+All examples were filtered out; ignoring {:focus=>true}
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <title>RSpec results</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Expires" content="-1" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <style type="text/css">
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    font-size: 80%;
+  }
+  </style>
+  <script type="text/javascript">
+    // <![CDATA[
+
+function addClass(element_id, classname) {
+  document.getElementById(element_id).className += (" " + classname);
+}
+
+function removeClass(element_id, classname) {
+  var elem = document.getElementById(element_id);
+  var classlist = elem.className.replace(classname,'');
+  elem.className = classlist;
+}
+
+function moveProgressBar(percentDone) {
+  document.getElementById("rspec-header").style.width = percentDone +"%";
+}
+
+function makeRed(element_id) {
+  removeClass(element_id, 'passed');
+  removeClass(element_id, 'not_implemented');
+  addClass(element_id,'failed');
+}
+
+function makeYellow(element_id) {
+  var elem = document.getElementById(element_id);
+  if (elem.className.indexOf("failed") == -1) {  // class doesn't includes failed
+    if (elem.className.indexOf("not_implemented") == -1) { // class doesn't include not_implemented
+      removeClass(element_id, 'passed');
+      addClass(element_id,'not_implemented');
+    }
+  }
+}
+
+function apply_filters() {
+  var passed_filter = document.getElementById('passed_checkbox').checked;
+  var failed_filter = document.getElementById('failed_checkbox').checked;
+  var pending_filter = document.getElementById('pending_checkbox').checked;
+
+  assign_display_style("example passed", passed_filter);
+  assign_display_style("example failed", failed_filter);
+  assign_display_style("example not_implemented", pending_filter);
+
+  assign_display_style_for_group("example_group passed", passed_filter);
+  assign_display_style_for_group("example_group not_implemented", pending_filter, pending_filter || passed_filter);
+  assign_display_style_for_group("example_group failed", failed_filter, failed_filter || pending_filter || passed_filter);
+}
+
+function get_display_style(display_flag) {
+  var style_mode = 'none';
+  if (display_flag == true) {
+    style_mode = 'block';
+  }
+  return style_mode;
+}
+
+function assign_display_style(classname, display_flag) {
+  var style_mode = get_display_style(display_flag);
+  var elems = document.getElementsByClassName(classname)
+  for (var i=0; i<elems.length;i++) {
+    elems[i].style.display = style_mode;
+  }
+}
+
+function assign_display_style_for_group(classname, display_flag, subgroup_flag) {
+  var display_style_mode = get_display_style(display_flag);
+  var subgroup_style_mode = get_display_style(subgroup_flag);
+  var elems = document.getElementsByClassName(classname)
+  for (var i=0; i<elems.length;i++) {
+    var style_mode = display_style_mode;
+    if ((display_flag != subgroup_flag) && (elems[i].getElementsByTagName('dt')[0].innerHTML.indexOf(", ") != -1)) {
+      elems[i].style.display = subgroup_style_mode;
+    } else {
+      elems[i].style.display = display_style_mode;
+    }
+  }
+}
+
+    // ]]>
+  </script>
+  <style type="text/css">
+#rspec-header {
+  background: #65C400; color: #fff; height: 4em;
+}
+
+.rspec-report h1 {
+  margin: 0px 10px 0px 10px;
+  padding: 10px;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+  font-size: 1.8em;
+  position: absolute;
+}
+
+#label {
+  float:left;
+}
+
+#display-filters {
+  float:left;
+  padding: 28px 0 0 40%;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+}
+
+#summary {
+  float:right;
+  padding: 5px 10px;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+  text-align: right;
+}
+
+#summary p {
+  margin: 0 0 0 2px;
+}
+
+#summary #totals {
+  font-size: 1.2em;
+}
+
+.example_group {
+  margin: 0 10px 5px;
+  background: #fff;
+}
+
+dl {
+  margin: 0; padding: 0 0 5px;
+  font: normal 11px "Lucida Grande", Helvetica, sans-serif;
+}
+
+dt {
+  padding: 3px;
+  background: #65C400;
+  color: #fff;
+  font-weight: bold;
+}
+
+dd {
+  margin: 5px 0 5px 5px;
+  padding: 3px 3px 3px 18px;
+}
+
+dd .duration {
+  padding-left: 5px;
+  text-align: right;
+  right: 0px;
+  float:right;
+}
+
+dd.example.passed {
+  border-left: 5px solid #65C400;
+  border-bottom: 1px solid #65C400;
+  background: #DBFFB4; color: #3D7700;
+}
+
+dd.example.not_implemented {
+  border-left: 5px solid #FAF834;
+  border-bottom: 1px solid #FAF834;
+  background: #FCFB98; color: #131313;
+}
+
+dd.example.pending_fixed {
+  border-left: 5px solid #0000C2;
+  border-bottom: 1px solid #0000C2;
+  color: #0000C2; background: #D3FBFF;
+}
+
+dd.example.failed {
+  border-left: 5px solid #C20000;
+  border-bottom: 1px solid #C20000;
+  color: #C20000; background: #FFFBD3;
+}
+
+
+dt.not_implemented {
+  color: #000000; background: #FAF834;
+}
+
+dt.pending_fixed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+dt.failed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+
+#rspec-header.not_implemented {
+  color: #000000; background: #FAF834;
+}
+
+#rspec-header.pending_fixed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+#rspec-header.failed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+
+.backtrace {
+  color: #000;
+  font-size: 12px;
+}
+
+a {
+  color: #BE5C00;
+}
+
+/* Ruby code, style similar to vibrant ink */
+.ruby {
+  font-size: 12px;
+  font-family: monospace;
+  color: white;
+  background-color: black;
+  padding: 0.1em 0 0.2em 0;
+}
+
+.ruby .keyword { color: #FF6600; }
+.ruby .constant { color: #339999; }
+.ruby .attribute { color: white; }
+.ruby .global { color: white; }
+.ruby .module { color: white; }
+.ruby .class { color: white; }
+.ruby .string { color: #66FF00; }
+.ruby .ident { color: white; }
+.ruby .method { color: #FFCC00; }
+.ruby .number { color: white; }
+.ruby .char { color: white; }
+.ruby .comment { color: #9933CC; }
+.ruby .symbol { color: white; }
+.ruby .regex { color: #44B4CC; }
+.ruby .punct { color: white; }
+.ruby .escape { color: white; }
+.ruby .interp { color: white; }
+.ruby .expr { color: white; }
+
+.ruby .offending { background-color: gray; }
+.ruby .linenum {
+  width: 75px;
+  padding: 0.1em 1em 0.2em 0;
+  color: #000000;
+  background-color: #FFFBD3;
+}
+
+  </style>
+</head>
+<body>
+<div class="rspec-report">
+
+<div id="rspec-header">
+  <div id="label">
+    <h1>RSpec Code Examples</h1>
+  </div>
+
+  <div id="display-filters">
+    <input id="passed_checkbox"  name="passed_checkbox"  type="checkbox" checked="checked" onchange="apply_filters()" value="1" /> <label for="passed_checkbox">Passed</label>
+    <input id="failed_checkbox"  name="failed_checkbox"  type="checkbox" checked="checked" onchange="apply_filters()" value="2" /> <label for="failed_checkbox">Failed</label>
+    <input id="pending_checkbox" name="pending_checkbox" type="checkbox" checked="checked" onchange="apply_filters()" value="3" /> <label for="pending_checkbox">Pending</label>
+  </div>
+
+  <div id="summary">
+    <p id="totals">&#160;</p>
+    <p id="duration">&#160;</p>
+  </div>
+</div>
+
+
+<div class="results">
+<div id="div_group_1" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_1" class="passed">Song Forms</dt>
+  </dl>
+</div>
+<div id="div_group_2" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_2" class="passed">/songs/new</dt>
+  </dl>
+</div>
+<div id="div_group_3" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_3" class="passed">without an existing artist</dt>
+    <script type="text/javascript">makeRed('rspec-header');</script>
+    <script type="text/javascript">makeRed('div_group_3');</script>
+    <script type="text/javascript">makeRed('example_group_3');</script>
+    <script type="text/javascript">moveProgressBar('9.0');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">creates a new artist on submit</span>
+      <span class="duration">0.25983s</span>
+      <div class="failure" id="failure_1">
+        <div class="message"><pre>Unable to find field &quot;Name&quot;</pre></div>
+        <div class="backtrace"><pre>/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:44:in `block in find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/base.rb:85:in `synchronize&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:33:in `find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/actions.rb:59:in `fill_in&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/session.rb:699:in `block (2 levels) in &lt;class:Session&gt;&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/dsl.rb:52:in `block (2 levels) in &lt;module:DSL&gt;&#39;
+./spec/features/05_song_form_spec.rb:19:in `block (5 levels) in &lt;top (required)&gt;&#39;
+./spec/features/05_song_form_spec.rb:18:in `block (4 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">42</span>          <span class="keyword">end</span>
+<span class="linenum">43</span>          <span class="keyword">if</span> result.size == <span class="integer">0</span>
+<span class="offending"><span class="linenum">44</span>            raise <span class="constant">Capybara</span>::<span class="constant">ElementNotFound</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">Unable to find </span><span class="inline"><span class="inline-delimiter">#{</span>query.description<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>)</span>
+<span class="linenum">45</span>          <span class="keyword">end</span>
+<span class="linenum">46</span>          result.first</code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('18.1');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">creates a new song on submit</span>
+      <span class="duration">0.18639s</span>
+      <div class="failure" id="failure_2">
+        <div class="message"><pre>Unable to find field &quot;Name&quot;</pre></div>
+        <div class="backtrace"><pre>/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:44:in `block in find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/base.rb:85:in `synchronize&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:33:in `find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/actions.rb:59:in `fill_in&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/session.rb:699:in `block (2 levels) in &lt;class:Session&gt;&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/dsl.rb:52:in `block (2 levels) in &lt;module:DSL&gt;&#39;
+./spec/features/05_song_form_spec.rb:27:in `block (4 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">42</span>          <span class="keyword">end</span>
+<span class="linenum">43</span>          <span class="keyword">if</span> result.size == <span class="integer">0</span>
+<span class="offending"><span class="linenum">44</span>            raise <span class="constant">Capybara</span>::<span class="constant">ElementNotFound</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">Unable to find </span><span class="inline"><span class="inline-delimiter">#{</span>query.description<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>)</span>
+<span class="linenum">45</span>          <span class="keyword">end</span>
+<span class="linenum">46</span>          result.first</code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('27.2');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">redirects to &#39;/songs/:slug&#39; after creation</span>
+      <span class="duration">0.19108s</span>
+      <div class="failure" id="failure_3">
+        <div class="message"><pre>Unable to find field &quot;Name&quot;</pre></div>
+        <div class="backtrace"><pre>/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:44:in `block in find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/base.rb:85:in `synchronize&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:33:in `find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/actions.rb:59:in `fill_in&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/session.rb:699:in `block (2 levels) in &lt;class:Session&gt;&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/dsl.rb:52:in `block (2 levels) in &lt;module:DSL&gt;&#39;
+./spec/features/05_song_form_spec.rb:39:in `block (4 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">42</span>          <span class="keyword">end</span>
+<span class="linenum">43</span>          <span class="keyword">if</span> result.size == <span class="integer">0</span>
+<span class="offending"><span class="linenum">44</span>            raise <span class="constant">Capybara</span>::<span class="constant">ElementNotFound</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">Unable to find </span><span class="inline"><span class="inline-delimiter">#{</span>query.description<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>)</span>
+<span class="linenum">45</span>          <span class="keyword">end</span>
+<span class="linenum">46</span>          result.first</code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_4" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_4" class="passed">with an existing artist</dt>
+    <script type="text/javascript">makeRed('div_group_4');</script>
+    <script type="text/javascript">makeRed('example_group_4');</script>
+    <script type="text/javascript">moveProgressBar('36.3');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">does not create a new artist</span>
+      <span class="duration">0.21910s</span>
+      <div class="failure" id="failure_4">
+        <div class="message"><pre>Unable to find field &quot;Name&quot;</pre></div>
+        <div class="backtrace"><pre>/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:44:in `block in find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/base.rb:85:in `synchronize&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:33:in `find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/actions.rb:59:in `fill_in&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/session.rb:699:in `block (2 levels) in &lt;class:Session&gt;&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/dsl.rb:52:in `block (2 levels) in &lt;module:DSL&gt;&#39;
+./spec/features/05_song_form_spec.rb:54:in `block (5 levels) in &lt;top (required)&gt;&#39;
+./spec/features/05_song_form_spec.rb:53:in `block (4 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">42</span>          <span class="keyword">end</span>
+<span class="linenum">43</span>          <span class="keyword">if</span> result.size == <span class="integer">0</span>
+<span class="offending"><span class="linenum">44</span>            raise <span class="constant">Capybara</span>::<span class="constant">ElementNotFound</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">Unable to find </span><span class="inline"><span class="inline-delimiter">#{</span>query.description<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>)</span>
+<span class="linenum">45</span>          <span class="keyword">end</span>
+<span class="linenum">46</span>          result.first</code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('45.4');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">creates a new song and associates it with an existing artist</span>
+      <span class="duration">0.20941s</span>
+      <div class="failure" id="failure_5">
+        <div class="message"><pre>Unable to find field &quot;Name&quot;</pre></div>
+        <div class="backtrace"><pre>/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:44:in `block in find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/base.rb:85:in `synchronize&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:33:in `find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/actions.rb:59:in `fill_in&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/session.rb:699:in `block (2 levels) in &lt;class:Session&gt;&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/dsl.rb:52:in `block (2 levels) in &lt;module:DSL&gt;&#39;
+./spec/features/05_song_form_spec.rb:62:in `block (4 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">42</span>          <span class="keyword">end</span>
+<span class="linenum">43</span>          <span class="keyword">if</span> result.size == <span class="integer">0</span>
+<span class="offending"><span class="linenum">44</span>            raise <span class="constant">Capybara</span>::<span class="constant">ElementNotFound</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">Unable to find </span><span class="inline"><span class="inline-delimiter">#{</span>query.description<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>)</span>
+<span class="linenum">45</span>          <span class="keyword">end</span>
+<span class="linenum">46</span>          result.first</code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('54.5');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">redirects to &#39;/songs/:slug&#39; after creation</span>
+      <span class="duration">0.19583s</span>
+      <div class="failure" id="failure_6">
+        <div class="message"><pre>Unable to find field &quot;Name&quot;</pre></div>
+        <div class="backtrace"><pre>/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:44:in `block in find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/base.rb:85:in `synchronize&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:33:in `find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/actions.rb:59:in `fill_in&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/session.rb:699:in `block (2 levels) in &lt;class:Session&gt;&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/dsl.rb:52:in `block (2 levels) in &lt;module:DSL&gt;&#39;
+./spec/features/05_song_form_spec.rb:74:in `block (4 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">42</span>          <span class="keyword">end</span>
+<span class="linenum">43</span>          <span class="keyword">if</span> result.size == <span class="integer">0</span>
+<span class="offending"><span class="linenum">44</span>            raise <span class="constant">Capybara</span>::<span class="constant">ElementNotFound</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">Unable to find </span><span class="inline"><span class="inline-delimiter">#{</span>query.description<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>)</span>
+<span class="linenum">45</span>          <span class="keyword">end</span>
+<span class="linenum">46</span>          result.first</code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_5" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_5" class="passed">/songs/:slug/edit</dt>
+  </dl>
+</div>
+<div id="div_group_6" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_6" class="passed">changing a song&#39;s artist</dt>
+    <script type="text/javascript">makeRed('div_group_6');</script>
+    <script type="text/javascript">makeRed('example_group_6');</script>
+    <script type="text/javascript">moveProgressBar('63.6');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">updates the song&#39;s artist</span>
+      <span class="duration">0.08661s</span>
+      <div class="failure" id="failure_7">
+        <div class="message"><pre>Unable to find field &quot;Artist Name&quot;</pre></div>
+        <div class="backtrace"><pre>/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:44:in `block in find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/base.rb:85:in `synchronize&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:33:in `find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/actions.rb:59:in `fill_in&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/session.rb:699:in `block (2 levels) in &lt;class:Session&gt;&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/dsl.rb:52:in `block (2 levels) in &lt;module:DSL&gt;&#39;
+./spec/features/05_song_form_spec.rb:98:in `block (4 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">42</span>          <span class="keyword">end</span>
+<span class="linenum">43</span>          <span class="keyword">if</span> result.size == <span class="integer">0</span>
+<span class="offending"><span class="linenum">44</span>            raise <span class="constant">Capybara</span>::<span class="constant">ElementNotFound</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">Unable to find </span><span class="inline"><span class="inline-delimiter">#{</span>query.description<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>)</span>
+<span class="linenum">45</span>          <span class="keyword">end</span>
+<span class="linenum">46</span>          result.first</code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('72.7');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">renders to the song show page</span>
+      <span class="duration">0.05496s</span>
+      <div class="failure" id="failure_8">
+        <div class="message"><pre>Unable to find field &quot;Artist Name&quot;</pre></div>
+        <div class="backtrace"><pre>/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:44:in `block in find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/base.rb:85:in `synchronize&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:33:in `find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/actions.rb:59:in `fill_in&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/session.rb:699:in `block (2 levels) in &lt;class:Session&gt;&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/dsl.rb:52:in `block (2 levels) in &lt;module:DSL&gt;&#39;
+./spec/features/05_song_form_spec.rb:107:in `block (4 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">42</span>          <span class="keyword">end</span>
+<span class="linenum">43</span>          <span class="keyword">if</span> result.size == <span class="integer">0</span>
+<span class="offending"><span class="linenum">44</span>            raise <span class="constant">Capybara</span>::<span class="constant">ElementNotFound</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">Unable to find </span><span class="inline"><span class="inline-delimiter">#{</span>query.description<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>)</span>
+<span class="linenum">45</span>          <span class="keyword">end</span>
+<span class="linenum">46</span>          result.first</code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_7" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_7" class="passed">changing a song&#39;s genres</dt>
+    <script type="text/javascript">makeRed('div_group_7');</script>
+    <script type="text/javascript">makeRed('example_group_7');</script>
+    <script type="text/javascript">moveProgressBar('81.8');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">has a checkbox element on the form</span>
+      <span class="duration">0.06608s</span>
+      <div class="failure" id="failure_9">
+        <div class="message"><pre>expected &quot;&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n  &lt;style type=\&quot;text/css\&quot;&gt;\n  body { text-align:center;font-family:helvetica,arial;font-size:22px;\n    color:#888;margin:20px}\n  #c {margin:0 auto;width:500px;text-align:left}\n  &lt;/style&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;h2&gt;Sinatra doesn&amp;rsquo;t know this ditty.&lt;/h2&gt;\n  &lt;img src=&#39;http://www.example.com/__sinatra__/404.png&#39;&gt;\n  &lt;div id=\&quot;c\&quot;&gt;\n    Try this:\n    &lt;pre&gt;# in application_controller.rb\nclass ApplicationController\n  get &amp;#x27;&amp;#x2F;songs&amp;#x2F;that-one-with-the-guitar&amp;#x2F;edit&amp;#x27; do\n    &amp;quot;Hello World&amp;quot;\n  end\nend\n&lt;/pre&gt;\n  &lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n&quot; to include &quot;checkbox&quot;
+Diff:
+@@ -1,2 +1,25 @@
+-checkbox
++&lt;!DOCTYPE html&gt;
++&lt;html&gt;
++&lt;head&gt;
++  &lt;style type=&quot;text/css&quot;&gt;
++  body { text-align:center;font-family:helvetica,arial;font-size:22px;
++    color:#888;margin:20px}
++  #c {margin:0 auto;width:500px;text-align:left}
++  &lt;/style&gt;
++&lt;/head&gt;
++&lt;body&gt;
++  &lt;h2&gt;Sinatra doesn&amp;rsquo;t know this ditty.&lt;/h2&gt;
++  &lt;img src=&#39;http://www.example.com/__sinatra__/404.png&#39;&gt;
++  &lt;div id=&quot;c&quot;&gt;
++    Try this:
++    &lt;pre&gt;# in application_controller.rb
++class ApplicationController
++  get &amp;#x27;&amp;#x2F;songs&amp;#x2F;that-one-with-the-guitar&amp;#x2F;edit&amp;#x27; do
++    &amp;quot;Hello World&amp;quot;
++  end
++end
++&lt;/pre&gt;
++  &lt;/div&gt;
++&lt;/body&gt;
++&lt;/html&gt;
+</pre></div>
+        <div class="backtrace"><pre>./spec/features/05_song_form_spec.rb:115:in `block (4 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">113</span>    context <span class="string"><span class="delimiter">&quot;</span><span class="content">changing a song's genres</span><span class="delimiter">&quot;</span></span> <span class="keyword">do</span>
+<span class="linenum">114</span>      it <span class="string"><span class="delimiter">&quot;</span><span class="content">has a checkbox element on the form</span><span class="delimiter">&quot;</span></span> <span class="keyword">do</span>
+<span class="offending"><span class="linenum">115</span>        expect(page.body).to include(<span class="string"><span class="delimiter">&quot;</span><span class="content">checkbox</span><span class="delimiter">&quot;</span></span>)</span>
+<span class="linenum">116</span>      <span class="keyword">end</span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('90.9');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">updates the song&#39;s genres</span>
+      <span class="duration">0.04421s</span>
+      <div class="failure" id="failure_10">
+        <div class="message"><pre>Unable to find checkbox &quot;New Age Garbage&quot;</pre></div>
+        <div class="backtrace"><pre>/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:44:in `block in find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/base.rb:85:in `synchronize&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:33:in `find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/actions.rb:98:in `uncheck&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/session.rb:699:in `block (2 levels) in &lt;class:Session&gt;&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/dsl.rb:52:in `block (2 levels) in &lt;module:DSL&gt;&#39;
+./spec/features/05_song_form_spec.rb:119:in `block (4 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">42</span>          <span class="keyword">end</span>
+<span class="linenum">43</span>          <span class="keyword">if</span> result.size == <span class="integer">0</span>
+<span class="offending"><span class="linenum">44</span>            raise <span class="constant">Capybara</span>::<span class="constant">ElementNotFound</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">Unable to find </span><span class="inline"><span class="inline-delimiter">#{</span>query.description<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>)</span>
+<span class="linenum">45</span>          <span class="keyword">end</span>
+<span class="linenum">46</span>          result.first</code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">renders to the song show page</span>
+      <span class="duration">0.05228s</span>
+      <div class="failure" id="failure_11">
+        <div class="message"><pre>Unable to find checkbox &quot;Hippity Hop&quot;</pre></div>
+        <div class="backtrace"><pre>/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:44:in `block in find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/base.rb:85:in `synchronize&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/finders.rb:33:in `find&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/node/actions.rb:98:in `uncheck&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/session.rb:699:in `block (2 levels) in &lt;class:Session&gt;&#39;
+/Users/hyojeong/.rvm/gems/ruby-2.3.0/gems/capybara-2.7.0/lib/capybara/dsl.rb:52:in `block (2 levels) in &lt;module:DSL&gt;&#39;
+./spec/features/05_song_form_spec.rb:130:in `block (4 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">42</span>          <span class="keyword">end</span>
+<span class="linenum">43</span>          <span class="keyword">if</span> result.size == <span class="integer">0</span>
+<span class="offending"><span class="linenum">44</span>            raise <span class="constant">Capybara</span>::<span class="constant">ElementNotFound</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">Unable to find </span><span class="inline"><span class="inline-delimiter">#{</span>query.description<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>)</span>
+<span class="linenum">45</span>          <span class="keyword">end</span>
+<span class="linenum">46</span>          result.first</code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>1.66443 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "11 examples, 11 failures";</script>
+</div>
+</div>
+</body>
+</html>
