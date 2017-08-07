@@ -4,21 +4,13 @@ class Song < ActiveRecord::Base
   belongs_to :artist
 
   def slug
-    self.name.downcase.gsub(' ','-') if self.name != nil
+    self.name.parameterize
   end
 
   def self.find_by_slug(slug)
-    array = slug.split("-")
-    unslug = array.collect do |a|
-      if a == array.first
-        a.capitalize
-      elsif a == array.last
-        a.capitalize
-      else
-        a
-      end
+    self.all.find do |song|
+      song.slug == slug
     end
-    unslug = unslug.join(" ")
-    self.find_by(name: unslug)
   end
+
 end
