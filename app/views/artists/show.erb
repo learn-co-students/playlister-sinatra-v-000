@@ -8,8 +8,7 @@
     <h2><%= @artist.name %></h2>
     <!--%binding.pry%-->
     <%@artist.songs.each do |song|%>
-      <a href="/songs/<%= song.slug%>"
-      >
+      <a href="/songs/<%= song.slug%>">
       <%=song.name%>
       </a>
     <% end %>
@@ -20,14 +19,5 @@
       </a>
     <% end %>
     <!--%binding.pry%-->
-    </body>
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="utf-8">
-      <title>an artist's song and genre show page</title>
-    </head>
-    <body>
-      
     </body>
   </html>
