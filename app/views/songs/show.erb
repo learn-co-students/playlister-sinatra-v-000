@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-Any given song's
 show page should
 have links to that
@@ -15,3 +16,10 @@ with the song-->
 <p><a href="/genres/<%= genre.slug %>"><%=genre.name%></a></p>
 <% end %>
 </p>
+=======
+<h2><%= @song.name %></h2>
+<h3><a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></h3>
+<% @song.genres.each do |genre| %>
+  <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></li>
+<% end %>
+>>>>>>> 19267d145817a0a775bfacdb683856257c6235f7

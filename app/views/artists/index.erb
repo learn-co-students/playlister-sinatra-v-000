@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,3 +14,11 @@
     </ul>
   </body>
 </html>
+=======
+<h2>Artist index</h2>
+<ul>
+  <% Artist.all.each do |artist|%>
+  <li><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></li>
+  <% end %>
+</ul>
+>>>>>>> 19267d145817a0a775bfacdb683856257c6235f7
