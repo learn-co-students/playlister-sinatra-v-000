@@ -37,7 +37,7 @@ describe "Genre" do
 
   describe "Class methods" do
     it "given the slug can find a genre" do
-      genre = Genre.create(:name => "Alternative Rock")
+      genre = Genre.create(:name => "Alternative Rock", :slug_string => "alternative-rock")
       slug = "alternative-rock"
       expect((Genre.find_by_slug(slug)).name).to eq("Alternative Rock")
     end

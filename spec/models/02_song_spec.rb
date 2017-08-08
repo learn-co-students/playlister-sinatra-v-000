@@ -4,7 +4,7 @@ describe "Song" do
   before do 
     @artist = Artist.create(:name => "Taylor Swift") 
 
-    @song =  Song.create(:name => "Blank Space", :artist => @artist) 
+    @song =  Song.create(:name => "Blank Space", :artist => @artist, :slug_string => "blank-space") 
 
     pop = Genre.create(:name => "Pop")
 
