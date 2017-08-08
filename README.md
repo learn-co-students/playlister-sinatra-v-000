@@ -90,6 +90,10 @@ By typing
 rspec spec/models/01_artist_spec.rb
 rspec spec/models/02_song_spec.rb
 rspec spec/models/03_genre_spec.rb
+rspec spec/features/04_basic_view_spec.rb
+rspec spec/features/05_song_form_spec.rb
+
+
 ```
 
 in your bash/ command line you will only run that spec. It is important to run the specs in their numeric order. You will notice even after adding a table, model, and controller your specs are still not passing, but the error messages are changing. You have to read every error message carefully to understand what to do next.
