@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h3>add a Song with Artist and Genre</h3>
 <!--https://learn.co/tracks/full-stack-web-dev-
 with-react/sinatra/activerecord/sinatra-restful-routes?
@@ -12,8 +11,10 @@ batch_id=306&question_id=74523&track_id=23144
 <!-- https://learn.co/tracks/full-stack-web-dev-with-react/
 sinatra/activerecord/sinatra-complex-forms-associations-->
   <%Genre.all.each do |genre| %>
-    <input type="checkbox" name="genre[]" value="<%=genre.id%>" id= "<%=genre.name%>">
-    <%=genre.name%></input>
+    <input type="checkbox" name="genre[]" value="<%=genre.id%>" id= "<%=genre.name%>"
+    >
+    <%=genre.name%>
+    </input>
     <% end %>
   </p>
   <p><label>Artist Name:</label>
@@ -22,20 +23,3 @@ sinatra/activerecord/sinatra-complex-forms-associations-->
   <!-- binding.pry %-->
   <input type="submit" value="Create"></input>
    <!-- binding.pry %-->
-=======
-<h2>Add Song</h2>
-<form action="/songs" method="post">
-  <p>
-    <label>Name:</label> <input type="text" name="Name"><br>
-  </p>
-  <p>
-    Choose Genre:<% Genre.all.each do |genre|%>
-      <input type="checkbox" name="genres[]" value="<%= genre.id %>" id="<%= genre.name %>"><%= genre.name %></input>
-    <%end%><br>
-  </p>
-  <p>
-    Artist Name: <input type="text" name="Artist Name">
-  </p>
-  <input type="submit" value="Create">
->>>>>>> 19267d145817a0a775bfacdb683856257c6235f7
-</form>
