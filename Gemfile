@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'rack-flash3', '~> 1.0', '>= 1.0.5'
 
 group :test do
   gem 'rspec'
