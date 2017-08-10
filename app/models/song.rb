@@ -4,10 +4,10 @@ class Song < ActiveRecord::Base
   belongs_to :artist
 
   def slug
-    name.downcase.split.join("-")
+    self.name.downcase.split.join("-")
   end
 
   def self.find_by_slug(slug)
-    self.all.find{|instance| instance.slug == slug}
+    self.all.find{|song| song.slug == slug}
   end
 end

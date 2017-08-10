@@ -3,9 +3,17 @@
 <% end %>
 
 <h1><%= @song.name %></h1>
-<a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name%>
-  <% @song.genres.each do |genre| %>
+<h2>Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name%></a></h2>
+
+<b>GENRES</b>
+<% @song.genres.each do |genre| %>
   <ul>
     <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></li>
-  <ul>
-  <% end %>
+  </ul>
+<% end %>
+
+<br></br>
+
+
+<h4><a href="/songs/<%=@song.slug%>/edit">edit song</h4>
+<h4><a href="/songs/new">add a new song</h4>
