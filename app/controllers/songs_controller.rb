@@ -1,5 +1,5 @@
+require 'rack-flash'
 class SongsController < ApplicationController
-  require 'rack-flash'
   use Rack::Flash
 
   get '/songs' do#index action
@@ -17,8 +17,8 @@ class SongsController < ApplicationController
 
   post '/songs' do
     artist= Artist.find_or_create_by(name: params["Artist Name"])
-    song = Song.create(name: params["Name"], artist: artist)
-    song.genre_ids=params["genres"]
+    song = Song.create(name: params[:song_name], artist: artist)
+    song.genre_ids=params[:genre]
     song.save
     #binding.pry
     @song = song
@@ -32,11 +32,15 @@ class SongsController < ApplicationController
   get '/songs/:slug/edit' do#load edit form
     #binding.pry
     @song = Song.find_by_slug params[:slug]
+    #binding.pry
     erb :'/songs/edit'
   end
 
-  post 'songs/:slug' do#edit the form
-    binding.pry
+  patch '/songs/:slug' do#edit the form
+    #binding.pry
     @song = Song.find_by_slug params[:slug]
+    @song.update(artist: Artist.find_or_create_by(:name => params["Artist Name"]), genre_ids: params["genres"], :name => params["Name"])
+    flash[:message] = "Successfully updated song."
+    redirect to("/songs/#{@song.slug}")
   end
 end
