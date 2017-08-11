@@ -8,11 +8,7 @@
     <h2>Genre index</h2>
     <ul>
       <% Genre.all.each do |genre| %>
-<<<<<<< HEAD
         <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></li>
-=======
-        <li><a href="/genres/<%=genre.slug%>"><%= genre.name %></a></li>
->>>>>>> 19267d145817a0a775bfacdb683856257c6235f7
       <% end %>
     </ul>
   </body>
