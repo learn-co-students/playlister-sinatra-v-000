@@ -5,6 +5,8 @@
   </head>
 
   <body>
+    <a href="/songs/new">New Song</a> | <a href="/songs">List Songs</a> | <a href="/artists">List Artists</a> | <a href="/genres">List Genres</a>
+    <%= flash[:message] if flash[:message] %>
     <%= yield %>
   </body>
 </html>
