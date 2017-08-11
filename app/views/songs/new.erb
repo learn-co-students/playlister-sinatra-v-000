@@ -1,0 +1,25 @@
+<h3>add a Song with Artist and Genre</h3>
+<!--https://learn.co/tracks/full-stack-web-dev-
+with-react/sinatra/activerecord/sinatra-restful-routes?
+batch_id=306&question_id=74523&track_id=23144
+-->
+<form  action="/songs" method="post">
+  <p><label>Song Name:</label>
+    <input type="text" name="song_name" id="Name"></input>
+  </p>
+  <p><label>Genre Type:</label>
+<!-- https://learn.co/tracks/full-stack-web-dev-with-react/
+sinatra/activerecord/sinatra-complex-forms-associations-->
+  <%Genre.all.each do |genre| %>
+    <input type="checkbox" name="genre[]" value="<%=genre.id%>" id= "<%=genre.name%>"
+    >
+    <%=genre.name%>
+    </input>
+    <% end %>
+  </p>
+  <p><label>Artist Name:</label>
+    <input type="text" name="Artist Name"></input>
+  </p>
+  <!-- binding.pry %-->
+  <input type="submit" value="Create"></input>
+   <!-- binding.pry %-->
