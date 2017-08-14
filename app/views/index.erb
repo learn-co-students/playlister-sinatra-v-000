@@ -1,1 +1,5 @@
-<h1>Index.erb</h1>
+<h1>Welcome To Playlister</h1>
+
+<%@songs.each do |song|%>
+<h3>Song: <%=song.name%></h3>
+<%end%>
