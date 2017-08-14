@@ -1,0 +1,4 @@
+<h1>Welcome To Playlister</h1>
+<%@artists.each do |artist|%>
+<h3>Artist: <a href="/artists/<%=artist.slug%>"><%=artist.name%></h3></a> 
+<%end%>
