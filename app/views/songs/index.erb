@@ -1,0 +1,5 @@
+<% @songs.each do |song| %>
+  <h2><a href="/songs/<%= song.id %>">
+  <%= song.name %></a></h2>
+<!--  redirect "artists/#{@artist.id}" -->
+<% end %>
