@@ -1,0 +1,21 @@
+<!-- /songs/:slug/edit
+Be able to change everything about a song, including the genres associated with it and its artist.
+ -->
+
+<h2>Edit form for <%=@song.name%></h2>
+
+<form method="POST" action="/songs/<%=@song.slug%>/edit">
+  <p>Enter new song name:<input type="text" name="name" id="Name"></p>
+
+  <p>Enter new artist name:<input type="text" name="artist" id="Artist Name"></p>
+
+  <p>Select a genre or multiple genres</p>
+  <ul>
+    <%songs_genre_names = @song.genres.collect {|genre|genre.name}%>
+    <% Genre.all.each do |genre| %>
+      <li><%=genre.name%><input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>" <%='checked' if songs_genre_names.include?(genre.name)%>></li>
+    <% end %>
+  </ul>
+
+  <input type="submit" id="Save" value="Save">
+</form>
