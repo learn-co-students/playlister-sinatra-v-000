@@ -4,8 +4,15 @@ class SongsController < ApplicationController
     erb :"/songs/index"
   end
 
+  get '/songs/new' do
+    #@song = Song.create(params[:song]) #[:slug]
+    erb :'/songs/new'
+  end
+
   get "/songs/:slug" do
-    @song = Song.create(params[:song]) #[:plug]
+    #binding.pry
+    @song = Song.find_by_slug(params["slug"]) #Song.find(params[:slug])   #@song = Song.find_by_slug(params[:slug])
     erb :"/songs/show"
   end
+
 end
