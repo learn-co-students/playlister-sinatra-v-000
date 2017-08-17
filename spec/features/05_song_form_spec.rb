@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe "Song Forms" do
   let(:artist_name) { "Person with a Face" }
