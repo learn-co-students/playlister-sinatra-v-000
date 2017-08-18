@@ -1,6 +1,4 @@
 <% @songs.each do |song| %>
-  <h2><a href="/songs/<%= song.slug %>"> <!--h2><a href="/songs/#{@song.slug}"-->
+  <h2><a href="/songs/<%= song.slug %>">
   <%= song.name %></a></h2>
-<!-- redirect to 'songs/show' -->
-<!--redirect "songs/#{@song.slug}"-->
 <% end %>
