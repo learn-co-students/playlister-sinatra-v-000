@@ -95,6 +95,7 @@ describe "Song Forms" do
     end
 
     context "changing a song's artist" do
+      #binding.pry
       it "updates the song's artist" do
         fill_in "Artist Name", with: "Some Nobody"
         click_on "Save"

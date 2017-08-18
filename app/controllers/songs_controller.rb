@@ -7,7 +7,6 @@ class SongsController < ApplicationController
     end
 
     get '/songs/new' do
-      #@song = Song.create(params[:slug]) #[:slug]
       erb :'songs/new'
     end
 
@@ -31,4 +30,12 @@ class SongsController < ApplicationController
       erb :'songs/edit'
     end
 
-end
+    patch '/songs/:slug' do
+      @song = Song.find_by_slug(params[:slug])
+      @song.save(params[:song])
+      @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
+      @song.save
+      flash[:message] = "Successfully updated song."
+      erb :'songs/show'
+    end
+  end
