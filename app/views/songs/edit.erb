@@ -1,5 +1,5 @@
 <h1><%= @song.name %></h1>
-  <form action="/songs" method="post" <%= @song.slug %>
+  <form action="/songs/<%= @song.slug %>" method="post">
   <input type="text" name="_method" value="patch" id="hidden"></input>
 
   <label>Name</label>
