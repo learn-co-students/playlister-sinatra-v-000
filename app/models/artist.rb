@@ -1,4 +1,5 @@
 class Artist < ActiveRecord::Base
+
   extend Concerns::Slugifiable::ClassMethods
   include Concerns::Slugifiable::InstanceMethods
 
