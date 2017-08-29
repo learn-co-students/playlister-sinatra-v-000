@@ -8,3 +8,13 @@ require 'sinatra/activerecord/rake'
 task :console do
   Pry.start
 end
+
+task :migrations do
+  puts "migrating databases..."
+  system("rake db:migrate && rake db:migrate SINATRA_ENV=test")
+end
+
+task :drop do
+  puts "dropping database..."
+  system("rm db/development.sqlite && rm db/test.sqlite && rm db/schema.rb")
+end
