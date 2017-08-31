@@ -2,7 +2,7 @@
 <h1>Edit <%= @song.name %></h1>
 
 <form action="/songs/<%= @song.slug %>" method="POST">
-  <input type="hidden" name="_method" value="PATCH">
+  <input id="hidden" type="hidden" name="_method" value="patch">
 
   <label for="name">Name</label>
   <input type="text" name="song[name]" id="name" value="<%= @song.name %>">
