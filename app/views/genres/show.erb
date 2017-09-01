@@ -1,0 +1,12 @@
+Artists:
+<ul>
+  <%Artist.all.each do |a|%>
+    <li><a href="/artists/<%=a.slug%>"><%=a.name %></a></li>
+  <%end%>
+</ul>
+Songs:
+<ul>
+  <%Song.all.each do |s|%>
+    <li><a href="/songs/<%=s.slug%>"><%=s.name %></a></li>
+  <%end%>
+</ul>
