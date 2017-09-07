@@ -12,9 +12,9 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    @song = Song.create(name: params["name"])
-    @song.artist = Artist.find_or_create_by(name: params["artist_name"])
-    @song.genre_ids = params["genres"]
+    @song = Song.create(name: params[:name])
+    @song.artist = Artist.find_or_create_by(name: params[:artist_name])
+    @song.genre_ids = params[:genres]
     @song.save
 
     flash[:message] = "Successfully created song."
@@ -28,10 +28,12 @@ class SongsController < ApplicationController
     erb :'/songs/show'
   end
 
-  patch '/songs/:slug' do
-    binding.pry
-    @song.artist = Artist.find_or_create_by(name: params["artist_name"])
-    @song.genre_ids = params["genres"]
+  post '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    if !params[:artist_name].empty?
+      @song.artist = Artist.find_or_create_by(name: params[:artist_name])
+    end
+    @song.genre_ids = params[:genres]
     @song.save
 
     flash[:message] = "Successfully updated song."

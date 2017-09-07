@@ -1,9 +1,15 @@
 <h2>Genre: <%=@genre.name%></h2>
 
-<% @genre.artists.each do |a| %>
-<p><strong>Genre: </strong> <a href="/artists/<%=a.slug%>"><%=a.name%></a></p>
-<% end %>
+<h4>Artists</h4>
+<ul>
+  <% @genre.artists.each do |a| %>
+  <li><a href="/artists/<%=a.slug%>"><%=a.name%></a></li>
+  <% end %>
+</ul>
 
-<% @genre.songs.each do |s| %>
-<p><strong>Genre: </strong> <a href="/songs/<%=s.slug%>"><%=s.name%></a></p>
-<% end %>
+<h4>Songs</h4>
+<ul>
+  <% @genre.songs.each do |s| %>
+  <li><a href="/songs/<%=s.slug%>"><%=s.name%></a></li>
+  <% end %>
+</ul>

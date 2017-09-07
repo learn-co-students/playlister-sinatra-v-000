@@ -5,6 +5,10 @@
 <h2>Song: <%=@song.name%></h2>
 
 <p><strong>Artist: </strong> <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a></p>
-<% @song.genres.each do |g| %>
-<p><strong>Genre: </strong> <a href="/genres/<%=g.slug%>"><%=g.name%></a></p>
-<% end %>
+
+<p><strong>Genre(s): </strong></p>
+<ul>
+  <% @song.genres.each do |g| %>
+  <li><a href="/genres/<%=g.slug%>"><%=g.name%></a></li>
+  <% end %>
+</ul>
