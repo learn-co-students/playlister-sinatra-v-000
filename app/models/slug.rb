@@ -7,10 +7,9 @@ module Slug
 
   module ClassMethods
     def find_by_slug(slug)
-      deslugged_name = slug.split("-").collect do |word|
-        word.capitalize
-      end.join(" ")
-      find_by(name: deslugged_name)
+      all.select do |model|
+        model.slug == slug
+      end.first
     end
   end
 end

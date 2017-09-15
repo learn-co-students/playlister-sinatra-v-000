@@ -4,4 +4,5 @@ class Artist < ActiveRecord::Base
 
   include Slug::InstanceMethods
   extend Slug::ClassMethods
+
 end
