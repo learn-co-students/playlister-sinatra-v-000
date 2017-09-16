@@ -13,13 +13,13 @@ class SongController < ApplicationController
   end
 
   post '/songs' do
-    binding.pry
+    # binding.pry
     @song = Song.create(params[:song])
     if !params[:artist][:name].empty?
       @song.artist = Artist.create(params[:artist])
     end
     if !params[:genre][:name].empty?
-      @song.genre = Genre.create(params[:genre])
+      @song.genres << Genre.create(params[:genre])
     end
     @song.save
 
