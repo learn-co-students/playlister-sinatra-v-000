@@ -1,0 +1,5 @@
+<h1>Artist Index</h1>
+
+<% Artist.all.each do |artist| %>
+  <h3><a href="/artists/<%=artist.slug%>"><%= artist.name %></a></h3>
+<%end%>
