@@ -1,5 +1,6 @@
 <ul>
-  <% Artist.all.each do |artist| %>
+  <% @artists = Artist.all.sort_by {|art| art.name} %>
+  <% @artists.each do |artist| %>
     <li>
       <a href="/artists/<%= artist.slug %>">
         <%= artist.name %>

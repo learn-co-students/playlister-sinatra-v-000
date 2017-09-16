@@ -1,4 +1,8 @@
 class SongController < ApplicationController
+  get '/songs/new' do
+    erb :'/songs/new'
+  end
+
   get '/songs' do
     erb :'/songs/index'
   end
@@ -8,7 +12,18 @@ class SongController < ApplicationController
     erb :'/songs/show'
   end
 
-  get '/songs/new' do
-    erb :'/songs/new'
+  post '/songs' do
+    binding.pry
+    @song = Song.create(params[:song])
+    if !params[:artist][:name].empty?
+      @song.artist = Artist.create(params[:artist])
+    end
+    if !params[:genre][:name].empty?
+      @song.genre = Genre.create(params[:genre])
+    end
+    @song.save
+
+    redirect :"/songs/#{@song.slug}"
   end
+
 end
