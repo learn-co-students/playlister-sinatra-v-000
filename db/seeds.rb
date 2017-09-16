@@ -1,2 +1,10 @@
-# Add seed data here. Seed your database with `rake db:seed`
+genre_list = [
+  "Pop",
+  "Rap",
+  "Gospel",
+  "Stupidness"
+]
 
+genre_list.each do |name|
+  Genre.create( name: name)
+end

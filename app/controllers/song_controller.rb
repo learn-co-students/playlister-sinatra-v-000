@@ -1,15 +1,28 @@
+require 'rack-flash'
 class SongController < ApplicationController
+  enable :sessions
+  use Rack::Flash
+
   get '/songs' do
     erb :'/songs/index'
   end
 
-  get '/songs/:slug' do
-    @song = Song.find_by_slug(params[:slug])
-    erb :'/songs/show'
+  post '/songs' do
+     @song = Song.new(name: params[:name])
+     @song.artist = Artist.find_or_create_by(name: params[:"Artist Name"])
+     @song.genre_ids = params[:genres]
+     @song.save
+     flash[:message] = "Successfully created song."
+     redirect to("/songs/#{@song.slug}")
   end
 
   get '/songs/new' do
     erb :'/songs/new'
+  end
+
+  get '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'songs/show'
   end
 
   get '/songs/:slug/edit' do
@@ -17,11 +30,14 @@ class SongController < ApplicationController
     erb :'/songs/edit'
   end
 
-  post '/songs' do
-    artist = Artist.find_id_or_create_new_by_name(params["Artist Name"])
-    genres = params["genres"].collect {|id| Genre.find(id)}
-    @song = Song.create(name: params["Name"], artist_id: artist_id, genres: genres)
-    redirect to ("/songs/#{song.slug}")
+  patch '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    @song.update(name: params[:name])
+    @song.artist = Artist.find_or_create_by(name: params[:"Artist Name"])
+    @song.genre_ids = params[:genres]
+    @song.save
+    flash[:message] = "Successfully updated song."
+    redirect to("/songs/#{@song.slug}")
   end
 
 end
