@@ -1,5 +1,6 @@
 <ul>
-  <% Genre.all.each do |genre| %>
+  <% @genres = Genre.all.sort_by {|gen| gen.name} %>
+  <% @genres.each do |genre| %>
     <li>
       <a href="/genres/<%= genre.slug %>">
         <%= genre.name %>
