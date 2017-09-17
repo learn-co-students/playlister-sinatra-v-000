@@ -1,0 +1,36 @@
+<h1>Edit <%= @song.name %></h1>
+<form action="/songs" method="post">
+  <label>Name:</label><br>
+  <input type="text" name="song[name]" id="Name">
+  <br><br>
+
+  <label >Artist Name</label><br>
+  <br>
+  <% @artists = Artist.all.sort_by { |art| art.name } %>
+  <% @artists.each do |artist| %>
+    <input type="radio" name="song[artist_id]" value="<%= artist.id %>" id="<%= artist.name %>" <%>
+      <%= artist.name %>
+    </input>
+  <br>
+  <% end %>
+
+  <label>or create a new one:</label><br>
+  <input type="text" name="artist[name]" id="Artist Name">
+  <br><br>
+
+  <label>Select a genre:</label><br>
+  <br>
+  <% @genres = Genre.all.sort_by { |gen| gen.name } %>
+  <% @genres.each do |genre| %>
+    <input type="checkbox" name="genres[]" value="<%= genre.id %>" id="<%= genre.name %>">
+      <%= genre.name %>
+    </input>
+  <br>
+  <% end %>
+
+  <label>or create a new one:</label><br>
+  <input type="text" name="genre[name]" id="genre_name">
+  <br><br>
+
+  <input type="submit" value="Create Song">
+</form>
