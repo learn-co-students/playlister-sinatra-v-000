@@ -1,5 +1,5 @@
 <h1>Edit <%= @song.name %></h1>
-<form action="/songs" method="post">
+<form action="/songs/<%= song.slug %>" method="post">
   <label>Name:</label><br>
   <input type="text" name="song[name]" id="Name">
   <br><br>
@@ -8,7 +8,7 @@
   <br>
   <% @artists = Artist.all.sort_by { |art| art.name } %>
   <% @artists.each do |artist| %>
-    <input type="radio" name="song[artist_id]" value="<%= artist.id %>" id="<%= artist.name %>" <%>
+    <input type="radio" name="song[artist_id]" value="<%= artist.id %>" id="<%= artist.name %>" <%='checked' if @song.artist == artist %>>
       <%= artist.name %>
     </input>
   <br>
@@ -22,7 +22,7 @@
   <br>
   <% @genres = Genre.all.sort_by { |gen| gen.name } %>
   <% @genres.each do |genre| %>
-    <input type="checkbox" name="genres[]" value="<%= genre.id %>" id="<%= genre.name %>">
+    <input type="checkbox" name="genres[]" value="<%= genre.id %>" id="<%= genre.name %>" <%='checked' if @song.genres.include?(genre) %>>
       <%= genre.name %>
     </input>
   <br>
