@@ -4,6 +4,12 @@ class Genre < ActiveRecord::Base
   has_many :artists, through: :songs
 
   def slug
-    Sligify(@name)
+    Slugify.toSlug(self.name)
+  end
+
+  def self.find_by_slug(slug)
+    self.all.select do |genre|
+      genre.slug == slug
+    end.first
   end
 end

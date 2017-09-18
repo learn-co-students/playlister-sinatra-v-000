@@ -1,8 +1,7 @@
 class SongsController < ApplicationController
-
-  #crud
-
   get '/songs' do
+    @songs = Song.all
+    erb :'/songs/index'
   end
 
   get '/songs/:slug' do
@@ -20,6 +19,5 @@ class SongsController < ApplicationController
   post '/songs/:slug' do
     #for updating a song
   end
-
 
 end
