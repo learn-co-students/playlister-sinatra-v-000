@@ -25,7 +25,6 @@ Your application should use the following file structure. Notice how there are s
 │   │   ├── artists_controller.rb
 │   │   ├── genres_controller.rb
 │   │   └── songs_controller.rb
-│   ├── models
 │   │   ├── artist.rb
 │   │   ├── concerns
 │   │   │   └── slugifiable.rb
