@@ -99,6 +99,7 @@ describe "Song Forms" do
         click_on "Save"
 
         expect(page).to have_content("Successfully updated song.")
+
         expect(page).to have_content(song_name)
         expect(page).to have_content("Some Nobody")
       end
@@ -116,9 +117,11 @@ describe "Song Forms" do
       end
 
       it "updates the song's genres" do
+     
         uncheck "New Age Garbage"
         check "Hippity Hop"
         click_on "Save"
+
 
         expect(page).to have_content("Successfully updated song.")
         expect(page).to have_content(song_name)
