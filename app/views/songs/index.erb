@@ -1,0 +1,20 @@
+<h1>Songs</h1>
+
+	
+
+<ul>
+	<% @songs.each do |song| %>
+		<li>
+			<p><a href="/songs/<%= song.slug %>"><%= song.name %></a> By <%= song.artist.name %></p>
+			<p>Genres: 
+				<% song.genres.each do |genre| %>
+					<% unless genre == song.genres.last %>
+						<%= genre.name %>,
+					<% else %>
+						<%= genre.name %>
+					<% end %>
+				<% end %>
+			</p>
+		</li>
+	<% end %>
+</ul>
