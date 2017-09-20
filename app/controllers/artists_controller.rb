@@ -10,6 +10,7 @@ class ArtistsController < ApplicationController
   end
 
   post '/artists' do
+
     #for creating new songs
   end
 

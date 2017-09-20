@@ -1,4 +1,6 @@
 class Song < ActiveRecord::Base
+  include ActiveModel::Dirty #allows tracking of changes
+
   belongs_to :artist
   has_many :song_genres #Remember to include 'has_many' with the join table!
   has_many :genres, through: :song_genres
