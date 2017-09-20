@@ -13,6 +13,8 @@ class SongsController < Sinatra::Base
   end
 
   get '/songs/:slug' do
+    slug = params[:slug]
+    @song = Song.find_by_slug(slug)
     erb :"songs/show"
   end
 

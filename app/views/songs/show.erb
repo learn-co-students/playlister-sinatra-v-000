@@ -1,2 +1,8 @@
-Any given song's show page should have links to that song's artist
-and the each genre associated with the song.
+<h1><center><%= @song.name %></center></h1>
+<h3><a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></h3>
+<p><u>Genres:</u></p>
+  <ul>
+    <% @song.genres.each do |g| %>
+      <li><a href="/genres/<%= g.slug %>"><%= g.name %></a></li>
+    <% end %>
+  </ul>
