@@ -1,0 +1,14 @@
+<h1><%=@song.name%></h1>
+<%if params[:status]=='new'%>
+<p>Successfully created song.</p>
+<%elsif params[:status]=='updated'%>
+<p>Successfully updated song.</p>
+<%end%>
+
+<h2>Artist: <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a></h2>
+
+<ul>
+  <%@song.genres.each do |genre|%>
+  <li><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
+  <%end%>
+</ul>
