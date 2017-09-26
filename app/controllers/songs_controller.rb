@@ -21,6 +21,7 @@ class SongsController < ApplicationController
       song.genres << Genre.find(genre_id)
     end
     song.save
+    flash[:message] = "Successfully created song."
     redirect "/songs/#{song.slug}"
   end
 
