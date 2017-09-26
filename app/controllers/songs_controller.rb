@@ -41,10 +41,10 @@ class SongsController < ApplicationController
 
   post '/songs/:id' do
     binding.pry
-    song = Song.find(params[:id])
-    song.update(params)
-    flash[:message] = "Successfully updated song."
-    redirect "/songs/#{song.slug}"
+    #song = Song.find(params[:id])
+    #song.update(params)
+    #flash[:message] = "Successfully updated song."
+    #redirect "/songs/#{song.slug}"
   end
 
 end
