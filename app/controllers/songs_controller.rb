@@ -37,10 +37,10 @@ class SongsController < ApplicationController
     erb :'songs/edit'
   end
 
-  post '/songs/:slug' do
+  patch '/songs/:slug' do
     song = Song.find_by_slug(params[:slug])
     song.name = params[:song][:name]
-    song.artist = Artist.find_or_create_by(name: params[:song][:artist])
+    song.artist = Artist.find_or_create_by(name: params[:song][:artist]) if params[:song][:artist] != ""
     song.genres.clear
 
     params[:song][:genre_ids].each do |genre_id|
