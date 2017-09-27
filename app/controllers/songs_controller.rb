@@ -1,5 +1,9 @@
+	require 'rack-flash'
+
+
 class SongsController < ApplicationController
-	
+	use Rack::Flash
+
 	get '/songs/new' do
 		erb :'/songs/new'
 	end

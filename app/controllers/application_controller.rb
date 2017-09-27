@@ -1,9 +1,10 @@
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
+  register Sinatra::Flash
 
   configure do
     enable :sessions
-    use Rack::Flash
+    # use Rack::Flash
  		set :session_secret, "my_application_secret"
   	set :public_folder, 'public'
   	set :views, 'app/views'
