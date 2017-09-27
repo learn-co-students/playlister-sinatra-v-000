@@ -1,0 +1,9 @@
+<div class="jumbotron">
+	<h2>All Songs</h2>
+</div>
+<div class="list-group">
+	<%@songs = @songs.sort_by {|song| song.name.downcase} %>
+	<%  @songs.each do |song| %>
+			<a href="/songs/<%=song.slug%>" class="list-group-item list-group-item-action"><%= song.name %></a>
+	<% end %>
+</div>

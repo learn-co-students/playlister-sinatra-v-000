@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title>sPlay</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css">
   </head>
 
   <body>
-    <%= yield %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <div class="container">
+			<nav class="navbar navbar-default navbar-fixed-bottom">
+			  <div class="container">
+			    <div class="navbar-header">
+			      <a class="navbar-brand" href="/songs/new">Create New Song</a>
+			    </div>
+			    <ul class="nav navbar-nav">
+			      <li><a href="/songs">All Songs</a></li>
+			      <li><a href="/artists">All Artists</a></li>
+			      <li><a href="/genres">All Genres</a></li>
+			    </ul>
+			  </div>
+			</nav>
+    </div>
+
+
+
+
+	<div></div>
+	<br>
+	<br>
+	<br>
+	<div></div>
   </body>
 </html>

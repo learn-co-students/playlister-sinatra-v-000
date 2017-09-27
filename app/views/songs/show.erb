@@ -1,0 +1,27 @@
+<div class="jumbotron">
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+	<h2><%= @song.name %></h2>
+</div>
+<div class="container">
+	<h3>Artist:</h3>
+	<div class="list-group">
+		<a href="/artists/<%=@song.artist.slug%>" class="list-group-item list-group-item-action"><%= @song.artist.name %></a>
+	</div>
+</div>
+<div class="container">
+	<h3>Genres:</h3>
+	<br>
+	<div class="list-group">
+		<% @song.genres.each do |genre| %>
+			<a href="/genres/<%=genre.slug%>" class="list-group-item list-group-item-action"><%= genre.name %></a>
+		<% end %>
+	</div>
+</div>
+
+<form action="/songs/<%=@song.slug%>/edit">
+   <button type="submit" class="btn btn-primary">Edit Song</button>
+</form>
+
+

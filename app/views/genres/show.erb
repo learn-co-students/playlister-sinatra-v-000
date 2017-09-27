@@ -1,0 +1,19 @@
+<div class="jumbotron">
+	<h2><%= @genre.name %></h2>
+</div>
+<div class="container">
+	<h3>Songs:</h3>
+	<br>
+	<div class="list-group">
+		<% @genre.songs.each do |song| %>
+			<a href="/songs/<%=song.slug%>" class="list-group-item list-group-item-action"><%= song.name %></a>
+		<% end %>
+	</div>
+		<h3>Artists:</h3>
+	<br>
+	<div class="list-group">
+		<% @genre.artists.each do |artist| %>
+			<a href="/artists/<%=artist.slug%>" class="list-group-item list-group-item-action"><%= artist.name %></a>
+		<% end %>
+	</div>
+</div>
