@@ -1,0 +1,10 @@
+Genre:
+<%= @genre.name %><br>
+Artists:
+<% @genre.artists.collect do |artist| %>
+  <a href="/artists/<%= artist.slug %>"><%= artist.name %></a><br>
+<% end %><br>
+Songs:
+<% @genre.songs.collect do |song| %>
+  <a href="/songs/<%= song.slug %>"><%= song.name %></a><br>
+<% end %><br>

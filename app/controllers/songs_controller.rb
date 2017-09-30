@@ -10,6 +10,4 @@ class SongsController < ApplicationController
     erb :'/songs/show'
   end
 
-
-
 end
