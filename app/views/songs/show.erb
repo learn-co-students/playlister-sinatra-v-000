@@ -3,6 +3,11 @@ that song's artist and the each genre
 associated with the song.-->
 
 
-Song: <%= @song.name %><br>
-Artist: <%= @song.artist.name %><br>
-Genre: <%= @song.genres.name %>
+Song:
+<%= @song.name %><br>
+Artist:
+<a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a><br>
+Genre:
+<% @song.genres.collect do |genre| %>
+  <a href="/genres/<%= genre.slug %>"><%= genre.name %></a>
+<% end %>
