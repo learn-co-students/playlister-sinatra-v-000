@@ -1,8 +1,8 @@
 class Song < ActiveRecord::Base
 
-  include Slugify::InstanceMethod
-  extend Slugify::ClassMethod
-  
+  include Slugify::Slug
+  extend Slugify::FindBySlug
+
   belongs_to :artist
   has_many :song_genres
   has_many :genres, through: :song_genres
