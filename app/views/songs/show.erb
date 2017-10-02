@@ -1,7 +1,9 @@
 <!--Any given song's show page should have links to
 that song's artist and the each genre
 associated with the song.-->
-
+<% if flash.has?(:message) %>
+   <%= flash[:message] %>
+<% end %>
 
 Song:
 <%= @song.name %><br>
