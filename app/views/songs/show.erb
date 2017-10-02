@@ -5,11 +5,11 @@ associated with the song.-->
    <%= flash[:message] %>
 <% end %>
 
-Song:
-<%= @song.name %><br>
-Artist:
-<a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a><br>
-Genre:
+<strong>Song:</strong><br>
+<%= @song.name %>
+<p><strong>Artist:</strong><br>
+<a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a>
+<p><strong>Genre:</strong><br>
 <% @song.genres.collect do |genre| %>
   <a href="/genres/<%= genre.slug %>"><%= genre.name %></a>
 <% end %>
