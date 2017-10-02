@@ -1,0 +1,15 @@
+<h2><%= @artist.name %></h2>
+ Genres: <% @artist.genres.uniq.each_with_index do |g, i| %>
+  <a href='/genres/<%= g.slug %>'><em><%= g.name %></em></a>
+  <% if i+1 < @artist.genres.uniq.length %>
+    <em>, </em>
+    <% end %>
+  <% end %>
+
+  <h4>Songs:</h4>
+<ul>
+  <% @artist.songs.each do |s|%>
+  <li><a href='/songs/<%= s.slug %>'><%= s.name %></a></li>
+  <% end %>
+
+</ul>
