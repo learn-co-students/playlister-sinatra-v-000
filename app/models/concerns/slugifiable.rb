@@ -10,9 +10,7 @@ module Concerns
 
     module ClassMethods
       def find_by_slug(slug)
-        self.all.detect do |o|
-         o.slug == slug
-        end
+        self.all.detect {|o| o.slug == slug}
       end
     end
 
