@@ -1,0 +1,9 @@
+
+
+<h1>List of Songs</h1>
+
+<% @slugs.each do |slug| %>
+<ul>
+  <li><a href="/songs/<%=slug%>"><%= Song.find_by_slug(slug).name %></li><br>
+</ul>
+<% end %>
