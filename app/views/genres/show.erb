@@ -1,20 +1,20 @@
 
-    <p>Name of the Genre:</p>
+<p>Name of the Genre:</p>
 
-    <h3><%= @genre.name %></h3>
+<h3><%= @genre.name %></h3>
 
-    <p>Artists of the Genre:</p>
-    <% @artist_slugs.each do |slug| %>
-    <ul>
-      <li><a href="/artists/<%=slug%>"><%= Artist.find_by_slug(slug).name %></a></li><br>
-    </ul>
-    <% end %>
+<p>Artists of the Genre:</p>
+<% @artist_slugs.each do |slug| %>
+<ul>
+  <li><a href="/artists/<%=slug%>"><%= Artist.find_by_slug(slug).name %></a></li><br>
+</ul>
+<% end %>
 
-    <p>Songs of the Genre:</p>
-    <% @song_slugs.each do |slug| %>
-    <ul>
-      <li><a href="/songs/<%=slug%>"><%= Song.find_by_slug(slug).name %></li><br>
-    </ul>
-    <% end %>
+<p>Songs of the Genre:</p>
+<% @song_slugs.each do |slug| %>
+<ul>
+  <li><a href="/songs/<%=slug%>"><%= Song.find_by_slug(slug).name %></li><br>
+</ul>
+<% end %>
 
-    <p><a href="/songs">Return to the Songs Index Page</a> or <a href="/songs/new">Click Here to Create a New Song</a>
+<p><a href="/songs">Return to the Songs Index Page</a> or <a href="/songs/new">Click Here to Create a New Song</a>

@@ -1,7 +1,9 @@
 require 'pry'
+require 'rack-flash'
 
 class SongsController < ApplicationController
 
+  use Rack::Flash
   extend Slugifiable::ClassMethods
   include Slugifiable::InstanceMethods
 
@@ -43,6 +45,18 @@ class SongsController < ApplicationController
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
     erb :'songs/edit'
+  end
+
+  patch '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+      if Artist.find_by(name: params["Artist Name"])
+        @artist = Artist.find_by(name: params["Artist Name"])
+      else
+        @artist = Artist.create(name: params["Artist Name"])
+      end
+    @song.update(name: params["Name"], genre_ids: params[:genres], artist: @artist)
+    flash[:message] = "Successfully updated song."
+    redirect to "/songs/#{@song.slug}"
   end
 
 end

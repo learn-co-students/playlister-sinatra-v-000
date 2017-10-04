@@ -1,7 +1,9 @@
 require 'pry'
+require 'rack-flash'
 
 class GenresController < ApplicationController
 
+  use Rack::Flash
   extend Slugifiable::ClassMethods
   include Slugifiable::InstanceMethods
 

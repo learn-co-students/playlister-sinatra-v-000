@@ -1,9 +1,9 @@
 
 
-    <h1>List of Genres</h1>
+<h1>List of Genres</h1>
 
-    <% @slugs.each do |slug| %>
-    <ul>
-      <li><a href="/genres/<%=slug%>"><%= Genre.find_by_slug(slug).name %></li><br>
-    </ul>
-    <% end %>
+<% @slugs.each do |slug| %>
+<ul>
+  <li><a href="/genres/<%=slug%>"><%= Genre.find_by_slug(slug).name %></li><br>
+</ul>
+<% end %>

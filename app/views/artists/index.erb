@@ -1,8 +1,8 @@
 
-    <h1>List of Artists</h1>
+<h1>List of Artists</h1>
 
-    <% @slugs.each do |slug| %>
-    <ul>
-      <li><a href="/artists/<%=slug%>"><%= Artist.find_by_slug(slug).name %></li><br>
-    </ul>
-    <% end %>
+<% @slugs.each do |slug| %>
+<ul>
+  <li><a href="/artists/<%=slug%>"><%= Artist.find_by_slug(slug).name %></li><br>
+</ul>
+<% end %>

@@ -1,20 +1,22 @@
 
-    <p>Name of the Song:</p>
+<p>Name of the Song:</p>
 
-    <h3><%= @song.name %></h3>
+<h3><%= @song.name %></h3>
 
-    <p>Name of the Artist: </p>
-    <a href="/artists/<%= @artist.slug %>"><%= @artist.name %></a>
+<p>Name of the Artist: </p>
+<a href="/artists/<%= @artist.slug %>"><%= @artist.name %></a>
 
-    <p>Genres: </p>
-    <% @genre_slugs.each do |slug| %>
-    <ul>
-      <li><a href="/genres/<%=slug%>"><%= Genre.find_by_slug(slug).name %></a></li><br>
-    </ul>
-    <% end %>
+<p>Genres: </p>
+<% @genre_slugs.each do |slug| %>
+<ul>
+  <li><a href="/genres/<%=slug%>"><%= Genre.find_by_slug(slug).name %></a></li><br>
+</ul>
+<% end %>
 
-    <% if flash.has?(:message) %>
-      <%= flash[:message] %>
-    <% end %>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
 
-    <p><a href="/songs">Return to the Songs Index Page</a> or <a href="/songs/new">Click Here to Create a New Song</a></p>
+<p><a href="/songs">Return to the Songs Index Page</a> or <a href="/songs/new">Click Here to Create a New Song</a></p>
+
+<p>To Update the Song <a href="/songs/<%= @song.slug %>/edit">Click Here</a></p>
