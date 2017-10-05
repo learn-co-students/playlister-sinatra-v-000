@@ -1,15 +1,12 @@
 class SongsController < ApplicationController
-    register Sinatra::ActiveRecordExtension
-  set :session_secret, "my_application_secret"
-  set :views, Proc.new { File.join(root, "../views/songs/") }
+
+    get '/songs/:slug' do
+        @song = Song.find_by_slug(params[:slug])
+        erb :'/songs/show'
+    end
 
     get '/songs' do
         @songs = Song.all
-        erb :song_index
-    end
-    
-    get '/:slug' do
-        @song = Song.find_by_slug(name: params[:slug])
-        erb :show
+        erb :'/songs/index'
     end
 end
