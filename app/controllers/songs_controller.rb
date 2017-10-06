@@ -9,7 +9,7 @@ class SongsController < ApplicationController
         @song = Song.create(:name => params["Song Name"])
         @artist = Artist.find_or_create_by(:name => params["Artist Name"])
         @song.artist_id = @artist.id
-        @song.genre_ids << params[:genres]
+        @song.genre_ids = params[:genres]
         @song.save
 
         # flash[:message] = "Successfully created song."
