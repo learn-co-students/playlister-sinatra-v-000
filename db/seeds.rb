@@ -1,16 +1,23 @@
 # Add seed data here. Seed your database with `rake db:seed`
 coldplay = Artist.create(name: "Coldplay")
-pop_rock = Genre.create(name: "pop rock")
-Song.create(name: "Don't Panic", artist: coldplay, genre: pop_rock)
-Song.create(name: "Strawberry Swing", artist: coldplay, genre: pop_rock)
+poprock = Genre.create(name: "pop rock")
+
+dontpanic = Song.create(name: "Don't Panic", artist_id: coldplay.id)
+dontpanic.genres << poprock
+
+strawberryswing = Song.create(name: "Strawberry Swing", artist_id: coldplay.id)
+strawberryswing.genres << poprock
 
 beyonce = Artist.create(name: "Beyonce")
-r_and_b = Genre.create(name: "R&B")
-Song.create(name: "Freedom", artist: beyonce, genre: r_and_b)
+randb = Genre.create(name: "R&B")
+freedom = Song.create(name: "Freedom", artist_id: beyonce.id)
+freedom.genres << randb
 
 phoenix = Artist.create(name: "Phoenix")
 indie = Genre.create(name: "indie")
-Song.create(name: "Lisztomania", artist: phoenix, genre: indie)
+lisztomania = Song.create(name: "Lisztomania", artist_id: phoenix.id)
+lisztomania.genres << indie
 
-jose_gonzales = Artist.create(name: "Jose Gonzales")
-Song.create(name: "Open Book", artist: jose_gonzales, genre: indie)
+josegonzales = Artist.create(name: "Jose Gonzales")
+openbook = Song.create(name: "Open Book", artist_id: josegonzales.id)
+openbook.genres << indie

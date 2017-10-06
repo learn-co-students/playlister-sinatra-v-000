@@ -2,7 +2,7 @@ module Slugifiable
     
     module InstanceMethods
         def slug
-            name.downcase.gsub(" ","-").gsub(/([\.\,\@\!\?\&\#\$\%\*\"\'\`\:\/\=\+\(\)\\])/,"")
+            name.downcase.gsub(" ","-").gsub(/([\.\,\@\!\?\&\#\$\%\*\"\'\`\:\/\=\+\(\)\/])/,"")
         end
     end
 
