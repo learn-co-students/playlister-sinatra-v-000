@@ -15,27 +15,3 @@ class GenresController < Sinatra::Base
   end
 
 end
-
-# describe "/genres/:slug" do
-#   before do
-#     visit "/genres/#{@genre.slug}"
-#   end
-#
-#   it 'responds with a 200 status code' do
-#     expect(page.status_code).to eq(200)
-#   end
-#
-#   it "displays the genre's artists" do
-#     expect(page).to have_content(artist_name)
-#   end
-#
-#   it "displays the genre's songs" do
-#     expect(page).to have_content(song_name)
-#   end
-#
-#   it "contains links to each artist's show page" do
-#     expect(page).to have_css("a[href='/artists/#{@artist.slug}']")
-#   end
-#
-#   it "contains links to each song's show page" do
-#     expect(page).to have_css("a[href='/songs/#{@song.slug}']")
