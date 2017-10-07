@@ -36,7 +36,7 @@ class SongsController < Sinatra::Base
   end
 
   patch '/songs/:slug' do
-    @song.name = params[:song_name] #=> "You Belong with Me"
+    @song.name = params[:song_name]
     @song.artist.name = params[:artist_name]
     @song.genre_ids = params[:genres]
     @song.save
