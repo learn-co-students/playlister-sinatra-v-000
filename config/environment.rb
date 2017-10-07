@@ -1,6 +1,8 @@
 ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'
+require 'sinatra/base'
+# require 'rack-flash' #require them only where you need--songs_controller
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
 ActiveRecord::Base.establish_connection(

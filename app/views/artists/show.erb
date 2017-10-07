@@ -1,0 +1,10 @@
+<h2><%=@artist.name%></h2>
+  <h3><strong>Song(s)</strong>:</h3>
+    <% @artist.songs.map do |song| %>
+        <a href="/songs/<%=song.slug%>"><%=song.name%></a><br>
+    <%end%>
+
+  <p><strong>Genre(s)</strong>:
+    <% @artist.genres.order('name ASC').uniq.each_with_index do |genre, index| %>
+        <a href="/genres/<%=genre.slug%>"><%="#{genre.name}"%></a><%="," unless index + 1 == @artist.genres.uniq.size%>
+    <%end%>
