@@ -1,0 +1,16 @@
+<h1>Enter a New Song into Playlister</h1>
+<form action="/songs" method="POST">
+    Artist Name:<br>
+      <input type="text" name="Artist Name">
+    <br><br>
+    Song Name:<br>
+      <input type="text" name="Name">
+    <br><br>
+    <ul>
+    <%Genre.all.each do |genre|%>
+      <li><input id="<%=genre.name%>" type="checkbox" name="genres[]" value="<%=genre.id%>"><%=genre.name%></input></li>
+      <%end%>
+    </ul>
+    <input type="submit" value="Create">
+
+  </form>
