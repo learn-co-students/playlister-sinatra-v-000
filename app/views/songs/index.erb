@@ -1,0 +1,7 @@
+<h1>Songs Index Page</h1>
+
+<ol>
+<% @songs.each do |s| %>
+<li><a href="/songs/<%= s.slug %>"><%= s.name %></a></li>
+<% end %>
+</ol>
