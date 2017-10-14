@@ -1,4 +1,5 @@
 require 'pry'
+
 module Slugifiable
 
   module InstanceMethods
