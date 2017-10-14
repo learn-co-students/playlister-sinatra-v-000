@@ -1,6 +1,6 @@
 require 'pry'
 module Slugifiable
-  
+
   module InstanceMethods
     def slug
       name.downcase.gsub(" ","-")
@@ -9,8 +9,8 @@ module Slugifiable
 
   module ClassMethods
     def find_by_slug(slug)
-      self.all.find do |artist|
-        artist.slug == slug
+      self.all.find do |m|
+        m.slug == slug
       end
     end
   end
