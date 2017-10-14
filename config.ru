@@ -8,6 +8,6 @@ end
 use Rack::MethodOverride
 
 use ArtistsController
-# use GenresController
+use GenresController
 use SongsController
 run ApplicationController
