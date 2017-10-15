@@ -1,0 +1,8 @@
+<h1>Your Song Library</h1>
+<p>You currently have <%=Song.all.size%> songs in your library.</p>
+<%@songs.each do |song|%>
+<h3>"<%=song.name%>"</h3>
+<a href="/songs/<%=song.slug%>">See details about this song</a><br>
+<a href="/songs/<%=song.slug%>/edit">Edit or delete this song</a>
+<br></br>
+<%end%>

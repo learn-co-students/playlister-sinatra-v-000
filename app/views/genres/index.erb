@@ -1,0 +1,6 @@
+<h1>Your Music Genres</h1>
+<%@genres.each do |genre|%>
+<h3>"<%=genre.name%>"</h3>
+<a href="/genres/<%=genre.slug%>">See details about this genre</a>
+<br></br>
+<%end%>

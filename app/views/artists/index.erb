@@ -1,0 +1,6 @@
+<h1>Your Artist Library</h1>
+<%@artists.each do |artist|%>
+<h3>"<%=artist.name%>"</h3>
+<a href="/artists/<%=artist.slug%>">See details about this artist</a>
+<br></br>
+<%end%>
