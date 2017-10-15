@@ -9,6 +9,6 @@
 <br>
 
 <center><label><b>Genre:</b></label>
-<% @song.genres.each do |sg|%>
-  <a href="/genres/<%=sg.slug%>"><%=sg.name%></a>
+<% @song.genres.each do |song_genre|%>
+  <a href="/genres/<%=song_genre.slug%>"><%=song_genre.name%></a>
 <% end %>
