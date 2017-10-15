@@ -19,17 +19,17 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    # params.to_s
-
-    @song = Song.new(:name => params[:name], :genres => params[:song][:genres])
-    @song.artist = Artist.find_or_create_by(params[:artist_name])
+    @song = Song.create(:name => params[:name])
+    @song.artist = Artist.find_or_create_by(:name => params[:artist_name])
+    @song.genres = params[:genres][]
     @song.save
-
     redirect "/songs/#{@song.slug}"
   end
 
-  patch "/songs/<%=@song.slug%>" do
-    
+  patch "/songs/:slug" do
+    @song = Song.find_by_slug(params[:slug])
+    @song.update(params["song"])
+    redirect "/songs/#{@song.slug}"
   end
 
 end
