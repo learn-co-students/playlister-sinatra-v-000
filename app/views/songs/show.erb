@@ -1,9 +1,13 @@
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
+
 <center><label><b>Song Name:</b></label> <%= @song.name %>
 <br>
 <br>
 <br>
 
-<center><label><b>Artist Name:</b></label><a href="/artists/<%=@artists.slug%>"><%=@song.artist.name%></a>
+<center><label><b>Artist Name:</b></label><a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a>
 <br>
 <br>
 <br>

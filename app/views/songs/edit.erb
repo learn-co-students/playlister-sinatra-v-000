@@ -1,7 +1,18 @@
-Change Artist
-<form action="/songs" method="post">
-  Artist Name: <input type="text" name="artist_name" id="Artist Name">
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
 
-  <input type="submit" name="click_on" id="Save">
-
+Change Song Details: <br>
+Song Name: <%= @song.name %>
+<form action="/songs/<%= @song.slug %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  Song:<input type="text" name="song_name" id="Name" value="<%=@song.name%>>"><br>
+  <br>
+  Artist:<input type="text" name="artist_name" id="Artist Name"><br>
+  <br>
+  <% Genre.all.each do |genre| %>
+  <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>"><br>
+  <br>
+  <% end %>
+<input type="submit" name="submit" id="Save" value="Save">
 </form>
