@@ -4,6 +4,10 @@ class Song < ActiveRecord::Base
   has_many :genres, through: :song_genres
 
   def slug
+    # binding.pry
+    # if self.name == nil
+      # binding.pry
+    # end
     slug = self.name.strip.downcase
 
     #blow away apostrophes
@@ -26,6 +30,9 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    self.all.find { |song| song.slug == slug}
+    # binding.pry
+    self.all.find do |song|
+      song.slug == slug
+    end
   end
 end
