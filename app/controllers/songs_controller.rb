@@ -12,15 +12,10 @@ use Rack::Flash
 
   post '/songs' do
     @song = Song.create(name: params["Name"])
-    artist = Artist.find_by(name: params["Artist Name"])
-      if artist
-        @song.artist = artist
-      else
-        artist = Artist.create(name: params["Artist Name"])
-        @song.artist = artist
-      end
+    @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
     @song.genre_ids = params["genres"]
     @song.save
+
     flash[:message] = "Successfully created song."
     redirect to ("/songs/#{@song.slug}")
   end
@@ -39,14 +34,9 @@ use Rack::Flash
     @song = Song.find_by_slug(params[:slug])
     @song.update(name: params["Name"])
     @song.update(genre_ids: params["genres"])
-    artist = Artist.find_by(name: params["Artist Name"])
-      if artist
-        @song.update(artist: artist)
-      else
-        artist = Artist.create(name: params["Artist Name"])
-        @song.update(artist: artist)
-      end
-      @song.save
+    @song.artist = Artist.find__or_create_by(name: params["Artist Name"])
+    @song.save
+
     flash[:message] = "Successfully updated song."
     redirect "/songs/#{@song.slug}"
   end
