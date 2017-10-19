@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Artists</title>
+  </head>
+  <body>
+    <h1>List of Artists</h1>
+    <br>
+    <h4>Click on an Artist to see their songs and genres</h4>
+    <ul>
+      <% @artists.each do |artist| %>
+        <li><a href="/artists/<%= artist.slug %>"><%=artist.name%></a></li>
+      <% end %>
+    </ul>
+  </body>
+</html>
