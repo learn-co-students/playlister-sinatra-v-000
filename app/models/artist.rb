@@ -8,6 +8,6 @@ class Artist < ActiveRecord::Base
 
   def self.find_by_slug(slug)
     unslug = slug.gsub("-", " ").split.map(&:capitalize).join(" ")
-    Artist.find_by(name: unslug) 
+    self.find_by(name: unslug) 
   end
 end
