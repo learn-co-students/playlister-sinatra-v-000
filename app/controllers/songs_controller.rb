@@ -1,7 +1,9 @@
-class SongsController < Sinatra::Base
+class SongsController < ApplicationController
 
   get '/songs' do
-    "test"
+    binding.pry 
+    @songs = Song.all
+    erb :'/songs/show'
   end
 
 end
