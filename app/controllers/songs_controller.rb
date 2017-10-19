@@ -15,30 +15,28 @@ class SongsController < ApplicationController
     erb :'songs/new'
   end
 
-  get '/songs/:slug/edit' do
-    @song = Song.find_by_slug(params[:slug])
-    erb :'songs/edit'
-  end
-
   get '/songs/:slug' do #this is the 'show page'
     @song = Song.find_by_slug(params[:slug])
 
+    @success_message = session[:success_message]
+    session[:success_message] = nil
     erb :'songs/show'
+  end
+
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+
+    erb :'songs/edit'
   end
 
   post '/songs' do
     @song = Song.create(:name => params[:song_name])
     @song.artist = Artist.find_or_create_by(:name => params[:artist_name])
     @song.genre_ids = params[:genres]
-
-      if @song.save
+    @song.save
         #binding.pry
-        flash.now[:message] = "Successfully created song."
-        redirect("/songs/#{@song.slug}")
-      else
-        flash.now[:message] = "Something went wrong."
-        erb :'songs/new'
-      end
+    session[:success_message] = "Successfully created song."
+    redirect("/songs/#{@song.slug}")
 
   end
 
@@ -48,7 +46,7 @@ class SongsController < ApplicationController
     @song.artist = Artist.find_or_create_by(:name => params[:artist_name])
     @song.save
 
-    flash.now[:message] = "Successfully updated song."
+    session[:success_message] = "Song successfully updated."
 
     redirect("/songs/#{@song.slug}")
   end
