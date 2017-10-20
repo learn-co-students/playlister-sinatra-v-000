@@ -7,15 +7,16 @@
     <h1>Make a New Song</h1>
 
     <form method="post" action="/songs">
-      <label for="artist_name">Artist Name:</label>
-      <input type="text" name="Artist Name">
+      <label>Song Name:</label>
+      <!-- <input type="text" id="Name" name="song[name]"> <!--passes both creates new artist and new song, fails redirect--> -->
+      <input type="text" id="Name" name="Name"> <!--passes creates new artist & redirect, fails create a new song-->
       <br><br>
 
-      <label for="song_name">Song Name:</label>
-      <input type="text" name="Name">
+      <label>Artist Name:</label>
+      <input type="text" id="Artist Name" name="Artist Name">
       <br><br>
-      
-      <label for="genre_name">Genres:</label>
+
+      <label>Genres:</label>
       <% Genre.all.each do |genre| %>
         <input type="checkbox" id="<%= genre.name %>" name="genres[]" value="<%= genre.id %>"><%=genre.name%></input>
       <% end %>
