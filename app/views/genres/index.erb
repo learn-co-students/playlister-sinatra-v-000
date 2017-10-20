@@ -9,7 +9,7 @@
     <h4>Click on a Genre to see its songs and artists</h4>
     <ul>
       <% @genres.each do |genre| %>
-        <li><a href="/genres/<%= genre.slug %>"><%=genre.name%></a></li>
+        <li><a href="/genres/<%= genre.slug %>"> <%= genre.name %></a></li>
       <% end %>
     </ul>
   </body>
