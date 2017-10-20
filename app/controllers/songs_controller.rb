@@ -1,5 +1,5 @@
-require 'sinatra/base'
 require 'rack-flash'
+require 'sinatra/base'
 
 class SongsController < ApplicationController
 
@@ -39,7 +39,7 @@ class SongsController < ApplicationController
     @song.update(params[:song])
     @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
     @song.save
-
+    # binding.pry
     flash[:message] = "Successfully updated song."
     redirect to "/songs/#{@song.slug}"
   end
