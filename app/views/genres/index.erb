@@ -1,0 +1,5 @@
+<%#require 'pry'%>
+<%#binding.pry%>
+<%Genre.all.each do |x|%>
+<p><a href="/genres/<%= x.slug %>"> <%= x.name %> </a></p>
+<%end%>

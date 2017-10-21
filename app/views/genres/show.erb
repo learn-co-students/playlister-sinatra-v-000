@@ -1,0 +1,11 @@
+<%require 'pry'%>
+<%#binding.pry%>
+Genre: <%= @genre.name %> <br>
+Songs: <br>
+<% @genre.songs.each do |song| %>
+  <a href="/songs/<%= song.slug %>"><%= song.name %> </a><br>
+<% end %>
+Artists: <br>
+<% @genre.artists.each do |artist| %>
+  <a href="/artists/<%= artist.slug %>"><%= artist.name %> </a><br>
+<% end %>
