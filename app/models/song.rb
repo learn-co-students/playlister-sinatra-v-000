@@ -2,6 +2,7 @@ class Song < ActiveRecord::Base
   belongs_to :artist
   has_many :song_genres
   has_many :genres, through: :song_genres
+  validates_uniqueness_of :name, :case_sensitive => false
 
   def slug
     slug = self.name.downcase.strip.gsub(" ", "-")
@@ -11,5 +12,7 @@ class Song < ActiveRecord::Base
     unslug = slug.gsub("-", " ").split.map(&:capitalize).join(" ")
     self.find_by(name: unslug)
   end
+
+
 
 end
