@@ -26,8 +26,8 @@ class SongsController < Sinatra::Base
 
   post '/songs' do
     @song = Song.new(params[:song])
-    @song.artist = Artist.find_or_create_by(params["artist"]["name"])
-    @song.genres = params[:genres]
+    @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
+    @song.genres = params[:genres].map {|genre| Genre.find_by(name: genre)}
     @song.save
     redirect to("/songs/#{@song.slug}")
   end
