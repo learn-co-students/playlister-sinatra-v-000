@@ -1,0 +1,9 @@
+<h1> Artists Library: </h1>
+
+<p> <a href="/songs">Songs</a> - <a href="/genres">Genres</a> </p>
+
+<ol>
+  <%@artists.each do |artist|%>
+    <li><a href="/artists/<%=artist.slug%>"><%=artist.name%></a></li>
+  <%end%>
+</ol>
