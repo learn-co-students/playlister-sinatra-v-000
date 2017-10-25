@@ -1,0 +1,9 @@
+<h1> Genres Library: </h1>
+
+<p> <a href="/songs">Songs</a> - <a href="/artists">Artists</a> </p>
+
+<ol>
+  <%@genres.each do |genre|%>
+    <li><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
+  <%end%>
+</ol>
