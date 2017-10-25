@@ -1,7 +1,4 @@
-class GenresController < Sinatra::Base
-  register Sinatra::ActiveRecordExtension
-  set :session_secret, "my_application_secret"
-  set :views, Proc.new { File.join(root, "../views/") }
+class GenresController < ApplicationController
 
 
   get '/' do
@@ -14,7 +11,9 @@ class GenresController < Sinatra::Base
   end
 
   get '/genres/:slug' do
-    @genres = Genre.find_by_slug(params["slug"])
+    @genre = Genre.find_by_slug(params["slug"])
+
     erb :'genres/show'
   end
+
 end
