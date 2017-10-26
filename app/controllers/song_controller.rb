@@ -1,9 +1,5 @@
 
-require 'rack-flash'
-
 class SongController < ApplicationController
-  enable :sessions
-  use Rack::Flash
 
   get '/songs' do
     @songs = Song.all
@@ -11,6 +7,7 @@ class SongController < ApplicationController
   end
 
   get '/songs/new' do
+    flash[:notice] = "This is the New Page."
     erb :'/songs/new'
   end
 
@@ -34,15 +31,14 @@ class SongController < ApplicationController
 
   patch '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    #@genre = Genre.find_by_id(params[:genres])
-
+    @genre = Genre.find_by_id(params[:genres])
+    @song.genres << @genre unless @song.genres.each {|genre| genre.id == @genre.id}
     if !Artist.find_by_name(params[:artist_name])
       @song.update(artist: Artist.create(name: params[:artist_name]))
     else
       @song.update(artist: Artist.find_by_name(params[:artist_name]))
     end
     flash[:notice] = "Successfully updated song."
-
     redirect "/songs/#{@song.slug}"
   end
 

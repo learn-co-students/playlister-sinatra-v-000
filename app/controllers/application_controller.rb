@@ -1,4 +1,4 @@
-require 'rack-flash'
+require 'sinatra/flash'
 require 'sinatra/base'
 
 class ApplicationController < Sinatra::Base
@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
   set :views, Proc.new { File.join(root, "../views/") }
 
   enable :sessions
-  use Rack::Flash
+  register Sinatra::Flash
 
   get '/' do
     erb :index
