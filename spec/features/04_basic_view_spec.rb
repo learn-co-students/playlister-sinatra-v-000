@@ -12,7 +12,7 @@ describe "Playlister Basics" do
 
     @song.song_genres.create(genre: @genre)
     @song.artist = @artist
-  
+
     @song.save
   end
 
@@ -76,6 +76,7 @@ describe "Playlister Basics" do
     describe "/songs/:slug" do
       before do
         visit "/songs/#{@song.slug}"
+#binding.pry
       end
 
       it 'responds with a 200 status code' do
