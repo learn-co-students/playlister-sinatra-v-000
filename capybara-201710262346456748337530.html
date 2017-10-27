@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+
+  <body>
+    <h1> New Song</h1>
+
+<form action="/songs" method="post">
+
+  Song Name: <input type="text" name=song[name] id="Name"> </input>
+
+  
+      Genres: <input type="checkbox" name="song[genres][]" id="Hippity Hop" value"1"> Hippity Hop </input>
+  
+      Genres: <input type="checkbox" name="song[genres][]" id="New Age Garbage" value"2"> New Age Garbage </input>
+  
+
+  Artist Name<input type="text" name="song[artist]" id="Artist Name"> </input>
+
+
+  <br>
+  <input type="submit" id="Create">
+</form>
+  </body>
+</html>
