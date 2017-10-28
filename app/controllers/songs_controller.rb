@@ -14,7 +14,7 @@ class SongsController < ApplicationController
    # binding.pry
 
 
-    erb :"/songs/#{@song.slug}"
+    erb :"/songs/show"
   end
 
 
