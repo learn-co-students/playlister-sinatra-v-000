@@ -1,4 +1,5 @@
 <% @genres.each do |genre| %>
-<p><%= genre.name %></p>
-<a href="/genres/<%= genre.slug %>"> View <%= genre.name%> </a>
+  <p><%= genre.name %></p>
+  <a href="/genres/<%= genre.slug %>"> View <%= genre.name%> </a>
+  <a href="/genres/<%= genre.slug %>/edit"> Edit <%= genre.name%> </a>
 <% end %>

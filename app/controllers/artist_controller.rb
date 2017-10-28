@@ -1,3 +1,4 @@
+require 'pry'
 class ArtistController < ApplicationController
 
   get '/artists' do
@@ -5,5 +6,9 @@ class ArtistController < ApplicationController
     erb :"/artists/index"
   end
 
-  
+  get '/artists/:slug' do
+    @artist = Artist.find_by_slug(params[:slug])
+    erb :"artists/show"
+  end
+
 end
