@@ -10,11 +10,17 @@ class SongController < ApplicationController
   # Display the new song form with selectable genres
   get '/songs/new' do
     @genres = Genre.all
-    erb :"/songs/new"
+    erb :'/songs/new'
   end
 
   post '/songs' do
-    
+    artist = Artist.find_or_create_by(name: params[:song][:artist_name])
+    song = Song.create(name: params[:song][:name], artist: artist)
+    song.genre_ids = params[:song][:genres]
+    song.save
+
+    flash[:message] = "Sucessfully created song."
+    redirect "/songs/#{song.slug}"
   end
 
   get '/songs/:slug' do
@@ -22,17 +28,21 @@ class SongController < ApplicationController
     erb :"/songs/show"
   end
 
-  #
-  # /songs/:slug
-  # Any given song's show page should have links to that song's artist and the each genre associated with the song.
-  # Pay attention to the order of /songs/new and /songs/:slug. The route /songs/new could interpret new as a slug if that controller action isn't defined first.
-  #
-  # post '/songs' do
-  # # ...
-  # # ^ code for creating and saving a new song
-  # flash[:message] = "Successfully created song."
-  # redirect to("/songs/#{@song.slug}")
-  # end
+  get '/songs/:slug/edit' do
+    @genres = Genre.all
+    @song = Song.find_by_slug(params[:slug])
+    erb :'songs/edit'
+  end
 
+  patch 'songs/:slug' do
+    song = Song.find_by_slug(params[:slug])
+    artist = Artist.find_or_create_by(name: params[:song][:artist_name])
+    song.update(name: params[:song][:name], artist: artist)
+    song.genre_ids = params[:song][:genres]
+    song.save
+
+    flash[:message] = "Sucessfully created song."
+    redirect "/songs/#{song.slug}"
+  end
 
 end

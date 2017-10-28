@@ -1,0 +1,7 @@
+<!-- List all of the genre-songs -->
+<% @genre.songs.each do |song| %>
+  <!-- Link to each genre-song by its slug name -->
+  <h3><a href="/songs/<%= song.slug %>"> <%= song.name %> </a></h3>
+  <!-- Link to each song-artist by its slug name -->
+  <h3><a href="/artists/<%= song.artist.slug %>"> <%= song.artist.name %> </a></h3>
+<% end %>
