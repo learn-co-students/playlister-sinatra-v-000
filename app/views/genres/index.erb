@@ -1,0 +1,9 @@
+<!-- For all genres -->
+<% @genres.each do |genre| %>
+ <!-- display each name -->
+  <p><%= genre.name %></p>
+  <!-- Link to specific genre show page -->
+  <a href="/genres/<%= genre.slug %>"> View <%= genre.name%> </a>
+  <!-- Link to specific genre edit page -->
+  <a href="/genres/<%= genre.slug %>/edit"> Edit <%= genre.name%> </a>
+<% end %>
