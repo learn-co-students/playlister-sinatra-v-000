@@ -1,14 +1,9 @@
-<!-- Get all songs from the artist -->
 <% @artist.songs.each do |song| %>
-
-<!-- Link to each artist-song by its slug name -->
-<h3><a href="/songs/<%= song.slug %>"> <%= song.name %> </a></h3>
+ <h3><a href="/songs/<%= song.slug %>"><%= song.name %></a><h3>
 <% end %>
 
-<br><br>
+<br></br>
 
-<!-- Get all genres from the artist -->
 <% @artist.genres.each do |genre| %>
-<!-- Link to each artist-genre by its slug name -->
-<h3><a href="/genres/<%= genre.slug %>"> <%= genre.name %> </a></h3>
+ <h3><a href="/genres/<%= genre.slug %>"><%= genre.name %></a><h3>
 <% end %>
