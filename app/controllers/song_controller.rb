@@ -31,10 +31,10 @@ class SongController < ApplicationController
   get '/songs/:slug/edit' do
     @genres = Genre.all
     @song = Song.find_by_slug(params[:slug])
-    erb :'songs/edit'
+    erb :'/songs/edit'
   end
 
-  patch 'songs/:slug' do
+  patch '/songs/:slug' do
     song = Song.find_by_slug(params[:slug])
     artist = Artist.find_or_create_by(name: params[:song][:artist_name])
     song.update(name: params[:song][:name], artist: artist)
