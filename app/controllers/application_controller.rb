@@ -26,15 +26,24 @@ class ApplicationController < Sinatra::Base
     @song.save
 
     if !params[:artist][:name].empty?
-      @artist = Artist.create(name: params[:artist][:name])
-      @artist.songs << @song
+      if @artist = Artist.find_by(name: params[:artist][:name])
+        @artist.songs << @song
+      else
+        @artist = Artist.create(name: params[:artist][:name])
+        @artist.songs << @song
+      end
     end
     if !params[:genre][:name].empty?
-      @genre = Genre.create(name: params[:genre][:name])
-      @genre.songs << @song
+      if @genre = Genre.find_by(name: params[:genre][:name])
+        @genre.songs << @song
+      else
+        @genre = Genre.create(name: params[:genre][:name])
+        @genre.songs << @song
+      end
     end
 
-    redirect to '/songs'
+
+    redirect to "/songs/#{@song.slug}"
   end
 
   # {song => {name => "Hello", artist_id => "1", genre_id =>["1, 2"]}
@@ -49,6 +58,34 @@ class ApplicationController < Sinatra::Base
 
     @song = Song.find_by_slug(params[:slug])
     erb :song
+  end
+
+  get '/songs/:slug/edit' do
+
+    @song = Song.find_by_slug(params[:slug])
+    erb :edit
+  end
+
+  post '/songs/:slug' do
+    slug = params[:slug]
+    @song = Song.find_by_slug(params[:slug])
+    if !params[:artist][:name].empty?
+      if !@artist = Artist.find_by(name: params[:artist][:name])
+        @artist = Artist.create(name: params[:artist][:name])
+      end
+      # binding.pry
+      @song.update(artist_id: @artist.id)
+    end
+    if !params[:song][:name].empty?
+      @song.update(name: params[:song][:name])
+    end
+    if !params[:genre][:name].empty?
+      if !@genre = Genre.find_by(name: params[:genre][:name])
+        @genre = Genre.create(name: params[:genre][:name])
+      end
+      @song.update(genre: @genre.id)
+    end
+    erb :updated
   end
 
   get '/artists' do
