@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=@song.name%></title>
+  </head>
+  <body>
+    <h1><%=@song.name%></h1>
+    <br></br>
+
+    <h3>Artist:</h3>
+    <p><a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a></p>
+    <br></br>
+
+    <h3>Genres: </h3>
+    <p><%@song.genres.each_with_index do |genre, i|%></p>
+      <p><%=i+1%>.<a href="/genres/<%=genre.slug%>"><%=genre.name%></a></p>
+    <%end%>
+
+    Successfully updated song.
+  </body>
+</html>

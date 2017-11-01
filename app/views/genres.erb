@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Genres</title>
+  </head>
+  <body>
+    <h3> Genre List </h3>
+    <%Genre.all.each_with_index do |genre, i|%>
+    <p><%=i+1%>. <%=genre.name%></p>
+    <p><a href="/genres/<%=genre.slug%>">More Information</a>
+    <%end%>
+  </body>
+</html>

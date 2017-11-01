@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Songs</title>
+  </head>
+  <body>
+    <h3> Song List </h3>
+    <%Song.all.each_with_index do |song, i|%>
+    <p><%=i+1%>. <%=song.name%></p>
+    <p><a href="/songs/<%=song.slug%>">More Information</a>
+    <%end%>
+  </body>
+</html>
