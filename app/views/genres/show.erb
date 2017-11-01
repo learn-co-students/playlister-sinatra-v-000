@@ -1,0 +1,8 @@
+<% binding.pry %>
+<h1><%= @genre.name %></h1>
+<h3>Artists</h3>
+
+  <% @artists.each do |artist| %>
+    <a href=<%='/artists/#{artist.slug}'><%= artist.name %></a>
+  <% end %>
+</ol>

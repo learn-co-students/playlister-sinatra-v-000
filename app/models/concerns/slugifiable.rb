@@ -2,16 +2,19 @@ module Slugifiable
 
   module KlassMethods
     def find_by_slug(slug)
+      # binding.pry
       split_slug = slug.split("-")
       split_slug.each_with_index do |word, i|
         if i == 0
           word.capitalize!
         elsif !(word == "with" || word == "the" || word == "a")
           word.capitalize!
-          # binding.pry
         end
       end
       name = split_slug.join(" ")
+      if self == Genre
+        name.downcase
+      end
       self.find_by(name: name)
     end
   end
@@ -19,7 +22,7 @@ module Slugifiable
 
   module InstanceMethods
     def slug
-      binding.pry
+      # binding.pry
       slug = self.name.strip
       split_slug = slug.split(/\W/)
       # binding.pry
