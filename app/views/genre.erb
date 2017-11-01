@@ -10,14 +10,14 @@
 
     <h3>Songs:</h3>
     <p><%@genre.songs.each_with_index do |song, i|%></p>
-    <p><%=i%>. <a href="/songs/<%song.slug%>"><%=song.name%></a></p>
+    <p><%=i+1%>. <a href="/songs/<%=song.slug%>"><%=song.name%></a></p>
     <%end%>
 
     <br></br>
 
     <h3>Artists: </h3>
-    <p><%@genre.artists.each_with_index do |genre, i|%></p>
-      <p><%=i%>.<a href="/artists/<%=artist.slug%>"><%=artist.name%></a></p>
+    <p><%@genre.artists.each_with_index do |artist, i|%></p>
+      <p><%=i+1%>.<a href="/artists/<%=artist.slug%>"><%=artist.name%></a></p>
     <%end%>
   </body>
 </html>
