@@ -5,7 +5,7 @@ class Song < ActiveRecord::Base
 
 
   def slug
-    slug = self.name.downcase.strip.gsub(" ", "-")
+    slug = self.name.downcase.gsub(" ", "-")
   end
 
   def self.find_by_slug(slug)
