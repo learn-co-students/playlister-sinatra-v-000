@@ -1,7 +1,7 @@
 class ArtistsController < ApplicationController
 
   get '/artists' do
-    @artist = Artist.all
+    @artists = Artist.all
     erb :"artist/artists"
   end
 

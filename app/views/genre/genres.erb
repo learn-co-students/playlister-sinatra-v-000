@@ -1,0 +1,10 @@
+<h1>List of Genres</h1>
+
+ <p>
+  <% @genres.each_with_index do |genre, index| %>
+    <p>
+      <%=index + 1%>.
+      <a href="/genres/<%=genre.slug%>"><%=genre.name %></a>
+    </p>
+  <% end %>
+</p>

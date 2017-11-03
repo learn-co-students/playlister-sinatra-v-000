@@ -1,6 +1,9 @@
-<h1><%= @song.name %></h1>
+<h1><%= @song.name.capitalize %></h1>
 <h3> Artist: </h2>
-  <%= @song.artist %>
+  <a href="/artists/<%=@song.artist.slug%>"><%= @song.artist.name %></a>
+
 
 <h3> Genres: </h2>
-  <%= @song.genres %>
+  <% @song.genres.each do |g| %>
+    <a href="/genres/<%=g.slug%>"><%= g.name %></a>
+  <% end %>
