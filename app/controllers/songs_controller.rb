@@ -1,5 +1,4 @@
 class SongsController < ApplicationController
-
   get '/songs' do
     @songs = Song.all
     erb :"/song/songs"
@@ -12,15 +11,10 @@ class SongsController < ApplicationController
 
   post  '/songs' do
     song = Song.new(name: params[:song_name])
-    artist = Artist.find_by(name: params[:artist_name])
-    if artist
-      song.artist = artist
-    else
-      song.build_artist(name: params[:artist_name])
-    end
-    song.genres << Genre.find(params[:genre_id])
+    song.artist = Artist.find_or_create_by(name: params[:artist_name])
+    song.genre_ids = (params[:genres])
     song.save
-
+    flash[:message] = "Successfully created song."
     redirect to "/songs/#{song.slug}"
   end
 
