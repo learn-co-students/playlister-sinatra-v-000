@@ -7,8 +7,11 @@ module Slugifiable
 
   module ClassMethods
     def find_by_slug(slug)
-      name = slug.split("-").map(&:capitalize).join(' ')
-      self.all.detect { |a| a.name == name }
+      words_to_ignore = ["a", "with", "the"]
+      name = slug.split("-").each do |word|
+        word.capitalize! unless words_to_ignore.include?(word)
+      end.join(' ')
+      self.all.detect { |o| o.name == name }
     end
   end
 end
