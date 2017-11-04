@@ -1,10 +1,11 @@
-Class SongsController < Sinatra::Base
+class SongsController < ApplicationController
 
   get '/songs' do
-      @songs = Songs.all
-      erb :'/songs'
+    @songs = Song.all
+      erb :'/songs/index'
   end
 
-
-
+  get '/songs/:id' do
+    
+  end
 end
