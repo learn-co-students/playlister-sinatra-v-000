@@ -1,8 +1,14 @@
-<h1>Page for the song: <%= @song.name %></h1>
+<h1>Page for : <%= @song.name %></h1>
+<br></br>
+
 <h2>Artist name is: <%= @song.artist.name %></h2>
+<h3><a href="/artists/<%= @song.artist.slug %>">Link to <%= @song.artist.name %></a></h3>
+
+<br></br>
+
 <h3>Songs genres include:</h3>
 <% @song.genres.each do |genre| %>
   <ul>
-    <li><%= genre.name %></li>
+    <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></li>
   </ul>
 <% end %>
