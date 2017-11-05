@@ -6,11 +6,11 @@
 
   <p>Song Name: <input type="text" name="song_name" value="<%=@song.name%>" id="Name"></p>
 
-  <p>Artist Name: <input type="text" name="artist_name" id="Artist Name"></p>
+  <p>Artist Name: <input type="text" name="artist_name" value="<%=@song.artist.name%>" id="Artist Name"></p>
 
   <p>Select Genre:</p>
   <% @genres.each do |g|%>
-    <input type="checkbox" name="genres[]" value="<%=g.id%>" id="<%=g.name%>"><%=g.name%></input>
+    <input type="checkbox" name="genres[]" value="<%=g.id%>" id="<%=g.name%>" <%='checked' if @song.genres.include?(g)%> ><%=g.name%></input>
   <% end %>
 
   <p><input type="submit" name="" value="Save"></p>
