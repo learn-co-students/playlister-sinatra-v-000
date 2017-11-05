@@ -1,0 +1,27 @@
+<h1>Add a new artist and song</h1>
+<form method='POST' action='/songs/:slug'>
+  <label for=Name>Song</label>
+  <input name='song' type="text" id="Name" />
+  <br /><br />
+
+  <div class="row">
+    <div class="column"; float: left;  width: 50%>
+      <h4>Create new artist or select current artist:</h4>
+      <label for=Artist Name>Artist</label>
+      <input name='artist' type="text" id="Artist Name" />
+      <br />
+      <%Artist.all.each do |artist| %>
+        <input id="<%= artist.name %>" type="checkbox" name="artists[]" value="<%= artist.name %>"><%=artist.name%> </input>
+        <br />
+      <% end %>
+    </div>
+
+    <div class="column";  float: left;  width: 50%>
+      <h4>Select Genre</h4>
+      <%Genre.all.each do |genre| %>
+        <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.name %>"><%=genre.name%> </input><br />
+      <% end %>
+      <input type='submit' id='Create' />
+    </div>
+  </div>
+</form>

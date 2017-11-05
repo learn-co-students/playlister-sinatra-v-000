@@ -3,6 +3,9 @@ class ApplicationController < Sinatra::Base
   set :session_secret, "my_application_secret"
   set :views, Proc.new { File.join(root, "../views/") }
 
+  enable :sessions
+  require 'sinatra/flash'
+
   get '/' do
     erb :index
   end
