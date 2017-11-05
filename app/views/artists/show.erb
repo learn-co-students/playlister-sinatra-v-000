@@ -1,2 +1,14 @@
-<%binding.pry%>
-in artist show page
+
+
+<h1><%=@artist.name %></h1>
+
+<ul>
+  <li>Songs</li>
+  <% @artist.songs.each do |s| %>
+    <li><a href="/songs/<%= s.slug%>"><%= s.name %> </a></li>
+    <% end %>
+  <l1>Genres</l1>
+    <% @artist.genres.each do |g| %>
+      <li><a href="/genres/<%= g.slug%>"><%= g.name %> </a></li>
+    <% end %>
+</ul>
