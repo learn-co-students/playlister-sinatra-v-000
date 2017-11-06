@@ -9,7 +9,7 @@
   <br></br>
   <% @genres.each do |genre| %>
     <h3> <%= genre.name %> </h3>
-    <input type="checkbox" name="song[genre_ids][]" id="<%= genre.name %>" value="<%= genre.id %>"<%=genre.name%>>
+    <input type="checkbox" name="genres[]" id="<%= genre.name %>" value="<%= genre.id %>">
   <% end %>
 
   <h3>
