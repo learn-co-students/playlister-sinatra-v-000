@@ -1,19 +1,17 @@
-<h1>Edit your data</h1>
-<form method='POST' action='/songs/:slug/edit'>
+<h1>Edit your song</h1>
+<form method='POST' action='/songs/<%=@song.slug%>'>
   <label for=Name>Song</label>
-  <input name='song' type="text" id="Name" value=@song.name/>
+  <input name='song' type="text" id="Name" value='<%=@song.name%>'/>
   <br /><br />
 
   <div class="row">
     <div class="column"; float: left;  width: 50%>
       <h4>Create new artist or select current artist:</h4>
       <label for=Artist Name>Artist</label>
-      <input name='artist' type="text" id="Artist Name" />
+      <input name='artist' type="text" id="Artist Name" value='<%=@song.artist.name%>'>
       <br />
       <%Artist.all.each do |artist| %>
-        <input id="<%= Artist Name %>" type="checkbox" name="artists[]" value="<%= artist.name %>"><%= 'checked' if @song.artist ==artist %><%=artist.name%> </input>
-
-
+        <input id="<%= artist.name %>" type="checkbox" name="artists[]" value='<%= artist.name %>'<%= 'checked' if @song.artist ==artist %>> <%=artist.name%> </input>
         <br />
       <% end %>
     </div>
@@ -21,9 +19,10 @@
     <div class="column";  float: left;  width: 50%>
       <h4>Select Genre</h4>
       <%Genre.all.each do |genre| %>
-        <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.name %>"><%='checked' if @song.genres.include(genre) %><%=genre.name%> </input><br />
+
+        <input id="<%= genre.name %>" type="checkbox" name="genres[]" value='<%= genre.name %>'<%='checked' if @song.genres.include?(genre) %>><%=genre.name%> </input><br />
       <% end %>
-      <input type='submit' id='Create' />
+      <input type='submit' id='Save' />
     </div>
   </div>
 </form>
