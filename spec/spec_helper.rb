@@ -9,6 +9,12 @@ if ActiveRecord::Migrator.needs_migration?
   raise 'Migrations are pending. Run `rake db:migrate SINATRA_ENV=test` to resolve the issue.'
 end
 
+RSpec.configure do |config|
+  # Mixin the Capybara functionality into Rspec
+  config.include Capybara::DSL
+  config.order = 'default'
+end
+
 ActiveRecord::Base.logger = nil
 
 RSpec.configure do |config|
