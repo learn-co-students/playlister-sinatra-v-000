@@ -1,0 +1,5 @@
+Artist has many Songs
+Artist has many Genres through Songs
+Song belongs to Artist
+Genre has many Songs
+Song has many Genres through SongGenre
