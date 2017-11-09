@@ -5,8 +5,8 @@
   <h4>Artist Name: <input type="text" id="Artist Name" name="artist_name"></h4>
   <p>Genre(s):
     <% Genre.all.each do |genre| %>
-      <input type="checkbox" id="<%=genre.name%>" name="genres[]" value="<%=genre.name%>"><%=genre.name%>
-    <%end%>
+      <input type="checkbox" name="genres[]" value="<%= genre.id %>" id="<%= genre.name %>"><%= genre.name %><br>
+    <% end %>
 
 
   <input type="submit" value="Create">
