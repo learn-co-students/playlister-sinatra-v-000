@@ -11,7 +11,7 @@
 
   <label for="genre">Genre (Choose all that apply):</label>
     <% Genre.all.each do |genre| %>
-      <input type="checkbox" id="<%= genre.name %>" name="song[genre][]" value="<%= genre.id %>">
+      <input type="checkbox" id="<%= genre.name %>" name="song[genre_ids][]" value="<%= genre.id %>">
         <%= genre.name %>
       </input>
     <% end %>

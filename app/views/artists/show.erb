@@ -6,11 +6,11 @@
     <a href="/songs/<%= song.slug %>">
       <%= song.name %>
     </a> --
-    <% song_genre = SongGenre.find(song.id) %>
-    <% id = song_genre.genre_id %>
-    <% genre = Genre.find(id) %>
-    <a href="/genres/<%= genre.slug %>">
-      <%= genre.name %>
-    </a>
+    <% song.genre_ids.each do |id| %>
+      <% genre = Genre.find(id) %>
+      <a href="/genres/<%= genre.slug %>">
+        <%= genre.name %>
+      </a>
+    <% end %>
   </p>
 <% end %>
