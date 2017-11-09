@@ -1,8 +1,8 @@
 <h1>All Your Songs</h1>
 
 <% @songs.each.with_index(1) do |song, index| %>
-  <p><%= index %>. <a href="/songs/<%= song.slug %>"><%= song.name %></a>
-    <% if song.artist_id != nil %>
+  <p><%= index %>.
+    <a href="/songs/<%= song.slug %>"><%= song.name %></a>
       by <%= song.artist.name %>
-    <% end %></p>
+  </p>
 <% end %>
