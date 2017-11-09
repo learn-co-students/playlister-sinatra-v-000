@@ -5,6 +5,14 @@ require 'sinatra/activerecord/rake'
 
 # Type `rake -T` on your command line to see the available rake tasks.
 
+def reload!
+  load_all "./config" if Dir.exists?("./config")
+  load_all "./app" if Dir.exists?("./app")
+  load_all "./lib" if Dir.exists?("./lib")
+  load_all "./*.rb" if Dir.entries(".").include?(/\.rb/)
+  #MAYBE THIS WILL WORK???
+end
+
 task :console do
   Pry.start
 end
