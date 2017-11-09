@@ -1,7 +1,7 @@
 <h1>Edit Song Entry!</h1>
 
-<form method="post" action="/songs">
-  <H3>Name: <input type="text" id="Name" name="song_name" value="@song.name"></h3>
+<form method="post" action="/songs/<%=@song.slug%>">
+  <H3>Name: <input type="text" id="Name" name="song_name" value="<%= @song.name %>"></h3>
   <h4>Artist Name: <input type="text" id="Artist Name" value="<%= @song.artist.name %>" name="artist_name"></h4>
   <p>Genre(s):
     <% Genre.all.each do |genre| %>
