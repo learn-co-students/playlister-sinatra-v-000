@@ -8,8 +8,7 @@ class Genre < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    name = slug.split('-').join(' ').titleize
-    self.find_by(name: name)
+    self.all.find{|a| a.slug == slug}
   end
 
 end
