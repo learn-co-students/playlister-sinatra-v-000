@@ -11,7 +11,4 @@ class Genre < ActiveRecord::Base
     self.all.find{|song| song.slug == slug}
   end
 
-
-
-
 end
