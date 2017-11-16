@@ -1,0 +1,4 @@
+<h1>List of Artists</h1>
+<% @artists.each { |artist| %>
+  <ol> <a href="/artists/<%= artist.slug %>" target="_blank"> <%= artist.name %> </a></ol>
+<% } %>

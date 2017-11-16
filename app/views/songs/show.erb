@@ -1,0 +1,9 @@
+<!-- the page where a single song info are displayed -->
+<h1> <%= @song.name %> </h1> <!-- the song name -->
+<label>Artist:</label>
+<a href="/artists/<%= @song.artist.slug  %>"> <%= @song.artist.name %></a> <!-- links to song's artist -->
+<br>
+<% @song.genres.each { |genre| %>
+<label>Genre:</label>
+<a href="/genres/<%= genre.slug %>"> <%= genre.name %></a> <!-- links to song's genre -->
+<% } %>
