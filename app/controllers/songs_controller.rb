@@ -17,4 +17,14 @@ class SongsController < ApplicationController
     erb:'/songs/show'
   end
 
+  post '/songs' do
+    @song = Song.create(:name params["Name"])
+    @song.genre_ids = params[:genres]
+    @song.artist = Artist.find_or_create_by(:name params["Artist Name"])
+    @song.save
+
+    flash[:message] = "Successfully created song."
+    redirect to "/songs/#{@song.slug}"
+  end
+
 end
