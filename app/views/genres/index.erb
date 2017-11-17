@@ -1,0 +1,5 @@
+<h2>List of All Genres </h2>
+<!-- Each song should be a clickable link to that particular song's show page. -->
+<% @genres.each.with_index(1) do |genre, index| %>
+  <h3><%= index %>. <a href = "/genres/<%= genre.slug %>"><%= genre.name %></a></h3>
+  <%end%>
