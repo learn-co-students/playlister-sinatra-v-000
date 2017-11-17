@@ -1,0 +1,5 @@
+<h2>List of All Artists</h2>
+<!-- Each song should be a clickable link to that particular song's show page. -->
+<% @artists.each.with_index(1) do |artist, index| %>
+  <h3><%= index %>. <a href = "/artists/<%= artist.slug %>"><%= artist.name %></a></h3>
+  <%end%>
