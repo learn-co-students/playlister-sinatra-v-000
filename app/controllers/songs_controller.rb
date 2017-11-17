@@ -1,5 +1,6 @@
 require 'rack-flash'
 require 'pry'
+
 class SongController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   set :session_secret, "my_application_secret"
@@ -17,10 +18,9 @@ class SongController < Sinatra::Base
   end
 
   post '/songs' do
-    @song = Song.create(params[:song])
-    artist = Artist.find_or_create_by(:name => params["Artist Name"])
-    @song.artist_id = artist.id
-    @song.genres << Genre.find(params[:genres])
+    @song = Song.create(name: params["Name"])
+    @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
+    @song.genre_id = params[:genres]
     flash[:message] = "Successfully created song."
     @song.save
     redirect "/songs/#{@song.slug}"
