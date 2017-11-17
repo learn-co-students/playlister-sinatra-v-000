@@ -1,10 +1,7 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
 <h1>Add a new song:</h1>
 <form action="/songs" method="post">
   Song name:
-  <input type="text" name="Name" id="Name">
+  <input type="text" name="Name">
   <br></br>
 
   Genre:
@@ -19,3 +16,7 @@
 
   <input type="submit" value="Create">
 </form>
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
