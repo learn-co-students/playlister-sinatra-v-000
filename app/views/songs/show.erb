@@ -1,4 +1,7 @@
 <!-- the page where a single song info are displayed -->
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
 <h1> <%= @song.name %> </h1> <!-- the song name -->
 <label>Artist:</label>
 <a href="/artists/<%= @song.artist.slug  %>"> <%= @song.artist.name %></a> <!-- links to song's artist -->
