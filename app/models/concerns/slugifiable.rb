@@ -1,0 +1,4 @@
+
+module Slugifiable
+
+end
