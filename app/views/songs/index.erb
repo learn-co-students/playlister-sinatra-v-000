@@ -1,0 +1,4 @@
+<h1>List of Songs</h1>
+ <% @songs.each { |song| %>
+<ol> <a href="/songs/<%= song.slug %>" target="_blank"> <%= song.name %> </a> </ol>
+<% } %>
