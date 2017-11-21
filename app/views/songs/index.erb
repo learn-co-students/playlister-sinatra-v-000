@@ -1,5 +1,9 @@
 
 <% Song.all.each do |song| %>
 <p> <%= song.name %> </p>
+<<<<<<< HEAD
 <a href ="/songs/<%=song.slug%>" >Info Page</a>
+=======
+<a href ="/songs/<%=#{song.slug}%>" >Info Page</a>
+>>>>>>> 682c0090fce2c4643f4386be22b2889c4a889ae8
 <%end%>
