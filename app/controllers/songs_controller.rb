@@ -8,6 +8,17 @@ class SongController < Sinatra::Base
     erb :'songs/index'
   end
 
+  post '/songs' do
+  
+    genre = Genre.find_by(name: params['genre']['name'])
+    song_genre = SongGenre.find_or_create_by(genre_id: genre.id)
+    artist = Artist.find_or_create_by(name: params['artist']['name'])
+    song = Song.find_or_create_by(name: params["Name"], artist_id: artist.id)
+    song_genre.song_id = song.id
+    binding.pry
+    erb :'songs/index'
+  end
+
   get '/songs/new' do
     erb :'songs/new'
   end
