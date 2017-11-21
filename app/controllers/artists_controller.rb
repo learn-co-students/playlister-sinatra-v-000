@@ -5,7 +5,7 @@ class ArtistsController < Sinatra::Base
   set :session_secret, "my_application_secret"
   set :views, Proc.new { File.join(root, "../views/") }
 
-  get '/songs' do
+  get '/artists' do
     erb :"songs/index"
   end
 end
