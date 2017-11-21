@@ -10,7 +10,7 @@ class ArtistsController < Sinatra::Base
   end
 
   get '/artists/:slug' do
-    @song = Song.find_by_slug(params[:slug])
+    @artist = Artist.find_by_slug(params[:slug])
     erb :'artists/show'
   end
 end

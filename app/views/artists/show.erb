@@ -1,0 +1,5 @@
+<%=@artist.name%>
+<%=Song.find_by(artist_id: @artist.id).name%>
+<a href = "/songs/<%=Song.find_by(artist_id: @artist.id).slug%>">Songs Page</a>
+<%=Genre.find_by(id:(SongGenre.find_by(song_id: Song.find_by(artist_id: @artist.id).id).genre_id)).name%>
+<a href ="/genres/<%=Genre.find_by(id:(SongGenre.find_by(song_id: Song.find_by(artist_id: @artist.id).id).genre_id)).slug%>">Genre Page</a>
