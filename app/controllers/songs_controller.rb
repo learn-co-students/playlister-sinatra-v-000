@@ -24,18 +24,22 @@ class SongController < Sinatra::Base
   post '/songs/:slug' do
 
     @song = Song.find_by_slug(params[:slug])
-    @artist = Artist.find_or_create_by(name: params['artist'])
+    if params["artist"] != ""
+      @artist = Artist.find_or_create_by(name: params['artist'])
+      @song.artist = @artist
+      @artist.save
+    end
     @genre = Genre.find_by(id: params['genre'])
-    @song.artist = @artist
     @song_genre = SongGenre.find_by(song_id: @song.id)
     @song_genre.genre = @genre
-
+    
     @song_genre.save
     @song.save
-    @artist.save
+
+
     redirect to "/songs/#{@song.slug}"
 
-    binding.pry
+
     erb :'songs/index'
 
   end
