@@ -1,3 +1,5 @@
+<h3>Successfully created song.</h3>
+<h4>Successfully updated song.</h4>
 <%=@song.name%>
 <p><%=Artist.find_by(id: @song.artist_id).name%></p>
 <a href = "/artists/<%=Artist.find_by(id: @song.artist_id).slug%>">Artist Page</a>
