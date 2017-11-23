@@ -1,10 +1,12 @@
 class Artistscontroller < ApplicationController
 
-  get '/artists/index' do
-    erb :'artists/index'
+  get '/artists' do
+    @artists = Artist.all
+    erb :'/artists/index'
   end
 
-  get '/artists/show' do
+  get '/artists/:slug' do
+    @artist = Artist.all.detect{|obj| obj.slug == params[:slug]}
     erb :'artists/show'
   end
 

@@ -1,31 +1,22 @@
-class Songscontroller < ApplicationController
+class SongsController < ApplicationController
 
-
-  get '/songs/index' do
-    erb :'songs/index'
+  get '/songs' do
+    @songs = Song.all
+    erb :'/songs/index'
   end
 
-  get '/songs/show' do
-    erb :'songs/show'
-  end
-
-  get '/songs/edit' do
-    erb :'/songs/edit'
+  get '/songs/:slug' do
+    #using collect to select multiple songs with the same name
+    @songs = Song.all.select{|obj| obj.slug == params[:slug]}
+    erb :'/songs/show'
   end
 
   get '/songs/new' do
-
-    erb :'/songs/new'
+    binding.pry
   end
 
-  patch '/songs/edit/:id' do
-
-    erb ;'/songs/show/:id'
-  end
-
-  get '/songs/show/:edit' do
-
-    erb :'/songs/show'
-  end
+   get '/songs/:slug/edit' do
+     binding.pry
+   end
 
 end
