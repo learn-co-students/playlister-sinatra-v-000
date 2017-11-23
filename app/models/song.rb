@@ -5,6 +5,8 @@ class Song < ActiveRecord::Base
   has_many :genres, through: :song_genres
 
   def self.find_by_slug(slug)
-   self.all.find { |s| s.slug == slug }
+   self.all.find do |s|
+     s.slug == slug
+    end
   end
 end

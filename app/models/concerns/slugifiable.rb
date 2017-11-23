@@ -1,7 +1,8 @@
 module Slugifiable
   include ActiveSupport::Concern
   def slug
-    self.name.downcase.gsub(" ", "-")
+    #binding.pry
+    self.name.strip.downcase.gsub(" ", "-")
   end
 
 end
