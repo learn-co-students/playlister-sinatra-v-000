@@ -3,10 +3,12 @@
 
     <h1> <%= obj.name %> </h1>
     <ul>  Artist:
-    <a href="/artists/<%=obj.artist.slug%>">  <%= obj.artist.name %> </a> </ul>
-    <ul>Genres: <% obj.genres.each do |genre| %> </ul>
-          <li> <a href="/genres/<%= genre.slug%>">  <%= genre.name %> </a> </li>
-
+    <a href="/artists/<%=obj.artist.slug%>">  <%= obj.artist.name %> </a>
+    </ul>
+    <ul>Genres:
+      <% obj.genres.each do |genre| %>
+       <a href="/genres/<%= genre.slug%>">  <%= genre.name %> </a>
+    </ul>
         <% end %>
       <% end %>
    <br></br>
