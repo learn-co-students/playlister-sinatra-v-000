@@ -5,9 +5,10 @@ class ArtistsController < ApplicationController
     erb :'/artists/index'
   end
 
-  # post '/artists/:slug' do
-  #
-  # end
-
+  get '/artists/:slug' do
+    # binding.pry
+    @artist = Artist.find_by_slug(params[:slug])
+    erb :'/artists/show'
+  end
 
 end

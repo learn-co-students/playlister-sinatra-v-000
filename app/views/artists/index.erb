@@ -6,8 +6,8 @@
  </head>
  <body>
    <% @artists.each do |artist|%>
-   <a href="/artists/<%= artist.id %>">
-   Name: <%= artist.name %></a>
+   <a href="/artists/<%= artist.slug %>">
+   <%= artist.name %></a>
    <% end %>
 
  </body>
