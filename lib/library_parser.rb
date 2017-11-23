@@ -23,7 +23,7 @@ class LibraryParser
   def call
     files.each do |filename|
       parts = parse_filename(filename)
-      build_objects(*parts)
+      build_objects(*parts) #=> "splat" or * operator allows the method to take in a variable amount of arguments
     end
   end
 
@@ -34,7 +34,7 @@ class LibraryParser
 
     song.song_genres.build(genre: genre)
     song.artist = artist
-    
+
     song.save
   end
 end
