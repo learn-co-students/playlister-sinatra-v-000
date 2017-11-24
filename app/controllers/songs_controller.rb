@@ -6,8 +6,12 @@ class SongsController < ApplicationController
   end
 
   get '/songs/new' do
-    @songs = Songs.all
+    @genres = Genre.all
    erb :'/songs/new'
+  end
+
+  patch '/songs/new' do
+    binding.pry
   end
 
   get '/songs/:slug' do
@@ -15,6 +19,5 @@ class SongsController < ApplicationController
     @songs = Song.all.select{|obj| obj.slug == params[:slug]}
     erb :'/songs/show'
   end
-
 
 end
