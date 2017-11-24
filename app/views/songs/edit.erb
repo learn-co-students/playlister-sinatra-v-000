@@ -1,0 +1,8 @@
+<h1>Edit Song!</h1>
+Song Name: <input type="text" name="song[name]" value="<%= @song.name =>" id="song_name">
+Artist Name: <input type="text" name="song[artist][name]" value="<%= @song.artist.name %>" id="artist_name">
+<h3>Genres</h3>
+<% Genre.all.each do |genre| %>
+  <input <%= "checked" if @song.genres.include?(genre) %>
+    id="<%= genre.name %>" type="checkbox" name="song[genres][]" value="<%= genre.id %>">
+<% end %>
