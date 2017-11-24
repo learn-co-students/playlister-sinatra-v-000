@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
 
   get '/songs' do
-    @songs = Songs.all
+    @songs = Song.all
     erb :'/songs/index'
   end
 
@@ -11,6 +11,12 @@ class SongsController < ApplicationController
 
   post '/songs' do
     @song = Song.create(params[:song])
+    if @artist = Artist.find_by name: params[:song][:artist][:name]
+      @song = @artist
+    else
+      @song = Artist.create(params[:song][:artist])
+    end
+    @song.save
     # look up artist by name
     # set song.artist
     # add each genre to song.genres
@@ -25,6 +31,7 @@ class SongsController < ApplicationController
   end
 
   get '/songs/:slug' do
+    #binding.pry
     @song = Song.find_by_slug(params[:slug])
     erb :'/songs/show'
   end
