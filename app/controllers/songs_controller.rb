@@ -10,19 +10,23 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
+    #binding.pry
     @song = Song.create(params[:song])
-    if @artist = Artist.find_by name: params[:song][:artist][:name]
-      @song = @artist
+
+    @artist = Artist.find_by name: params[:artist][:name]
+
+    if !!@artist
+      @song.artist = @artist
     else
-      @song = Artist.create(params[:song][:artist])
+      @artist = Artist.create(params[:artist])
+      @song.artist = @artist
     end
-    @song.save
-    # look up artist by name
-    # set song.artist
     # add each genre to song.genres
     @song.save
+
     flash[:message] = "Successfully created song."
-    redirect to "songs/#{@song.stub}"
+    binding.pry
+    redirect to "songs/#{@song.slug}"
   end
 
   get '/songs/:slug/edit' do
