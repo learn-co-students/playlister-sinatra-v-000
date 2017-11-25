@@ -5,8 +5,8 @@ describe "Song Forms" do
   let(:genre_1_name) { "Hippity Hop" }
   let(:genre_2_name) { "New Age Garbage" }
   let(:song_name) { "That One with the Guitar" }
-  let!(:genre_1) { Genre.create(name: genre_1_name) }
-  let!(:genre_2) { Genre.create(name: genre_2_name) }
+  let!(:genre_1) { Genre.create(name: genre_1_name).save }
+  let!(:genre_2) { Genre.create(name: genre_2_name).save }
 
   describe "/songs/new" do
     before do
@@ -16,7 +16,7 @@ describe "Song Forms" do
     context "without an existing artist" do
       it "creates a new artist on submit" do
         expect {
-          fill_in "Name", with: song_name
+          fill_in "Song Name", with: song_name
           check "New Age Garbage"
           fill_in "Artist Name", with: artist_name
           click_on "Create"
@@ -24,7 +24,7 @@ describe "Song Forms" do
       end
 
       it "creates a new song on submit" do
-        fill_in "Name", with: song_name
+        fill_in "Song Name", with: song_name
         check "New Age Garbage"
         fill_in "Artist Name", with: artist_name
         click_on "Create"
@@ -36,7 +36,7 @@ describe "Song Forms" do
       end
 
       it "redirects to '/songs/:slug' after creation" do
-        fill_in "Name", with: song_name
+        fill_in "Song Name", with: song_name
         check "New Age Garbage"
         fill_in "Artist Name", with: artist_name
         click_on "Create"
@@ -51,7 +51,7 @@ describe "Song Forms" do
 
       it "does not create a new artist" do
         expect {
-          fill_in "Name", with: song_name
+          fill_in "Song Name", with: song_name
           check "Hippity Hop"
           fill_in "Artist Name", with: artist_name
           click_on "Create"
@@ -59,7 +59,7 @@ describe "Song Forms" do
       end
 
       it "creates a new song and associates it with an existing artist" do
-        fill_in "Name", with: song_name
+        fill_in "Song Name", with: song_name
         check "Hippity Hop"
         fill_in "Artist Name", with: artist_name
         click_on "Create"
@@ -71,7 +71,7 @@ describe "Song Forms" do
       end
 
       it "redirects to '/songs/:slug' after creation" do
-        fill_in "Name", with: song_name
+        fill_in "Song Name", with: song_name
         check "New Age Garbage"
         fill_in "Artist Name", with: artist_name
         click_on "Create"
@@ -84,8 +84,8 @@ describe "Song Forms" do
     before do
       @song = Song.create(name: song_name)
       artist = Artist.create(name: artist_name)
-
-      @song.song_genres.create(genre: genre_1)
+      # @song.song_genres.create(genre: genre_1)
+      song_genre = Genre.find(1)
       @song.artist = artist
 
       @song.save
@@ -99,7 +99,7 @@ describe "Song Forms" do
         click_on "Save"
 
         expect(page).to have_content("Successfully updated song.")
-        expect(page).to have_content(song_name)
+        expect(page).to have_content("That One with the Guitar")
         expect(page).to have_content("Some Nobody")
       end
 
