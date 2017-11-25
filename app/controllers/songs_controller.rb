@@ -22,7 +22,7 @@ class SongsController < ApplicationController
       @song.artist = @artist
     end
     # add each genre to song.genres
-    @song.save
+    #@song.save
 
     flash[:message] = "Successfully created song."
     binding.pry
