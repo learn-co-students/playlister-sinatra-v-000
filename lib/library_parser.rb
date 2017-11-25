@@ -1,6 +1,7 @@
 class LibraryParser
   def files
     data_path = File.join(File.dirname(__FILE__), '..', 'db', 'data')
+    #puts data_path
     Dir.entries(data_path)[2..-1]
   end
 
@@ -23,8 +24,10 @@ class LibraryParser
   def call
     files.each do |filename|
       parts = parse_filename(filename)
+      #puts parts.inspect
       build_objects(*parts)
     end
+    #puts "done"
   end
 
   def build_objects(artist_name, song_name, genre_name)
@@ -34,7 +37,7 @@ class LibraryParser
 
     song.song_genres.build(genre: genre)
     song.artist = artist
-    
+
     song.save
   end
 end
