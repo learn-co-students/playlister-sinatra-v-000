@@ -1,1 +1,22 @@
 
+<h2>Update Song</h2>
+
+<form class="" action="/songs/<%=@song.slug%>/edit" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <ul>
+    <li><label for="artist_name">Artist Name:</label></li>
+    <li><input type="text" name="Artist Name" value="" id="artist_name" placeholder="<%=@song.artist.name%>" ></li>
+  </ul>
+
+  <ul>
+    <li><label for="song_name">Songs Name:</label></li>
+    <li><input type="text" name="song_name" id="song_name" placeholder="<%=@song.name%>" ></li>
+  </ul>
+
+  <ul>
+    <li><label for="song_genre">Songs Genre:</label></li>
+    <li><input type="text" name="song_genre" id="song_genre" placeholder="<%=@song.name%>" ></li>
+  </ul>
+
+  <input type="submit"  value="Save">
+</form>

@@ -13,6 +13,7 @@ end
 #refractor to autoload controllers
 
 use Rack::MethodOverride
+
 use Artistscontroller
 use Genrescontroller
 use SongsController
