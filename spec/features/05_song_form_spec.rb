@@ -103,7 +103,7 @@ describe "Song Forms" do
         expect(page).to have_content("Some Nobody")
       end
 
-      it "renders to the song show page" do
+      it "renders to the song show page"  do
         fill_in "Artist Name", with: "That singer"
         click_on "Save"
         expect(page.current_path).to eq("/songs/that-one-with-the-guitar")

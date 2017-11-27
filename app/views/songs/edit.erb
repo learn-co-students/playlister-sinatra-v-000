@@ -1,22 +1,29 @@
 
-<h2>Update Song</h2>
 
-<form class="" action="/songs/<%=@song.slug%>/edit" method="post">
+<form  action="/songs/<%=@song.slug%>" method="post">
   <input type="hidden" name="_method" value="patch">
+
   <ul>
-    <li><label for="artist_name">Artist Name:</label></li>
-    <li><input type="text" name="Artist Name" value="" id="artist_name" placeholder="<%=@song.artist.name%>" ></li>
+    <li><label for=""><h2>Update: <%=@song.name%></h2></label> </li>
+    <input type="hidden" name="song[name]" value="<%=@song.name%>">
   </ul>
 
   <ul>
-    <li><label for="song_name">Songs Name:</label></li>
-    <li><input type="text" name="song_name" id="song_name" placeholder="<%=@song.name%>" ></li>
+    <li><label for="Artist Name">Artist's Name:</label></li>
+    <input type="text" name="song[artist]" value="<%=@song.artist.name%>" id="Artist Name" >
   </ul>
 
   <ul>
-    <li><label for="song_genre">Songs Genre:</label></li>
-    <li><input type="text" name="song_genre" id="song_genre" placeholder="<%=@song.name%>" ></li>
+    <li><label for="song_genre"> Genres:</label></li>
+
+    <%Genre.all.each do |genre|%>
+    <input type="checkbox" id="<%=genre.name%>" name="song[genres][]" value="<%=genre.id%>" <%='checked' if @song.genres.first.name == genre.name %>
+
+    <label for=""><%= genre.name %></label>
+
+    <%end%>
   </ul>
+<br>
 
   <input type="submit"  value="Save">
 </form>

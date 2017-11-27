@@ -33,9 +33,12 @@ class SongsController < ApplicationController
     erb :"/songs/edit"
   end
 
-  patch '/songs/:slug/edit' do
+  patch '/songs/:slug' do
+ #binding.pry
     @song = Song.all.select{|t| t.slug == params[:slug]}.first
-     @song.artist.update(name: params["Artist Name"])
+     @song.artist.update(name: params[:song][:artist])
+     @song.genres.clear << Genre.find(params[:song][:genres].first.to_i)
+     @song.save
       flash[:message]="Successfully updated song."
      redirect to("/songs/#{params[:slug]}")
   end
