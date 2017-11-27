@@ -9,11 +9,4 @@ class Artist < ActiveRecord::Base
     Artist.all.find_by({name: normalize})
     end
 
-#TODO make the above code into a module
-    # def self.find_by_slug(slug)
-    #   Slugifiable::Find_by.find_by(slug)
-    # end
-
-
-
 end

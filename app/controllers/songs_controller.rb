@@ -34,7 +34,6 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do
- #binding.pry
     @song = Song.all.select{|t| t.slug == params[:slug]}.first
      @song.artist.update(name: params[:song][:artist])
      @song.genres.clear << Genre.find(params[:song][:genres].first.to_i)
