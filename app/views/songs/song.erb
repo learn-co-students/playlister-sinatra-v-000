@@ -1,0 +1,15 @@
+<% if flash.has?(:notice) %>
+    <%= flash[:notice]%>
+<%end%>
+
+<h1><%=@song.name%></h1><br>
+<a href="/artists/<%=@song.artist.slug%>"<h2><%=@song.artist.name%></h2></a>
+<%@song.genres.each.with_index(1) do |genre, index|%>
+<h3><%=index%>. <%=genre.name%></h3>
+<%end%>
+
+
+<%@song.genres.each.with_index(1) do |genre, index|%>
+<a href="/genres/<%=genre.slug%>"><h2><%=genre.name%></h2></a></br>
+<h3><%=index%>. <%=genre.name%></h3>
+<%end%>

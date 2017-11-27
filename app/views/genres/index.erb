@@ -1,0 +1,4 @@
+<h1>List of all artists in the Library</h1>
+<%@genres.all.each.with_index(1) do |genre, index|%>
+<%="#{index}. "%><a href="/genres/<%=genre.slug%>"><%="#{genre.name}"%></a><br>
+<%end%>
