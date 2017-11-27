@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe "Playlister Basics" do
   let(:artist_name) { "Person with a Face" }
@@ -12,7 +13,7 @@ describe "Playlister Basics" do
 
     @song.song_genres.create(genre: @genre)
     @song.artist = @artist
-  
+
     @song.save
   end
 
@@ -87,6 +88,7 @@ describe "Playlister Basics" do
       end
 
       it "displays the song's genres" do
+        #binding.pry
         expect(page).to have_content(genre_name)
       end
 
