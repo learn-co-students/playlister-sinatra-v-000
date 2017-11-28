@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe "Song Forms" do
   let(:artist_name) { "Person with a Face" }
@@ -95,8 +96,11 @@ describe "Song Forms" do
 
     context "changing a song's artist" do
       it "updates the song's artist" do
+        #binding.pry
         fill_in "Artist Name", with: "Some Nobody"
         click_on "Save"
+
+        #binding.pry
 
         expect(page).to have_content("Successfully updated song.")
         expect(page).to have_content(song_name)
@@ -116,14 +120,17 @@ describe "Song Forms" do
       end
 
       it "updates the song's genres" do
-        uncheck "New Age Garbage"
-        check "Hippity Hop"
+
+        uncheck "Hippity Hop"
+        check "New Age Garbage"
+
         click_on "Save"
 
         expect(page).to have_content("Successfully updated song.")
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
-        expect(page).to have_content("Hippity Hop")
+        expect(page).to have_content("New Age Garbage")
+        expect(page).to_not have_content("Hippity Hop")
       end
 
       it "renders to the song show page" do
