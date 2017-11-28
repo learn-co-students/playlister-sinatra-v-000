@@ -1,0 +1,17 @@
+<% if flash.has?(:message) %>
+  <h4 class="f4"><%= flash[:message] %></h4>
+<% end %>
+
+<h2 class="f2"><%= @song.name %></h3>
+
+<h4 class="f4">Artist</h4>
+<div class="pa1 lh-copy">
+  <a class="f4 fw6 db black link hover-hot-pink" href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a>
+</div>
+
+<h4 class="f4">Genres</h4>
+<% @song.genres.each do |genre| %>
+  <div class="pa1 lh-copy">
+    <a class="f4 fw6 db black link hover-hot-pink" href="/genres/<%= genre.slug %>"><%= genre.name %></a>
+  </div>
+<% end %>
