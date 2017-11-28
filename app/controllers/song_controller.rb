@@ -19,7 +19,7 @@ class SongController < ApplicationController
     end
 
      get '/songs/:slug' do
-        @song = Song.find_by_slug(params["slug"])
+        @song = Song.find_by_slug(params[:slug])
         
         erb :"songs/song"
      end
@@ -36,17 +36,12 @@ class SongController < ApplicationController
 
 
      patch '/songs/:slug' do
-
         @song = Song.find_by_slug(params["slug"])
-
         @song.update(:name => params["song"]["name"])
-        @song.artist = Artist.find_or_create_by(params["artist"]["name"])
+        @song.artist = Artist.find_or_create_by(:name =>params["artist"]["name"])
         @song.save
-        
         flash[:message] = "Successfully updated song."
-
         
-
         redirect ("/songs/#{song.slug}")
         
      end
