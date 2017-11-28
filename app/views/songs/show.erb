@@ -12,4 +12,6 @@
   <%end%>
 </ul>
 
-<br></br>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
