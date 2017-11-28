@@ -1,0 +1,23 @@
+<h2 class="f2">Edit <%= @song.name %></h2>
+
+<form class="pa4 black-80" action="/songs/<%= @song.slug %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div class="measure">
+
+    <label for="Name" class="f6 b db mb2">Song Name</label>
+    <input id="Name" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" name="song_name" value="<%= @song.name %>">
+
+    <label for="Artist Name" class="f6 b db mb2">Artist Name</label>
+    <input id="Artist Name" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" name="artist_name" value="<%= @song.artist.name %>">
+
+    <legend class="fw7 mb2">Genres</legend>
+    <% Genre.all.each do |genre| %>
+      <div class="flex items-center mb2">
+        <input class="mr2" type="checkbox" id="<%= genre.name %>" name="song[genre_ids][]" value="<%= genre.id %>" <%='checked' if @song.genres.include?(genre) %>>
+        <label for="genre_name" class="lh-copy"><%= genre.name %></label>
+      </div>
+    <% end %>
+
+    <input type="submit" value="Save" class="f6 link dim br1 ph3 pv2 mb2 dib white bg-hot-pink">
+  </div>
+</form>

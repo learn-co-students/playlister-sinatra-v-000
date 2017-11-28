@@ -1,0 +1,15 @@
+<h3 class="f2"><%= @artist.name %></h3>
+
+<h4 class="f4">Songs</h4>
+<% @artist.songs.each do |song| %>
+  <div class="pa1 lh-copy">
+    <a class="f4 fw6 db black link hover-hot-pink" href="/songs/<%= song.slug %>"><%= song.name %></a>
+  </div>
+<% end %>
+
+<h4 class="f4">Genres</h4>
+<% @artist.genres.each do |genre| %>
+  <div class="pa1 lh-copy">
+    <a class="f4 fw6 db black link hover-hot-pink" href="/genres/<%= genre.slug %>"><%= genre.name %></a>
+  </div>
+<% end %>
