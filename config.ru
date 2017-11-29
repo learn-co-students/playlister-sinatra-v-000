@@ -12,3 +12,4 @@ end
 
 use Rack::MethodOverride
 run ApplicationController
+# use Rack::Flash
