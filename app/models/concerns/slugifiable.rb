@@ -1,6 +1,15 @@
-def slug(name)
-  name.delete"!@#$%^&*".gsub(/[" "]/, '-')
-end
+module Slugifiable
+  module InstanceMethods
+    def slug
+      self.name.gsub(" ", '-').downcase
+    end
+  end
 
-def find_by_slug
+  module ClassMethods
+    def find_by_slug(slug)
+      self.all.find do |instance|
+        instance.slug == slug
+      end
+    end
+  end
 end
