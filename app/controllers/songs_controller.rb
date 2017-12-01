@@ -1,6 +1,7 @@
 require "rack-flash"
 
-class Songs < ApplicationController
+class SongsController < ApplicationController
+	use Rack::Flash
 
 	get "/songs" do 
 		@songs = Song.all
