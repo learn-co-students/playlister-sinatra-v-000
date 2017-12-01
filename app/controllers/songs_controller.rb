@@ -5,8 +5,9 @@ class SongsController < ApplicationController
   end
 
   get '/songs/:slug' do
-puts "params= #{params}"
-# params[:slug]
+    @song = Song.find_by_slug(params[:slug])
+# puts "@song.name= #{@song.name}"
+# puts "@song.artist.name= #{@song.artist.name}"
     erb :'/songs/show'
   end
 
