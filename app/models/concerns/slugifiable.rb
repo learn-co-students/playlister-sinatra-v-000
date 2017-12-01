@@ -3,7 +3,7 @@ module Slugifiable
 	module InstanceMethods
 
 		def slug
-			self.name.downcase.gsub(' ', '-')
+			self.name.downcase.gsub(" ", "-")
 	# text take out space, put in dash 
 		end 
 	end 

@@ -1,53 +1,48 @@
-<h1>Edit <% @song.name %> </h1>
+<h1>Edit <%= @song.name %> </h1>
 
 
-<form action="/songs/<%= song.slug %>" method="POST">
-	<input type="hidden" name=">method" value="PATCH">
-<!-- 
-<p>The current song is: 
-<%= @song.name %><br>
-<%= @song.artist %><br>
-<%= @song.genre %><br>
-</p> -->
+<form action="/songs/<%= @song.slug %>" method="POST">
+	<input type="hidden" name="_method" value="PATCH">
 
-  <label for="name">Name:</label>
+  <label>Song Name</label>
  
   	<input 
   		type="text" 
-  		name="song[name]" 
+  		name="Name" 
   		id="name"
   		value="<% @song.name %>"
   		>
   
-  	<br></br>
+  	<br>
 	
-	<label for="artist.name">Artist Name:</label>
+	<label>Artist Name</label>
 
 	<input 
 		type="text" 
-		name="artist[name]" 
+		name="Artist Name" 
 		id="artist_name"
 		value="<%= @song.artist.name %>"
 		>
-	<br></br>
+	<br>
 
-	<label for="genre_name">Genre</label>
+	
 
 	<!-- Make a checkbox for all the existing genres then create new?  -->
+	
 	<% Genre.all.each do |genre| %>
-		<label><%= genre.name %></label>
+		<%= genre.name %>
 
 		<input 
 		type="checkbox" 
 		name="song[genre_ids[]" 
 		id="<%= genre.name %>"
-		value="<%= genre.id %>" 
-		<%='checked' if @song.genres.include?(genre) %>>
+		value="<%= genre.id %>"
+		<%= "checked" if @song.genres.include?(genre) %> 
+		>
 		<% end %>
-	
-	<br></br>
- 
+	 
 
-  	<input type="submit" value="Create New Song">
+  	<input type="submit" value="Save">
 
 </form>
+
