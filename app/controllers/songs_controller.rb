@@ -5,6 +5,8 @@ class SongsController < ApplicationController
   end
 
   get '/songs/:slug' do
+puts "params= #{params}"
+# params[:slug]
     erb :'/songs/show'
   end
 
