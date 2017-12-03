@@ -1,3 +1,7 @@
+require 'sinatra/base'
+require 'rack-flash'
+
+
 class SongsController < ApplicationController
 
   get '/songs' do
@@ -22,7 +26,7 @@ class SongsController < ApplicationController
    @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
    @song.genre_ids = params[:genres]
    @song.save
-
+   flash[:notice] = "Successfully created song."
 
    redirect to "/songs/#{@song.slug}"
  end
@@ -36,7 +40,10 @@ class SongsController < ApplicationController
    @song = Song.find_by_slug(params[:slug])
    @song.update(params[:song])
    @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
+   @song.genre = params[:genre]
    @song.save
+
+   flash[:notice] = "Successfully updated song."
    redirect("/songs/#{@song.slug}")
  end
 
