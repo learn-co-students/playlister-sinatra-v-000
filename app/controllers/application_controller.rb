@@ -1,4 +1,5 @@
 class ApplicationController < Sinatra::Base
+
   register Sinatra::ActiveRecordExtension
   enable :sessions # I added per flash instructions in lesson
   set :session_secret, "my_application_secret"
