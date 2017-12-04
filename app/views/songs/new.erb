@@ -5,11 +5,11 @@
     <title></title>
   </head>
   <body>
-
+    <h1>Enter a New Song:</h1>
     <form class="" action="/songs" method="post">
       <p>Song Name: <input type="text" name="song[name]" id="Name" value=""> </p>
       <p>Artist Name: <input type="text" name="artist_name" id="Artist Name" value=""> </p>
-      <p>Genre: <input type="text" name="genre_name" value=""> </p>
+      <p>Genre: 
       <% @genres.each do |genre|%>
         <input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>" id="<%=genre.name%>"><%=genre.name%></input>
       <%end%>

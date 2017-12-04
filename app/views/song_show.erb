@@ -5,6 +5,15 @@
     <title></title>
   </head>
   <body>
+
+    <% if !!session[:created_song] %>
+      <%= session[:created_song] %>
+    <% end %>
+
+    <% if !!session[:updated_song] %>
+      <%= session[:updated_song] %>
+    <% end %>
+
     <h1>Song: <%= @song.name %> </h1>
     <h2>Artist: <a href="/artists/<%= @song.artist.slug %>"> <%= @song.artist.name %></h2></a>
     <h2>Genres:
