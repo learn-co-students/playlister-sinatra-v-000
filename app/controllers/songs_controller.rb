@@ -36,14 +36,21 @@ class SongsController < ApplicationController
       end
     end
 
+    # if the find didnt assign @artist, find by id. (checkbox)
+
     @artist ||= Artist.find_or_create_by(id: params[:song][:artist_id])
 
     # use the name and genre ids from params but the artist from @artist
     @song = Song.create(name: params[:song][:name], genre_ids: params[:song][:genre_ids], artist: @artist)
 
+    # if a genre was manually entered, assign that too.
+
     unless params[:genre][:name].empty?
-      genre = Genre.find_or_create_by(params[:genre])
-      @song.song_genres.build(genre: genre)
+      @genre = Genre.all.find do |g_o|
+        g_o.name.downcase == params[:genre][:name].downcase
+      end
+      @genre ||= Genre.find_or_create_by(params[:genre])
+      @song.song_genres.build(genre: @genre)
       @song.save
     end
 
