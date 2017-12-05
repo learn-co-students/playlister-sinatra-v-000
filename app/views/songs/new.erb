@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>New Song</title>
+  </head>
+  <body>
+    <h1>New Song</h1>
+
+    <form action="/songs" method="post">
+
+      <label>Song Name: </label><br>
+      <input id="Name" type="text" name="song[name]"><br></br>
+
+      <label>Song Artist: </label><br></br>
+      <% @artists.sort_by {|a| a.name.downcase}.each do |artist_obj| %>
+      <input id="<%= artist_obj.name %>" type="radio" name="song[artist_id]" value="<%= artist_obj.id %>"><%= artist_obj.name %></input><br>
+      <% end %>
+
+      <label>or create an Artist: </label><br>
+      <input id="Artist Name" type="text" name="artist[name]"><br></br>
+
+      <label>Song Genres: </label><br></br>
+      <% @genres.sort_by {|g| g.name.downcase}.each do |genre_obj| %>
+      <input id="<%= genre_obj.name %>" type="checkbox" name="song[genre_ids][]" value="<%= genre_obj.id %>"><%= genre_obj.name %></input><br>
+      <% end %>
+
+      <label>or create a Genre: </label><br>
+      <input id="Genre Name" type="text" name="genre[name]"><br></br>
+
+      <input type="submit" value="Create Song!">
+
+
+    </form>
+
+
+  </body>
+</html>

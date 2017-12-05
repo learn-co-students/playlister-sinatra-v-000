@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>h</title>
+  </head>
+  <body>
+    <h3><a href="/artists">See Other Artists</a></h3>
+    <h1>Artist: </h1>
+    <h3><%= @artist.name %></h3>
+
+    <h5>Songs</h5>
+    <% @artist.songs.each do |song_obj| %>
+    <p><a href="/songs/<%= song_obj.slug %>"><%= song_obj.name %></a></p>
+    <% end %>
+
+    <h5>Genres</h5>
+    <% @artist.genres.each do |genre_obj| %>
+    <p><a href="/genres/<%= genre_obj.slug %>"><%= genre_obj.name %></a></p>
+    <% end %>
+
+
+  </body>
+</html>
