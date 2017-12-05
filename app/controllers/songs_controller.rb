@@ -24,12 +24,22 @@ class SongsController < ApplicationController
 
   # process new song and show it
   post '/songs' do
-    @song = Song.create(params[:song])
+    # find based on text box
 
+
+
+
+# convert to downcase before searching to match without consideration of letter case.
     unless params[:artist][:name].empty?
-      @song.artist = Artist.find_or_create_by(params[:artist])
-      @song.save
+      @artist = Artist.all.find do |a_o|
+        a_o.name.downcase == params[:artist][:name].downcase
+      end
     end
+
+    @artist ||= Artist.find_or_create_by(id: params[:song][:artist_id])
+
+    # use the name and genre ids from params but the artist from @artist
+    @song = Song.create(name: params[:song][:name], genre_ids: params[:song][:genre_ids], artist: @artist)
 
     unless params[:genre][:name].empty?
       genre = Genre.find_or_create_by(params[:genre])
