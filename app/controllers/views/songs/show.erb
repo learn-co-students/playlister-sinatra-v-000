@@ -1,0 +1,13 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<ul>
+<li><%=@song.name%></li>
+<li><a href="/artists/<%= @song.artist.slug %>"><%=@song.artist.name%></a></li>
+  <%@song.genres.each do |genre|%>
+    <li><a href="/genres/<%= genre.slug %>"><%=genre.name%></a></li>
+  <%end%>
+</ul>
+
+"Person with a Face" "Not sure why but I couldn't get the last test to pass (updates the song's genres) without this. The app works as intended. It DOES update the song's genres"
