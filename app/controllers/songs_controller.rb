@@ -5,6 +5,14 @@ class SongsController < Sinatra::Base
 
   get '/songs' do
     @songs = Song.all
-    erb :index
+    erb :"songs/index"
+  end
+
+  get '/songs/:slug' do
+    binding.pry
+    # @slug = params[:slug]
+    @song = Song.find_by_slug(params[:slug])
+    @genre_id = @song.song_genres.genre_id
+    erb :"songs/show"
   end
 end

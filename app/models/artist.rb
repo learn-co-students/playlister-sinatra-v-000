@@ -8,10 +8,7 @@ class Artist < ActiveRecord::Base
 
   def self.find_by_slug(slugname)
     # binding.pry
-    name1 = slugname.split("-").collect do |item|
-      size = item.size-1
-      item[0].upcase+item[1,size]
-    end
-    Artist.find_by_name(name1.join(" "))
+    self.all.find {|item| item.slug==slugname}
+
   end
 end
