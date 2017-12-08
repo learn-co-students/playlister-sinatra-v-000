@@ -5,4 +5,9 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
+
+use ArtistsController
+use GenresController
+use SongsController
+
 run ApplicationController
