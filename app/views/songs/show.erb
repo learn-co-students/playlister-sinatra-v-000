@@ -1,2 +1,2 @@
-<p><%= @song.artist.name %></p>
-<!-- <p><%= @song.genre.name %></p> -->
+<p><a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></p>
+<p><a href="/genres/<%= @song.genres[0].slug %>"><%= @song.genres[0].name %></p>
