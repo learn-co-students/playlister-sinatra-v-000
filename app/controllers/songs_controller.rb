@@ -33,4 +33,20 @@ class SongsController < Sinatra::Base
     @genre_id = @song.song_genres[0].genre_id
     erb :"songs/show"
   end
+
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :"songs/edit"
+  end
+
+  post '/songs/:slug' do
+    # binding.pry
+    @song = Song.find_by_slug(params[:slug])
+    @artist = Artist.find_or_create_by(name: params["Artist Name"])
+    @song.artist_id = @artist.id
+    flash[:message] = "Successfully updated song."
+    redirect to("/songs/#{@song.slug}")
+  end
+
+
 end
