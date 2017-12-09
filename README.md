@@ -60,7 +60,7 @@ The first thing you should aim to do is create a Sinatra interface for the data 
 
 You should build the following routes:
 
-1. `/songs`
+<!-- 1. `/songs`
   * This should present the user with a list of all songs in the library.
   * Each song should be a clickable link to that particular song's show page.
 2. `/genres`
@@ -68,14 +68,14 @@ You should build the following routes:
   * Each genre should be a clickable link to that particular genre's show page.
 3. `/artists`
   * This should present the user with a list of all artists in the library.
-  * Each artist should be a clickable link to that particular artist's show page.
-4. `/songs/:slug`
-  * Any given song's show page should have links to that song's artist and the each genre associated with the song.
-  * Pay attention to the order of `/songs/new` and `/songs/:slug`. The route `/songs/new` could interpret `new` as a slug if that controller action isn't defined first.
-5. `/artists/:slug`
-  * Any given artist's show page should have links to each of his or her songs and genres.
-6. `/genres/:slug`
-  * Any given genre's show page should have links to each of its artists and songs.
+  * Each artist should be a clickable link to that particular artist's show page. -->
+<!-- 4. `/songs/:slug`
+  * Any given song's show page should have links to that song's artist and each genre associated with the song.
+  * Pay attention to the order of `/songs/new` and `/songs/:slug`. The route `/songs/new` could interpret `new` as a slug if that controller action isn't defined first. -->
+<!-- 5. `/artists/:slug`
+  * Any given artist's show page should have links to each of his or her songs and genres. -->
+<!-- 6. `/genres/:slug`
+  * Any given genre's show page should have links to each of its artists and songs. -->
 
 To get the data into your database, you will want to figure out how to use your `LibraryParser` class in the `db/seeds.rb` file.
 
@@ -175,9 +175,7 @@ to the top of the view.
 
 ## A Note on the Database
 
-Remember too that you can drop and recreate your database as much as you need
-to. If you hit a jam, just reset the db, run migrations, and pick up where you
-left off.
+Remember too that you can drop and recreate your database as much as you need to. If you hit a jam, just reset the db, run migrations, and pick up where you left off.
 
 ### Resources
 * [Clean URL - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
