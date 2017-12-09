@@ -44,6 +44,8 @@ class SongsController < Sinatra::Base
     @song = Song.find_by_slug(params[:slug])
     @artist = Artist.find_or_create_by(name: params["Artist Name"])
     @song.artist_id = @artist.id
+    @song.genre_ids = params["genres"]
+    @song.save
     flash[:message] = "Successfully updated song."
     redirect to("/songs/#{@song.slug}")
   end
