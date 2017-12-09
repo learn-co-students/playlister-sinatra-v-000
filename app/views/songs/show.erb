@@ -11,5 +11,9 @@
           <a href="/genres/<%= genre.slug %>">
             <%= genre.name %>
       <% end %>
+
+      <div id='flash' class='notice'>
+        <%= flash[:message] %>
+      </div>
   </body>
 </html>

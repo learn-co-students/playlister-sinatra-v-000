@@ -15,7 +15,7 @@
   <br></br>
 
   <%Artist.all.each do |artist|%>
-  <input type="checkbox" name="artist[artist_id]" id="<%=artist.id%>" value="<%=artist.id%>"><%=artist.name%></input></br>
+  <input type="radio" name="artist[artist_id]" id="<%=artist.id%>" value="<%=artist.id%>"><%=artist.name%></input></br>
   <%end%>
 
   <label>Or create a new Artist:</label> <input type="text" name="artist[name]" id="Artist Name"></input>
