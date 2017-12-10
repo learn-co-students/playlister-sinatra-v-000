@@ -1,5 +1,15 @@
 <h1>Testing show page for songs </h1>
-<h1> <%= @song.name %> </h1> -->
+
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<h1> <%= @song.name %> </h1>
+
+
+
+
  <li>
 <a href="/artists/<%=@song.artist.slug %>"> <%= @song.artist.name %> </a>
 </li>
