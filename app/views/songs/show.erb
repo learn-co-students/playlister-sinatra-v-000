@@ -1,0 +1,19 @@
+<h1> Song: <%= @song.name %> </h1>
+
+<label>Artist:</label>
+<br></br>
+<a href="/artists/<%= @song.artist.slug%>"><%= @song.artist.name %></a>
+
+<br></br>
+<label>Genres:</label>
+<br></br>
+<% @song.genres.each do |genre| %>
+  <a href="/genres/<%= genre.slug %>">
+  <%= genre.name %>
+  </a>
+<% end %>
+
+<br></br>
+<% if flash.has?(:message) %>
+    <%= flash[:message] %>
+<% end %>
