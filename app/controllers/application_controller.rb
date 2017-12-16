@@ -7,3 +7,9 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 end
+
+# /songs shows all the songs
+# @songs = Song.all
+# each song is an a href to that show page
+
+# same for genres and artists
