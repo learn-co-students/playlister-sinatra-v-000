@@ -4,4 +4,4 @@ dead_wrong = Song.create(name: "Dead Wrong")
 rap = Genre.create(name: "Rap")
 
 biggie.songs << dead_wrong
-dead_wrong.genre = rap
+dead_wrong.genres << rap
