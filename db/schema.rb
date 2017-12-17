@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 20171214214734) do
     t.string "name"
   end
 
-  create_table "song", force: :cascade do |t|
-    t.string "name"
-  end
-
   create_table "song_genres", force: :cascade do |t|
     t.integer "song_id"
     t.integer "genre_id"
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string "name"
   end
 
 end
