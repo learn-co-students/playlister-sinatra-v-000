@@ -8,4 +8,10 @@ class GenresController < ApplicationController
 
   end
 
+  get '/genres/:slug' do
+
+    words = params[:slug].gsub(/[-]/, " ").split(" ").join(" ")
+    @genre = Genre.find_by(name: words)
+  end
+
 end
