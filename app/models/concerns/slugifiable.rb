@@ -1,6 +1,6 @@
 class Slugifiable < Sinatra::Base
 
-  def self.slug
-    self.name.gsub(/[ .]/, "-")
+  def slug
+    self.gsub(/[ .]/, "-")
   end
 end
