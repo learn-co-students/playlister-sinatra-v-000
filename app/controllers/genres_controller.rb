@@ -12,6 +12,7 @@ class GenresController < ApplicationController
 
     words = params[:slug].gsub(/[-]/, " ").split(" ").join(" ")
     @genre = Genre.find_by(name: words)
+    erb :'/genres/show'
   end
 
 end
