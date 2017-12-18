@@ -1,13 +1,14 @@
 module Slugifiable
 
   def slug
-    self.name.gsub(/[ .]/, "-")
+    self.name.downcase.gsub(/[ .]/, "-")
   end
 
   def self.find_by_slug(name)
-    self.all.detect do |object|
+    binding.pry
+    self.detect do |object|
       binding.pry
-      object.name.slug == name
+      object.slug == name
     end
   end
 end
