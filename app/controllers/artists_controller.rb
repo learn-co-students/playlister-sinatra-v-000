@@ -1,6 +1,8 @@
 class ArtistsController < ApplicationController
 
-  get '/artists/index' do
+  get '/artists' do
+
+    erb :'artist/index'
 
   end
 
