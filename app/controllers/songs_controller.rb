@@ -10,12 +10,8 @@ class SongsController < ApplicationController
   # end
 
   get '/songs/:slug' do
-    words = params[:slug].gsub(/[-]/, " ").split(" ")
-    sentence = words.collect do |word|
-      word.capitalize
-    end
-    @song = Song.find_by(name: sentence.join(" "))
-    binding.pry
+    words = params[:slug].gsub(/[-]/, " ").split(" ").join(" ")
+    @song = Song.find_by(name: words)
     erb :"/songs/show"
   end
 
