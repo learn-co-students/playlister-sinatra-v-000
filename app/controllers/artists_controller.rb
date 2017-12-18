@@ -11,6 +11,10 @@ class ArtistsController < ApplicationController
 
   get '/artists/:slug' do
 
+    words = params[:slug].gsub(/[-]/, " ").split(" ").join(" ")
+    @artist = Artist.find_by(name: words)
+    binding.pry
+
     erb :'/artists/show'
 
   end
