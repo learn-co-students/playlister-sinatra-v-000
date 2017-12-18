@@ -1,0 +1,5 @@
+<h2>Here are all the songs we sing</h2><br>
+
+<% @songs.each_with_index do |i, song| %>
+  <%=i+1, ". " %><a href="#{@song.name}"></a>
+<% end %>

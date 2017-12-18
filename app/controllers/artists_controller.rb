@@ -1,4 +1,4 @@
-class ArtistsController < Sinatra::Base
+class ArtistsController < ApplicationController
 
   get '/artists/index' do
 
