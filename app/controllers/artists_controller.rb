@@ -4,7 +4,7 @@ class ArtistsController < ApplicationController
 
     @artists = Artist.all
 
-    erb :'artist/index'
+    erb :'/artists/index'
 
   end
 
