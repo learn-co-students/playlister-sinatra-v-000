@@ -1,0 +1,10 @@
+<h1>All Artists</h1>
+
+<% @artists.each do |artist| %>
+<p>Name: <%=artist.name%></p>
+<p>Songs: <%=artist.songs.each {|song|song.name}%></p>
+  <%if !artist.genres.empty?%>
+  <p>Genre(s): <%=artist.genres.each {|genre| genre.name} %></p>
+  <%end%>
+<p><a href="/artists/<%= artist.slug %>">Learn more about <%=artist.name%> here</a></p>
+<% end %>
