@@ -1,4 +1,5 @@
 <h1>Song Name: <%= @song.name %></h1>
+<%=binding.pry%>
 <h3>Song Artist: <a href="/artists/<%=@song.artist.slug%>"><%= @song.artist.name %></a> </h3>
 <h4>Song Genres: <% @song.genres.each do |genre| %>
   <li><a href="/genres/<%=genre.slug%>"> <%= genre.name %> </a> </li>

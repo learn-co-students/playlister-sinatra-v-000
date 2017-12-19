@@ -2,5 +2,31 @@
     <label for="Name">NAME: </label>
     <input type="text" name="Name">
     <input type="submit" name="submit" value="submit">
+    <label>Choose an existing artist:</label>
+    <br></br>
+    <% Artist.all.each do |artist| %>
+      <input type="radio" name="name" id="<%=artist.id%>" value="<%=artist.id%>"><%=artist.name%></input>
+    <%end%>
+    <br></br>
+
+    <label>Or, create a new artist:</label>
+    <br></br>
+    <label>Artist Name:</label>
+      <input  type="text" name="name"></input>
+    <br></br>
+    
+    <label>Choose genre(s):</label>
+    <br></br>
+    <% Genre.all.each do |genre| %>
+      <input type="checkbox" name="name" id="<%=genre.id%>" value="<%=genre.id%>"><%=genre.name%></input>
+    <%end%>
+    <br></br>
+
+    <label>Or, create a new genre:</label>
+    <br></br>
+    <label>Genre Name:</label>
+      <input  type="text" name="name"></input>
+    <br></br>
+    <input type="submit" name="submit" value="Create Song">
 
   </form>
