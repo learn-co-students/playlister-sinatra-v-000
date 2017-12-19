@@ -1,3 +1,5 @@
+require 'pry'
+
 module Slugifiable
 
 #instance method - @artist.slug
@@ -12,8 +14,19 @@ module Slugifiable
 #extend Slugifiable::Class
   module Class
     def find_by_slug(slug)
-      self.all.find {|x| x == slug}
+      slug = slug.split("-").map(&:capitalize)*' '
+      self.all.find_by(name: slug)
     end
   end
-
 end
+
+=begin
+
+describe "Class methods" do
+  it "given the slug can find an Artist" do
+    slug = "taylor-swift"
+    expect((Artist.find_by_slug(slug)).name).to eq("Taylor Swift")
+  end
+end
+
+=end
