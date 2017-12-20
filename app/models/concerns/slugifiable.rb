@@ -1,7 +1,9 @@
 module Slugifiable
 
   def slug
-    self.name.downcase.gsub(/[ .]/, "-")
+    if self.name
+      self.name.downcase.gsub(/[ .]/, "-")
+    end
   end
 
   def self.find_by_slug(name)
