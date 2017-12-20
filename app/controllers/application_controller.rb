@@ -47,7 +47,7 @@ class ApplicationController < Sinatra::Base
   patch '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])  
     @song.update(params[:song]) if !params[:song] == ""
-      @song.artist = Artist.find_or_create_by(name: params[:artist][:name]) if !params[:artist][:name].empty?      
+    @song.artist = Artist.find_or_create_by(name: params[:artist][:name]) if !params[:artist][:name].empty?      
     @song.genre_ids = params[:genres]
     @song.save
     flash[:message] = "Successfully updated song."
