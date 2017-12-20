@@ -36,6 +36,11 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    @song.name = params[:name] unless params[:name].empty?
+    @song.artist = params[:artist] unless params[:artist].empty?
+    @song.genres << Genre.find(params[:genres][0]) unless params[:genres[0]].empty?
+    @song.save
     flash[:message] = "Successfully edited song."
     redirect to "/songs/#{@song.slug}"
   end
