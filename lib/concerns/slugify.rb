@@ -11,8 +11,8 @@ module Slugify
 
   module InstanceMethods
     def slug
-      slugged = self.name
-      slugged.downcase.gsub(" ","-")
+
+      name.downcase.gsub(" ","-")
       # self.name.split(" ").map {|word|
       # word.downcase}.join("-")
     end
