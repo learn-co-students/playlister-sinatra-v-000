@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-
+  include Slugifiable
   get '/artists' do
     @artists = Artist.all
     erb :'/artists/index'

@@ -1,5 +1,5 @@
 class GenresController < ApplicationController
-
+  include Slugifiable
   get '/genres' do
 
     @genres = Genre.all

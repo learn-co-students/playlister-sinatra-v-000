@@ -1,12 +1,12 @@
 <h1>Main Page for the <%=@genre.name%> genre</h1>
 <h3>Artists associated with the genre:
   <% @genre.artists.each do |artist| %>
-    <li> <a href="/artists/<%=artist.slug%>"></a> <%=artist.name%></li>
+    <a href="/artists/<%=artist.slug%>"><%=artist.name%></a></li>
     <% end %>
 </h3>
 <h3>Songs associated with the genre:
 
   <% @genre.songs.each do |song| %>
-    <li> <a href="/songs/<%=song.slug%>"></a> <%=song.name%></li>
+    <li> <a href="/songs/<%=song.slug%>"><%=song.name%></a> </li>
     <% end %>
 </h3>

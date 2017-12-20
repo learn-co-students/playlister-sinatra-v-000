@@ -1,32 +1,27 @@
 <form action="/songs" method="post">
-    <label for="Name">NAME: </label>
-    <input type="text" name="Name">
-    <input type="submit" name="submit" value="submit">
-    <label>Choose an existing artist:</label>
+    <label for="Name">Name: </label>
+      <input type="text" name="Name">
+    <br></br>
+    <label>Choose Artist:</label>
     <br></br>
     <% Artist.all.each do |artist| %>
-      <input type="radio" name="name" id="<%=artist.id%>" value="<%=artist.id%>"><%=artist.name%></input>
+      <input type="radio" name="artist[name]" id="<%=artist.name%>" value="<%=artist.id%>"><%=artist.name%></input>
     <%end%>
+    <label for "Artist Name">Or, create a new artist</label>
+      <input type="text" name="Artist Name" id="artist_name"></input>
     <br></br>
 
-    <label>Or, create a new artist:</label>
-    <br></br>
-    <label>Artist Name:</label>
-      <input  type="text" name="name"></input>
-    <br></br>
-    
-    <label>Choose genre(s):</label>
+    <label>Choose Genre(s):</label>
     <br></br>
     <% Genre.all.each do |genre| %>
-      <input type="checkbox" name="name" id="<%=genre.id%>" value="<%=genre.id%>"><%=genre.name%></input>
+      <input type="checkbox" name="song[genre_ids][]" id="<%=genre.name%>" value="<%=genre.id%>"><%=genre.name%></input>
     <%end%>
     <br></br>
 
-    <label>Or, create a new genre:</label>
+    <label>And/or, create a new genre:</label>
     <br></br>
-    <label>Genre Name:</label>
-      <input  type="text" name="name"></input>
+      <input  type="text" name="genre[name]"></input>
     <br></br>
-    <input type="submit" name="submit" value="Create Song">
+    <input type="submit" name="submit" value="Create">
 
   </form>
