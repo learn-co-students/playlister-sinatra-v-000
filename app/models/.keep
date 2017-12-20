@@ -1,2 +1,11 @@
 class Actor < ActiveRecord::Base
 end
+
+# how do i seed data?
+# what do i need to put in my view-index?
+# why am i seeing requirement for rake db:migrate and then rake db:migrate SINATRA_ENV?
+# what is this error asking for?
+2) Playlister Basics index pages /songs displays a list of songs
+     Failure/Error: expect(page).to have_content(song_name)
+       expected #has_content?("That One with the Guitar") to return true, got false
+     # ./spec/features/04_basic_view_spec.rb:30:in `block (4 levels) in <top (required)>'
