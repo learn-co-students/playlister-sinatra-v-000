@@ -27,15 +27,22 @@ class SongsController < ApplicationController
   end
 
   get "/songs/:slug/edit" do
-    binding.pry
+    # binding.pry
     @song = Song.find_by_slug(params["slug"])
     erb :'songs/edit'
   end
 
-  patch "/songs/:slug/edit" do
+  patch "/songs/:slug" do
     @song = Song.find_by_slug(params["slug"])
-    if !@song(params).empty?
-      @song.update
+    if !params[:name].empty?
+      @song.update(name: params[:song_name])
     end
+    if !@params[:artist].empty?
+      @song.artist = Artist.find_or_create_by(name: params[:artist])
+    end
+    @song.genre_ids = params[:genres]
+    @song.save
+    flash[:message] = "Successfully updated song."
+    erb :'songs/show'
   end
 end
