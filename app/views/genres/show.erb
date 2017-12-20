@@ -1,7 +1,7 @@
 <h1>Main Page for the <%=@genre.name%> genre</h1>
 <h3>Artists associated with the genre:
   <% @genre.artists.each do |artist| %>
-    <a href="/artists/<%=artist.slug%>"><%=artist.name%></a></li>
+    <li><a href="/artists/<%=artist.slug%>"><%=artist.name%></a></li>
     <% end %>
 </h3>
 <h3>Songs associated with the genre:
