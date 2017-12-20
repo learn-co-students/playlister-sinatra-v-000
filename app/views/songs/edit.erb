@@ -11,7 +11,7 @@
   <label>Choose Artist:</label>
   <br></br>
   <% Artist.all.each do |artist| %>
-    <input type="radio" name="artist[name]" id="<%=artist.name%>" value="<%=artist.id%>"<%='checked' if @song.artist.name == artist.name %>><%=artist.name%></input>
+    <input type="radio" name="artist[name]" id="<%=artist.name%>" value="<%=artist.name%>"<%='checked' if @song.artist.name == artist.name %>><%=artist.name%></input>
   <%end%>
   <label for "Artist Name">Or, create a new artist</label>
     <input type="text" name="Artist Name" id="artist_name"></input>
@@ -32,5 +32,5 @@
   <label>name:</label>
     <input  type="text" name="genre[name]" id="genre_name"></input>
   <br></br>
-  <input type="submit" value="Update Song">
+  <input type="submit" value="Save">
 </form>
