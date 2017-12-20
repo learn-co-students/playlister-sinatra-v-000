@@ -5,15 +5,23 @@
 
   <br></br>
 
-  <input type="text" name="Name" id="owner_name" value="<%=@song.name%>">
+  <input type="text" name="Name" id="owner_name" value="<%=@song.name%>"></input>
 
+  <br></br>
+  <label>Choose Artist:</label>
+  <br></br>
+  <% Artist.all.each do |artist| %>
+    <input type="radio" name="artist[name]" id="<%=artist.name%>" value="<%=artist.id%>"<%='checked' if @song.artist.name == artist.name %>><%=artist.name%></input>
+  <%end%>
+  <label for "Artist Name">Or, create a new artist</label>
+    <input type="text" name="Artist Name" id="artist_name"></input>
   <br></br>
 
   <label>Choose an existing Genre:</label>
 
   <br></br>
 
-  <%Genre.all.each do |pet|%>
+  <%Genre.all.each do |genre|%>
     <input type="checkbox" name="song[genre_ids][]" id="<%= genre.name%>" value="<%=genre.id%>" <%='checked' if @song.genres.include?(genre) %>><%=genre.name%></input>
   <%end%>
 
