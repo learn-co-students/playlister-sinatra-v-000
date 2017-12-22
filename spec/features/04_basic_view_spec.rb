@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe "Playlister Basics" do
   let(:artist_name) { "Person with a Face" }
@@ -12,7 +13,7 @@ describe "Playlister Basics" do
 
     @song.song_genres.create(genre: @genre)
     @song.artist = @artist
-  
+
     @song.save
   end
 
@@ -95,6 +96,7 @@ describe "Playlister Basics" do
       end
 
       it "contains links to each genre's show page" do
+        
         expect(page).to have_css("a[href='/genres/#{@genre.slug}']")
       end
     end
