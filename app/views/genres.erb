@@ -1,0 +1,9 @@
+
+<ul>
+  
+  <% @genres.each do |genre| %>
+    <%#binding.pry%>  
+    <li><a href="/genres/<%=genre.slug%>"><%= genre.name %></a></li>
+    <% #binding.pry %>
+  <% end %>
+</ul>
