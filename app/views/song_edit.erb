@@ -1,0 +1,19 @@
+
+<form method="post" action="/songs/<%=@song.slug%>">
+<input type="hidden" name="_method" value="patch">
+
+<h2>Artist name is <%=@song.name%>. Change it to? 
+<input type="text" value="Artist Name" id="Artist Name" name="Artist Name"></h2>
+
+  <% Genre.all.each do |genre| %>
+ <label><%= genre.name %></label>
+    <input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>" id="<%=genre.name%>" <%='checked' if @song.genres.include?(genre) %>>
+  <% end %>
+
+   
+  <% #binding.pry %>
+
+<input type="submit" value="Save"> 
+
+</form>
+
