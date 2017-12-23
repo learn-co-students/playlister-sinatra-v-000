@@ -1,10 +1,16 @@
-class SongsController < Sinatra::Base
+require 'rack-flash'
+
+class SongsController < ApplicationController
+
+  use Rack::Flash
 
   get '/songs' do
     erb :'/songs/index'
   end
 
-  get '/songs' do
-
+  get '/songs/new' do
+    erb :'/songs/new'
   end
+
+
 end
