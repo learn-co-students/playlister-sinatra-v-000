@@ -8,8 +8,17 @@ ActiveRecord::Base.establish_connection(
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
-DB = ActiveRecord::Base.connection
+configure :development do
+  set :database, 'sqlite3:db/genres.db'
+end
 
+
+#DBRegistry[ENV["PLAYLISTER_ENV"]].connect!
+#DB = ActiveRecord::Base.connection
+
+if ENV["PLAYLISTER_ENV"] == "test"
+  ActiveRecord::Migration.verbose = false
+end
 
 require_all 'app'
 require_all 'lib'
