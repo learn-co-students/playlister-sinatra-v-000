@@ -8,4 +8,11 @@ class SongsController < ApplicationController
     erb :'/songs/index'
   end
 
+  get '/songs/:slug' do
+    @song=Song.find_by_slug(params[:slug])
+    puts :slug
+    puts @song
+    erb :'/songs/show'
+  end
+
 end
