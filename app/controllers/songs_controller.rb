@@ -13,5 +13,11 @@ class SongsController < ApplicationController
     erb :'/songs/new'
   end
 
+  post '/songs' do
+    #code for creating and saving a new song
+    flash[:message] = "Successfully created song."
+    redirect to("/songs/#{@song.slug}")
+  end
+
 
 end
