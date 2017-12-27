@@ -8,5 +8,14 @@ ActiveRecord::Base.establish_connection(
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
+configure :development do
+  set :database, 'sqlite3:db/song_genres.db'
+end
+
+
+#DBRegistry[ENV["PLAYLISTER_ENV"]].connect!
+#DB = ActiveRecord::Base.connection
+
+
 require_all 'app'
 require_all 'lib'
