@@ -1,0 +1,7 @@
+<h1><%= @genre.name.split(" ").collect {|i| i.split("").first.upcase + i[1..-1]}.join(" ") %></h1>
+
+<h4>Song(s):</h4>
+<% @genre.songs.each do |song| %>
+  <p><a href="/songs/<%= song.slug %>"><%= song.name %></a> by <a href="/artists/<%= song.artist.slug %>"><%= song.artist.name %></a>
+</p>
+<% end %>
