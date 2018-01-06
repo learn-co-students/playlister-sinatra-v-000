@@ -21,4 +21,8 @@ class ApplicationController < Sinatra::Base
     @genres = Genre.all
     erb :'genres/index'
   end
+
+  get 'songs/:slug' do
+    erb ::'songs/show'
+  end
 end
