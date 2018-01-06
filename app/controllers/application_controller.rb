@@ -30,4 +30,12 @@ class ApplicationController < Sinatra::Base
     @genre = Genre.all.find_by(id: @song.genre_ids[0])
     erb :'songs/show'
   end
+
+  get '/artists/:slug' do
+    @artist = artist.all.find do |artist|
+              artist.slug == params[:slug]
+            end
+            binding.pry
+    erb :'artists/show'
+  end
 end
