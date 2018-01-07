@@ -22,6 +22,21 @@ class ApplicationController < Sinatra::Base
     erb :'genres/index'
   end
 
+  get '/songs/new' do
+    @genres = Genre.all
+    erb :'songs/new'
+  end
+
+  post '/songs' do
+    @song = Song.create(name: params[:song][:name])
+    @artist = Artist.create(name: params[:artist][:name])
+    @genre = Genre.all.find_by(name: params[:genre][:name])
+    @song.artist_id = @artist.id
+    @song.genre_ids = @genre.id
+    @song.save
+    redirect to "songs/#{@song.slug}"
+  end
+
   get '/songs/:slug' do
     @song = Song.all.find do |song|
               song.slug == params[:slug]
@@ -32,10 +47,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/artists/:slug' do
-    @artist = artist.all.find do |artist|
-              artist.slug == params[:slug]
-            end
-            binding.pry
+    @artist = Artist.all.find { |artist| artist.slug == params[:slug] }
     erb :'artists/show'
+  end
+
+  get '/genres/:slug' do
+    @genre = Genre.all.find { |genre| genre.slug == params[:slug] }
+    erb :'genres/show'
   end
 end
