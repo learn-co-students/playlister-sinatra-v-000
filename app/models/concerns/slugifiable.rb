@@ -10,7 +10,11 @@ module Slug
     def find_by_slug(slug)
       slug = slug.split("-")
       slug.collect! do |word|
-        word.capitalize
+        if word != 'with' && word != 'the'
+          word.capitalize
+        else
+          word
+        end
       end
       slug = slug.join(" ")
       self.all.find_by(name: slug)

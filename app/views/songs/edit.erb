@@ -1,0 +1,15 @@
+<h1>You are editing: <a href="/songs/<%= @song.slug %>"><%= @song.name %></a></h1>
+<h2>By: <a href="/artists/<%= @artist.slug %>"><%= @artist.name %></a></h2>
+<h2>Genre: <a href="/genres/<%= @genre.slug %>"><%= @genre.name %></a></h2>
+
+<form method="POST" action="/songs/<%= @song.slug %>">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <h2>NEW INFO:</h2>
+  Song:  <input type="text" name="song[:name]"  id="Song Name">
+  <br></br>
+  Artist: <input type="text" name="artist[:name]"  id="Artist Name">
+  <br></br>
+  Genre: <input type="text" name="genre[:name]"  id="Genre Name">
+  <br></br>
+  <input type="submit" value="Save">
+</form>
