@@ -1,0 +1,10 @@
+<h3>Here's your favorite artist:</h3>
+  <h6><%=@artist.name%></h6>
+
+    <%@artist.songs.each do |song|%>
+    <p><a href="/songs/<%=song.slug%>"><%= song.name %></a></p>
+    <%end%>
+
+    <%@artist.genres.each do |genre|%>
+    <p><a href="/genres/<%=genre.slug%>"><%= genre.name %></a></p>
+    <%end%>

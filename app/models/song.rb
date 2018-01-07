@@ -6,13 +6,11 @@ class Song < ActiveRecord::Base
   has_many :genres, through: :song_genres
 
   def slug
-    @slug = name.gsub(/[^\s\w]/, '').gsub(/\s{1,}/, '-')
+    name.gsub(/[^\s\w]/, '').gsub(/\s{1,}/, '-').downcase
   end
 
   def self.find_by_slug(slug)
-    char = slug.gsub('-', ' ')
-    self.all.detect {char}
+    Song.all.detect{|song| song.slug == slug}
   end
 
-  binding.pry
 end
