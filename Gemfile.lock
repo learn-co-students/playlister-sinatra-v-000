@@ -49,6 +49,8 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rack (1.6.4)
+    rack-flash3 (1.0.5)
+      rack
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -85,7 +87,6 @@ GEM
       rack (~> 1.0)
     thread_safe (0.3.5)
     tilt (2.0.2)
-    titleize (1.4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     xpath (2.0.0)
@@ -99,6 +100,7 @@ DEPENDENCIES
   capybara
   database_cleaner!
   pry
+  rack-flash3
   rack-test
   rake
   require_all
@@ -108,7 +110,6 @@ DEPENDENCIES
   sinatra-activerecord
   sqlite3
   thin
-  titleize
 
 BUNDLED WITH
    1.16.0
