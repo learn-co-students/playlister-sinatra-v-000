@@ -43,8 +43,7 @@ class SongsController < Sinatra::Base
 
   patch '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    @song.artist.update(params[:artist])
-    @song.genre_ids.update(params[:genre])
+    @song.update(params)
     flash[:message] = "Successfully updated song."
     redirect to "songs/#{@song.slug}"
   end
