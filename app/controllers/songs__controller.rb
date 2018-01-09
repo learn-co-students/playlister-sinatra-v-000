@@ -1,9 +1,7 @@
 require 'rack-flash'
-require 'rack/flash/test'
 
 class SongsController < ApplicationController
-  enable :sessions
-  use Rack::Flash
+  use Rack::Flash, :sweep => true
 
   get '/songs' do
     @songs = Song.all
