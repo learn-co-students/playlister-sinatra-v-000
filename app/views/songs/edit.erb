@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Playlister</title>
+  </head>
+
+  <body>
+    <h1>Edit <%= @song.name %></h1>
+    <form action="/songs/<%= @song.slug %>" method="post">
+      <input id="hidden" type="hidden" name="_method" value="patch">
+
+      <label for="song_name">Song Name: </label>
+      <input id='Name' type='text' name='Name' value="<%= @song.name %>"><br>
+
+      <label for="artist_name">Artist Name: </label>
+      <input id="Artist Name" type='text' name="Artist" value="<%= @song.artist.name %>"><br>
+
+      <% Genre.all.each do |genre| %>
+      <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+      <%= genre.name %>
+      <% end %>
+      <br>
+      <input type='submit' value='Save'>
+    </form>
+  </body>
+</html>
