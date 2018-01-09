@@ -1,0 +1,7 @@
+<h1>Songs Index Page, shows all songs</h1>
+
+<ul>
+    <%@songs.each do |s|%>
+      <li>Song: <%=s.name%>, by: <%=s.artist_id%></li>
+    <%end%>
+</ul>
