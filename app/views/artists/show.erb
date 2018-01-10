@@ -5,6 +5,6 @@
   <% end %>
 <br>
 <h3>Genres:</h3>
-<% @artist.genres.each do |g| %>
+<% @artist.genres.uniq.each do |g| %>
   <p><a href="/genres/<%= g.slug %>"><%= g.name %></a></p>
   <% end %>
