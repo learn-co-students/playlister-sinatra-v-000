@@ -1,4 +1,4 @@
-class CreateSongs < ActiveRecord::Migration
+class CreateGenres < ActiveRecord::Migration
   def change
     create_table :songs do |t|
       t.string :name
