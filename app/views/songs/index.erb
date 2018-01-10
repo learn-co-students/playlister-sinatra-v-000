@@ -2,6 +2,6 @@
 
 <ul>
     <%@songs.each do |s|%>
-      <li>Song: <%=s.name%>, by: <%=s.artist_id%></li>
+      <li>Song: <a href="/songs/"><%=s.name%></a>, by: <%=s.artist_id%></li>
     <%end%>
 </ul>

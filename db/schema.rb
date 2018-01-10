@@ -27,9 +27,8 @@ ActiveRecord::Schema.define(version: 20180108021654) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "name"
-    t.string "artist_id"
+    t.string  "name"
+    t.integer "artist_id"
   end
 
 end
-#Note, after the schema is setup properly, in the environment.rb file in the config directory, we need to 'require_all 'lib'' to all allow the parsing file labeled library_parser.rb to be accessable. Then in our seeds.rb file in our db directory, call the classe method parse on the Library Class by "libraryParser.parse".  This allows rake db:seed to work and to have the libraryParser class parse through the names of files in the db/data directory and populate our database
