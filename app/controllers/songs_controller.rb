@@ -22,7 +22,7 @@ class SongsController < ApplicationController
   get '/songs/:slug/edit' do
     @genres = Genre.all
     @song = Song.find_by_slug(params[:slug])
-    erb :"/songs/edit"
+    erb :"songs/edit"
   end
 
   post '/songs/:slug' do
