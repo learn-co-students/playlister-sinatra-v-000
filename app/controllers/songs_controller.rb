@@ -1,6 +1,9 @@
+require 'rack-flash'
 require 'pry'
 class SongsController < ApplicationController
 
+  use Rack::Session::Cookie
+  use Rack::Flash
 
   get '/songs' do
     @songs = Song.all
