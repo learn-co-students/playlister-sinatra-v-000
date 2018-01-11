@@ -1,5 +1,5 @@
 require 'rack-flash'
-
+require 'pry'
 class SongsController < ApplicationController
   use Rack::Flash
 
@@ -37,9 +37,10 @@ class SongsController < ApplicationController
     @song.name.update(params["Name"])
     @song.artist = Artist.find_or_create_by(params["Artist Name"])
     @song.artist.update
-    @song.genres = Genre.find_by(params["Genres"])
+    @song.genres = Genre.find_by(params["song"]["genre_ids"])
     @song.genres.update
     flash[:message] = "Successfully updated song."
-    redirect "/songs/#{@song.slug}"
+    redirect to "/songs/#{@song.slug}"
   end
+
 end

@@ -12,4 +12,7 @@ Dir[File.join(File.dirname(__FILE__), "app/controllers", "*.rb")].collect {|file
 end
 
 use Rack::MethodOverride
+use SongsController
+use ArtistsController
+use GenresController
 run ApplicationController
