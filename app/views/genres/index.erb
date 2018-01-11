@@ -1,0 +1,5 @@
+<form class="" action="" method="post">
+  <% @genre.each do |genre| %>
+    <a href="/genres/<%=genre.slug%>"><%=genre.name%></a>
+  <%end%>
+</form>
