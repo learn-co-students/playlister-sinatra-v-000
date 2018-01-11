@@ -3,10 +3,13 @@
 
   <%Song.all.each do |i|%>
     <h3>
-      <a href="/songs/<%=i.slug%>"><%=i.name%></a><br>
+      Song title: <a href="/songs/<%=i.slug%>"><%=i.name%></a><br>
     </h3>
+
+    <h4>Genres:
         <li><%i.genres.each do |i|%>
             <a href="/genres/<%=i.slug%>"><%=i.name%></a><br>
           <%end%>
         </li>
+    </h4>
   <%end%>
