@@ -7,8 +7,7 @@ module Useful
 
   module ClassMethods
     def find_by_slug(slug)
-      hey = self.all.each {|hey| hey.slug == slug}
-      hey.first
+      self.all.bsearch {|hey| hey.slug == slug}
     end
   end
 
