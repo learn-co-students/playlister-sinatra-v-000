@@ -8,7 +8,7 @@
 # system, you should be using db:schema:load, not running all the migrations
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
-#
+# song_genres is join table
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20180108021654) do
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180108021654) do
   create_table "genres", force: :cascade do |t|
     t.string "name"
   end
+
 
   create_table "song_genres", force: :cascade do |t|
     t.integer "song_id"

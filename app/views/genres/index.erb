@@ -1,10 +1,8 @@
-<!--
-<h1>Genres Index Page, shows all songs</h1>
+<h1>Genres Index Page, shows all genres</h1>
 
+<h3>Genres:</h3>
 <ul>
-    <%@genres.each do |g|%>
-      <li>Genre: <%=g.name%>, by: </li>
+    <%@genres.each do |s|%>
+      <li><a href="/genres/<%=s.slug%>"><%=s.name%></a>, </li>
     <%end%>
 </ul>
-
--->
