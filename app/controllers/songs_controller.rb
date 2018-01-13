@@ -26,17 +26,9 @@ post '/songs' do
 
    redirect to "/songs/#{@song.slug}"
  end
-#   @song = Song.create(name: params["Name"])
-#   if !params["artist"]["name"].empty?
-#   @song.artist = Artist.create(name: params["artist"]["name"])
-#   end
-#   @song.save
-#   flash[:message] = "Successfully created song."
-# redirect to "/songs/#{@song.slug}"
-# end
 
 get 'songs/:slug/edit' do
-    @songs = Song.find_by_slug(params[:slug])
+    @song = Song.find_by_slug(params[:slug])
     erb :'/songs/edit'
   end
 
