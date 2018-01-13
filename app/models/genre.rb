@@ -6,7 +6,7 @@ class Genre < ActiveRecord::Base
     def slug
       name.downcase.gsub(" ","-")
 end
-    def self.find_by_slug_method(slug)
+    def self.find_by_slug(slug)
       Genre.all.find{|genre| genre.slug == slug}
     end
   end

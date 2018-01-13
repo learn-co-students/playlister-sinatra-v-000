@@ -6,7 +6,7 @@ class Song < ActiveRecord::Base
     def slug
       name.downcase.gsub(" ","-")
 end
-    def self.find_by_slug_method(slug)
+    def self.find_by_slug(slug)
       Song.all.find{|song| song.slug == slug}
     end
   end
