@@ -1,0 +1,4 @@
+<% @genres.each do |genre| %>
+    <input id="<%= genre.name %>" type="text" name="genres[]" value="<%= genre.id %>">
+    <a href="/genres/<%= genre.slug %>"> <%= genre.name %> </a><br>
+  <% end %>
