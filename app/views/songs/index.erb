@@ -1,0 +1,8 @@
+<h1>Songs Index Page, shows all songs</h1>
+
+<h3>Song:</h3>
+<ul>
+    <%@songs.each do |s|%>
+      <li><a href="/songs/<%=s.slug%>"><%=s.name%></a></li>
+    <%end%>
+</ul>
