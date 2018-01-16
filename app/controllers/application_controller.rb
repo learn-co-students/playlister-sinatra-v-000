@@ -5,6 +5,8 @@ class ApplicationController < Sinatra::Base
   use ArtistsController
   use SongsController
   use GenresController
+  enable :sessions
+  use Rack::Flash
 
   get '/' do
     erb :index
