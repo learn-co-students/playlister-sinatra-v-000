@@ -29,11 +29,19 @@ class SongsController < Sinatra::Base
   end
 
   get '/songs/:slug/edit' do
-    @song = Song.find(params[:id])
-    erb :'/songs/edit'
+    @song = Song.find_by_slug(params[:slug])
+    erb :edit
   end
 
-  post '/songs/:slug/edit' do
+  #update
+  patch '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    @song.update(params[:song])
+    @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
+    @song.save
+
+    flash[:message] = "Successfully updated song."
+    redirect("/songs/#{@song.slug}")
   end
 
 end
