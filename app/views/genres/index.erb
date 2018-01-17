@@ -1,0 +1,4 @@
+views/genres/index.erb
+<% @genres.each do |genre| %>
+  <li><a href="/genres/<%=genre.slug%>"> <%= genre.name %></a></li>
+<% end %>

@@ -1,0 +1,11 @@
+views/songs/show via /songs/:slug
+<br></br>
+<p>Successfully created song.</p>
+<p>Successfully updated song.</p>
+<%= @song.name %>
+<br></br>
+<a href="/artists/<%=@song.artist.slug%>"><%= @song.artist.name %></a>
+<br></br>
+<% @song.genres.each do |g| %>
+  <a href="/genres/<%=g.slug%>"><%= g.name %></a>
+<%end%>
