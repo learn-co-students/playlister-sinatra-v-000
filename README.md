@@ -1,10 +1,10 @@
 # Sinatra Playlister
 
-##Objectives
+##Objectives 
 
-* Solidify your ActiveRecord understanding
+* Solidify your ActiveRecord understanding 
 * Build out basic views for all your models
-* Create forms for editing and creating a new song that returns a well-structured params hash
+* Create forms for editing and creating a new song that returns a well-structured params hash 
 
 
 ### Overview
@@ -82,12 +82,12 @@ To get the data into your database, you will want to figure out how to use your 
 
 ### How to approach this lab
 
-Get the basics of the app working first, which means we have five specs in total and you should first pass all three model specs.
+Get the basics of the app working first, which means we have five specs in total and you should first pass all three model specs. 
 
-By typing
+By typing 
 
 ```bash
-rspec spec/models/01_artist_spec.rb
+rspec spec/models/01_artist_spec.rb 
 ```
 
 in your bash/ command line you will only run that spec. It is important to run the specs in their numeric order. You will notice even after adding a table, model, and controller your specs are still not passing, but the error messages are changing. You have to read every error message carefully to understand what to do next.
@@ -101,7 +101,7 @@ For the last spec `05_song_form_spec.rb` you need to implement the following fea
 2. `/songs/:slug/edit`
   * Be able to change everything about a song, including the genres associated with it and its artist.
 
-Think about the custom writer or writers you may need to write to make these features work.
+Think about the custom writer or writers you may need to write to make these features work. 
 
 ### Slugs
 
@@ -111,7 +111,7 @@ But again, we run into a problem here. We can't have spaces in a URL. In order t
 
 You are going to need to create some slugs in this lab. A slug is used to create a name that is not acceptable as a URL for various reasons (special characters, spaces, etc). This is great because instead of having a route like `/songs/1`, you can have a route `/songs/hotline-bling` which is a much more descriptive route name.
 
-Each class you build will need to have a method to slugify each object's name. This means you'll need to strip out any special characters, and replace all spaces with `-`.
+Each class you build will need to have a method to slugify each object's name. This means you'll need to strip out any special characters, and replace all spaces with `-`. 
 
 You'll need to build a method `slug` which takes a given song/artist/genre name and create the "slugified" version.
 
@@ -119,17 +119,15 @@ The `find_by_slug` method should use the `slug` method to retrieve a song/artist
 
 ## Check Boxes
 
-In order to create a check box of all the genres on a new song form, you'll need to iterate over all the Genres in the database. From there, you'll want to set the genre name as the ID of the input tag.
+In order to create a check box of all the genres on a new song form, you'll need to iterate over all the Genres in the database. From there, you'll want to set the genre name as the ID of the input tag. 
 
 The value attribute should be set to the genre id.
 
-The name attribute should be set to set to `genres[]` because we're dealing with a collection of attributes. This will make the params hash look like this:
-
+The name attribute should be set to set to `genres[]` because we're dealing with a collection of attributes. This will make the params hash look like this: 
 ```ruby
 params = {
   genres => [ genre1, genre2, genre2]
 }
-```
 
 ```html
 <% Genre.all.each do |genre| %>
@@ -139,45 +137,25 @@ params = {
 
 ## Flash Message
 
-You can add a flash message for when a new instance is created. Let's take a new song creation as an example.
-
-First, add `gem 'rack-flash3'` to the Gemfile; run `bundle` to install it.
-
-You can see in Rack Flash's [Sinatra](https://github.com/treeder/rack-flash#sinatra)
-section the basics for getting flash messages working with Sinatra.
-
-(Note: You'll need to `enable :sessions` for your application and `use Rack::Flash`
-in the appropriate controller.)
-
-You'll want to add a flash message to the `post '/songs'` and
-`patch '/songs/:slug'` actions. `post '/songs'` might look something like:
+You can add a flash message for when a new instance is created. Let's take a new song creation. The controller action that handles the POST request will look something like this:
 
 ```ruby
 post '/songs' do
-  # ...
-  # ^ code for creating and saving a new song
-  flash[:message] = "Successfully created song."
-  redirect to("/songs/#{@song.slug}")
+  #code to create a new song and save to DB
+  erb :'songs/show', locals: {message: "Successfully created song."}
 end
 ```
 
-To display this message in the view, just add
+The `locals: {message: "Successfully created song."}` will create the message `"Successfully created song."`. To display that on the view, You will need to include this at the top:
 
 ```html
-<!-- views/songs/show.erb -->
-
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
+views/songs/new.erb
+<% unless locals.empty? %>
+  <%= message %>
 <% end %>
 ```
 
-to the top of the view.
-
-## A Note on the Database
-
-Remember too that you can drop and recreate your database as much as you need
-to. If you hit a jam, just reset the db, run migrations, and pick up where you
-left off.
+This checks to see if the variable `locals` is empty. If it isn't, then it displays message, which we set in the controller to store `"Successfully created song."`
 
 ### Resources
 * [Clean URL - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
