@@ -1,0 +1,46 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <a class="navbar-brand" href="#">The Playlister</a>
+  <ul class="nav nav-pills">
+    <li class="nav-item active">
+      <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/artists">Artists</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/genres">Genres</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/songs">Songs <span class="sr-only">(current)</span></a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="starter-template">
+    <h1><%=@song.name%></h1>
+    <h2>Preformed by: <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a></h2>
+    <h2>Genre:
+    <% @song.genres.uniq.each do |genre| %>
+    <%= "<a href='/genres/#{genre.slug}'>#{genre.name}</a> " %>
+    <% end %></h2>
+      <div class="row">
+        <div class="col-xs-6">
+          <form action="/songs/<%=@song.slug%>/edit">
+            <input type="submit" value="edit" />
+          </form>
+        </div>
+        <div class="col-xs-6">
+          <form method="post" action="/songs/<%=@song.slug%>/delete">
+            <input id="hidden" type="hidden" name="_method" value="delete">
+            <input type="submit" value="delete" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /.container -->

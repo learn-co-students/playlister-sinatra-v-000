@@ -1,0 +1,56 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <a class="navbar-brand" href="#">The Playlister</a>
+  <ul class="nav nav-pills">
+    <li class="nav-item active">
+      <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/artists">Artists</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/genres">Genres</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/songs">Songs <span class="sr-only">(current)</span></a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="starter-template">
+    <h1>New Song</h1><br />
+    <form method="post" action="/songs/<%= @song.slug %>">
+      <input type="hidden" name="_method" value="PATCH">
+
+      <div class="form-group row">
+        <div class="offset-xs-3 col-xs-6">
+          <input class="form-control" type="text" name="song_name" placeholder="Song Name" id="Name" value="<%=@song.name%>">
+        </div>
+      </div>
+      <div class="form-group row">
+        <h3>Enter an Artist name</h3>
+      </div>
+      <div class="form-group row">
+        <div class="offset-xs-3 col-xs-6">
+          <input class="form-control" type="text" name="artist_name" placeholder="Artist Name" id="Artist Name" value="<%=@song.artist.name%>">
+        </div>
+      </div>
+      <div class="form-group row">
+        <h3>Select the Song's Genres</h3>
+      </div>
+      <div class="form-group row">
+        <% Genre.all.each do |genre| %>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" <%='checked' if @song.genres.include?(genre) %> type="checkbox" name="song[genre_ids][]" value="<%= genre.id %>" name="<%= genre.name %>" id="<%= genre.name %>">
+            <%= genre.name %>
+          </label>
+        </div>
+        <% end %>
+      </div>
+      <div class="form-group row">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div><!-- /.container -->
