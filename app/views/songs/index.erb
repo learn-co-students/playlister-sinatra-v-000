@@ -1,0 +1,7 @@
+<h2><%=@songs.map do |x|
+"#{x.name}"
+end%></h2>
+<%@songs.map do |x|%>
+<a href=<%="/songs/#{x.slug}"%>>
+<%end%>
+

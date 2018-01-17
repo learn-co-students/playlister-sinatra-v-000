@@ -1,0 +1,7 @@
+<h2><%=@genres.map do |x|
+"#{x.name}"
+end%></h2>
+<%@genres.map do |x|%>
+<a href=<%="/genres/#{x.slug}"%>>
+<%end%>
+
