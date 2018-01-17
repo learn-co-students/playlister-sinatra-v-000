@@ -1,0 +1,39 @@
+<% if flash.has?(:message) %>
+<%= flash[:message] %>
+<% end %>
+
+<h1>Here's Your Artist:</h1>
+
+  <h2>Artist:  <%=@artist.name%></h2> 
+
+<h2>Songs: </h2>
+ <%@song_array.uniq!%> 
+  <%@song_array.each do |song|%>
+    <p><a href="/songs/<%=song.slug%>"><%=song.name%></a></p>
+  <%end%>
+
+<h2>Genres: </h2>
+  <%@song_genres.uniq!%>
+  <%@song_genres.each do |sg|%>
+  <p><a href="/genres/<%=sg.slug%>"><%=sg.name%></a></p>
+  
+  <%end%>
+
+  
+  <!--- artists have songs and genres, hence the official solution!:
+
+  <ul>
+  <% @artist.songs.each #do |song| %>
+    <li><a href="/songs/<%= song.slug %>"><%= song.name %> </a></li>
+  <% #end %>
+</ul>
+
+<ul>
+  <% @artist.genres.each #do |genre| %>
+    <li><a href="/genres/<%= genre.slug %>"><%= genre.name %> </a></li>
+  <% #end %>
+</ul> -->
+
+
+
+
