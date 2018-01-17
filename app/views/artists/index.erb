@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All Artists</title>
+  </head>
+  <body>
+    <p>Artists:</p>
+    <% @artists.each do |artist| %>
+      <p>Name: <a href="/artists/<%= artist.slugify %>">artist.name</a></p>
+      <br>
+    <% end %>
+  </body>
+</html>

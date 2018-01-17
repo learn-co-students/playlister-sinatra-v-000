@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All Songs</title>
+  </head>
+  <body>
+    <p>Songs:</p>
+    <% @songs.each do |song| %>
+      <p>Name: <a href="/songs/<%= song.slugify %>">song.name</a></p>
+      <p>Artist: <%= song.artist %></p>
+      <p>Genre: <%= song.genre %></p>
+      <br>
+    <% end %>
+  </body>
+</html>

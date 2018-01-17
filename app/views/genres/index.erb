@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All Genres</title>
+  </head>
+  <body>
+    <p>Genres:</p>
+    <% @genres.each do |genre| %>
+      <p>Name: <a href="/genres/<%= genre.slugify %>">genre.name</a></p>
+      <br>
+    <% end %>
+  </body>
+</html>
