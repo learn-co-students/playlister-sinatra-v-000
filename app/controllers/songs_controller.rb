@@ -1,40 +1,20 @@
-class ApplicationController < Sinatra::Base
-  register Sinatra::ActiveRecordExtension
-  set :session_secret, "my_application_secret"
-  set :views, Proc.new { File.join(root, "../views/") }
+class SongsController < ApplicationController
 
-  get '/songs' do
-    erb :song_list
-  end
 
-  get '/genres' do
-    erb :genre_list
-  end
+get '/songs' do
+   erb :song_list
+ end
 
-  get '/artists' do
-    erb :artist_list
-  end
+ get '/songs/:slug' do
+     if params[:slug] == "new"
+       erb :new_song
+     else
+       @song = Song.find_by_slug(params[:slug])
+       erb :show_song
+     end
+   end
 
-  get '/songs/:slug' do
-    if params[:slug] == "new"
-      erb :new_song
-    else
-      @song = Song.find_by_slug(params[:slug])
-      erb :show_song
-    end
-  end
-
-  get '/artists/:slug' do
-    @artist = Artist.find_by_slug(params[:slug])
-    erb :show_artist
-  end
-
-  get '/genres/:slug' do
-    @genre = Genre.find_by_slug(params[:slug])
-    erb :show_genre
-  end
-
-  post '/songs/new' do
+   post '/songs/new' do
     @song = Song.find_by(name: params[:Name])
     if @song == nil
       @song = Song.create(name: params[:Name])
@@ -52,7 +32,7 @@ class ApplicationController < Sinatra::Base
       SongGenre.create(genre_id: a, song_id: @song.id)
     end
 
-    redirect to "songs/#{@song.slug}"
+    erb :created_song
   end
 
   get '/songs/:slug/edit' do
@@ -76,8 +56,11 @@ class ApplicationController < Sinatra::Base
       SongGenre.create(genre_id: a, song_id: @song.id)
     end
 
-    redirect to "/songs/#{@song.slug}"
+    erb :updated_song
 
   end
+
+
+
 
 end
