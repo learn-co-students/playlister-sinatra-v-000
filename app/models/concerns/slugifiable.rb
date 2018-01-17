@@ -1,15 +1,15 @@
 class Slugify
   module ClassMethods
     def find_by_slug(slug)
-      name = slug.split('-').collect{|word| word.capitalize}.join(' ')
-      self.all.find_by_name(name)
+      self.all.find{|i| i.slug == slug} # case-sensitive so "unsluging" is too complicated
     end
 
   end
 
   module InstanceMethods
     def slug
-      self.name.sub!(' ', '-').downcase
+      slug = self.name.gsub(' ', '-').downcase
+      slug
     end
   end
 

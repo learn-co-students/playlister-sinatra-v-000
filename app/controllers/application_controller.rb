@@ -4,6 +4,14 @@ class ApplicationController < Sinatra::Base
   set :views, Proc.new { File.join(root, "../views/") }
 
   get '/' do
+    # @song = Song.create(name: "Person with a Face")
+    # @genre = Genre.create(name: "New Age Garbage")
+    # @artist = Artist.create(name: "That One with the Guitar")
+    #
+    # @song.song_genres.create(genre: @genre)
+    # @song.artist = @artist
+    #
+    # @song.save
     erb :index
   end
 end

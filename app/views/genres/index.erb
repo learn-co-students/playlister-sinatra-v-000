@@ -6,8 +6,8 @@
   </head>
   <body>
     <p>Genres:</p>
-    <% @genres.each do |genre| %>
-      <p>Name: <a href="/genres/<%= genre.slugify %>">genre.name</a></p>
+    <% @genres.each.with_index do |genre, i| %>
+      <p><%= i %>. <a href="/genres/<%= genre.slug %>"><%= genre.name %></a></p>
       <br>
     <% end %>
   </body>
