@@ -1,0 +1,32 @@
+<h1>Update Song in Fields Below</h1>
+<h1>Current Info </h1>
+<h2>Name: <%=@song.name%></h2>
+<h2>Artist: <%=@song.artist.name%></h2>
+<h3><a href="/artists/<%=@song.artist.slug%>">View Artist's Page</a></h3>
+<h3>Genre(s): <%@song.genres.collect do |genre|%>
+                  <a href="/genres/<%=genre.slug%>"><%=genre.name%></a>
+              <%end.join(", ")%>
+</h3>
+<h1>Change Info Below to Update Song</h1>
+
+<form action="/songs/<%=@song.slug%>" method="POST">
+  <label>Name:</label>
+
+  <br></br>
+
+  <input type="text" name="artist_name" id="Artist Name" value="<%=@song.artist.name%>">
+
+  <%Genre.all.each do |genre|%>
+    <input type="checkbox" name="genre_ids[]" id="<%=genre.name%>" value="<%=genre.id%>" <%='checked' if @song.genres.include?(genre) %>><%=genre.name%></input>
+  <%end%>
+
+  <br></br>
+
+  <label>and/or, create a new genre:</label>
+  <br></br>
+  <label>name:</label>
+    <input  type="text" name="genre[name]" id="genre_name"></input>
+  <br></br>
+
+  <input type="submit" value="Save">
+</form>

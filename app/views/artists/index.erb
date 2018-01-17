@@ -1,0 +1,12 @@
+<h3>Artists in Your Library:</h3>
+<ul>
+  <%@artists.each do |artist|%>
+    <h5>Name: <%=artist.name%></h5>
+    <li>Genre(s):
+      <%=artist.genres.collect do |genre|
+          genre.name
+        end.join(", ")%>
+    </li>
+    <li><a href="/artists/<%=artist.slug%>">View Artist</a></li>
+  <%end%>
+</ul>

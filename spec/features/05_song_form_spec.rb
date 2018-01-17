@@ -26,6 +26,7 @@ describe "Song Forms" do
       it "creates a new song on submit" do
         fill_in "Name", with: song_name
         check "New Age Garbage"
+        
         fill_in "Artist Name", with: artist_name
         click_on "Create"
 

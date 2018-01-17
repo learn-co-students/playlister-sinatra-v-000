@@ -1,0 +1,9 @@
+<h3>Genre Name: <%=@genre.name%></h3>
+
+<h4>Artist(s): <%@genre.artists.collect do |artist|%>
+                  <a href="/artists/<%=artist.slug%>"><%=artist.name%></a>
+              <%end.join(", ")%> </h4>
+
+<h4>Song(s): <%@genre.songs.collect do |song|%>
+                  <a href="/songs/<%=song.slug%>"><%=song.name%></a>
+              <%end.join(", ")%> </h4>
