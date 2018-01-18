@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'tux'
+gem 'rack-flash3' # <= This was added by a student whose workspace passed...Google this & find out everything about it.
 
 group :test do
   gem 'rspec'

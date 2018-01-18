@@ -8,6 +8,20 @@ class LibraryParser
     self.new.call
   end
 
+=begin
+///////Here's how the "parse_filename" regex's defined below work////////
+file1 =  "First Song - Artist1[genre1].mp3"
+
+x = file1.match(/^(.*) -/)
+# This returns => #<MatchData "First Song -" 1:"First Song">
+
+y = file1.match(/^(.*) -/)[1]
+# This returns => "First Song"
+
+z = file1.scan(/^(.*) -/)[0][0]
+# This returns => "First Song"
+/////////////////////////////////////////////////////////////////////////
+=end
   def parse_filename(filename)
     artist_match = filename.match(/^(.*) -/)
     song_match   = filename.match(/- (.*) \[/)
@@ -34,7 +48,7 @@ class LibraryParser
 
     song.song_genres.build(genre: genre)
     song.artist = artist
-    
+
     song.save
   end
 end
