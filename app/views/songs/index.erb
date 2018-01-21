@@ -1,0 +1,4 @@
+
+<% @songs.each do |song| %>
+  <h2> Song Name: <%=song.name%> <a href='/songs/<%= song.slug %>'>Click for Song</a></h2>
+<% end%>
