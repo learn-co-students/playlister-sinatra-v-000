@@ -1,4 +1,7 @@
 class SongsController < ApplicationController
+use Rack::Flash
+	
+#enable :sessions
 
 	get '/songs' do 
 		@songs = Song.all
@@ -9,9 +12,13 @@ class SongsController < ApplicationController
 		erb :'/songs/new'
 	end
 
-  post '/songs' do 
+  post '/songs' do 	
 		@song = Song.find_or_create_by(name: params[:song][:name])
 		@artist = Artist.find_or_create_by(name: params[:artist][:name])
+		@song.artist = @artist
+		@song.save
+		flash[:message] = "Successfully created song."
+		redirect "/songs/#{@song.slug}"
 	end
 
 	get '/songs/:slug' do 

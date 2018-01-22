@@ -8,7 +8,11 @@
 <input type="text" name="artist[name]" id="artist_name">
 <input type="submit">
 
+<% Genre.all.each do |genre| %>
 
+<p><%= genre.name %><input type="checkbox" id="<%= genre.name %>" value="<%= genre.id %>" name="genres[]"></p>
+
+<% end %>
 
 
 </form>
