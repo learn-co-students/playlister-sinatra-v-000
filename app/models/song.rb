@@ -4,8 +4,7 @@ class Song < ActiveRecord::Base
   has_many :genres, through: :song_genres
 
   def self.find_by_slug(slug)
-    name = slug.split("-").map{|i| i.capitalize }.join(" ")
-    Song.find_by(name: "#{name}")
+    Song.all.find{|artist| artist.slug == slug }
   end
 
   def slug

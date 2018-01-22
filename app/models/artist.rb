@@ -3,8 +3,7 @@ class Artist < ActiveRecord::Base
   has_many :genres, through: :songs
 
   def self.find_by_slug(slug)
-    name = slug.split("-").map{|i| i.capitalize }.join(" ")
-    Artist.find_by(name: "#{name}")
+    Artist.all.find{|artist| artist.slug == slug }
   end
 
   def slug
