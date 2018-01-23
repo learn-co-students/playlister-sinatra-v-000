@@ -8,6 +8,23 @@ class LibraryParser
     self.new.call
   end
 
+=begin
+///////Here's how the "parse_filename" regex's defined below work////////
+file1 =  "First Song - Artist One[Genre One].mp3"
+
+x = file1.match(/^(.*) -/)
+# This returns => #<MatchData "First Song -" 1:"First Song">
+
+y = file1.match(/^(.*) -/)[1]
+# This returns => "First Song"     <= This is the solution used in this LibraryParser
+
+z = file1.scan(/^(.*) -/)[0][0]
+# This returns => "First Song"     <= This solution will also work.
+
+d = file1.match(/^(\w* \S*)/)[1]
+# This returns => "First Song"     <= This solution will also work.
+/////////////////////////////////////////////////////////////////////////
+=end
   def parse_filename(filename)
     artist_match = filename.match(/^(.*) -/)
     song_match   = filename.match(/- (.*) \[/)
@@ -18,6 +35,19 @@ class LibraryParser
     genre  = genre_match  && genre_match[1]
 
     [artist, song, genre]
+=begin
+I don't understand why they didn't just do this:
+    artist = artist_match[1]
+    song   = song_match[1]
+    genre  = genre_match[1]
+
+    [artist, song, genre]
+...the result seems to be exactly the same if I use the
+code I wrote up in the comments above:
+
+parse_filename(file1)
+=> ["First Song", "Artist One", "Genre One"]
+=end
   end
 
   def call
@@ -34,7 +64,7 @@ class LibraryParser
 
     song.song_genres.build(genre: genre)
     song.artist = artist
-    
+
     song.save
   end
 end
