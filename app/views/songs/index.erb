@@ -1,0 +1,6 @@
+<h1>Songs</h1>
+
+<% Song.all.each do |song|%>
+	<p><%=song.name%></p>
+	<a href="/songs/<%=song.slug%>">Go to song page</a>
+<%end%>
