@@ -1,4 +1,9 @@
-<h1>Songs</h1>
-<% @songs.each do |song| %>
-<p> <%= song.name %> </p>
-<% end %>
+
+<h1><%=@song.name binding.pry %></h1>
+<p> <a href="/artists/<%= @song.artist.slug %>">Artist</a> </p>
+<p> Genres: </p>
+ <% @song.genre.each do |genre| %>
+   <p> <a href="/genres/<%= genre.slug %>"></a></p>
+  <%   end%>
+<!-- <h4>Owner:</h4>
+<%=@pet.owner.name%> -->
