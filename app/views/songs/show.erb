@@ -1,9 +1,7 @@
 
-<h1><%=@song.name binding.pry %></h1>
+<h1><%=@song.name %></h1>
 <p> <a href="/artists/<%= @song.artist.slug %>">Artist</a> </p>
 <p> Genres: </p>
  <% @song.genre.each do |genre| %>
    <p> <a href="/genres/<%= genre.slug %>"></a></p>
-  <%   end%>
-
-<!-- Where you left off: Looking for how to correctly link to the song's artist -->
+  <%end%>
