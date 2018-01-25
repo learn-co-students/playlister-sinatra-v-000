@@ -50,7 +50,7 @@ GEM
       slop (~> 3.4)
     rack (1.6.4)
     rack-flash3 (1.0.5)
-         rack
+      rack
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -100,6 +100,7 @@ DEPENDENCIES
   capybara
   database_cleaner!
   pry
+  rack-flash3
   rack-test
   rake
   require_all
@@ -111,4 +112,4 @@ DEPENDENCIES
   thin
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
