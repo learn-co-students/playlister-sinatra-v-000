@@ -27,7 +27,7 @@ use Rack::Flash
 
     flash[:message] = "Successfully created song."
 
-    redirect("/songs/#{@song.slug}")
+    redirect to("/songs/#{@song.slug}")
   end
 
   get '/songs/:slug/edit' do
@@ -43,7 +43,7 @@ use Rack::Flash
     @song.save
 
     flash[:message] = "Successfully updated song."
-    redirect("/songs/#{@song.slug}")
+    redirect to("/songs/#{@song.slug}")
   end
 
 end
