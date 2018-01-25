@@ -4,8 +4,8 @@ class ArtistsController < ApplicationController
 
   get '/artists' do
     @artists = Artist.all
-    binding.pry
-    erb:'artists/index'
+    # binding.pry
+    erb :'artists/index'
   end
 
   get '/artists/:slug' do
