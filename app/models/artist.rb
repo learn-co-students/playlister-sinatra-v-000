@@ -8,9 +8,9 @@ class Artist < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    @@all.each do |song|
-      if artist.name.slug == slug
-        return song
+    all.each do |artist|
+      if artist.slug == slug
+        return artist
       end
     end
   end

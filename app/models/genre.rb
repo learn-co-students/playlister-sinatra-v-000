@@ -1,7 +1,4 @@
 class Genre < ActiveRecord::Base
-  # has_many :artists
-  # has_many :songs
-  # belongs_to :songs
   has_many :song_genres
   has_many :songs, through: :song_genres
 
@@ -11,8 +8,8 @@ class Genre < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    @@all.each do |song|
-      if song.name.slug == slug
+    all.each do |genre|
+      if genre.slug == slug
         return song
       end
     end
