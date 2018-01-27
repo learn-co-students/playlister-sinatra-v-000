@@ -5,7 +5,7 @@
 
   <br></br>
 
-  <input type="text" name="Name" id="Name">
+  <input type="text" name="name" value="name" id="Name">
 
   <br></br>
 
@@ -14,7 +14,7 @@
   <br></br>
 
   <% @genres.each do |genre| %>
-      <input type="checkbox" name="<%=genre.id%>" value="genre.id" id="<%=genre.name%>"><%=genre.name%></input>
+      <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>"><%=genre.name%></input>
   <%end%>
 
   <br></br>
@@ -22,7 +22,7 @@
   and/or, create a new owner:
    <br></br>
    <label>Name:</label>
-     <input  type="text" name="Artist Name" value="Artist Name" id="Artist Name"></input>
+     <input  type="text" name="artist_name" value="artist_name" id="Artist Name"></input>
    <br></br>
 
  <input type="submit" value="Create" id="Create">
