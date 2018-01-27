@@ -2,8 +2,7 @@ require 'sinatra/base'
 require 'rack-flash'
 
 class SongsController < ApplicationController
-    enable :sessions
-    use Rack::Flash
+  use Rack::Flash
 
   get '/songs' do
     @songs = Song.all
@@ -16,7 +15,7 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    @song = Song.create(params[:song])
+    @song = Song.create(name: params[:name])
     slug = @song.slug
 
     params["genres"].each do |genre_id|
@@ -32,9 +31,13 @@ class SongsController < ApplicationController
     end
 
     @song.save
-
     flash[:message] = "Successfully created song."
     redirect to "/songs/#{slug}"
+  end
+
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'/songs/edit'
   end
 
   get '/songs/:slug' do
