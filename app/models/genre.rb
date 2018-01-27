@@ -10,7 +10,7 @@ class Genre < ActiveRecord::Base
   def self.find_by_slug(slug)
     all.each do |genre|
       if genre.slug == slug
-        return song
+        return genre
       end
     end
   end
