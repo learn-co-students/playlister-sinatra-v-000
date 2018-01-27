@@ -1,9 +1,8 @@
 class CreateSongGenres < ActiveRecord::Migration
   def change
     create_table :song_genres do |t|
-      t.string :song_id
-      t.string :genre_id
-      t.string :genre
+      t.belongs_to :song
+      t.belongs_to :genre
     end
   end
 end

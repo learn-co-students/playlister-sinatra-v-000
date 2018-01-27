@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125014208) do
+ActiveRecord::Schema.define(version: 20180127144059) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -24,18 +24,13 @@ ActiveRecord::Schema.define(version: 20180125014208) do
   end
 
   create_table "song_genres", force: :cascade do |t|
-    t.string "song_id"
-    t.string "genre_id"
-    t.string "genre"
+    t.integer "song_id"
+    t.integer "genre_id"
   end
 
   create_table "songs", force: :cascade do |t|
     t.string  "name"
     t.integer "artist_id"
-    t.integer "genre_id"
   end
-
-  # change ids in song_genre to integers, possibly remove genre_id from song, use song_genres to call genre link
-  # in show.erb
 
 end
