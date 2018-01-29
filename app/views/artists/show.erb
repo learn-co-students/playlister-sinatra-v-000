@@ -11,3 +11,10 @@
     <a href="/genres/<%= genre.slug %>"><%= genre.name %></a>
   <% end %>
 </h3>
+<form action=<%="/artists/#{@artist.slug}/delete"%> method="POST">
+	<input type="submit" value="delete">
+</form>
+<br>
+<form action=<%="/artists/#{@artist.slug}/edit"%> method="GET">
+	<input type="submit" value="edit">
+</form>
