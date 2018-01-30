@@ -1,10 +1,10 @@
 class SongsController < ApplicationController
 
   post '/songs' do
-    @song = Song.new(name: params["Name"],genre_ids: params["genres"]  )
-    if params["Artist Name"] != "" || params["Artist Name"] != nil 
+    @song = Song.new(name: params["Name"], genre_ids: params["genres"]  )
+    # if params["Artist Name"] != "" || params["Artist Name"] != nil 
       @song.artist = Artist.find_or_create_by(name: params["Artist Name"])    
-    end
+    # end
     @song.save
     redirect '/songs'
   end
