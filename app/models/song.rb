@@ -5,7 +5,7 @@ class Song < ActiveRecord::Base
 
   def slug
     self.name.split.collect do |word|
-      word.downcase!.gsub(/\W/,"")
+      word.downcase.gsub(/\W/,"")
     end.join("-")
   end
 

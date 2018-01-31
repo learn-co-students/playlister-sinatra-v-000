@@ -7,7 +7,7 @@ class Artist < ActiveRecord::Base
   def slug
     self.name.split.collect do |word|
       #binding.pry
-      word.downcase!.gsub(/\W/,"")
+      word.downcase.gsub(/\W/,"")
     end.join("-")
   end
 
