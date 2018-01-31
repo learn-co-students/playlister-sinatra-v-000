@@ -50,11 +50,11 @@ use Rack::Flash
       @song.genres.uniq!
     if Artist.all.any? {|a| a.name == params["Artist Name"]}
       @song.artist = Artist.find_by(name: params["Artist Name"])
-    else
+    elsif !params["Artist Name"].empty?
       @song.artist = Artist.create(name: params["Artist Name"])
     end
     @song.save
-    binding.pry
+    #binding.pry
     flash[:message] = "Successfully updated song."
     redirect "/songs/#{@song.slug}"
   end
