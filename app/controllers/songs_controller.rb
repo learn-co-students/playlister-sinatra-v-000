@@ -1,7 +1,7 @@
 require 'rack-flash'
 class SongsController < ApplicationController
   use Rack::Flash
-
+  
   post '/songs' do
     @song = Song.new(name: params["Name"], genre_ids: params["genres"])
     if params["Artist Name"] != "" || params["Artist Name"] != nil 
