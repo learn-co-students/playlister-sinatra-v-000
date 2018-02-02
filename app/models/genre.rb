@@ -10,11 +10,10 @@ class Genre < ActiveRecord::Base
 
 
 	def self.find_by_slug(slug)
-		name = slug.split("-").collect {|w|
-		w.capitalize}.join(" ")
-		
-		Genre.find_by_name(name)
+		name = slug.gsub("-", " ")
+ 		Genre.all.find {|song| song.name.downcase == name}	
 	end 
+
 
 
 end

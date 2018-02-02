@@ -3,5 +3,13 @@
 <% end %>
 <h1><%= @song.name %></h1>
 <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a>
-<h2>genre of: <%= @song.genre %></h2>
+<h2>Song genres:</h2>
+<ul>
+<% @song.genre_ids.each do |id| %>
+<% genre = Genre.find(id) %>
 
+<a href='/genres/<%= genre.slug %>'>
+<li><%= genre.name %></li>
+</a>
+<% end %>
+<ul>

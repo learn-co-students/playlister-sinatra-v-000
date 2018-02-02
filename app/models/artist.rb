@@ -9,10 +9,8 @@ class Artist < ActiveRecord::Base
 
 	
 	def self.find_by_slug(slug)
-		name = slug.split("-").collect {
-		|name| name.capitalize}.join(" ")
-		
-		Artist.find_by_name(name)	
+		name = slug.gsub("-", " ")	
+		Artist.all.find {|artist| artist.name.downcase == name}
 	end
 
 
