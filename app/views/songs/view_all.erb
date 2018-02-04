@@ -1,0 +1,10 @@
+<h2> Songs </h2>
+<% Song.all.each do |song| %>
+  <%= song.name %> by <%= song.artist.nil? ? "ARTIST NOT FOUND" : song.artist.name %>
+  <br/>
+  <a href="/songs/<%= song.slug %>/edit">Edit</a>&nbsp;&nbsp;&nbsp;
+  <a href="/songs/<%= song.slug %>">View</a>
+  <br/><br/>
+<% end %>
+<br/><br/><br/>
+<a href="/songs/new">Create a new song </a>
