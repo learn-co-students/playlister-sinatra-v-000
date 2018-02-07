@@ -12,8 +12,6 @@ describe "Artist" do
 
     blank_space.genre_ids = pop.id
 
-    binding.pry
-
   end
   it "can be initialized" do
     expect(@artist).to be_an_instance_of(Artist)
