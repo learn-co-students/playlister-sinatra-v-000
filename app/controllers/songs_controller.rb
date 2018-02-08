@@ -1,3 +1,4 @@
+require 'rack-flash'
 class SongsController < ApplicationController
 
   get '/songs' do
@@ -23,7 +24,7 @@ class SongsController < ApplicationController
       @song.genres << Genre.find_or_create_by(name: params["genre"]["name"])
     end
     @song.save
-    #flash[:message] = "Successfully created song"
+    flash[:message] = "Successfully created song."
     redirect "/songs/#{@song.slug}"
   end
 
@@ -32,7 +33,7 @@ class SongsController < ApplicationController
     erb :'/songs/edit'
   end
 
-  post '/songs/:slug' do
+  patch '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     @song.update(params[:song])
     if !params["artist"]["name"].empty? #&& !Artist.find_by_slug(params["artist"]["name"].downcase.split(" ").join("-"))
@@ -42,7 +43,7 @@ class SongsController < ApplicationController
       @song.genres << Genre.find_or_create_by(name: params["genre"]["name"])
     end
     @song.save
-    #flash[:message] = "Successfully updated song"
+    flash[:message] = "Successfully updated song."
     redirect "/songs/#{@song.slug}"
   end
 
