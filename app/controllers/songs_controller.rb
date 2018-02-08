@@ -1,7 +1,8 @@
-class SongsController < Sinatra::Base
-  register Sinatra::ActiveRecordExtension
-  set :session_secret, "my_application_secret"
-  set :views, Proc.new { File.join(root, "../views/") }
+require 'sinatra/flash'
+
+
+class SongsController < ApplicationController
+  register Sinatra::Flash
 
   get '/songs' do
     @songs = Song.all
@@ -14,7 +15,6 @@ class SongsController < Sinatra::Base
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-
     erb :"songs/show"
   end
 
@@ -28,8 +28,8 @@ class SongsController < Sinatra::Base
       @song.genres << Genre.find(id)
     end
     @song.save
-    flash[:message] = "Successfully created a song."
-    redirect "/songs/#{@song.slug}"
+    flash.next[:message] = "Successfully created song."
+    redirect :"/songs/#{@song.slug}"
   end
 
   get '/songs/:slug/edit' do
