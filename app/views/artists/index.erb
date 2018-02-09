@@ -1,0 +1,5 @@
+<h1>Pick an Artist to Play!</h1>
+
+<% @artists.each_with_index do |artist, index| %>
+  <%= index + 1 %>. <a href="/artists/<%= artist.slug %>"><%= artist.name %></a><br>
+<% end %>

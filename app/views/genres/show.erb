@@ -1,0 +1,11 @@
+<h1><%= @genre.name.capitalize %></h1>
+
+<h2>Available Artists: </h2>
+<% @genre.artists.each_with_index do |genre, index| %>
+  <%= index + 1 %>. <a href="/artists/<%= genre.slug %>"><%= genre.name %></a><br>
+<% end %>
+
+<h2>Available Songs: </h2>
+<% @genre.songs.each_with_index do |genre, index| %>
+  <%= index + 1 %>. <a href="/songs/<%= genre.slug %>"><%= genre.name %></a><br>
+<% end %>
