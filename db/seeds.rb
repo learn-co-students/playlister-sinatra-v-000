@@ -1,8 +1,8 @@
 # Add seed data here. Seed your database with `rake db:seed`
-  Artist.delete_all
-  Genre.delete_all
-  Song.delete_all
-  SongGenre.delete_all
+  # Artist.delete_all
+  # Genre.delete_all
+  # Song.delete_all
+  # SongGenre.delete_all
 
   LibraryParser.parse
 
@@ -11,10 +11,10 @@
 # allison_krauss = Artist.create( :name=> "Alison Krauss" )
 # bob_marley = Artist.create( :name=> "Bob Marley" )
 #
-# the_maker_said_take_her = Song.create( :name=> "The Maker Said Take Her", :artist_id => 1, :genre_id => 1  )
-# back_in_black = Song.create( :name=> "Back In Black", :artist_id => 2, :genre_id => 2 )
-# forget_about_it = Song.create( :name=> "Forget About It", :artist_id =>3, :genre_id => 3 )
-# i_shot_the_sheriff = Song.create( :name=> "I Shot The Sheriff", :artist_id => 4, :genre_id => 4 )
+# the_maker_said_take_her = Song.create( :name=> "The Maker Said Take Her", :artist_id => 1)
+# back_in_black = Song.create( :name=> "Back In Black", :artist_id => 2 )
+# forget_about_it = Song.create( :name=> "Forget About It", :artist_id =>3 )
+# i_shot_the_sheriff = Song.create( :name=> "I Shot The Sheriff", :artist_id => 4)
 #
 # country = Genre.create( :name=> "Country" )
 # rock = Genre.create( :name=> "Rock")
