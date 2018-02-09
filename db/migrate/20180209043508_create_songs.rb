@@ -5,7 +5,7 @@ class CreateSongs < ActiveRecord::Migration
       t.string :name
       t.integer :artist_id
       t.integer :genre_id
-      t.integer :join_id
+      # t.integer :join_id
     end
   end
 
