@@ -1,8 +1,8 @@
 # Add seed data here. Seed your database with `rake db:seed`
-# Artist.delete_all
-# Genre.delete_all
-# Song.delete_all
-# SongGenre.delete_all
+ Artist.delete_all
+ Genre.delete_all
+ Song.delete_all
+ SongGenre.delete_all
 
 alabama = Artist.create( :name=> "Alabama", :song_id => 1 )
 acdc = Artist.create( :name=> "AC/DC", :song_id => 2 )
@@ -22,4 +22,4 @@ reggae = Genre.create( :name=> "Reggae", :artist_id => 4, :song_id => 4 )
 join1 = SongGenre.create( :song_id => 1, :genre_id => 1 )
 join2 = SongGenre.create( :song_id => 2, :genre_id => 2 )
 join3 = SongGenre.create( :song_id => 3, :genre_id => 3 )
-join4 = SongGenre.create( :song_id => 3, :genre_id => 4 )
+join4 = SongGenre.create( :song_id => 4, :genre_id => 4 )
