@@ -5,7 +5,7 @@
 # SongGenre.delete_all
 
 alabama = Artist.create( :name=> "Alabama", :song_id => 1 )
-ac/dc = Artist.create( :name=> "AC/DC", :song_id => 2 )
+acdc = Artist.create( :name=> "AC/DC", :song_id => 2 )
 allison_krauss = Artist.create( :name=> "Alison Krauss", :song_id => 3 )
 bob_marley = Artist.create( :name=> "Bob Marley", :song_id => 4 )
 
@@ -19,7 +19,7 @@ rock = Genre.create( :name=> "Rock", :artist_id => 2, :song_id => 2)
 folk = Genre.create( :name=> "Folk", :artist_id =>3, :song_id => 3 )
 reggae = Genre.create( :name=> "Reggae", :artist_id => 4, :song_id => 4 )
 
-join1 = SongGenre.create( :song_id => 1, :genre_id => 1 )
-join2 = SongGenre.create( :song_id => 2, :genre_id => 2 )
-join3 = SongGenre.create( :song_id => 3, :genre_id => 3 )
-join4 = SongGenre.create( :song_id => 3, :genre_id => 4 )
+join1 = Songs_Genres.create( :song_id => 1, :genre_id => 1 )
+join2 = SongsGenres.create( :song_id => 2, :genre_id => 2 )
+join3 = SongsGenres.create( :song_id => 3, :genre_id => 3 )
+join4 = SongsGenres.create( :song_id => 3, :genre_id => 4 )
