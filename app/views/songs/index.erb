@@ -1,1 +1,7 @@
-<h4> songs/index</h4>
+
+<% @songs.all.each do |song| %>
+  <ul>
+    <li><%=song.name%><a href="/songs/<%= song.slug %>/show"> Edit Song </a></li>
+
+  </ul>
+<%end%>

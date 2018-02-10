@@ -1,1 +1,6 @@
-<h4> artists/index</h4>
+
+<% @artists.all.each do |artist| %>
+  <ul>
+    <li><%=artist.name%></li>
+  </ul>
+<%end%>
