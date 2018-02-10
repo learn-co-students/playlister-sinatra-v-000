@@ -14,6 +14,7 @@ class Song < ActiveRecord::Base
       word.capitalize!
     end
     slug = name_array.join("-")
+    #binding.pry
     @song = Song.find_by name: slug.sub("-", " ")
   end
 end

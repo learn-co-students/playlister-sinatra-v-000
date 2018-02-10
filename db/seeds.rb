@@ -4,24 +4,24 @@
   # Song.delete_all
   # SongGenre.delete_all
 
-  LibraryParser.parse
+  #LibraryParser.parse
 
-# alabama = Artist.create( :name=> "Alabama" )
+ alabama = Artist.create( :name=> "Alabama" )
 # acdc = Artist.create( :name=> "AC/DC" )
 # allison_krauss = Artist.create( :name=> "Alison Krauss" )
 # bob_marley = Artist.create( :name=> "Bob Marley" )
 #
-# the_maker_said_take_her = Song.create( :name=> "The Maker Said Take Her", :artist_id => 1)
+ the_maker_said_take_her = Song.create( :name=> "The Maker Said Take Her", :artist_id => 1000)
 # back_in_black = Song.create( :name=> "Back In Black", :artist_id => 2 )
 # forget_about_it = Song.create( :name=> "Forget About It", :artist_id =>3 )
 # i_shot_the_sheriff = Song.create( :name=> "I Shot The Sheriff", :artist_id => 4)
 #
-# country = Genre.create( :name=> "Country" )
+ country = Genre.create( :name=> "Country" )
 # rock = Genre.create( :name=> "Rock")
 # folk = Genre.create( :name=> "Folk")
 # reggae = Genre.create( :name=> "Reggae" )
 #
-# join1 = SongGenre.create( :song_id => 1, :genre_id => 1 )
+ join1 = SongGenre.create( :song_id => 1000, :genre_id => 1000 )
 # join2 = SongGenre.create( :song_id => 2, :genre_id => 2 )
 # join3 = SongGenre.create( :song_id => 3, :genre_id => 3 )
 # join4 = SongGenre.create( :song_id => 4, :genre_id => 4 )

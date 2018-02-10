@@ -1,22 +1,4 @@
 <h4> songs/show</h4>
 
-<% @song %>
 
-<form method="POST" action="/songs/<%= @song.id %>/delete">
-  <label for=""> Artist: </label>
-  <p>
-  <textarea name="content" id=":content" rows="2" cols="70">
-  <%= @tweet.content %>
-  </textarea>
-  </p>
-  </br>
-  </br>
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" id= "click_button" value="Delete Song">
-</form>
-</br>
-</br>
-<a href="/songs/<%= @artist.id %>/edit"> Edit Song </a>
-</br>
-</br>
-<a href="/songs/index">View All Songs</a>
+<a href="/songs/<%= song.slug %>"> Edit Song </a>
