@@ -9,12 +9,10 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    name_array = slug.split("-")
-    name_array.collect do |word|
-      word.capitalize!
-    end
-    slug = name_array.join("-")
+    @song = Song.find_by slug: slug
     #binding.pry
-    @song = Song.find_by name: slug.sub("-", " ")
+    @song
   end
+
+
 end
