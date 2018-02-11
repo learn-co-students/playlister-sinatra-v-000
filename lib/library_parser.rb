@@ -4,7 +4,6 @@ class LibraryParser
   def files
     data_path = File.join(File.dirname(__FILE__), '..', 'db', 'data')
     Dir.entries(data_path)[2..-1]
-    binding.pry
   end
 
   def self.parse
@@ -34,10 +33,8 @@ class LibraryParser
     song = Song.create(name: song_name)
     genre = Genre.find_or_create_by(name: genre_name)
     artist = Artist.find_or_create_by(name: artist_name)
-
     song.song_genres.build(genre: genre)
     song.artist = artist
-    
     song.save
   end
 end
