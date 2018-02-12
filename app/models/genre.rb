@@ -8,12 +8,23 @@ class Genre < ActiveRecord::Base
     "#{genre.gsub(/\W/, "-").squeeze("-")}".downcase
   end
 
-  def self.find_by_slug(slug)
-    name_array = slug.split("-")
-    name_array.collect do |word|
-      word.capitalize!
+  def self.sluggify(name)
+    Genre.all.detect do |genre|
+      if genre.slug == name
+        self.find_by_name(genre.name)
+        @genre
+      else
+        @genre = nil
+      end
     end
-    slug = name_array.join("-")
-    @genre = Genre.find_by name: slug.sub("-", " ")
   end
+
+  def self.find_by_name(name)
+    @genre = Genre.find_by name: name
+  end
+
+  def self.find_by_slug(slug)
+    self.sluggify(slug)
+  end
+
 end
