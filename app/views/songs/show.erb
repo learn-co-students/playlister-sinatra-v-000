@@ -1,0 +1,16 @@
+<% if !!flash[:message] %> 
+<%= flash[:message] %> 
+<% end %>
+
+<h1>Below are the details for the song you selected:</h1>
+
+<strong>Song Name:</strong>
+<p><%= @song.name %></p>
+<strong>Song Artist:</strong>
+<p><a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></p>
+<strong>Song Genre(s):</strong>
+<% @song.genres.each.with_index(1) do |genre, index| %> <!-- could add all to @song.genres.all... but don't need to -->
+
+	<p><%= index %>. <a href="/genres/<%= genre.slug %>"><%= genre.name %></a></p>
+
+<% end %>

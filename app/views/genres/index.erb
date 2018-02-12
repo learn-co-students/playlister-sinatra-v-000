@@ -1,0 +1,7 @@
+<h1>Below are the genres in your library</h1>
+
+<% @genres.each.with_index(1) do |genre, index| %>
+
+	<p><%= index %>. <a href="/genres/<%= genre.slug %>"><%= genre.name %></a></p>
+
+<% end %>
