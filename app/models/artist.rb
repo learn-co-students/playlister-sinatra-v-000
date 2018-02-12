@@ -10,10 +10,10 @@ class Artist < ActiveRecord::Base
   def self.sluggify(name)
     Artist.all.detect do |artist|
       if artist.slug == name
-        self.find_by_name(Artist.name)
-        @Artist
+        self.find_by_name(artist.name)
+        @artist
       else
-        @Artist = nil
+        @artist = nil
       end
     end
   end
