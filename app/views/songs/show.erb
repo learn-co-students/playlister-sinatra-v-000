@@ -1,0 +1,14 @@
+<% # binding.pry %>
+<% if !!flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
+<h1><%=@song.name%></h1>
+
+Artist:
+<%=@song.artist.name%>
+<a href="/artists/<%=@song.artist.slug%>">(More Info)</a>
+  <br><br>
+Genre Tags:
+<% @song.genres.each do |g| %>
+  <%= g.name %><a href='/genres/<%=g.slug%>'>(More Info)</a>
+<% end %>
