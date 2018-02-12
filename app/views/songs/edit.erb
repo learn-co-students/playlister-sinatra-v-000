@@ -1,23 +1,18 @@
-<h4> songs/edit</h4>
+<h1>Edit <%= @song.name %></h1>
 
+<form action="/songs/<%= @song.slug %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
 
-<% @song %>
+  <label for="name">Name</label>
+  <input type="text" name="song[name]" id="name" value="<%= @song.name %>">
 
-<form method="POST" action="/songs/<%= @song.id %>/delete">
-  <label for=""> Song: </label>
-  <p>
-  <textarea name="content" id=":content" rows="" cols="40">
-  <%= @song.name %>
-  </textarea>
-  </p>
-  </br>
-  </br>
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" id= "click_button" value="Delete Song">
+  <label for="artist_name">Artist Name</label>
+  <input type="text" name="artist[name]" value="<%= @song.artist.name %>" id="artist_name">
+
+  <% Genre.all.each do |genre| %>
+    <label><%= genre.name %></label>
+    <input type="checkbox" name="song[genre_ids][]" value="<%= genre.id %>" id="<%= genre.name %>" <%='checked' if @song.genres.include?(genre) %>>
+  <% end %>
+
+  <input type="submit" value="Save">
 </form>
-</br>
-</br>
-<a href="/songs/<%= @song.id %>/edit"> Edit Song </a>
-</br>
-</br>
-<a href="/songs/index">View All Songs</a>
