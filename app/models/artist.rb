@@ -1,6 +1,6 @@
 class Artist < ActiveRecord::Base
-  has_many :Artists
-  has_many :genres, :through => :Artists
+  has_many :songs
+  has_many :genres, :through => :songs
 
   def slug
     artist = self.name
