@@ -1,6 +1,6 @@
 class LibraryParser
   def files
-    data_path = File.join(File.dirname(__FILE__), '..', 'db', 'data')
+    data_path = File.join(File.dirname("/Users/church/Developer/Code/playlister-sinatra-v-000/db/data"), '..', 'db', 'data')
     Dir.entries(data_path)[2..-1]
   end
 
@@ -27,14 +27,29 @@ class LibraryParser
     end
   end
 
+  def slugify(name)
+    "#{name.gsub(/\W/, "-").squeeze("-")}".downcase
+  end
+
   def build_objects(artist_name, song_name, genre_name)
-    song = Song.create(name: song_name)
-    genre = Genre.find_or_create_by(name: genre_name)
-    artist = Artist.find_or_create_by(name: artist_name)
+    song = Song.create(name: song_name, slug: slugify(song_name))
+    genre = Genre.find_or_create_by(name: genre_name, slug: slugify(genre_name))
+    artist = Artist.find_or_create_by(name: artist_name, slug: slugify(artist_name))
 
     song.song_genres.build(genre: genre)
     song.artist = artist
-    
+
     song.save
   end
+
+  # def build_objects(artist_name, song_name, genre_name)
+  #   song = Song.create(name: song_name)
+  #   genre = Genre.find_or_create_by(name: genre_name)
+  #   artist = Artist.find_or_create_by(name: artist_name)
+  #
+  #   song.song_genres.build(genre: genre)
+  #   song.artist = artist
+  #
+  #   song.save
+  # end
 end
