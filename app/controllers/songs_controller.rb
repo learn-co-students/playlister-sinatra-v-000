@@ -8,6 +8,10 @@ class SongsController < ApplicationController
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     if @song
+      @artist = Artist.find(@song.artist_id)
+      @song_genre = SongGenre.find_by song_id: @song.id
+      genre_id = @song_genre.genre_id
+      @genre = Genre.find(genre_id)
       erb:'songs/show'
     else
       redirect '/songs'

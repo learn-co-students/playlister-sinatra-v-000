@@ -1,5 +1,5 @@
 <h4> songs/show</h4>
 <% @song %>
 <%= @song.name %>
-<%= @song.artist.name %>
-<%= @song.genres.first.name %>
+<a href= '/artists/<%= @artist.slug %>' ><%= @artist.name %></a>
+<a href= '/genres/<%= @genre.slug %>' ><%= @genre.name %></a>
