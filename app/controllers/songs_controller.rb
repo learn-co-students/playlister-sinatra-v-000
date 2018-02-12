@@ -7,11 +7,10 @@ class SongsController < ApplicationController
     erb:'/songs/index'
     end
 
-    get '/songs' do
-        if Song.find_by_slug(slug) == song.slug
-            # then a new show page is made for each slug
-        end
-    erb:'/songs/show/#{song.slug}'
+    get '/songs/:slug' do
+        #HOW CAN THE PROGRAM RECOGNIZE :SLUG AS AN ID?
+        @song = Song.find_by_slug(params[:slug])
+    erb:'/songs/show'
     end
-
 end
+
