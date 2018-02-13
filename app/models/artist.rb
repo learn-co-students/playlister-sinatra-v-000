@@ -10,3 +10,5 @@ class Artist < ActiveRecord::Base
         Artist.all.find {|artist| artist.slug == slug}
     end
 end
+
+# WHY DON'T I JUST INCLUDE THESE IN THE MODELS FOR ARTIST GENRE AND SONG?
