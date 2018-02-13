@@ -8,9 +8,16 @@ class SongsController < ApplicationController
     end
 
     get '/songs/:slug' do
-        #HOW CAN THE PROGRAM RECOGNIZE :SLUG AS AN ID?
         @song = Song.find_by_slug(params[:slug])
-    erb:'/songs/show'
+    erb:'songs/show'
+    end
+
+    post '/songs' do
+        @song = Song.create(:name => params['name'])
+        @song.artist = Artist.find_or_create(params[:slug])
+        @song.genre_ids = params[:genres]
+        @song.save
+        redirect to '/songs/#{@song.slug}'
     end
 end
 
