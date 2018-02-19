@@ -9,8 +9,8 @@ class Artist < ActiveRecord::Base
 
   def self.find_by_slug(name)
     unslug_name = name.split("-")
-    unslugged = unslug_name.join(" ").titleize
-    Artist.find_by(:name => unslugged)
+    unslugged = unslug_name.join(" ")
+    Artist.where("LOWER(name) = ?", "#{unslugged}").first
   end
 
 end

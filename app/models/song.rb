@@ -10,8 +10,9 @@ class Song < ActiveRecord::Base
 
   def self.find_by_slug(name)
     unslug_name = name.split("-")
-    unslugged = unslug_name.join(" ").titleize
-    Song.find_by(:name => unslugged)
+    unslugged = unslug_name.join(" ")
+    # binding.pry
+    Song.where("LOWER(name) = ?", "#{unslugged}").first
   end
 
 end
