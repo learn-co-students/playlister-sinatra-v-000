@@ -4,6 +4,7 @@ class Song < ActiveRecord::Base
   has_many :genres, through: :song_genres
 
   def slug
+    binding.pry
     new_name = self.name.downcase.split(" ")
     new_name.join("-")
   end
@@ -11,7 +12,6 @@ class Song < ActiveRecord::Base
   def self.find_by_slug(name)
     unslug_name = name.split("-")
     unslugged = unslug_name.join(" ")
-    # binding.pry
     Song.where("LOWER(name) = ?", "#{unslugged}").first
   end
 
