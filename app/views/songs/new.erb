@@ -2,7 +2,7 @@
 
 <form action="/songs" method="POST">
 
-  <label for="name">Song Name: </label><input type="text" name="song[name]" id="Name">
+  <label for="name">Song Name: </label><input type="text" name="Name">
 
   <p>Select a Genre:</p>
   <%@genres.each do |genre| %>
@@ -12,9 +12,9 @@
 
   <br><br>
 
-  <label for="artist_name">Artist Name: </label><input type="text" name="artist_name" id="Artist Name">
+  <label for="artist_name">Artist Name: </label><input type="text" name="Artist Name">
 
   <br><br>
 
-  <input type="submit" id="Create">
+  <input type="submit" value="Create">
 </form>

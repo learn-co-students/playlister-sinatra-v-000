@@ -9,6 +9,7 @@ class Genre < ActiveRecord::Base
   end
 
   def self.find_by_slug(name)
+    binding.pry
     unslug_name = name.split("-")
     unslugged = unslug_name.join(" ")
     Genre.where("LOWER(name) = ?", "#{unslugged}").first
