@@ -1,0 +1,18 @@
+<h1><%=@song.name%></h1>
+Artist: <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a><br><br>
+Genres:
+<%@song.genres.each do |genre|%>
+    <a href="/genres/<%=genre.slug%>"><%=genre.name%></a>, 
+<%end%>
+<br><br>
+
+<h2>Edit Song:</h2>
+<form method="post" action="/songs/<%=@song.slug%>/edit">
+    Artist Name: <input type="text" id="Artist Name" name=artist_name><br><br>
+    Genres: 
+    <%Genre.all.each do |genre|%>
+        <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>"><%=genre.name%>
+    <%end%>
+    <br><br>
+    <input type="submit" id="Save" value="Save">
+</form>

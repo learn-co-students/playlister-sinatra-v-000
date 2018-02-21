@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Artist" do
   before do 
     @artist = Artist.create(:name => "Taylor Swift") 
-
+    
     blank_space =  Song.create(:name => "Blank Space", :artist => @artist) 
 
     pop = Genre.create(:name => "Pop")
