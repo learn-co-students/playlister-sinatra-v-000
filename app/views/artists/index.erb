@@ -1,0 +1,10 @@
+<div class="jumbotron">
+	<h2>All Artists</h2>
+</div>
+
+<div class="list-group">
+	<% @artists = @artists.sort_by {|artist| artist.name.downcase}%>
+	<%  @artists.each do |artist| %>
+			<a href="/artists/<%=artist.slug%>" class="list-group-item list-group-item-action"><%= artist.name %></a>
+	<% end %>
+</div>
