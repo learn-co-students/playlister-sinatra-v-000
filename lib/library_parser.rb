@@ -24,7 +24,7 @@ class LibraryParser
     files.each do |filename|
       parts = parse_filename(filename)
       build_objects(*parts)
-    end
+    end 
   end
 
   def build_objects(artist_name, song_name, genre_name)
@@ -34,7 +34,7 @@ class LibraryParser
 
     song.song_genres.build(genre: genre)
     song.artist = artist
-    
+
     song.save
   end
 end
