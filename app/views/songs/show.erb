@@ -1,0 +1,20 @@
+songs/show
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<h1><%=@song.name%></h1>
+<br></br>
+
+<h2>By: <a href='/artists/<%=@song.artist.slug%>'><%=@song.artist.name%></a></h2>
+
+<br></br>
+
+<p>This song is considered to contain the following genres:</p>
+
+<br></br>
+
+<ul>
+  <%@song.genres.each do |genre|%>
+  <li><a href='/genres/<%=genre.slug%>'><%=genre.name%></li>
+<%end%>

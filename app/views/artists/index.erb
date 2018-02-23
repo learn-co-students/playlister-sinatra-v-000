@@ -1,0 +1,15 @@
+artist/index
+
+<ul>
+
+<%Artist.all.each do |artist|%>
+
+<li>
+  <a href='/artists/<%=artist.slug%>'><%=artist.name%></a>
+</li>
+
+<br></br>
+
+<%end%>
+
+</ul>
