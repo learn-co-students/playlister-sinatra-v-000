@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-
+  # include Slugifiable
 
   get '/songs' do
     @songs = Song.all

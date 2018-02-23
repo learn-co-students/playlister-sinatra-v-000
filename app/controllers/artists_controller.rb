@@ -1,7 +1,7 @@
-require_relative '../models/concerns/slugifiable.rb'
+require './app/models/concerns/slugifiable'
 
 class ArtistsController < ApplicationController
-include Slugifiable
+  include Slugifiable
 
  get '/artists' do
    @artists = Artist.all
