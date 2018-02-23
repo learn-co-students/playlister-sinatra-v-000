@@ -1,5 +1,6 @@
+<h2>Genres index</h2>
 <ul>
   <%@genres.each do |genre|%>
-    <li>Name: <a href="/genres/<%= genre.slug %>"> <%=genre.name%> </a></li>
+    <li><a href="/genres/<%= genre.slug %>"> <%=genre.name%> </a></li>
     <%end %>
 </ul>
