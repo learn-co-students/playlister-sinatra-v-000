@@ -6,19 +6,9 @@ class GenresController < ApplicationController
     erb :"/genres/index"
   end
 
-  get '/genres/:id' do
+  get '/genres/:slug' do
     @genre = Genre.find_by_slug(params[:slug])
     erb :"/genres/show"
-  end
-
-  helpers do
-    def slug
-      self.name.gsub(" ", "-").downcase
-    end
-
-    def find_by_slug(slug)
-      self.all.find { |instance| instance.slug == slug}
-    end
   end
 
 end
