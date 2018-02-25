@@ -1,3 +1,8 @@
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <label> Song: </label> <%= @song.name %>
 
 <br></br>
