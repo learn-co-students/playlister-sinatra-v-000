@@ -30,14 +30,10 @@ class SongsController < ApplicationController
   end
 
   patch "/songs/:slug" do
-    @song = Song.find_by_slug(params[:slug], genre_ids: params[:genres])
-    @song.update(name: params[:song_name])
-    if @song.changed?
-      flash[:message] = "Successfully updated song."
-    else
-      flash[:message] = "Song could not be created. Please try again."
-    end
-
+    @song = Song.find_by_slug(params[:slug])
+    @song.update(name: params[:song_name],genre_ids: params[:genres])
+    @song.artist.update(name: params[:artist_name])
+    flash[:message] = "Successfully updated song."
     redirect to "songs/#{@song.slug}"
   end
 
