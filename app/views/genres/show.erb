@@ -1,14 +1,20 @@
-<!-- Any given genre's show page should have links to each of its artists and songs. -->
 <label> Genre: </label> <%= @genre.name %>
 
-<ul>Genres:
+<br></br>
+
+<label> Songs: </label>
+<ul>
   <% @genre.songs.each do |song| %>
-    <li><a href="/songs/<%= song.slug %>"><%= song.name %> </a></li>
+    <li><a href="/songs/<%= song.slug %>"> <%= song.name %> </a></li>
   <% end %>
 </ul>
 
-<ul>Artists:
+
+<br></br>
+
+<label> Artists: </label>
+<ul>
   <% @genre.artists.each do |artist| %>
-    <li><a href="/artists/<%= artist.slug %>"><%= artist.name %> </a></li>
+    <li><a href="/artists/<%= artist.slug %>"> <%= artist.name %> </a></li>
   <% end %>
 </ul>
