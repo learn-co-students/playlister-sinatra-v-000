@@ -7,11 +7,11 @@
     <br>
 
     <% Genre.all.each do |genre| %>
-<<<<<<< HEAD
+
       <input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%=genre.id%>"> <%=genre.name%></input>
-=======
+
       <input type="checkbox" name="song[genres]" id="<%=genre.name%>" value="<%=genre.name%>"> <%=genre.name%></input>
->>>>>>> 04a05c03e54d517fe67e476872ddeb087b4e3912
+
       <%end%>
 
     <label> Choose an existing artist: </label>

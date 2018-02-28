@@ -2,20 +2,21 @@ class SongsController < ApplicationController
 
   get '/songs' do
     @songs = Song.all
-    erb :songs
+    binding.pry
+    erb :'songs/index'
   end
 
   get '/songs/new' do
-    erb :new_song
+    erb :'songs/new'
   end
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    erb :song
+    erb :'songs/show'
   end
 
   get '/songs/:slug/edit' do
-    erb :edit_song
+    erb :'songs/edit'
   end
 
   post '/songs/new' do
@@ -25,7 +26,7 @@ class SongsController < ApplicationController
       @song.artist = Artist.find_or_create_by_name(params["artist"]["name"])
     end
       @song.save
-      redirect "/songs/#{@song.slug}"
+      redirect "songs/show/#{@song.slug}"
     end
 
   end
