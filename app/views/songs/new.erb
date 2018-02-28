@@ -1,0 +1,22 @@
+<h1>New Song</h1>
+<form action='/songs' method='post'>
+<!-- hash structure
+  <p><label for='song_name'>Song Name: </label></p><input type='text' id='song_name' name='song[name]'><br></br>
+-->
+<p>Song Name: </p><input type='text' id='Name' name='song_name'><br></br>
+  <p>Genres:</p>
+  <%Genre.all.each do |genre|%>
+  <!--hash structure
+    <input type='checkbox' name='song[genre_ids][]' value='<%=genre.id%>'> <%=genre.name%>
+  -->
+    <input type='checkbox' id="<%= genre.name %>" name='genres[]' value='<%=genre.id%>'> <%=genre.name%>
+
+  <%end%>
+  <br></br>
+  <!--hash structure
+  <p><label for='artist_name'>Artist Name: </label></p><input type='text' id='artist_name' name='artist[name]'><br></br>
+-->
+  <p>Artist Name: </p><input type='text' id='Artist Name' name='artist_name'><br></br>
+  <br></br>
+  <input type='submit' value='Create'>
+</form>
