@@ -8,4 +8,10 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get '/songs' do
+    @songs = Song.all
+    binding.pry
+    erb :'songs/index'
+  end
+
 end
