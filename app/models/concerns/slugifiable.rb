@@ -1,8 +1,7 @@
 module Slug
   module ClassMethods
     def find_by_slug(slug)
-      unsluged = slug.titleize
-      self.find_by(name: unsluged)
+      self.all.find{|obj| obj.slug == slug}
     end
   end
 
