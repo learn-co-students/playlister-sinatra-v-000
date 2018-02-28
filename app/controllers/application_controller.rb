@@ -10,7 +10,6 @@ class ApplicationController < Sinatra::Base
 
   get '/songs' do
     @songs = Song.all
-    binding.pry
     erb :'songs/index'
   end
 
