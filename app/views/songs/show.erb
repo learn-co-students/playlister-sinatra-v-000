@@ -17,3 +17,6 @@
     <%@song.genres.each do |genre|%>
       <a href="/genres/<%=genre.slug%>"><%=genre.name%></a>
     <% end %>
+    <br><br><br>
+
+    <button type="button" name="button"><a href="/songs/<%=@song.slug%>/edit">Edit Song</a></button>
