@@ -47,7 +47,7 @@ class SongsController < ApplicationController
       @song.song_genres.build(genre: genre) unless @song.genres.include?(genre)
     end
     artist = find_or_create_by(name: params["Artist Name"])
-    @song.artist.update(name: params["Artist Name"])
+    @song.artist.update(artist)
   end
 
 
