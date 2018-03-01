@@ -12,7 +12,6 @@ gem 'pry'
 gem 'sinatra-flash'
 
 group :test do
-  gem 'sinatra-flash'
   gem 'rspec'
   gem 'capybara'
   gem 'rack-test'
