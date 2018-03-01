@@ -9,8 +9,10 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'sinatra-flash'
 
 group :test do
+  gem 'sinatra-flash'
   gem 'rspec'
   gem 'capybara'
   gem 'rack-test'
