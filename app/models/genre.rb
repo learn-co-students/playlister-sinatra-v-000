@@ -4,7 +4,7 @@ class Genre < ActiveRecord::Base
   has_many :artists, through: :songs
 
   def slug
-    self.name.downcase.scan(/[a-z]+/).join('-')
+    self.name.downcase.scan(/[a-z0-9]+/).join('-')
   end
 
   def self.find_by_slug(slug)

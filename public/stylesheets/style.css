@@ -2,3 +2,13 @@ body {
   font-family: Arial, sans-serif;
   margin: 2rem;
 }
+
+a {
+  color: dodgerblue;
+  transition: all .2s;
+  text-decoration: none;
+}
+
+a:hover {
+  color: navy;
+}

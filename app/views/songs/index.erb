@@ -2,6 +2,10 @@
 
 <% @songs.each do |song| %>
 
-<h2><%= song.name %></h2>
+<% url = "/songs/#{song.slug}" %>
+
+<a href="<%= url %>">
+<h2><%= song.name %> [<%= song.genres.size %>]</h2>
+</a>
 
 <% end %>
