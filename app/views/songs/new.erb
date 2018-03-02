@@ -1,8 +1,8 @@
 <h1>Song Creator</h1>
 
 <form class="" action="/songs" method="post">
-  <label for="name">Name: <input type="text" name="song[name]" id="name" value=""></label>
-  <label for="artist">Artist: <input type="text" name="artist[name]" id="artist" value=""></label>
+  <label>Song: <input type="text" name="song[name]" id="Name" value=""></label>
+  <label>Artist Name: <input type="text" name="artist[name]" id="artist_name" value=""></label>
 
   <h4>Genres:</h4>
   <% Genre.all.each do |genre| %>

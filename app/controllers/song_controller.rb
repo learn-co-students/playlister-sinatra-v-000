@@ -2,6 +2,8 @@ class SongController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   set :session_secret, "my_application_secret"
   set :views, Proc.new { File.join(root, "../views") }
+  enable :sessions
+  use Rack::Flash
 
   get '/songs' do
     @songs = Song.all
@@ -11,6 +13,7 @@ class SongController < Sinatra::Base
   post '/songs' do
     song = Song.create(params[:song])
     song.update(artist: Artist.find_or_create_by(params[:artist]))
+    flash[:message] = "Successfully created song."
     redirect "/songs/#{song.slug}"
   end
 
