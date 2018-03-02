@@ -1,7 +1,7 @@
 <h1><%= @song.name %></h1>
-<p>Artist: <%= @song.artist.name %></p>
-<p>Genre:
+<h2>Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></h2>
+<h2>Genre:
 <% @song.genres.collect do |genre| %>
-  <%= genre.name %>
+<a href="/genres/<%= genre.slug %>"><%= genre.name %></a>
 <% end.join(', ') %>
-</p>
+</h2>
