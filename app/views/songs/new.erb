@@ -6,11 +6,11 @@
   <br></br>
 
   <label>Artist</label>
-  <input type="text" name="Artist Name" value="">
+  <input type="text" name="Artist Name">
   <br></br>
 
   <% Genre.all.each do |genre| %>
-  <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+  <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>"><%= genre.name %> </input>
   <% end %>
   <br></br>
 
