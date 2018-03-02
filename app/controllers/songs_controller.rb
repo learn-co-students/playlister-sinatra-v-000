@@ -11,16 +11,6 @@ class SongsController < ApplicationController
     erb :'songs/new'
   end
 
-  get '/songs/:slug' do
-    @song = Song.find_by_slug(params[:slug])
-    erb :'songs/show'
-  end
-
-  get '/songs/:slug/edit' do
-    @song = Song.find_by_slug(params[:slug])
-    erb :'songs/edit'
-  end
-
   post '/songs/new' do
     @song = Song.create(name: params[:name])
     @song.genre_ids = params[:genres]
@@ -28,6 +18,24 @@ class SongsController < ApplicationController
     @song.save
     flash[:message] = "Successfully created song."
     redirect "songs/#{@song.slug}"
+    end
+
+    get '/songs/:slug' do
+      @song = Song.find_by_slug(params[:slug])
+      erb :'songs/show'
+    end
+
+    get '/songs/:slug/edit' do
+      @song = Song.find_by_slug(params[:slug])
+      erb :'songs/edit'
+    end
+
+    post '/songs/:slug' do
+      @song = Song.find_by_slug(params[:slug])
+      @song.artist = params["Artist Name"]
+      @song.genres = params[:genres]
+      @song.update
+      redirect "songs#{@song.slug}"
     end
 
   end
