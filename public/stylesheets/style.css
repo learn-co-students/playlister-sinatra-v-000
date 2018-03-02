@@ -12,3 +12,13 @@ a {
 a:hover {
   color: navy;
 }
+
+.box {
+  background: aliceblue;
+  padding: .5rem;
+  border: .1rem solid dodgerblue;
+  margin-right: 1rem;
+  color: dodgerblue;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
