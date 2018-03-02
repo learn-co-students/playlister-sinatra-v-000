@@ -1,0 +1,7 @@
+<h1><%= @song.name %></h1>
+<p>Artist: <%= @song.artist.name %></p>
+<p>Genre:
+<% @song.genres.collect do |genre| %>
+  <%= genre.name %>
+<% end.join(', ') %>
+</p>
