@@ -7,8 +7,7 @@ module Slugifiable
 
   module ClassMethods
     def find_by_slug(slug)
-      model_name = slug.titleize
-      self.all.detect{|model| model.name == model_name}
+      self.all.detect{|model| model.slug == slug}
     end
   end
 
