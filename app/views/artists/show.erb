@@ -1,0 +1,21 @@
+<% artist = @artist %>
+
+<h1><%= artist.name %></h1>
+
+<h2>Songs</h2>
+<% artist.songs.each do |song| %>
+
+<h3>
+<%= song.name %>
+</h3>
+
+<% end %>
+
+<h2>Genres</h2>
+<% artist.genres.each do |genre| %>
+
+<h3>
+<%= genre.name %>
+</h3>
+
+<% end %>
