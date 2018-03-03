@@ -6,9 +6,23 @@
 
 <h1><%= song.name %></h1>
 
-<h2>Artist: <%= song.artist.name %></h2>
+<% url = "/artists/#{song.artist.slug}" %>
+<h2>
+<a href="<%= url %>">
+  Artist: <%= song.artist.name %>
+</a>
+</h2>
 
 <h2>Genres:</h2>
+
 <% song.genres.each do |genre| %>
-<h3><%= genre.name %></h3>
+
+<% url = "/genres/#{genre.slug}" %>
+
+<h3>
+<a href="<%= url %>">
+<%= genre.name %>
+</a>
+</h3>
+
 <% end %>

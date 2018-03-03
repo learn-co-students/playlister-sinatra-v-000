@@ -3,10 +3,15 @@
 <h1><%= genre.name %></h1>
 
 <h2>Songs</h2>
+
 <% genre.songs.each do |song| %>
 
+<% url = "/songs/#{song.slug}" %>
+
 <h3>
+  <a href="<%= url %>">
 <%= song.name %>
+</a>
 </h3>
 
 <% end %>
@@ -14,8 +19,12 @@
 <h2>Artists</h2>
 <% genre.artists.each do |artist| %>
 
+<% url = "/artists/#{song.artist.slug}" %>
+
 <h3>
+  <a href="<%= url %>">
 <%= artist.name %>
+</a>
 </h3>
 
 <% end %>
