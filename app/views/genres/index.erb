@@ -1,7 +1,7 @@
 <h2> Genre List</h2>
 
-<%@genres.each do |genre|%>
+<%@genres.order('name').each do |genre|%>
 
-<a href= "/genres/<%=genre.slug%>"> <%= genre.name %> </a>
+<li><a href= "/genres/<%=genre.slug%>"> <%= genre.name %> </a></li>
 
 <%end%>
