@@ -6,6 +6,7 @@ end
 
 use Rack::MethodOverride
 
+use GenreController
 use ArtistController
 use SongController
 run ApplicationController
