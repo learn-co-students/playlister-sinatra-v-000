@@ -9,7 +9,7 @@
 <% url = "/songs/#{song.slug}" %>
 
 <h3>
-  <a href="<%= url %>">
+<a href="<%= url %>">
 <%= song.name %>
 </a>
 </h3>
@@ -19,10 +19,10 @@
 <h2>Artists</h2>
 <% genre.artists.each do |artist| %>
 
-<% url = "/artists/#{song.artist.slug}" %>
+<% url = "/artists/#{artist.slug}" %>
 
 <h3>
-  <a href="<%= url %>">
+<a href="<%= url %>">
 <%= artist.name %>
 </a>
 </h3>
