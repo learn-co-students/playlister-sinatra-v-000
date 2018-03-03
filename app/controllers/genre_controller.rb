@@ -4,7 +4,7 @@ class GenreController < Sinatra::Base
   set :views, Proc.new { File.join(root, "../views") }
 
   get '/genres' do
-    @genres = Genre.all
+    @genres = Genre.all.order(:name)
     erb :'genres/index'
   end
 

@@ -6,7 +6,7 @@ class SongController < Sinatra::Base
   use Rack::Flash
 
   get '/songs' do
-    @songs = Song.all
+    @songs = Song.all.order(:name)
     erb :'songs/index'
   end
 

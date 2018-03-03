@@ -4,7 +4,7 @@ class ArtistController < Sinatra::Base
   set :views, Proc.new { File.join(root, "../views") }
 
   get '/artists' do
-    @artists = Artist.all
+    @artists = Artist.all.order(:name)
     erb :'artists/index'
   end
 

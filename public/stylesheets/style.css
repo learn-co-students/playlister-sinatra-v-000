@@ -22,3 +22,24 @@ a:hover {
   margin-bottom: 1rem;
   display: inline-block;
 }
+
+.nav {
+  background: crimson;
+  padding: .5rem;
+  display: inline-block;
+  transition: all .2s;
+}
+
+.nav a {
+  color: snow;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.nav:hover {
+  background: BlueViolet;
+}
+
+.nav a:hover {
+  color: Lavender;
+}
