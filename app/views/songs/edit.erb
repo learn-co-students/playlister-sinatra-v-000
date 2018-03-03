@@ -17,7 +17,7 @@
       name="song[genre_ids][]"
       value="<%= genre.id %>"
       id="<%= genre.id %>"
-      <%= checked if song.genres.include?(genre) %>>
+      <%= 'checked' if song.genres.include?(genre) %>>
     <%= genre.name %>
   </label>
   </div>
