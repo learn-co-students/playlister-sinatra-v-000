@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 2rem;
+}
+
+a {
+  color: dodgerblue;
+  transition: all .2s;
+  text-decoration: none;
+}
+
+a:hover {
+  color: navy;
+}
+
+.box {
+  background: aliceblue;
+  padding: .5rem;
+  border: .1rem solid dodgerblue;
+  margin-right: 1rem;
+  color: dodgerblue;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.nav {
+  background: crimson;
+  padding: .5rem;
+  display: inline-block;
+  transition: all .2s;
+}
+
+.nav a {
+  color: snow;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.nav:hover {
+  background: BlueViolet;
+}
+
+.nav a:hover {
+  color: Lavender;
+}
