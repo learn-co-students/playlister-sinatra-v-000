@@ -15,3 +15,8 @@
 <% @song.genres.each do |genre|%>
   <li> <a href= "/genres/<%=genre.slug%>"> <%=genre.name%></a> </li>
   <%end%>
+
+</br></br>
+<p> To Go Back to Master List of Songs Select <a href= "/songs"> Master List</a></p>
+
+<p> To Edit This Song Select <a href= "/songs/<%=@song.slug%>/edit"> Edit Song</a></p>
