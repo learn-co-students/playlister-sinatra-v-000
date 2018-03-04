@@ -1,0 +1,22 @@
+<% if flash.has?(:message) %>
+<%= flash[:message] %>
+<% end %>
+
+<h1> Your Song Is: <%=@song.name%></h1>
+
+<h3> Song's Artist Is:
+
+<a href="/artists/<%=@song.artist.slug%>"> <%= @song.artist.name %> </a>
+
+
+
+<h3> Song's Genres Are: </h3>
+
+<% @song.genres.each do |genre|%>
+  <li> <a href= "/genres/<%=genre.slug%>"> <%=genre.name%></a> </li>
+  <%end%>
+
+</br></br>
+<p> To Go Back to Master List of Songs Select <a href= "/songs"> Master List</a></p>
+
+<p> To Edit This Song Select <a href= "/songs/<%=@song.slug%>/edit"> Edit Song</a></p>
