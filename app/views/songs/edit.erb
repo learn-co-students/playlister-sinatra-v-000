@@ -1,4 +1,3 @@
-
 <h2> Song to Edit: <%= @song.name%> </h2>
 
 <form action= "/songs/<%=@song.slug%>" method= "POST">
@@ -7,13 +6,11 @@
     <h3> Name </h3>
   <input type = "text" name = "song[name]" value= "<%= @song.name%>" id= "name"></input>
 
-
 </br></br>
 
   <h3> Artist Name </h3>
   <input type = "text" name = "artist[name]"  value= "<%= @song.artist.name%>"
   id= "Artist Name"></input>
-
 
 </br></br>
 
@@ -25,7 +22,6 @@
  <%='checked' if @song.genres.include?(genre) %> </input>
 <% end %>
 </br></br>
-
 
  <label> <input type = "submit" value = "Save"></label>
 
