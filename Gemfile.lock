@@ -30,7 +30,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    coderay (1.1.1)
+    coderay (1.1.2)
     daemons (1.2.3)
     diff-lcs (1.2.5)
     eventmachine (1.2.0.1)
