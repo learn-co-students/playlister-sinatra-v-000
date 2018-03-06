@@ -1,8 +1,9 @@
 def slug
-	self.name.downcase.split(" ").join("-")
-end
+		self.name.downcase.split(" ").join("-")
+	end
 
-def self.find_by_slug(slug)
-	name = slug.split("-").each{|name| name.capitalize!}.join(" ")
-	Artist.find_by(name: name)
-end
+	def self.find_by_slug(slug)
+		self.all.detect do |instance|
+			instance.slug == slug	
+		end
+	end
