@@ -12,8 +12,16 @@ class SongsController < ApplicationController
     erb :'/songs/new'
   end
 
-  get '/songs/:id' do
+  get '/songs/:slug' do
+    #need to turn the slug into an id
     @song = Song.find_by_id(params[:id])
     erb :'songs/show'
+  end
+
+  post '/songs' do
+    #not sure if the below is correct
+    @song = Song.create(name: params[:name], artist_id: params[:artist_id])
+    # @genres = params[:genres]
+    redirect to "/songs/#{put song slug here}"
   end
 end

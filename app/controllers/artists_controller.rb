@@ -8,7 +8,8 @@ class ArtistsController < ApplicationController
     erb :'artists/index'
   end
 
-  get '/artists/:id' do
+  get '/artists/:slug' do
+    #need to turn the slug into an id
     @artist = Artist.find_by_id(params[:id])
     erb :'artists/show'
   end
