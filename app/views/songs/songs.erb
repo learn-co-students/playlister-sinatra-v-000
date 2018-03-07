@@ -1,0 +1,7 @@
+<h1>Songs</h1>
+<ul>
+  <%Song.all.each do |obj|%>
+    <li><a href="/songs/<%=obj.slug%>"><%=obj.name%></a></li>
+  <%end%>
+</ul>
+
