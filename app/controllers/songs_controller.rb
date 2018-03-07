@@ -32,9 +32,10 @@ class SongsController < ApplicationController
     end
 
     #binding.pry
-
-    if !params[:genre].empty?
-      @genre = Genre.create(name: params[:genre])
+    binding.pry
+    if !params[:genre_name].empty?
+      @genre = Genre.create(name: params[:genre_name])
+      binding.pry
       @genre.save
     else
       @genre = Genre.find_by_slug(params[:genre_slug])
@@ -44,6 +45,6 @@ class SongsController < ApplicationController
     @song.save
     #binding.pry
     # @genres = params[:genres]
-    redirect("/songs/#{@song.slug}")
+    redirect to "/songs/#{@song.slug}"
   end
 end

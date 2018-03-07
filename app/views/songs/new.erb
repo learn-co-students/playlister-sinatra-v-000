@@ -9,7 +9,7 @@
     <label>Select an Genre
       <%Genre.all.each do |genre|%>
         <label><%=genre.name%>
-          <input type="checkbox" name="<%=genre.slug%>" value="<%=genre.slug%>" id="<%=genre.slug%>">
+          <input type="checkbox" name="genre_slug" value="<%=genre.slug%>" id="<%=genre.slug%>">
         </label>
       <%end%>
     </label>
