@@ -1,9 +1,22 @@
 <html>
 <body>
   <form action="/songs" method="POST">
-    <p>Enter the Song Name: <input type="text" name="Name"></input></p>
-    <p>Enter the Song Name: <input type="text" name="name"></input></p>
-    <p>Enter the Song Name: <input type="text" name="name"></input></p>
+    <h5>Enter the Song Name:</h5>
+      <input type="text" name="song_name" id="Name"></input>
+
+    <h5>Select or create an Artist</h5>
+      <p>Select an Artist:</p>
+        <%@artists.each do |artist|%>
+          <input type="checkbox" name="artist.name" value="<%=owner.slug%>" id="<%=artist.name%>"><%=artist.name%></input>
+        <%end%>
+
+      <br></br>
+
+      <p>Create a new Artist:</p>
+         <input  type="text" name="artist_name"></input>
+
+      <br></br>
+
     <input type="submit" id="submit">Save</input>
   </form>
 </body>

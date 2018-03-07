@@ -21,6 +21,8 @@ class SongsController < ApplicationController
 
   post '/songs' do
     #not sure if the below is correct
+    @artists = Artist.all
+    @genres = Genre.all
     @song = Song.create(name: params[:name], artist_id: params[:artist_id])
     # @genres = params[:genres]
     redirect to "/songs/#{put song slug here}"
