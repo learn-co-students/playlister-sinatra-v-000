@@ -1,8 +1,8 @@
 <html>
 <body>
   <ul>
-  <% Genre.all.each do |genre| %>
-    <li><a href="/genres/<%=genre.id%>"><%=genre.name %></a></li>
+  <% @genres.each do |genre| %>
+    <li><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
   <% end %>
 </ul>
 </body>

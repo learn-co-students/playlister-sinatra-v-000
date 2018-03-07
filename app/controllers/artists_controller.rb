@@ -5,6 +5,7 @@ class ArtistsController < ApplicationController
   end
 
   get '/artists' do
+    @artists = Artist.all
     erb :'artists/index'
   end
 
