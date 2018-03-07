@@ -1,0 +1,10 @@
+<h2>All Songs</h2>
+<ol>
+  <%@songs.each do |song|%>
+    <li><a href="/songs/<%=song.slug%>"><%=song.name%></a></li>
+    <br></br>
+  <%end%>
+</ol>
+
+<p>Not Seeing the Song You're Looking For?</p>
+<a href="/songs/new">Create a New Song</a>
