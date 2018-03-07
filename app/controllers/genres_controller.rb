@@ -11,7 +11,7 @@ class GenresController < ApplicationController
 
   get '/genres/:slug' do
     #need to turn the slug into an id
-    @genre = Genre.find_by_id(params[:id])
-    erb :'genres/show'
+    @genre = Genre.find_by_slug(params[:slug])
+    erb :'/genres/show'
   end
 end

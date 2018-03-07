@@ -15,8 +15,8 @@ class SongsController < ApplicationController
 
   get '/songs/:slug' do
     #need to turn the slug into an id
-    @song = Song.find_by_id(params[:id])
-    erb :'songs/show'
+    @song = Song.find_by_slug(params[:slug])
+    erb :'/songs/show'
   end
 
   post '/songs' do

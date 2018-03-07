@@ -11,7 +11,7 @@ class ArtistsController < ApplicationController
 
   get '/artists/:slug' do
     #need to turn the slug into an id
-    @artist = Artist.find_by_id(params[:id])
-    erb :'artists/show'
+    @artist = Artist.find_by_slug(params[:slug])
+    erb :'/artists/show'
   end
 end

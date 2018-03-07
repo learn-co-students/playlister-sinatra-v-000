@@ -8,7 +8,7 @@ module Slugifiable
   end
 
   module ClassMethods
-    def self.find_by_slug(slug)
+    def find_by_slug(slug)
       self.all.detect{|inst|
         slug == inst.slug
       }
