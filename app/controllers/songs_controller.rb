@@ -22,8 +22,8 @@ class SongsController < ApplicationController
   post '/songs' do
     #not sure if the below is correct
     @song = Song.create(name: params[:song_name])
-    if !params[:artist_name].empty?
-      @artist = Artist.create(name: params[:artist_name])
+    if !params[:artist].empty?
+      @artist = Artist.create(name: params[:artist])
       @artist.save
       @song.artist = @artist
     else
@@ -31,8 +31,10 @@ class SongsController < ApplicationController
       @song.artist = @artist
     end
 
-    if !params[:genre_name].empty?
-      @genre = Genre.create(name: params[:genre_name])
+    binding.pry
+
+    if !params[:genre].empty?
+      @genre = Genre.create(name: params[:genre])
       @genre.save
     else
       @genre = Genre.find_by_slug(params[:genre_slug])
@@ -40,7 +42,8 @@ class SongsController < ApplicationController
 
     # @song.genre
     @song.save
+    binding.pry
     # @genres = params[:genres]
-    redirect to "/songs/#{@song.slug}"
+    redirect("/songs/#{@song.slug}")
   end
 end
