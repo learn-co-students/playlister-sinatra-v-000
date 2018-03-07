@@ -49,8 +49,8 @@ end
    if !params[:artist][:name].empty?
      @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
    end
-   if params[:song][:genre_ids]
-     @song.genre_ids = params[:song][:genre_ids]
+   if params[:genres]
+     @song.genre_ids = params[:genres]
    end
    @song.save
    flash[:message] = "Successfully updated song."
