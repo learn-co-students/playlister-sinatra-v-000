@@ -21,18 +21,26 @@ class SongsController < ApplicationController
 
   post '/songs' do
     #not sure if the below is correct
+    @song = Song.create(name: params[:song_name])
     @artists = Artist.all
     @genres = Genre.all
-    @song = Song.create(name: params[:name], artist_id: params[:artist_id])
-
     if !params[:artist_name].empty?
       @artist = Artist.create(name: params[:artist_name])
       @artist.save
     else
       @artist = Artist.find_by_slug(params[:artist_slug])
     end
-    @ = Pet.create(name: params[:pet_name], owner_id: @owner.id)
-    @pet.save
+
+    if !params[:genre_name].empty?
+      @genre = Genre.create(name: params[:genre_name])
+      @genre.save
+    else
+      @genre = Genre.find_by_slug(params[:genre_slug])
+    end
+
+    @song.artist = @artist
+    # @song.genre
+    @song.save
     # @genres = params[:genres]
     redirect to "/songs/#{@song.slug}"
   end
