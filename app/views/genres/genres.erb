@@ -1,0 +1,7 @@
+<h1>Genres</h1>
+<ul>
+  <%Genre.all.each do |obj|%>
+    <li><a href="/genres/<%=obj.slug%>"><%=obj.name%></a></li>
+  <%end%>
+</ul>
+
