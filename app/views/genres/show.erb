@@ -1,11 +1,19 @@
-<ul>
-  <% @genre.songs.each do |song| %>
-    <li><a href="/songs/<%= song.slug %>"><%= song.name %> </a></li>
-  <% end %>
-</ul>
-
-<ul>
-  <% @genre.artists.each do |artist| %>
-    <li><a href="/artists/<%= artist.slug %>"><%= artist.name %> </a></li>
-  <% end %>
-</ul>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Show Genre Attributes</title>
+  </head>
+  <body>
+    <h3><%= @genre.name %></h3>
+    <% @genre.artists.each do |artist| %>
+    <br></br>
+    <a href="/artists/<%= artist.slug %>"><%= artist.name %> </a><br>
+    <% end %>
+    <% @genre.songs.each do |song| %>
+    <br></br>
+    <a href="/songs/<%= song.slug %>"><%= song.name %> </a><br>
+    <% end %>
+    <br></br>
+  </body>
+</html>
