@@ -7,5 +7,9 @@
       <li><p><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></p></li>
     <% end %>
   </ul>
+
+  <% if flash.has?(:message) %>
+  <%= flash[:message] %>
+  <% end %>
 </body>
 </html>
