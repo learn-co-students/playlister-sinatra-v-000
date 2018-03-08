@@ -1,5 +1,4 @@
 class SongsController < ApplicationController
-
   get '/' do
     erb :index
   end
@@ -24,9 +23,9 @@ class SongsController < ApplicationController
     @song = Song.create(name: params[:Name])
     @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
     @song.genre_ids = params[:genres]
-    @song.save
-    slug = @song.slug
-    flash[:notice] = "Successfully created song."
-    redirect("/songs/#{slug}")
+    if @song.save
+      '<%= flash[:notice] = "Successfully created song."%>'
+    end
+    redirect to "/songs/#{@song.slug}"
   end
 end
