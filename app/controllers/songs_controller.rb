@@ -15,6 +15,8 @@ class SongsController < ApplicationController
   get '/songs/:slug' do
     #need to turn the slug into an id
     @song = Song.find_by_slug(params[:slug])
+    @success_message = session[:success_message]
+    session[:success_message] = nil
     erb :'/songs/show'
   end
 
@@ -23,9 +25,10 @@ class SongsController < ApplicationController
     @song = Song.create(name: params[:Name])
     @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
     @song.genre_ids = params[:genres]
-    if @song.save
-      '<%= flash[:notice] = "Successfully created song."%>'
-    end
+    session[:success_message] = "Successfully created song."
+    # if @song.save
+    #   '<%= flash[:notice] = "Successfully created song."%>'
+    # end
     redirect to "/songs/#{@song.slug}"
   end
 end

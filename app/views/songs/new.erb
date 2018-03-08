@@ -17,3 +17,9 @@
     <br></br>
     <input type="submit" value="Create">
   </form>
+
+  <% if @success_message %>
+  <div id="success" style="border: 2px solid green;">
+  <%= @success_message %>
+  </div>
+<% end %>
