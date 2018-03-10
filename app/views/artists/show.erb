@@ -1,0 +1,5 @@
+<h1><%=@artist.name.capitalize%>
+<%@artist.songs.each do |song|%>
+<h3><%=song.name%><h3>
+<p><%=song.genre.name%></p>
+<%end%>
