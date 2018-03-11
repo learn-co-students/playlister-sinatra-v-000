@@ -11,16 +11,16 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-
     @song = Song.new(params[:song])
+
     if @artist =Artist.find_by(name: params[:artist][:name])
       @song.artist = @artist
     else
       @song.build_artist(params[:artist])
     end
+
     @song.save
     redirect "/songs/#{@song.slug}"
-
   end
 
   get '/songs/:slug' do
