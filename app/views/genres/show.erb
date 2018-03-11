@@ -17,7 +17,6 @@
 <h3>Artists:</h3> -->
 <ul>
   <%@genre.artists.each do |artist|%>
-  <%=artist.name%>
-  <!-- <li><h3><a href="/artists/<%=artist.slug%>"><%=artist.name%></a></h3></li> -->
+    <li><h3><a href="/artists/<%=artist.slug%>"><%=artist.name%></a></h3></li> 
   <%end%>
 </ul>
