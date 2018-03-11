@@ -2,35 +2,9 @@
   <input type="hidden" id="hidden" name="_method" value="PATCH"/>
   Artist: <input type="text" name="artist[name]" value="<%=@song.artist.name%>" id="Artist Name"/>
   <%@genres.each do |genre|%>
-    <input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>" id="<%=genre.name%>"  <%='checked' if @song.genres.include?(genre)%>><%=genre.name%></input>
+    <input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>" id="<%=genre.name%>" <%='checked' if @song.genres.include?(genre)%>><%=genre.name%></input>
     <br></br>
   <%end%>
 
-
   <input type="submit" value="Save"/>
 </form>
-
-<!--
-context "changing a song's genres" do
-  it "has a checkbox element on the form" do
-    expect(page.body).to include("checkbox")
-  end
-
-  it "updates the song's genres" do
-    uncheck "New Age Garbage"
-    check "Hippity Hop"
-    click_on "Save"
-
-    expect(page).to have_content("Successfully updated song.")
-    expect(page).to have_content(song_name)
-    expect(page).to have_content(artist_name)
-    expect(page).to have_content("Hippity Hop")
-  end
-
-  it "renders to the song show page" do
-    uncheck "Hippity Hop"
-    check "New Age Garbage"
-    click_on "Save"
-    expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
-  end
-end -->
