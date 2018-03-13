@@ -124,6 +124,7 @@ describe "Song Forms" do
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
         expect(page).to have_content("Hippity Hop")
+        expect(page).not_to have_content("New Age Garbage")
       end
 
       it "renders to the song show page" do
