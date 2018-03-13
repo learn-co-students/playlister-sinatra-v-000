@@ -1,0 +1,9 @@
+<p><%=@genre.name%></p>
+<p>Songs:</p>
+<%@genre.songs.each {|instance|%>
+  <p><a href="../songs/<%=instance.slug%>"><%=instance.name%></a></p>
+<%}%>
+<p>Artists:</p>
+<%@genre.artists.each {|instance|%>
+  <p><a href="../artists/<%=instance.slug%>"><%=instance.name%></a></p>
+<%}%>
