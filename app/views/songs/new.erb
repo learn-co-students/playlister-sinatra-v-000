@@ -1,12 +1,21 @@
 <h1>Create a new song</h1>
 
 <form action="/songs" method="post">
-  <input type="text" name="song[name]" id="Name" placeholder="Song Name">
+  <input type="text" name="song[name]" id="name" placeholder="Song Name">
 
   <br><br>
 
-  <input type="text" name="artist[name]" id="artist" placeholder="Artist Name">
+  <input type="text" name="song[artist_name]" id="artist" placeholder="Artist Name">
 
+  <br><br>
+
+  <% Genre.all.each do |genre| %>
+    <label><%= genre.name %></label>
+    <li><input id="<%= genre.name %>" type="checkbox" name="song[genres][]" value="<%= genre.id %>"><%= 'checked' if @song.genres.include?(genre) %>><%= genre.name %></li>
+  <% end %>
 
   <input type="submit" value="Create" id="create">
 </form>
+
+
+<!-- The value attribute should be set to the genre id. -->

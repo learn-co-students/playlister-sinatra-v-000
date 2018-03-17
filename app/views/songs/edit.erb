@@ -1,1 +1,19 @@
-<h1>Edit a specific song</h1>
+<h1>Edit Song: <%= @song.name %></h1>
+
+<form action="/songs/<%= @songs.slug %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <input type="text" name="song[name]" value="<%= @song.name %>">
+
+  <br><br>
+
+  <input type="text" name="artist[name]" value="<%= @song.artist.name%>">
+
+  <br><br>
+
+  <% Genre.all.each |genre| %>
+  <input type="checkbox" name="song[genre_ids]" value="<%= @song.artist.name%>">
+
+  <input type="submit" value="Save">
+
+</form>
