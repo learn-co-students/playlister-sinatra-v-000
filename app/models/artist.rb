@@ -1,4 +1,4 @@
-class Artist < Sinatra::Base
+class Artist < ActiveRecord::Base
     has_many :Songs
     has_many :Genres, through::Songs
 end
