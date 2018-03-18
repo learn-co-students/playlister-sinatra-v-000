@@ -28,7 +28,6 @@ describe "Artist" do
   end
 
   it "can slugify its name" do
-
     expect(@artist.slug).to eq("taylor-swift")
   end
 
