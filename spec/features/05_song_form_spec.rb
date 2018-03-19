@@ -41,6 +41,8 @@ describe "Song Forms" do
         fill_in "Artist Name", with: artist_name
         click_on "Create"
         expect(page.current_path).to eq('/songs/that-one-with-the-guitar')
+        binding.pry
+
       end
     end
 
