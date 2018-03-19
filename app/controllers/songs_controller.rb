@@ -1,7 +1,7 @@
 require 'rack-flash'
 
 class SongsController < ApplicationController
-  use Rack::Flash
+use Rack::Flash
 
   get '/songs' do
     @songs = Song.all
@@ -14,21 +14,15 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    @song = Song.create(name: params[:name])
+    @song = Song.create(name: params["Name"])
+    @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
+    @song.genre_ids = params[:genres]
 
-    if Artist.all.find_by(name: params[:artist_name])
-      artist = Artist.all.find_by(name: params[:artist_name])
-    else
-      artist = Artist.create(name: params[:artist_name])
-    end
-    genre = Genre.find_by_id(params[:genres].first)#iterate and make work for multiple genres
-
-    @song.artist = artist
-    @song.genres << genre
     @song.save
+    binding.pry
+    flash[:message] = "Successfully created song."
 
-    flash[:message] = "Successfully created song."#This is for flash message
-    redirect to("/songs/#{@song.slug}")
+    redirect ("/songs/#{@song.slug}")
   end
 
   get '/songs/:slug' do
@@ -44,14 +38,8 @@ class SongsController < ApplicationController
 
   patch '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-
-    if Artist.all.find_by(name: params[:artist_name])
-      artist = Artist.all.find_by(name: params[:artist_name])
-    else
-      artist = Artist.create(name: params[:artist_name])
-    end
-
-    @song.artist = artist
+    @song.update(params[:song])
+    @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
     @song.save
 
     flash[:message] = "Successfully updated song."#This is for flash message
