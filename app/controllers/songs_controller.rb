@@ -5,7 +5,7 @@ class SongsController < ApplicationController
   end
 
   get '/songs/new' do
-["blues", "greens", "reds", "rock"].each {|genre| Genre.create(name: genre)}
+#["blues", "greens", "reds", "rock"].each {|genre| Genre.create(name: genre)}
     @genres = Genre.all
     erb :'songs/new'
   end
@@ -29,15 +29,12 @@ class SongsController < ApplicationController
     erb :'songs/edit'
   end
 
-  patch '/songs/:slug' do
-    @song = Song.find_by_slug(params[:slug])
-    puts params
+  post '/songs/:slug' do
     binding.pry
-
-    @song.name = params[:name]
+    @song = Song.find_by_slug(params[:slug])
+    @song.update(name: params[:name])
     @song.artist = Artist.find_or_create_by(name: params[:artist])
     @song.genres = params[:genres].map {|genre| Genre.find_or_create_by(name: genre)}
-    @song.save
     flash[:message] = "Successfully updated song."
     redirect "songs/#{@song.slug}"
   end
