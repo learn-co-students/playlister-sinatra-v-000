@@ -5,7 +5,6 @@ class SongsController < ApplicationController
   end
 
   get '/songs/new' do
-#["blues", "greens", "reds", "rock"].each {|genre| Genre.create(name: genre)}
     @genres = Genre.all
     erb :'songs/new'
   end
