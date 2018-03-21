@@ -115,6 +115,7 @@ describe "Song Forms" do
         expect(page.body).to include("checkbox")
       end
 
+
       it "updates the song's genres" do
         uncheck "New Age Garbage"
         check "Hippity Hop"
