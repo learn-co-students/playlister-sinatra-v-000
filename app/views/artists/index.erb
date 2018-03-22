@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title>All Artists</title>
   </head>
 
   <body>
-    <%= yield %>
+  <% @artists.each do |artist| %>
+    <li> <a href="/artists/<%= artist.slug %>"> <%= artist.name %> </a></li>
+  <% end %>
   </body>
 </html>
