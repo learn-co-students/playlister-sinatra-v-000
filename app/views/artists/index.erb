@@ -1,0 +1,7 @@
+<h1>All Artists</h1>
+
+<ol>
+  <% @artists.sort_by{|a| a.name}.each do |artist| %>
+    <li><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></li>
+  <% end %>
+</ol>
