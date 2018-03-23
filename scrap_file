@@ -1,5 +1,101 @@
 
-<% binding.pry %>
-<% if flash.has?(:message) %>
-  <h1><%= flash[:message] %></h1>
-<% end %>
+<h1>Edit the Song</h1>
+<form action="/songs/<%= @song.slug %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+
+<!-- CHANGE SONG NAME -->
+  <label for="song_name">Song Name:</label>
+  <input type="text" name="song[name]" id="song_name" value="<%= @song.name %>">
+  <br><br>
+
+<!-- CHANGE SONG'S ARTIST -->
+  <label for="artist_name">Artist Name:</label>
+  <input type="text" name="song[artist_name]" id="artist_name" value="<%= @song.artist.name %>">
+
+<!-- CHANGE SONG'S GENRE -->
+  <h2>Choose From Existing Genres:</h2>
+  <% Genre.all.each do |genre| %>
+    <label for="genre_name"><%= genre.name %></label>
+    <input id="<%= genre.name %>" type="checkbox" name="genres[]" <%= 'checked' if @song.genres.include?(genre) %> value="<%= genre.id %>">
+  <% end %>
+
+  <input type="submit" value="Save">
+</form>
+
+
+
+controller file:
+
+require 'rack-flash'
+
+class SongsController < ApplicationController
+use Rack::Flash
+
+  get '/songs' do
+    @songs = Song.all
+    erb :'songs/index'
+  end
+
+  get '/songs/new' do
+    @genres = Genre.all
+    erb :'songs/new'
+  end
+
+  post '/songs' do
+    @song = Song.create(name: params["Name"])
+    @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
+    @song.genre_ids = params[:genres]
+
+    @song.save
+    flash[:message] = "Successfully created song."
+
+    redirect ("/songs/#{@song.slug}")
+  end
+
+  get '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'songs/show'
+  end
+
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'songs/edit'
+  end
+
+  patch '/songs/:slug' do
+    # @song = Song.find_by_slug(params[:slug])
+    # @song.update(params[:song])
+    # # @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
+    # # @song.genre_ids = params[:genres]
+    # # @song.genre = Genre.find_by_id(params[:song][:genre_ids])
+    @song = Song.find_by_slug(params[:slug])
+    # binding.pry
+    @song.update = params["name"]
+    @song.artist = Artist.find_or_create_by(name: params[:artist_name])
+    @song.genre_ids = params[:genres]
+    @song.save
+    flash[:message] = "Successfully updated song."#This is for flash message
+
+    redirect ("/songs/#{@song.slug}")
+  end
+
+end
+
+
+
+patch '/songs/:slug' do
+  # @song = Song.find_by_slug(params[:slug])
+  # @song.update(params[:song])
+  # # @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
+  # # @song.genre_ids = params[:genres]
+  # # @song.genre = Genre.find_by_id(params[:song][:genre_ids])
+  @song = Song.find_by_slug(params[:slug])
+  binding.pry
+  @song.update = params["name"]
+  @song.artist = Artist.find_or_create_by(name: params[:artist_name])
+  @song.genre_ids = params[:genres]
+  @song.save
+  flash[:message] = "Successfully updated song."#This is for flash message
+
+  redirect ("/songs/#{@song.slug}")
+end
