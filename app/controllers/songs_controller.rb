@@ -29,7 +29,7 @@ class SongsController < ApplicationController
     
     flash[:notice] = "Successfully created song."
     #binding.pry
-    redirect to "/songs/#{@song.slug}" #, locals: {message: "Successfully created song."}
+    redirect to "/songs/#{@song.slug}" 
   end
 
   get "/songs/:slug/edit" do 
