@@ -1,5 +1,5 @@
-<form action="/songs/:slug/edit" method="POST">
-  <input type="hidden" name="hidden" value="_method" id="PATCH">
+<form action="/songs/edit" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
   <p>Song: <input type="text" name="song_name" id="Name"></p>
   <p>Artist: <input type="text" name="artist_name" id="Artist Name"></p>
   <% Genre.all.each do |genre| %>
