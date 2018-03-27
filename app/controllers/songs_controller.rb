@@ -8,7 +8,7 @@ class SongsController < ApplicationController
     artist = Artist.create(name: params[artist_name])
     song = Song.create(name: params[song_name], genre: params[genres][])
     artist.songs << song
-    redirect to '/songs/:slug'
+    redirect_to '/songs/:slug'
   end
 
   get '/songs/:slug/edit' do
@@ -24,7 +24,7 @@ class SongsController < ApplicationController
     end
     @artist.songs << @song
     @artist.save
-    redirect to '/songs/:slug'
+    render '/songs/show'
   end
 
   get '/songs/:slug' do
