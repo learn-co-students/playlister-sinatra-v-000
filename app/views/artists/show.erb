@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1><center><%=@artist.name%></center></h1>
+    <table style="width:100%">
+      <tr>
+        <th><h2>Songs</h2></th>
+        <th><h2>Genres</h2></th>
+      </tr>
+      <%@artist.songs.each do |song|%>
+        <tr>
+          <td><a href="/songs/<%=song.slug%>"><%=song.name%></a></td>
+          <%song.genres.each do |genre|%>
+            <td><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></td>
+          <%end%>
+        </tr>
+      <%end%>
+    </table>
+  </body>
+</html>
