@@ -1,13 +1,16 @@
+
+
 <h1> <%= @song.name %> </h1>
 
-<a href='/artists/<%= @song.artist.slug %>'><% @song.artist.name %></a>
+<a href='/artists/<%= @song.artist.slug %>'>Artist<%= @song.artist.name %></a>
 
 <% @song.genres.each do |genre| %>
-  <a href="/genres/<%= genre.slug %>"><%= genre.name %> </a>
+  <a href="/genres/<%= genre.slug %>">Genre<%= genre.name %> </a>
 <% end %>
+
+
 
 
 <%#WHERE ARE SONG AND GENRES ASSOCIATED?
 <%#HOW DOES THE ID(SLUG IN THIS CASE) CONNECT WITH THE WEB PAGE IT'S SUPPOSED TO GO TO?>
-
 
