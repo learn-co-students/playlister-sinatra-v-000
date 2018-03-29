@@ -10,7 +10,8 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry'
 gem 'tux'
-gem 'rack-flash3'
+# gem 'rack-flash'
+gem 'sinatra/flash'
 
 group :test do
   gem 'rspec'
