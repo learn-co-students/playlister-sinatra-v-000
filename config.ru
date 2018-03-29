@@ -5,4 +5,12 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
+use ArtistsController
+use SongsController
+use GenresController
 run ApplicationController
+
+configure do
+  enable :sessions
+  set :session_secret, "secret"
+end

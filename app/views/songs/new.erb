@@ -1,0 +1,17 @@
+<h2>Add a Song</h2></br>
+<form method='post' action='/songs'>
+    <label for='song[name]'>Please enter a song name:</label>
+    <input name='song[name]' input='text' id='Name'/></br>
+    <% Genre.all.each do |genre| %>
+      <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>"><%= genre.name %></input>
+    <% end %>
+    </br>
+    <label for='artist[name]'>Please associate this song with an artist, if one does not match or none exist, create one!</label>
+    <input id="Artist Name" name='artist[name]' type='text'/></br>
+    <% Artist.all.each do |x| %>
+        <input id="<%= x.name %>" type="radio" name="song[:artist]" value="<%= x.id %>"><%= x.name %></input>
+    <% end %>
+    <input type='submit' value='Create'/>
+    
+    
+</form>
