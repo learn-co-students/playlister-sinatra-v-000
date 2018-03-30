@@ -1,12 +1,12 @@
 # require 'pry'
 
 # require 'rack-flash'
-enable :sessions
-
-require 'sinatra/flash'
+# enable :sessions
+# use Rack::Flash
+# require 'sinatra/flash'
 
 class SongsController < ApplicationController
-
+   
 # configure do
 #  enable :sessions
 #  set :session_secret, "secret"
@@ -37,7 +37,8 @@ class SongsController < ApplicationController
         
         @song.genre_ids = params[:genres]
         @song.save
-        flash[:message] = "Successfully created song."
+        # flash[:message] = "Successfully created song."
+        puts "Successfully updated song."
         redirect("/songs/#{@song.slug}")
     end
 
@@ -51,6 +52,7 @@ class SongsController < ApplicationController
         @song.update(params[:song])
         @song.artist = Artist.find_or_create_by(:name => params[:artist][:name])
         @song.save
+        
         # flash[:message] = "Successfully updated song."
         redirect("/songs/#{@song.slug}")
       end
