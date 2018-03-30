@@ -1,0 +1,47 @@
+Song Forms
+  /songs/new
+
+    without an existing artist
+      creates a new artist on submit (FAILED - 1)
+      creates a new song on submit (FAILED - 2)
+      redirects to '/songs/:slug' after creation (FAILED - 3)
+
+    with an existing artist
+      does not create a new artist (FAILED - 4)
+      creates a new song and associates it with an existing artist (FAILED - 5)
+      redirects to '/songs/:slug' after creation (FAILED - 6)
+
+  /songs/:slug/edit
+
+    changing a song's artist
+      updates the song's artist (FAILED - 7)
+      renders to the song show page (FAILED - 8)
+
+    changing a song's genres
+      has a checkbox element on the form (FAILED - 9)
+      updates the song's genres (FAILED - 10)
+      renders to the song show page (FAILED - 11)
+
+#####
+
+        <% @artists.each do |artist| %>
+          <p><input type="checkbox" id="<%=artist.name%>"  name="artists[]" value="<%=artist.id%>"><%=artist.name%></p>
+        <% end %>
+
+        <% @genres.each do |genre| %>
+          <p><input type="checkbox" id="<%=genre.name %>"  name="genres[]" value="<%=genre.id%>"><%=genre.name%></p>
+        <% end %>
+
+
+        ###
+
+        @song = Song.new(name: params[:song_name])
+        if !params[:artist_name].empty?
+          @song.artist_id = Artist.find_by_id(params)
+
+        @song.artist = Artist.create(name: params[:artist_name])
+        @song.save
+
+
+
+        ###
