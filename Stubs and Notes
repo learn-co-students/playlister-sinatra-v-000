@@ -1,3 +1,6 @@
+<%='checked' if @song.genre.name == genre.name %>>
+
+
  post '/songs' do
         if  Artist.find(:name => params['Artist Name'])
             @song = Song.create_by(:name => params['Name'])
