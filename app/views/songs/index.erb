@@ -1,1 +1,7 @@
-songs/index
+<h1> Our Song Library </h1>
+<h2> Choose a Song </h2>
+
+<% @songs.each.with_index(1) do |song, i| %>
+<h3><%=i%>. <a href="/songs/<%=song.slug%>"><%=song.name%></a> by <%=song.artist.name%></h3>
+
+<%end%>
