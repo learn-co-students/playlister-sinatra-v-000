@@ -1,1 +1,12 @@
-genres/show
+<h1><%= @genre.name %></h1>
+
+<h2>Featured Songs</h2>
+
+<%@genre.songs.each.with_index(1) do |song, i| %>
+<h3><%=i%>. <a href="/songs/<%=song.slug%>"><%=song.name%></a></h3>
+<%end%><br/>
+
+<h2>Featured Artists </h2>
+<% @genre.artists.each.with_index(1) do |artist, i |%>
+<h3><%=i%>. <a href="/artists/<%=artist.slug%>"><%=artist.name%></a></h3>
+<%end%>
