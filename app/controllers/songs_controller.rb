@@ -1,9 +1,4 @@
 class SongsController < ApplicationController
-   
-   configure do 
-    enable :sessions
-    set :session_secret, "secret"
-   end 
 
     get '/songs' do
         @songs = Song.all  
@@ -15,9 +10,11 @@ class SongsController < ApplicationController
     end 
 
     post '/songs' do 
-       puts params
-
-        flash[:message] = "Successfully created a song!"
+        @song = Song.create(name: params[:name])
+        @song.artist = Artist.find_or_create_by(name: params['artist'])
+        @song.save
+        @song.genre_ids = params[:genres]
+        binding.pry 
         redirect to("/songs/#{@song.slug}")
     end 
 
