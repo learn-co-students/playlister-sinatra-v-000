@@ -7,6 +7,7 @@ class ArtistsController < ApplicationController
     get '/artists/new' do 
     end 
 
-    get '/artists/:slug' do 
+    get '/artists/:slug' do
+        erb :'/artists/show' 
     end 
 end

@@ -8,5 +8,6 @@ class GenresController < ApplicationController
     end 
 
     get '/genres/:slug' do 
+        erb :'/genres/show'
     end 
 end
