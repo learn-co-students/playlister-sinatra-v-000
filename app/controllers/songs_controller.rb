@@ -1,11 +1,24 @@
 class SongsController < ApplicationController
-    # Pay attention to the order of /songs/new and /songs/:slug. The route /songs/new could interpret new as a slug if that controller action isn't defined first.
+   
+   configure do 
+    enable :sessions
+    set :session_secret, "secret"
+   end 
+
     get '/songs' do
         @songs = Song.all  
         erb :'/songs/index'
     end 
     
-    get '/songs/new' do 
+    get '/songs/new' do
+        erb :'songs/new'
+    end 
+
+    post '/songs' do 
+       puts params
+
+        flash[:message] = "Successfully created a song!"
+        redirect to("/songs/#{@song.slug}")
     end 
 
     get '/songs/:slug' do
