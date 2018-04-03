@@ -5,7 +5,7 @@ class CreateSongsTable < ActiveRecord::Migration[5.1]
       t.string :artist
       t.string :genre
       t.integer :artist_id
-      t.integer :genre_id
+      t.integer :genre_ids
     end
   end
 end
