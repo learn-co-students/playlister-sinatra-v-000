@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe "Artist" do
   before do
-    binding.pry
     @artist = Artist.create(:name => "Taylor Swift")
 
     blank_space =  Song.create(:name => "Blank Space", :artist => @artist)
