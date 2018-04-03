@@ -15,5 +15,5 @@ module Slugifiable
     end
   end
 
-  
+
 end
