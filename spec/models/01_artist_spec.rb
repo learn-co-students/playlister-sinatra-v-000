@@ -11,7 +11,7 @@ describe "Artist" do
     blank_space.genre_ids = pop.id
 
   end
-  
+
   it "can be initialized" do
     expect(@artist).to be_an_instance_of(Artist)
   end
@@ -28,11 +28,11 @@ describe "Artist" do
     expect(@artist.genres.count).to eq(1)
   end
 
-  it "can slugify its name" do
 
+  it "can slugify its name" do
     expect(@artist.slug).to eq("taylor-swift")
   end
-
+  
   describe "Class methods" do
     it "given the slug can find an Artist" do
       slug = "taylor-swift"
