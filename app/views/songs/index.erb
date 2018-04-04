@@ -1,10 +1,10 @@
 <h1>Here is a list of songs</h1>
 
-
+<%binding.pry%>
 <%@songs.each do |song|%>
   <h3><%= song.name  %></h3>
-  <h3><%=song.slug%></h3
-  <%binding.pry%>
+  <!--
+  <h3><%=song.slug%></h3 -->
   <a href="songs/#{song.slug}">Go to song</a>
 
 <%end%>
