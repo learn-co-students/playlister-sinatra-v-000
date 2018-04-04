@@ -3,6 +3,10 @@
   <br></br>
   <input id ="Name" type="text" name="song[name]">
 
+  <%Song.all.each do |song|%>
+   <input type="checkbox" name="song[name]" id="<%= song.name %>" value="<%=song.id%>"><%=song.name%></input>
+ <%end%>
+
 
   <input type="submit" value="Create Song">
 </form>
