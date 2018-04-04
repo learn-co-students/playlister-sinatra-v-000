@@ -9,7 +9,7 @@ module Slugifiable
   module ClassMethods
     def find_by_slug(slug)
 
-      song_name = slug.gsub(/-/, " ").split(" ").map do |word|
+      @@song_name = slug.gsub(/-/, " ").split(" ").map do |word|
         word.capitalize
       end.join(" ")
       #song = self.find_by(name: song_name)
@@ -17,8 +17,6 @@ module Slugifiable
       song = self.all.find do |something|
         something.slug == slug
       end
-
-      binding.pry
 
     end
   end
