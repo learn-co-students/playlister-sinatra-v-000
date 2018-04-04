@@ -7,8 +7,7 @@ class SongsController < ApplicationController
 
   get '/songs/:id' do
     @song = Song.find_by_slug(params[:id])
-    binding.pry
-    erb :'songs/show.erb'
+    erb :'songs/show'
   end
 
 end
