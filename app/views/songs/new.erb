@@ -3,7 +3,10 @@
   <br></br>
   <input id ="Name" type="text" name="song[name]">
   <br></br>
-  
+  <%Genre.all.each do |genre|%>
+     <input type="checkbox" name="song[genres][]" id="<%=genre.name %>" value="<%=genre.id%>"><%=genre.name%></input>
+   <br></br>
+ <%end%>
 
 
   <input type="submit" value="Create Song">
