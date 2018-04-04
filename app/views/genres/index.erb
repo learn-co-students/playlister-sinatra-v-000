@@ -1,8 +1,7 @@
 <h1>Here is a list of Genres</h1>
 
-
+<ol>
 <%@genres.each do |genre|%>
-  <h3><%= genre.name  %></h3>
-  <a href="/genres/<%=genre.slug%>">Go to genre</a>
-
+  <li><a href="/genres/<%=genre.slug%>"><%= genre.name  %></a></li>
 <%end%>
+</ol>
