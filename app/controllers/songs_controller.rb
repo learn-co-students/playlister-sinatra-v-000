@@ -12,9 +12,10 @@ class SongsController < ApplicationController
   post '/songs/new' do
     #artist = Artist.create(params[:song][:artist])
     #song = Song.create(artist: artist, name: params[:song][:name])
-    song = Song.create(params[:song])
-
     binding.pry
+    song = Song.create(params[:song])
+    artist = Artist.create(params[:song][:artist])
+
   end
 
   get '/songs/:slug' do
