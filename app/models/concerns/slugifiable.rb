@@ -13,7 +13,11 @@ module Slugifiable
       end.join(" ")
       #song = self.find_by(name: "#{name}")
       #song = self.find_by(name: object_name)
-      song = self.find_by(name: "That One with the Guitar")
+
+      #song = self.find_by(name: "That One with the Guitar")
+      song = self.all.find do |song|
+        song.name == object_name
+      end
         binding.pry
     end
   end
