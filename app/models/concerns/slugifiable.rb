@@ -8,17 +8,19 @@ module Slugifiable
 
   module ClassMethods
     def find_by_slug(slug)
-      unslug = slug.gsub(/-/, " ").split(" ").map do |word|
+
+      song_name = slug.gsub(/-/, " ").split(" ").map do |word|
         word.capitalize
       end.join(" ")
+      binding.pry
       #song = self.find_by(name: "#{name}")
       #song = self.find_by(name: object_name)
 
       #song = self.find_by(name: "That One with the Guitar")
       song = self.all.find do |song|
-        song.name == object_name
+        song.name == song_name
       end
-        binding.pry
+
     end
   end
 
