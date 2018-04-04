@@ -3,6 +3,8 @@
 
 <%@songs.each do |song|%>
   <h3><%= song.name  %></h3>
-  <a href="songs/#{song.slug}"></a>
+  <h3><%=song.slug%></h3
+  <%binding.pry%>
+  <a href="songs/#{song.slug}">Go to song</a>
 
 <%end%>
