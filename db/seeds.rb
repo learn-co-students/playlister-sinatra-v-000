@@ -1,6 +1,10 @@
 # Add seed data here. Seed your database with `rake db:seed`
 require './config/environment'
 
+require './lib/library_parser.rb'
+LibraryParser.parse
+
+=begin
 song_bold_as_love = Song.create(name: "Bold as Love")
 song_freedom = Song.create(name: "Freedom")
 song_voodoo_child = Song.create(name: "Voodoo Child")
@@ -36,3 +40,4 @@ song_message_to_love.genres << genre_rock
 song_message_to_love.genres << genre_blues
 song_message_to_love.genres << genre_psychelic
 song_message_to_love.save
+=end
