@@ -1,1 +1,10 @@
-someting
+
+<h1>Here is a list of Artists</h1>
+
+
+<%@artists.each do |artist|%>
+  <h3><%= artist.name  %></h3>
+  <h3><%=artist.slug%></h3>
+  <a href="/artists/<%=artist.slug%>">Go to artist</a>
+
+<%end%>
