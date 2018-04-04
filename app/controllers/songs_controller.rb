@@ -5,4 +5,8 @@ class SongsController < ApplicationController
     erb :index
   end
 
+  get 'songs/edit' do
+    erb :edit
+  end
+
 end
