@@ -11,7 +11,8 @@ module Slugifiable
       name = slug.gsub(/-/, " ").split(" ").map do |word|
         word.capitalize
       end.join(" ")
-      self.find_by(name: name)
+      binding.pry
+      self.find_by(name: "#{name})
     end
   end
 
