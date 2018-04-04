@@ -8,3 +8,10 @@
   <li><%=song.name%></li>
 <%end%>
 </ul>
+
+<h3> Here are the Artist's Genres </h3>
+<ul>
+<%@artist.genres.each do |genre|%>
+  <li><%=genre.name%></li>
+<%end%>
+</ul>
