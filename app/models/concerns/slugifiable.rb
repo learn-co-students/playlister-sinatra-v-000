@@ -12,14 +12,13 @@ module Slugifiable
       song_name = slug.gsub(/-/, " ").split(" ").map do |word|
         word.capitalize
       end.join(" ")
-      binding.pry
-      #song = self.find_by(name: "#{name}")
-      #song = self.find_by(name: object_name)
+      #song = self.find_by(name: song_name)
 
-      #song = self.find_by(name: "That One with the Guitar")
-      song = self.all.find do |song|
-        song.name == song_name
+      song = self.all.find do |something|
+        something.slug == slug
       end
+
+      binding.pry
 
     end
   end
