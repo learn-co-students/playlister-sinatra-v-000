@@ -12,7 +12,8 @@ module Slugifiable
         word.capitalize
       end.join(" ")
       #song = self.find_by(name: "#{name}")
-      song = self.find_by(name: object_name)
+      #song = self.find_by(name: object_name)
+      song = self.find_by(name: "That One with the Guitar")
         binding.pry
     end
   end
