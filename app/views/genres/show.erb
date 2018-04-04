@@ -1,1 +1,12 @@
-something
+
+<h1> This is the genres show page </h1>
+
+<h3> Genre Name: <%=@genre.name%> </h3>
+
+<h3> Here are the Genres Artists </h3>
+<ul>
+<%@genre.artists.each do |artist|%>
+  <li><%=artist.name%></li>
+
+<%end%>
+</ul>
