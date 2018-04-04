@@ -60,5 +60,3 @@ class SongsController < ApplicationController
         redirect("/songs/#{@song.slug}")
       end
 end
-
-#WHY GENRE_IDS PLURAL? (SONG CONTROLLER AND SONG.SHOW)
