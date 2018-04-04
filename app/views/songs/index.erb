@@ -1,1 +1,7 @@
-<h1>something</h1>
+<h1>Here is a list of songs</h1>
+
+<ul>
+<%@songs.each do |song|%>
+  <li><%= song.name  %></li>
+<%end%>
+</ul>
