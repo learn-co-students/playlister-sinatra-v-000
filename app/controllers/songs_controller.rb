@@ -2,11 +2,8 @@ class SongsController < ApplicationController
 
   get '/songs' do
     @songs = Song.all
-    erb :index
+    erb :'songs/index'
   end
 
-  get 'songs/edit' do
-    erb :edit
-  end
 
 end

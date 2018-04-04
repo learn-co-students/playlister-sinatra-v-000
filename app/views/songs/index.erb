@@ -1,7 +1,8 @@
 <h1>Here is a list of songs</h1>
 
-<ul>
+
 <%@songs.each do |song|%>
-  <li><%= song.name  %></li>
+  <h3><%= song.name  %></h3>
+  <a href="songs/#{song.slug}"></a>
+
 <%end%>
-</ul>
