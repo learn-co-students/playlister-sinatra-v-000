@@ -7,6 +7,14 @@
 <ul>
 <%@genre.artists.each do |artist|%>
   <li><%=artist.name%></li>
+  <li><a href="/artists/<%=artist.slug%>">Link</a>
+<%end%>
+</ul>
 
+h3> Here are the Genres Songs </h3>
+<ul>
+<%@genre.songs.each do |song|%>
+  <li><%=song.name%></li>
+  <li><a href="/songs/<%=song.slug%>">Link</a>
 <%end%>
 </ul>
