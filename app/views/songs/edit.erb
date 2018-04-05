@@ -4,6 +4,9 @@
 
   <input type="hidden" name="_method" value="PATCH">
 
+  <h2>Update Artist</h2>
+    <input type="text" name="song[artist]" id="Artist Name" value="">
+
   <h2>Update Genre</h2>
   <br></br>
     <%Genre.all.each do |genre|%>
@@ -13,16 +16,7 @@
   <br></br>
 
 
-  <h2>Update Artist</h2>
-    <input type="text" name="song[artist]" id="Artist Name" value="">
 
-
-<br></br>
-  <%Artist.all.each do |artist|%>
-    <input type="checkbox" name="song[artist_id]" value="<%=artist.id%>" id="<%=artist.name%>" <%='checked' if @song.artist.name == artist.name %>><%=artist.name%></input>
-    <br>
-  <%end%>
-  <br></br>
 
   <input type="submit" value="Save">
 

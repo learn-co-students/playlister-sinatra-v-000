@@ -37,15 +37,8 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/edit/:id' do
-    if !(params[:song][:artist] == "")
-      @artist = Artist.find_by(name: params[:song][:artist])
-      if !@artist
-        @artist = Artist.create(name: params[:song][:artist])
-      end
-    else
-      @artist = Artist.find(params[:song][:artist_id])
-    end
     @song = Song.find(params[:id])
+    binding.pry
     @song.artist = @artist
 
     @song.save
