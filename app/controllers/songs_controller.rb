@@ -36,7 +36,7 @@ class SongsController < ApplicationController
     erb :'songs/edit'
   end
 
-  post '/songs/edit/:id' do
+  patch '/songs/edit/:id' do
     if !(params[:song][:artist] == "")
       @artist = Artist.find_by(name: params[:song][:artist])
       if !@artist
