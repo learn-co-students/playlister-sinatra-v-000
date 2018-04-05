@@ -37,6 +37,7 @@ class SongsController < ApplicationController
   end
 
   post '/songs/edit/:id' do
+    binding.pry
     if params[:song][:artist]
       @artist = Artist.find_by(name: params[:song][:artist])
       if !@artist
@@ -47,7 +48,9 @@ class SongsController < ApplicationController
     end
     @song = Song.find(params[:id])
     @song.artist = @artist
+
     @song.save
+
     flash[:message] = "Successfully updated song."
     redirect to "/songs/#{@song.slug}"
   end
