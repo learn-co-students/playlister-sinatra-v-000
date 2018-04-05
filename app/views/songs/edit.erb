@@ -11,7 +11,13 @@
   <label for="artist_name">Artist Name</label>
   <input type="text" name="artist[name]" value="<%= @song.artist.name %>" id="artist_name">
 
-
+  <h2>Update Genre</h2>
+  <br></br>
+    <%Genre.all.each do |genre|%>
+      <input type="checkbox" name="genres[]" value="<%=genre.name%>" id="<%=genre.name%>"<%='checked' if @song.genres.include?(genre) %>> <%=genre.name%></input>
+      <br>
+    <%end%>
+  <br></br>
 
 
 
