@@ -1,6 +1,9 @@
+  require 'sinatra/base'
   require 'rack-flash'
 class SongsController < ApplicationController
   use Rack::Flash
+
+
   get '/songs' do
     @songs = Song.all
     erb :"/songs/index"
@@ -39,7 +42,7 @@ class SongsController < ApplicationController
   patch '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     #binding.pry
-    @song.update(name: params["Name"], artist: ["Artist Name"], genre_ids: params[:genres])
+    @song.update(name: params["Name"], artist: params["Artist Name"], genre_ids: params[:genres])
     @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
     @song.save
 
