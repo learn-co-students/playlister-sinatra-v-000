@@ -38,8 +38,10 @@ class SongsController < ApplicationController
 
   patch '/songs/edit/:id' do
     @song = Song.find(params[:id])
+    @song.update(params[:song])
+    @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
     binding.pry
-    @song.artist = @artist
+  
 
     @song.save
 
