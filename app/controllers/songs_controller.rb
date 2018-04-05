@@ -39,6 +39,9 @@ class SongsController < ApplicationController
   post '/songs/edit/:id' do
     @song = Song.find(params[:id])
     @artist = Artist.find_by(name: params[:song][:artist])
+    if !@artist
+      @artist = Artist.create(name: params[:song][:artist])
+    end
     @song.artist = @artist
     @song.save
     flash[:message] = "Successfully updated song."
