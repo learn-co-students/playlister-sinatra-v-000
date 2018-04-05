@@ -15,7 +15,8 @@ class SongsController < ApplicationController
       @song.artist = Artist.create(params[:artist])
     end
     @song.save
-    redirect to "songs/#{@song.slug}"
+    flash[:message] = "Successfully created song."
+    redirect to "/songs/#{@song.slug}"
   end
 
   get '/songs/:slug' do
