@@ -51,7 +51,7 @@ class SongsController < ApplicationController
         @artist = Artist.create(name: params[:song][:artist])
       end
     elsif params[:song][:artist_id]
-      
+      @artist = Artist.find(params[:song][:artist_id])
     end
     @song = Song.find(params[:id])
 =begin
