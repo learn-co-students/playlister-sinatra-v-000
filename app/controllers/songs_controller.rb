@@ -16,8 +16,10 @@ class SongsController < ApplicationController
   post '/songs/new' do
     @song = Song.create(params[:song])
     artist = Artist.find_by(name: params[:artist][:name])
-    if !params[:artist].empty? && artist
+    if !params[:artist].empty? && !artist
       @song.artist = Artist.create(params[:artist])
+    else
+      @song.artist = artist
     end
     @song.save
     flash[:message] = "Successfully created song."
@@ -29,5 +31,13 @@ class SongsController < ApplicationController
     erb :'songs/show'
   end
 
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'songs/edit'
+  end
+
+  post '/songs/edit' do
+
+  end
 
 end
