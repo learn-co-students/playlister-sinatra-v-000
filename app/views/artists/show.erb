@@ -12,7 +12,6 @@
 <h3> Here are the Artist's Genres </h3>
 <ul>
 <%@artist.genres.each do |genre|%>
-  <li><%=genre.name%></li>
-  <li><a href="/genres/<%=genre.slug%>">Link</a>
+  <li><a href="/genres/<%=genre.slug%>"><%=genre.name%></a>
 <%end%>
 </ul>
