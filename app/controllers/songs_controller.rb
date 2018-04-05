@@ -38,11 +38,28 @@ class SongsController < ApplicationController
 
   post '/songs/edit/:id' do
     binding.pry
+    #if there is a params[:song][:name]
+      #then use the name to search for the artist
+      #if the artist doesn't exit then create the artist
+      #else return the artist instance and assign it to @artist
+    #if there is an artist_id (params[:song][:artist_id])
+      #find the artist by id and set that artist equal to
+      #@artist
+    if params[:song][:name]
+      @artist = Artist.find_by(name: params[:song][:artist])
+      if !@artist
+        @artist = Artist.create(name: params[:song][:artist])
+      end
+    elsif params[:song][:artist_id]
+
+    end
     @song = Song.find(params[:id])
+=begin
     @artist = Artist.find_by(name: params[:song][:artist])
     if !@artist
       @artist = Artist.create(name: params[:song][:artist])
     end
+=end
     @song.artist = @artist
     @song.save
     flash[:message] = "Successfully updated song."
