@@ -38,7 +38,9 @@ class SongsController < ApplicationController
 
   post '/songs/edit/:id' do
     @song = Song.find(params[:id])
-    @song.artist.name = params[:song][:artist]
+    @artist = Artist.find_by(name: params[:song][:artist])
+    @song.artist = @artist
+    @song.save
     flash[:message] = "Successfully updated song."
     redirect to "/songs/#{@song.slug}"
   end
