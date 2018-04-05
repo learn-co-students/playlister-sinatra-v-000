@@ -37,6 +37,7 @@ class SongsController < ApplicationController
   end
 
   post '/songs/edit/:id' do
+    binding.pry
     @song = Song.find(params[:id])
     @artist = Artist.find_by(name: params[:song][:artist])
     if !@artist
