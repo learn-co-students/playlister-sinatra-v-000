@@ -45,11 +45,6 @@ class SongsController < ApplicationController
     elsif
       @artist = Artist.find(params[:song][:artist_id])
     end
-=begin
-    if params[:song][:artist_id]
-      @artist = Artist.find(params[:song][:artist_id])
-    end
-=end
     @song = Song.find(params[:id])
     @song.artist = @artist
     @song.save
