@@ -37,9 +37,8 @@ class SongsController < ApplicationController
   end
 
   post '/songs/edit/:id' do
-    binding.pry
-    #find the song from the db and instantitate it and assign it to @song
-    #@song.artist = params[:song][:artist]
+    @song = Song.find(params[:id])
+    @song.artist.name = params[:song][:artist]
     flash[:message] = "Successfully updated song."
     redirect to "/songs/#{@song.slug}"
   end
