@@ -1,6 +1,6 @@
 <h1>Update Song</h1>
 
-<form action="/songs/edit" method="POST">
+<form action="/songs/edit/<%=@song.id%>" method="POST">
 
 <label>Artist</label>
   <input type="text" name="song[artist]" id="Artist Name" value="<%=@song.artist.name%>">
