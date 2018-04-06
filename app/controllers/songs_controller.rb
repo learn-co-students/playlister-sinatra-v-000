@@ -12,4 +12,10 @@ class SongsController < ApplicationController
     erb :'songs/show'
   end
 
+  get '/songs/new' do
+    @artists = Artist.all
+
+    erb :'songs/new'
+  end
+
 end
