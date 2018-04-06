@@ -6,15 +6,17 @@
 <body>
   <%@artists.each do |artist|%>
       <%@song = Song.find(artist.id)%>
-      <%=@song.name%>
+      <a href="/songs/<%=@song.slug%>" ><%=@song.name%></a>
+
+      <%@genre = artist.genres%>
+      <%@genre.each do |attribute|%>
+          <a href="/genres/<%=attribute.slug%>"><%=attribute.name%></a>
+      <%end%>
   <%end%>
 </body>
 </html>
 
-<!-- 1) Playlister Basics show pages /artists/:slug displays the artist's songs
-     Failure/Error: expect(page).to have_content(song_name)
-       expected #has_content?("That One with the Guitar") to return true, got false
-     # ./spec/features/04_basic_view_spec.rb:112:in `block (4 levels) in <top (required)>' -->
-
-
-<!-- params = {"captures"=[], "slug"=>"person-with-a-face"} -->
+<!--  1) Playlister Basics show pages /artists/:slug displays the artist's genres
+     Failure/Error: expect(page).to have_content(genre_name)
+       expected #has_content?("New Age Garbage") to return true, got false
+     # ./spec/features/04_basic_view_spec.rb:116:in `block (4 levels) in <top (required)>' -->
