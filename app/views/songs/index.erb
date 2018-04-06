@@ -6,7 +6,7 @@
 
 <body>
 <%@songs.each do |song|%>
-  <%=song.name%>
+  <a href="/songs/<%=song.slug%>"> <%=song.name%> </a>
 <%end%>
 </body>
 </html>
