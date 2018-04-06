@@ -8,10 +8,6 @@ class SongsController < ApplicationController
 
   get '/songs/:slug' do
     @song = Song.all
-    @slug = params["slug"]
-
-    #@deslug = @slug.split("-").map(&:capitalize).join(" ")
-
     erb :'songs/show'
   end
 
