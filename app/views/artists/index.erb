@@ -5,9 +5,8 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-
-=======
->>>>>>> 0dc6a5e2da93f373f49ad22d5612d93b8f9f2d68
+<%@artists.each do |artist|%>
+<a href="/artists/<%=artist.slug%>"><%= artist.name%> </a>
+<%end%>
 </body>
 </html>
