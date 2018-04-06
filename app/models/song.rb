@@ -4,7 +4,6 @@ class Song < ActiveRecord::Base
   has_many :song_genres
   has_many :genres, through: :song_genres
 
-  attr_accessor :genre
 
   def slug
     self.name.split(" ").join("-").downcase

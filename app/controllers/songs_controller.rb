@@ -7,7 +7,8 @@ class SongsController < ApplicationController
   end
 
   get '/songs/:slug' do
-    @song = Song.all
+    @songs = Song.all
+
     erb :'songs/show'
   end
 

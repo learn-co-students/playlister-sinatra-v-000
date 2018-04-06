@@ -6,4 +6,11 @@ class ArtistsController < ApplicationController
     erb :'artists/index'
   end
 
+  get '/artists/:slug' do
+    @songs = Song.all
+    @artists = Artist.all
+
+    erb :'artists/show'
+  end
+
 end
