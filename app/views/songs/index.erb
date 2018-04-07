@@ -1,0 +1,6 @@
+<h1> Song Library </h1>
+<h2> Choose a Song </h2>
+
+<% @songs.each.with_index(1) do |song, i| %>
+<h3><%=i%>. <%=song.name%></h3>
+  <%end%>
