@@ -6,16 +6,35 @@ class SongsController < ApplicationController
     erb :'songs/index'
   end
 
+  get '/songs/new' do
+    @genres = Genre.all
+    @new_age_garbage = Genre.find_by(name: "New Age Garbage")
+
+    erb :'songs/new'
+  end
+
+  post '/songs' do
+    @song = Song.new
+    @song.name = params["Name"]
+    @song.genre_ids = params["genre"]
+    @song.save
+
+    @artist = Artist.new
+    @artist.name = params["artist_name"]
+    @artist.save
+
+    @song.artist = @artist
+    @song.save
+
+
+
+    erb :'songs/show_new_artist'
+  end
+
   get '/songs/:slug' do
     @songs = Song.all
 
     erb :'songs/show'
-  end
-
-  get '/songs/new' do
-    @artists = Artist.all
-
-    erb :'songs/new'
   end
 
 end

@@ -9,7 +9,5 @@ class Song < ActiveRecord::Base
     self.name.split(" ").join("-").downcase
   end
 
-  def genre
-    self.genre
-  end
+
 end

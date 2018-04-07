@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+  <%=@song.name%>
+  <%@song.genres.each do |genre|%>
+    <%=genre.name%>
+  <%end%>
+  <%=@artist.name%>
+</body>
+</html>
