@@ -15,7 +15,7 @@ class SongsController < ApplicationController
 
   post '/songs' do
     @song = Song.new
-    @song.name = params["Name"]
+    @song.name = params["song_name"]
     @song.genre_ids = params["genre"]
     @song.save
 
@@ -26,8 +26,6 @@ class SongsController < ApplicationController
     @song.artist = @artist
     @song.save
 
-
-
     erb :'songs/show_new_artist'
   end
 
@@ -35,6 +33,16 @@ class SongsController < ApplicationController
     @songs = Song.all
 
     erb :'songs/show'
+  end
+
+  get '/songs/new' do
+
+    erb :'songs/new'
+  end
+
+  post '/songs' do
+    @song = Song.new
+    @song.name = params["song_name"]
   end
 
 end
