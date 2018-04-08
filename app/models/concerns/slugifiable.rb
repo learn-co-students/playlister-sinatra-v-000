@@ -1,12 +1,12 @@
 module Slugifiable
   module ClassMethod
     def find_by_slug(slug)
-      self.find_by(name: slug.split("-").join(" ").titleize)
+      self.where("name like ?", "%#{slug.gsub("-", " ")}%").first
     end
   end
   module InstanceMethod
     def slug
-      self.name.downcase.split(" ").join("-")
+      self.name.downcase.gsub(" ", "-")
     end
   end
 end
