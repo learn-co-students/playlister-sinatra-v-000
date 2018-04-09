@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <h1>Successfully created song.</h1>
-</head>
 
-<body>
+  <h1>Successfully created song.</h1>
+
   <%=@song.name%>
   <%@song.genres.each do |genre|%>
     <%=genre.name%>
   <%end%>
   <%=@artist.name%>
-</body>
-</html>

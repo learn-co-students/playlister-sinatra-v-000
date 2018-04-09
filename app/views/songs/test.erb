@@ -18,3 +18,19 @@
   <!-- <%end%> -->
 <!-- </body>
 </html> -->
+
+
+
+<%@songs.each do |song|%>
+    <%if song.slug == params["slug"]%>
+        <a href="/artists/<%=@artist_instance.slug%>"><%=@artist_instance.name%></a>
+        <a href="/artists/<%=song.slug%>"><%=song.name%></a>
+    <%end%>
+
+
+    <%@genres_instance = song.genres%>
+    <% @genres_instance.each do |attribute|%>
+        <a href="/genres/<%=attribute.slug%>"><%=attribute.name%></a>
+    <%end%>
+
+<%end%>

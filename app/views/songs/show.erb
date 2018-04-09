@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <h1>Successfully created song.</h1>
-</head>
 
-<body>
-    <%@songs.each do |song|%>
-        <%if song.slug == params["slug"]%>
-            <%@artist_instance = Artist.find(song.artist_id)%>
-            <a href="/artists/<%=@artist_instance.slug%>"><%=@artist_instance.name%></a>
-            <a href="/artists/<%=song.slug%>"><%=song.name%></a>
-        <%end%>
+<h1>Successfully created song.</h1>
 
-        <%@genres_instance = song.genres%>
-        <% @genres_instance.each do |attribute|%>
-            <a href="/genres/<%=attribute.slug%>"><%=attribute.name%></a>
-        <%end%>
+<a href="/artists/<%=@song.slug%>"><%=@song.name%></a>
+<a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a>
 
-    <%end%>
-</body>
-</html>
+<%@song.genres.each do |genre|%>
+  <a href="/genres/<%=genre.slug%>"><%=genre.name%></a>
+<%end%>
