@@ -27,7 +27,7 @@ class SongsController < ApplicationController
       song.save
     end
 
-    redirect to "/songs/#{song.slug}" #moves to GET '/songs/:slug'
+    redirect "/songs/#{song.slug}" #moves to GET '/songs/:slug'
   end
 
   get '/songs/:slug' do
@@ -37,8 +37,12 @@ class SongsController < ApplicationController
   end
 
   get '/songs/new' do
-
     erb :'songs/new'
+  end
+
+  get '/songs/:slug/edit' do
+
+    erb :'songs/edit'
   end
 
 end
