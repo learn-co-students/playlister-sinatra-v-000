@@ -6,10 +6,12 @@
   <input type="text" name="Song Name" id="Song Name" value="<%=@song.name%>">
   <br></br>
 
-  <h3>The Song's Genres;</h3>
-  <%@song.genres.each do |genre|%>
-      <input type="checkbox" name="Song Genre" id="Song Genre" value="<%genre.name%>">
-      <%=genre.name%></input>
+  <h3>All Genres</h3>
+  <%@genres.each do |genre|%>
+    <input type="checkbox" name="<%=genre.name%>" id="<%=genre.name%>" value="<%=genre.name%>">
+        <%=genre.name%>
+        <%binding.pry%>
+    </input>
   <%end%>
 
 

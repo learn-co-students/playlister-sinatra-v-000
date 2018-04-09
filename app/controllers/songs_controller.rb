@@ -29,6 +29,9 @@ class SongsController < ApplicationController
       artist.save
     end
 
+    genre = Genre.find_by(id: params["genre"]) #WORKING ON
+
+
     redirect "/songs/#{song.slug}" #moves to GET '/songs/:slug'
   end
 
@@ -48,6 +51,7 @@ class SongsController < ApplicationController
     slug = params["slug"] #do I need this?
 
     @song = Song.find_by_slug(slug) #do I need this?
+    @genres = Genre.all
 
     erb :'songs/edit'
   end
