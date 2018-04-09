@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <h1>Successfully created song.</h1>
 </head>
 
 <body>
@@ -8,6 +9,7 @@
         <%if song.slug == params["slug"]%>
             <%@artist_instance = Artist.find(song.artist_id)%>
             <a href="/artists/<%=@artist_instance.slug%>"><%=@artist_instance.name%></a>
+            <a href="/artists/<%=song.slug%>"><%=song.name%></a>
         <%end%>
 
         <%@genres_instance = song.genres%>

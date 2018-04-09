@@ -13,7 +13,7 @@ class SongsController < ApplicationController
     erb :'songs/new'
   end
 
-  post '/songs' do
+  post '/songs/:slug' do
     @song = Song.new
     @song.name = params["song_name"]
     @song.genre_ids = params["genre"]
@@ -26,7 +26,7 @@ class SongsController < ApplicationController
     @song.artist = @artist
     @song.save
 
-    erb :'songs/show_new_artist'
+    redirect to "/songs/#{@song.slug}"
   end
 
   get '/songs/:slug' do
