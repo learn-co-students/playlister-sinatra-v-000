@@ -8,12 +8,11 @@
 
   <h3>All Genres</h3>
   <%@genres.each do |genre|%>
-    <input type="checkbox" name="<%=genre.name%>" id="<%=genre.name%>" value="<%=genre.name%>">
+    <input type="checkbox" name="genre[name]" id="genre.name" value="<%=genre.name%>">
         <%=genre.name%>
-        <%binding.pry%>
     </input>
   <%end%>
-
+  <input type="submit" value="Update Genre">
 
   <input type="submit" value="Save">
 </form>

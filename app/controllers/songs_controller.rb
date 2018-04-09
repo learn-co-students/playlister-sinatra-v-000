@@ -30,7 +30,7 @@ class SongsController < ApplicationController
     end
 
     genre = Genre.find_by(id: params["genre"]) #WORKING ON
-
+    #FYI TO SELF: trying to update genre.name from 'New Age Garbage' to 'Hippity Hop'
 
     redirect "/songs/#{song.slug}" #moves to GET '/songs/:slug'
   end
