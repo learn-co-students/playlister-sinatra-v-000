@@ -21,10 +21,12 @@ class SongsController < ApplicationController
     if !artist
       new_artist = Artist.create(name: params["artist_name"])
       song.artist = new_artist
-      save.save
+      song.save
+      new_artist.save
     else
       song.artist = artist
       song.save
+      artist.save
     end
 
     redirect "/songs/#{song.slug}" #moves to GET '/songs/:slug'
@@ -41,6 +43,10 @@ class SongsController < ApplicationController
   end
 
   get '/songs/:slug/edit' do
+
+    slug = params["slug"]
+
+    @song = Song.find_by_slug(slug)
 
     erb :'songs/edit'
   end
