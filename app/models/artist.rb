@@ -6,4 +6,14 @@ class Artist < ActiveRecord::Base
   def slug
     self.name.split(" ").join("-").downcase
   end
+
+  def self.find_by_slug(slug)
+    all_artists = Artist.all
+    artist = all_artists.find do |artist|
+              artist.slug == slug
+            end
+    return artist
+  end
+
+
 end
