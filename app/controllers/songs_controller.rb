@@ -1,3 +1,4 @@
+require 'sinatra/base'
 require 'rack-flash'
 
 class SongsController < ApplicationController
@@ -9,7 +10,7 @@ class SongsController < ApplicationController
     erb :'/songs/index'
   end
 
-  get 'songs/new' do
+  get '/songs/new' do
     erb :'/songs/new'
   end
 
