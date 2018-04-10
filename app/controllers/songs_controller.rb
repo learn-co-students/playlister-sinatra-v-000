@@ -27,13 +27,11 @@ use Rack::Flash
   end
 
   get '/songs/:slug' do
-    # binding.pry
     @song = Song.find_by_slug(params[:slug])
     erb :'/songs/show'
   end
 
   get '/songs/:slug/edit' do
-    # binding.pry
     @genres = Genre.all
     @song = Song.find_by_slug(params[:slug])
     erb :'/songs/edit'
