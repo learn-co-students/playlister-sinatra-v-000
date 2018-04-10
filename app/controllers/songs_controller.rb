@@ -1,4 +1,7 @@
+require 'rack-flash'
+
 class SongsController < ApplicationController
+
   get '/songs' do
     #shows all of the songs
     @songs = Song.all
@@ -13,15 +16,26 @@ class SongsController < ApplicationController
   post '/songs' do
     #posts the user inputs to the new song
     #params {"song_name"=>"Bad Company", "artist"=>{"name"=>"A$AP Rocky"}, "captures"=>[]}
-    if !params["Artist Name"].empty?
-      # binding.pry
-      @song = Song.create(name: params["Name"], artist: Artist.find_or_create_by(name: params["Artist Name"]), genre_ids: params[:genres])
-    else
-      @song = Song.create(name: params["Name"], artist: Artist.find(params["artist"]["id"]), genre_ids: params["genres"])
-    end
-    @song.save
+    @song = Song.create(name: params["Name"])
 
-    redirect "/songs/#{@song.slug}"
+    @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
+
+    @song.genre_ids = params[:genres]
+
+    @song.save
+    flash[:message] = "Successfully created song."
+
+    redirect to("/songs/#{@song.slug}")
+
+    # if !params["Artist Name"].empty?
+    #   @song = Song.create(name: params["Name"], artist: Artist.find_or_create_by(name: params["Artist Name"]), genre_ids: params[:genres])
+    # else
+    #   @song = Song.create(name: params["Name"], artist: Artist.find(params["artist"]["id"]), genre_ids: params["genres"])
+    # end
+    # @song.save
+    # flash[:message] = "Successfully created song."
+    #
+    # redirect to "/songs/#{@song.slug}"
   end
 
   get '/songs/:slug' do
