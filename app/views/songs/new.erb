@@ -4,7 +4,9 @@
 
       <label>Genres</label>
       <%@genres.each do |genre|%>
-      <input type="checkbox" name="genre[]" id="<%=genre.name%>" value="<%=genre.id%>"><%=genre.name%></input>
+          <input type="checkbox" name="genre[]" id="<%=genre.name%>" value="<%=genre.id%>">
+              <%=genre.name%>
+          </input>
       <%end%>
       <br></br>
 

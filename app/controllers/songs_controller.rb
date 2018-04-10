@@ -13,8 +13,21 @@ class SongsController < ApplicationController
   end
 
   post '/songs/:slug' do
-    song = Song.create(name: params["song_name"])
-    song.genre_ids = params["genre"]
+    #song = Song.create(name: params["song_name"])
+    #song.genre_ids = params["genre"]
+
+    song = Song.find_by(name: params["song_name"]) #new addition
+
+    if !song
+      song = Song.create(name: params["song_name"])
+      song.genre_ids = params["genre"]
+      song.save
+    elsif
+      song.name = params["song_name"] || params["Song Name"]
+      binding.pry
+      song.genre_ids = params["genre"]
+      song.save
+    end
 
     artist = Artist.find_by(name: params["artist_name"])
 
@@ -29,7 +42,7 @@ class SongsController < ApplicationController
       artist.save
     end
 
-    genre = Genre.find_by(id: params["genre"]) #WORKING ON
+    # genre = Genre.find_by(id: params["genre"]) #WORKING ON
     #FYI TO SELF: trying to update genre.name from 'New Age Garbage' to 'Hippity Hop'
 
     redirect "/songs/#{song.slug}" #moves to GET '/songs/:slug'
@@ -52,6 +65,7 @@ class SongsController < ApplicationController
 
     @song = Song.find_by_slug(slug) #do I need this?
     @genres = Genre.all
+
 
     erb :'songs/edit'
   end
