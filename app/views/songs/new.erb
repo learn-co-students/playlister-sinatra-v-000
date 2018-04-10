@@ -3,20 +3,20 @@
 <form action="/songs" method="post">
   <p>
   <label for="Name">Song Name:</label>
-  <input type="text" name="song[name]" id="Name">
+  <input type="text" name="Name" id="Name">
   </p>
 
 <h3>Genre(s):</h3>
   <% @genres.each do |genre| %>
 
-  <input type="checkbox" name="genre[name]" id="<%=genre.name%>" value="<%=genre.name%>"><%=genre.name%></input>
+  <input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%=genre.id%>"><%=genre.name%></input>
 
   <% end %>
 
 <h3>Artist:</h3>
   <p>
   <label for="Artist Name">Artist Name:</label>
-  <input type="text" name="artist[name]" id="Artist Name">
+  <input type="text" name="Artist Name" id="Artist Name">
   </p>
 
   <input type="submit" name="Create" value="Create">
