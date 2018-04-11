@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+    <%@artists.each do |artist|%>
+        <a href="/artists/<%=artist.slug%>"><%=artist.name%></a>
+    <%end%>
+
+    <%@songs.each do |song|%>
+        <a href="/songs/<%=song.slug%>"><%=song.name%></a>
+    <%end%>
+
+</body>
+</html>
+
+<!-- 1) Playlister Basics show pages /genres/:slug displays the genre's artists
+   Failure/Error: expect(page).to have_content(artist_name)
+     expected #has_content?("Person with a Face") to return true, got false
+   # ./spec/features/04_basic_view_spec.rb:138:in `block (4 levels) in <top (required)>' -->
