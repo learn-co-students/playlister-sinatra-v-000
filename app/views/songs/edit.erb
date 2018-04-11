@@ -10,21 +10,11 @@
 
   <br></br>
 
-  <label>Artist Name:</label>
+  <label for="artist">Artist Name</label>
 
   <br></br>
 
-  <!-- <%Artist.all.each do |artist|%> -->
-    <!-- <input type="checkbox" <%= "checked" if artist == @song.artist %> name="artist[id]" id="<%=artist.name%>" value="<%= artist.id %>">
-    <%=artist.name%></input>
-    <%end%> -->
 <input type="text" name="Artist Name" id="Artist Name" value="<%=@song.artist.name%>">
-
-
-  <br></br>
-<!-- 
-  <label>And/or create a new artist:</label>
-  <input type="text" name="Artist Name" id="Artist Name"> -->
 
   <br></br>
 
@@ -33,7 +23,7 @@
   <br></br>
 
   <%Genre.all.each do |genre|%>
-    <input type="checkbox"<% "checked" if @song.genre.include?(genre) %> name="genre[]" id="<%=genre.name%>" value="<%= genre.id %>">
+    <input type="checkbox" value="<%= genre.id %>" name="genre[]" id="<%=genre.name%>">
     <%=genre.name%></input>
     <%end%>
 
