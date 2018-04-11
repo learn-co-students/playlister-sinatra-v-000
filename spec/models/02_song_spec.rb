@@ -4,7 +4,6 @@ require 'pry'
 describe "Song" do
   before do
     @artist = Artist.create(:name => "Taylor Swift")
-    binding.pry
 
     @song =  Song.create(:name => "Blank Space", :artist => @artist)
 
