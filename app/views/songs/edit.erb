@@ -1,6 +1,6 @@
 <h1>Update Song</h1>
 
-<form action="/songs/<%=@song.slug%>" method="post">
+<form action="/songs/<%=@song.slug%>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label>Name:</label>
 
@@ -10,19 +10,21 @@
 
   <br></br>
 
-  <label>Select Artist:</label>
+  <label>Artist Name:</label>
 
   <br></br>
 
-  <%Artist.all.each do |artist|%>
-    <input type="checkbox" <%= "checked" if artist == @song.artist %> name="artist[id]" id="<%=artist.name%>" value="<%= artist.id %>">
+  <!-- <%Artist.all.each do |artist|%> -->
+    <!-- <input type="checkbox" <%= "checked" if artist == @song.artist %> name="artist[id]" id="<%=artist.name%>" value="<%= artist.id %>">
     <%=artist.name%></input>
-    <%end%>
+    <%end%> -->
+<input type="text" name="Artist Name" id="Artist Name" value="<%=@song.artist.name%>">
+
 
   <br></br>
-
+<!-- 
   <label>And/or create a new artist:</label>
-  <input type="text" name="artist[name]" id="Artist Name">
+  <input type="text" name="Artist Name" id="Artist Name"> -->
 
   <br></br>
 
