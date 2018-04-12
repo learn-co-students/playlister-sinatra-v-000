@@ -1,0 +1,6 @@
+<h1>Genre Library</h1>
+<h2>Choose a Genre</h2>
+
+<% @genres.each.with_index(1) do |genre, i| %>
+<h3><%=i%>. <a href="/genres/<%=genre.slug%>"><%=genre.name%></a></h3>
+<%end%>
