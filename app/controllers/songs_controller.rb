@@ -38,7 +38,7 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do
-    #{"_method"=>"patch", "name"=>"Poetic Justice", "artist"=>{"id"=>"1", "name"=>""}, "captures"=>[], "slug"=>"poetic-justice"}
+    #{"_method"=>"patch", "Artist Name"=>"Poetic Justice", "artist"=>{"id"=>"1", "name"=>""}, "captures"=>[], "slug"=>"poetic-justice"}
     # binding.pry
     @song = Song.find_by_slug(params[:slug])
     @song.name = params["Song Name"]
