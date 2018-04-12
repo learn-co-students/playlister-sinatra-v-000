@@ -11,9 +11,8 @@ class Genre < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    slug = slug.split("-").map.each do |s|
-      s.capitalize
+    @genre = Genre.all.find do |g|
+      g.slug == slug
     end
-    @genre = Genre.find_by_name(slug.join(" "))
   end
 end

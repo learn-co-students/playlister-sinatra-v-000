@@ -5,7 +5,10 @@ class ApplicationController < Sinatra::Base
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    erb :"/songs/show"
+    erb :'/songs/show'
+    #<h2><a href='/genre/<%=@song.genres.slug%>'>
+    #<%=@song.genre%></a></h2>
+    #<%end%>
   end
 
   get '/songs' do
@@ -13,14 +16,16 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/genres/:slug' do
-
-  end
-
-  get '/genres' do
+    @genre = Genre.find_by_slug(params[:slug])
     erb :'/genres/show'
   end
 
+  get '/genres' do
+    erb :'/genres/index'
+  end
+
   get '/artists/:slug' do
+    @artist = Artist.find_by_slug(params[:slug])
     erb :'/artists/show'
   end
 

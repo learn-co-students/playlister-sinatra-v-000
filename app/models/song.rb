@@ -12,9 +12,8 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    slug = slug.split("-").map.each do |s|
-      s.capitalize
+    @song = Song.all.find do |s|
+      s.slug == slug
     end
-    @song = Song.find_by_name(slug.join(" "))
   end
 end
