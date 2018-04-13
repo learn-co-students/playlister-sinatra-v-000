@@ -9,7 +9,6 @@ class Artist < ActiveRecord::Base
     if @slug.split.size >1
       @slug.split.join("-")
     end
-    #self.slug = @slug
   end
 
   def self.find_by_slug(slug)
