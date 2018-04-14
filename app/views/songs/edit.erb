@@ -10,9 +10,10 @@
 
 <p>Choose an existing genre:</p>
   <br></br>
-    <%Genre.all.each do |genre|%>
-      <input type="checkbox" name="existing_genre_name[]" value="<%=genre.name%>" id="<%=genre.name%>" <%='checked' if @song.genres.include?(genre)%>><%=genre.name%></input>
-    <%end%>
+    <% Genre.all.each do |genre| %>
+      <label><%= genre.name %></label>
+      <input type="checkbox" name="genres[]" value="<%= genre.id %>" id="<%= genre.name %>" <%='checked' if @song.genres.include?(genre) %>>
+    <% end %>
       <br></br>
     and/or, create a new genre:
       <br></br>
