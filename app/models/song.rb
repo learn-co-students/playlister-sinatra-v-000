@@ -5,6 +5,7 @@ class Song < ActiveRecord::Base
 
   def slug
     @slug = self.name.downcase
+    binding.pry
     if @slug.split.size >1
       @slug.split.join("-")
     end
