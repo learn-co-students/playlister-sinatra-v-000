@@ -15,23 +15,22 @@
       <input type="checkbox" name="genres[]" value="<%= genre.id %>" id="<%= genre.name %>" <%='checked' if @song.genres.include?(genre) %>>
     <% end %>
       <br></br>
-    and/or, create a new genre:
+    <!-- and/or, create a new genre:
       <br></br>
     <label>Name:</label>
       <input type="text" name="genre_name"></input>
-      <br></br>
-
+      <br></br> -->
 
     <p>Choose an existing Artist:</p>
       <br></br>
-    <%Artist.all.each do |artist|%>
+    <!-- <%Artist.all.each do |artist|%>
       <input type="checkbox" name="song[artist_id]" value="<%=artist.id%>" id="<%=artist.name%>" <%='checked' if @song.artist == artist%>><%=artist.name%></input>
-    <%end%>
+    <%end%> -->
       <br></br>
     and/or, create a new Artist:
       <br></br>
     <label>Artist Name:</label>
-      <input type="text" name="artist_name" id="Artist Name"></input>
+      <input type="text" name="artist[name]" value="<%@song.artist.name%>" id="Artist Name"></input>
       <br></br>
     <input type="submit" value="Save">
 </form>
