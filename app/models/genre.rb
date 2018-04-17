@@ -7,10 +7,11 @@ class Genre < ActiveRecord::Base
     self.name.gsub(" ","-").downcase
   end
 
-  def self.find_by_slug(slug)
-    artist_name = slug.gsub("-"," ").split.collect do |word|
-      word.capitalize
-    end
-    self.find_by(:name => artist_name.join(" "))
+  def self.find_by_slug(genre_slug)
+    Genre.all.detect{|song| song.slug == genre_slug}
+    #artist_name = slug.gsub("-"," ").split.collect do |word|
+    #  word.capitalize
+    #end
+    #self.find_by(:name => artist_name.join(" "))
   end
 end
