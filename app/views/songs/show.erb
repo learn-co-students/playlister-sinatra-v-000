@@ -1,0 +1,14 @@
+<%= @sluggish.name %>
+<% #binding.pry %>
+<% if @sluggish.artist.name != nil %>
+<%= @sluggish.artist.name %>
+<a href="/artists/<%= @sluggish.artist.slug %>"></a>
+<% end %>
+<% @sluggish.genres.each do |genre| %>
+  <%= genre.name %>
+  <a href="/genres/<%= genre.slug %>"></a>
+<% end %>
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
