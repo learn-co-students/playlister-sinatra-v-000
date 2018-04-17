@@ -1,0 +1,26 @@
+<DOCTYPE! html>
+<html>
+
+  <head>
+    <title> Welcome to Playlister! </title> 
+  </head>
+
+  <body>
+    <h1>Artist Information</h1>
+
+    <p>Name: <%= @artist.name %></p>
+
+    <p> Artist's songs: </p>
+    <% @artist.songs.each do |song| %>
+      <p><a href="/songs/<%= song.slug %>"><%= song.name %></a></p>
+    <%end%>
+
+    <p> Artist's genres: </p>
+    <% @artist.genres.each do |genre| %>
+      <p><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></p>
+    <%end%>
+  </body>
+</html>
+
+
+
