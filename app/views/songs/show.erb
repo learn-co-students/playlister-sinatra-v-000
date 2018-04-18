@@ -1,0 +1,24 @@
+<DOCTYPE! html>
+<html>
+
+  <head>
+    <title> Welcome to Playlister! </title> 
+  </head>
+
+  <body>
+    <h1>Song Information</h1>
+
+    <p>Name: <%= @song.name %></p>
+    <p>Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></p>
+
+    <% @song.genres.each do |genre| %>
+      Genre Name: <a href="/genres/<%= genre.slug %>"> <%= genre.name %> </a>
+    <% end %>
+
+    <% if flash.has?(:message) %>
+      <%= flash[:message] %>
+    <% end %>
+    
+  </body>
+</html>
+
