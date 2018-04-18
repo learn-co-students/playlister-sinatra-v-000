@@ -7,9 +7,6 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    Song.find_by(:name => slug.gsub("-", " ").titleize)
-  end
-
-  def song_genres
+    self.all.find{|s| s.slug == slug}
   end
 end

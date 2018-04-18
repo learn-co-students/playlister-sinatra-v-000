@@ -9,8 +9,9 @@ describe "Playlister Basics" do
     @song = Song.create(name: song_name)
     @genre = Genre.create(name: genre_name)
     @artist = Artist.create(name: artist_name)
-
-    @song.song_genres.create(genre: @genre)
+    #binding.pry
+    #@song.song_genres.create(genre: @genre)
+    @song.genres << @genre
     @song.artist = @artist
 
     @song.save
