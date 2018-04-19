@@ -8,7 +8,7 @@
   <p>Select an Existing Genre:</p>
   <br>
   <%@genres.each do |genre| %>
-  <input type="checkbox" name="genres" value="<%=genre.name%>" id="<%=genre.name%>"><%=genre.name%></input>
+  <input type="checkbox" name="genres[]" value="<%=genre.name%>" id="<%=genre.name%>"><%=genre.name%></input>
   <%end%>
   <input type="submit" id="Create" value="Create">
 </form>
