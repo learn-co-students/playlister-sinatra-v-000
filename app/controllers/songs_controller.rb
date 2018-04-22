@@ -7,7 +7,10 @@ class SongsController < ApplicationController
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    binding.pry
+    @genres = []
+    @song.song_genres.each do |genre|
+      @genres << Genre.find(genre.genre_id)
+    end
     erb :'songs/show'
   end
 
