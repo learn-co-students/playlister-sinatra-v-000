@@ -20,7 +20,7 @@ class GenresController < ApplicationController
       #binding.pry
       @artists << song.artist
     end
-    binding.pry
+    #binding.pry
     erb :'genres/show'
   end
 
