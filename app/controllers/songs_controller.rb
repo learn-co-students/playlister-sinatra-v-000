@@ -33,6 +33,12 @@ class SongsController < ApplicationController
   end
 
   get '/songs/:slug/edit' do
+    #binding.pry
+    @song = Song.find_by_slug(params[:slug])
+    @genres = []
+    @song.song_genres.each do |genre|
+      @genres << Genre.find(genre.genre_id)
+    end
     erb :'songs/edit'
   end
 
