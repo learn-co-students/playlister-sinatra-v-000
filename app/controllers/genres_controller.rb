@@ -7,20 +7,21 @@ class GenresController < ApplicationController
 
   get '/genres/:slug' do
     @genre = Genre.find_by_slug(params[:slug])
-    binding.pry
+    #binding.pry
     @songs = []
-    Song.all.each do |song|
-      if @artist.id == song.artist_id
-        @songs << song
+    SongGenre.all.each do |sg|
+      #binding.pry
+      if sg.genre_id == @genre.id
+        @songs << Song.find(sg.song_id)
       end
     end
-    @genres = []
+    @artists = []
     @songs.each do |song|
-      song.song_genres.each do |genre|
-        @genres << Genre.find(genre.genre_id)
-      end
+      #binding.pry
+      @artists << song.artist
     end
-    erb :'artists/show'
+    binding.pry
+    erb :'genres/show'
   end
 
 end
