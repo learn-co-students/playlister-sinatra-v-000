@@ -1,0 +1,6 @@
+<h1>List of Songs</h1>
+<%binding.pry%>
+<%@songs.each do |song|%>
+<h2><%= song.name %></h2>
+<h2><a href="/songs/#{song.slug}">Link to Song</h2>
+<% end %>
