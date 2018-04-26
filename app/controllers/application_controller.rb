@@ -13,9 +13,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/songs/:slug' do
-    @song = Song.find_by_slug(params [:slug] )
-    @song.slug = params[:slug]
-    erb :show
+    @song = Song.find_by_slug(params[:slug] )
+    # @song.slug = params[:slug]
+    erb :'/songs/show'
   end
 
   get '/artists' do
@@ -26,9 +26,9 @@ class ApplicationController < Sinatra::Base
 
 
   get '/artists/:slug' do
-    @artist = Artist.find_by_slug(params [:slug] )
+    @artist = Artist.find_by_slug(params[:slug] )
     @artist.slug = params[:slug]
-    erb :show
+    erb :'/artits/show'
   end
 
     get '/genres' do
@@ -42,7 +42,7 @@ class ApplicationController < Sinatra::Base
 
     @genre.slug = params[:slug]
 
-    erb :show
+    erb :'/genres/show'
   end
 
 
