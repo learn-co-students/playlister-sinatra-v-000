@@ -1,7 +1,10 @@
 class LibraryParser
   def files
-    data_path = File.join(File.dirname(__FILE__), '..', 'db', 'data')
-    Dir.entries(data_path)[2..-1]
+    data_path = File.join(File.dirname(__FILE__), '..', 'db', 'data')  #__FILE__ is the current file the library parser file, ".." goes into the parent directory
+    Dir.entries(data_path)[2..-1] #this gives me an array of the files in the db directory
+    #this is my code below here
+    # files = Dir.entries(data_path)[2..-1]
+    #my code above this line
   end
 
   def self.parse
@@ -34,7 +37,7 @@ class LibraryParser
 
     song.song_genres.build(genre: genre)
     song.artist = artist
-    
+
     song.save
   end
 end
