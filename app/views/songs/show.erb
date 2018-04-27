@@ -1,0 +1,19 @@
+<h1><%= @song.name %></h1>
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
+Song Artist:  <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %><br></a>
+Song Genre:   <% @song.genres.each do |genre| %>
+<a href="/genres/<%= genre.slug %>"> <%= genre.name %> </a>
+<% end %> <br><br>
+
+<a href="/songs/<%=@song.slug %>/edit">Edit</a>
+
+<form class="" action="/songs/<%=@song.slug %>" method="post">
+<input type="hidden" name="_method" value="delete">
+  <input type="SUBMIT" name="" value="Delete Song">
+</form>
