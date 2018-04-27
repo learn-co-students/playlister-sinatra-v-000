@@ -1,0 +1,16 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+
+<form action="/songs" method="POST">
+
+<% Genre.all.each do |genre| %>
+  <input id="<%= genre.name %>" type="checkbox" name="genre" value="<%= genre.id %>">
+<% end %>
+
+Song Name: <input type="text" name="song[name]" id="Name">
+Artist Name: <input type="text" name="artist[name]" id="Artist Name">
+<input type="submit" id="submit" value="Create">
+
+</form>

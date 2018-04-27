@@ -7,7 +7,9 @@ class Artist < ActiveRecord::Base
   end
 
   def self.find_by_slug(artist_name)
-    artist = Artist.find_by_name(artist_name.gsub('-', ' ').split(" ").map(&:capitalize).join(" "))
+    Artist.all.find do |artist|
+      artist.name.downcase == artist_name.gsub('-', ' ')
+    end
   end
 
 
