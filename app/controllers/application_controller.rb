@@ -1,7 +1,9 @@
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
-  require 'sinatra/flash'
+  require 'rack-flash'
+  require 'sinatra/redirect_with_flash'
   enable :sessions
+  use Rack::Flash, :sweep => true
   set :session_secret, "my_application_secret"
   set :views, Proc.new { File.join(root, "../views/") }
 
@@ -56,13 +58,11 @@ class ApplicationController < Sinatra::Base
       @song.genre_ids = params[:genres]
 
       @song.save
-      #
-      # flash[:success_message] = "Song successfully updated."
-      #   @success_message = session[:success_message]
+      if @song.save
+        flash[:created] = "Successfully created song."
+      end
+      redirect to "/songs/#{@song.slug}"
 
-        # binding.pry
-
-       redirect "/songs/#{@song.slug}"
        end
 
        get "/songs/:slug/edit" do
@@ -74,19 +74,25 @@ class ApplicationController < Sinatra::Base
        patch '/songs/:slug' do
          @song = Song.find_by_slug(params[:slug])
         @artist = Artist.find_or_create_by(:name => params["artist_name"])
+
+
+
+        @genres = Genre.find(params[:genres])
+        @song.song_genres.clear
+       @genres.each do |genre|
+         @song_genre = SongGenre.new(:song_id => @song.id, :genre => genre)
+        @song_genre.genre_id = genre.id
+        @song_genre.save
+        # binding.pry
+       end
         @song.update(:name => params["song_name"], :artist_id => @artist.id)
 
-         @genres = Genre.find(params[:genres])
-
-         @song.song_genres.clear
-
-        @genres.each do |genre|
-          song_genre = SongGenre.new(:song_id => @song.id, :genre => genre)
-        end
          @song.save
+         if @song.save
          flash[:success] = "Successfully updated song."
-         redirect "/songs/#{@song.slug}"
-        #
+       end
+         redirect to "/songs/#{@song.slug}"#:notice => "Successfully updated song."
+
        end
 
        delete '/songs/:slug'  do
