@@ -1,0 +1,12 @@
+<h1>All artists:</h1>
+
+
+<% if @artists.length == 0 %>
+"Not working!!!"
+<% end %>
+
+<ol>
+<% @artists.each do |artist| %>
+  <li><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></li>
+<% end %>
+</ol>
