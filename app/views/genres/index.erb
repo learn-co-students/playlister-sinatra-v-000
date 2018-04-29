@@ -1,0 +1,11 @@
+<h1>All Genres:</h1>
+
+
+<% if @genres.length == 0 %>
+  "Not working!!!"
+<% end %>
+
+
+<% @genres.each do |genre| %>
+  <li><a href="/genres/<%= genre.slug %>"> <%= genre.name %></a></li>
+<% end %>
