@@ -1,5 +1,5 @@
 <ul>
-<% @genres.each do |genre| %>
-   <li><a href=""><%=genre.name%></a></li><br>
+<% @genres.each do |artist| %>
+   <li><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li><br>
 <%end %>
 </ul>
