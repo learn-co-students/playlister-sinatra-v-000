@@ -1,4 +1,5 @@
-require 'rack-flash'
+
+
 
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
@@ -10,8 +11,8 @@ configure do
   set :session_secret, "my_application_secret"
 end
   
-    
-  use Rack::Flash
+
+
   
   get '/' do
     erb :index
