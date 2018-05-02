@@ -1,0 +1,5 @@
+Artist Index Page
+
+<%@artists.each do |artist|%><br></br>
+<a href="/artists/<%=artist.slug%>"><%=artist.name%></a>
+<%end%>

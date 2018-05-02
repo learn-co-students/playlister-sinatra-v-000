@@ -1,0 +1,13 @@
+Songs Show page
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+<li><%=@song.name%></li>
+<li><%=@song.artist.name%></li>
+<li><%=@song.genres.first.name%></li>
+<br></br>
+Artist: <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a>
+<br></br>
+Genre: <a href="/genres/<%=@song.genres.first.slug%>"><%=@song.genres.first.name%></a>
+
+
