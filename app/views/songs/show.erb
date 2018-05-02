@@ -1,1 +1,12 @@
 songs/show.erb
+
+<h3>Displaying information for song: <%= @song.name %></h3>
+<h1><%= @song.name %></h1>
+
+<h2>Artist:</h2>
+<p><a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></p>
+
+<h2>Genres:</h2>
+<% @song.genres.each_with_index do |genre, index| %>
+  <p>Genre <%= index+1 %>: <a href="/genres/<%= genre.slug %>"><%= genre.name %></a></p>
+<% end %>
