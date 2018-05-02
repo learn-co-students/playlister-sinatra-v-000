@@ -2,8 +2,8 @@
 
 <form action="/songs" method="POST">
   <br>
-  <input type="text" name="Name" id="song_name"placeholder="Name"><br>
-  <input type="text" name="Artist" id="artist_name"placeholder="Artist Name"><br>
+  <input type="text" name="name" id="song_name"placeholder="Name"><br>
+  <input type="text" name="artist" id="artist_name"placeholder="Artist Name"><br>
 
   <% Artist.all.each do |artist| %>
     <input id="<%= artist.name %>" type="checkbox" name="artists[]" value="<%= artist.id %>">
