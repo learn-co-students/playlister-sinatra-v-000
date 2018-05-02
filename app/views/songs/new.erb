@@ -1,1 +1,25 @@
 songs/new.erb
+
+<form action="/songs" method="post">
+  <h1>Make a new song!</h1>
+
+  <h3>Title: <input type="text" name="name" id="Name"></h3>
+
+  <p>Select from this list of available artists:</p>
+  <% Artist.all.each do |artist| %>
+    <input type="checkbox" name="artist[<%= artist.name %>]" id="<%= artist.name %>"><%= artist.name %></input>
+    <br>
+  <% end %>
+  <p>Or make a new Artist:</p>
+  <h3>Artist: <input type="text" name="artist_name" id="Artist Name"></h3>
+
+  <p>Select from this list of available genres:</p>
+  <% Genre.all.each do |genre| %>
+    <input type="checkbox" name="genre[<%= genre.name %>]" id="<%= genre.name %>"><%= genre.name %></input>
+    <br>
+  <% end %>
+  <p>Or make a new Genre:</p>
+  <h3>Genre: <input type="text" name="genre_name" id="Genre Name"></h3>
+
+  <input type="submit" name="Create" value="Create">
+</form>

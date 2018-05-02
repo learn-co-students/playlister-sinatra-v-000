@@ -1,4 +1,11 @@
 songs/show.erb
+<% if params[:create]=="yes" %>
+  <p>Successfully created song.</p>
+<% end %>
+
+<% if params[:edit]=="yes" %>
+  <p>Successfully updated song.</p>
+<% end %>
 
 <h3>Displaying information for song: <%= @song.name %></h3>
 <h1><%= @song.name %></h1>
