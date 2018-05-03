@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'tux'
+gem 'rack-flash3', :require => 'rack-flash'
 
 group :test do
   gem 'rspec'
