@@ -1,3 +1,7 @@
+
+
+
+
 <p>New Song</p>
 
 <form action="/songs" method="POST">
@@ -7,6 +11,7 @@
 
   <% Artist.all.each do |artist| %>
     <input id="<%= artist.name %>" type="checkbox" name="artists[]" value="<%= artist.id %>">
+    <%binding.pry%>
   <% end %>
 
 

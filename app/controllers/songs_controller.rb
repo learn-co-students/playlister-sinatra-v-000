@@ -17,15 +17,18 @@ class SongsController < ApplicationController
     end
 
     post '/songs' do
-      puts params
+      if !params["artist"].nil?
       @song = Song.create(name:params["name"])
-      #if !params["artist"].nil?
-      @song.artist = Artist.create(name:params["artist"])
-      #endpr
+      @song.artist = Artist.find_or_create_by(:name => params["artist"])
+      @song.genre_ids = params[:genres]
+      end
+      binding.pry
       @song.save
-      redirect "/songs/#{@song.slug}"
-    end
-
+      flash[:message] = "Successfully created song."
+binding.pry
+      redirect to("/songs/#{@song.slug}")
+      binding.pry
+  end
 
 
     get '/songs/:id' do
