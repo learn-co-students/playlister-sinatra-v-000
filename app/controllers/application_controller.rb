@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     @songs = Song.all
-    binding.pry
+    
     erb :index
   end
 end
