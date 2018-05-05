@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'tux', '~> 0.3.0'
+gem 'slugify', '~> 1.0', '>= 1.0.7'
 
 group :test do
   gem 'rspec'
