@@ -1,6 +1,5 @@
 ENV['SINATRA_ENV'] ||= "development"
 
-require 'slugify'
 require 'bundler/setup'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
