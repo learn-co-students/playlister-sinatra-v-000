@@ -1,1 +1,10 @@
-<%= @song.name %>
+
+<ul>
+  <% if !@songs.empty? %>
+    <% @songs.each do |song|%>
+    <li><%= song.name %></li>
+    <%end%>
+    <%else%>
+    <li>We need some songs here!</li>
+  <%end%>
+</ul>
