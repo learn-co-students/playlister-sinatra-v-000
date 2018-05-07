@@ -11,7 +11,7 @@ module Slugifiable
   end
 
   def find_by_slug(arg)
-    self.all.select do |x|
+    self.all.detect do |x|
       x.slug == arg
     end
   end

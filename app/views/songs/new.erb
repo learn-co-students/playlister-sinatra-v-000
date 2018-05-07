@@ -1,0 +1,10 @@
+<h1>Create a new Song</h1>
+<input type="text" name="" value="">
+<form action="/songs/<%= %>" method="post">
+<h2>Create a new Artist:</h2>
+<input type="text" name="" value="">
+<h2>Or, choose an existing Artist:</h2>
+<% Artist.all.each do |a| %>
+<input type="radio" name="" value="">
+<% end %>
+</form>
