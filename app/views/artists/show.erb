@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Artist show landing page</h1>
+	<h2><%=@artist.name%></h2>
+	<%@artist.songs.each do |song| %>
+
+	<h2><%=song.name%><a href="/songs/<%=song.slug%>"></a></h2>
+	<%song.genres.each do |genre|%>
+	<h2><%=genre.name%><a href="/genres/<%=genre.slug%>"></a></h2>
+	
+	<%end%>
+	<%end%>
+
+	
+</body>
+</html>
