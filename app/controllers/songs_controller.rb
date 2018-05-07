@@ -10,9 +10,21 @@ class SongsController < ApplicationController
     erb :'songs/index'
   end
 
-  get "songs/new" do
-binding.pry
-    erb :'/songs/new'
+  get '/songs/new' do
+  @genres = Genre.all
+  @artists = Artist.all
+    erb :'songs/new'
+  end
+
+  post '/songs' do
+    #... code for creating song
+    @song = Song.create(name: params[:name])
+    @song.artist = Artist.find_or_create_by(name: params[:artist])
+    @song.genre_ids = params[:genres]
+    @song.save
+    # binding.pry
+    flash[:message] = "Successfully created song."
+    redirect "/songs/#{@song.slug}"
   end
 
   get '/songs/:slug' do
@@ -20,13 +32,11 @@ binding.pry
     erb :'songs/show'
   end
 
-  post '/songs' do
-    #... code for creating song
-    flash[:message] = "Successfully created song."
-    redirect "/songs/#{@song.slug}"
-  end
-
   get '/songs/:slug/edit' do
     erb :"/songs/edit"
+  end
+
+  patch '/songs/:slug' do
+     @song = Song.find_by_slug(params[:slug])
   end
 end
