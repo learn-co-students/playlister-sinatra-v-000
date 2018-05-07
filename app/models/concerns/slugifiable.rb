@@ -11,8 +11,8 @@ module Slugifiable
   end
 
   def find_by_slug(arg)
-    self.all.slug
-
-    binding.pry
+    self.all.select do |x|
+      x.slug == arg
+    end
   end
 end
