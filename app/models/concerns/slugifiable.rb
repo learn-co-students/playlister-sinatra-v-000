@@ -1,9 +1,13 @@
 module Slugifiable
-  def slug
-    self.name.downcase.strip.gsub(' ','-').gsub(/[^\w-]/, '')
+  module InstanceMethods
+    def slug
+      self.name.downcase.strip.gsub(' ','-').gsub(/[^\w-]/, '')
+    end
   end
 
-  def self.find_by_slug(slug)
-    self.all.detect { |artist| artist.slug == slug }
+  module ClassMethods
+    def find_by_slug(slug)
+      self.all.detect { |artist| artist.slug == slug }
+    end
   end
 end
