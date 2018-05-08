@@ -1,0 +1,15 @@
+<h1><%=@song.name%></h1>
+
+<br></br>
+
+<h2>Artist</h2>
+
+<p><%=@song.artist.name%></p>
+
+<br></br>
+
+<h2>Genres</h2>
+
+<ul><%@song.genres.each do |genre|%>
+  <li><a href='/genres/<%=genre.slug%>'><%=genre.name%></a></li>
+  <%end%></ul>
