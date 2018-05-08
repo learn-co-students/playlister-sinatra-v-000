@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Artists</title>
+    <h1>Artists Index</h1>
   </head>
   <body>
     <% @artists.each do |artist| %>
-      <%= artist.name %>
+      <p><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></p>
     <% end %>
   </body>
 </html>

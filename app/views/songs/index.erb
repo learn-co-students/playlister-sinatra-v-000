@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Songs</title>
+    <h1>Songs Index</h1>
   </head>
   <body>
     <% @songs.each do |song| %>
-      <a href="/songs/#{song.slug}"><%= song.name %></a>
+      <p><a href="/songs/<%= song.slug %>"><%= song.name %></a></p>
     <% end %>
   </body>
 </html>
