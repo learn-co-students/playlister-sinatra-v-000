@@ -12,7 +12,6 @@ class SongsController < ApplicationController
   get '/songs/:slug' do
     slug = params[:slug]
     @song = Song.all.detect { |song| song.slug == slug}
-    binding.pry
     erb :'songs/show'
   end
 end
