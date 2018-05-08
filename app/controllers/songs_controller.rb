@@ -20,6 +20,7 @@ class SongsController < ApplicationController
   post '/songs' do
     binding.pry
     @artist = Artist.create(params[:song][:artist])
+    @song = Song.create(name: params[:song][:name], artist: @artist)
      redirect to '/songs'
   end
 
