@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title><%= @song.name %></title>
-    <h2><%= @song.name %></h2>
   </head>
   <body>
-    <h3>By: <%= @song.artist.name %></h3>
-    <h3>Genre: <%= @song.genres.name %></h3>
+    <h2><%= @song.name %> by: <%= @song.artist.name %></h2>
+    <h3>Genres:</h3>
+    <% @song.genres.each do |genre| %>
+      <p><%= genre.name %></p>
+    <% end %>
   </body>
 </html>
