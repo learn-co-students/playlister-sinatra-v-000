@@ -21,6 +21,8 @@ class SongsController < ApplicationController
     binding.pry
     @artist = Artist.create(params[:song][:artist])
     @song = Song.create(name: params[:song][:name], artist: @artist)
+    @genres_ids = params[:song][:genres].collect {|i| i.to_i}
+    @song.genres << Genre.find_by_id(@genres_ids.first)
      redirect to '/songs'
   end
 
