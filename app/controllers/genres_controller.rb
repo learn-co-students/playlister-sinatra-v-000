@@ -7,7 +7,6 @@ class GenresController < ApplicationController
   get '/genres/:slug' do
     slug = params[:slug]
     @genre = Genre.all.detect { |genre| genre.slug == slug}
-    binding.pry
     erb :'genres/show'
   end
 end
