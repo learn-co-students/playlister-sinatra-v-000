@@ -12,16 +12,20 @@ class SongsController < ApplicationController
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
+    @artist = @song.artist
+    binding.pry
     erb :'songs/show'
   end
 
   post '/songs' do
     @song = Song.create(:name => params[:song][:name])
-    @artist = Artist.create(:name => params[:artist][:name])
-    @song.artist = @artist
-    @song_slug = @song.slug
-    @artist_slug = @artist.slug
-    redirect to "/songs/#{@song_slug}"
+    @song.artist = Artist.create(:name => params[:artist][:name])
+    @song.genre_ids = params[:genres]
+    @song.save
+
+    redirect to "/songs/#{@song.slug}" #not redirecting properly
   end
+
+
 
 end
