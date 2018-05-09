@@ -36,7 +36,8 @@ class SongsController < ApplicationController
     if params[:song][:new_genre] != "name"
       @new_genre = Genre.create(name: params[:song][:new_genre])
       @song.genres << @new_genre
-    elsif !params[:song][:genres].empty?
+    end
+    if !params[:song][:genres].empty?
       @genres_ids = params[:song][:genres].collect {|i| i.to_i}
       @genres_ids.each do |id|
         @song.genres << Genre.find_by_id(id)
@@ -52,14 +53,18 @@ class SongsController < ApplicationController
       @artist = Artist.find_by_name(params[:song][:artist][:name])
     elsif params[:song][:artist][:name] != "name"
       @artist = Artist.create(params[:song][:artist])
-    else
+    elsif params[:song][:artist_id] != nil
       @artist = Artist.find_by_id(params[:song][:artist_id]["{}"].to_i)
+    else
+      @artist = @song.artist
     end
     @song.artist = @artist
+    @song.genres.clear
     if params[:song][:new_genre] != "name"
       @new_genre = Genre.create(name: params[:song][:new_genre])
       @song.genres << @new_genre
-    elsif !params[:song][:genres].empty?
+    end
+    if !params[:song][:genres].empty?
       @genres_ids = params[:song][:genres].collect {|i| i.to_i}
       @genres_ids.each do |id|
         @song.genres << Genre.find_by_id(id)
