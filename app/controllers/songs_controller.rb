@@ -5,7 +5,7 @@ class SongsController < ApplicationController
   end
 
   get '/songs/new' do
-    binding.pry
+    @artists = Artist.all
     erb :'songs/new'
   end
 

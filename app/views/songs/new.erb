@@ -12,14 +12,14 @@
       <br></br>
       <label>Choose an existing artist:</label>
       <br></br>
-      <% Artist.all.each do |artist| %>
-        <p><input type="checkbox" name="song[artist_id][]" value="<%= artist.id %>" id="<% artist.name %>"><%= artist.name %></input></p>
-      <% end %>
+      <% @artists.each do |artist| %>
+        <input type="checkbox" name="song[artist_id]">
+
       <br></br>
       <label>Or create or new one:</label>
       <br></br>
       <label>Name:</label>
-        <input type="text" name="artist[name]" value="Artist Name">
+        <input type="text" name="artist[name]" id="Artist Name">
       <br></br>
       <input type="submit" value="Create Song">
     </form>
