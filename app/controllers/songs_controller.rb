@@ -1,4 +1,10 @@
+require 'sinatra/base'
+require 'rack-flash'
+
 class SongsController < ApplicationController
+
+  enable :sessions
+  use Rack::Flash
 
   get '/songs' do
     @songs = Song.all
@@ -13,19 +19,42 @@ class SongsController < ApplicationController
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     @artist = @song.artist
-    binding.pry
     erb :'songs/show'
   end
 
   post '/songs' do
     @song = Song.create(:name => params[:song][:name])
-    @song.artist = Artist.create(:name => params[:artist][:name])
+    @artist = Artist.find_by(:name => params[:artist][:name])
+      if @artist.nil?
+        @song.artist = Artist.create(:name => params[:artist][:name])
+      else
+        @song.artist = @artist
+      end
     @song.genre_ids = params[:genres]
     @song.save
 
-    redirect to "/songs/#{@song.slug}" #not redirecting properly
+    flash[:message] = "Successfully created song."
+    redirect to "/songs/#{@song.slug}"
   end
 
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'/songs/edit'
+  end
 
+  patch '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    @artist = Artist.find_by(:name => params[:artist][:name])
+      if @artist.nil?
+        @song.artist = Artist.create(:name => params[:artist][:name])
+      else
+        @song.artist = @artist
+      end
+    @song.genre_ids = params[:genres]
+    @song.save
+
+    flash[:message] = "Successfully updated song."
+    redirect to "/songs/#{@song.slug}" 
+  end
 
 end
