@@ -1,0 +1,9 @@
+<ul>
+  <% if !@artists.empty? %>
+    <% @artists.each do |artist|%>
+    <li><a href='/artists/<%= "#{artist.slug}" %>'><%= artist.name %></a></li>
+    <%end%>
+    <%else%>
+    <li>We need some artists here!</li>
+  <%end%>
+</ul>
