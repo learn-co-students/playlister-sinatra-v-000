@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe "Song Forms" do
   let(:artist_name) { "Person with a Face" }
@@ -119,7 +120,6 @@ describe "Song Forms" do
         uncheck "New Age Garbage"
         check "Hippity Hop"
         click_on "Save"
-
         expect(page).to have_content("Successfully updated song.")
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
