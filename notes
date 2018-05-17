@@ -1,0 +1,25 @@
+Tables needed:
+
+Artists - have many songs, have many genres through songs
+- name
+
+Songs - belong to one artist, can have many genres
+- name
+- artist id
+
+Genres - have many songs, have many artists through songs
+- name
+
+SongGenre
+- song id
+- genre id
+
+Models needed:
+
+Artist
+
+Song
+
+Genre
+
+SongGenre
