@@ -1,0 +1,13 @@
+<form action="/songs" method="post">
+  <h1>Create a New Song</h1>
+    <h2>Name of New Artist:</h2>
+    <input type="text" name="Artist Name">
+    <h2>Name of New Song</h2>
+    <input type="text" name ="Name">
+  <h2>And choose an existing Genre:</h2>
+  <% Genre.all.each do |genre| %>
+    <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>"><%= genre.name %> </input>
+  <% end %>
+<br></br>
+  <input type="submit" value="Create">
+</form>
