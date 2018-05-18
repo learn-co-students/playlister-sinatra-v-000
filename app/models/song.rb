@@ -4,3 +4,5 @@ class Song < ActiveRecord::Base
   has_many :genres, through: :song_genres
 
 end
+
+# rspec spec/models/02_song_spec.rb
