@@ -1,4 +1,5 @@
-class ArtistsController < ApplicationController
+class GenreController < ApplicationController
+
 
   get '/songs' do
   @songs = Song.all
