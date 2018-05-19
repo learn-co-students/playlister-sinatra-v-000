@@ -11,7 +11,7 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    puts "Params = #{params}"
+    # puts "Params = #{params}"
     @song = Song.create(name: params[:song_name])
 
     # Find or Create new Artist + associate to Song
@@ -49,6 +49,11 @@ class SongsController < ApplicationController
     @song = Song.find_by_slug(params[:slug])
     @song_genres = SongGenre.all
     erb :'/songs/show'
+  end
+
+  get '/songs/:id/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'/song/edit'
   end
 
 end
