@@ -1,0 +1,25 @@
+
+<h1>Show Specific Artist</h1>
+
+<h2>Artist Name: <%= @artist.name %> </h2>
+
+<h3>Artist Songs:</h3>
+
+<ul>
+  <% @artists.songs.each do |song| %>
+    <li><a href="/songs/<%= song.id %>"><%= song.name %></a></li>
+  <% end %>
+</ul>
+
+<h3>Artist Genres:</h3>
+
+<ul>
+  <% @artists.genres.each do |genre| %>
+    <li><a href="/genres/<%= genre.id %>"><%= genre.name %></a></li>
+  <% end %>
+</ul>
+
+<form action="/artists/<%= @artist.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
