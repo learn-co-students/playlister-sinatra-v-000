@@ -6,7 +6,7 @@ class GenresController < ApplicationController
     end
 
     get '/genres/:slug' do
-      @genre = Genre.find_by_slug(:slug)
+      @genre = Genre.find_by_slug(:slug).first # <<-- find_by_slug is reporting ALL genres for some reason
       @song_genres = SongGenre.all
       erb :'/genres/show'
     end

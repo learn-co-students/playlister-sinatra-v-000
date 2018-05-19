@@ -1,8 +1,8 @@
 
 <h1>Show Specific Genre</h1>
 
-<p>Genre Attributes : <%= @genre.attribute_names %></p>
-<p>Song_Genre Attributes : <%= @song_genres.attribute_names %></p>
+<!-- <p>Genre Attributes : <%= @genre.attribute_names %></p>
+<p>Song_Genre Attributes : <%= @song_genres.attribute_names %></p> -->
 
 <h2>Genre Name: <%= @genre.name %> </h2>
 
@@ -11,9 +11,9 @@
 
 <ul>
   <% @song_genres.each do |song_genre| %>
-    <% if song_genre.song_id == @genre.id%>
+    <% if song_genre.genre_id == @genre.id%>
       <li><a href="/songs/<%= song_genre.song.slug %>"><%= song_genre.song.name %></a></li>
-      <% genre_all_artists << song.artist %>
+      <% genre_all_artists << song_genre.song.artist %>
     <% end %>
   <% end %>
 </ul>
@@ -25,7 +25,6 @@
     <li><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></li>
   <% end %>
 </ul>
-
 
 <form action="/genres/<%= @genre.id %>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
