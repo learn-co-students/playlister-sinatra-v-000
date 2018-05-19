@@ -16,12 +16,12 @@ class SongsController < ApplicationController
   end
 
   get '/songs/:slug' do
-    # binding.pry
     @song = Song.find_by_slug(params[:slug])
-    puts "Songs = #{Song.all.count} || Name = #{Song.first.name} || Slug = #{Song.first.slug} || Song = #{@song}"
-
-    # puts "Params = #{params} || Slug = #{params[:slug]} || Song = #{@song}"
+    @song_genres = SongGenre.all
     erb :'/songs/show'
   end
 
 end
+
+# rspec spec/features/04_basic_view_spec.rb
+# learn --f-f << -- only reports the first spec failure

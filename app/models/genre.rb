@@ -8,13 +8,11 @@ class Genre < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    split_name = slug.strip.split('-')
-    name = ""
-    split_name.collect! do |part|
-      part.capitalize
-      name += part.capitalize + " "
+    self.all.each do |genre|
+      if genre.slug == slug
+        return genre
+      end
     end
-    self.find_by(name: name.strip!)
   end
 
 end

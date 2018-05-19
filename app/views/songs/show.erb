@@ -6,12 +6,16 @@
 <h3>Song's Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></h3>
 
 <h3>Song Genres:</h3>
+<!-- <p>Song_Genre Attributes : <%= @song_genres.attribute_names %></p> -->
 
 <ul>
-  <% @songs.genres.each do |genre| %>
-    <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></li>
+  <% @song_genres.each do |song_genre| %>
+    <% if song_genre.song_id == @song.id%>
+      <li><a href="/genres/<%= song_genre.genre.slug %>"><%= song_genre.genre.name %></a></li>
+    <% end %>
   <% end %>
 </ul>
+
 
 <form action="/songs/<%= @song.id %>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">

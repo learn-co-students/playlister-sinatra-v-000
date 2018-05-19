@@ -5,11 +5,11 @@ class ArtistsController < ApplicationController
     erb :'/artists/index'
   end
 
-  # get '/artists/:slug' do
-  #   @artist = Artist.find_by_slug(:slug)
-  #   erb :'/artists/show'
-  # end
-
-
+  get '/artists/:slug' do
+    @artist = Artist.find_by_slug(:slug)
+    erb :'/artists/show'
+  end
 
 end
+
+# rspec spec/features/04_basic_view_spec.rb
