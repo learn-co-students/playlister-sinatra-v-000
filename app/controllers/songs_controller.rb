@@ -59,7 +59,8 @@ class SongsController < ApplicationController
 
   patch '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    @song.update(name: params[:song_name], artist_id: params[:artist_name])
+    @artist = Artist.find_by(name: params[:artist_name])
+    @song.update(name: params[:song_name], artist_id: @artist.id)
     redirect to "/songs/#{@song.slug}"
   end
 
