@@ -20,6 +20,8 @@ class Artist < ActiveRecord::Base
 
 end
 
+# rspec spec/features/04_basic_view_spec.rb
+# rspec spec/features/05_song_form_spec.rb
 
 # rspec spec/models/01_artist_spec.rb
 
