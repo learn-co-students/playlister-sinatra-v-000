@@ -1,6 +1,6 @@
 <h1>Edit Song</h1>
 
-<form action="/songs/<%=@song.slug%>" method="POST">
+<form action="/songs/<%= @song.slug %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
 
   <label>Song Name: <%= @song.name %> </label>
@@ -12,7 +12,7 @@
     <input  type="text" id="Artist Name" name="artist_name">
   <br></br>
 
-  <label>Choose existing genres:</label>
+  <label>Update with existing genres:</label>
   <br></br>
 
   <%@genres.each do |genre|%>
@@ -21,6 +21,6 @@
   <br></br>
 
 
-  <input type="submit" id="Save" value="Save">
+  <input type="submit" value="Save">
 
 </form>

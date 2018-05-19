@@ -5,10 +5,8 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     # Build data only if not already built
-    # if Artist.all.count = 0 && Song.all.count = 0 && Genre.all.count = 0
-    #   seeds = LibraryParser.new
-    #   seeds.call
-    # end
+      # seeds = LibraryParser.new
+      # seeds.call
     erb :index
   end
 end
