@@ -25,29 +25,21 @@ class SongsController < ApplicationController
     @song.artist_id = @artist.id
     # puts "song artist id = #{@song.artist_id} || artist id = #{@artist.id}"
 
-    puts "BEFORE @song.song_genres = #{@song.song_genres.count}"
-    # Create new Song_Genre association
+    # # Create new Song_Genre association
     if !params["genres"].empty?
-      # params["genres"].each do |genre|
-      #   puts "create new song_genre #{genre}"
-      #   SongGenre.create(genre_id: params["genres"], song_id: @song.id)
-        @song.song_genres << SongGenre.create(genre_id: params["genres"], song_id: @song.id)
-      # end
+      # puts "update genres"
+      SongGenre.all.each do |song_genre|
+        # puts "delete genres"
+        if song_genre.song_id == @song.id
+          song_genre.delete
+        end
+      end
+      params["genres"].each do |new_genre|
+        # puts "create genres"
+        SongGenre.create(genre_id: new_genre[0], song_id: @song.id)
+      end
     end
-
-    puts "AFTER @song.song_genres = #{@song.song_genres.count}"
-    @song.song_genres.each do |song_genre|
-      puts "song_genre = #{song_genre} || G #{song_genre.genre_id} || S #{song_genre.song_id}"
-    end
-
-    binding.pry
-    # puts "SongGenre.all = #{SongGenre.all.count} || Genre : #{SongGenre.all.first.genre_id} | #{SongGenre.all.first.genre.name} || Song : #{SongGenre.all.first.song_id} "
-    # SongGenre.all.each do |song_genre|
-    #   puts "genre = #{song_genre.genre.name} || #{song_genre.genre.id}"
-    #   if song_genre.song_id == @song.id
-    #     puts "song has genre : #{song_genre.genre.name}"
-    #   end
-    # end
+    # puts "updated"
 
     @song.save
     redirect to "/songs/#{@song.slug}"
