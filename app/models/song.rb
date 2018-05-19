@@ -8,15 +8,24 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    split_name = slug.split('-')
-    name = ""
-    split_name.collect! do |part|
-      part.capitalize
-      name += part.capitalize + " "
+    # split_name = slug.strip.split('-')
+    # name = ""
+    # split_name.collect! do |part|
+    #   part.capitalize
+    #   name += part.capitalize + " "
+    # end
+    self.all.each do |song|
+      if song.slug == slug
+        return song
+      end
     end
-    self.find_by(name: name.strip!)
+    #
+    # self.find_by(name: name.strip!)
   end
 
 end
 
 # rspec spec/models/02_song_spec.rb
+
+# rspec spec/features/04_basic_view_spec.rb
+# learn --f-f << -- only reports the first spec failure

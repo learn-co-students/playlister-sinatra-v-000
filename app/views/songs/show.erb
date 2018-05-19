@@ -3,7 +3,7 @@
 
 <h2>Song Name: <%= @song.name %> </h2>
 
-<h3>Song's Artist: <%= @song.artist.name %> </h3>
+<h3>Song's Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></h3>
 
 <h3>Song Genres:</h3>
 

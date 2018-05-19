@@ -1,3 +1,5 @@
+# require_relative 'concerns/slugifiable.rb'
+
 class Artist < ActiveRecord::Base
   has_many :songs
   has_many :song_genres, through: :songs
@@ -8,7 +10,7 @@ class Artist < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    split_name = slug.split('-')
+    split_name = slug.strip.split('-')
     name = ""
     split_name.collect! do |part|
       part.capitalize

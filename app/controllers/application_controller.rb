@@ -4,8 +4,11 @@ class ApplicationController < Sinatra::Base
   set :views, Proc.new { File.join(root, "../views/") }
 
   get '/' do
-    seeds = LibraryParser.new
-    seeds.call
+    # Build data only if not already built
+    # if Artist.all.count = 0 && Song.all.count = 0 && Genre.all.count = 0
+    #   seeds = LibraryParser.new
+    #   seeds.call
+    # end
     erb :index
   end
 end
