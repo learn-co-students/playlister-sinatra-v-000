@@ -14,7 +14,7 @@ class Artist < ActiveRecord::Base
       part.capitalize
       name += part.capitalize + " "
     end
-    artist = Artist.find_by(name: name.strip!)
+    artist = self.find_by(name: name.strip!)
     # puts "slug = '#{slug}'|| name = '#{name}' || Artist = #{artist} || Artist.name = '#{artist.name}'"
   end
 
