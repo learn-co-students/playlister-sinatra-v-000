@@ -51,9 +51,21 @@ class SongsController < ApplicationController
     erb :'/songs/show'
   end
 
-  get '/songs/:id/edit' do
+  get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
     erb :'/song/edit'
+  end
+
+  patch '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    @song.update(name: params[:song_name], artist_id: params[:artist_name])
+    redirect to "/songs/#{@song.slug}"
+  end
+
+  delete '/songs/:slug/delete' do
+    @song = Song.find_by_slug(params[:slug])
+    @song.delete
+    redirect to '/songs'
   end
 
 end

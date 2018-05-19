@@ -11,6 +11,12 @@ class GenresController < ApplicationController
       erb :'/genres/show'
     end
 
+    delete '/genres/:slug/delete' do
+      @genre = Genre.find_by_slug(params[:slug])
+      @genre.delete
+      redirect to '/genres'
+    end
+
 end
 
 # rspec spec/features/04_basic_view_spec.rb

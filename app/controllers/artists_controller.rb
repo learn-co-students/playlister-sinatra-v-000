@@ -11,6 +11,12 @@ class ArtistsController < ApplicationController
     erb :'/artists/show'
   end
 
+  delete '/artists/:slug/delete' do
+    @artist = Artist.find_by_slug(params[:slug])
+    @artist.delete
+    redirect to '/artists'
+  end
+
 end
 
 # rspec spec/features/04_basic_view_spec.rb
