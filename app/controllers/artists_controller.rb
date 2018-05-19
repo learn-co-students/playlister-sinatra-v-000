@@ -6,7 +6,9 @@ class ArtistsController < ApplicationController
   end
 
   get '/artists/:slug' do
-    @artist = Artist.find_by_slug(:slug)
+    @artist = Artist.find_by_slug(:slug).first
+    @song_genres = SongGenre.all
+    # puts "Artist = #{@artist}" <<-- find_by_slug is reporting ALL artists for some reason
     erb :'/artists/show'
   end
 
