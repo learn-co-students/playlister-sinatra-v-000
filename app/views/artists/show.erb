@@ -1,0 +1,23 @@
+
+<h1>Show Specific Artist</h1>
+
+<h2>Artist Name: <%= @artist.name %> </h2>
+
+<h3>Artist Songs:</h3>
+<% artist_all_songs = [] %>
+
+<ul>
+  <% @artist.songs.each do |song| %>
+    <li><a href="/songs/<%= song.slug %>"><%= song.name %></a></li>
+    <% artist_all_songs << song.id %>
+  <% end %>
+</ul>
+<h3>Artist Genres:</h3>
+
+<ul>
+  <% @song_genres.each do |song_genre| %>
+    <% if artist_all_songs.include?(song_genre.song_id) %>
+      <li><a href="/genres/<%= song_genre.genre.slug %>"><%= song_genre.genre.name %></a></li>
+    <% end %>
+  <% end %>
+</ul>

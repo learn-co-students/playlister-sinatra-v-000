@@ -1,14 +1,20 @@
 class GenreController < ApplicationController
 
-
   get '/genres' do
-  @genre = Genre.all
-  erb :'/genres/index'
-end
+        @genres = Genre.all
+        erb :'/genres/index'
+      end
 
-get '/genres/:slug' do
-  @genre = Genre.find_by_slug(params[:slug])
-  erb :'/genres/show'
-end
+      get '/genres/:slug' do
+        @genre = Genre.find_by_slug(:slug).first # <<-- find_by_slug is reporting ALL genres for some reason
+        @song_genres = SongGenre.all
+        erb :'/genres/show'
+      end
 
-end
+      delete '/genres/:slug/delete' do
+        @genre = Genre.find_by_slug(params[:slug])
+        @genre.delete
+        redirect to '/genres'
+      end
+
+  end

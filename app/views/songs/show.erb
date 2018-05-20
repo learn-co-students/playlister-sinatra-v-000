@@ -1,13 +1,19 @@
-<h1>Song:</h1><br>
-<%= @song.name %>
 
-<h1>Artist:</h1>
+<h3>Successfully created song. OR Successfully updated song.</h3>
 
-<a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%> </a>
-<br>
+<h1>Show Specific Song</h1>
 
-<h1>Genre:</h1>
-<% @song.genre.each do |genre| %>
-<a href="/genres/<%=genre.slug%>"><%=genre.name %><%=@song.genre.name%> </a>
-<br>
-<% end %>
+<h2>Song Name: <%= @song.name %> </h2>
+
+<h3>Song's Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></h3>
+
+<h3>Song Genres:</h3>
+
+
+<ul>
+  <% @song_genres.each do |song_genre| %>
+    <% if song_genre.song_id == @song.id%>
+      <li><a href="/genres/<%= song_genre.genre.slug %>"><%= song_genre.genre.name %></a></li>
+    <% end %>
+  <% end %>
+</ul>

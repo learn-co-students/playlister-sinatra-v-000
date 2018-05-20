@@ -3,13 +3,16 @@ belongs_to :artist
 has_many :song_genres
 has_many :genres, through: :song_genres
 
-  def slug
-
-    self.name.downcase.split(" ").join("-")
+def slug
+    self.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   end
 
   def self.find_by_slug(slug)
-    song = Song.all.select{|song| song.slug == slug}
-    song.first
+    self.all.each do |song|
+      if song.slug == slug
+        return song
+      end
+    end
   end
+
 end
