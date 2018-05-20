@@ -25,7 +25,7 @@ post '/songs' do
           @song.save
     end
   end
-
+binding.pry
      redirect "songs/#{@song.slug}"
   end
 
