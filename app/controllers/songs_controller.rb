@@ -18,14 +18,15 @@ post '/songs' do
 
   @song = Song.create(name: params["Name"])
 
-    if params["Artist Name"]
-      @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
+
+    if params["artist_name"]
+      @song.artist = Artist.find_or_create_by(name: params["artist_name"])
     if params["genres"]
       @song.genre_ids = params["genres"]
           @song.save
     end
   end
-binding.pry
+
      redirect "songs/#{@song.slug}"
   end
 

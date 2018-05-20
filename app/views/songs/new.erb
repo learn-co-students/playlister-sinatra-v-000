@@ -9,14 +9,14 @@
   <br></br>
 
     <%@artists.each do |artist|%>
-      <input type="checkbox" name="Artist Name1" value="<%=artist.name%>" id="<%=artist.name%>"><%=artist.name%></input>
+      <input type="checkbox" name="artist_name" value="<%=artist.name%>" id="Artist Name"><%=artist.name%></input>
     <%end%>
 
     <label><br>
     and/or, create a new Artist:</label>
     <br></br>
     <label>name:</label>
-      <input  type="text" name="Artist Name" id="artist_name"></input>
+      <input  type="text" name="artist_name" id="Artist Name"></input>
     <br></br>
 
     <label>Genres</label>
