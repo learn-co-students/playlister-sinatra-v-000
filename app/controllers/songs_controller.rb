@@ -54,27 +54,26 @@ class SongsController < ApplicationController
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
     @genres = Genre.all
-    puts "Edit form Params = #{params} || @song = #{@song}"
+    # puts "Edit form Params = #{params} || @song = #{@song}"
     erb :'/songs/edit'
   end
 
-  patch '/songs/:slug' do
-    puts "Params = #{params}"
-    binding.pry
-    # @song = Song.find_by(name: params[:song_name]).first
-    # @artist = Artist.find_by(name: params[:artist_name]).first
-    # @song.update(name: params[:song_name], artist_id: @artist.id)
-    # if !params["genres"].empty?
-    #   SongGenre.all.each do |song_genre|
-    #     if song_genre.song_id == @song.id
-    #       song_genre.delete
-    #     end
-    #   end
-    #   params["genres"].each do |new_genre|
-    #     SongGenre.create(genre_id: new_genre[0], song_id: @song.id)
-    #   end
-    # end
-    # redirect to "/songs/#{@song.slug}"
+  post '/songs/:slug' do
+    # puts "Update Action Params = #{params}"
+    @song = Song.find_by(name: params[:song_name])
+    @artist = Artist.find_by(name: params[:artist_name])
+    @song.update(name: params[:song_name], artist_id: @artist.id)
+    if !params["genres"].empty?
+      SongGenre.all.each do |song_genre|
+        if song_genre.song_id == @song.id
+          song_genre.delete
+        end
+      end
+      params["genres"].each do |new_genre|
+        SongGenre.create(genre_id: new_genre[0], song_id: @song.id)
+      end
+    end
+    redirect to "/songs/#{@song.slug}"
   end
 
   # delete '/songs/:slug/delete' do
