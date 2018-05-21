@@ -1,8 +1,10 @@
 class ArtistsController < ApplicationController
 
- #  get '/song' do
- #    erb :index
- #  end
+    get '/artists' do
+       @artists = Artist.all
+       # model name followed by a method
+       erb :'/artists/index'
+     end
  #
  #  get '/genres'
  #   end

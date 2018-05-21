@@ -1,5 +1,6 @@
 
 module Slugable
+     
      module InstanceMethods
 
           def slug
