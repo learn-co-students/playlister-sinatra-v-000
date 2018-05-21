@@ -1,0 +1,19 @@
+
+<h3>Successfully created song. OR Successfully updated song.</h3>
+
+<h1>Show Specific Song</h1>
+
+<h2>Song Name: <%= @song.name %> </h2>
+
+<h3>Song's Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></h3>
+
+<h3>Song Genres:</h3>
+
+
+<ul>
+  <% @song_genres.each do |song_genre| %>
+    <% if song_genre.song_id == @song.id%>
+      <li><a href="/genres/<%= song_genre.genre.slug %>"><%= song_genre.genre.name %></a></li>
+    <% end %>
+  <% end %>
+</ul>

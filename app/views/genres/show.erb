@@ -1,0 +1,20 @@
+<h2>Genre Name: <%= @genre.name %> </h2>
+<h3>Genre Songs:</h3>
+<% genre_all_artists = [] %>
+
+<ul>
+  <% @song_genres.each do |song_genre| %>
+    <% if song_genre.genre_id == @genre.id%>
+      <li><a href="/songs/<%= song_genre.song.slug %>"><%= song_genre.song.name %></a></li>
+      <% genre_all_artists << song_genre.song.artist %>
+    <% end %>
+  <% end %>
+</ul>
+
+<h3>Genre Artists:</h3>
+
+<ul>
+  <% genre_all_artists.each do |artist| %>
+    <li><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></li>
+  <% end %>
+</ul>
