@@ -1,6 +1,6 @@
 # Sinatra Playlister
 
-##Objectives
+## Objectives
 
 * Solidify your ActiveRecord understanding
 * Build out basic views for all your models
