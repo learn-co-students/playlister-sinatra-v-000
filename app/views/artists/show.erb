@@ -1,0 +1,9 @@
+<%@artist.name%>
+
+<!-- #we gave the name a link in the show page -->
+<li>Song name <a href="/songs/<%=@artist.songs.slug%>"><%=@artist.songs.name%></a></li>
+<%@artist.genres.each do |genre|%>
+<li> Genre name <a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
+ <%end%>
+
+<!-- #we crea

@@ -7,4 +7,10 @@ class GenresController < ApplicationController
        erb :'/genres/index'
      end
 
+     get '/genres/:slug' do
+         @genre = Genre.find_by_slug(params[:slug])  # slug helps to find by name instaed of ID
+         erb :'/genres/show'
+     end
+
+
 end
