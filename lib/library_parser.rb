@@ -5,7 +5,7 @@ class LibraryParser
   end
 
   def self.parse
-    self.new.call
+    self.new.call  # looks at line 23..
   end
 
   def parse_filename(filename)
@@ -21,6 +21,7 @@ class LibraryParser
   end
 
   def call
+    # files  is coming in as an array from line 2
     files.each do |filename|
       parts = parse_filename(filename)
       build_objects(*parts)
@@ -34,7 +35,7 @@ class LibraryParser
 
     song.song_genres.build(genre: genre)
     song.artist = artist
-    
+
     song.save
   end
 end
