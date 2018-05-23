@@ -2,7 +2,7 @@
 
 <!-- #we gave the name a link in the show page -->
 <%@artist.songs.each do |song|%>
-<li>Song Title <a href="/songs/<%=song.name%>"><%=song.name%></a></li>
+<li>Song Title <a href="/songs/<%=song.slug%>"><%=song.name%></a></li>
  <%end%>
 
 <%@artist.genres.each do |genre|%>
