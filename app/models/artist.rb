@@ -1,6 +1,6 @@
 class Artist < ActiveRecord::Base
 
-   include Slugable::InstanceMethods
+    include Slugable::InstanceMethods
     has_many :songs
     has_many :genres, through: :songs
 
@@ -8,6 +8,6 @@ class Artist < ActiveRecord::Base
          self.all.find do |instance|
           instance.slug == slug
      end
-    end
+     end
 
 end

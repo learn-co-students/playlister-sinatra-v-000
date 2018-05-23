@@ -11,12 +11,12 @@
   <h3>Song Name: <input type="text" name="Name" value="song name"></h3>
 
 <h3>If you desire to create a New artist. Type in name here</h3>
-  <input type="text" name="artist[name]">
+  <input type="text" name= "Artist Name">
 <br>
 
   <%@genres.each do |genre|%>
   <!-- we give check box ids so when checked, it can be tracked -->
-  <input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>" id="<%=genre.id%>">
+  <input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>" id="<%=genre.name%>">
   <%=genre.name%></input>
 <%end%>
 
@@ -29,7 +29,7 @@
     creates a new song and associates it with an existing artist (FAILED - 5)
     redirects to '/songs/:slug' after creation (FAILED - 6) -->
 
-    <input type="submit" value="Create a New song or Artist">
+    <input type="submit" value="Create">
 
 
 </form>
