@@ -1,0 +1,23 @@
+songs/edit.erb
+
+<h1>Edit this song:</h1>
+<h3>Current info:</h3>
+<p>Name: <%= @song.name %></p>
+<p>Artist: <%= @song.artist.name %></p>
+<p>Genres:</p>
+<% @song.genres.each do |g| %>
+  <ul>
+    <li><%= g.name %></li>
+  </ul>
+<% end %>
+
+<h1>Use this form to edit the song:</h1>
+<form action="/songs/<%= @song.slug %>/edited" method="post">
+  <p>Song Name: <input type="text" name="name" id="Song Name"></p>
+  <p>Artist Name: <input type="text" name="artist_name" id="Artist Name"></p>
+  <p>Choose the Proper Genres:</p>
+  <% Genre.all.each do |genre| %>
+    <input type="checkbox" name="genre[<%= genre.name %>]" id="<%= genre.name %>"><%= genre.name %></input>
+  <% end %>
+  <input type="submit" name="save" value="Save">
+</form>

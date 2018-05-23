@@ -1,0 +1,15 @@
+genres/show.erb
+
+<h3>Displaying information for genre: <%= @genre.name %></h3>
+<h1><%= @genre.name.capitalize %></h1>
+
+
+<h2>Songs:</h2>
+<% @genre.songs.each_with_index do |song, index| %>
+  <p>Song <%= index+1 %>: <a href="/songs/<%= song.slug %>"><%= song.name %></a></p>
+<% end %>
+
+<h2>Artists:</h2>
+<% @genre.artists.each_with_index do |artist, index| %>
+  <p>Artist <%= index+1 %>: <a href="/artists/<%= artist.slug %>"><%= artist.name %></a></p>
+<% end %>
