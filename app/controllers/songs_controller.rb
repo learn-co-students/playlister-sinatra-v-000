@@ -23,7 +23,7 @@ class SongsController < ApplicationController
     params[:genres].each do | genre_id |
       @song.genres.push (Genre.find_by(genre_id))
     end
-    song.save
+    @song.save
     redirect :"/songs/#{@song.slug}"
   end
 
