@@ -1,0 +1,6 @@
+<h1>Songs</h1>
+<ul style="list-style-type: none;"> <!-- todo: move style to css file -->
+  <% @songs.each do | song | %>
+  <li><a href="/songs/:id"><%=song.name%><a></li>
+  <% end %>
+</ul>
