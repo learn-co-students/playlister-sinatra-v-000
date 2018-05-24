@@ -8,21 +8,22 @@
 
 <form action="/songs" method="post">
 
-  <h3>Song Name: <input type="text" name="Name" value="song name"></h3>
+      <h3>Song Name: <input type="text" name="Name" ></h3>
 
-<h3>If you desire to create a New artist. Type in name here</h3>
-  <input type="text" name= "Artist Name">
-<br>
+<h3>If you desire to create a New artist. Type in name here below</h3>
+  <br>
+      <h3>Artist Name: <input type="text" name="Artist Name"></h3>
+  <br>
 
-  <%@genres.each do |genre|%>
-  <!-- we give check box ids so when checked, it can be tracked -->
-  <input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>" id="<%=genre.name%>">
-  <%=genre.name%></input>
-<%end%>
+      <%@genres.each do |genre|%>
+      <!-- we give check box ids so when checked, it can be tracked -->
+      <input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>" id="<%=genre.name%>">
+      <%=genre.name%></input>
+    <%end%>
 
   <br>
 
-    <h3>Create a new song an assoicate it with exisiting artists</h3>
+  <h3>Create a new song an assoicate it with exisiting artists</h3>
 
 <!--
     does not create a new artist (FAILED - 4)

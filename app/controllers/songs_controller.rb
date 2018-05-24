@@ -19,23 +19,19 @@ class SongsController < ApplicationController
 
    post '/songs' do
  #create a new artist
- binding.pry
 
- @song = Song.create(params[:Name])
+  @song = Song.create(params[:name])   # it want us to pass in an hash.
+   @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
+    @song.genre_ids = params["song"]["genre_ids"]
 
-   if !params["Artist Name"].empty?
-
-      artist = Artist.find_by_slug(params["Artist Name"])
-     @song.artist = Artist.create(name: params["Artist Name"])
-
-   end
    if !params[:song][:genre_ids].empty?
         @song.genre_ids = params[:song][:genre_ids]
    end
        @song.save
-    redirect to "/songs/:slug"
+    redirect to("/songs/#{@song.slug}")
 
-    end
+  end
+
 
     get '/songs/:slug' do
      @song = Song.find_by_slug(params[:slug])  # slug helps to find by name instaed of ID
