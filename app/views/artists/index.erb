@@ -1,6 +1,6 @@
 <h1>Artists</h1>
 <ul style="list-style-type: none;"> <!-- todo: move style to css file -->
   <% @artists.each do | artist | %>
-  <li><a href="/artists/:id"><%=artist.name%><a></li>
+  <li><a href="/artists/<%=artist.slug%>"><%=artist.name%><a></li>
   <% end %>
 </ul>
