@@ -10,4 +10,11 @@ class SongsController < ApplicationController
     erb :"songs/show"
   end
 
+  get '/songs/new' do
+    erb :"songs/new"
+  end
+
+  post '/songs' do
+    @song = Song.new(name: params[:name], artist: params[:artist], genre: params[:genre])
+  end
 end
