@@ -8,14 +8,13 @@ class SongsController < ApplicationController
   end
 
   get '/songs/new' do
-
+    @genres = Genre.all
     erb :new
   end
 
   post '/songs' do
     binding.pry
     @song = Song.create(params[:song])
-
     artist = Artist.find_or_create_by(name: params["artist"]["name"])
     @song.artist = artist
 

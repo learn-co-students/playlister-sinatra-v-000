@@ -1,3 +1,4 @@
+<% require 'pry' %>
 <h1>Create a new song!</h1>
 
 <form action="/songs" method="post">
@@ -8,9 +9,10 @@
   <label>Choose an existing genre:</label>
   <br></br>
 
-  <% Genre.all.each do |genre| %>
-    <input type= "checkbox" id="<%= genre.name %>" name="genres[]" value= "<%= genre.id %>"><%= genre.name %></input>
+  <% @genres.each do |genre| %>
+    <input type="checkbox" name="genres[]" id="<%= genre.name %>" value="<%= genre.name %>"><%= genre.name %></input>
   <% end %>
+  
   <br></br>
 
     <label>and/or, create a new genre:</label>
