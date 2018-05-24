@@ -1,5 +1,7 @@
 class ArtistsController < ApplicationController
+
   set :views, Proc.new { File.join(root, "../views/artists") }
+  
   get '/artists' do
     @artists = Artist.all
     erb :index
