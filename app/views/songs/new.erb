@@ -17,7 +17,7 @@
 
       <%@genres.each do |genre|%>
       <!-- we give check box ids so when checked, it can be tracked -->
-      <input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>" id="<%=genre.name%>">
+      <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>">
       <%=genre.name%></input>
     <%end%>
 

@@ -1,10 +1,14 @@
-<%@song.name%>
+<%=@song.name%>
 <!-- #we gave the name a link in the show page -->
 <li>Artist name <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a></li>
 
 <%@song.genres.each do |genre|%>
 <li> Genre name <a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
  <%end%>
+
+ <% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
 
 <!-- #we create the link in the View of artist. for line 3 to functions. -->
 

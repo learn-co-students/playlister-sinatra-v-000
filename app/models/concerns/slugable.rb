@@ -10,4 +10,8 @@ module Slugable
 
      end
 
+    # module ClassMethod
+
+
+
 end

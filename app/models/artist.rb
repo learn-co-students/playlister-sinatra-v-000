@@ -1,13 +1,15 @@
 class Artist < ActiveRecord::Base
 
     include Slugable::InstanceMethods
+    # extend Slugable::ClassMethod
+
     has_many :songs
     has_many :genres, through: :songs
+    def self.find_by_slug(slug)
+        self.all.find do |instance|
+         instance.slug == slug
+    end
+end
 
-     def self.find_by_slug(slug)
-         self.all.find do |instance|
-          instance.slug == slug
-     end
-     end
 
 end
