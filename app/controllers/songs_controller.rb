@@ -1,6 +1,7 @@
 require 'pry'
-
+require 'rack-flash'
 class SongsController < ApplicationController
+  use Rack::Flash
   configure do
   enable :sessions
   set :session_secret, "secret"
@@ -24,6 +25,7 @@ end
    post '/songs' do
  #create a new artist
  #need a flash message...
+
   @song = Song.create(name: params[:Name])   # This is where we set the name for song/ it want us to pass in an hash.
 
    @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
@@ -32,11 +34,12 @@ end
   #  if !params["genres"].empty?
         # @song.genre_ids = params["genres"]
   #  end
-       @song.save
 
-        flash[:message] = "Successfully created song."
+       @song.save
+       flash[:message] = "Successfully created song."
       redirect to ("/songs/#{@song.slug}")  # "/songs/that-one-with-the-guitar"
   end
+
 
   get '/songs/:slug' do
    @song = Song.find_by_slug(params[:slug])  # slug helps to find by name instaed of ID
