@@ -27,16 +27,14 @@ end
  #need a flash message...
 
   @song = Song.create(name: params[:Name])   # This is where we set the name for song/ it want us to pass in an hash.
-
    @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
 
      @song.genre_ids = params["genres"]
-  #  if !params["genres"].empty?
-        # @song.genre_ids = params["genres"]
-  #  end
+
 
        @song.save
        flash[:message] = "Successfully created song."
+
       redirect to ("/songs/#{@song.slug}")  # "/songs/that-one-with-the-guitar"
   end
 
@@ -47,5 +45,25 @@ end
    erb :'/songs/show'
   end
 
+
+    get '/songs/:slug/edit' do
+      @song = Song.find_by_slug(params[:slug])  # slug helps to find by name instaed of ID
+      erb :'/songs/edit'
+    end
+
+        #update the form
+
+        post '/songs/:slug' do
+
+          @song = Song.find_by_slug(params[:slug])
+          @song.update(params["song"])
+
+# May need or not need
+          #  if !params["genres"].empty?
+                # @song.genre_ids = params["genres"]
+          #  end
+
+             erb :'/songs/show'
+        end
 
 end #end for class method
