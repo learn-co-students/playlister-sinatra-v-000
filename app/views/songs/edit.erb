@@ -2,18 +2,21 @@
 
 <form  action="/songs/:slug/edit" method="post">
 
-<!-- changing a song's artist -->
-  <input type="text" name="@song.artist.slug" id="@song.artist.id" value="<%=@song.artist.id%>">
+<!-- Hidden Input... -->
+<input id="hidden" type="hidden" name="_method" value="patch">
+       <label for="artist_name">Artist Name </label>
 
+<%binding.pry%>
+      <!-- changing a song's artist -->
+       <input type="text" name="artist[name]" value="<%=@song.artist.slug%>">
 
 <!-- changing song genre -->
   <%@genres.all do |genre|%>
 
 <!-- we give check box ids so when checked, it can be tracked -->
-<input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>" <%='checked' if @genre.name == (name)%>><%=genre.name%></input>
-<%binding.pry%>
+      <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>" <%='checked' if @genre.name == (name)%>><%=genre.name%></input>
 
-<%end%>
+      <%end%>
 
 
 </form>

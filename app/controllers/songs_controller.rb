@@ -53,10 +53,12 @@ end
 
         #update the form
 
-        post '/songs/:slug' do
+      post '/songs/:slug/edit' do
 
           @song = Song.find_by_slug(params[:slug])
-          @song.update(params["song"])
+          @song.update(params["slug"])
+          binding.pry
+          @song.artist = params["Artist Name"]
 
 # May need or not need
           #  if !params["genres"].empty?
