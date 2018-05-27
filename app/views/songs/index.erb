@@ -1,4 +1,7 @@
 <%@songs.each do |song|%>
 <a href="/songs/<%=song.slug%>"><li> Songs: <%=song.name%></li></a>  <!-- #slug makes it more readable -->
 
+<!-- song.slug => "that-one-with-the-guitar"
+song.name => "That One with the Guitar" -->
+
 <%end%>

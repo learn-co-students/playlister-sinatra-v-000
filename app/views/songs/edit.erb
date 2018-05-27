@@ -1,14 +1,16 @@
 <h1> Upadtes the Form</h1>
 
-<form  action="/songs/:slug/edit" method="post">
-
+<%binding.pry%>
+<form  action="/songs/<%@song.name%>/edit%>" method="post">
+<!-- "/songs/#{@song.slug}/edit" -->
 <!-- Hidden Input... -->
+
 <input id="hidden" type="hidden" name="_method" value="patch">
+
        <label for="artist_name">Artist Name </label>
 
-<%binding.pry%>
       <!-- changing a song's artist -->
-       <input type="text" name="artist[name]" value="<%=@song.artist.slug%>">
+       <input type="text" name="artist[name]" value="<%=@song.artist%>" id="Artist Name">
 
 <!-- changing song genre -->
   <%@genres.all do |genre|%>
@@ -20,13 +22,3 @@
 
 
 </form>
-
-
-<!-- /songs/:slug/edit
-   changing a song's artist
-     updates the song's artist (FAILED - 1)
-     renders to the song show page (FAILED - 2)
-   changing a song's genres
-     has a checkbox element on the form (FAILED - 3)
-     updates the song's genres (FAILED - 4)
-     <!-- renders to the song show page (FAILED - 5) --> Done -->

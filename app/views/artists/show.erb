@@ -3,8 +3,16 @@
 <!-- #we gave the name a link in the show page -->
 <%@artist.songs.each do |song|%>
 <li>Song Title <a href="/songs/<%=song.slug%>"><%=song.name%></a></li>
+
+<!-- artist.slug => "that-one-with-the-guitar" -->
+<!-- song.name => "That One with the Guitar" -->
+
+
  <%end%>
 
 <%@artist.genres.each do |genre|%>
 <li> Genre Name <a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
+
+<!-- genre.slug => "new-age-garbage" --> Make sure to look at your orders show pages....
+
  <%end%>

@@ -7,9 +7,10 @@ class Song < ActiveRecord::Base
    has_many  :genres, through: :song_genres
 
 
-   def self.find_by_slug(slug)
+   def self.find_by_slug(slug)         # this is not getting the song into it.
            self.all.find do |instance|
-            instance.slug == slug
+             binding.pry
+            instance.slug == slug    ## This is the issue,, they not equalling each other...
        end
    end
 

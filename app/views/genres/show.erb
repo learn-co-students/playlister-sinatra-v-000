@@ -1,4 +1,5 @@
 <%@genre.name%>
+
 <%@genre.artists.each do |artist|%>
  <!-- contains links to each artist's show page (FAILED - 4) -->
 
@@ -10,8 +11,6 @@
 <li>Song <a href="/songs/<%=song.slug%>"><%=song.name%></a></li>
  <%end%>
 
-<!--
-displays the genre's artists (FAILED - 2)
-     displays the genre's songs (FAILED - 3)
-     contains links to each artist's show page (FAILED - 4)
-     contains links to each song's show page (FAILED - 5) -->
+ <!-- may not be the same but ... very similar...
+  genre.slug => "that-one-with-the-guitar" -->
+<!-- genre.name => "That One with the Guitar" --> -->
