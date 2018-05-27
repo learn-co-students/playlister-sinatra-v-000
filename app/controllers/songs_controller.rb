@@ -13,13 +13,14 @@ class SongsController < ApplicationController
 
   post '/songs' do
     @song = Song.create(params[:song])
-
     params[:genres].each do |genre|
       @song.genres << Genre.find_by(genre[:id])
     end
 
-    if !params["artist"]["name"].empty?
+    if !params["artist"]["name"].empty? && !Artist.find_by(:name => params["artist"]["name"])
       @song.artist = Artist.create(name: params["artist"]["name"])
+    elsif Artist.find_by(:name => params["artist"]["name"])
+      @song.artist = Artist.find_by(:name => params["artist"]["name"])
     end
 
     @song.save
