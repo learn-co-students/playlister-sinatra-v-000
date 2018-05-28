@@ -2,7 +2,8 @@
   <%= flash[:message] %>
 <% end %>
 
-<%@song.slug%>
+
+<%@song.name%>
 
 <!-- #we gave the name a link in the show page -->
 <li>Artist name <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a></li>

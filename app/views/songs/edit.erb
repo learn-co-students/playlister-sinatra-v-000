@@ -1,24 +1,33 @@
-<h1> Upadtes the Form</h1>
 
-<%binding.pry%>
-<form  action="/songs/<%@song.name%>/edit%>" method="post">
-<!-- "/songs/#{@song.slug}/edit" -->
-<!-- Hidden Input... -->
+<form  action="/songs/<%= @song.slug %>" method="POST">
 
-<input id="hidden" type="hidden" name="_method" value="patch">
+<input type="hidden" name="_method" value="PATCH">
+
+<!-- missing piece -->
+
+<label for="name">Name</label>
+<input type="text" name="song[name]" id="name" value="<%= @song.name %>">
+
+<!-- >>>>> -->
 
        <label for="artist_name">Artist Name </label>
-
       <!-- changing a song's artist -->
-       <input type="text" name="artist[name]" value="<%=@song.artist%>" id="Artist Name">
+       <input type="text" name="artist[name]" value="<%= @song.artist.name %>" id="artist_name">
 
 <!-- changing song genre -->
-  <%@genres.all do |genre|%>
-
+  <%Genre.all.each do |genre|%>
 <!-- we give check box ids so when checked, it can be tracked -->
-      <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>" <%='checked' if @genre.name == (name)%>><%=genre.name%></input>
+<label><%= genre.name %></label>
+ <!-- # missing the label -->
+
+      <input type="checkbox" name="genres[]" value="<%=genre.id %>" id="<%=genre.name%>" <%='checked' if @song.genres.includes?(genre) %>>
 
       <%end%>
+
+<input type="submit" value="Save">
+
+<!-- CHECK WITH SOLUTIAON CODE>>>  -->
+
 
 
 </form>

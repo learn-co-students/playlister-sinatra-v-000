@@ -8,8 +8,7 @@ class Song < ActiveRecord::Base
 
 
    def self.find_by_slug(slug)         # this is not getting the song into it.
-           self.all.find do |instance|
-             binding.pry
+           Song.all.find do |instance|
             instance.slug == slug    ## This is the issue,, they not equalling each other...
        end
    end
