@@ -28,7 +28,7 @@ describe "Song" do
     expect(@song.artist).to eq(@artist)
   end
 
-  it "can slugify its name" do
+  it "can slugify it's name" do
 
     expect(@song.slug).to eq("blank-space")
   end
