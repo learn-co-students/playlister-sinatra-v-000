@@ -2,16 +2,15 @@
   <%= flash[:message] %>
 <% end %>
 
+<h1> <%= @song.name %> </h1>
 
-<%@song.name%>
 
 <!-- #we gave the name a link in the show page -->
-<li>Artist name <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a></li>
+ <a href="/artists/<%= @song.artist.slug %>"> <%= @song.artist.name %> </a>
 <!-- Create a new Song -->
-<li>Song name <a href="/song/<%=@song.slug%>"><%=@song.name%></a></li>
 
 <%@song.genres.each do |genre|%>
-<li> Genre name <a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
+ <a href="/genres/<%= genre.slug %>"> <%= genre.name %> </a>
  <%end%>
 
 
