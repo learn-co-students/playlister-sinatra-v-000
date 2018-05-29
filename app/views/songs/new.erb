@@ -10,7 +10,7 @@
 
       <h3>Song Name: <input type="text" name="Name" ></h3>
 
-<h3>If you desire to create a New artist. Type in name here below</h3>
+      <h3>If you desire to create a New artist. Type in name here below</h3>
   <br>
       <h3>Artist Name: <input type="text" name="Artist Name"></h3>
   <br>
@@ -19,18 +19,14 @@
       <!-- we give check box ids so when checked, it can be tracked -->
       <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>">
       <%=genre.name%></input>
-    <%end%>
-
+      <%end%>
   <br>
 
-  <h3>Create a new song an assoicate it with exisiting artists</h3>
+       <h3>Create a new song an assoicate it with exisiting artists</h3>
 
 <!--
     does not create a new artist (FAILED - 4)
     creates a new song and associates it with an existing artist (FAILED - 5)
     redirects to '/songs/:slug' after creation (FAILED - 6) -->
-
-    <input type="submit" value="Create">
-
-
+      <input type="submit" value="Create">
 </form>
