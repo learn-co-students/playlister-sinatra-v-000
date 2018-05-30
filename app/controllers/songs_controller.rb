@@ -23,11 +23,10 @@ class SongsController < ApplicationController
     if params["genres"]
       genre = Genre.find(params[:genres])
       @song.genres << genre
-    end
-
-    if !params["genre"]["name"].empty?
+    elsif !params["genre"]["name"].empty?
       @song.genres << Genre.create(name: params["genre"]["name"])
     end
+
     @song.save
 
     flash[:notice] = "Successfully created song."
