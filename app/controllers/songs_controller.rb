@@ -15,6 +15,7 @@ class SongsController < ApplicationController
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
+    @genres = @song.genres.sort_by{|genre| genre.name}
     session[:message] = nil
     erb :'songs/show'
   end
