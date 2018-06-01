@@ -12,7 +12,7 @@ describe "Song" do
     
   end
 
-  it "can initialize a song" do
+  it "can initialize a songs" do
     expect(Song.new).to be_an_instance_of(Song)
   end
 
@@ -34,7 +34,7 @@ describe "Song" do
   end
 
   describe "Class methods" do
-    it "given the slug can find a song" do
+    it "given the slug can find a songs" do
       slug = "blank-space"
 
       expect((Song.find_by_slug(slug)).name).to eq("Blank Space")

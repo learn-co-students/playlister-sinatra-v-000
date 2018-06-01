@@ -155,8 +155,8 @@ You'll want to add a flash message to the `post '/songs'` and
 ```ruby
 post '/songs' do
   # ...
-  # ^ code for creating and saving a new song
-  flash[:message] = "Successfully created song."
+  songs
+  flash[:message] = "songs"
   redirect to("/songs/#{@song.slug}")
 end
 ```
