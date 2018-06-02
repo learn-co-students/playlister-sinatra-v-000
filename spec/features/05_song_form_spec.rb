@@ -23,7 +23,7 @@ describe "Song Forms" do
         }.to change(Artist, :count).by(1)
       end
 
-      it "creates a new song on submit" do
+      it "creates a new songs on submit" do
         fill_in "Name", with: song_name
         check "New Age Garbage"
         fill_in "Artist Name", with: artist_name
@@ -32,7 +32,7 @@ describe "Song Forms" do
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
         expect(page).to have_content(genre_2_name)
-        expect(page).to have_content("Successfully created song.")
+        expect(page).to have_content("Successfully created songs.")
       end
 
       it "redirects to '/songs/:slug' after creation" do
@@ -58,7 +58,7 @@ describe "Song Forms" do
         }.not_to change(Artist, :count)
       end
 
-      it "creates a new song and associates it with an existing artist" do
+      it "creates a new songs and associates it with an existing artist" do
         fill_in "Name", with: song_name
         check "Hippity Hop"
         fill_in "Artist Name", with: artist_name
@@ -67,7 +67,7 @@ describe "Song Forms" do
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
         expect(page).to have_content(genre_1_name)
-        expect(page).to have_content("Successfully created song.")
+        expect(page).to have_content("Successfully created songs.")
       end
 
       it "redirects to '/songs/:slug' after creation" do
@@ -93,41 +93,41 @@ describe "Song Forms" do
       visit "/songs/#{@song.slug}/edit"
     end
 
-    context "changing a song's artist" do
-      it "updates the song's artist" do
+    context "changing a songs's artist" do
+      it "updates the songs's artist" do
         fill_in "Artist Name", with: "Some Nobody"
         click_on "Save"
 
-        expect(page).to have_content("Successfully updated song.")
+        expect(page).to have_content("Successfully updated songs.")
         expect(page).to have_content(song_name)
         expect(page).to have_content("Some Nobody")
       end
 
-      it "renders to the song show page" do
+      it "renders to the songs show page" do
         fill_in "Artist Name", with: "That singer"
         click_on "Save"
         expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
       end
     end
 
-    context "changing a song's genres" do
+    context "changing a songs's genres" do
       it "has a checkbox element on the form" do
         expect(page.body).to include("checkbox")
       end
 
-      it "updates the song's genres" do
+      it "updates the songs's genres" do
         uncheck "New Age Garbage"
         check "Hippity Hop"
         click_on "Save"
 
-        expect(page).to have_content("Successfully updated song.")
+        expect(page).to have_content("Successfully updated songs.")
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
         expect(page).to have_content("Hippity Hop")
         expect(page).not_to have_content("New Age Garbage")
       end
 
-      it "renders to the song show page" do
+      it "renders to the songs show page" do
         uncheck "Hippity Hop"
         check "New Age Garbage"
         click_on "Save"

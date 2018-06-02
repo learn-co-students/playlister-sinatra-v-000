@@ -30,7 +30,7 @@ describe "Playlister Basics" do
         expect(page).to have_content(song_name)
       end
 
-      it "contains links to each song's show page" do
+      it "contains links to each songs's show page" do
         expect(page).to have_css("a[href='/songs/#{@song.slug}']")
       end
     end
@@ -82,11 +82,11 @@ describe "Playlister Basics" do
         expect(page.status_code).to eq(200)
       end
 
-      it "displays the song's artist" do
+      it "displays the songs's artist" do
         expect(page).to have_content(artist_name)
       end
 
-      it "displays the song's genres" do
+      it "displays the songs's genres" do
         expect(page).to have_content(genre_name)
       end
 
@@ -116,7 +116,7 @@ describe "Playlister Basics" do
         expect(page).to have_content(genre_name)
       end
 
-      it "contains links to each song's show page" do
+      it "contains links to each songs's show page" do
         expect(page).to have_css("a[href='/songs/#{@song.slug}']")
       end
 
@@ -146,7 +146,7 @@ describe "Playlister Basics" do
         expect(page).to have_css("a[href='/artists/#{@artist.slug}']")
       end
 
-      it "contains links to each song's show page" do
+      it "contains links to each songs's show page" do
         expect(page).to have_css("a[href='/songs/#{@song.slug}']")
       end
     end
