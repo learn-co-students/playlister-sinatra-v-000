@@ -1,0 +1,14 @@
+
+[1mFrom:[0m /home/juan/code/labs/playlister-sinatra-v-000/app/controllers/songs_controller.rb @ line 20 self.POST /songs:
+
+    [1;34m15[0m:     @song = [1;34;4mSong[0m.find_by_slug(params[[33m:slug[0m])
+    [1;34m16[0m:     erb [33m:[1;33m'[0m[33msongs/show[1;33m'[0m[33m[0m
+    [1;34m17[0m:   [32mend[0m
+    [1;34m18[0m: 
+    [1;34m19[0m:   post [31m[1;31m'[0m[31m/songs[1;31m'[0m[31m[0m [32mdo[0m
+ => [1;34m20[0m:     binding.pry
+    [1;34m21[0m:     @song = [1;34;4mSong[0m.create([35mname[0m: params[[33m:song[0m])
+    [1;34m22[0m:     redirect to [31m[1;31m"[0m[31m/songs/#{@song.slug}[0m[31m[1;31m"[0m[31m[0m
+    [1;34m23[0m:   [32mend[0m
+    [1;34m24[0m: [32mend[0m
+
