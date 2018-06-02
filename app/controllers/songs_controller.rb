@@ -1,6 +1,9 @@
 require 'pry'
+require 'rack-flash'
+require 'rack/flash/test' # => https://github.com/nakajima/rack-flash/issues/1
 
 class SongsController < ApplicationController
+  use Rack::Flash
 
   get '/songs' do
     @songs = Song.all
@@ -22,6 +25,8 @@ class SongsController < ApplicationController
     @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
     @song.genre_ids = params[:genres]
     @song.save
+
+    flash[:message] = "Successfully created songs."
     redirect to "/songs/#{@song.slug}"
   end
 
