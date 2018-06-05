@@ -1,5 +1,5 @@
 class Artist < ActiveRecord::Base
-  include 
+  include Slugifiable
 
   #has multiple songs
   #has multiple genres
