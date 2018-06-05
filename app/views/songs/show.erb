@@ -1,8 +1,8 @@
-<%= @song.name %>
-<a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a>
+<p><%= @song.name %></p>
+<p><a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></p>
 <% @song.artist.genres.map do |genre| %>
-  <a href="/genres/<%= genre.slug %>"><%= genre.name %></a>
+  <p><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></p>
 <% end %>
 <% if flash.has?(:message) %>
-  <%= flash[:message] %>
+  <p><%= flash[:message] %></p>
 <% end %>
