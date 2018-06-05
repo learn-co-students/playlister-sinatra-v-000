@@ -1,4 +1,5 @@
 class Artist < ActiveRecord::Base
+  include 
 
   #has multiple songs
   #has multiple genres
