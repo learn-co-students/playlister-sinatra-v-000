@@ -1,6 +1,6 @@
 class Genre < ActiveRecord::Base
-  include Slugifiable
-
+  extend Slugifiable::ClassMethods
+  include Slugifiable::InstanceMethods
   #has multiple artists (through songs??)
   #has multiple songs
   has_many :artists

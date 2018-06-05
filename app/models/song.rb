@@ -1,6 +1,6 @@
 class Song < ActiveRecord::Base
-  include Slugifiable
-
+  extend Slugifiable::ClassMethods
+  include Slugifiable::InstanceMethods
   #has ONE artist
   #has multiple genres
   belongs_to :artist
