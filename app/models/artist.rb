@@ -8,8 +8,13 @@ class Artist < ActiveRecord::Base
 
     def self.find_by_slug(slug)
         artist = slug.split("-").collect do |name|
-            name.capitalize
-        end.join(" ")
+            if name == "with" || name == "the" || name == "a"
+                 name.downcase
+             else
+                 name.capitalize
+            end.join(" ")
+        end
+            binding.pry
         @artist = self.find_by(:name => artist)
     end
 end

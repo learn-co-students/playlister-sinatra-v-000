@@ -10,14 +10,12 @@ class Song < ActiveRecord::Base
 
     def self.find_by_slug(slug)
         song = slug.split("-").collect do |name|
-             if name != "with" || name != "the" || name != "a"
-                 binding.pry
-                  name.capitalize
-              else
+             if name == "with" || name == "the" || name == "a"
                   name.downcase
+              else
+                  name.capitalize
               end
-        end.join(" ")
-        binding.pry
+              end.join(" ")
         @song = self.find_by(:name => song)
     end
 end
