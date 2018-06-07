@@ -15,7 +15,7 @@ class Song < ActiveRecord::Base
               else
                   name.capitalize
               end
-              end.join(" ")
+         end.join(" ")
         @song = self.find_by(:name => song)
     end
 end

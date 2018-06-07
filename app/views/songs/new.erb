@@ -1,0 +1,14 @@
+<form action="/songs/:slug" method="post">
+    <label for="Name">
+        Name
+    </label>
+    <input type="text"
+    id="Name" name="song[name]">
+
+    <label for="Artist">
+        Artist
+    </label>
+    <input type="text"
+    id="Artist" name="song[artists][][name]">
+    <input type="Submit" name="Submit" value="Submit">
+</form>

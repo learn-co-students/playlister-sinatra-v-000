@@ -12,9 +12,8 @@ class Artist < ActiveRecord::Base
                  name.downcase
              else
                  name.capitalize
-            end.join(" ")
-        end
-            binding.pry
+            end
+        end.join(" ")
         @artist = self.find_by(:name => artist)
     end
 end
