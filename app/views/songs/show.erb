@@ -1,4 +1,4 @@
-<a href='/artists/<%=artist.name.slug%>'><%= @artist.name %></a>
+<a href='/artists/<%=@artist.name.slug%>'><%= @artist.name %></a>
 <% @genres.each do |genre| %>
 <%= Genre.all.find(genre.id).name %>
 <%end %>
