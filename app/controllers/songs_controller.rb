@@ -7,16 +7,19 @@ class SongsController < ApplicationController
 
   get '/songs/new' do
     @songs = Song.all
+    @artists = Artist.all
+    @genres = Genre.all
     erb :'/songs/new'
   end
 
-  post '/songs/' do
-    @song = Song.create(params)
+  post '/songs' do
+    @song = Song.create(params['song'])
     if !params["artist"]["name"].empty?
-      @song.artists << Artist.create(name: params["artist"]["name"])
+      @song.artist = Artist.find_or_create_by(name: params["artist"]["name"])
     end
+    @song.genre_ids = params['genre']
     @song.save
-    redirect to "/songs/#{@song.id}"
+    redirect to "/songs/#{@song.slug}"
   end
 
   get '/songs/:slug' do
@@ -35,7 +38,7 @@ class SongsController < ApplicationController
     @song.artist = params([:artist])
     @song.genre = params([:genre])
     @song.save
-    redirect to '/songs/:slug'
+    redirect to "/songs/#{@song.slug}"
   end
   #DON'T FORGET TO ADD HIDDEN PATCH LINE TO ERB FILE!!!!!!!
 

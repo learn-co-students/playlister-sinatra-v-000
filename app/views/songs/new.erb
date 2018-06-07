@@ -5,7 +5,7 @@
 
   <br></br>
 
-  <input type="text" name="Name" id="song_name">
+  <input type="text" name="song[name]" id="Name">
 
   <br></br>
 
@@ -13,8 +13,8 @@
 
   <br></br>
 
-  <%Artist.all.each do |artist| %>
-    <input type="checkbox" name="Artist" id="<%=artist.id%>" value="<%=artist.id%>"><%=artist.name%>
+  <%@artists.each do |artist| %>
+    <input type="radio" name="song[artist_id]" id="<%=artist.id%>" value="<%=artist.id%>"><%=artist.name%>
   <%end%>
 
   <br></br>
@@ -29,6 +29,14 @@
 
   <br></br>
 
-  <input type="submit" value="Save new artist">
+  <label>Genre(s):</label>
+
+  <%@genres.each do |genre|%>
+    <input type="checkbox" name="genre[]" value="<%= genre.id %>"> <%=genre.name%>
+  <%end%>
+
+  <br></br>
+
+  <input type="submit" value="Save new song">
 
 </form>
