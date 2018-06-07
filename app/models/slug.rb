@@ -8,9 +8,7 @@ module Slug
 
   module ClassMethods
     def find_by_slug(slug)
-      a= slug.split("-")
-      a = a.map!{|a|a.capitalize}.join(" ")
-      b = self.find_by(name: a)
+      self.all.find{|a|a.slug == slug}
     end
   end
 end
