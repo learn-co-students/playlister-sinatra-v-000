@@ -1,9 +1,6 @@
 <a href="/artists/<%=@artist.slug%>"><%=@artist.name%></a>
 
   <% @songs.each do |song|%>
-      <%binding.pry%>
-
-
  <%@genres = song.song_genres%>
 
       <%@genres.each do |g|%>
