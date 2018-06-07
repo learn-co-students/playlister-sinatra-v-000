@@ -8,6 +8,6 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(song_name)
-    find_by(name: song_name.split(' ').join(' ').titleize)
+    Song.all.detect {|s| s.slug == song_name}
   end
 end
