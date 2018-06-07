@@ -1,1 +1,4 @@
 <%= @song.artist.name %>
+<% @genres.each do |genre| %>
+<%= Genre.all.find(genre.id).name %>
+<%end %>
