@@ -1,4 +1,8 @@
+require 'sinatra/flash'
+
 class SongsController < ApplicationController
+  enable :sessions
+  register Sinatra::Flash
 
   get '/songs/new' do
     @genres = Genre.all
@@ -7,13 +11,11 @@ class SongsController < ApplicationController
 
   post '/songs' do
     @song = Song.create(params[:song])
-    @artist = Artist.find_by(name: params[:artist][:name])
-    if !@artist
-      @artist = Artist.create(params[:artist])
-    end
+    @artist = Artist.find_or_create_by(name: params[:artist][:name])
     @artist.songs << @song
+    @song.save
     flash[:message] = "Successfully created song."
-    redirect "/songs/#{@song.slug}"
+    redirect ("/songs/#{@song.slug}")
   end
 
   get '/songs/:slug' do
@@ -24,6 +26,11 @@ class SongsController < ApplicationController
   get '/songs' do
     @songs = Song.all
     erb :'/songs/index'
+  end
+
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'/songs/edit'
   end
 
 end
