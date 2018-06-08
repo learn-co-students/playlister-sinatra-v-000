@@ -17,8 +17,9 @@ class SongsController < ApplicationController
 
     @song = Song.create(name: params[:name])
     @artist = Song.create(name: params[:artist_name])
-
-    redirect :'/songs'
+    @artist.save
+    @song.save
+    erb :'/songs/index'
   end
 
 
