@@ -3,5 +3,9 @@
   <input type="text" name="name" value="<%=@song.name%>" id="name">
   <input type="text" name="artist_name" value="<%=@song.artist.name%>" id="Artist Name">
   <input type="text" name="name" value="<%=@song.name%>" id="name">
+  <%@genres.each do |g| %>
+  <%genre = Genre.find(g.id)%>
+  <input type="checkbox" value="genre" <%= 'checked' if @song.genres.include?(genre) %>>
+  <%end%>
   <input type="submit" value="Save">
 </form>
