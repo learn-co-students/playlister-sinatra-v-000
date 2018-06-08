@@ -39,16 +39,15 @@ class SongsController < ApplicationController
     @artist.save
     @song.save
     flash[:message] = 'Successfully created song.'
-    redirect("/songs/#{@song.slug}")
+    redirect "/songs/#{@song.slug}"
   end
 
-  patch '/songs' do
-    binding.pry
-
-    @song = Song.find_by(name: params[:name])
+  patch '/songs/:slug' do
+    # binding.pry
+    @song = Song.find_by_slug(name: params[:name])
     flash[:message] = 'Successfully updated song.'
 
-    redirect("/songs/#{@song.slug}")
+    redirect "/songs/#{@song.slug}"
   end
 
 
