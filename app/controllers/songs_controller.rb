@@ -29,7 +29,7 @@ class SongsController < ApplicationController
 
     @artist.save
 
-    redirect  :"/songs/that-one-with-the-guitar"
+    redirect  "/songs/that-one-with-the-guitar"
      #{@song.slug}
   end
 
