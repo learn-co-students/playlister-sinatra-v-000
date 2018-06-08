@@ -17,8 +17,11 @@ class SongsController < ApplicationController
 
     @song = Song.create(name: params[:name])
     @artist = Song.create(name: params[:artist_name])
+    @genre = Genre.find(params[:genre])
+    @song.artist = @artist
+    @song.genre = @genre
     @artist.save
-    @song.save
+
     erb :'/songs/index'
   end
 
