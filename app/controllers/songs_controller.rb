@@ -15,10 +15,12 @@ class SongsController < ApplicationController
 
   post '/songs/new' do
     binding.pry
-
+    @song = Song.create(name: params[:name])
+    @artist = Song.create(name: params[:artist_name])
 
     redirect :'/songs'
   end
+
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
