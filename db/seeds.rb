@@ -8,3 +8,7 @@ song3 = Song.create(name: 'song 3')
 artist1 = Artist.create(name:  'artist 1')
 artist2 = Artist.create(name:  'artist 2')
 artist3 = Artist.create(name:  'artist 3')
+
+genre1 = Genre.create(name:  'genre 1')
+genre2 = Genre.create(name:  'genre 2')
+genre3 = Genre.create(name:  'genre 3')
