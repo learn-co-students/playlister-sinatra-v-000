@@ -1,6 +1,7 @@
 <form action="/song/" method="post">
   <input type="hidden" id="hidden" name="_method" value='patch'>
   <input type="text" name="name" value="<%=@song.name%>" id="name">
-  <input type="text" name="artist_name" value="<%=@song.artist.name%>" id="artist_name">
+  <input type="text" name="artist_name" value="<%=@song.artist.name%>" id="Artist Name">
   <input type="text" name="name" value="<%=@song.name%>" id="name">
+  <input type="submit" value="Save">
 </form>
