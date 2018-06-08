@@ -1,10 +1,11 @@
 <h2> Enter a new song</h2>
-<form action="/songs/create" method="post">
+<form action="/songs/new" method="post">
 Name: <input type="text" name="name" value='Name' id='Name'></br>
-Artist:<input type="text" name="artist" ></br>
+<h2> Enter a new Artist</h2>
+Artist:<input type="text" name="artist" id = 'Artist Name' ></br>
 Pick all the genres that apply:</br>
 <% @genres.each do |g|%>
-<input type="checkbox" name="genre" ><%= g.name%></br>
+<input type="checkbox" name="genre" id="<%= g.name%>"><%= g.name%></br>
 <% end%>
-<input type="submit" value="submit">
+<input type="submit" value="Create">
 </form>

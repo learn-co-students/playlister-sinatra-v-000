@@ -13,6 +13,13 @@ class SongsController < ApplicationController
   erb :'/songs/new'
   end
 
+  post '/songs/new' do
+    binding.pry
+
+
+    redirect :'/songs'
+  end
+
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     @genres = @song.song_genres
