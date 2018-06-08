@@ -13,8 +13,8 @@ class SongsController < ApplicationController
   erb :'/songs/new'
   end
 
-  post '/songs/new' do
-    binding.pry
+  post '/songs' do
+
     @song = Song.create(name: params[:name])
     @artist = Song.create(name: params[:artist_name])
 
