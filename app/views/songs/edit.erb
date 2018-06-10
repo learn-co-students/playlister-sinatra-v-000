@@ -2,13 +2,17 @@
 <form action="/songs/<%=@song.slug%>" method="post">
   Name: <%=@song.name%>
   <br></br>
+  Update Song Name:
+  <br></br>
+  <input type="text" name="song[name]" id="name" value="<%= @song.name %>">
+  <br></br>
   <label>Genres: </label></br>
   <%@genres.each do |genre|%>
-    <input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>" id="<%=genre.name%>" <%='checked' if @song.genres.include?(genre)%>><%=genre.name%></input></br>
+    <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>" <%='checked' if @song.genres.include?(genre)%>><%=genre.name%></input></br>
   <%end%>
   <label>Update Artist: </label>
   <br></br>
-    <input type="text" name="artist[name]" id="Artist Name">
+    <input type="text" name="artist[name]" id="Artist Name" value="<%=@song.artist.name%>">
   <br></br>
   <input type="submit" value="Save">
 </form>
