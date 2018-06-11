@@ -1,7 +1,7 @@
 module Slugifiable
     module ClassMethods
         def find_by_slug (slug)
-            if "Genre" == self.name
+            if self.find_by(name: slug)
                 model_instance = self.find_by(name: slug)
             else
                 lowercase_words = ["a", "the", "with"]
