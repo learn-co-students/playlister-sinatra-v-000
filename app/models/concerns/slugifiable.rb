@@ -1,16 +1,20 @@
 module Slugifiable
     module ClassMethods
         def find_by_slug (slug)
-            lowercase_words = ["a", "the", "with"]
+            if "Genre" == self.name
+                model_instance = self.find_by(name: slug)
+            else
+                lowercase_words = ["a", "the", "with"]
 
-            name_from_slug = 
-                (slug.split('-').each do |word|
-                    if !lowercase_words.include?(word)
-                        word.capitalize!
-                    end
-                end).join(' ')
+                name_from_slug = 
+                    (slug.split('-').each do |word|
+                        if !lowercase_words.include?(word)
+                            word.capitalize!
+                        end
+                    end).join(' ')
 
-            model_instance = self.find_by(name: name_from_slug)
+                model_instance = self.find_by(name: name_from_slug)
+            end
         end
     end
 
