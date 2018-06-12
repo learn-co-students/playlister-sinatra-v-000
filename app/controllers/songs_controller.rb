@@ -19,6 +19,7 @@ class SongsController < ApplicationController
     end
     @song.genre_ids = params['genre']
     @song.save
+    flash[:message] = "Successfully created song."
     redirect to "/songs/#{@song.slug}"
   end
 
@@ -33,13 +34,20 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do
+    @songs = Song.all
+    @artists = Artist.all
+    @genres = Genre.all
     @song = Song.find_by_slug(params[:slug])
+    @song.update(params[:song])
+      if !params[:artist][:name].empty?
+        @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
+      end
     @song.name = params([:name])
     @song.artist = params([:artist])
     @song.genre = params([:genre])
     @song.save
+    flash[:message] = "Successfully edited song."
     redirect to "/songs/#{@song.slug}"
   end
-  #DON'T FORGET TO ADD HIDDEN PATCH LINE TO ERB FILE!!!!!!!
 
 end

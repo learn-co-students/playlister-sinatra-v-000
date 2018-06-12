@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h4>Artist: <%=@artist.name%></h4>
 
 <h4>Song(s):
@@ -13,3 +14,25 @@
       <li><p><a href='/genres/<%=genre.slug%>'><%=genre.name%></a></p></li>
       <%end%>
   </ul>
+=======
+
+<h1><%=@artist.name%></h1>
+
+<br></br>
+
+<h3>Songs:</h3>
+    <ul>
+        <%@artist.songs.each do |song|%>
+        <li><p><a href='/songs/<%=song.slug%>'><%=song.name%></a><p></li>
+        <%end%>
+    </ul>
+
+<br></br>
+
+<h3>Genres:</h3>
+    <ul>
+        <%@artist.genres.each do |genre|%>
+        <li><p><a href='/genres/<%=genre.slug%>'><%=genre.name%></a></p></li>
+        <%end%>
+    </ul>
+>>>>>>> 2c658c63bc8bd8b945f98a484c4af0bf84c7eb0f

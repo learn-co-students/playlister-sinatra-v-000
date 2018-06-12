@@ -6,3 +6,8 @@
     <li><a href="/genres/<%=genre.slug%>"><%=genre.name%></a> </li>
   <%end%>
  </ul>
+
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
