@@ -11,10 +11,13 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    @artist = Artist.create(name: params['artist_name'])
+    @artist = Artist.find_or_create_by(name: params['artist_name'])
     @song = Song.create(name: params['song_name'])
+    @genre = Genre.find(params['genres'])
     @artist.songs << @song
-    redirect "/songs/#{@song.id}"
+    @song.genres << @genre
+
+    redirect "/songs/#{@song.slug}"
   end
 
   get '/songs/:slug' do
@@ -22,4 +25,8 @@ class SongsController < ApplicationController
     erb :'/songs/show'
   end
 
+  get '/songs/:slug/edit' do
+    @song = Sonf.find_by_slug(params[:slug])
+    erb :'/songs/edit'
+  end
 end

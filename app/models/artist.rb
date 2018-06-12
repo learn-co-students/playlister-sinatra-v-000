@@ -16,4 +16,10 @@ class Artist < ActiveRecord::Base
     end
   end
 
+  # def self.find_or_create(name)
+  #   if !self.find_by_name(name)
+  #     Artist.create(name)
+  #   end
+  # end
+
 end
