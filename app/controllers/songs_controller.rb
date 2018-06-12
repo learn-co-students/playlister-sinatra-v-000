@@ -17,7 +17,8 @@ class SongsController < ApplicationController
     @artist.songs << @song
     @song.genres << @genre
 
-    redirect "/songs/#{@song.slug}"
+    flash[:message] = "Successfully created song."
+    redirect to('/songs/#{@song.slug}')
   end
 
   get '/songs/:slug' do
@@ -32,7 +33,7 @@ class SongsController < ApplicationController
     @artist.songs << @song
     @song.save
 
-    Successfully updated song.
+    flash[:message] = "Successfully updated song."
     redirect "/songs/#{@song.slug}"
   end
 
