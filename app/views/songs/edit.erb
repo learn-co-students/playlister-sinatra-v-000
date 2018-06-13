@@ -14,7 +14,7 @@
   <br></br>
 
   <%Artist.all.each do |artist|%>
-    <input type="checkbox" name="artist_id" id="<%=artist.id%>" value="<%=artist.id%>"
+    <input type="radio" name="artist_id" id="<%=artist.id%>" value="<%=artist.id%>"
     <%= 'checked' if artist.songs.include?(@song) %>><%=artist.name%></input>
   <%end%>
 

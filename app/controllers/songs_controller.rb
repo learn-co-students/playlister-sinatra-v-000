@@ -21,13 +21,14 @@ class SongsController < ApplicationController
     #if Artist.all.include?(params)
     if !params[:artist_name].empty? && params[:artist_id]
       redirect to '/songs/new'
-    elsif !params[:artist_name].empty? && !Artist.all.detect {|artist| artist.name == params[:artist_name]}
-      @song.artist_id = Artist.create(name: params[:artist_name]).id
+    elsif !params[:artist_name].empty?
+      @song.artist_id = Artist.find_or_create_by(name: params[:artist_name]).id
     else
       @song.artist_id = params[:artist_id]
     end
     @song.save
     flash[:message] = "Successfully created song."
+
     redirect to "/songs/#{@song.slug}"
   end
 
@@ -46,10 +47,10 @@ class SongsController < ApplicationController
     genres = Genre.find(params[:genres])
     genres.each {|genre| @song.genres << genre if !@song.genres.include?(genre)}
     @song.name = params[:song_name]
-    if params[:artist_id] != nil
-      @song.artist_id = params[:artist_id]
-    elsif params[:artist_name] != ""
+    if !params[:artist_name].empty?
       @song.artist_id = Artist.create(name: params[:artist_name]).id
+    else
+      @song.artist_id = params[:artist_id]
     end
     @song.save
     flash[:message] = "Successfully updated song."
