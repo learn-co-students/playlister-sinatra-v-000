@@ -63,7 +63,6 @@ describe "Song Forms" do
         check "Hippity Hop"
         fill_in "Artist Name", with: artist_name
         click_on "Create"
-
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
         expect(page).to have_content(genre_1_name)
@@ -96,6 +95,7 @@ describe "Song Forms" do
     context "changing a song's artist" do
       it "updates the song's artist" do
         fill_in "Artist Name", with: "Some Nobody"
+        print page.body
         click_on "Save"
 
         expect(page).to have_content("Successfully updated song.")
