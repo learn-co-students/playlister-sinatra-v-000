@@ -3,8 +3,8 @@
 <% end %>
 <h2><%= @song.name %></h2>
 <h1><%= @artist.name %></h1>
-<%@genres.each do |genre|%>
-  <input type='checkbox' name='genres[]' value='<%=genre.id%>' id='<%=genre.name%>' <%='checked' if @song.genres.include?(genre) %>><%=genre.name%></input>
+<%@song.genres.each do |genre|%>
+  <%=genre.name%>
 <%end%>
 <a href='/artists/<%=@artist.slug%>'></a>
 <% @genres.each do |g| %>
