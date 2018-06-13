@@ -1,5 +1,3 @@
-#test
+class Artist < ActiveRecord::Base
 
-second test 
-
-blah
+end
