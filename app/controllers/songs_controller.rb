@@ -6,12 +6,15 @@ class SongController < ApplicationController
   end
 
   get '/songs/new' do
-    #   binding.pry
       erb :'songs/new'
   end
 
   post '/songs/:slug' do #or /songs/new to post to?
-    #   binding.pry
+      @song = Song.create(:name => params['song']['name'])
+      @artist = Artist.create(:name => params['song']['artist'])
+      @song.artist = @artist
+    #   @artist.add_genre = Genre.find_by(params['genres'])
+       binding.pry
       erb :'songs/show'
   end
 

@@ -1,14 +1,19 @@
 <form action="/songs/:slug" method="post">
-    <label for="Name">
-        Name
-    </label>
+    <label for="Name">Name</label>
     <input type="text"
-    id="Name" name="song[name]">
+    id="Name" name="song[name]"></input>
 
-    <label for="Artist">
-        Artist
+    <label for="Artist Name">
+        Artist Name
     </label>
     <input type="text"
-    id="Artist" name="song[artists][][name]">
-    <input type="Submit" name="Submit" value="Submit">
+    id="Artist Name" name="song[artist]">
+
+    <h2>Genres</h2>
+    <% Genre.all.each do |genre| %>
+      <input id="<%= genre.id %>" type="checkbox" name="genres[]" value="<%= genre.id %>"><%=genre.name%></input>
+      <br>
+    <% end %>
+
+    <input type="Submit" name="Create" value="Create"></input>
 </form>
