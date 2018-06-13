@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Artists</title>
+</head>
+<body>
+
+	<h1 align="center">Artists</h1>
+
+	<% Artist.all.each do |artist| %>
+	  <li><a href="/artists/<%=artist.slug%>"><%= artist.name %></a></li>
+	  <% end %>
+	
+</body>
+</html>
+

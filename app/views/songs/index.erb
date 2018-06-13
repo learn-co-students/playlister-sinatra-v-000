@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Songs</title>
+</head>
+<body>
+	<h1 align="center">Songs:</h1>
+	<%@songs.each do |song| %>
+	<li><a href="/songs/<%=song.slug%>"><%=song.name%></a></li>
+	<%end%>
+</body>
+</html>
+
+
+	<form action="/songs/new" method="GET">
+  <button type="submit">Add Song</button>
+</form>
