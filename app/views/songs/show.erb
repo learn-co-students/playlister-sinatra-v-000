@@ -2,11 +2,11 @@
   <%= flash[:message] %>
 <% end %>
 <h2><%= @song.name %></h2>
-<h1><%= @song.artist.name %></h1>
-<% @song.genres.each do |g| %>
-  <h1><%= g.name %></h1>
-<% end %>
-<a href='/artists/<%=@song.artist.slug%>'></a>
-<% @song.genres.each do |g| %>
+<h1><%= @artist.name %></h1>
+<%@genres.each do |genre|%>
+  <input type='checkbox' name='genres[]' value='<%=genre.id%>' id='<%=genre.name%>' <%='checked' if @song.genres.include?(genre) %>><%=genre.name%></input>
+<%end%>
+<a href='/artists/<%=@artist.slug%>'></a>
+<% @genres.each do |g| %>
   <a href='/genres/<%=g.slug%>'></a>
 <% end %>
