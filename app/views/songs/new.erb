@@ -10,7 +10,7 @@
     id="Artist Name" name="song[artist]">
 
     <h2>Genres</h2>
-    <% Genre.all.each do |genre| %>
+    <% @genres.all.each do |genre| %>
     <label for="<%= genre.id
      %>"><%= genre.name
      %></label>

@@ -6,26 +6,50 @@ class SongController < ApplicationController
   end
 
   get '/songs/new' do
-    #   binding.pry
+    #    binding.pry
+       @genres = Genre.all
       erb :'songs/new'
   end
 
-  post '/songs/new' do #or /songs/new to post to?
+  post '/songs/new' do
       @song = Song.create(:name => params['song']['name'])
-      @artist = Artist.create(:name => params['song']['artist'])
+      @artist = Artist.find_by(:name => params['song']['artist'])
 
-      @artist.songs << @song
-      @genres = Genre.find_by(params['genres'])
+      if @artist == nil
+          @artist = Artist.create(:name => params['song']['artist'])
+          @artist.songs << @song
+      elsif !@artist.songs.include?(@song)
+         @artist.songs << @song
+      end
+
+      @genres = Genre.find(params['genres'])
       @song.genres << @genres
-      binding.pry
-       redirect to '/songs/<%=@song.slug%>'
+       redirect to "/songs/#{@song.slug}"
   end
 
-  get '/songs/:slug' do #may have to change the order of :slug and new
-      binding.pry
+  get '/songs/:slug' do
      @song = Song.find_by_slug(params[:slug])
-      binding.pry
      erb :'songs/show'
  end
 
+get '/songs/:slug/edit' do
+     binding.pry
+     @genres = Genre.all
+     @song = Song.find_by_slug(params[:slug])
+     erb :'songs/edit'
+ end
+
+ post '/songs/:slug/edit' do
+      @song = Song.find_by_slug(params[:slug])
+      @artist = Artist.find_by(:name => params['song']['artist'])
+
+      if @artist == nil
+          @artist = Artist.create(:name => params['song']['artist'])
+          @song.artist = @artist
+      else
+          @song.artist = @artist
+      end
+      @song.save
+      redirect to "/songs/#{@song.slug}"
+  end
 end
