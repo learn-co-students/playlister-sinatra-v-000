@@ -1,0 +1,9 @@
+<h3>Songs:</h3>
+<%@artist.songs.map do |song|%>
+    <a href="/songs/<%=song.slug%>"><%=song.name%></a>
+<%end%>
+</br>
+<h3>Genres:</h3>
+<%@artist.genres.map do |genre|%>
+    <a href="/genres/<%=genre.slug%>"><%=genre.name%></a>
+<%end%>
