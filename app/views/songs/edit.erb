@@ -1,7 +1,5 @@
-<form action="/songs/<%=@song.name%>" method="post">
-    <label for="Name"><%=@song.name%></label>
-    <input type="text"
-    id="Name" name="song[name]"></input>
+<form action="/songs/<%=@song.slug%>/edit" method="post">
+    <h2><%=@song.name%></h2>
 
     <label for="Artist Name">
         <%=@song.artist.name%>
