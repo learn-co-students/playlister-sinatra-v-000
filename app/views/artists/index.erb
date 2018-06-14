@@ -1,0 +1,10 @@
+<h1> Artist Index Page! </h1>
+<br></br>
+
+<% @artists.each do |artist| %>
+  <%=artist%>
+<% end %>
+
+<br></br>
+
+<a href="/artists/#{@artist.slug}"> hi! </a>
