@@ -9,12 +9,16 @@ class Genre < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
+    title = []
     a = slug.split("-")
-    first_word = a[0]
-    second_word = a[1]
-    first_letter = a[0][0].upcase
-    second_letter = a[1][0].upcase
-    name = first_letter + first_word.slice(1..-1) + " " + second_letter + second_word.slice(1..-1)
-    self.find_by_name(name)
+    a.each do |word|
+      if word == "with" || word == "the" || word == "a"
+        title << word
+      else
+        title << word[0].upcase + word.slice(1..-1)
+      end
+    end
+    genre_title = title.join(" ")
+    self.find_by_name(genre_title)
   end
 end
