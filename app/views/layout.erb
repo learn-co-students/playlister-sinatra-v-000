@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <link rel="stylesheet" href="/stylesheets/style.css">
     <title></title>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>music organizer</h1>
+      <nav><!--
+        --><a href="/artists">Artists</a><!--
+        --><a href="/genres">Genres</a><!--
+        --><a href="/songs">Songs</a>
+      </nav>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

@@ -1,0 +1,23 @@
+/* ######## layout ######## */
+nav > a {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  margin: 1px;
+}
+
+form > * {
+  display: block;
+  padding: 5px;
+  margin: 5px;
+}
+
+/* ######## style ######## */
+
+nav > a {
+  color: black;
+  background-color: #cccccc;
+  text-decoration: none;
+}
+
+/* ######## fixes ######## */

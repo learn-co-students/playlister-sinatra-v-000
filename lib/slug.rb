@@ -7,8 +7,8 @@ module Slug
 
   module ClassMethods
     def find_by_slug(slug)
-      full_name = slug.split('-').collect{|name| name.capitalize}.join(' ')
-      self.find_by(name: full_name)
+      name = slug.split('-').join(' ')
+      self.where("lower(name) = ?", name.downcase).first
     end
   end
 end
