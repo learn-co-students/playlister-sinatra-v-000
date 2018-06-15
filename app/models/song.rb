@@ -8,8 +8,7 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    converted_slug = slug.split("-").join(" ").titleize
-    self.all.find{|song| song.name == converted_slug}
+    self.all.find{|song| song.name.parameterize == slug}
   end
 
 end

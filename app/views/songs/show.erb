@@ -5,7 +5,7 @@
 <h1><%=@song.name%></h1>
 
 <h4>Artist: </h4>
-  <a href="/artists/<%=@song.artist.slug%>"> <%@song.artist%> </a>
+  <a href="/artists/<%=@song.artist.slug%>"> <%=@song.artist.name%> </a>
 
 <h4>Genre(s):</h4>
 <ul>
@@ -13,3 +13,5 @@
     <li><a href="/genres/<%=genre.slug%>"> <%=genre.name%> </a></li>
   <%end%>
 </ul>
+
+<h4><a href="/songs/<%=@song.slug%>/edit">Edit</a></h4>
