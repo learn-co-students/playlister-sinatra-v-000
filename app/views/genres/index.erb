@@ -1,0 +1,6 @@
+<h1>Genres</h1>
+<ol>
+    <% @list.each do |i| %>
+      <h3><li><a href="/<%=i.class.to_s.downcase%>s/<%=i.slug%>"><%=i.name%></a></li></h3>
+    <% end %>
+  </ol>

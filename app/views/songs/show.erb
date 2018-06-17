@@ -1,0 +1,11 @@
+<h1><%= @slug.name %></h1>
+
+<h2>Successfully created song.</h2>
+<h1>Successfully updated song.</h1>
+<a href="/artists/<%=@slug.artist.slug%>"><h2><%= @slug.artist.name %></h2></a>
+
+<ul>
+  <% @slug.genres.each do |g| %>
+  <li><a href="/genres/<%=g.slug%>"></a>"><h3><%= g.name %></h3></a></li>
+  <% end %>
+</ul>

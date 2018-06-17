@@ -8,9 +8,7 @@ class Genre < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    name = []
-    slug.split("-").each {|w| name << w.capitalize}
-    find_by(name: name.join(" "))
+    all.detect { |i| i.name.downcase == slug.gsub("-"," ")}
   end
 
 end
