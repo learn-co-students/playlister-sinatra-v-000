@@ -1,7 +1,4 @@
-class SongGenre < ActiveRecord::Base
-    belongs_to :song
-    belongs_to :genre
-
+class Slugifiable
     def slug
         self.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
     end
