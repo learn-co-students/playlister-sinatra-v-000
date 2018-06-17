@@ -4,6 +4,7 @@ class LibraryParser
     Dir.entries(data_path)[2..-1]
   end
 
+#main method to call LibraryParser
   def self.parse
     self.new.call
   end
@@ -34,7 +35,7 @@ class LibraryParser
 
     song.song_genres.build(genre: genre)
     song.artist = artist
-    
+
     song.save
   end
 end
