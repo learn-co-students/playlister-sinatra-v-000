@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Playlister Basics" do
+puts describe "Playlister Basics" do
   let(:artist_name) { "Person with a Face" }
   let(:genre_name) { "New Age Garbage" }
   let(:song_name) { "That One with the Guitar" }
@@ -12,11 +12,11 @@ describe "Playlister Basics" do
 
     @song.song_genres.create(genre: @genre)
     @song.artist = @artist
-  
+
     @song.save
   end
 
-  describe "index pages" do
+  puts describe "index pages" do
     describe "/songs" do
       before do
         visit "/songs"
@@ -53,7 +53,7 @@ describe "Playlister Basics" do
       end
     end
 
-    describe "/genres" do
+  puts  describe "/genres" do
       before do
         visit "/genres"
       end
@@ -72,7 +72,7 @@ describe "Playlister Basics" do
     end
   end
 
-  describe "show pages" do
+puts   describe "show pages" do
     describe "/songs/:slug" do
       before do
         visit "/songs/#{@song.slug}"
@@ -99,7 +99,7 @@ describe "Playlister Basics" do
       end
     end
 
-    describe "/artists/:slug" do
+    puts describe "/artists/:slug" do
       before do
         visit "/artists/#{@artist.slug}"
       end
@@ -125,7 +125,7 @@ describe "Playlister Basics" do
       end
     end
 
-    describe "/genres/:slug" do
+    puts describe "/genres/:slug" do
       before do
         visit "/genres/#{@genre.slug}"
       end
@@ -146,7 +146,7 @@ describe "Playlister Basics" do
         expect(page).to have_css("a[href='/artists/#{@artist.slug}']")
       end
 
-      it "contains links to each song's show page" do
+      puts it "contains links to each song's show page" do
         expect(page).to have_css("a[href='/songs/#{@song.slug}']")
       end
     end
