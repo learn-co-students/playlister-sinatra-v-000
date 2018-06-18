@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Song Forms" do
+puts describe "Song Forms" do
   let(:artist_name) { "Person with a Face" }
   let(:genre_1_name) { "Hippity Hop" }
   let(:genre_2_name) { "New Age Garbage" }
@@ -8,7 +8,7 @@ describe "Song Forms" do
   let!(:genre_1) { Genre.create(name: genre_1_name) }
   let!(:genre_2) { Genre.create(name: genre_2_name) }
 
-  describe "/songs/new" do
+  puts describe "/songs/new" do
     before do
       visit "/songs/new"
     end
@@ -80,7 +80,7 @@ describe "Song Forms" do
     end
   end
 
-  describe "/songs/:slug/edit" do
+  puts describe "/songs/:slug/edit" do
     before do
       @song = Song.create(name: song_name)
       artist = Artist.create(name: artist_name)
