@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h1><%=@genre.name%></h1>
 <p>Artists</p>
 <ol>

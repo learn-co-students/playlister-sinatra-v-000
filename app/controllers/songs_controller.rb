@@ -1,6 +1,10 @@
 require 'pry'
+require 'sinatra/base'
+require 'rack-flash'
 
 class SongsController < Sinatra::Base
+    enable :sessions
+    use Rack::Flash
     register Sinatra::ActiveRecordExtension
     set :session_secret, "my_application_secret"
     set :views, Proc.new { File.join(root, "../views/") }
@@ -19,7 +23,17 @@ class SongsController < Sinatra::Base
       if !params["Artist Name"].empty?
           @song.artist = Artist.create(name: params["Artist Name"])
       end
+      song_genre = SongGenre.new
+      song_genre.song_id = @song.id
+      song_genre.genre_id = Genre.find_by(id: params["genres"])
+
+      params["genres"].each do |genre_id|
+          SongGenre.create(song_id: @song.id, genre_id: genre_id.to_i)
+      end
+
       @song.save
+
+      flash.now[:notice] = "Successfully created song."
       redirect to "songs/#{@song.slug}"
   end
 
