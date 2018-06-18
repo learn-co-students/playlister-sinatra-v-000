@@ -1,6 +1,6 @@
-<ul>
+<h1> <%= @artist.name %> </h1>
  <% @artist.songs.each do |song| %>
-   <li><a href="/songs/<%= song.slug %>"><%= song.name %> </a></li>
+   <li><a href="/songs/<%= song.slug %>"><%= song.name %> </a>
  <% end %>
 </ul>
 
@@ -9,3 +9,4 @@
    <li><a href="/genres/<%= genre.slug %>"><%= genre.name %> </a></li>
  <% end %>
 </ul>
+
