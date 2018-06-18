@@ -1,5 +1,6 @@
 <% if flash.has?(:message) %>
   <%= flash[:message] %>
+  <% binding.pry %>
 <% end %>
 
 <h1><%=@genre.name%></h1>

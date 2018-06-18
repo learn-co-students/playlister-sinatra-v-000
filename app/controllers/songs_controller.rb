@@ -1,10 +1,10 @@
-require 'pry'
 require 'sinatra/base'
-require 'rack-flash'
+require 'sinatra/flash'
+require 'pry'
 
 class SongsController < Sinatra::Base
     enable :sessions
-    use Rack::Flash
+    register Sinatra::Flash
     register Sinatra::ActiveRecordExtension
     set :session_secret, "my_application_secret"
     set :views, Proc.new { File.join(root, "../views/") }
@@ -32,8 +32,8 @@ class SongsController < Sinatra::Base
       end
 
       @song.save
-
-      flash.now[:notice] = "Successfully created song."
+      flash[:message] = "Successfully created song."
+      binding.pry
       redirect to "songs/#{@song.slug}"
   end
 
