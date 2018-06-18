@@ -1,0 +1,7 @@
+<h1>Artist List</h1>
+<ol>
+<% Artist.all.each do |i| %>
+    <li><a href='/artists/<%=i.slug%>'> <%= i.name %> </a></li>
+<%end%>
+
+</ol>
