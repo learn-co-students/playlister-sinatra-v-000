@@ -4,6 +4,4 @@ class GenresController < ApplicationController
     @genres = Genre.all
     erb :"genres/index"
   end
-
-  
 end
