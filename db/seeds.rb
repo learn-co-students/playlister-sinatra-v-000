@@ -1,17 +1,14 @@
 # Add seed data here. Seed your database with `rake db:seed`
 
-valient = Artist.create(name: "Valient Thorr")
-valient.slug
-valient.save
+song_name = "That One with the Guitar"
+artist_name = "Person with a Face"
+genre_name = "New Age Garbage"
 
-exit_strategy = Song.create(name: "Exit Strategy")
-exit_strategy.artist_id = valient.id
-exit_strategy.slug
-exit_strategy.save
+@song = Song.create(name: song_name)
+@genre = Genre.create(name: genre_name)
+@artist = Artist.create(name: artist_name)
 
-rock = Genre.create(name: "Rock")
-shred = Genre.create(name: "Shred Rock")
-exit_strategy.song_genres.create(genre: rock)
-exit_strategy.song_genres.create(genre: shred)
+@song.song_genres.create(genre: @genre)
+@song.artist = @artist
 
-exit_strategy.save
+@song.save

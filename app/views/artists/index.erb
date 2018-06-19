@@ -8,8 +8,8 @@
     <h1>Welcome to the artists page!</h1>
 
     <% Artist.all.each do |artist| %>
-      <%= artist.name %>
-      <a href="/artists/<%= artist.slug %>"></a>
+      <a href="/artists/<%= artist.slug %>"><%= artist.name %></a>
+      <br>
     <% end %>
 
   </body>

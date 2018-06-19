@@ -5,16 +5,16 @@ class Song < ActiveRecord::Base
 
   def slug
     @slug = self.name.downcase.gsub(" ", "-")
-    self.slug = @slug
+    self.slug_name = @slug
+    self.save
     @slug
   end
 
   def self.find_by_slug(song_slug)
     self.all.each do |song|
       song.slug
-      song.save
     end
-    @song = self.find_by(slug: song_slug)
+    @song = self.find_by(slug_name: song_slug)
   end
 
 end

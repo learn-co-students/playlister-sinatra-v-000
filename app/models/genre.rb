@@ -6,16 +6,16 @@ class Genre < ActiveRecord::Base
 
   def slug
     @slug = self.name.downcase.gsub(" ", "-")
-    self.slug = @slug
+    self.slug_name = @slug
+    self.save
     @slug
   end
 
   def self.find_by_slug(genre_slug)
     self.all.each do |genre|
       genre.slug
-      genre.save
     end
-    @genre = self.find_by(slug: genre_slug)
+    @genre = self.find_by(slug_name: genre_slug)
   end
 
 end
