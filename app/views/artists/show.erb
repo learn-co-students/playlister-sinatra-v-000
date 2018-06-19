@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Artists Page</title>
+  </head>
+  <body>
+    <h1>Artist Title</h1>
+    <h4><a href="/artists/<%= @artist.slug %>"><%= @artist.name %></a></h4>
+    <% @artist.songs.each do |song| %>
+      <h5><a href="/songs/<%= song.slug %>"><%= song.name %></a></h5>
+    <% end %>
+    <% @artist.genres.each do |genre| %>
+      <h5><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></h5>
+    <% end %>
+
+  </body>
+</html>
