@@ -5,12 +5,17 @@ class Genre < ActiveRecord::Base
   has_many :songs, through: :song_genres
 
   def slug
-    self.name.downcase.gsub(" ", "-")
+    @slug = self.name.downcase.gsub(" ", "-")
+    self.slug = @slug
+    @slug
   end
 
-  def self.find_by_slug(genre)
-    @genre_name = genre.split("-").map {|word| word.capitalize}.join(" ")
-    @genre = Genre.find_by(name: @genre_name)
+  def self.find_by_slug(genre_slug)
+    self.all.each do |genre|
+      genre.slug
+      genre.save
+    end
+    @genre = self.find_by(slug: genre_slug)
   end
 
 end
