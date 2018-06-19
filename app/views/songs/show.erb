@@ -12,5 +12,9 @@
       <h5><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></h5>
     <% end %>
 
+    <% if flash.has?(:message) %>
+      <%= flash[:message] %>
+    <% end %>
+
   </body>
 </html>
