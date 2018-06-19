@@ -1,5 +1,4 @@
 class Genre < ActiveRecord::Base
-<<<<<<< HEAD
 
   has_many :artists, through: :songs
   has_many :song_genres
@@ -14,9 +13,4 @@ class Genre < ActiveRecord::Base
     @genre = Genre.find_by(name: @genre_name)
   end
 
-=======
-  has_many :artists
-  has_many :songgenres
-  has_many :songs, through: :songgenres
->>>>>>> a938e22b2b45c1da7d33228099d2f57221620652
 end
