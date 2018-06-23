@@ -3,11 +3,11 @@
 Songs for this artist:
 
 <%@artist.songs.each do |song|%>
-<%=song.name%>
+<a href="/songs/<%=song.slug%>"><%=song.name%></a>
 <%end %>
 
 Genre for this artist:
 
 <%@artist.genres.each do |genre|%>
-<%=genre.name%>
+<a href="/genres/<%=genre.slug%>"><%=genre.name%></a>
 <%end %>
