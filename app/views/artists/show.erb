@@ -1,1 +1,13 @@
 <h1>Artists Show Page</h1>
+
+Songs for this artist:
+
+<%@artist.songs.each do |song|%>
+<%=song.name%>
+<%end %>
+
+Genre for this artist:
+
+<%@artist.genres.each do |genre|%>
+<%=genre.name%>
+<%end %>
