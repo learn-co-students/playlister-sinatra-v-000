@@ -1,0 +1,17 @@
+<h1> hi </h1>
+<%# binding.pry %>
+
+
+<% @artist.songs.each do |song| %>
+  <%= song.name  %>
+  <a href="/songs/<%= song.slug %>"> <%= song.name %></a>
+
+<% end  %>
+
+<% @artist.genres.each do |genre| %>
+  <%= genre.name  %>
+  <a href="/genres/<%= genre.slug %>"> <%= genre.name %></a>
+
+<% end  %>
+
+<%# binding.pry %>

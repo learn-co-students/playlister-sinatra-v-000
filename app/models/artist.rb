@@ -15,10 +15,12 @@ class Artist < ActiveRecord::Base
 
   def self.find_by_slug(slug)
     # binding.pry
-    x = slug.split("-").collect do |word|
-      word.capitalize
-    end
-    artist_name = x.join(" ")
-    Artist.find_by_name(artist_name)
+    # x = slug.split("-").collect do |word|
+    #   word.capitalize
+    # end
+    # artist_name = x.join(" ")
+    # Artist.find_by_name(artist_name)
+    Artist.all.detect{|artist| artist.slug == slug}
+
   end
 end

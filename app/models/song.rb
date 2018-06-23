@@ -5,21 +5,30 @@ class Song < ActiveRecord::Base
 
   def slug
     # binding.pry
-    x = self.name.split(" ")
-    x = x.collect do |word|
-      word.downcase
+    if self.name.split(" ").count > 1
+      x = self.name.split(" ")
+      x = x.collect do |word|
+        word.downcase
+      end
+      x.join("-")
+    else
+      self.name.downcase
     end
-    x.join("-")
+
   end
 
 
   def self.find_by_slug(slug)
     # binding.pry
-    x = slug.split("-").collect do |word|
-      word.capitalize
-    end
-    song_name = x.join(" ")
-    Song.find_by_name(song_name)
+    # x = slug.split("-").collect do |word|
+    #   word.capitalize
+    # end
+    # x = slug.split("-")
+    # song_name = x.join(" ")
+    # Song.find_by_name(song_name)
+    # binding.pry
+    Song.all.detect{|song| song.slug == slug}
   end
+
 
 end
