@@ -1,8 +1,11 @@
-<h1> hi </h1>
+<% binding.pry %>
 
 <% if flash.has?(:message) %>
   <%= flash[:message] %>
 <% end %>
+
+
+<h1> hi </h1>
 
 <h1> <%= @song.name %></h1>
 <% @song.genres.each do |genre| %>
