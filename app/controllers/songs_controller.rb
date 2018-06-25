@@ -18,6 +18,7 @@ class SongsController < ApplicationController
     @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
     @song.genre_ids = params[:genres]
     @song.save
+    #binding.pry
     flash[:message] = "Successfully created song."
     redirect to("/songs/#{@song.slug}")
   end
@@ -33,9 +34,18 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do
-    # flash[:message] = "Successfully updated song."
-    # @song = Song.find_by_slug(params[:slug])
-    erb :'/songs/#{@song.slug}'
+    #binding.pry
+    @song = Song.find_by_slug(params[:slug])
+    #@song.name = Song.find_or_create_by(:name => params["Name"])
+    @song.name = params["Name"]
+    @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
+    #binding.pry
+    @song.genre_ids = params[:genres]
+    @song.save
+    flash[:message] = "Successfully updated song."
+    #binding.pry
+    #@song = Song.find_by_slug(params[:slug])
+    redirect to("/songs/#{@song.slug}")
   end
 
 end
