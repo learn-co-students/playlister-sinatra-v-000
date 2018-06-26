@@ -8,8 +8,14 @@ class Genre < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    reverse_slug = slug.gsub("-"," ").split.map{|w| w.capitalize}.join(" ")
-    self.all.find_by(name: reverse_slug)
+    reverse_slug = slug.gsub("-"," ").split.map{|w| w}.join(" ")
+    self.all.each do |genre|
+      if !(song.name.downcase == reverse_slug)
+      else
+        @genre_name = genre.name
+      end
+    end
+    self.all.find_by(name: @genre_name)
   end
-  
+
 end
