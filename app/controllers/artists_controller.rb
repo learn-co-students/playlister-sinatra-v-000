@@ -5,5 +5,9 @@ class ArtistsController < ApplicationController
     erb :'artists/index'
   end
   
+  get '/artists/:slug' do
+    
+    erb :'artists/show'
+  end
   
 end
