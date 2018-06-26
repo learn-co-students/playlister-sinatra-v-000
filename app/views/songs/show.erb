@@ -6,6 +6,6 @@
 <h4>Genres:</h4>
 <%@song.genres.each do |genre|%>
   <ul>
-    <li><a href="/genres/<%=@song.genre.slug%>"><%=genre.name.titleize%></a></li>
+    <li><a href="/genres/<%=genre.slug%>"><%=genre.name.titleize%></a></li>
   </ul>
   <%end%>
