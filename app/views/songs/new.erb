@@ -1,6 +1,8 @@
 <h1>Add a New Song</h1>
 
 <form action="/songs" method="post">
+  <!-- <input type="hidden" name="_method" value="patch"> -->
+
   <label>Artist Name: </label>
   <input type="text" name="Artist Name">
 
@@ -17,7 +19,7 @@
 
   <% Genre.all.each do |genre| %>
       <label><%= genre.name.capitalize %></label>
-      <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+      <input id="<%= genre.name %>" type="checkbox" name="genre[]" value="<%= genre.id %>">
   <% end %>
 
   <br></br>
