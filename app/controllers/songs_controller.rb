@@ -39,7 +39,7 @@ class SongsController < ApplicationController
 
     @song.artist = @artist
 
-    if !params[:genres].empty?
+    if !!params[:genres]
       params[:genres].each do |genre_id|
         @song.genres << Genre.find_by(id: genre_id)
       end
@@ -53,26 +53,26 @@ class SongsController < ApplicationController
 
   post '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    binding.pry
+    #binding.pry
     @song.artist.update(name: params["Artist Name"])
 
     if !!params[:genres]
       @song.genres.clear
-      binding.pry
+      #binding.pry
       params[:genres].each do |genre_id|
         @song.genres << Genre.find_by(id: genre_id)
       end
     end
-    binding.pry
+    #binding.pry
 
     flash[:message] = "Successfully updated song."
-    binding.pry
+    #binding.pry
     redirect to :"/songs/#{@song.slug}"
   end
 
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
-    binding.pry
+    #binding.pry
     erb :'/songs/edit'
   end
 
