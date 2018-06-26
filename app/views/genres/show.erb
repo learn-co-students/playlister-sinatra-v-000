@@ -1,0 +1,13 @@
+<h1>Genres Show Page</h1>
+
+Artists for this genre:
+
+<%@genre.artists.each do |artist|%>
+<a href="/artists/<%=artist.slug%>"><%=artist.name%></a>
+<%end %>
+
+Songs for this genre:
+
+<%@genre.songs.each do |song|%>
+<a href="/songs/<%=song.slug%>"><%=song.name%></a>
+<%end %>
