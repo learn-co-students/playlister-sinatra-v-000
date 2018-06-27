@@ -3,12 +3,10 @@
 <% end %>
 
 <h3>Song Title: <%= @song.name %></h3>
-<h4>Artist: <%= @song.artist.name %></h4>
-<h5><a href="/artists/<%= @song.artist.slug %>"></a>Artist Page</h5>
+<h4>Artist: <%= @song.artist.name %> - <a href="/artists/<%= @song.artist.slug %>">Artist Page</a></h4>
 <h4>Genres</h4>
   <ul>
     <% @song.genres.each do |genre| %>
-      <li><%= genre.name %></li>
-      <li><a href="/genres/<%= genre.slug %>">Genre Page</a></li>
+      <li><%= genre.name %> - <a href="/genres/<%= genre.slug %>">Genre Page</a></li>
     <% end %>
   </ul>
