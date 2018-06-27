@@ -7,8 +7,7 @@ module Slugifiable
 
   module ClassMethods
     def find_by_slug(slug)
-      artist_name = slug.split("-").map {|word| word.capitalize}.join(" ")
-      self.find_by(name: artist_name)
+      self.find {|obj| obj.slug == slug}
     end
   end
 end
