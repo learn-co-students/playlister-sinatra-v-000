@@ -3,11 +3,10 @@
   <form action="/songs/<%= @song.slug %>" method="post" >
         <input type="hidden" name="_method" value="patch">
 
-<% binding.pry %>
-  Song Name <input type="text" name="song[name]" value="<%= @song.name %>">    <label> Song Name </label>
+  Song Name <input type="text" name="Name" value="<%= @song.name %>">    <label> Song Name </label>
 
     <br></br>
-  Artist Name <input type="text" name="artist[name]" value="<%= @song.artist.name %>">   <label> Artist Name </label>
+  Artist Name <input type="text" name="Artist Name" value="<%= @song.artist.name %>">   <label> Artist Name </label>
 
     <br></br>
    
