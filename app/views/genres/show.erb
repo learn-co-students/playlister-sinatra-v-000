@@ -1,0 +1,8 @@
+<p>The genre's artists are:</p>
+<% @genre.artists.all.each do |artist| %>
+  <li><a href= "/artists/<%=artist.slug%>"><%=artist.name%></a></li>
+<% end %>
+<p>The genre's songs are:</p>
+<% @genre.songs.all.each do |song| %>
+  <li><a href= "/songs/<%=song.slug%>"><%=song.name%></a></li>
+<% end %>

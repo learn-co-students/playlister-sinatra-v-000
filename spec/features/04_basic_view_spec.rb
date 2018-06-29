@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe "Playlister Basics" do
   let(:artist_name) { "Person with a Face" }
@@ -12,7 +13,7 @@ describe "Playlister Basics" do
 
     @song.song_genres.create(genre: @genre)
     @song.artist = @artist
-  
+
     @song.save
   end
 
@@ -20,6 +21,7 @@ describe "Playlister Basics" do
     describe "/songs" do
       before do
         visit "/songs"
+
       end
 
       it 'responds with a 200 status code' do
