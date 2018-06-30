@@ -1,0 +1,21 @@
+
+<form action="/songs/<%= @song.slug %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <p>
+  <label for="artist_name">Artist Name</label>
+  <input type="text" name="artist_name" id="artist_name" value="<%= @song.artist.name %>">
+  </p>
+
+  <p>
+  <label for="genre_1">New Age Garbage</label>
+  <input type="checkbox" name="genre" id="genre_1" value="New Age Garbage">
+  </p>
+
+  <p>
+  <label for="genre_2">Hippity Hop</label>
+  <input type="checkbox" name="genre" id="genre_2" value="Hippity Hop">
+  </p>
+
+  <input type="submit" name="submit" value="Save">
+</form>
