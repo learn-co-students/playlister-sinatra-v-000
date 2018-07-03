@@ -1,4 +1,9 @@
-<h1><%=@song.name.upcase %></h1>
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<h1><%=@song.name %></h1>
 
 <br>By: <%= @artist.name %></br>
 <a href="/artists/<%=@song.artist.slug%>">Artist Info</a>
