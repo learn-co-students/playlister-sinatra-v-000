@@ -8,12 +8,12 @@
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label> <%=@song.name.upcase %> </label>
   <br></br>
+
   <% Genre.all.each do |genre| %>
     <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>"<%='checked' if @song.genres.include?(genre) %>><%=genre.name%></input>
   <%end%>
 
   <br></br>
-
 
   <label>Artist Name</label>
   <input type="text" name="Artist Name"value="<%=@song.artist.name%>"></input>

@@ -8,6 +8,7 @@ class Artist < ActiveRecord::Base
 
   def self.find_by_slug(slug)
     self.all.find { |name| name.slug == slug}
+    # below works in shotgun not with test
     # find_by_name(Slugify.unslug(slug))
   end
 
