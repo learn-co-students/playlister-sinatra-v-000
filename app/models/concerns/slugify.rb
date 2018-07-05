@@ -2,19 +2,22 @@ module Slugify
   
   module InstanceMethods
     
-  def slug 
-    name = self.name
-    splt_name = name.split(" ").
-    splt_name.join("-").downcase
-  end 
+    def slug 
+      name = self.name
+      splt_name = name.split(" ")
+      splt_name.join("-").downcase
+    end 
+    
+  end
   
   
   module ClassMethods
     
-  def find_by_slug(name) 
-    splt_name = name.split("-")
-    splt_name.join(" ").downcase
+    def find_by_slug(name) 
+      splt_name = name.split("-")
+      splt_name.join(" ").downcase
+    end
+    
   end
-  
   
 end

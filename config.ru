@@ -5,7 +5,13 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
-run ApplicationController
 
-enable :sessions
+use ArtistsController
+use SongsController
+use GenresController
+
+# enable :sessions
 use Rack::Flash
+
+
+run ApplicationController
