@@ -1,0 +1,6 @@
+<h1>Genres on Playister</h1>
+
+<%@genres.each do |genre| %>
+  <%=genre.name %>
+  <a href="/genres/<%= genre.slug %>">Genre Info</a> 
+<% end %>

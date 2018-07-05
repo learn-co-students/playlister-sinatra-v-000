@@ -1,0 +1,6 @@
+<h1>Artists on Playister</h1>
+
+<% @artsits.each do |artist| %>
+  <p><%= artist.name %></p>
+  <a href="/artists/<%=artist.slug%>">Artist Info</a>
+<% end %>
