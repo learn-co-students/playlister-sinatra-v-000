@@ -36,5 +36,35 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     erb :'/songs/edit'
   end
+  
+  
+  
+  patch '/songs/:id' do 
+    # raise params.inspect
+    @song = Song.find(params[:id])
+    new_artist = params[:artist][:name]
+    new_genre = Genre.find(params[:genre][:name])
+    
+    
+    if @song.artist.name != new_artist
+      @song.artist = Artist.create(:name => new_artist)
+    end
+    
+    if new_genre
+      @song.genres = []
+      @song.genres << new_genre
+    end
+    
+    @song.save
 
+    # "#{@song.id} #{@song.name} #{@song.artist.name} #{@}"
+    redirect "/songs/#{@song.id}"
+  end
+  
+  
+  
+  
+  
+  
+  
 end
