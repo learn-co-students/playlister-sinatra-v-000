@@ -8,9 +8,9 @@ class ArtistsController < ApplicationController
   end
 
 
-  get '/artists/:slug' do
+  get '/artists/:id' do
     # raise params.inspect
-    @artist = Artist.find_by_slug(params[:slug])
+    @artist = Artist.find(params[:id])
     # binding.pry
     erb :'artists/show'
   end
