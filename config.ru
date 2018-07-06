@@ -11,7 +11,6 @@ use SongsController
 use GenresController
 
 
-use Rack::Flash
 
 
 run ApplicationController

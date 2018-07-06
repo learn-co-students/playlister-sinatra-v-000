@@ -16,7 +16,7 @@ class SongsController < ApplicationController
   get '/songs/:slug' do
 
     @song = Song.find_by_slug(params[:slug])
-    binding.pry
+    # binding.pry
     erb :'/songs/show'
   end
 
@@ -32,10 +32,9 @@ class SongsController < ApplicationController
     @song.artist = artist
 
     @song.save
-    # binding.pry
-    sluggy = @song.slug
-    flash[:message] = "Successfully created song."
-    redirect "/songs/#{sluggy}"
+    flash[:notice] = "Successfully created song."
+    
+    redirect "/songs/#{@song.slug}"
   end
 
 end
