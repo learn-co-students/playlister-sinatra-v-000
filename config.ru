@@ -10,7 +10,7 @@ use ArtistsController
 use SongsController
 use GenresController
 
-# enable :sessions
+
 use Rack::Flash
 
 
