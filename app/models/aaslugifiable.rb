@@ -4,9 +4,7 @@ module Slugifiable
 
     def slug
       self.name.gsub(" ", "-").gsub(/[^\w-]/, '').downcase
-
     end
-
   end
 
 
@@ -15,7 +13,6 @@ module Slugifiable
     def find_by_slug(value)
       self.all.detect{ |a| a.slug == value}
     end
-
   end
 
 end
