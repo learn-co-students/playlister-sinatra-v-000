@@ -39,11 +39,9 @@ class SongsController < ApplicationController
   
   
   patch '/songs/:id' do 
-    # raise params.inspect
     @song = Song.find(params[:id])
     new_artist = params[:song][:artist]
     new_genre = Genre.find(params[:song][:genres])
-    
     
     if @song.artist.name != new_artist
       @song.artist = Artist.create(:name => new_artist)
@@ -55,8 +53,7 @@ class SongsController < ApplicationController
     end
     
     @song.save
-
-    # "#{@song.id} #{@song.name} #{new_artist}"
+    flash[:message] = "Successfully updated song."
     redirect "/songs/#{@song.id}"
   end
   
