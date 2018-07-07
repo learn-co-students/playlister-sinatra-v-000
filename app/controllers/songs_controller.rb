@@ -7,6 +7,26 @@ class SongsController < ApplicationController
     erb :'/songs/index'
   end
 
+  patch '/songs/:slug' do
+    # binding.pry
+    @song = Song.find_by_slug(params[:slug])
+    new_artist = params[:artist_name]
+    new_genre = Genre.find(params[:song][:genres])
+
+    if @song.artist.name != new_artist
+      @song.artist = Artist.create(:name => new_artist)
+    end
+
+    if new_genre
+      @song.genres = []
+      @song.genres << new_genre
+    end
+
+    @song.save
+    flash[:message] = "Successfully updated song."
+    redirect "/songs/#{@song.slug}"
+  end
+
   get '/songs/new' do
     @genres = Genre.all
     @artists = Artist.all
@@ -20,8 +40,33 @@ class SongsController < ApplicationController
     erb :'/songs/show'
   end
 
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    @genres = Genre.all
+    erb :'/songs/edit'
+  end
+
+  # patch '/songs/' do
+  #   binding.pry
+  #   @song = Song.find_by_slug(params[:slug])
+  #   new_artist = params[:artist_name]
+  #   new_genre = Genre.find(params[:song][:genres])
+  #
+  #   if @song.artist.name != new_artist
+  #     @song.artist = Artist.create(:name => new_artist)
+  #   end
+  #
+  #   if new_genre
+  #     @song.genres = []
+  #     @song.genres << new_genre
+  #   end
+  #
+  #   @song.save
+  #   flash[:message] = "Successfully updated song."
+  #   redirect "/songs/#{@song.slug}"
+  # end
+
   post '/songs' do
-    # binding.pry
     @song = Song.create(:name => params[:name])
     params[:genres].each do |genre|
       genre = Genre.find(genre)
