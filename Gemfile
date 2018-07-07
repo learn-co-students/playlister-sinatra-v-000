@@ -9,7 +9,8 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
-gem 'rack-flash3'
+# gem 'rack-flash3'
+gem 'sinatra-flash'
 gem 'tux'
 
 
