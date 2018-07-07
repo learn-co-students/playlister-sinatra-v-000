@@ -38,12 +38,11 @@ class SongsController < ApplicationController
   end
   
   
-  
   patch '/songs/:id' do 
     # raise params.inspect
     @song = Song.find(params[:id])
-    new_artist = params[:artist][:name]
-    new_genre = Genre.find(params[:genre][:name])
+    new_artist = params[:song][:artist]
+    new_genre = Genre.find(params[:song][:genres])
     
     
     if @song.artist.name != new_artist
@@ -57,14 +56,8 @@ class SongsController < ApplicationController
     
     @song.save
 
-    # "#{@song.id} #{@song.name} #{@song.artist.name} #{@}"
+    # "#{@song.id} #{@song.name} #{new_artist}"
     redirect "/songs/#{@song.id}"
   end
-  
-  
-  
-  
-  
-  
   
 end
