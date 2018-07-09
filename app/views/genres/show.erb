@@ -1,0 +1,12 @@
+<h1>Genre: <%= @genre.name %><h1>
+
+<h3>Artists who make <%= @genre.name %> music: </h3>
+<% @genre.artists.each.with_index(1) do |artist, i| %>
+    <h3><%= "#{i}." %><a href="/artists/<%=artist.slug%>"><%= artist.name %></a></h3>
+    <%end%>
+<h3>Songs in the <%= @genre.name %> music genre: </h3>
+ <% @genre.songs.each.with_index(1) do |song, i| %>
+   <h3><%= "#{i}." %><a href="/songs/<%=song.slug%>"><%=song.name%></a></h3>
+   <%end%>
+
+<h5><a href="/songs">Return to all Songs</a><h5>
