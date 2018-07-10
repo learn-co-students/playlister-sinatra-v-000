@@ -22,7 +22,7 @@ class SongsController < ApplicationController
     redirect "/songs/#{@song.id}"
   end
 
-  get '/songs/:id' do
+  get '/songs/:slug' do
     #view specific song
     @song = Song.find(params[:id])
     erb :"/songs/show"
