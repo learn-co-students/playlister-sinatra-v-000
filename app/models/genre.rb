@@ -1,4 +1,4 @@
 class Genre < ActiveRecord::Base
-    has_many_artists
-    has_many_songs
+    has_many :artists
+    has_many :songs
 end
