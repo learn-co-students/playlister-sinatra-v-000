@@ -1,0 +1,3 @@
+<%@self.all.each do |item|%>
+<a href="/<%="#{@self.to_s.downcase}s"%>/<%=item.slug%>"><%=item.name%></a>
+<%end%>

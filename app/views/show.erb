@@ -1,0 +1,21 @@
+<%if @instance.class == Song%>
+<h2><%=@instance.name%></h2>
+<a href="/<%=@instance.artist.get_root%>/<%=@instance.artist.slug%>"><%=@instance.artist.name%></a>
+<%@instance.genres.each do |genre|%>
+<a href="/<%=genre.get_root%>/<%=genre.slug%>"><%=genre.name%></a>
+<%end%>
+<%elsif @instance.class == Artist%>
+<%@instance.songs.each do |song|%>
+<a href="/<%=song.get_root%>/<%=song.slug%>"><%=song.name%></a>
+<%end%>
+<%@instance.genres.each do |genre|%>
+<a href="/<%=genre.get_root%>/<%=genre.slug%>"><%=genre.name%></a>
+<%end%>
+<%elsif @instance.class == Genre%>
+<%@instance.songs.each do |song|%>
+<a href="/<%=song.get_root%>/<%=song.slug%>"><%=song.name%></a>
+<%end%>
+<%@instance.artists.each do |artist|%>
+<a href="/<%=artist.get_root%>/<%=artist.slug%>"><%=artist.name%></a>
+<%end%>
+<%end%>
