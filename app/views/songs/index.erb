@@ -1,6 +1,6 @@
 <h1>Song Library</h1>
 <ol>
-    <%@songs.each do |song|%>
-        <li><a href="/songs/<%=song.id%>"><%=song.name%></li>
-    <%end%>
+    <% @songs.each do |song| %>
+        <li><a href="/songs/<%=song.id%>"><%= song.name %></li>
+    <% end %>
 </ol>
