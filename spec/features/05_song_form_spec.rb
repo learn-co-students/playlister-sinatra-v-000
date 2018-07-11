@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'rack/flash/test'
 
 describe "Song Forms" do
   let(:artist_name) { "Person with a Face" }
