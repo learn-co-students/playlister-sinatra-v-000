@@ -1,2 +1,10 @@
 # Add seed data here. Seed your database with `rake db:seed`
-
+Artist.create(name: "JayZ")
+Artist.create(name: "Taylor Swift")
+Song.create(name: "99 Problemns", artist_id: 1)
+Song.create(name: "Dirt Off Your Shoulder", artist_id: 1)
+Song.create(name: "Love Story", artist_id: 2)
+Song.create(name: "Shake It Off", artist_id: 2)
+Genre.create(name: "Country")
+Genre.create(name: "Pop")
+Genre.create(name: "Hip-hop")
