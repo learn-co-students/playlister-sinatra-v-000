@@ -1,0 +1,30 @@
+<p>Successfully created song.</p>
+<p>Successfully updated song.</p>
+<%if @instance.class == Song%>
+<h2><%=@instance.name%></h2>
+<h3>Artist Name:</h3>
+<a href="/<%=@instance.artist.get_root%>/<%=@instance.artist.slug%>"><%=@instance.artist.name%></a>
+<br><br>
+<h3>Genres:</h3>
+<%@instance.genres.each do |genre|%>
+<li><a href="/<%=genre.get_root%>/<%=genre.slug%>"><%=genre.name%></a></li>
+<%end%>
+<%elsif @instance.class == Artist%>
+<h3>Songs:</h3>
+<%@instance.songs.each do |song|%>
+<li><a href="/<%=song.get_root%>/<%=song.slug%>"><%=song.name%></a></li>
+<%end%>
+<h3>Genres:</h3>
+<%@instance.genres.each do |genre|%>
+<li><a href="/<%=genre.get_root%>/<%=genre.slug%>"><%=genre.name%></a></li>
+<%end%>
+<%elsif @instance.class == Genre%>
+<h3>Songs:</h3>
+<%@instance.songs.each do |song|%>
+<li><a href="/<%=song.get_root%>/<%=song.slug%>"><%=song.name%></a></li>
+<%end%>
+<h3>Artists:</h3>
+<%@instance.artists.each do |artist|%>
+<li><a href="/<%=artist.get_root%>/<%=artist.slug%>"><%=artist.name%></a></li>
+<%end%>
+<%end%>
