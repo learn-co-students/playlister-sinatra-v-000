@@ -6,6 +6,12 @@ class SongsController < ApplicationController
     erb :'songs/index'
   end
 
+  get '/songs/new' do
+    @artist = Artist.all
+
+    erb :'songs/new'
+  end
+
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     @artist = Artist.find(@song.artist_id)
@@ -14,6 +20,10 @@ class SongsController < ApplicationController
     @genre = Genre.find(songgenre.genre_id)
 
     erb :'songs/show'
+  end
+
+  post 'songs/new' do
+
   end
 
 end
