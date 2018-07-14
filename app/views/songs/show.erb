@@ -1,0 +1,4 @@
+<h1>Here is your song</h1>
+  <p>Name: <%= @song.name%> </p>
+  <p>Artist: <%= @song.artist.name%> </p>
+  <p>Genre: <%= @song.genres.each {|genre| genre.name}%> </p>
