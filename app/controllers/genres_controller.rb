@@ -1,3 +1,4 @@
+
 class GenresController < ApplicationController
 
     get '/genres' do
