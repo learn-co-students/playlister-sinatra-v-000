@@ -1,3 +1,4 @@
+
 class ArtistsController < ApplicationController
 
 
@@ -6,16 +7,17 @@ class ArtistsController < ApplicationController
     erb :'artists/index'
   end
 
-  post '/artists' do
-    #binding.pry
-    artist = Artist.new(params[:id])
-    artist.name = params[:name]
-    artist.save
-    redirect "/artists/#{artist.id}"
-  end
+  # post '/artists' do
+  #   #binding.pry
+  #   artist = Artist.new(params[:id])
+  #   artist.name = params[:name]
+  #   artist.save
+  #   flash[:message] = "Successfully created artist."
+  #   redirect "/artists/#{artist.id}"
+  # end
 
-  get '/artists/:id' do
-    @artist = Artist.find(params[:id])
+  get '/artists/:slug' do
+    @artist = Artist.find_by_slug(params[:slug])
     erb :'artists/show'
   end
 end
