@@ -46,6 +46,7 @@ class SongController < ApplicationController
     @song.genre_ids = params[:genres]
     @song.save
 
+    # https://github.com/nakajima/rack-flash
     flash[:message] = "Successfully updated song."
 
     redirect "/songs/#{@song.slug}"
