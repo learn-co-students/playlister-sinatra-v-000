@@ -19,3 +19,7 @@
     </li>
   <% end %>
 </ul>
+
+<form class="" action="/songs/<%= @song.slug %>/edit" method="get">
+  <input type="submit" name="edit" value="Edit">
+</form>
