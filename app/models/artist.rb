@@ -5,13 +5,12 @@ class Artist < ActiveRecord::Base
 
   def slug
     @slug = self.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
-    @slug
+    self.name = @slug
   end
 
   def self.find_by_slug(slug)
-    binding.pry
-    new_slug = slug.gsub("-", " ")
-    Artist.find(name: new_slug)
+    new_slug = slug.gsub("-", " ").split(/ |\_/).map(&:capitalize).join(" ")
+    Artist.find_by(name: new_slug)
   end
 
 

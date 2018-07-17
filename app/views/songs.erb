@@ -1,0 +1,6 @@
+this is the songs page
+
+<%@songs.each do |song|%>
+  <%=song.name%><br>
+  <a href="/songs/<%=song.slug%>"><%=song.name%>
+<%end%>
