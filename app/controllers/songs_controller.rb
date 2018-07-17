@@ -24,10 +24,9 @@ class SongsController < ApplicationController
        
         @song = Song.create(name: params["song"]["name"])
        
-        params["song"]["genre_ids"].each do |genre_id|
-            @song.genres << Genre.find(genre_id.to_i)
-        end
-
+        @song.genre_ids = params["song"]["genre_ids"]
+      
+        # possible to refactor this so that we only set one artist name
         if params["artist"]["name"] != ""
             @artist = Artist.find_or_create_by(name: params["artist"]["name"])
             @song.artist = @artist
