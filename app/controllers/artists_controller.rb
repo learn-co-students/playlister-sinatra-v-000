@@ -5,4 +5,9 @@ class ArtistsController < ApplicationController
         erb :"artists/index"
     end
 
+    get "/artists/:slug" do
+        @artist = Artist.all.detect {|artist| artist.slug == params[:slug]}
+        erb :"artists/show"
+    end
+
 end
