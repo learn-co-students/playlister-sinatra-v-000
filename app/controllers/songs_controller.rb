@@ -20,6 +20,24 @@ class SongsController < ApplicationController
         erb :"songs/show"
     end
 
+    get "/songs/:slug/edit" do
+        # factor out to find_by_slug
+        @song = Song.all.detect {|song| song.slug == params[:slug]}
+        @genres = Genre.all
+
+        erb :"songs/edit"
+    end
+
+    post "/songs/:slug" do
+        @song = Song.all.detect {|song| song.slug == params[:slug]}
+        @song.artist = Artist.find_or_create_by(name: params["artist"]["name"])
+        @song.genre_ids = params["song"]["genre_ids"]
+        @song.save
+
+        flash[:message] = "Successfully updated song."
+        redirect "/songs/#{@song.slug}"
+    end
+
     post "/songs" do
        
         @song = Song.create(name: params["song"]["name"])
