@@ -5,6 +5,11 @@ class SongsController < ApplicationController
         erb :"songs/index"
     end
 
+    get "/songs/new" do
+        @artists = Artist.all
+        erb :"songs/new"
+    end
+
     get "/songs/:slug" do
         # currently possible to have duplicate slugs
         @song = Song.all.detect {|song| song.slug == params[:slug]}

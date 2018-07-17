@@ -1,0 +1,13 @@
+<form>
+
+    <p> Enter a song name: </p>
+    <input type="text" name="song[name]" id="Name">
+
+    <p> Choose an existing artist: </p>
+    <% @artists.each do |artist| %>
+        <input type="radio" name="song[artist_id]" id="Artist Name"> <%= artist.name %> </input>
+    <% end %>
+    <p> Or create a new artist: </p>
+        <input type="text" name="artist[name]">
+    <input type="submit" value="Create">
+</form>
