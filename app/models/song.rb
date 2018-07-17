@@ -14,4 +14,5 @@ class Song < ActiveRecord::Base
     Song.find_by(name: new_slug)
   end
 
+
 end
