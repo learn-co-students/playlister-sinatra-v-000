@@ -28,15 +28,16 @@ class SongsController < ApplicationController
             @song.genres << Genre.find(genre_id.to_i)
         end
 
-        if params["artist"]["name"]
-            @artist = Artist.create(name: params["artist"]["name"])
+        if params["artist"]["name"] != ""
+            @artist = Artist.find_or_create_by(name: params["artist"]["name"])
             @song.artist = @artist
         else
             @artist = Artist.find(params["song"]["artist_id"])
             @song.artist = @artist
         end
-
         @song.save
+
+        flash[:message] = "Successfully created song."
         redirect "/songs/#{@song.slug}"
     end
 
