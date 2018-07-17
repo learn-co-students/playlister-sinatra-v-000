@@ -1,5 +1,9 @@
-Successfully created song.
-Successfully updated song.
+<!-- Successfully created song.
+Successfully updated song. -->
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
 
 <h1> <%= @song.name %> </h1>
 
