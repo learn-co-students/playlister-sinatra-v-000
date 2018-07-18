@@ -1,6 +1,6 @@
 Song edit page
 <form action="/songs/<%=@song.slug%>" method="post">
-  <input type="hidden" name="_method" id="hidden" value="patch">
+  <input type="hidden" id="hidden" name="_method" value="patch">
   <label for="Artist Name">Artist Name</label>
   <input type="text" name="Artist Name" id="Artist Name"><br>
   <%@genres = Genre.all%>
