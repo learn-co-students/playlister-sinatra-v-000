@@ -1,2 +1,4 @@
-class Song_Genre
-end 
+class SongGenre < ActiveRecord::Base
+  belongs_to :song
+  belongs_to :genre
+end
