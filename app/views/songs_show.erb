@@ -1,4 +1,10 @@
 show single song
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+
 <%=@song.name%><br>
 <%@artist = @song.artist%>
 <%=@song.artist.name%><br>
@@ -8,7 +14,3 @@ show single song
 <%@genre = genre%>
 <a href="/genres/<%=@genre.slug%>"><%=genre%></a>
 <%end%>
-
-
-<p>"Successfully created song."</p>
-<p>"Successfully updated song."</p>
