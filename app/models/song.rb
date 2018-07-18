@@ -19,7 +19,7 @@ class Song < ActiveRecord::Base
     end
   end
     new_slug = new_slug.join(" ")
-    Song.find_by(name: new_slug)
+    self.find_by(name: new_slug)
   end
 
 end

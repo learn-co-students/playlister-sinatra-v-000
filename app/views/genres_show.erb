@@ -1,0 +1,11 @@
+Show single genre
+
+Genre Name: <%=@genre.name%><br>
+Genre Artists:<%@genre.artists.map do |artist|%>
+                <%=artist.name%><br>
+                <a href="/artists/<%=artist.slug%>"><%=artist.name%></a><br>
+              <%end%>
+Genre Songs: <%@genre.songs.map do |song|%>
+              <%=song.name%>
+              <a href="/songs/<%=song.slug%>"><%=song.name%></a><br>
+              <%end%>

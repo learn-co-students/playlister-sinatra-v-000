@@ -9,9 +9,16 @@ class Artist < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    new_slug = slug.gsub("-", " ").split(/ |\_/).map(&:capitalize).join(" ")
-    Artist.find_by(name: new_slug)
+    words_to_ignore = ["the", "of", "with", "a"]
+    new_slug = slug.gsub("-", " ").split(/ |\_/).map do |word|
+      unless words_to_ignore.include?(word)
+        word.capitalize
+      else
+        word
+    end
   end
-
+    new_slug = new_slug.join(" ")
+    self.find_by(name: new_slug)
+  end
 
 end
