@@ -12,11 +12,28 @@ class SongsController < ApplicationController
   end
 
   post "/songs/new" do
-    # params Song.new(params...)
-    #       Artist.new(params...)
-    #       or find Artist
-    redirect "/songs/:slug"
+    @song = Song.create(name: params[:Name])
+    @genres = Genre.find_by(name: params[:genre])
+    if @genres
+        @song.genres << @genres
+      else
+        new_genre = Genre.create(name: @genres)
+        @song.genres << new_genre
+      end
+    @artist = Artist.find_by(name: params["Artist Name"])
+    if @artist
+      @song.artist = @artist
+    else
+    @song.artist = Artist.create(name: params["Artist Name"])
   end
+    @song.save
+    redirect "/songs/#{@song.slug}"
+  end
+
+  get "/songs/:slug/edit" do
+    erb :songs_edit
+  end
+
 
 
   get "/songs/:slug" do
