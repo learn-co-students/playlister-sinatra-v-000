@@ -1,5 +1,15 @@
 Song edit page
+<form action="/songs/<%=@song.slug%>" method="post">
+  <input type="hidden" name="_method" id="hidden" value="patch">
+  <label for="Artist Name">Artist Name</label>
+  <input type="text" name="Artist Name" id="Artist Name"><br>
+  <%@genres = Genre.all%>
+  <%@genres.map do |genre|%>
+  <%=genre.name%>
+  <label for="<%=genre.name%>"><%=genre.name %></label><input type="checkbox" name="genre[]" id="<%=genre.name%>" value="<%=genre.name%>"><br>
+  <%end%>
 
-<form action="songs/<%=#{@song.slug}%>/edit" method="post">
-  need update
+
+  <input type="submit" value="Save">
+
 </form>
