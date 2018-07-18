@@ -1,0 +1,28 @@
+<h1>Update Song</h1>
+
+<form action="/songs/<%=@song.slug%>" method="POST">
+  <label>Name:</label>
+
+  <br></br>
+
+  <input type="text" name="song[name]" id="song_name" value="<%=@song.name%>">
+
+  <br></br>
+
+  <label>Choose an existing artist:</label>
+
+  <br></br>
+
+  <%Artist.all.each do |owner|%>
+    <input type="radio" name="pet[owner_id]" id="<%= owner.id%>" value="<%=owner.id%>" <%='checked' if @pet.owner.name == owner.name %>><%=owner.name%></input>
+  <%end%>
+
+  <br></br>
+
+  <label>and/or, create a new owner:</label>
+  <br></br>
+  <label>name:</label>
+    <input  type="text" name="owner[name]" id="owner_name"></input>
+  <br></br>
+  <input type="submit" value="Update Pet">
+</form>

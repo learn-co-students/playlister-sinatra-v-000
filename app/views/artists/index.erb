@@ -2,6 +2,6 @@
 
 <% @artists.each do |artist| %>
  <div class="post">
-   <p><a href = "/artists/<%= artist.id %>">Artist Name: <%= artist.name %></a></p><br>
+   <p><a href = "/artists/<%= artist.slug %>">Artist Name: <%= artist.name %></a></p><br>
  </div><br>
 <% end %>

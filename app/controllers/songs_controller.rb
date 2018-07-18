@@ -1,3 +1,4 @@
+require 'pry'
 class SongsController < ApplicationController
 
   get '/songs' do
@@ -11,16 +12,20 @@ class SongsController < ApplicationController
 
   post '/songs' do
     @song = Song.create(params[:song])
-    redirect to "/songs/#{@song.id}"
+    if !params["song"]["name"].empty?
+      @song = Song.create(name: params["song"]["name"])
+    end
+    @song.save
+    redirect to "/songs/#{@song.slug}"
   end
 
-  get '/songs/:id' do
-    @song = Song.find(params[:id])
+  get '/songs/:slug' do
+    @song = Song.find(params[:slug])
     erb :'/songs/show'
   end
 
   get '/songs/:slug/edit' do
-
+    erb :'/songs/show'
   end
 
 end
