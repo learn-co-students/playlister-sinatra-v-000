@@ -1,3 +1,7 @@
 show single song
 
-<%=@song.name%>
+<%=@song.name%><br>
+<%=@song.artist.name%><br>
+<%@song.genres.map do |genre|%>
+<%="#{genre.name}"%>
+<%end%>
