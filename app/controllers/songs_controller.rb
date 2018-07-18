@@ -39,6 +39,7 @@ class SongsController < ApplicationController
 
 
   patch "/songs" do
+    binding.pry
     @song = Song.find_by_slug(params[:slug])
     @artist = Artist.find_by(name: params["Artist Name"])
     if @artist
