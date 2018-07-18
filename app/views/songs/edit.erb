@@ -1,6 +1,7 @@
 <h1>Update Song</h1>
 
 <form action="/songs/<%=@song.slug%>" method="POST">
+
   <label>Name:</label>
 
   <br></br>
@@ -14,15 +15,33 @@
   <br></br>
 
   <%Artist.all.each do |owner|%>
-    <input type="radio" name="pet[owner_id]" id="<%= owner.id%>" value="<%=owner.id%>" <%='checked' if @pet.owner.name == owner.name %>><%=owner.name%></input>
+    <input type="radio" name="song[artist_id]" id="<%= artist.id%>" value="<%=artist.id%>" <%='checked' if @song.artist.name == artist.name %>><%=artist.name%></input>
   <%end%>
 
   <br></br>
 
-  <label>and/or, create a new owner:</label>
+  <label>and/or, create a new artist:</label>
   <br></br>
   <label>name:</label>
-    <input  type="text" name="owner[name]" id="owner_name"></input>
+    <input  type="text" name="artist[name]" id="artist_name"></input>
   <br></br>
-  <input type="submit" value="Update Pet">
+  <input type="submit" value="Update Song">
+
+  <br></br>
+
+  <label>Choose an existing genre:</label>
+
+  <%Genre.all.each do |genre|%>
+    <input type="checkbox" name="song[genre_id]" id="<%= genre.id%>" value="<%=genre.id%>" <%='checked' if @song.genre.name == genre.name %>><%=genre.name%></input>
+  <%end%>
+
+  <br></br>
+
+  <label>and/or, create a new genre:</label>
+  <br></br>
+  <label>name:</label>
+    <input  type="text" name="genre[name]" id="genre_name"></input>
+  <br></br>
+  <input type="submit" value="Update Song">
+
 </form>

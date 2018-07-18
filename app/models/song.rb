@@ -8,7 +8,7 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-
+    slug.gsub("-", " ").titleize
   end
 
 end

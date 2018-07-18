@@ -8,7 +8,7 @@ class Genre < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    slug.name
+    slug.gsub("-", " ").titleize
   end
 
 end
