@@ -1,0 +1,5 @@
+<h1>Song List</h1>
+
+<% @songs.each do |s| %>
+  <li><a href="/songs/<%= s.slug %>"><%= s.name %></a></li>
+<%end%>
