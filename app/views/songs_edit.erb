@@ -2,11 +2,11 @@ Song edit page
 <form action="/songs/<%=@song.slug%>" method="post">
   <input type="hidden" id="hidden" name="_method" value="patch">
   <label for="Artist Name">Artist Name</label>
-  <input type="text" name="Artist Name" id="Artist Name"><br>
+  <input type="text" name="Artist Name" id="Artist Name" value="<%=@song.artist.name%>"><br>
   <%@genres = Genre.all%>
   <%@genres.map do |genre|%>
   <%=genre.name%>
-  <label for="<%=genre.name%>"><%=genre.name %></label><input type="checkbox" name="genre[]" id="<%=genre.name%>" value="<%=genre.name%>"><br>
+  <label for="<%=genre.name%>"><%=genre.name %></label><input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%=genre.id%>" <%="checked" if @song.genres.include?(genre)%>><br>
   <%end%>
 
 

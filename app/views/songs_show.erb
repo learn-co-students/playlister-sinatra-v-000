@@ -5,11 +5,9 @@ show single song
 <% end %>
 
 <%=@song.name%><br>
-<%@artist = @song.artist%>
 <%=@song.artist.name%><br>
-<a href='/artists/<%=@artist.slug%>'><%=@song.artist.name%></a>
+<a href='/artists/<%=@song.artist.slug%>'><%=@song.artist.name%></a>
 <%@song.genres.map do |genre|%>
-<%="#{genre.name}"%>
-<%@genre = genre%>
-<a href="/genres/<%=@genre.slug%>"><%=genre%></a>
+<%=genre.name%>
+<a href="/genres/<%=genre.slug%>"><%=genre%></a>
 <%end%>
