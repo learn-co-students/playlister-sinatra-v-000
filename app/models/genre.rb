@@ -8,7 +8,9 @@ class Genre < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    slug.gsub("-", " ").titleize
+    Genre.all.find do |genre|
+      slug == genre.slug
+    end
   end
 
 end

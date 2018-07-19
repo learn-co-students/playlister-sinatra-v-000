@@ -1,5 +1,9 @@
 require 'pry'
+require 'rack-flash'
+
 class SongsController < ApplicationController
+
+  use Rack::Flash
 
   get '/songs' do
     @songs = Song.all
@@ -12,19 +16,32 @@ class SongsController < ApplicationController
 
   post '/songs' do
     @song = Song.create(params[:song])
-    if !params["artist"]["name"].empty?
-      @song.artist = Artist.create(name: params["artist"]["name"])
-    end
+
     @song.save
+
+    flash[:message] = "Successfully created song."
+
     redirect to "/songs/#{@song.slug}"
   end
 
   get '/songs/:slug' do
-    @song = Song.find(params[:slug])
+    @song = Song.find_by_slug(params[:slug])
     erb :'/songs/show'
   end
 
   get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'/songs/show'
+  end
+
+  patch 'songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    @song.artist = params[:artist]
+    @song.genres = params[:genres]
+    @song.save
+
+    flash[:message] = "Successfully updated song."
+
     erb :'/songs/show'
   end
 
