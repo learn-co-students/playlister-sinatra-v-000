@@ -11,7 +11,7 @@
 <h2>Genre(s)</h2>
 
 <ul>
-  <% @artist.genres.each do |genre| %>
+  <% @song.genres.each do |genre| %>
     <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></li>
   <% end %>
 </ul>
