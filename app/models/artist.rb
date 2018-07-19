@@ -1,4 +1,4 @@
-require_relative '/models/slugify.rb'
+require_relative 'models/slugify.rb'
 
 class Artist < ActiveRecord::Base
   extend Slugify::ClassMethods

@@ -1,4 +1,4 @@
-require_relative '/models/slugify.rb'
+require_relative 'models/slugify.rb'
 
 class SongGenre < ActiveRecord::Base 
   extend Slugify::ClassMethods
