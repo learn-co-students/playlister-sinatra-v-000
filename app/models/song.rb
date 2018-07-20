@@ -10,4 +10,8 @@ class Song < ActiveRecord::Base
     song = song.split(" ")
     song.join("-")
   end
+
+  def self.find_by_slug(slug)
+    
+  end
 end
