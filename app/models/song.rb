@@ -12,12 +12,13 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    self.all.find do |song|
+  song_object = self.all.find do |song|
+    d_song = song.name.downcase
     song_name = slug.split('-')
   song_name = song_name.join(" ")
-    song_name = song_name.titleize
-      song.name == song_name
+      d_song == song_name
     end
   end
+
 
 end

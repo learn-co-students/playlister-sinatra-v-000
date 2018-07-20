@@ -2,10 +2,11 @@ class GenresController < ApplicationController
 
   get '/genres' do
     @genres = Genre.all
-    @artists = Artist.all
-    @songs = Song.all
-    erb :index
+    erb :'genres/index'
   end
 
-
+  get '/genres/:slug' do
+    erb :'genres/show'
+  end
+  
 end
