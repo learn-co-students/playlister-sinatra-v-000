@@ -11,10 +11,10 @@ class Artist < ActiveRecord::Base
 
   def self.find_by_slug(slug)
     self.all.find do |artist|
+      d_artist = artist.name.downcase
     artist_name = slug.split('-')
   artist_name = artist_name.join(" ")
-    artist_name = artist_name.titleize
-      artist.name == artist_name
+      d_artist == artist_name
     end
   end
 

@@ -13,10 +13,10 @@ class Genre < ActiveRecord::Base
 
   def self.find_by_slug(slug)
     self.all.find do |genre|
+      d_genre = genre.name.downcase
     genre_name = slug.split('-')
   genre_name = genre_name.join(" ")
-    genre_name = genre_name.titleize
-      genre.name == genre_name
+      d_genre == genre_name
     end
   end
 
