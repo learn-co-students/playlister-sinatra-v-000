@@ -1,7 +1,8 @@
 require 'pry'
-class Artist < ActiveRecord::Base
-  has_many :songs
-  has_many :genres, through: :songs
+class Genre < ActiveRecord::Base
+  has_many :song_genres
+  has_many :songs, through: :song_genres
+  has_many :artists, through: :songs
 
   def slug
     self.name.gsub(' ', '-').gsub(/[^\w-]/, '').gsub(/(-){2,}/, '-').downcase
