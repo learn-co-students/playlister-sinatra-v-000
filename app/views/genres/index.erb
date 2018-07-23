@@ -1,0 +1,7 @@
+<h1>Genres</h1>
+<% @genres.collect do |genre| %>
+  <ul>
+    <li><a href='/genres/<%= genre.slug %>'><%= genre.name %></a></li>
+  </ul>
+
+<% end %>
