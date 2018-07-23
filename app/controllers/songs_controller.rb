@@ -16,8 +16,9 @@ class SongsController < ApplicationController
     if !!Artist.find_by(name: params["Artist Name"])
       @artist = Artist.find_by(name: params["Artist Name"])
       @song = Song.create(:name => params["Name"], :artist_id => @artist.id)
-    #  @genre = Genre.find_by(name: params["Genre Name"])
-      @songgenre = SongGenre.create(:song_id => @song.id, :genre_id => @genre.id)
+      @song.genres << Genre.find_by(name: params["Genre Name"])
+    #  @song.genres.each do |genre|
+    #  @songgenre = SongGenre.create(:song_id => @song.id, :genre_id => genre.id)
     #  @songgenre.save
       redirect to "/songs/#{@song.slug}"
     else
