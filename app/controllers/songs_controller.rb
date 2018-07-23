@@ -1,4 +1,7 @@
+require 'rack-flash'
 class SongsController < ApplicationController
+enable :sessions
+  use Rack::Flash
 
   get '/songs/new' do
     @songs = Song.all
@@ -12,49 +15,35 @@ class SongsController < ApplicationController
       @song = Song.create(:name => params["Name"], :artist_id => @artist.id)
       @song.genres << Genre.find_by(id: params["Genre Name"])
       @song.save
-    #  @song.genres.each do |genre|
-    #  @songgenre = SongGenre.create(:song_id => @song.id, :genre_id => genre.id)
-    #  @songgenre.save
       redirect to "/songs/#{@song.slug}"
     else
       @artist = Artist.create(:name => params["Artist Name"])
       artist_id = @artist.id
       @song = Song.create(:name => params["Name"],:artist_id => artist_id)
       @song.genres << Genre.find_by(id: params["Genre Name"])
-      #@song.genres = @genre
-    #  SongGenre.create(:song_id => @song.id, :genre_id => @genre.id)
+      @song.save
       redirect to "/songs/#{@song.slug}"
     end
-    @song.save
   end
 
   get '/songs/:slug/edit' do
       @song = Song.find_by_slug(params[:slug])
       @genres = Genre.all
       erb :'/songs/edit'
-
     end
 
-    post '/songs/:slug' do
-      if !!Artist.find_by(name: params["Artist Name"])
-        @artist = Artist.find_by(name: params["Artist Name"])
-        @song = Song.update(:name => params[:name], :artist_id => @artist.id)
-        @song.genres << Genre.find_by(id: params["Genre Name"])
+    patch '/songs/:slug' do
+        @song = Song.find_by_slug(params[:slug])
+        @song.update(params[:song])
+        @song.artist = Artist.find_or_create_by(:name => params[:artist][:name])
+        @song.save
         redirect to "/songs/#{@song.slug}"
-      else
-        @artist = Artist.create(:name => params["Artist Name"])
-        artist_id = @artist.id
-        @song = Song.update(:name => params["Name"],:artist_id => artist_id)
-        @song.genres << Genre.find_by(id: params["Genre Name"])
-        redirect to "/songs/#{@song.slug}"
-      end
-      @song.save
-
      erb :'/songs/show'
     end
 
 
   get '/songs/:slug' do
+    flash[:message] = "Successfully updated song."
     @song = Song.find_by_slug(params[:slug])
     erb :'/songs/show'
   end
