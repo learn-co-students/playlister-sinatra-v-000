@@ -13,12 +13,3 @@ module Slugifyer
   end
 
 end
-
-module ActiveRecord
-  
-  class Base
-    extend Slugifyer::ClassMethods
-    include Slugifyer::InstanceMethods
-  end
-  
-end
