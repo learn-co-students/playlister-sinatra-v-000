@@ -6,7 +6,7 @@ end
 
 get '/songs/:slug' do
   @song = Song.find_by_slug(params[:slug])
-  erb :'/songs/show'
+  erb :'songs/show'
 end
 
 get '/songs/new' do
@@ -19,7 +19,7 @@ post '/songs' do
   @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
   @song.genre_ids = params[:genres]
   @song.save
-  redirect '/songs/#{@song.slug}'
+  redirect("/songs/#{@song.slug}")
 end
 
 get '/songs/:slug/edit' do
@@ -33,7 +33,7 @@ patch '/songs/:slug' do
   @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
   @song.genre_ids = params[:genres]
   @song.save
-  redirect '/songs/#{@song.slug}'
+  redirect("/songs/#{@song.slug}")
 end
 
 
