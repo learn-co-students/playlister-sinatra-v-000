@@ -3,7 +3,6 @@ module Slugifyer
   module ClassMethods
     def find_by_slug(name_slug)
       all.detect do |instance|
-        # binding.pry
         instance.slug == name_slug
       end
     end
