@@ -1,7 +1,8 @@
+#require 'slugifyer'
 
 class Artist < ActiveRecord::Base
-  extend Memorable::ClassMethods
-  include Memorable::InstanceMethods
+  #extend Slugifyer::ClassMethods
+  #include Slugifyer::InstanceMethods
   
   has_many :songs
   has_many :genres, through: :songs
