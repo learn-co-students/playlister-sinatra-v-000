@@ -1,4 +1,4 @@
-# Sinatra Playlister
+rake db:migrate SINATRA_ENV=test
 
 ## Objectives
 
