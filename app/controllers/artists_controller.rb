@@ -1,3 +1,4 @@
+
 class ArtistsController < ApplicationController
 
   get "/artists" do
