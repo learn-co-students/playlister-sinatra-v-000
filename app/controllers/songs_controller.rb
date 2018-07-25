@@ -3,6 +3,11 @@ class SongsController < ApplicationController
   use Rack::Flash
 
   get "/songs" do
+=begin
+# for testing library parser
+    files_array = LibraryParser.parse
+    binding.pry
+=end
     @songs = Song.all
     erb :"/songs/index"
   end
