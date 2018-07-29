@@ -1,0 +1,9 @@
+genre index.erb
+
+<h1> Genres </h1>
+<% @genres.all.each do |genre| %>
+
+Genre name:
+<%= genre.name %>
+<a href="/genres/genre.slug">Genre link</a>
+<% end %>

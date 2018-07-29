@@ -1,0 +1,9 @@
+artist index.erb
+
+<h1> Artists </h1>
+<% @artists.all.each do |artist| %>
+
+Artist name:
+<%= artist.name %>
+<a href="/artists/artist.slug">Artist link</a>
+<% end %>
