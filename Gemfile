@@ -10,6 +10,7 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry'
 gem 'rb-readline'
+gem 'byebug'
 
 group :test do
   gem 'rspec'
