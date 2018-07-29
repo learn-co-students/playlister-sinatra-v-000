@@ -2,7 +2,7 @@ song index.erb
 
 <h1> Songs </h1>
 <% @songs.all.each do |song| %>
-Song name:
-<%= song.name %>
-<a href='/songs/#{song.slug}'>Song link</a>
+
+Song name: <%= song.name %>
+<a href='/songs/<%=song.slug%>'>Song link</a>
 <% end %>

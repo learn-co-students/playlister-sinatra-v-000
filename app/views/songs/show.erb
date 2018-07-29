@@ -1,6 +1,6 @@
-show.erb
-
 <h1>Song Info</h1>
 <%= @song.name %>
-<%= @song.artist %>
-<%= @song.genre %>
+<%= @artist.name %>
+<%= @genre.name %>
+<a href='/artists/<%=@artist.slug%>'>Artist page</a>
+<a href='/genres/<%=@genre.slug%>'>Genre page</a>
