@@ -3,9 +3,9 @@
 <h1>Artist Name : <%=@artist.name%></h1>
 
 <h4>Songs : <%@songartists.each do |song|%>
-            <%=song%> </h4>
+          <a href="/songs/<%=song.slug%>"><%=song%></a> </h4>
 
             <%end%>
 <h4>Genres : <%@genreartists.each do |genre|%>
-                        <%=genre%> </h4>
+          <a href="/genres/<%=genre.slug%>"><%=genre%></a> </h4>
                         <%end%>
