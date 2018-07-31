@@ -30,10 +30,11 @@ class SongsController < ApplicationController
      get '/songs/:slug' do
 
        @song = Song.find_by_slug(params[:slug])
-       @genre_names = ""
-       @song.genres.each do |genre1|
-        @genre_names << " #{genre1.name}"
-       end
+    #   @genre_names = ""
+    #   binding.pry
+    #   @song.genres.each do |genre1|
+    #    @genre_names << " #{genre1.name}"
+    #   end
       # binding.pry
        #@artist = Artist.find_by_id(@song.artist_id)
    #binding.pry
@@ -61,7 +62,6 @@ class SongsController < ApplicationController
       songgenre = Genre.find_by_id(genre_id.to_i)
       @song.genres << songgenre
     end
-
       @song.save
     redirect to "songs/#{@song.slug}"
   end
