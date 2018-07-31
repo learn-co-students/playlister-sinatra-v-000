@@ -9,9 +9,9 @@
 
   <br></br>
 
-  <%Genre.all.each do |owner|%>
-    <input type="checkbox" name="pet[owner_id]" id="<%= owner.name %>" value="<%=owner.id%>"><%=owner.name%></input>
-  <%end%>
+  <% Genre.all.each do |genre| %>
+    <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+  <% end %>
 
 
   <%Artist.all.each do |artist|%>
