@@ -2,7 +2,7 @@
 <form action="/songs" method="POST">
   <label>Songs</label>
   <br></br>
-<p>Song Name: <input type="text" name="song_name" id="song_name"></p>
+<p>Song Name: <input type="text" name="Name" id="song_name"></p>
   <br></br>
 <p>Genre Name: <% Genre.all.each do |genre| %>
     <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>"><%=genre.name%></input></p>
@@ -14,7 +14,7 @@
       <label>And/or, create a new artist:</label>
       <br></br>
       <label>name:</label>
-        <input  type="text" name="artist_name"></input>
+        <input  type="text" name="Artist Name"></input>
       <br></br>
-    <input type="submit" value="Create Song">
+    <input type="submit" value="Create" name="Create">
   </form>

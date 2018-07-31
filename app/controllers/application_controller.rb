@@ -25,9 +25,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/songs' do
-     @song = Song.create(name: params[:song_name])
+     @song = Song.create(name: params[:Name])
      if !artist_name.empty?
-       @artist = Artist.create(name: params[:artist_name])
+       @artist = Artist.create(name: params[:"Artist Name"])
        @song.artist_id = @artist.id
      else
        @artist = Artist.find_by_id(params[:artist][:id])
