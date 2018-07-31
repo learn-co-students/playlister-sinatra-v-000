@@ -68,7 +68,7 @@ class ApplicationController < Sinatra::Base
    end
 
    get '/genres/:slug' do
-
+     @genre = Genre.find_by_slug(params[:slug])
      erb :actualgenre
    end
 
