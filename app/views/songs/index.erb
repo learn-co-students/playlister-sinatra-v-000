@@ -1,3 +1,5 @@
 <% @songs.each do |song| %>
-<%= song.name %>
+<ul>
+  <li><%= a[href='/songs/#{@song.name.split.join("-")}'] %></li>
+</ul>
 <% end %>
