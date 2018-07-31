@@ -1,5 +1,5 @@
-<% @artists.each do |artist| %>
 <ul>
-  <li><%= a[href='/artists/#{@artist.name.split.join("-")}'] %></li>
-</ul>
+<% @artists.each do |artist| %>
+  <li><%= a[href='/artists/#{artist.name.split(" ").join("-")}'] %></li>
 <% end %>
+</ul>

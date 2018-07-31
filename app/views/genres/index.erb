@@ -1,5 +1,5 @@
-<% @genres.each do |genre| %>
 <ul>
-  <li><%= a[href='/genres/#{@genre.name.split.join("-")}'] %></li>
-</ul>
+<% @genres.each do |genre| %>
+  <li><%= a[href='/genres/#{genre.name.split(" ").join("-")}'] %></li>
 <% end %>
+</ul>
