@@ -42,6 +42,7 @@ class ApplicationController < Sinatra::Base
 
    get '/songs/:slug' do
 
+     erb :actual_song
    end
 
 end
