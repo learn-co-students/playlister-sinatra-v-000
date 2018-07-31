@@ -41,7 +41,10 @@ class ApplicationController < Sinatra::Base
    end
 
    get '/songs/:slug' do
-
+     @song = Song.find_by_slug(params[:slug])
+     @artist = Artist.find_by_id(@song.artist_id)
+     @songgenre = SongGenre.find_by_song_id(@song.id)
+     @genre = Genre.find_by_id(@songgenre.genre_id)
      erb :actual_song
    end
 
