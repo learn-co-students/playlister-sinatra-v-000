@@ -25,6 +25,8 @@ class SongsController < ApplicationController
        redirect to "/songs/#{@song.slug}"
      end
 
+
+
      get '/songs/:slug' do
 
        @song = Song.find_by_slug(params[:slug])
@@ -43,20 +45,23 @@ class SongsController < ApplicationController
        erb :'songs/show'
      end
 
-     get '/songs/:slug/edit' do
-    @song = Song.find_by_slug(params[:slug])
-    erb :'/songs/edit'
-  end
 
-  post '/pets/:id' do
+          get '/songs/:slug/edit' do
+
+         @song = Song.find_by_slug(params[:slug])
+         erb :'songs/edit'
+       end
+
+
+  post '/songs/:slug' do
     #binding.pry
     @song = Song.find_by_slug(params[:slug])
-  #binding.pry
-  @song.update(params[:pet])
-    #@pet.update(name: params[:pet][:name], owner_id: params[:pet][:owner_id])
-  #  if !params[:owner][:name].empty?
-  #    @pet.owner = Owner.create(name: params[:owner][:name])
-  #  end
+    @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
+    params["genres"].each do |genre_id|
+      songgenre = Genre.find_by_id(genre_id.to_i)
+      @song.genres << songgenre
+    end
+
       @song.save
     redirect to "songs/#{@song.slug}"
   end
