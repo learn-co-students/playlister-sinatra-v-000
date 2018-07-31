@@ -25,11 +25,17 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/songs' do
-
      @song = Song.create(name: params[:song_name])
-     # if --
-     @artist = Artist.create(name: params[:artist_name])
-     #end
+     if !artist_name.empty?
+       @artist = Artist.create(name: params[:artist_name])
+       @song.artist_id = @artist.id
+     else
+       @artist = Artist.find_by_id(params[:artist][:id])
+       @song.artist_id = @artist.id
+     end
+      @songgenre = SongGenre.find_by_song_id(@song.id)
+      @genre = Genre.find_by_id(params[:genre][0].to_i)
+      @songgenre.genre_id = @genre.id
      binding.pry
      redirect to "/songs/#{@song.slug}"
    end
