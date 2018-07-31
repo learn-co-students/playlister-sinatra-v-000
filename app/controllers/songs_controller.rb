@@ -1,25 +1,17 @@
 class SongsController < ApplicationController
 
   get '/songs' do
-    erb :songs_view
+    erb :'songs/index'
   end
 
   get '/songs/new' do
-    erb :createsongs
+    erb :'songs/new'
   end
 
 
     post '/songs' do
        @song = Song.create(name: params[:Name])
-       if !params[:"Artist Name"].empty?
-         @artist = Artist.create(name: params[:"Artist Name"])
-         @song.artist_id = @artist.id
-         @song.save
-       else
-         @artist = Artist.find_by_id(params[:artist][:id])
-         @song.artist_id = @artist.id
-         @song.save
-       end
+       @song.artist = Artist.find_by_or_create_by(name: params["Artist Name"])
 
         @songgenre = SongGenre.create(song_id: @song.id, genre_id: params[:genres][0].to_i)
         @genre = Genre.find_by_id(@songgenre.genre_id)
@@ -32,7 +24,7 @@ class SongsController < ApplicationController
    #binding.pry
        @songgenre = SongGenre.find_by_song_id(@song.id)
        @genre = Genre.find_by_id(@songgenre.genre_id)
-       erb :actualsong
+       erb :'songs/show'
      end
 
 
