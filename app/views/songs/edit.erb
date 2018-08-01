@@ -1,6 +1,7 @@
-<h1>Add a New Song</h1>
+<h1>Edit an Existing Song</h1>
 
-<form action="/songs" method="POST">
+<form action="/songs/<%= @song.id %>"" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
   <label> Artist Name </label>
   <input type="text" name="Artist Name">
 
@@ -16,5 +17,5 @@
     <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
   <% end %>
 
-  <input type="submit" value="Create">
+  <input type="submit" value="Update">
 </form>
