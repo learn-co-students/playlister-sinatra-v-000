@@ -1,4 +1,3 @@
-require 'pry'
 class Artist < ActiveRecord::Base
   has_many :songs
   has_many :genres, through: :songs
@@ -8,8 +7,8 @@ class Artist < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    Song.all.each do |song|
+    Song.all.find do |song|
       song.artist.slug == slug
-    end.first.artist
+    end.artist
   end
 end
