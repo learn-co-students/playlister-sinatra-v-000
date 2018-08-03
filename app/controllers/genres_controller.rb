@@ -1,0 +1,5 @@
+class GenresController < ApplicationController
+
+
+
+end
