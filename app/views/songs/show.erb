@@ -4,7 +4,7 @@
 
 <h2>Genres</h2>
 <%@current_song.genres.each do |genre| %>
-  <h3><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></h3>
+  <h3><a href="/genres/<%=genre.slug%>"><%=genre.name binding.pry%></a></h3>
 <%end%>
 
 <% if flash.has?(:message)%>
