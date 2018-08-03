@@ -8,4 +8,5 @@ class GenresController < ApplicationController
     @current_genre = Genre.find_by_slug(params[:slug])
     erb :'/genres/show'
   end
+
 end
