@@ -15,4 +15,14 @@ class Genre < ActiveRecord::Base
     end
   end
 
+  def slug
+    [name.parameterize].join("-")
+  end
+
+  def self.find_by_slug(slug)
+    Genre.all.find do |genre|
+    genre.slug == slug
+    end
+  end
+
 end
