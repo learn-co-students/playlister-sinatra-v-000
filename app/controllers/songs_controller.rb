@@ -1,3 +1,4 @@
+require 'pry'
 class SongsController < ApplicationController
   use Rack::Flash
 
@@ -19,8 +20,10 @@ class SongsController < ApplicationController
     if @artist
       @current_song = Song.create(name: params[:song])
       @current_song.artist = @artist
-      @genre = Genre.find_by_id(params[:genres])
-      @genre.songs << @current_song
+      params[:genres].each do |genre_id|
+        @genre = Genre.find_by_id(genre_id)
+        @genre.songs << @current_song
+      end
       @current_song.save
       flash[:message] = "Successfully created song."
       redirect "/songs/#{@current_song.slug}"
@@ -28,22 +31,39 @@ class SongsController < ApplicationController
       @new_artist = Artist.create(name: params[:artist])
       @current_song = Song.create(name: params[:song])
       @current_song.artist = @new_artist
-      @genre = Genre.find_by_id(params[:genres])
-      @genre.songs << @current_song
+      params[:genres].each do |genre_id|
+        @genre = Genre.find_by_id(genre_id)
+        @genre.songs << @current_song
+      end
       @current_song.save
       flash[:message] = "Successfully created song."
       redirect "/songs/#{@current_song.slug}"
     end
   end
 
-  get 'songs/:slug/edit' do
+  get '/songs/:slug/edit' do
     @current_song = Song.find_by_slug(params[:slug])
-    erb :'songs/edit'
+    erb :'/songs/edit'
   end
 
-  patch 'songs/:slug' do
+  patch '/songs/:slug/edit' do
+    @current_song = Song.find_by_slug(params[:slug])
+    @current_song.name = params[:song]
+    @artist = Artist.find_by(name: params[:artist])
+      if @artist
+        @current_song.artist = @artist
+      else
+        @new_artist = Artist.create(name: params[:artist])
+        @current_song.artist = @new_artist
+      end
+    @current_song.genres.clear
+    params[:genres].each do |genre_id|
+      @genre = Genre.find_by_id(genre_id)
+      @genre.songs << @current_song
+    end
+    @current_song.save
+    flash[:message] = "Successfully updated song."
 
-    flash[:message] = "Successfully edited a song."
+    redirect "/songs/#{@current_song.slug}"
   end
-
 end
