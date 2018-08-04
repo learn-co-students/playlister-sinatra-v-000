@@ -9,7 +9,6 @@ class Genre < ActiveRecord::Base
   end
 
   def self.find_by_slug(name)
-    reg_name = name.titleize
-    Genre.find_by_name(reg_name)
+    Genre.all.find{|genre| genre.slug == name}
     end
 end

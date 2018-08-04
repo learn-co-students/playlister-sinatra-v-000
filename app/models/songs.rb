@@ -8,7 +8,6 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(name)
-    reg_name = name.titleize
-    Song.find_by_name(reg_name)
+    Song.all.find{|song| song.slug == name}
     end
 end
