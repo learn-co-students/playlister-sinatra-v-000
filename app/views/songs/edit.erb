@@ -1,0 +1,47 @@
+<h1>Update Song</h1>
+
+ <%# binding.pry %>
+
+<form action="/songs/<%= @song.slug %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Name:</label>
+
+
+  <br></br>
+
+  <input type="text" name="Song Name" id="<%=@song.name%>" value="<%=@song.name%>">
+  <%# binding.pry %>
+  <%= @song.name %>
+  <br></br>
+
+  <label>Choose an existing genre:</label>
+
+  <br></br>
+  <%#
+   binding.pry %>
+  <% Genre.all.each do |genre| %>
+
+    <%# binding.pry %>
+<%# if you add a genre it works fine, but removing one still results in both boxes checked in the edit page %>
+  <label> <input type="checkbox" name= "genres[]" id="<%=genre.name %>" value="<%=genre.id %>" <%= "checked" if @song.genres.include?(genre) %> > <%= genre.name %> </label>
+
+
+    <%# binding.pry %>
+
+  <% end %>
+
+
+
+
+
+  <br></br>
+
+  <label>and/or, create a new artist:</label>
+  <br></br>
+  <label>name:</label>
+    <input  type="text" name="Artist Name" value="<%=@song.artist.name %>" ></input>
+  <br></br>
+  <%# binding.pry %>
+
+  <input type="submit" value="Save">
+</form>
