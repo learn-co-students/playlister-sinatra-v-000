@@ -45,7 +45,7 @@ class SongsController < ApplicationController
     #   @song.genres << new_genre
     # end
     @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
-    binding.pry
+    # binding.pry
     @song.genre_ids = params[:genres]
 
     # if !params["Artist Name"].empty?
@@ -97,7 +97,7 @@ class SongsController < ApplicationController
     # binding.pry
     # redirect to "/songs/#{@song.slug}"
     redirect to "/songs/#{@song.slug}"
-    binding.pry
+    # binding.pry
 
   end
 
@@ -107,6 +107,8 @@ class SongsController < ApplicationController
     # binding.pry
     @song = Song.find_by_slug(:slug)
     @song.save
+    # binding.pry
+
     erb :'songs/:slug'
   end
 

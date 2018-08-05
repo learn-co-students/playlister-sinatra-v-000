@@ -18,7 +18,7 @@
 
 <%# binding.pry %>
 <% if @song.artist %>
-<h1> <%= @song.artist %></h1>
+<h1> <%= @song.artist.name %></h1>
 <a href="/artists/<%= @song.artist.slug %>"> <%= @song.artist.name %></a>
 <% end %>
 
