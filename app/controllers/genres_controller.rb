@@ -5,7 +5,8 @@ class GenresController < ApplicationController
         erb :'/genres/index'
       end
 
-    get '/genres/new' do    
+    get '/genres/new' do 
+  
     end
 
     get '/genres/:slug' do    
