@@ -5,11 +5,13 @@ class Genre < ActiveRecord::Base
 
     def slug
       # binding.pry
-      x = self.name.split(" ")
-      x = x.collect do |word|
-        word.downcase
-      end
-      x.join("-")
+      # x = self.name.split(" ")
+      # x = x.collect do |word|
+      #   word.downcase
+      # end
+      # x.join("-")
+      self.name.downcase.gsub(" ", "-")
+      
     end
 
 

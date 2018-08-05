@@ -9,9 +9,9 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
-# gem 'sinatra-flash'
+gem 'sinatra-flash'
 gem 'rack-flash3'
-
+gem 'tux'
 
 group :test do
   gem 'rspec'

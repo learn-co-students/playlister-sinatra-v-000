@@ -2,7 +2,8 @@
 
  <%# binding.pry %>
 
-<form action="/songs/<%= @song.slug %>" method="POST">
+<form action="/songs/<%= @song.slug %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
   <label>Name:</label>
 
 
@@ -10,23 +11,37 @@
 
   <input type="text" name="Song Name" id="<%=@song.name%>" value="<%=@song.name%>">
   <%# binding.pry %>
-
+  <%= @song.name %>
   <br></br>
 
-  <label>Choose an existing artist:</label>
+  <label>Choose an existing genre:</label>
 
   <br></br>
+  <%#
+   binding.pry %>
+  <% Genre.all.each do |genre| %>
 
-  <%Artist.all.each do |artist|%>
-    <input type="checkbox" name="Artist Name" id="<%= artist.id%>" value="<%=artist.id%>" <%='checked' if @song.artist = artist %>><%=artist.name%></input>
-  <%end%>
+    <%# binding.pry %>
+
+  <label> <input type="checkbox" name= "genres[]" id="<%=genre.name %>" value="<%=genre.id %>" > <%= genre.name %> </label>
+
+
+    <%# binding.pry %>
+
+  <% end %>
+
+
+
+
 
   <br></br>
 
   <label>and/or, create a new artist:</label>
   <br></br>
   <label>name:</label>
-    <input  type="text" name="Artist Name" id="<%= artist.id%>"></input>
+    <input  type="text" name="Artist Name"></input>
   <br></br>
-  <input type="submit" value="Update Song">
+  <%# binding.pry %>
+
+  <input type="submit" value="Save">
 </form>

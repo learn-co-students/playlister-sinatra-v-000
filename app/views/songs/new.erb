@@ -1,5 +1,7 @@
 <h1>Create a new Song</h1>
 
+
+
 <form action="/songs" method="POST">
   <label>Name:</label>
 
@@ -11,11 +13,12 @@
   <% Genre.all.each do |genre| %>
 
     <%# binding.pry %>
-  <label> <input type="checkbox" name= "genres[]" id="<%=genre.name %>" value="<%=genre.id %>" >  </label> 
+  <label> <input type="checkbox" name= "genres[]" id="<%=genre.name %>" value="<%=genre.id %>" >  </label>
     <%# binding.pry %>
 
   <% end %>
 
+  <%# binding.pry %>
 
 
 

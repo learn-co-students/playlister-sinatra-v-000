@@ -3,17 +3,20 @@ class Song < ActiveRecord::Base
   has_many :song_genres
   has_many :genres, :through => :song_genres
 
+
   def slug
     # binding.pry
-    if self.name.split(" ").count > 1
-      x = self.name.split(" ")
-      x = x.collect do |word|
-        word.downcase
-      end
-      x.join("-")
-    else
-      self.name.downcase
-    end
+    # if self.name.split(" ").count > 1
+    #   x = self.name.split(" ")
+    #   x = x.collect do |word|
+    #     word.downcase
+    #   end
+    #   x.join("-")
+    # else
+    #   self.name.downcase
+    # end
+
+    self.name.downcase.gsub(" ", "-")
 
   end
 
