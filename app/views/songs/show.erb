@@ -1,0 +1,4 @@
+
+<h1><%= @song.name %></h1>
+<p>Artist: <%= @song.artist.name %><br>
+Genres: <%= Genre.find(SongGenre.find_by(song_id: @song.id).genre_id).name %></p>

@@ -1,0 +1,4 @@
+<h1>All Genres In Playlister</h1>
+<% @genres.each do |genre| %>
+<h2>Name: <a href="/genres/<%= genre.slug %>"><%= genre.name %></a></h2>
+<% end %>
