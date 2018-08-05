@@ -1,4 +1,4 @@
 
 <h1><%= @song.name %></h1>
-<p>Artist: <%= @song.artist.name %><br>
-Genres: <%= Genre.find(SongGenre.find_by(song_id: @song.id).genre_id).name %></p>
+<p>Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a><br>
+Genres: <a href="/genres/<%= Genre.find(SongGenre.find_by(song_id: @song.id).genre_id).slug %>"><%= Genre.find(SongGenre.find_by(song_id: @song.id).genre_id).name %></a></p>
