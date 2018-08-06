@@ -1,0 +1,11 @@
+<h2>Songs</h2>
+
+<br></br>
+
+<ul>
+<% @songs.each do |song| %>
+  <li class="song"><a href="/songs/<%= song.slug %>"> <%= song.name %>
+  by <%= song.artist.name unless !song.artist %></a></li>
+<% end %>
+
+</ul>
