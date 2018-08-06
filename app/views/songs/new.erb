@@ -1,2 +1,15 @@
-<form='/'>
+<h1> Create a new artist</h1>
+
+<form action='/songs' method="POST">
+
+  <label>Name:</label>
+  <br></br>
+  <input type="text" name="Name" id="song_name">
+
+  <label>Artist Name:</label>
+  <br></br>
+  <input type="text" name="artist[name]" id="artist_name">
+
+  <input type="submit" value="Create">
+
 </form>
