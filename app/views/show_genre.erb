@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= @genre.name %></title>
+  </head>
+  <body>
+    <h1><%= @genre.name %></h1>
+    <% @genre.songs.each do |song| %>
+      <h4><%= song.name %> - <%= song.artist.name %></h4>
+    <% end %>
+  </body>
+</html>

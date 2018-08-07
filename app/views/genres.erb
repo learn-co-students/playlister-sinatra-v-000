@@ -5,6 +5,8 @@
     <title>Genres</title>
   </head>
   <body>
-    genres here 
+    <% @genres.each do |genre| %>
+      <h4><a href="/genres/<%= genre.id %>"><%= genre.name %></a></h4>
+    <% end %>
   </body>
 </html>

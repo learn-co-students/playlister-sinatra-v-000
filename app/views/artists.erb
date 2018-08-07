@@ -5,6 +5,8 @@
     <title>Artists</title>
   </head>
   <body>
-    artists here
+    <% @artists.each do |artist| %>
+      <h4><a href="/artists/<%= artist.id %>"><%= artist.name %></a></h4>
+    <% end %>
   </body>
 </html>
