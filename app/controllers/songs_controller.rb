@@ -5,23 +5,30 @@ class SongsController < ApplicationController
     erb :'/songs/index'
   end
 
-  get '/songs/:slug' do
+  get 'songs/new' do
 
+    erb :'/songs/new'
+  end
+
+  get '/songs/:slug' do
+  
     @song = Song.find_by_slug(params[:slug])
-    genre_id = SongGenre.find_by_id(@song.id).genre_id
-    @genre = Genre.find_by_id(genre_id)
     erb :'/songs/show'
   end
 
 
-  get 'songs/new' do
-    erb :'new'
-  end
 
-  post 'songs/new' do
-    binding.pry
+  post '/songs' do
+
     song = params
     #name and artist id
   end
+
+  get '/songs/:id/edit' do
+    @song = Song.find_by_id(params[:id])
+    erb :'songs/edit'
+  end
+
+
 
 end
