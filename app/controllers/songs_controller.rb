@@ -42,7 +42,7 @@ class SongsController < ApplicationController
     if !params["genres"].empty?
       @song.genre_ids = params["genres"]
     end
-    @song.update("genres")
+    @song.update("genres","Artist Name")
     @song.save
 
     flash[:message] = "Successfully created song."
