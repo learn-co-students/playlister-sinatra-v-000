@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1><%= @song.name %></h1>
-    <h2>By: <%= @song.artist.name %></h2>
-    <h2>Genre: <%= @song.genres.first.name %></h2>
+    <h2>By: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></h2>
+    <h2>Genre: <a href="/genres/<%= @song.genres.first.slug %>"><%= @song.genres.first.name %></a></h2>
   </body>
 </html>
