@@ -1,0 +1,16 @@
+<!-- displays the song's artist and genres -->
+<!-- contains links to the artist's show page and each genre's show page -->
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<h1>Song Title: <%= @song.name %></h1>
+Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a>
+
+<br><br>
+
+Genre(s):
+<% @song.genres.each do |genre| %>
+  <li> <a href="/genres/<%= genre.slug %>"> <%= genre.name %> </a></li>
+<% end %>
