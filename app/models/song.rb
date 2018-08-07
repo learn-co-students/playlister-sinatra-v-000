@@ -6,7 +6,9 @@ class Song < ActiveRecord::Base
   belongs_to :artist
 
   def slug
-    [name.parameterize].join("-")
+    if name
+      [name.parameterize].join("-")
+    end
   end
 
   def self.find_by_slug(slug)
