@@ -29,8 +29,26 @@ class SongsController < ApplicationController
     if Song.all.include?(@song)
       flash[:message] = "Successfully created song."
       redirect "/songs/#{@song.slug}"
-    end 
+    end
   end
 
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :edit_song
+  end
+
+  post '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    @song.name = params[:song][:name]
+    @song.artist = Artist.find_or_create_by(params[:artist])
+    @song.genres.clear
+    params[:genres].each do |genre_id|
+      @song.genres << Genre.find_by_id(genre_id)
+    end
+    @song.save
+
+    flash[:message] = "Successfully updated song."
+    erb :show_song
+  end
 
 end
