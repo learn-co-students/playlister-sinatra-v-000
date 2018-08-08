@@ -4,7 +4,14 @@ class Artist < ActiveRecord::Base
 
   def slug
     a = self.name.downcase
-    slug = a.gsub!(/[!@% &"]/,'-')
+    #binding.pry
+    if a.gsub!(/[!@% &"]/,'-')
+      slug = a
+      #binding.pry
+    else
+      slug = a
+    end
+    slug
   end
 
   def self.find_by_slug(slug)
