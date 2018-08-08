@@ -2,7 +2,7 @@
 <h1><%= @song.name %></h1>
 
 <ul>
-<%binding.pry%>
+
   <% if @song.artist != nil %>
   <li><a href='/artists/<%= @song.artist.slug %>'><%= @song.artist.name %></a></li>
   <%end%>
