@@ -18,19 +18,23 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
+    binding.pry
     if Artist.find_by_name(params[:artist_name]) == nil
-      artist = Artist.create(name: params[:artist_name])
-
+      @artist = Artist.create(name: params[:artist_name])
       @song = Song.create(name: params[:Name])
-
-      @song.artist = artist
+      params
+#create array
+#prevent dup
+##prevent blanks
+#save relationshp between genre and song
+      @song.artist = @artist
       @song.save
-
     else
-      artist = Artist.find_by_name(params[:artist_name])
+      @artist = Artist.find_by_name(params[:artist_name])
       @song = Song.create(name: params[:Name])
-      @song.artist = artist
+      @song.artist = @artist
       @song.save
+
     end
      redirect to "/songs/#{@song.slug}"
   end
@@ -41,7 +45,7 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:id' do
-
+binding.pry
     @song = Song.find_by_slug(params[:id])
     params
 
