@@ -29,10 +29,11 @@ class SongsController < ApplicationController
       @song_genre = []
       clean_genres.each do |genre|
       if Genre.find_by_name(genre) == nil
-        new_genre = Genre.create(genre)
-        @song_genre << new_genre
-      else found_genre = Genre.find_by_name(genre) == true
-        @song_genre << found_genre
+            new_genre = Genre.create(name: genre)
+            @song_genre << new_genre
+      elsif Genre.find_by_name(genre) == true
+            found_genre = Genre.find_by_name(genre)
+            @song_genre << found_genre
       end
     end
 
