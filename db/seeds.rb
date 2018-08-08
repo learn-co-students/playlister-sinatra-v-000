@@ -3,3 +3,4 @@
 pop = Genre.create(name: "pop")
 hello = Song.create(name: "Hello")
 adele = Artist.create(name: "Adele")
+mj = Artist.create(name: "Michael Jackson")
