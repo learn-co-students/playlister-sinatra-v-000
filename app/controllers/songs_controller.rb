@@ -50,13 +50,15 @@ class SongsController < ApplicationController
   post '/songs/:id' do
 
     @song = Song.find_by_slug(params[:id])
-
-    if Artist.find_by_name(params["Artist_Name"]) == nil
-      @artist = Artist.create(name:params["Artist_Name"])
+  
+    if Artist.find_by_name(params["Artist Name"]) == nil
+      @artist = Artist.create(name:params["Artist Name"])
       @song.artist = @artist
+      @song.save
     else
-      @artist = Artist.find_by_name(params["Artist_Name"])
+      @artist = Artist.find_by_name(params["Artist Name"])
       @song.artist = @artist
+      @song.save
     end
     flash[:message] = "Successfully updated song."
     redirect to ("/songs/#{@song.slug}")
