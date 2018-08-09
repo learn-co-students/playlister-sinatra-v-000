@@ -10,4 +10,5 @@ class GenresController < ApplicationController
     erb :'/genres/show'
   end
 
+
 end
