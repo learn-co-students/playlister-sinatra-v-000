@@ -9,9 +9,7 @@ class SongsController < ApplicationController
   end
 
   get '/songs/new' do
-
     @genres = Genre.all
-
     erb :'/songs/new'
   end
 
@@ -41,25 +39,17 @@ class SongsController < ApplicationController
   get '/songs/:id/edit' do
     @song = Song.find_by_slug(params[:id])
     @genres = Genre.all
-<<<<<<< HEAD
     erb :'/songs/edit'
-
   end
 
   post '/songs/:id' do
-
     @song = Song.find_by_slug(params[:id])
-=======
     erb :'songs/edit'
   end
 
-  patch '/songs/:id' do
+  post '/songs/:id' do
     binding.pry
     @song = Song.find_by_slug(params[:id])
-
-    redirect to "/songs/#{@song.slug}"
->>>>>>> 288c0f4efd0e07c8db669b3e900e0cca9c9fa950
-
 
     if Artist.find_by_name(params["Artist_Name"]) == nil
       @artist = Artist.create(name:params["Artist_Name"])
@@ -68,7 +58,6 @@ class SongsController < ApplicationController
       @artist = Artist.find_by_name(params["Artist_Name"])
       @song.artist = @artist
     end
-    binding.pry
     flash[:message] = "Successfully updated song."
     redirect to ("/songs/#{@song.slug}")
   end
