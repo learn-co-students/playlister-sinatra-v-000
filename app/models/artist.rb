@@ -1,11 +1,7 @@
 class Artist < ActiveRecord::Base
   has_many :songs
   has_many :genres
-
-def initialize(artist)
-#  binding.pry
-  @artist = Artist.create(name: parmas[:name])
-end
+  attr_accessor :name, :params, :song, :genres, :artist
 
 
 end

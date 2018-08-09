@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Song Artists</title>
+  </head>
+
+  <body>
+    <form>
+      <ol>
+        <% @artists.each do|artist| %>
+        <li> Artist Name: <%=@artist.name%><a href="/artists/<%=artist.id%>"</a></li>
+      </ol>
+      </form>
+  </body>
+</html>

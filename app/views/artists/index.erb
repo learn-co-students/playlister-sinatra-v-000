@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
-</html>
+<form>
+  <h1> <title>Song Artists</title> </h1>
+  <br> </br>
+      <ol>
+      <% @artists.each do|artist| %>
+      <h3><li> Artist Name: <%=@artist.name%><a href="/artists/<%=artist.id%>"</a></li></h3>
+      </ol>
+</form>

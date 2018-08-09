@@ -1,3 +1,4 @@
-#class SongGenre < ActiveRecord::Base
-#  many-to-many :song, :genres
-#end
+class SongGenre < ActiveRecord::Base
+  has_many :song
+  has_many :genres
+end

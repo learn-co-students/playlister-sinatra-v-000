@@ -1,5 +1,5 @@
-#class Song < ActiveRecord::Base
-#  belong_to :artist
-#  has_many :genres
+class Song < ActiveRecord::Base
+  belongs_to :artist
+  has_many :genres
 
-#end
+end
