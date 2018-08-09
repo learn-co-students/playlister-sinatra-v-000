@@ -42,13 +42,13 @@ class SongsController < ApplicationController
     erb :'/songs/edit'
   end
 
-  post '/songs/:id' do
-    @song = Song.find_by_slug(params[:id])
-    erb :'songs/edit'
-  end
+#  post '/songs/:id' do
+#    @song = Song.find_by_slug(params[:id])
+#    erb :'songs/edit'
+#  end
 
   post '/songs/:id' do
-    binding.pry
+
     @song = Song.find_by_slug(params[:id])
 
     if Artist.find_by_name(params["Artist_Name"]) == nil
