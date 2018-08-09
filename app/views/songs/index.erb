@@ -1,0 +1,7 @@
+<h1>Songs</h1>
+
+<% @songs.each do |song|%>
+<% if song.slug && song.name %>
+<p><a href="/songs/<%=song.slug%>"><%=song.name%></a></p>
+<%end%>
+<%end%>
