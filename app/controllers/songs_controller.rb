@@ -41,6 +41,7 @@ class SongsController < ApplicationController
   get '/songs/:id/edit' do
     @song = Song.find_by_slug(params[:id])
     @genres = Genre.all
+<<<<<<< HEAD
     erb :'/songs/edit'
 
   end
@@ -48,6 +49,16 @@ class SongsController < ApplicationController
   post '/songs/:id' do
 
     @song = Song.find_by_slug(params[:id])
+=======
+    erb :'songs/edit'
+  end
+
+  patch '/songs/:id' do
+    binding.pry
+    @song = Song.find_by_slug(params[:id])
+
+    redirect to "/songs/#{@song.slug}"
+>>>>>>> 288c0f4efd0e07c8db669b3e900e0cca9c9fa950
 
 
     if Artist.find_by_name(params["Artist_Name"]) == nil
