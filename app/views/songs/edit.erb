@@ -2,7 +2,12 @@
 
 <form action="/songs/<%=@song.slug%>" method="post">
   <p>Song Name: <input type="text" name="name"></p>
-  <p>Song Artist: <input type="text" name="artist"></p>
-  <p>Song Genre: <input type="text" name="genre"></p>
-  <p><input type="submit" id="submit" value="Update Song"></p>
+  <p>Song Artist: <input type="text" name="artist" id="Artist Name"></p>
+
+  <p>Please check the genres that are correct:</p>
+  <%@song.genres.each do |genre|%>
+    <p><input type="checkbox" name="genre[]" value="<%=genre.id%>"><%=genre.name%></p>
+  <%end%>
+  <p>If you need to add a genre, please do it here: <input type="text" name="genre_input"></p>
+  <p><input type="submit" id="Save" value="Update Song"></p>
 </form>
