@@ -30,6 +30,7 @@ class SongsController < ApplicationController
       @song = Song.create(name: params[:Name])
       @song.artist = @artist
       @song.genre_ids = params[:genres]
+      binding.pry
       @song.save
     end
      flash[:message] = "Successfully created song."
@@ -50,7 +51,7 @@ class SongsController < ApplicationController
   post '/songs/:id' do
 
     @song = Song.find_by_slug(params[:id])
-  
+
     if Artist.find_by_name(params["Artist Name"]) == nil
       @artist = Artist.create(name:params["Artist Name"])
       @song.artist = @artist
