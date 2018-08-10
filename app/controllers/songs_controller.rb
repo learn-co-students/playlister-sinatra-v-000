@@ -16,12 +16,12 @@ class SongsController < ApplicationController
 
   post '/songs/new' do
     @song = Song.new(name: params[:song][:name])
-    if !!params[:song][:artist_id] && params[:song][:artist_id] != ""
+    if !!params[:song][:artist_id]
       @artist = Artist.find(params[:song][:artist_id])
     elsif !Artist.find_by(name: params[:song][:artist])
       @artist = Artist.new(name: params[:song][:artist])
     else
-      @artist = Artist.find_by(params[:song][:artist])
+      @artist = Artist.find_by(name: params[:song][:artist])
     end
     @song.artist = @artist
     if !!params[:song][:genre_ids]
@@ -65,9 +65,6 @@ class SongsController < ApplicationController
       end
       @song.artist = @artist
     end
-    # if !params[:genre].empty?
-    #   @song.genres = []
-    # end
     if !!params[:genre]
       params[:genre].each do |id|
         @genre = Genre.find(id)
@@ -88,7 +85,4 @@ class SongsController < ApplicationController
     @song.save
     redirect "/songs/#{@song.slug}"
   end
-
-
-
 end
