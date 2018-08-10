@@ -1,5 +1,10 @@
 require 'pry'
+require 'rack-flash'
+
 class SongsController < ApplicationController
+
+  enable :sessions
+  use Rack::Flash
 
   get '/songs' do
     erb :'/songs/index'
@@ -11,10 +16,12 @@ class SongsController < ApplicationController
 
   post '/songs/new' do
     @song = Song.new(name: params[:song][:name])
-    if !!params[:song][:artist_id]
+    if !!params[:song][:artist_id] && params[:song][:artist_id] != ""
       @artist = Artist.find(params[:song][:artist_id])
-    else
+    elsif !Artist.find_by(name: params[:song][:artist])
       @artist = Artist.new(name: params[:song][:artist])
+    else
+      @artist = Artist.find_by(params[:song][:artist])
     end
     @song.artist = @artist
     if !!params[:song][:genre_ids]
@@ -31,6 +38,7 @@ class SongsController < ApplicationController
       @song.genres << @genre
     end
     @song.save
+    flash[:message] = "Successfully created song."
     redirect "/songs/#{@song.slug}"
   end
 
@@ -57,11 +65,15 @@ class SongsController < ApplicationController
       end
       @song.artist = @artist
     end
-    @song.genres = []
+    # if !params[:genre].empty?
+    #   @song.genres = []
+    # end
     if !!params[:genre]
       params[:genre].each do |id|
         @genre = Genre.find(id)
-        @song.genres << @genre
+        if !@song.genres.include?(@genre)
+          @song.genres << @genre
+        end
       end
     end
     if !@song.genres.include?(params[:genre_input]) && params[:genre_input] != ""
@@ -72,6 +84,7 @@ class SongsController < ApplicationController
       end
       @song.genres << @genre2
     end
+    flash[:message] = "Successfully updated song."
     @song.save
     redirect "/songs/#{@song.slug}"
   end

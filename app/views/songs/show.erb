@@ -1,4 +1,8 @@
 <h1><%=@song.name if @song.name%></h1>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <% if @song && @song.artist %>
 
 <p>Artist: <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a></p>
@@ -9,3 +13,5 @@
 <%end%>
 <br>
 <p><a href="/songs/<%=@song.slug%>/edit">Edit Song</a></p>
+
+<p><a href="/songs">All Songs</a></p>

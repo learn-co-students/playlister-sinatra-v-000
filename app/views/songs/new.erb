@@ -4,12 +4,12 @@
   <p>Song Name: <input type="text" name="song[name]" id="Name"></p>
   <p>Please choose the Artist this song belongs:</p>
   <%Artist.all.each do |artist|%>
-  <p><input type="radio" name="song[artist_id]" value="<%=artist.id%>"><%=artist.name%></p>
+  <p><input type="checkbox" name="song[artist_id]" value="<%=artist.id%>" id="Artist Name"><%=artist.name%></p>
   <%end%>
-  <p>Or create a new Artist here: <input type="text" name="song[artist]"></p>
+  <p>Or create a new Artist here: <input type="text" name="song[artist]" id="Artist Name"></p>
   <p>Please check all genres that apply: </p>
   <% Genre.all.each do |genre|%>
-    <p><input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>"><%=genre.name%></p>
+    <p><input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>" id="<%=genre.name%>"><%=genre.name%></p>
   <%end%>
   <p>If you need to add a genre, please do it here: <input type="text" name="genre[name]"></p>
   <p><input type="submit" id="submit" value="Create Song"></p>
