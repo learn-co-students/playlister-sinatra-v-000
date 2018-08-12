@@ -1,11 +1,7 @@
 class CreateGenres < ActiveRecord::Migration
   def change
     create_table :genres do |t|
-      t. string :name
-      t. integer :artist_id
+      t.string :name
     end
   end
 end
-
-ALTER TABLE :genres
-ADD :song_id :integer;
