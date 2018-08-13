@@ -1,8 +1,5 @@
-<form>
-  <h1> <title>Song Artists</title> </h1>
-  <br> </br>
-      <ol>
-      <% @artists.each do|artist| %>
-      <h3><li> Artist Name: <%=@artist.name%><a href="/artists/<%=artist.id%>"</a></li></h3>
-      </ol>
-</form>
+<h1> Welcome to My Artist Collection </h1>
+
+<% @artists.each do |artist| %>
+ <li> <a href="/artists/<%= artist.slug %>"> <%= artist.name %> </a></li>
+<% end %>
