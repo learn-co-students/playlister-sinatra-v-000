@@ -1,5 +1,9 @@
 <h1>Song  - <%=@song.name%></h1>
 
+<% if flash[:message] %>
+  <%=flash[:message]%>
+<%end%>
+
 <h2>Genres</h2>
 
 <ul>
@@ -15,5 +19,3 @@
 </ul>
 
 <p><%=@message%></p>
-Successfully created song.
-Successfully updated song.

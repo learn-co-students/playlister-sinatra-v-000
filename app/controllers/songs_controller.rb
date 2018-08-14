@@ -18,23 +18,15 @@ class SongsController < ApplicationController
     if !params["artist"]["name"].empty? && !Artist.find_by(name: params["artist"]["name"])
       @song.build_artist(name: params["artist"]["name"])
     else
-      artist = Artist.find_by(name: params[:artist_name])
+      artist = Artist.find_by(id: params[:artist_id])
       artist ||= Artist.find_by(name: params["artist"]["name"])
       @song.artist = artist
     end
 
-    if !params["genre"]["name"].empty? && !Genre.find_by(name: params["genre"]["name"])
-      @song.genres.build(name: params["genre"]["name"])
-    else
-      genre = Genre.find_by(name: params[:genre_name])
-      genre ||= Genre.find_by(name: params["genre"]["name"])
-      # binding.pry
-      @song.genres << genre
-    end
-
+    @song.genre_ids = params[:genre]
 
     @song.save
-    @message = "Successfully created song."
+    flash[:message] = "Successfully created song."
     redirect "/songs/#{@song.slug}"
   end
 
@@ -55,24 +47,17 @@ class SongsController < ApplicationController
 
     if !params["artist"]["name"].empty? && !Artist.find_by(name: params["artist"]["name"])
       @song.build_artist(name: params["artist"]["name"])
+      @song.save
     else
-      artist = Artist.find_by(name: params[:artist_name])
+      artist = Artist.find_by(id: params[:artist_id])
       artist ||= Artist.find_by(name: params["artist"]["name"])
-      @song.artist = artist
+      @song.update(artist: artist)
     end
-
-    if !params["genre"]["name"].empty? && !Genre.find_by(name: params["genre"]["name"])
-      @song.genres.build(name: params["genre"]["name"])
-    else
-      genre = Genre.find_by(name: params[:genre_name])
-      genre ||= Genre.find_by(name: params["genre"]["name"])
-      # binding.pry
-      @song.genres << genre
-    end
-
+    @song.genre_ids = params[:genre]
 
     @song.save
-    @message = "Successfully updated song."
+    #binding.pry
+    flash[:message] = "Successfully updated song."
     redirect "/songs/#{@song.slug}"
   end
 end
