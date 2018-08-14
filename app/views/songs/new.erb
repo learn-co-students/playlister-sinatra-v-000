@@ -1,0 +1,29 @@
+<h1>New Song Page</h1>
+
+<form action="/songs" method="post">
+  <p>Song Name: <input type="text" id="Name" name="song[name]" value=""> </p>
+  <br></br>
+  Pick and existing artist:
+  <!-- <input list="artists_names_list" id="artist_name" name="artist_name" />
+  <datalist id="artists_names_list">
+      <%@artists.each do |artist|%>
+          <option value="<%=artist.name%>">
+      <%end%>
+  </datalist> -->
+  <%@artists.each do |artist|%>
+      <input type="checkbox" name="artist_name" id="<%=artist.name%>" value="<%=artist.name%>"><%=artist.name%></input>
+  <%end%>
+  <br></br>
+  <p>Or create a new artist:</p>
+  <p>New Artist's Name <input type="text" name="artist[name]" id="Artist Name"></p>
+
+  Pick and existing genre:
+  <%@genres.each do |genre|%>
+      <input type="checkbox" name="genre_name" id="<%=genre.name%>" value="<%=genre.name%>"><%=genre.name%></input>
+  <%end%>
+  <br></br>
+  <p>Or create a new genre:</p>
+  <p>New Genre's Name <input type="text" name="genre[name]" id="Genre Name"></p>
+
+  <input type="submit" name="submit" value="Create">
+</form>
