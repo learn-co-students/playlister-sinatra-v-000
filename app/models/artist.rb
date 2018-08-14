@@ -2,6 +2,8 @@ class Artist < ActiveRecord::Base
   has_many :songs
   has_many :genres, :through => :songs
 
+  # two methods below moved into module in concerns folder since they're repeated on each model.
+
   def slug
     name.downcase.gsub(" ","-")
   end
