@@ -1,0 +1,19 @@
+<h1> Song Forms  </h1>
+
+<form action="/songs" method="POST">
+  <h3> <label>Artist Name: </label><input type ="string" name = "artist_name"></h3>
+
+  <%@songs.each do |song|%>
+    <input type ="checkbox" name ="artist[genre_id]" value="<=%genre_id%>" id="<%genre_id%>"> <%=genre.name%></input>  </h3>
+  <%end%>
+
+  <%@songs.each do |song|%>
+    <input type ="checkbox" name ="artist[genre_id]" value="<=%genre_id%>" id="<%genre_id%>"> <%=genre.name%></input>  </h3>
+  <%end%>
+
+    <h3> <label> Song Name: </label> <input type ="string" name ="song_name"></h3>
+    <h3> <label> Song Genre 1: </label> <input type  ="string" name = "song_genre"></h3>
+    <h3> <label> Song Genre 2: </label> <input type  ="string" name = "song_genre"></h3>
+
+   <h3> <button> <input type = "submit" value ="Create New Song"> </button> </h3>
+ </form>
