@@ -2,3 +2,7 @@
 <%#binding.pry%>
 <p>Artist: <a href="/artists/<%=@artist.slug%>" name="artist_name"> <%=@artist.name%> </a></p>
 <p>Genre: <a href="/genres/<%=@genre.slug%>" name="genre_name"> <%=@genre.name%> </a></p>
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
