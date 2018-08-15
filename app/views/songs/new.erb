@@ -10,7 +10,7 @@
   <br></br>
   <p>Choose the applicable genres: </p>
   <%Genre.all.each do |genre|%>
-    <input type="checkbox" name="song[genre_ids][]" id="<%= genre.name %>" value="<%=genre.id%>"><%=genre.name%></input>
+    <input type="checkbox" name="song[genre_ids][]" id="<%= genre.name %>" value="<%= genre.id %>"><%=genre.name%></input>
   <%end%>
 
   <br></br>

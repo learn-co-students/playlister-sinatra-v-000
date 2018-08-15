@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  post '/set-flash' do
+  #post '/set-flash' do
     # Set a flash entry
     #flash[:notice] = "Thanks for signing up!"
 
@@ -18,5 +18,5 @@ class ApplicationController < Sinatra::Base
 
     # Set a flash entry for only the current request
     #flash.now[:notice] = "Thanks for signing up!"
-  end
+  #end
 end
