@@ -4,11 +4,13 @@ gem 'sinatra'
 gem 'activerecord', '4.2.5', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'rake'
+gem 'tux'
 gem 'require_all'
 gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'rack-flash3'
 
 group :test do
   gem 'rspec'
