@@ -1,0 +1,13 @@
+<h2>Edit Song:</h2>
+<p style="color:red"><%="This form was not correctly filled" if !@errors.nil?%></p>
+<form class="song" action="/songs/<%=@song.slug%>" method="post">
+  <input type="hidden" id="hidden" name="_method" value="patch">
+  <input type="text" name="song[name]" id="song_name" placeholder="Song Name" value="<%=@song.name%>"><br>
+  <input type="text" name="song[artist]" id="artist_name" placeholder="Artist" value="<%=@song.artist.name%>"><br>
+  <%@genres.each do |g|%>
+    <input type="checkbox" name="song[genre_ids][]" value="<%=g.id%>" id="genre" <%= "checked" if @song.genres.map{|ge| ge.id}.include?(g.id)%>>
+    <label for="genre"><%=g.name%></label>
+  <%end%>
+  <br>
+  <input type="submit" id="submit" value="Edit Song">
+</form>
