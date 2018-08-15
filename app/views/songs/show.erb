@@ -1,10 +1,13 @@
     <title>My Song Collection</title>
-    
-      <h2> Song Name: <%=@song.name%>  </h2>
-      
-        <%@artists.each do|artist|%>              
-          <a href='/artists/<%=@song.artist.slug%>'> <%=@song.artist.name%>
-                  
-        <%@genres.each do|artist|%>              
-        <a href='/genres/<%=@genre.slug%>'> <%=@genre.name%>
-          <%end%>
+
+    <h1> <%=@song_name%></h1>
+
+    <a href="/artists/<%= @song.artist.slug %>"> <%= @song.artist.name %> </a>
+
+    <%@song.genres.each do|genre|%>
+      <a href='/genres/<%=@genre.slug%>'> <%=@genre.name%>
+    <%end%>
+
+    <% if flash.has?(:message) %>
+      <%= flush[:message] %>
+    <% end %>

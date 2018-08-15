@@ -7,9 +7,9 @@
     <input type ="checkbox" name ="artist[genre_id]" value="<=%genre_id%>" id="<%genre_id%>"> <%=genre.name%></input>  </h3>
   <%end%>
 
-  <%@songs.each do |song|%>
-    <input type ="checkbox" name ="artist[genre_id]" value="<=%genre_id%>" id="<%genre_id%>"> <%=genre.name%></input>  </h3>
-  <%end%>
+  <% Genre.all.each do |genre| %>
+    <input id="<%= genre.name %>" type=checkbox" name="genres[]" value="<%= genre.id%>">
+    <%end%>
 
     <h3> <label> Song Name: </label> <input type ="string" name ="song_name"></h3>
     <h3> <label> Song Genre 1: </label> <input type  ="string" name = "song_genre"></h3>

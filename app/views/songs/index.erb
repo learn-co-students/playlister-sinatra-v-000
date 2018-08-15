@@ -1,5 +1,5 @@
-<h1> Welcome To MY Song Collection </h1>
+<h1> Welcome! </h1>
 
-<% @songs.each do |song| %>
-  <li> <a href="/songs/<%= song.slug %>"> <%= song.name %> </a></li>
+<%@songs.each do |song|%>
+   <h3><%=song.name %><a href="/songs/<%=song.slug%>"> </a></h3>
 <%end%>

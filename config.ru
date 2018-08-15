@@ -1,4 +1,6 @@
 require './config/environment'
+require 'spec_helper'
+
 require_relative './app/controllers/artists_controller'
 require_relative './app/controllers/artists_controller'
 require_relative './app/controllers/songs_controller'
@@ -14,3 +16,5 @@ run ApplicationController
 use ArtistsController
 use GenresController
 use SongsController
+
+use Rack::Flash

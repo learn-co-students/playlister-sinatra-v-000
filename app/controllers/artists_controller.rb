@@ -1,9 +1,10 @@
 class ArtistsController < ApplicationController
 
+  enable :sessions
+
   get '/artists' do
-  #  Artist.new = @artist
     @artists = Artist.all
-    erb :'/artists/index'
+  erb :'/artists/index'
   end
 
   get '/artists/:slug' do
