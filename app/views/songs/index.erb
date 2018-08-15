@@ -1,0 +1,12 @@
+<h1>Songs</h1>
+<%if flash.has?(:message)%>
+  <%=flash[:message]%>
+<%end%>
+<a href="/songs/new">Create new song</a><br>
+<ul>
+  <%@songs.each do |s|%>
+    <li>
+      <a href="/songs/<%=s.slug%>"><%=s.name%></a>
+    </li>
+  <%end%>
+</ul>
