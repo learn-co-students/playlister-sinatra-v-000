@@ -1,0 +1,7 @@
+
+<%if flash.has?(:message)%>
+<%=flash[:message]%>
+<%end%>
+<form action="/songs/<%=@target.slug%>" method="post" id="autosubmit">
+     <input type="hidden" value="type" name="type">
+</form>

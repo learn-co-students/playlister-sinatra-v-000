@@ -1,4 +1,4 @@
-
+require 'rack-flash'
 class SongsController < ApplicationController
 
   get '/songs' do
@@ -16,6 +16,12 @@ class SongsController < ApplicationController
     erb :'songs/show'
   end
 
+  post '/songs/:slug' do 
+    @song = Song.find_by_slug(params[:slug])
+    flash[:message] = "Successfully created song."
+    erb :'songs/show'
+  end
+
   get '/songs/:slug/edit' do
     @genres = Genre.all
     @song = Song.find_by_slug(params[:slug])
@@ -27,8 +33,13 @@ class SongsController < ApplicationController
       params[:song][:artist] = artist
       song = Song.new(params[:song])
       song.save
-      flash[:message] = "Created song: #{song.name}, by #{song.artist.name}, of type #{song.genres.map{|g| g.name}.join(" ")}"
-      redirect '/songs'
+      @songs = Song.all
+      flash[:message] = "Successfully created song.: #{song.name}, by #{song.artist.name}, with genres #{song.genres.map{|g| g.name}.join(" ")}"
+      # erb :"songs/show"
+      # redirect "/songs/#{song.slug}"
+      @target = song
+      session[:message] = "Successfully created song.: #{song.name}, by #{song.artist.name}, with genres #{song.genres.map{|g| g.name}.join(" ")}"
+      redirect "/songs/#{song.slug}"
     else
       redirect '/songs'
     end
@@ -39,8 +50,8 @@ class SongsController < ApplicationController
       if ((artist = Artist.find_or_create_by(name: params[:song][:artist])) && !artist.errors.any?)
         params[:song][:artist] = artist
         @song.update(params[:song])
-        flash[:message] = "Succesfully updated song to: #{@song.name}, by #{@song.artist.name}, with genres #{@song.genres.map{|g| g.name}.join(" ")}"
-        redirect "/songs/#{@song.slug}"
+        flash[:message] = "Successfully updated song.: #{@song.name}, by #{@song.artist.name}, with genres #{@song.genres.map{|g| g.name}.join(" ")}"
+        erb :"songs/show"
       else
         @errors = true
         erb :"songs/edit"

@@ -1,7 +1,11 @@
-<%if flash.has?(:message)%>
-<%=flash[:message]%>
-<%end%>
 
+<%if !session[:message].nil?%>
+  <%=session[:message]%>
+  <%session[:message] = nil%>
+<%end%>
+<%if flash.has?(:message)%>
+<%="#{flash[:message]} that's all from flash!"%>
+<%end%>
 <h2><%=@song.name%></h2>
 <h3>Artist: <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a></h3>
 <h4>Genres: <%@song.genres.each do |g| %>
