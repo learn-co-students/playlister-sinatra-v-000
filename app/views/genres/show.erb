@@ -3,12 +3,16 @@
 <%#binding.pry%>
 <ul>
   <% @genre.songs.each do |song| %>
-    <li><a href="/songs/<%=song.slug%>"><%=song.name%> </a></li>
+    <li>Song: <a href="/songs/<%=song.slug%>"><%=song.name%> </a></li>
   <% end %>
 </ul>
 
 <ul>
   <% @genre.artists.each do |artist| %>
-    <li><a href="/artists/<%=artist.slug%>"><%=artist.name%> </a></li>
+    <li>Artist: <a href="/artists/<%=artist.slug%>"><%=artist.name%> </a></li>
   <% end %>
 </ul>
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>

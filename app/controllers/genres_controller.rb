@@ -1,12 +1,25 @@
 require 'rack-flash'
 
 class GenresController < ApplicationController
-  #use Rack::Flash
+  use Rack::Flash
 
   get '/genres' do
     @genres = Genre.all
     erb :'/genres/index'
   end
+
+  get '/genres/new' do
+    erb :'/genres/new'
+  end
+
+  post '/genres' do
+    binding.pry
+     @genre = Genre.create(:name => params["name"])
+
+     flash[:message] = "Successfully created genre."
+     redirect "/genres/#{@genre.slug}"
+   end
+
 
   get '/genres/:slug' do
     @genre = Genre.find_by_slug(params[:slug])
