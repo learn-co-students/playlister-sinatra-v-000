@@ -1,7 +1,5 @@
 class GenresController < ApplicationController
 
-  enable :sessions
-
   get '/genres' do
     @genres = Genre.all
     erb :'genres/index'

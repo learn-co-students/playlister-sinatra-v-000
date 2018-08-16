@@ -1,5 +1,5 @@
 require './config/environment'
-require 'spec_helper'
+#require 'spec_helper'
 
 require_relative './app/controllers/artists_controller'
 require_relative './app/controllers/artists_controller'

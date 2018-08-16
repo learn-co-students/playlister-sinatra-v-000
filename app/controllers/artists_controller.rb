@@ -1,7 +1,5 @@
 class ArtistsController < ApplicationController
 
-  enable :sessions
-
   get '/artists' do
     @artists = Artist.all
   erb :'/artists/index'
