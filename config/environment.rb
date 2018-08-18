@@ -8,18 +8,5 @@ ActiveRecord::Base.establish_connection(
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
-module Concerns
-  module Slugifiable
-    def slug
-      text = self.name.split(" ").join("-").downcase
-    end
-      
-    def self.find_by_slug(text)
-      text = text.split("-").join(" ").titleize
-      self.find_by(:name => text)    
-    end
-  end
-end
-
 require_all 'app'
 require_all 'lib'

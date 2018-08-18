@@ -3,5 +3,4 @@ class SongsController < Sinatra::Base
     @songs = Song.all
     erb :songs
   end
-  
 end
