@@ -1,0 +1,7 @@
+<%if @genres.empty? %>
+  <p> There are no genres at this time. </p>
+<%else%>
+  <% @genres.each do |genre| %>
+    <p><a href="/genres/<%=genre.slug%>"> <%=genre.name%> </a> </p>
+  <% end %>
+<% end %>

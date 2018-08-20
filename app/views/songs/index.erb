@@ -1,0 +1,9 @@
+
+<%if @songs.empty? %>
+  <p> There are no songs at this time. </p>
+<%else%>
+  <% @songs.each do |song| %>
+    <p><a href="/songs/<%=song.slug%>"> <%=song.name%> </a> </p>
+  <% end %>
+  <%#binding.pry%>
+<% end %>
