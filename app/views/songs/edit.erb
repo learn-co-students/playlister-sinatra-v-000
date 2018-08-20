@@ -4,7 +4,7 @@
     <input type="hidden" name="_method" value="patch">
 
     <label for="name"> Name: </label>
-    <input type="text" name="song[name]" id="name" value="<%= @song.name %>"><br>
+    <input type="text" name="song[name]" id="song_name" value="<%= @song.name %>"><br>
 
     <label for="artist_name"> Artist Name: </label>
     <input type="text" name="artist[name]" id="artist_name" value="<%= @song.artist.name %>"><br>
@@ -14,5 +14,5 @@
         <input type="checkbox" name="genres[]" id="<%= genre.name %>" value="<%= genre.id %>" <%='checked' if @song.genres.include?(genre) %>>
     <% end %><br>
 
-    <input type="submit" value="Save Changes">
+    <input type="submit" id="Save" value="Save">
 </form>
