@@ -1,0 +1,12 @@
+<h1>Songs</h1>
+
+  <% Song.all.each do |song| %>
+    <%= "#{song.name}"%><br>
+    <%= "#{song.artist.name}"%><br>
+    <% song.genres.all.each do |genre|%>
+      <%= "#{genre.name}"%><br>
+    <%end%>
+    <a href="<%="songs/#{song.name}"%>">Song Link</a>
+    <br>
+    --------------------
+  <%end%>
