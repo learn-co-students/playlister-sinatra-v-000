@@ -1,0 +1,9 @@
+
+    <%= "#{@song.name}"%><br>
+    <%= "#{@song.artist.name}"%><br>
+    <% @song.genres.all.each do |genre|%>
+      <%= "#{genre.name}"%><br>
+    <%end%>
+
+    <br>
+
