@@ -1,0 +1,12 @@
+<h1><%=@artist.name%></h1>
+<h4>Songs:</h4>
+
+  <%@artist.songs.each do |song|%>
+  <a href="/songs/<%=song.slug%>"><%=song.name%></a>
+  <% end %>
+  
+  <% @artist.genres.each do |genre|%>
+  <input type="checkbox" name="<%=genre.name%>" id="genre">
+  <h5>Genre:<a href="/genres/<%=genre.slug%>"> <%= genre.name %> </a></h5>
+  <% end %>
+
