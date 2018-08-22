@@ -1,7 +1,8 @@
 class SongsController < ApplicationController
 
   get "/songs" do
-
+    @song = Song.all
+    erb :"songs/index"
   end
 
   get "/songs/:slug" do
@@ -9,7 +10,7 @@ class SongsController < ApplicationController
   end
 
   get "/songs/new" do
-    
+
   end
 
 end
