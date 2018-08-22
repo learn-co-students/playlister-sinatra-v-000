@@ -1,0 +1,16 @@
+<h1>Update Song <%= @song.name%></h1>
+
+<form action="/songs/<%= @song.slug %>" method="post" >
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+<!-- if song exists, modify existing song. do not add another song -->
+  <label for="name"><h3>Song Name</h3></label>
+  <input id="name" type="text" name="song[name]" value=<%=@song.name%>></input>
+
+  <label for="artist_name"><h3>Artist Name</h3></label>
+  <input id="artist_name" type="text" name="artist[name]" value=<%= @song.artist.name %>></input>
+
+  <br></br>
+  <input type="submit" value="Save">
+
+</form>
