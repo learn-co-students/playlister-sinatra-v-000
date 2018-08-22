@@ -4,4 +4,11 @@ class ArtistsController < ApplicationController
 
   end
 
+  get "/artists/:slug" do
+
+  end
+
+  get "/artists/new" do
+
+  end
 end

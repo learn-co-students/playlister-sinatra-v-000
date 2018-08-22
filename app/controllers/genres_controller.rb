@@ -4,4 +4,12 @@ class GenresController < ApplicationController
 
   end
 
+  get "/genres/:slug" do
+
+  end
+
+  get "/genres/new" do
+
+  end
+
 end
