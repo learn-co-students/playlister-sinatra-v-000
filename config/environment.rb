@@ -2,6 +2,7 @@ ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'
 require 'sinatra'
+# require 'rack-flash3'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
 ActiveRecord::Base.establish_connection(
@@ -9,6 +10,5 @@ ActiveRecord::Base.establish_connection(
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
-require 'rack-flash3'
 require_all 'app'
 require_all 'lib'
