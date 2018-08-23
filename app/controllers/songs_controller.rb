@@ -1,3 +1,4 @@
+
 require 'pry'
 require 'rack-flash'
 class SongsController < ApplicationController
@@ -24,6 +25,7 @@ class SongsController < ApplicationController
     flash[:message] = "Successfully created song."
 
     redirect :"/songs/#{@song.slug}"
+
   end
 
   get '/songs/:slug' do
@@ -31,18 +33,22 @@ class SongsController < ApplicationController
     erb :"songs/show"
   end
 
+
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
     erb :"songs/edit"
   end
 
   patch '/songs/:slug' do
-    @song = 
+    @song = Song.find_by_slug(params[:slug])
+    @artist = Artist.find_or_create_by(name: params[:artist][:name])
+    @song.update(params[:song])
+    @song.artist = @artist
+    @song.save
+
+    flash[:message] = "Successfully updated song."
+
     redirect :"/songs/#{@song.slug}"
   end
-
-
-
-
 
 end
