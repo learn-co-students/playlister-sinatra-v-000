@@ -10,3 +10,6 @@ ActiveRecord::Base.establish_connection(
 
 require_all 'app'
 require_all 'lib'
+# require_relative 'app/controllers/artists_controller.rb'
+# require_relative 'app/controllers/genres_controller.rb'
+# require_relative 'app/controllers/songs_controller.rb'
