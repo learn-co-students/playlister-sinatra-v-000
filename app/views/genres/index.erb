@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Genres Index</title>
+  </head>
+  <body>
+	  <h1> Genres Index </h1>
+		<%@genres.each do |genre| %>
+			<a href="/genres/<%=genre.slug%>"><%= genre.name %></a><br>
+		<%end%>
+	</body>
+</html>
