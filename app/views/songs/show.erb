@@ -3,15 +3,14 @@
 <% end %>
 
 <h4><%= @song.name %></h4>
-<h4>Genres: </h4>
+<label>Genres: </label>
   <ul>
     <% @song.genres.each do |genre| %></li>
       <li> <a href="/genres/<%= genre.slug %>"><%= genre.name %></a> </li>
     <%end%>
   </ul>
 
-<h4>Artists: </h4>
+<label>Artists: </label>
   <p>
     <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a>
-
   </p>
