@@ -3,4 +3,22 @@ class SongsController < ApplicationController
     @songs = Song.all
     erb :'songs/index'
   end
+  
+  get '/songs/new' do
+    erb :'songs/new'
+  end
+  
+  post 'songs/new' do
+    @song = Song.create(name: params["Name"])
+    @song.artist = Artist.create(name: params["Artist Name"])
+    @song.genre = params[:genres]
+    @song.save
+    
+    redirect to "/songs/#{@song.slug}"
+  end
+  
+  get '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'songs/show'
+  end
 end

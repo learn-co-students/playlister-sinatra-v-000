@@ -31,9 +31,4 @@ ActiveRecord::Schema.define(version: 20180824042652) do
     t.integer "artist_id"
   end
 
-  create_table "songs_genres", force: :cascade do |t|
-    t.integer "song_id"
-    t.integer "genre_id"
-  end
-
 end
