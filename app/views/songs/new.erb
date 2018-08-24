@@ -1,7 +1,7 @@
 <h1>Create a new song below:</h1>
 <form action="/songs" method="post">
-  Song Name: <input type="text" name="Name">
-  Artist Name: <input type="text" name="Artist Name">
+  Song Name: <input type="text" name="song[name]" id = "Name">
+  Artist Name: <input type="text" name="artist[name]" id="Artist Name">
   
   <h4>Genres:</h4>
   <% Genre.all.each do |genre| %>
