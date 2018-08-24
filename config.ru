@@ -5,7 +5,10 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
+<<<<<<< HEAD
 
+=======
+>>>>>>> updated solution, rebase from master
 use GenresController
 use ArtistsController
 use SongsController
