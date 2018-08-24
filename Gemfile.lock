@@ -55,6 +55,11 @@ GEM
     public_suffix (3.0.3)
     rack (2.0.5)
     rack-flash3 (1.0.5)
+<<<<<<< HEAD
+=======
+      rack
+    rack-protection (2.0.1)
+>>>>>>> a43758d924bc35341cac71f4a5fec8508c009b55
       rack
     rack-protection (2.0.3)
       rack
@@ -70,6 +75,7 @@ GEM
       rack (>= 1.0)
       rack-test (>= 0.5)
       ripl (>= 0.3.5)
+<<<<<<< HEAD
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -77,6 +83,15 @@ GEM
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.1)
+=======
+    rspec (3.7.0)
+      rspec-core (~> 3.7.0)
+      rspec-expectations (~> 3.7.0)
+      rspec-mocks (~> 3.7.0)
+    rspec-core (3.7.1)
+      rspec-support (~> 3.7.0)
+    rspec-expectations (3.7.0)
+>>>>>>> a43758d924bc35341cac71f4a5fec8508c009b55
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-mocks (3.8.0)
