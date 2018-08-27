@@ -1,0 +1,6 @@
+<h2>Welcome to the genres page!</h2>
+<h3>here we have all the genres, clicking their name sends you to their page</h3>
+<%@genres.each do |genre|%>
+<br>
+<p><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></p>
+<%end%>
