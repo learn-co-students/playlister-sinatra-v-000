@@ -7,8 +7,8 @@ module Concerns
   
   module ClassMethods
     def find_by_slug(text)
-      text = text.split("-").join(" ").titleize
-      object = self.find_by(:name => text)    
+      text = text.split("-").join(" ").downcase
+      self.where('lower(name)=lower(?)', text).first
     end
   end
 end
