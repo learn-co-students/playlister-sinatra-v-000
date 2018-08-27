@@ -1,6 +1,8 @@
 class SongsController < Sinatra::Base
-  get '/songs' do
+  
+  get '/songs/' do
     @songs = Song.all
-    erb :songs
+    erb :'/songs/index'
   end
+  
 end
