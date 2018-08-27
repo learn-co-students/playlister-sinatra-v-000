@@ -14,17 +14,32 @@ class SongsController < ApplicationController
 	end
 
 	post '/songs/new' do
-		@song = Song.create(name: params["Name"])
-		#@song.song_genres = Genre.create(genre_id: params["genres"])
-		if Artist.all.find_by_name(params["Artist Name"]).nil?
-			artist = Artist.create(name: params["Artist Name"])
-			@song.artist = artist
-			@song.save
-			redirect to '/songs/:slug'
+		@song = Song.create(name: params["name"])
+		if Artist.all.find_by_name(params["artist"]["name"]).nil?
+			artist = Artist.create(name: params["artist"]["name"])
 		else
-			artist = Artist.all.find_by_name(params[:artist])
-			@song.artist = artist
-			artist.save
+			artist = Artist.find_by_name(params["artist"]["name"])
 		end
+		@song.artist = artist
+
+		# do i need to create genres dont they already exist, and
+		# I just need associations?
+		@song.genres << Genre.find_by_name(name: params["genre"]["name"][])
+		#associate array of genre objects to @song.genres
+		@song.save
+		binding.pry
+		redirect to '/songs/:slug'
 	end
 end
+
+
+
+
+
+
+  #none of the following variations worked
+  #artist = Artist.find(name: params["artist"]["name"]) #dont know why
+  #artist = Artist.all.find(name: params["artist"]) #missing ["name"]
+  #artist = Artist.find(params["artist"]) #missing ["name"]
+  #artist = Artist.find(name: params["artist"]) #missing ["name"]
+  #artist = Artist.find_by_name(params["artist"]) #missing ["name"]

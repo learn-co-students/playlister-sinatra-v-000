@@ -1,8 +1,8 @@
 module Slugifiable
 	module InstanceMethods
 		def slug
-			#self.name.gsub(" ","-").downcase
-			self.name.downcase.split(" ").map {|word| word.gsub(/\W/,'')}.join("-")
+			self.name.gsub(" ","-").downcase
+			#self.name.downcase.split(" ").map {|word| #word.gsub(/\W/,'')}.join("-")
 			#removes extraneous punctuation(ex. "." or "'") that cannot be added back in with the find_by_slug method
 		end
 	end

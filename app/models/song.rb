@@ -1,14 +1,13 @@
 class Song < ActiveRecord::Base
+	require_relative './concerns/slugifiable.rb'
+
+	extend Slugifiable::ClassMethods
+	include Slugifiable::InstanceMethods
+
 	belongs_to :artist
 	has_many :song_genres
 	has_many :genres, through: :song_genres
 
-	def slug
-		self.name.downcase.split(" ").join("-")
-	end
+	validates :name, presence: true
 
-	def self.find_by_slug(slug_name)
-		name = slug_name.split("-").map! {|word| word.capitalize}.join(" ")
-		find_by_name(name)
-    end
 end
