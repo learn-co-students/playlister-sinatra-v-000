@@ -29,7 +29,7 @@ describe "Song" do
   end
 
   it "can slugify its name" do
-
+binding.pry
     expect(@song.slug).to eq("blank-space")
   end
 

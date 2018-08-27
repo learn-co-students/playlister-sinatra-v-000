@@ -8,7 +8,7 @@ module Concerns
   module ClassMethods
     def find_by_slug(text)
       text = text.split("-").join(" ").titleize
-      find_by(:name => text)    
+      object = self.find_by(:name => text)    
     end
   end
 end
