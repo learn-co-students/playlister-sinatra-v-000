@@ -2,9 +2,19 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>title</title>
+    <title>Edit Song</title>
   </head>
   <body>
+	  <form action='/songs/new' method='POST'>
+	  Song: <input type="text" name="Name" id="Name"><br>
+	  Artist: <input type="text" name="Artist Name" id="Artist Name"><br>
+	  Genres: <% Genre.all.each do |genre| %>
+	  	<%= genre.name%>
+		<input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+	  <%end%><br>
+	  <input type="submit" name="Create" id= "Create">
+	  </form>
+
 
   </body>
 </html>
