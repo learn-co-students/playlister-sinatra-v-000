@@ -7,6 +7,7 @@ module Slugifiable
 
     module InstanceMethods
         def slug
+            # binding.pry
             self.name.split(" ").collect {|name| name.downcase}.join("-")
         end
     end
