@@ -1,0 +1,23 @@
+<h1>Edit a song!</h1>
+<form class="edit_song" action="/songs/<%=@song.slug%>" method="post">
+  <p>Song Name: <%=@song.name%></p>
+  <br>
+  <label for="song_artist">Is the artist any of the ones already in our library?</label>
+  <%@artists.each do |artist|%>
+  <input type="radio" name="song[artist][id]" value="<%=artist.id%>" id="<%=artist.name%>" <%="checked" if @song.artist_id == artist.id%>><%=artist.name%>
+  <% end %>
+  <br>
+  <label for="song_genres">Does it fall into any of these genres?</label>
+  <%@genres.each do |genre|%>
+  <input type="checkbox" name="song[genres][ids][]" value="<%=genre.id%>" id="<%=genre.name%>" <%="checked" if @song.genre_ids.include?(genre.id)%>><%=genre.name%>
+  <% end %>
+  <br>
+  <label for="new_artist">Create new artist:</label>
+  <label for="Artist Name">Name:</label>
+  <input type="text" name="song[artist][name]" id="Artist Name">
+  <br>
+  <label for="new_genre">Create new genre:</label>
+  <label for="Genre Names">Enter new genres, comma separated:</label>
+  <input type="text" name="song[genres][names]" id="Genre Names">
+  <input type="submit" value="Save" id="Save">
+</form>

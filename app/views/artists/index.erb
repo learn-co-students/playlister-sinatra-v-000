@@ -1,0 +1,6 @@
+<h2>Welcome to the artists page!</h2>
+<h3>here we have all the artists, clicking their name sends you to their page</h3>
+<%@artists.each do |artist|%>
+<br>
+<p><a href="/artists/<%=artist.slug%>"><%=artist.name%></a></p>
+<%end%>

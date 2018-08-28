@@ -1,0 +1,6 @@
+<h2>Welcome to the songs page!</h2>
+<h3>here we have all the songs, clicking their name sends you to their page</h3>
+<%@songs.each do |song|%>
+<br>
+<p><a href="/songs/<%=song.slug%>"><%=song.name%></a></p>
+<%end%>
