@@ -10,8 +10,29 @@ class SongsController < Sinatra::Base
   get '/songs/new' do
     erb :'/songs/new'
   end
-  
-  get '/songs/show' do
+
+  post '/songs' do
+    song = Song.create(name: params['Name'])
+    binding.pry
+    artist = Artist.find_by(name: params['Artist Name'])
+    if artist.nil?
+      artist = Artist.create(name: params['Artist Name'])
+      artist.songs << song
+    else
+      song.artist = artist
+    end
+    
+    if !params['Genre Name'].empty?
+      genre = Genre.create(name: params['Genre Name'])
+      song.genres << genre
+      
+    end
+    genre_ids = params['genre_ids']
+    binding.pry
+    if genre_ids.nil?
+    end
+    
+    redirect to "/songs/#{song.slug}"
   end
   
   get '/songs/:slug' do
