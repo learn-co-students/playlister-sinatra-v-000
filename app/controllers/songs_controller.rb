@@ -1,11 +1,14 @@
+require 'rack-flash'
 class SongsController < ApplicationController
-	get '/songs/new' do
-		erb :'/songs/new'
-	end
+	use Rack::Flash
 
 	get '/songs' do
 		@songs = Song.all
 		erb :'/songs/index'
+	end
+
+	get '/songs/new' do
+		erb :'/songs/new'
 	end
 
 	get '/songs/:slug' do
@@ -13,29 +16,41 @@ class SongsController < ApplicationController
 		erb :'/songs/show'
 	end
 
-	post '/songs/new' do
-		@song = Song.create(name: params["name"])
-		if Artist.all.find_by_name(params["artist"]["name"]).nil?
-			artist = Artist.create(name: params["artist"]["name"])
-		else
-			artist = Artist.find_by_name(params["artist"]["name"])
-		end
-		@song.artist = artist
-
-		# do i need to create genres dont they already exist, and
-		# I just need associations?
-		@song.genres << Genre.find_by_name(name: params["genre"]["name"][])
-		#associate array of genre objects to @song.genres
+	post '/songs' do
+		#binding.pry
+		@song = Song.create(name: params["Name"])
+		#binding.pry
+		@song.artist = Artist.find_or_create_by(name: params["Artist Name"])
+		#what the hell is going on, on line 23, how does that relate to my params name="["artist"]["name"]" this looks like and id "reference"
+		@song.genre_ids = params[:genres]
 		@song.save
-		binding.pry
-		redirect to '/songs/:slug'
+		#binding.pry
+		flash[:message] = "Successfully created song."
+		redirect("/songs/#{@song.slug}")
+	end
+
+	get 'songs/:slug/edit' do
+		@song = Song.find_by_slug(params[:slug])
+		erb :'/songs/edit'
+	end
+
+	patch '/songs/:slug' do
+		@song = Song.find_by_slug(params[:slug]) #
+		@song.update(params[:song])
+		@song.artist = Artist.find_or_create_by(name: params[:artist][:name])
+		#do I create or alter genre names or just the genres selected for this song?
+		#@song.song_genres.create(genre: params)
+		@song.genre_ids = params[:genres]
+		@song.save
+		flash[:message] = "Successfully updated song."
+		redirect("/songs/#{@song.slug}")
 	end
 end
 
 
 
 
-
+#flash message directions say to put if statement at top of view, does not indicate which view
 
   #none of the following variations worked
   #artist = Artist.find(name: params["artist"]["name"]) #dont know why

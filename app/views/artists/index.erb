@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Artist Index</title>
-  </head>
-  <body>
-	  <h1> Artist Index </h1>
-		<%@artists.each do |artist| %>
-			<a href="/artists/<%=artist.slug%>"><%= artist.name %></a><br>
-		<%end%>
-	</body>
-</html>
+
+<h1> Artist Index </h1>
+<%@artists.each do |artist| %>
+	<a href="/artists/<%=artist.slug%>"><%= artist.name %></a><br>
+<%end%>
