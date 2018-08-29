@@ -8,3 +8,7 @@ require 'sinatra/activerecord/rake'
 task :console do
   Pry.start
 end
+
+task :migration do
+  system("rake db:migrate && rake db:migrate SINATRA_ENV=test")
+end
