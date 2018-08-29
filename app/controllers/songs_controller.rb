@@ -1,6 +1,9 @@
+require 'rack-flash'
 class SongsController < Sinatra::Base
 
   set :views, Proc.new { File.join(root, "../views/") }
+  enable :sessions
+  use Rack::Flash
 
   get '/songs' do
     @songs = Song.all
@@ -10,29 +13,32 @@ class SongsController < Sinatra::Base
   get '/songs/new' do
     erb :'/songs/new'
   end
-
+  
   post '/songs' do
-    song = Song.create(name: params['Name'])
-    binding.pry
-    artist = Artist.find_by(name: params['Artist Name'])
+    @song = Song.create(name: params['Name'])
+    artist = Artist.find_by_slug(params['Artist Name'])
     if artist.nil?
       artist = Artist.create(name: params['Artist Name'])
-      artist.songs << song
+      artist.songs << @song
     else
-      song.artist = artist
+      @song.artist = artist
     end
     
     if !params['Genre Name'].empty?
       genre = Genre.create(name: params['Genre Name'])
-      song.genres << genre
-      
+      @song.genres << genre
     end
-    genre_ids = params['genre_ids']
-    binding.pry
-    if genre_ids.nil?
+    genre_ids = params['genres']
+    if !genre_ids.nil?
+      genre_ids.each do |g_id|
+        genre = Genre.find_by(id: g_id)
+        @song.genres << genre
+      end
     end
-    
-    redirect to "/songs/#{song.slug}"
+    @song.save
+    flash[:message] = "Successfully created song."
+
+    redirect to ("songs/#{@song.slug}")
   end
   
   get '/songs/:slug' do
@@ -43,15 +49,15 @@ class SongsController < Sinatra::Base
 
     erb :'/songs/show'
   end
-  
-  post '/songs/:slug' do
-    redirect to '/songs/show'
-  end
-  
+
   get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    if !@song.nil?
+      @artist = Artist.find(@song.artist_id)
+    end
     erb :'/songs/edit'
   end
 
-  patch '/songs/:slug' do
-  end
+
+
 end
