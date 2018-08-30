@@ -9,12 +9,12 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
-gem 'rack-flash3'
+# gem 'rack-flash3'
+gem 'tux'
 
 group :test do
   gem 'rspec'
   gem 'capybara'
-  gem 'rack-test'
+  gem 'rack-test', '0.6.3'
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
-  gem 'rack-flash3'
 end
