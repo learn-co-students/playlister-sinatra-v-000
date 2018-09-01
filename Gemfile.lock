@@ -51,12 +51,15 @@ GEM
       method_source (~> 0.9.0)
     public_suffix (3.0.3)
     rack (2.0.5)
+    rack-flash3 (1.0.5)
+      rack
     rack-protection (2.0.3)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rake (12.3.1)
     require_all (2.0.0)
+    require_relative (1.0.3)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -100,9 +103,11 @@ DEPENDENCIES
   capybara
   database_cleaner!
   pry
+  rack-flash3
   rack-test
   rake
   require_all
+  require_relative
   rspec
   shotgun
   sinatra
@@ -111,4 +116,4 @@ DEPENDENCIES
   thin
 
 BUNDLED WITH
-   1.16.1
+   1.16.4
