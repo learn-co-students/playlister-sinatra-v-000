@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+
+
 describe "Genre" do
   before do 
     @artist = Artist.create(:name => "Taylor Swift") 
