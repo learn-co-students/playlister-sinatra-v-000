@@ -20,6 +20,11 @@ class SongsController < ApplicationController
     redirect to :"/songs/#{@song.slug}"
   end
 
+
+  get "/songs/new" do
+    erb :'songs/new'
+  end
+
   get "/songs/:slug" do
     @song = Song.find_by_slug(params[:slug])
     erb :'/songs/show'
@@ -28,10 +33,6 @@ class SongsController < ApplicationController
   get "/songs/:slug/edit" do
     @song = Song.find_by_slug(params[:slug])
     erb :'/songs/edit'
-  end
-
-  get "/songs/new" do
-    erb :'songs/new'
   end
 
   patch '/songs/:slug' do
