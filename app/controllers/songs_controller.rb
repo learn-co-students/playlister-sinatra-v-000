@@ -7,7 +7,7 @@ class SongsController < ApplicationController
 
   post "/songs" do
     @song = Song.create(:name => params[:name])
-    params[:genres].each do |id|
+    params[:genre_ids].each do |id|
       @song.genres << Genre.find_by_id(id)
     end
     artist = Artist.find_or_create_by(:name => params[:artist])
@@ -19,7 +19,6 @@ class SongsController < ApplicationController
     flash[:message] = "Successfully created song."
     redirect to :"/songs/#{@song.slug}"
   end
-
 
   get "/songs/new" do
     erb :'songs/new'
