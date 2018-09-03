@@ -15,7 +15,7 @@ module Slug
 
   module ClassMethods
     def find_by_slug(slug)
-      self.all.detect {|x| x.slug = slug}
+      self.all.detect {|x| x.slug == slug}
     end
   end
 end
