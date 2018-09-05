@@ -3,14 +3,11 @@ class Artist < ActiveRecord::Base
   has_many :genres, through: :songs
 
   def slug
-    artist_name = self.name
-    slug = artist_name.downcase.strip.gsub(' ', '-')
+    name = self.name
+    slug = name.downcase.strip.gsub(' ', '-')
   end
 
-  def find_by_slug(slug)
-    slug.find_by do |name|
-      name.slug
-
-    end
+  def self.find_by_slug(slug)
+    self.all.detect{|x|x.slug == slug}
   end
 end

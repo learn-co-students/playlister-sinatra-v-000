@@ -9,10 +9,15 @@ class SongsController < Sinatra::Base
   set :views, Proc.new { File.join(root, "../views/") }
 
   get '/songs' do
-    @songs = Songs.all
-
+    @songs = Song.all
     erb :"songs/index"
   end
+
+  get '/songs/new' do
+    @songs = Song.all
+    erb :"songs/new"
+  end
+
 
   post '/songs' do
     @songs = Song.create(params)

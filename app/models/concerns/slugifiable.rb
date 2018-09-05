@@ -1,26 +1,24 @@
 # module Slugifiable
 #   module InstanceMethods
 #     def slug
-#       artist_name = self.name
-#       slug = artist_name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+#       @slug = slugify(self.name)
+#     end
+#
+#     def slugify(name)
+#       split_on_apostrophes = name.split(/[']/)
+#       name_without_apost = split_on_apostrophes.join
+#       name_array = name_without_apost.downcase.split(/[\w]/)
+#       name_array.delete_if{|x|x==""}
+#       new_name = name_array.join("-")
 #     end
 #   end
 #
 #   module ClassMethods
-#     def find_by_slug(slug)
-#       @slug = slug
-#       format_slug_beginning
-#       results = self.where("name LIKE ?", @short_slug)
-#       results.detect do |result|
-#         result.slug === @slug
-#       end
-#     end
 #
-#     def format_slug_beginning
-#       slug_beginning = @slug.split("-")[0]
-#       slug_beginning.prepend("%")
-#       slug_beginning << "%"
-#       @short_slug = slug_beginning
+#     def self.find_by_slug(slug)
+#       binding.pry
+#       self.all.detect{|x|x.slug == slug}
 #     end
 #   end
+#
 # end
