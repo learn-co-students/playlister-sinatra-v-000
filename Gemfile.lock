@@ -116,6 +116,7 @@ DEPENDENCIES
   capybara
   database_cleaner!
   pry
+  rack
   rack-flash3
   rack-test
   rake
@@ -129,4 +130,4 @@ DEPENDENCIES
   tux (~> 0.3.0)
 
 BUNDLED WITH
-   1.16.2
+   1.16.3
