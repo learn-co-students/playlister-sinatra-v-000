@@ -1,8 +1,4 @@
 
-<%if !session[:message].nil?%>
-  <%=session[:message]%>
-  <%session[:message] = nil%>
-<%end%>
 <%if flash.has?(:message)%>
 <%="#{flash[:message]} that's all from flash!"%>
 <%end%>

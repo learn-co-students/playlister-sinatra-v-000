@@ -1,4 +1,4 @@
-require 'rack-flash'
+
 class SongsController < ApplicationController
 
   get '/songs' do
@@ -38,7 +38,6 @@ class SongsController < ApplicationController
       # erb :"songs/show"
       # redirect "/songs/#{song.slug}"
       @target = song
-      session[:message] = "Successfully created song.: #{song.name}, by #{song.artist.name}, with genres #{song.genres.map{|g| g.name}.join(" ")}"
       redirect "/songs/#{song.slug}"
     else
       redirect '/songs'
