@@ -1,30 +1,13 @@
-<!-- <h1>Genres - <%= @genre.name %></h1>
-<p>Genres:</p>
+<h1>Genre - <%= @genre.name.capitalize %></h1>
+<p><u>Songs:</u></p>
 <ul>
-<% @genre.artists.each do |artist| %>
-  <li><a href="/artists/<%= artist.slug %>"></a></li>
-  <%end%>
-
-</ul> -->
-
-
-
-
-
-
-
-
-
-  <p>Songs:</p>
-  <ul>
-    <% @artist.songs.each do |song| %>
-      <li><a href="/songs/<%= song.slug %>"><%= song.name %></a></li>
-    <%end%>
-  </ul>
-
-  <p>Genres:</p>
-  <ul>
-    <% artist.genres.each do |genre| %>
-      <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></li>
-    <%end%>
-  </ul>
+  <% @genre.songs.each do |s| %>
+    <li><a href="/songs/<%= s.slug %>"><%= s.name %></a></li>
+  <% end %>
+</ul>
+<p><u>Artists:</u></p>
+<ul>
+  <% @genre.artists.each do |a| %>
+    <li><a href="/artists/<%= a.slug %>"><%= a.name %></a></li>
+  <% end %>
+</ul>
