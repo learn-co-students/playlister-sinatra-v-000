@@ -20,17 +20,37 @@ class SongsController < ApplicationController
     params[:song]["genre_ids"].each do |id|
       song.genres << Genre.find(id)
     end
-    if !params[:song].keys.include?('artist_id') && Artist.find_by(name: params[:song]["artist_name"]) == nil
+    if Artist.find_by(name: params[:song]["artist_name"]) == nil
       artist = Artist.create(name: params[:song]["artist_name"])
       song.artist_id = artist.id
-    elsif !params[:song].keys.include?('artist_id') && Artist.find_by(name: params[:song]["artist_name"]) != nil
-      song.artist_id = Artist.find_by(name: params[:song]["artist_name"]).id
     else
-      song.artist_id = params[:song]["artist_id"].first
+      song.artist_id = Artist.find_by(name: params[:song]["artist_name"]).id
     end
     song.save
     flash[:message] = "Successfully created song."
     redirect '/songs/' + song.slug
+  end
+
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    @genres = Genre.all
+    erb :'/songs/edit'
+  end
+
+  patch '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+
+    @song.name = params[:song]["name"]
+    @song.update(genre_ids: params[:song]["genre_ids"])
+    if Artist.find_by(name: params[:song]["artist_name"]) == nil
+      artist = Artist.create(name: params[:song]["artist_name"])
+      @song.artist_id = artist.id
+    else
+      @song.artist_id = Artist.find_by(name: params[:song]["artist_name"]).id
+    end
+    @song.save
+    flash[:message] = "Successfully updated song."
+    redirect '/songs/' + @song.slug
   end
 
   get '/songs/:slug' do
