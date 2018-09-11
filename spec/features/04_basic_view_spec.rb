@@ -101,6 +101,7 @@ describe "Playlister Basics" do
 
     describe "/artists/:slug" do
       before do
+        
         visit "/artists/#{@artist.slug}"
       end
 
