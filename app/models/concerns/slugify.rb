@@ -1,13 +1,9 @@
-# module Slugify
-#   module InstanceMethods
-#     def slug (filename)
-#       song_name = filename.gsub(/^(.*) - /, "").gsub(/\[([^\]]*)\].*/, "")
-#     end
-#   end
+
 #
-#   module Class Methods
-#     def find_by_slug(slug)
-#       instance = self.class.find_by(name: slug)
-#     end
+#
+#   module SlugifyableClassMethods
+#     def find_by_slug(slug) 
+        # self.all.find{ |instance| instance.slug == slug } 
+      # end
 #   end
-# end
+# https://github.com/smithWEBtek/playlister-sinatra-v-000

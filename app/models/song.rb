@@ -1,4 +1,6 @@
 class Song < ActiveRecord::Base
+  # include SlugifyableInstanceMethods
+  # extend SlugifyableClassMethods
   belongs_to :artist
   has_many :song_genres
   has_many :genres, through: :song_genres
@@ -8,7 +10,6 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    song_name = slug.split("-").map(&:capitalize).join(' ')
-    song = self.find_by(name: song_name)
-  end
+   Song.all.find{|song| song.slug == slug}
+ end
 end
