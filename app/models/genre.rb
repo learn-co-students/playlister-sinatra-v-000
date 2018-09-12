@@ -10,8 +10,7 @@ class Genre < ActiveRecord::Base
     end
 
     def self.find_by_slug(slug)
-        artist_name = slug.split('-').map{|word| word.capitalize}.join(" ")
-        object = self.find_by(:name=>artist_name)
-        object
+        name = slug.split('-').join(" ")
+        self.all.detect{|i| i.name.downcase == name}
     end
 end

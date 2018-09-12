@@ -2,7 +2,9 @@
 
 <h3>Artists:</h3>
 <ol>
-<%@genre.artists.each do |artist|%>
+<%artists = []%>
+<%artists = @genre.artists.uniq%>
+<%artists.each do |artist|%>
     <li><a href="/artists/<%=artist.slug%>"><%=artist.name%></a></li>
     <%end%>
 </ol>
