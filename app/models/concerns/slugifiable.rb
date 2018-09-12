@@ -1,16 +1,14 @@
 module Slugifiable
   module InstanceMethods
     def slug
-      name.downcase.split(' ').join("-")
+      self.name.downcase.split(' ').join("-")
       #binding.pry
     end
   end
   
   module ClassMethods
     def find_by_slug(slug)
-      param = slug.split("-").join(" ")
-      Artist.find_by(name: param)
-      #binding.pry
+      self.all.find{ |instance| instance.slug == slug }
     end
   end
 end
