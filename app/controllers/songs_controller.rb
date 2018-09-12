@@ -36,11 +36,11 @@ class SongsController < ApplicationController
   
   post '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    if params.include?(["Name"])
+    if params["Name"]
       @song.update(name: params["Name"])
-    elsif params.include?(["Artist Name"])
+    elsif params["Artist Name"] 
       @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
-    elsif params.include?(["genres"])
+    elsif params["genres"] 
       @song.update(genre_ids: params["genres"])
     end
     @song.save
