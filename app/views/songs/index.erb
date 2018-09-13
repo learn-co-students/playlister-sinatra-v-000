@@ -1,0 +1,9 @@
+<h1> Song Index Page </h1>
+<br></br>
+
+<% @songs.each do |song| %>
+  <a href="/songs/<%=song.slug%>"> <%=song.name%> </a>
+  <br></br>
+<% end %>
+
+<br></br>
