@@ -1,4 +1,4 @@
 <h1>List of All Genres </h1>
-<% @genres.each do |song| %>
-<li><a href="/show/<%=song.id%>"><%=song.name%> </a></li>
+<% @genres.each do |genre| %>
+<li><a href="/genres/<%=genre.slug%>"><%=genre.name%> </a></li>
 <%end%>
