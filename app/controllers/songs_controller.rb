@@ -5,7 +5,9 @@ class SongsController < ApplicationController
 
   get '/songs' do
     @songs = Song.all
+# binding.pry
     erb :'/songs/index'
+
   end
 
   get '/songs/new' do
@@ -34,7 +36,7 @@ class SongsController < ApplicationController
     erb :'songs/edit'
   end
 
-  patch '/songs/:slug' do
+  post '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     @song.update(params[:song])
     @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
