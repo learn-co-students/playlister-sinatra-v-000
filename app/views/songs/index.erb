@@ -1,5 +1,5 @@
-<% @songs.each do |song| %>
+<h1>Testing</h1>
 
-  <li> <a href="/songs/<%= song.slug %>"> <%= song.name %> </a></li>
-<% end %>
-<h2>We are trying to find the errro</h1>
+<% @songs.each do |song| %>
+<a href="/songs/<%= song.slug %>"><%=song.name %></a><br></br>
+<%end%>
