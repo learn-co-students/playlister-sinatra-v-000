@@ -8,6 +8,8 @@ class LibraryParser
     self.new.call
   end
 
+# A$AP Rocky - Peso [dance].mp3
+
   def parse_filename(filename)
     artist_match = filename.match(/^(.*) -/)
     song_match   = filename.match(/- (.*) \[/)
@@ -34,7 +36,7 @@ class LibraryParser
 
     song.song_genres.build(genre: genre)
     song.artist = artist
-    
+
     song.save
   end
 end
