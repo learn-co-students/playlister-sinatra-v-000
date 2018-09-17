@@ -1,7 +1,4 @@
-class Artist < ActiveRecord::Base
-  has_many :songs
-  has_many :genres, :through => :songs
-
+class Slug < ActiveRecord::Base
   def self.slug
     self.name = self.name.gsub(" ","-").downcase
   end
