@@ -52,11 +52,7 @@ class SongsController < ApplicationController
 
     @song.update(genre_ids: params[:genres])
 
-    if params[:new_artist_name].blank?
-      @artist = Artist.find_by(params[:artist_name])
-    else
-      @artist = Artist.find_or_create_by(name: params[:new_artist_name])
-    end
+    @artist = Artist.find_or_create_by(name: params["Artist Name"])
     @song.update(artist: @artist)
 
     flash[:message] = "Successfully updated song."

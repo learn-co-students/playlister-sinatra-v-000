@@ -4,17 +4,18 @@
   <input type="text" id="Name" name="name" placeholder="Song Name">
   <h4>Select genres:</h4>
   <% @genres.each do |genre| %>
-    <input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%=genre.id%>" <%='checked' if @song.genres.include?(genre) %>><%=genre.name%></input>
+    <input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%=genre.id%>" <%='checked' if @song.genres.include?(genre) %>>
     <br></br>
   <% end %>
   <br></br>
-  <h4>Choose an existing artist:</h4>
+  <!-- <h4>Choose an existing artist:</h4>
   <% @artists.each do |artist| %>
     <input type="radio" name="artist_name" id="<%=artist.name%>" value="<%=artist.name%>" <%='checked' if @song.artist == artist %>><%=artist.name%></input>
   <% end %>
+  <br></br> -->
+  <label for="Artist Name">Or create a new artist:</label>
+  <input type="text" name="Artist Name">
   <br></br>
-  <label for="artist_name">Or create a new artist:</label>
-  <input type="text" id="Artist Name" name="new_artist_name" placeholder="Artist Name">
   <input type="submit" value="Update">
 </form>
 
