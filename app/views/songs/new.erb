@@ -1,25 +1,37 @@
 <h3>Create a Song:</h3>
 <form method="post" action="/songs">
-  <input type="text" id="Name" name="name" placeholder="Song Name">
+  <!-- <label> Artist Name </label>
+  <input type="text" name="Artist Name"> </br>
+
+  <label> Song Name </label>
+  <input type="text" name="Name"> </br>
+
+  <label> Genres </label>
+  <% Genre.all.each do |genre| %>
+    <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+  <% end %> -->
+
+  <label for="Name">Song Name</label>
+  <input type="text" name="Name" placeholder="Song Name">
   <h4>Select a genre:</h4>
   <% @genres.each do |genre| %>
-    <input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%=genre.id%>"><%=genre.name%></input>
+    <input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%=genre.id%>">
     <br></br>
   <% end %>
   <br></br>
-  <h4>Choose an existing artist:</h4>
+  <!-- <h4>Choose an existing artist:</h4>
   <% @artists.each do |artist| %>
     <input type="radio" name="artist_name" id="<%=artist.name%>" value="<%=artist.name%>"><%=artist.name%></input>
-  <% end %>
+  <% end %> -->
   <br></br>
-  <label for="artist_name">Or create a new artist:</label>
-  <input type="text" id="Artist Name" name="new_artist_name" placeholder="Artist Name">
+  <label for="Artist Name">Or create a new artist:</label>
+  <input type="text" name="Artist Name">
+  <br></br>
   <input type="submit" value="Create">
 </form>
 
 params = {
-  name => params[name],
-  genre_name => params[genre_name],
-  artist_name => params[artist_name],
-  new_artist_name = params[new_artist_name]
+  name => params[Name],
+  genres => params[genres],
+  Artist Name => params[Artist Name],
 }
