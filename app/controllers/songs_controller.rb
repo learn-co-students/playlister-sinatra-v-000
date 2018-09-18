@@ -1,6 +1,7 @@
 require 'rack-flash'
 
 class SongsController < ApplicationController
+  enable :sessions
   use Rack::Flash
 
   get '/songs' do
@@ -37,6 +38,28 @@ class SongsController < ApplicationController
     redirect("/songs/#{@song.slug}")
     # redirect "/songs/#{@song.slug}"
     # redirect to("/songs/#{@song.slug}")
+  end
+
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'/songs/edit'
+  end
+
+  patch '/songs' do
+    @song = Song.find_by_slug(params[:slug])
+
+    @song.update(genre_ids: params[:genres])
+
+    if params[:new_artist_name].blank?
+      @artist = Artist.find_by(params[:artist_name])
+    else
+      @artist = Artist.find_or_create_by(name: params[:new_artist_name])
+    end
+    @song.update(artist: @artist)
+
+    flash[:message] = "Successfully updated song."
+
+    redirect("/songs/#{@song.slug}")
   end
 
 end
