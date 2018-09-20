@@ -5,6 +5,7 @@ require 'pry'
    get '/songs' do
     @song = Song.all
     erb :'songs/index'
+    pry.binding
   end
    get '/songs/new' do
     erb :'songs/new'
