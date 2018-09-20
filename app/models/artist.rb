@@ -1,14 +1,7 @@
 class Artist < ActiveRecord::Base
-  include Slug
+  include Models::Concerns::Slug
   has_many :songs
   has_many :genres, through: :songs
-
-  attr accessor :name
-
-  def create(name)
-    @artist = Artist.new
-    @artist.save
-  end
 
   def slug(name)
     name.slug
