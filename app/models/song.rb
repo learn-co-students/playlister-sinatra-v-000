@@ -1,8 +1,8 @@
 class Song < ActiveRecord::Base
-  # include Slugifiable::InstanceMethod
-  # extend Slugifiable::ClassMethod
-  belongs_to :artists
+  belongs_to :artist
   has_many :song_genres
   has_many :genres, through: :song_genres
 
+  # include Slugifiable::InstanceMethod
+  # extend Slugifiable::ClassMethod
 end
