@@ -1,13 +1,12 @@
 module Slugifiable
   module InstanceMethods
     def slug
-      self.name.parameterize
+      self.name.gsub(" ", "-").downcase
     end
   end
-
-  module ClassMethods
-    def self.find_by_slug(slug)
-      self.all.find{|para| para.name.parameterize == slug}
+   module ClassMethods
+    def find_by_slug(slug)
+      self.all.detect{|artist| artist.slug == slug }
     end
   end
 end
