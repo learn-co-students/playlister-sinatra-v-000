@@ -1,0 +1,18 @@
+<DOCTYPE! html>
+<html>
+
+  <head>
+    <title> Welcome to Playlister! </title> 
+  </head>
+
+  <body>
+    <h1>Welcome to Playlister!</h1>
+    <h3> Here is a list of Genres available in our library. Click on the link for more information!</h3>
+
+    <% @genres.all.each do |genre|%>
+      <a href="/genres/<%= genre.slug %>"><%= genre.name %></a>
+      <br>
+    <%end%>   
+  </body>
+
+</html>
