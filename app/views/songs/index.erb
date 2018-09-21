@@ -2,5 +2,5 @@
 
 <% @song.each do | s | %>
   <p><%= s.name %></p>
-  <a href="/songs/<%= s.id %>"></a>
+  <a href='/songs/#{s.slug}'></a>
 <% end %>
