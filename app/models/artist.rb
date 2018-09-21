@@ -1,13 +1,13 @@
 class Artist < ActiveRecord::Base
-  include Models::Concerns::Slug
   has_many :songs
   has_many :genres, through: :songs
 
-  def slug(name)
-    name.slug
+  def slug
+    name.downcase.gsub(" ", "-")
   end
 
-  def find_by_slug
-    self.slug
+  def self.find_by_slug(slug)
+    Artist.find{|artist| artist.slug == slug}
   end
+
 end
