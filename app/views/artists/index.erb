@@ -1,5 +1,5 @@
 <h1>All Artists</h1>
 
-<% @artists.each_with_index do |artist, id| %>
-  <a href="/artists/<% artist.slug %>"><%= id + 1 %></a><br>
+<% @artists.each do | s | %>
+  <a href="/artists/<%= s.slug %>">Name: <%= s.name %></a>
 <% end %>
