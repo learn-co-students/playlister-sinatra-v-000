@@ -1,3 +1,5 @@
+require_relative '../app/models/concerns/slugifiable'
+
 ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'
