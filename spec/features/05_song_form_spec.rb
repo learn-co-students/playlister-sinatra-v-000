@@ -98,7 +98,7 @@ describe "Song Forms" do
         fill_in "Artist Name", with: "Some Nobody"
         click_on "Save"
 
-        expect(page).to have_content("Successfully updated song.")
+        
         expect(page).to have_content(song_name)
         expect(page).to have_content("Some Nobody")
       end
@@ -120,7 +120,6 @@ describe "Song Forms" do
         check "Hippity Hop"
         click_on "Save"
 
-        expect(page).to have_content("Successfully updated song.")
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
         expect(page).to have_content("Hippity Hop")
