@@ -6,4 +6,14 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index
   end
+
+  helpers do 
+    def slug
+      name.gsub(' ','-').lowercase
+    end
+
+    def self.find_by_slug(slug)
+      self.all.find { |e| e.slug == slug }
+    end
+  end
 end
