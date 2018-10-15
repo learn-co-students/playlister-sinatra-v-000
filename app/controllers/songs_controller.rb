@@ -1,55 +1,45 @@
+require 'sinatra/base'
 require 'rack-flash'
+
 class SongsController < ApplicationController
   enable :sessions
   use Rack::Flash
-   get '/songs' do
-    @songs = Song.all
-    erb :'songs/index'
-  end
-   get '/songs/new' do
-    @genres = Genre.all
-    erb :'songs/new'
 
-   get '/songs/:slug' do
-    @song = Song.find_by_slug(params["slug"])
-    erb :'songs/show'
+  get '/songs' do
+    @songs = Song.all
+    erb :'/songs/index'
   end
-   post '/songs' do
+
+  get '/songs/new' do
+    erb :'/songs/new'
+  end
+
+  post '/songs' do
     @song = Song.create(name: params["Name"])
     @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
-    @song.genre_ids = params["genres"] #plural b/c whats inside table...saving array here
+    @song.genre_ids = params[:genres]
     @song.save
-    @songs = Song.all
     flash[:message] = "Successfully created song."
-    redirect to "/songs/#{@song.slug}" #double quotes for interpolation
+    redirect to "songs/#{@song.slug}"
   end
-   post '/songs/:slug' do
-    if
-      @song = Song.find_by_slug(params["slug"])
-    else
-      @song = Song.create(name: params["Name"])
-    end
+
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'/songs/edit'
+  end
+
+  get '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'/songs/show'
+  end
+
+  patch '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    @song.update(params[:song])
     @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
-    @song.genre_ids = params["genres"]
-    @song.save
-    erb :'songs/show'
-  end
-   get '/songs/:slug/edit' do
-    @song = Song.find_by_slug(params["slug"])
-    @genres = Genre.all
-    erb :'songs/edit'
-  end
-   patch '/songs/:slug' do
-    if
-      @song = Song.find_by_slug(params["slug"])
-    else
-      @song = Song.create(name: params["Name"])
-    end
-    @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
-    @song.genre_ids = params["genres"]
+    @song.genre_ids = params[:song][:genre_ids]
     @song.save
     flash[:message] = "Successfully updated song."
-    erb :'songs/show'
+    redirect to "songs/#{@song.slug}"
   end
- end
- end
+end
