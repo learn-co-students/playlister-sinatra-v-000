@@ -1,0 +1,13 @@
+<h1><%= @genre.name %></h1>
+
+<ul>
+	<% SongGenre.all.each do |song| %>
+		
+		<% if song.genre_id == @genre.id %>
+			<% new_song = Song.find_by_id(song.song_id) %>
+			<li><a href="/songs/<%= new_song.slug %>"><%= new_song.name %></a></li>
+			<% artist = Artist.find_by_id(song.id) %>
+			<li><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></li>
+		<% end %>
+	<% end %>
+</ul>
