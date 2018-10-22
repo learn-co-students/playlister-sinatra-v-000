@@ -1,1 +1,7 @@
-<h1>Songs/index.erb</h1>
+<h1>Songs</h1>
+<ul>
+<%@songs.each do |song|%>
+<li><%=song.name%> | <a href="/songs/<%=song.slug%>">Click here for details</a></li>
+<br><br>
+<%end%>
+</ul>
