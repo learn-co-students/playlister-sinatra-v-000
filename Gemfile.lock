@@ -7,6 +7,9 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    actionmailer (0.6.1)
+      actionpack (>= 0.9.5)
+    actionpack (1.4.0)
     activemodel (4.2.5)
       activesupport (= 4.2.5)
       builder (~> 3.1)
@@ -55,6 +58,11 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rails (0.9.5)
+      actionmailer (>= 0.6.1)
+      actionpack (>= 1.4.0)
+      activerecord (>= 1.6.0)
+      rake (>= 0.4.15)
     rake (12.3.1)
     require_all (2.0.0)
     rspec (3.8.0)
@@ -101,6 +109,7 @@ DEPENDENCIES
   database_cleaner!
   pry
   rack-test
+  rails
   rake
   require_all
   rspec
@@ -111,4 +120,4 @@ DEPENDENCIES
   thin
 
 BUNDLED WITH
-   1.16.1
+   1.16.5
