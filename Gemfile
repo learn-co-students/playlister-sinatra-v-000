@@ -10,6 +10,8 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry'
 gem 'tux'
+gem 'slugify'
+
 
 group :test do
   gem 'rspec'
