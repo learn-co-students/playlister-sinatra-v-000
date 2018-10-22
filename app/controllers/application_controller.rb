@@ -7,4 +7,5 @@ class ApplicationController < Sinatra::Base
     @artist = Artist.all
     erb :index
   end
+
 end
