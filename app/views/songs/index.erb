@@ -1,9 +1,12 @@
-<h1>Welcome to the PlayLister</h1>
-
-<h2>What would you like to do today<br>
-  Click on one of the Links below to Proceed</h2><br>
-
-  <a href="/songs/new">Make a new Song</a>
-  <a href="/songs">To see all Songs</a>
-  <a href="/artist/new">Make a new Artist</a>
-  <a href="/artist">To see all Artists</a>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>All Songs</title>
+</head>
+<body>
+  <h2>This are all the songs in the PlayList</h2>
+  <% @songs.each do |song|%>
+  <a href="/songs/<%=song.slug%>"></a>
+  <%end%>
+</body>
+</html>
