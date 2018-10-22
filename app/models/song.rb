@@ -1,4 +1,3 @@
-require 'pry'
 class Song < ActiveRecord::Base
   belongs_to :artist
   has_many :song_genres
@@ -10,11 +9,10 @@ class Song < ActiveRecord::Base
 
   def self.find_by_slug(slug)
 
-    self.all.detect do |song|
-    
-       song.slug == slug
-
-
+    self.all.find do |song|
+       if song.slug == slug
+      return song
+     end
     end
   end
 end
