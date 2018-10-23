@@ -9,6 +9,6 @@
 
 <ul>
   <%@artist.genres.each do |genre|%>
-  <li><%= genre.name %></li>
+  <li><a href="/genres/<%=genre.slug%>"><%= genre.name %></a></li>
   <%end%>
 </ul>
