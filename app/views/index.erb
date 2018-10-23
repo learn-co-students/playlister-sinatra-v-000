@@ -1,0 +1,16 @@
+<h1>Index.erb</h1>
+
+<ol>
+  <%@artist.each do |a|%>
+  <li><%= a.name %> | <%= a.name.slugify %>
+    <br>
+    Songs: <%a.songs.each do |s|%>
+    <ul>
+      <li><%=s.name%></li>
+    </ul>
+    <%end%>
+  </li>
+  <br>
+  <br>
+  <%end%>
+</ol>
