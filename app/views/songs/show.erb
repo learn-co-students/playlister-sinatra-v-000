@@ -1,5 +1,8 @@
 <!DOCTYPE HTML>
 <html>
+<% if flash.has?(:message) %>
+<%= flash[:message] %>
+<% end %>
 <head>
   <title>Song Info</title>
 </head>
