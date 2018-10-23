@@ -33,4 +33,15 @@ class SongsController < ApplicationController
      redirect("/songs/#{@song.slug}")
   end
 
+  post '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+        binding.pry
+    @song.update(params[:song])
+
+
+    flash[:message] = "Successfully edited song."
+
+    redirect "/songs/#{@song.slug}"
+  end
+
 end
