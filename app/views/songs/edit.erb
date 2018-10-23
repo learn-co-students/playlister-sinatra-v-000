@@ -1,7 +1,7 @@
 <h1>Edit <%=@song.name%></h1>
 <br><br>
 <form method="POST" action="/songs/<%= @song.slug %>">
-  <input id="hidden" type="hidden" name="_method" value="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
   Song Name: <input type="text" name="Name" value="<%=@song.name%>">
   <br><br>
   Artist Name: <input type="text" name="Artist Name" value="<%=@song.artist.name%>">
@@ -11,5 +11,5 @@
   <%='checked' if @song.genre_ids == genre.id %><%=genre.name%></input>
   <% end %>
    <br><br>
-  <input type="submit" value="Edit">
+  <input type="submit" value="Save">
 </form>
