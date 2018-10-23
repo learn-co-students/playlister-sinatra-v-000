@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>All Songs</title>
+</head>
+<body>
+  <h2>This are all the songs in the PlayList</h2>
+  <% @songs.each do |song|%>
+  <li>
+    <a href="/songs/<%=song.slug%>"><%=song.name%></a>
+    <%end%>
+  </li>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>All Genres</title>
+</head>
+<body>
+  <h2>Below is a List of alln the Genres associated with Songs & Artists in the Playlist</h2>
+  <% @genres.each do |genre| %>
+  <li>
+  <a href="/genres/<%=genre.slug%>"><%=genre.name%></a>
+</li>
+  <%end%>
+</body>
+</html>
