@@ -1,3 +1,6 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
 <h1>create a new song</h1>
 <br><br>
 <form method="POST" action="/songs">

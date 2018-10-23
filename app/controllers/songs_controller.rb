@@ -25,7 +25,6 @@ class SongsController < ApplicationController
     @song.save
 
      flash.now[:notice] = "Successfully created song."
-
      redirect("/songs/#{@song.slug}")
   end
 
