@@ -4,6 +4,7 @@ class ApplicationController < Sinatra::Base
   set :session_secret, "my_application_secret"
   set :views, Proc.new { File.join(root, "../views/") }
 
+#Shows welcome page '/' with links
   get '/' do
     erb :index
   end
