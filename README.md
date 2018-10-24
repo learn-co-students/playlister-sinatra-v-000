@@ -1,4 +1,4 @@
-# Sinatra Playlister
+rspec spec/models/01_artist_spec.rb# Sinatra Playlister
 
 ## Objectives
 
