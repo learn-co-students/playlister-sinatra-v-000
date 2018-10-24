@@ -18,7 +18,7 @@ class ArtistsController < ApplicationController
   
   patch '/songs/:slug' do
   
-end
+  end
   
   post '/songs' do
     @song = Song.create(params[:song])
@@ -33,7 +33,7 @@ end
     erb :'/songs/show'
   end
   
-  get '/songs/:slug/edit'
+  get '/songs/:slug/edit' do
   
   end
     
