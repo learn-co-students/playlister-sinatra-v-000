@@ -2,10 +2,14 @@ require "pry"
 
 class SongsController < ApplicationController
 
-    get '/songs' do
+  get '/songs' do
     @songs = Song.all
 
     erb :'/songs/index'
+  end
+
+  get '/songs/new' do
+    erb :'/songs/new'
   end
 
   get '/songs/:slug' do
@@ -16,6 +20,11 @@ class SongsController < ApplicationController
 
   get '/songs/:id' do
     @song = Song.find_by_id(params[:id])
+    erb :'/songs/show'
+  end
+  
+  post '/songs' do
+
     erb :'/songs/show'
   end
 
