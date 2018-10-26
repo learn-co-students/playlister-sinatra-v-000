@@ -6,9 +6,9 @@ class Artist < ActiveRecord::Base
     name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   end
 
-  def Artist.find_by_slug(name)
-    name = 
-    name.split.join(' ').gsub('-',' ').split.map(&:capitalize).join(' ')
+  def self.find_by_slug( slug)
+    self.all.find{|data| data.slug == slug}
+    #name.split.join(' ').gsub('-',' ').split.map(&:capitalize).join(' ')
   end
 
 end
