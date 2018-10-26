@@ -2,8 +2,8 @@ class Artist < ActiveRecord::Base
   has_many :songs
   has_many :genres, through: :songs
 
-  def slug(str)
-    str.strip.downcase.gsub /\W+/, '-'
+  def slug
+    name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   end
 
   def find_by_slug
