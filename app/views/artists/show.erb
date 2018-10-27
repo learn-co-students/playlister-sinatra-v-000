@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>Show</title>
+</head>
+ <body>
+
+   <h1>Artist Profile</h1><%=@artist.name %>
+  <p>
+    <h2>Songs: </h2>
+   <% @artist.songs.each do |song| %>
+    <%=song.name%>
+    <a href='/songs/<%=song.slug%>'>Profile</a>
+    <%end%>
+  </p>
+
+  
+ </body>
+</html>

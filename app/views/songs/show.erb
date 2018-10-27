@@ -4,16 +4,18 @@
 </head>
  <body>
 
-   <h1>Song Detail</h1>
+   <h1>Song Profile</h1><%=@song.name %>
   <p>
     <h2>Artist: </h2>
    <%= @song.artist.name %>
+   <a href='/artists/<%=@song.artist.slug%>'>Profile</a>
   </p>
 
   <p>
     <h2>Genre: </h2>
  <%@song.song_genres.each do |s|%>
     <%= s.genre.name %>
+    <a href='/genres/<%=s.genre.slug%>'>Profile</a>
   <%end%>
   </p>
  </body>
