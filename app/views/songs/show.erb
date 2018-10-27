@@ -1,10 +1,15 @@
-<p>
-<h3>Song Details</h3>
-<h4>Artist: </h4><%=@song.artist%>
-</p>
+<html>
+<head>
+</head>
+ <body>
 
-<p>
-<h4>Genre: <%@song.songgenres.each do |song|%></h4>
-  <%= song.genre %>
-<%end%>
-</p>
+  <p>
+   <%= @song.artist %>
+  </p>
+  <p>
+ <%@song.song_genres.each do |song|%>
+    <%= song.genre %>
+  <%end%>
+  </p>
+ </body>
+</html>
