@@ -1,4 +1,9 @@
 <html>
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <head>
   <title>Show</title>
 </head>
@@ -18,5 +23,6 @@
     <a href='/genres/<%=s.genre.slug%>'>Profile</a>
   <%end%>
   </p>
+
  </body>
 </html>

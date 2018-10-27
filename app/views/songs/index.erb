@@ -1,3 +1,8 @@
+<% if flash.has?(:success) %>
+  <%= flash[:success] %>
+<% end %>
+
+
 <%@songs.each do |song|%>
   <%=song.name%>
 <a href='/songs/<%=song.slug%>'>
