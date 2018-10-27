@@ -1,0 +1,25 @@
+<html>
+<head>
+  <title>Show</title>
+</head>
+ <body>
+
+   <h1>Genre Profile</h1><%=@song.name %>
+   <p>
+     <h2>Artists: </h2>
+       <% @genre.artists.each do |artist|%>
+       <%= artist.name%>
+       <a href='/artists/<%=artist.slug%>'>Profile</a>
+       <%end%>
+   </p>
+
+   <p>
+     <h2>Songs: </h2>
+  <%@genre.song_genres.each do |g|%>
+     <%= g.song.name %>
+     <a href='/songs/<%=g.song.slug%>'>Profile</a>
+   <%end%>
+   </p>
+
+ </body>
+</html>
