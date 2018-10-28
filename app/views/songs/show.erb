@@ -20,6 +20,7 @@
     <h2>Genre: </h2>
  <%@song.song_genres.each do |s|%>
     <%= s.genre.name %>
+    <input type="checkbox" name="<%=s.genre.name%>" id="s.genre">
     <a href='/genres/<%=s.genre.slug%>'>Profile</a>
   <%end%>
   </p>
