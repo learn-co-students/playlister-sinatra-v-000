@@ -5,7 +5,7 @@
   <input id="hidden" type="hidden" name="_method" value="patch">
 
   <label for="artist_name">Artist Name:</label>
-  <input type="text" id="artist_name" name="artist[name]" value="<%@song.artist.name%>"></input>
+  <input type="text" id="artist_name" name="artist[name]" value="<%=@song.artist.name%>"></input>
 
   <br></br>
 
@@ -15,7 +15,6 @@
   <br></br>
 
     <%Genre.all.each do |genre|%>
-    <lable for="artist_name">genre.artist</label>
     <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>"<%='checked' if @song.genres.include?(genre) %>></input>
   <%end%>
 
