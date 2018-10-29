@@ -165,7 +165,7 @@ to make it a proper URL, we have to convert the spaces to `-` in the song name.
 This is called a slug.
 
 You are going to need to create some slugs in this lab. A slug is used to create
-a name that is not acceptable as a URL for various reasons (special characters,
+a name that is acceptable as a URL for various reasons (special characters,
 spaces, etc). This is great because instead of having a route like `/songs/1`,
 you can have a route `/songs/hotline-bling` which is a much more descriptive
 route name.
