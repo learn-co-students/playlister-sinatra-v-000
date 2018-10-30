@@ -1,5 +1,3 @@
-
-
 <h1> Create a new song:</h1>
 
 <form method="POST" action="/songs" >
@@ -16,8 +14,4 @@
    <% end %><br><br>
    <input type="submit" value="Create">
 
-   <% if flash.has?(:message) %>
-     <%= flash[:message] %>
-   <% end %>
-   
  </form>
