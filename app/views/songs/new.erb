@@ -1,6 +1,4 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
+
 
 <h1> Create a new song:</h1>
 
@@ -18,4 +16,8 @@
    <% end %><br><br>
    <input type="submit" value="Create">
 
+   <% if flash.has?(:message) %>
+     <%= flash[:message] %>
+   <% end %>
+   
  </form>
