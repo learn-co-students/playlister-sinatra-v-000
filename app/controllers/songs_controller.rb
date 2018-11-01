@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'rack-flash'
 
 class SongsController < ApplicationController
-  
+    use Rack::Flash
   get '/songs' do
     @songs = Song.all
     erb :"songs/index"
@@ -17,6 +17,7 @@ class SongsController < ApplicationController
     @song = Song.create(:name => params[:song][:name])
 
     artist_entry = params[:song][:artist]
+    artist = nil
     if Artist.find_by(:name => artist_entry)
       artist = Artist.find_by(:name => artist_entry)
     else
@@ -30,7 +31,7 @@ class SongsController < ApplicationController
     end
 
     @song.save
-
+    
     flash[:message] = "Successfully created song."
     redirect to "songs/#{@song.slug}"
 
