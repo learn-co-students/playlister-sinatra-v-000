@@ -1,5 +1,7 @@
 <% if flash[:new] %>
 <%= flash[:new]%>
+<% elsif flash[:update] %>
+<%= flash[:update] %>
 <% end %>
 
 <h1><%=@song.name%></h1>

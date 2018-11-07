@@ -62,6 +62,35 @@ class ApplicationController < Sinatra::Base
     erb :show_song
   end
 
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    @genres = Genre.all
+    erb :edit_song
+  end
+
+  patch '/songs/:slug' do
+
+    @song = Song.find_by(name: params["Name"])
+
+    if Artist.find_by(name: params["Artist Name"])
+      @song.artist = Artist.find_by(name: params["Artist Name"])
+      @song.save
+    else
+      @artist = Artist.create(name: params["Artist Name"])
+      @song.artist = @artist
+      @song.save
+      @artist.songs << @song
+      @artist.save
+    end
+
+    # params["Genre"].split(',').each do |g|
+    #   @song.genres << Genre.find_by(name: g)
+    # end
+    # binding.pry
+    flash[:update] = "Successfully updated song."
+    redirect "/songs/#{@song.slug}"
+  end
+
   get '/artists/:slug' do
     @artist = Artist.find_by_slug(params[:slug])
     erb :show_artist
