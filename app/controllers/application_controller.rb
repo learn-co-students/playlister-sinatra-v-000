@@ -25,6 +25,23 @@ class ApplicationController < Sinatra::Base
     erb :genres
   end
 
+  get '/songs/new' do
+    @genres = Genre.all
+    erb :new_song
+  end
+
+  post '/songs' do
+    binding.pry
+    @song = Song.create(:name => params[:Name])
+    if Artist.find_by(name: params["Artist Name"])
+      @song.artist = Artist.find_by(name: params["Artist Name"])
+    else
+      @artist = Artist.create(name: params["Artist Name"])
+      @song.artist = @artist
+    end
+    # @song.genres << Genre.find_by()
+  end
+
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     erb :show_song
