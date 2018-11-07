@@ -12,7 +12,7 @@ describe "Playlister Basics" do
 
     @song.song_genres.create(genre: @genre)
     @song.artist = @artist
-  
+
     @song.save
   end
 

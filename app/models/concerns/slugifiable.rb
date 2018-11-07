@@ -11,10 +11,7 @@ module Slugifiable
 
   module ClassMethods
     def find_by_slug(slug)
-      # binding.pry
-      name = slug.gsub("-"," ").split.map(&:capitalize).join(' ')
-      thing = self.find_by(:name => "#{name}")
-      thing
+      self.all.find { |thing| thing.slug == slug }
     end
   end
 end
