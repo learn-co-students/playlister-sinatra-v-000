@@ -1,7 +1,14 @@
+require Rack::FLash
+
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
+
+  enable :sessions
+  use Rack::Flash
+
   set :session_secret, "my_application_secret"
   set :views, Proc.new { File.join(root, "../views/") }
+
 
   get '/' do
     erb :index
@@ -31,15 +38,23 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/songs' do
-    binding.pry
     @song = Song.create(:name => params[:Name])
+
     if Artist.find_by(name: params["Artist Name"])
       @song.artist = Artist.find_by(name: params["Artist Name"])
+      @song.save
     else
       @artist = Artist.create(name: params["Artist Name"])
       @song.artist = @artist
+      @song.save
+      @artist.songs << @song
+      @artist.save
     end
-    # @song.genres << Genre.find_by()
+
+      @song.genres << Genre.find_by(name: params["Genre"])
+      @song.save
+
+    redirect "/songs/#{@song.slug}"
   end
 
   get '/songs/:slug' do
