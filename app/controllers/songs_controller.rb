@@ -1,6 +1,7 @@
 class SongsController < ApplicationController
 
   get '/songs' do
-    "hello world"
+    @songs = Song.all
+    binding.pry
   end
 end
