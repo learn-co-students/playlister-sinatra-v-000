@@ -5,8 +5,4 @@ class SongsController < ApplicationController
     erb :'songs/index'
   end
 
-  get '/songs/:slug' do
-    binding.pry
-    erb :'songs'
-  end
 end
