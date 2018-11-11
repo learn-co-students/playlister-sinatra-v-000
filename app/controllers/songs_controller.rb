@@ -8,6 +8,15 @@ class SongsController < ApplicationController
     erb :'/songs/index'
   end
 
+  post '/songs' do
+    @song = Song.create(:name => params["Name"])
+    @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
+    @song.genre_ids = params[:genres]
+    @song.save
+
+    erb :'songs/show', locals: {message: "Successfully created song."}
+  end
+
   get '/songs/new' do
     erb :'/songs/new'
   end
@@ -16,15 +25,6 @@ class SongsController < ApplicationController
     @song = Song.find_by_slug(params[:slug])
 
     erb :'songs/show'
-  end
-
-  post '/songs' do
-    @song = Song.create(:name => params["Name"])
-    @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
-    @song.genre_ids = params[:genres]
-    @song.save
-
-    erb :'songs/show', locals: {message: "Successfully created song."}
   end
 
   get '/songs/:slug/edit' do
