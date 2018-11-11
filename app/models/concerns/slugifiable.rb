@@ -7,7 +7,7 @@ module Slugifiable
 
      module ClassMethods
       def find_by_slug(slug)
-        self.all.find { |thing| thing.slug == slug }
+        self.all.find { |song| song.name.downcase == slug }
       end
     end
 end
