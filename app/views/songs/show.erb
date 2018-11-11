@@ -1,16 +1,8 @@
+<!-- Displays Song's Artist Name & Link -->
 <p>Artist Name: <a href="/artists/<%=@artist.slug%>"><%=@artist.name%></a></p>
-
+<!-- Displays Song's Genres & Link -->
 <p>Genres:
-  <%@genres.each do |genre|%>
-  <li><%=genre%></li>
+  <%@slug.genres.each do |genre|%>
+  <li><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
   <%end%>
 </p>
-<!-- <p></p>
-it "contains links to the artist's show page" do
-  expect(page).to have_css("a[href='/artists/#{@artist.slug}']")
-end
-
-it "contains links to each genre's show page" do
-  expect(page).to have_css("a[href='/genres/#{@genre.slug}']")
-end
-end -->

@@ -5,4 +5,9 @@ class ArtistsController < ApplicationController
      erb :'artists/index'
   end
 
+  get '/artists/:slug' do
+    @slug = Artist.find_by_slug(params[:slug].gsub("-"," "))
+    erb :'artists/show'
+  end
+
 end

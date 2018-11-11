@@ -8,18 +8,8 @@ class SongsController < ApplicationController
   get '/songs/:slug' do
     @slug = Song.find_by_slug(params[:slug].gsub("-"," "))
     @artist = Artist.find(@slug.artist_id)
-    @genres = []
-    @slug.genres.each { |genre| @genres << genre.name}
     erb :'songs/show'
   end
 
 
-  # 4] pry(#<SongsController>)> Song.find_by_slug(@slug)
-  # => nil
-  # [5] pry(#<SongsController>)> Song.find(1)
-  # => #<Song:0x00000004731208 id: 1, name: "That One with the Guitar", artist_id: 1>
-  # [6] pry(#<SongsController>)> @slug
-  # => "that one with the guitar"
-
-  #  proper the name and find by artist_id
 end
