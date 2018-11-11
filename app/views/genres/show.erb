@@ -7,6 +7,6 @@
 <!-- Displays Genre's Artists & Link -->
 <p>Artists:
   <%@slug.artists.each do |artist|%>
-  <li><a href="/artists/<%=gartist.slug%>"><%=artist.name%></a></li>
+  <li><a href="/artists/<%=artist.slug%>"><%=artist.name%></a></li>
   <%end%>
 </p>
