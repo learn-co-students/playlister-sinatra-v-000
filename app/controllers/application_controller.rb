@@ -6,4 +6,30 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index
   end
+
+  helpers do
+    def all_songs
+      Song.all
+    end
+
+    def current_song
+      Song.find_by_slug(params[:slug])
+    end
+
+    def all_artists
+      Artist.all
+    end
+
+    def current_song
+      Artist.find_by_slug(params[:slug])
+    end
+
+    def all_genres
+      Genre.all
+    end
+
+    def current_song
+      Song.find_by_slug(params[:slug])
+    end
+  end
 end
