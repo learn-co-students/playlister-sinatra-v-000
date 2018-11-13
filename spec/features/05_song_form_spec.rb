@@ -35,7 +35,7 @@ describe "Song Forms" do
         expect(page).to have_content("Successfully created song.")
       end
 
-      it "redirects to '/songs/:slug' after creation" do
+      it "redirects to after creation" do
         fill_in "Name", with: song_name
         check "New Age Garbage"
         fill_in "Artist Name", with: artist_name
