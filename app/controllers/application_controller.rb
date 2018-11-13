@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
       Artist.all
     end
 
-    def current_song
+    def current_artist
       Artist.find_by_slug(params[:slug])
     end
 
@@ -28,8 +28,8 @@ class ApplicationController < Sinatra::Base
       Genre.all
     end
 
-    def current_song
-      Song.find_by_slug(params[:slug])
+    def current_genre
+      Genre.find_by_slug(params[:slug])
     end
   end
 end
