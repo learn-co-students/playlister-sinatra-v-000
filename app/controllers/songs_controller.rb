@@ -41,10 +41,10 @@ class SongsController < ApplicationController
 
   post '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    #binding.pry
+    @song.genres.clear
     params[:genres].each do |e|
       genre = Genre.find_by(name: e)
-      @song.genres << genre if !@song.genres.include?(genre)
+      @song.genres << genre
     end
 
     artist = Artist.find_or_create_by({name: params[:artist_name]})
