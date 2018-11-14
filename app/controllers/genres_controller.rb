@@ -3,10 +3,6 @@ class GenresController < ApplicationController
     erb :"genres/index"
   end
 
-  get "/genres/new" do
-
-  end
-
   get "/genres/:slug" do
     erb :"genres/show"
   end
