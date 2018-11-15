@@ -16,11 +16,9 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    @artist = params[:artist_name]
-    @genre = params[:genre_name]
-    new_song = Song.create(name: params[:song_name])
-    new_song.artist = Artist.create(name:@artist)
-    new_song.genres << Genre.create(name:@genre)
+    artist = Artist.create(name: params[:artist_name])
+    genre_name = Genre.create(name: params[:genre_name])
+    song = Song.create(name:params[:song_name], artist_id: artist.id)
   end
 
 end
