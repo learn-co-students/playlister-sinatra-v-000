@@ -20,6 +20,11 @@ class SongsController < ApplicationController
     redirect :"/songs/#{@song.id}"
   end
 
+  # patch '/songs/:slug' do
+  #   binding.pry
+  #   redirect :"/songs/#{params[:slug]}"
+  # end
+
   get '/songs/:slug' do
     @song = Song.find(params[:slug])
     erb :'/songs/show'
@@ -30,11 +35,4 @@ class SongsController < ApplicationController
     @genres = Genre.all
     erb :'/songs/edit'
   end
-
-  patch '/songs/:slug' do
-    raise params.inspect
-    binding.pry
-    redirect :"/songs/#{params[:slug]}"
-  end
-
 end
