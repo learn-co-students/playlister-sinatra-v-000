@@ -1,0 +1,5 @@
+<% @artist = @song.artist %>
+<a href="/artists/<%=@artist.slug%>"><%= @artist.name %></a>
+
+<% @genre = Genre.find_by_id(SongGenre.find_by(song_id: @song.id).genre_id) %>
+<a href="/genres/<%=@genre.slug%>"><%= @genre.name %></a>
