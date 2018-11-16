@@ -1,1 +1,14 @@
-<h1><%="#{@artist.name}"%></h1>
+<h1><%="#{@artist.name.capitalize}"%></h1>
+
+<label>Artist: </label>
+<%@artist.songs.each do |song|%>
+<a href="/songs/<%=song.id%>"><%="#{song.name}"%></a>
+<%end%>
+
+<br></br>
+
+<label>Genres: </label>
+<br>
+<%@artist.genres.each do |genre|%>
+<a href="/genres/<%=genre.id%>"><%="#{genre.name.capitalize}"%></a>
+<%end%>

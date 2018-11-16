@@ -15,8 +15,7 @@ class ApplicationController < Sinatra::Base
     params[:songs][:genres].each do |genre|
       @song.genres << Genre.find(genre)
     end
-    # raise params.inspect
-    binding.pry
+
     redirect :"/songs/#{params[:slug]}"
   end
 end
