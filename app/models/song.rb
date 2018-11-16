@@ -11,7 +11,14 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    name = slug.gsub("-", " ").split.map{|v| v.capitalize}.join(" ")
+    name = slug.gsub("-", " ").split.map{|v|
+      if v == "with" || v == "the"
+        v
+      else
+        v.capitalize
+      end}.join(" ")
+    # binding.pry
+
     Song.find_by(name: name)
   end
 
