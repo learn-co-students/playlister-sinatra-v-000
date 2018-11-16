@@ -17,15 +17,8 @@ class Song < ActiveRecord::Base
       else
         v.capitalize
       end}.join(" ")
-    # binding.pry
 
     Song.find_by(name: name)
   end
-
-
-  # def song_genres
-  #   binding.pry
-  #
-  # end
 
 end

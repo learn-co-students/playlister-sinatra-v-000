@@ -17,7 +17,11 @@ class SongsController < ApplicationController
       @song.genres << Genre.find(genre)
     end
 
-    redirect :"/songs/#{@song.id}"
+
+    # @song.artist = @artist
+
+    # binding.pry
+    redirect :"/songs/#{@song.slug}"
   end
 
   # patch '/songs/:slug' do
@@ -26,6 +30,7 @@ class SongsController < ApplicationController
   # end
 
   get '/songs/:slug' do
+    # binding.pry
     @song = Song.find_by_slug(params[:slug])
     # binding.pry
     # @song = Song.find_by(name: params[:slug])
