@@ -11,16 +11,21 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    @artist = Artist.create(name: params[:songs][:artist][:name])
+
+    artist_name = params[:songs][:artist][:name]
+
+    if Artist.find_by(name: artist_name)
+      @artist = Artist.find_by(name: artist_name)
+    else
+      @artist = Artist.create(name: artist_name)
+    end
+
     @song = Song.create(name: params[:songs][:name], artist: @artist)
     params[:songs][:genres].each do |genre|
       @song.genres << Genre.find(genre)
     end
 
-
-    # @song.artist = @artist
-
-    # binding.pry
+    flash[:message] = "Successfully created song."
     redirect :"/songs/#{@song.slug}"
   end
 
@@ -30,15 +35,13 @@ class SongsController < ApplicationController
   # end
 
   get '/songs/:slug' do
-    # binding.pry
     @song = Song.find_by_slug(params[:slug])
-    # binding.pry
-    # @song = Song.find_by(name: params[:slug])
     erb :'/songs/show'
   end
 
   get '/songs/:slug/edit' do
-    @song = Song.find(params[:slug])
+    # binding.pry
+    @song = Song.find_by_slug(params[:slug])
     @genres = Genre.all
     erb :'/songs/edit'
   end

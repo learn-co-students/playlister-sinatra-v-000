@@ -1,6 +1,6 @@
 <h1>EDIT: <%="#{@song.name}"%></h1>
 
-<form action="/songs/<%=@song.id%>" method="POST">
+<form action="/songs/<%=@song.slug%>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
 
   <label for="song_name">Song: </label>
@@ -20,11 +20,11 @@
 
   <br>
 
-  <label for="artist_name">Artist: </label>
-  <input type="text" name="songs[artist][name]" id="artist_name" value="<%=@song.artist.name%>">
+  <label for="artist_name">Artist Name</label>
+  <input type="text" name="artist_name" id="artist_name" value="<%=@song.artist.name%>">
 
   <br></br>
 
-  <input type="submit" value="Edit Song!">
+  <input type="submit" value="Save">
 
 </form>
