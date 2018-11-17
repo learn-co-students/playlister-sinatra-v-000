@@ -11,19 +11,15 @@
   <label for="artist_name">Artist Name:</label>
   <br></br>
   <%@artists.each do |artist|%>
-    <input type="text" name="songs[artist][name]" id="Artist Name">
+    <input type="checkbox" name="songs[artist][name]" id="<%=Artist Name%>"><%=artist.name%></input>
   <%end%>
   <br></br>
-  <p> or create a new one</p>
-  <input type="text" name="artist_name" id="artist_name"></input>
-  <br></br>
-
 
   <!--Genre-->
   <h3>Genre</h3>
   <%@genres.each do |genre|%>
-    <label for="<%=genre.name%>"><%="#{genre.name}"%></label>
-    <input id="<%=genre.name%>" type="checkbox" name="songs[genres][]" value="<%=genre.id%>">
+    <label for="<%=genre.name%>"><%="#{genre.name}"%></label> -->
+    <input id="<%=genre.name%>"type="checkbox" name="songs[genres][]" value="<%=genre.id%>">
     <br>
   <%end%>
 
