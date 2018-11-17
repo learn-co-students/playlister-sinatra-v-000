@@ -8,7 +8,16 @@ class Artist < ActiveRecord::Base
 	end
 
 	def self.find_by_slug(slug)
-		x = slug.split("-").join(" ").titleize
-		return Artist.find_by(name: x)
+		x = slug.split("-")
+		y = []
+		x.each do |word|
+			if (word != "the") && (word != "with") && (word != "a")
+				y << word.titleize
+			else
+				y << word
+			end
+		end
+		y = y.join(" ")
+		return Artist.find_by(name: y)
 	end
 end
