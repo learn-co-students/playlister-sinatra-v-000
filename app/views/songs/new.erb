@@ -11,7 +11,7 @@
   <label for="artist_name">Artist Name:</label>
   <br></br>
   <%@artists.each do |artist|%>
-    <input type="checkbox" name="songs[artist][name]" id="<%=Artist Name%>"><%=artist.name%></input>
+    <input type="checkbox" name="songs[artist][name]" value="<%=artist.id%>" id="<%=Artist Name%>"><%=artist.name%></input>
   <%end%>
   <br></br>
 
