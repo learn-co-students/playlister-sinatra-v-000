@@ -18,8 +18,8 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    @song = Song.create(:name => params[:name])
-    @song.artist = Artist.create(:name => params[:name])
+    @song = Song.create(:name => params["Name"])
+    @song.artist = Artist.create(:name => params["Artist Name"])
     #binding.pry
     @song.genre_id = params[:genres]
     @song.save
