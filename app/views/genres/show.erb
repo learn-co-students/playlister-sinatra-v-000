@@ -1,5 +1,5 @@
 <ul>
-  <%= @genre.songs.each do |song| %>
+  <% @genre.songs.each do |song| %>
   <li><a href="/songs/<%= song.slug %>"></a><%= song.name%></li>
   <% end %>
 </ul>
