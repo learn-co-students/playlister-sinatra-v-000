@@ -22,7 +22,7 @@ class SongsController < ApplicationController
     @song = Song.create(:name => params["Name"])
     @song.artist = Artist.create(:name => params["Artist Name"])
     #binding.pry
-    @song.genre_id = params[:genres]
+    @song.genre_ids = params[:genres]
     @song.save
 
     flash[:message] = "Successfully created song."
@@ -38,7 +38,7 @@ class SongsController < ApplicationController
  patch '/songs/:slug' do
    @song = Song.find_by_slug(params[:slug])
    @song.update(params[:song])
-   @song.artist = Artist.find_by_or_create_by(name: params[:artist][:name])
+   @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
    @song.genre_id = params[:genres]
    @song.save
    flash[:message] = "Successfully updated song."
