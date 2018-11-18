@@ -32,4 +32,5 @@ class SongsController < ApplicationController
       redirect :"/songs/#{@song.slug}"
     end
 
+
 end

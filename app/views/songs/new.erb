@@ -1,14 +1,27 @@
 <h1>Create a new song</h1>
+<<<<<<< HEAD
 
 <h3>Song</h3>
 <form action="/songs" method="POST">
   <label for="Name">Song Name:</label>
   <input type="text" name="songs[name]" id="Name"></input>
+=======
+<form action="/songs" method="POST">
+  <label for="song_name">Song Name:</label>
+  <input type="text" name="song_name" id="song_name"></input>
+>>>>>>> dae26ea740b8aa84c7a3711c96d2dd3df961b9b7
   <br></br>
 
   <!--Artist-->
   <h3>Artist</h3>
   <label for="artist_name">Artist Name:</label>
+<<<<<<< HEAD
+=======
+  <%@artists.each do |artist|%>
+    <input type="checkbox" name="owner[pet_ids][]" value="<%=pet.id%>" id="<%=pet.id%>"><%=artist.name%></input>
+  <%end%>
+  <input type="text" name="artist_name" id="artist_name"></input>
+>>>>>>> dae26ea740b8aa84c7a3711c96d2dd3df961b9b7
   <br></br>
   <%@artists.each do |artist|%>
     <input type="checkbox" name="songs[artist][name]" value="<%=artist.id%>" id="<%=Artist Name%>"><%=artist.name%></input>
