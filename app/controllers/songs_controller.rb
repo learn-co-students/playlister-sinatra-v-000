@@ -1,3 +1,5 @@
+
+
 class SongsController < ApplicationController
 
   get '/songs' do
@@ -24,15 +26,14 @@ class SongsController < ApplicationController
         params[:genres].each do |genre|
           @song.genres << Genre.find(genre)
         end
-
       flash[:message] = "Successfully created song."
-      redirect "/songs/#{@song.slug}"
+      redirect to("/songs/#{@song.slug}")
     end
-
-  get '/songs/:slug' do
-    @slug = Song.find_by_slug(params[:slug].gsub("-"," "))
-    @artist = Artist.find(@slug.artist_id)
-    erb :'songs/show'
-  end
+    
+    get '/songs/:slug' do
+      @slug = Song.find_by_slug(params[:slug].gsub("-"," "))
+      @artist = Artist.find(@slug.artist_id)
+      erb :'songs/show'
+    end
 
 end

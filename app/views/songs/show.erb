@@ -1,3 +1,4 @@
+
 <!-- Displays Song's Artist Name & Link -->
 <p>Artist Name: <a href="/artists/<%=@artist.slug%>"><%=@artist.name%></a></p>
 <!-- Displays Song's Genres & Link -->
@@ -6,3 +7,5 @@
   <li><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
   <%end%>
 </p>
+
+<%= @slug.name %>
