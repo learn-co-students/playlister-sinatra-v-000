@@ -1,4 +1,5 @@
-# Sinatra Playlister
+clear
+clear# Sinatra Playlister
 
 ## Objectives
 
