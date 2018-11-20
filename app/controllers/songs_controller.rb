@@ -29,7 +29,7 @@ class SongsController < ApplicationController
       flash[:message] = "Successfully created song."
       redirect to("/songs/#{@song.slug}")
     end
-    
+
     get '/songs/:slug' do
       @slug = Song.find_by_slug(params[:slug].gsub("-"," "))
       @artist = Artist.find(@slug.artist_id)
