@@ -2,11 +2,6 @@
 <html lang="en" dir="ltr">
   <body>
 
-
-
-
-
-
     <% @artists.each do |artist| %>
        <a href="/artists/<%= artist.slug %>"><%= artist.name%></a><br>
     <% end %>
