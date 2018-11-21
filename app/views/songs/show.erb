@@ -2,9 +2,12 @@
 <html lang="en" dir="ltr">
   <body>
     <%= @song.name %><br>
-    <%= @song.artist.name %><br>
+
+<a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name%></a><br>
+
+
     <% @song.genres.each do |genre| %>
-    <%= genre.name %>
+    <a href="/genres/<%= genre.slug %>"><%= genre.name%></a>
     <% end %>
   </body>
 </html>
