@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <body>
+    <% @songs.each do |song| %>
+      <%= song.name %> -
+      <% song.genres.each do |genre|%>
+        <%= genre.name %>
+        <%end %>
+      <br>
+    <% end %>
+  </body>
+</html>
