@@ -1,4 +1,5 @@
 <form action="/songs/new" method="post">
-  <input type="text" name="song_name">
+  <input type="text" id="song_name" name="song[name]">
+  <input type="text" id="artist_name" name="song[artist][]">
   <input type="submit" value="Submit">
 </form>
