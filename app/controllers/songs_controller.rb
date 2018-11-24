@@ -1,8 +1,10 @@
 require 'sinatra/flash'
+require 'sinatra/redirect_with_flash'
 
 class SongsController < ApplicationController
   register Sinatra::Flash
-
+  helpers Sinatra::RedirectWithFlash
+  
   get '/songs' do
     @songs = Song.all
     erb :'songs/index'
@@ -28,7 +30,8 @@ class SongsController < ApplicationController
           @song.genres << Genre.find(genre)
         end
       # flash[:message] = "Successfully created song."
-      redirect to("/songs/#{@song.slug}")
+      redirect "/songs/#{@song.slug}", message: 'The post was successfully created'
+
     end
 
     get '/songs/:slug' do
