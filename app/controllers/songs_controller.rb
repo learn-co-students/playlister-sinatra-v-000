@@ -1,10 +1,10 @@
 require 'sinatra/base'
-require 'rack-flash'
+require 'sinatra/flash'
 
 class SongsController < ApplicationController
 
   enable :sessions
-  use Rack::Flash
+  register Sinatra::Flash
 
   get '/songs' do
     @song = Song.all
@@ -31,21 +31,19 @@ class SongsController < ApplicationController
     redirect "/songs/#{song.slug}"
   end
 
-  get 'songs/:slug/edit' do
+  get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
-    binding.pry
     erb :'songs/edit'
   end
 
-  patch 'songs/:slug' do
+  patch '/songs/:slug' do
     song = Song.find_by_slug(params[:slug])
-    binding.pry
     song.assign_attributes(params[:song])
     artist = Artist.where(params[:artist]).first_or_initialize
     song.artist = artist
     song.save!
 
-    flash[:message] = "Succesfully updated song."
+    flash.next[:message] = "Successfully updated song."
     redirect "/songs/#{song.slug}"
   end
 end
