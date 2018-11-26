@@ -1,7 +1,11 @@
 <form action="/songs" method="post">
-  <label>Artist name:</label> <input type="text" name="artist_name" id="artist_name">
-  <label>Genre 1 name:</label> <input type="text" name="genre_1_name" id="genre_1_name">
-  <label>Genre 2 name:</label> <input type="text" name="genre_2_name" id="genre_2_name">
-  <label>Song name:</label> <input type="text" name="song_name" id="song_name">
-  <input type="submit" value="submit">
+  <label>Name:</label><input type="text" name="Name" id="song_name">
+  <label>Artist name:</label><input type="text" name="Artist Name" id="artist_name">
+  <br></br>
+  <%@genres.all.each do |genre|%>
+  <label><%=genre.name.capitalize%></label><input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%=genre.id%>"
+  <%end%>
+  <br></br>
+  <br></br>
+  <label>Create:</label><input type="submit" value="Create">
 </form>
