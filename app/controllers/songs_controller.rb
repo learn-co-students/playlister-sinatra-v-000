@@ -33,8 +33,10 @@ class SongsController < ApplicationController
       redirect "/songs/#{@song.slug}", message: 'Successfully created song.'
     end
 
-    patch '/songs/:slug' do
-      binding.pry
+    get '/songs/:slug/edit' do
+      @song = Song.find_by_slug(params[:slug])
+      @genres = Genre.all
+      erb :'/songs/edit'
     end
 
     get '/songs/:slug' do
@@ -43,8 +45,8 @@ class SongsController < ApplicationController
       erb :'songs/show'
     end
 
-    get '/songs/:slug/edit' do
-      erb :'songs/edit'
+    patch '/songs/:slug' do
+      erb :'songs/show'
     end
 
 
