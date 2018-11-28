@@ -31,7 +31,10 @@ class SongsController < ApplicationController
         end
       # flash[:message] = "Successfully created song."
       redirect "/songs/#{@song.slug}", message: 'Successfully created song.'
+    end
 
+    patch '/songs/:slug' do
+      binding.pry
     end
 
     get '/songs/:slug' do
@@ -39,5 +42,10 @@ class SongsController < ApplicationController
       @artist = Artist.find(@slug.artist_id)
       erb :'songs/show'
     end
+
+    get '/songs/:slug/edit' do
+      erb :'songs/edit'
+    end
+
 
 end
