@@ -1,7 +1,8 @@
 class Song < ActiveRecord::Base
   require 'pry'
   belongs_to :artist
-  has_and_belongs_to_many :genres
+  has_many :song_genres
+  has_many :genres, through: :song_genres
 
   def slug
     self.name.downcase.gsub(" ", "-")
