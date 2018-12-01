@@ -1,5 +1,10 @@
 class SongsController < ApplicationController
 
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :edit
+  end
+
   get '/songs/new' do
     erb :'songs/new'
   end
@@ -20,6 +25,7 @@ class SongsController < ApplicationController
     @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
     @song.genre_id = params[:genres]
     @song.save
+    binding.pry
     # flash[:message] = "Successfully created song."
     puts "*****#{@song.slug}*****"
     redirect("/hello/#{@song.slug}")
