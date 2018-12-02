@@ -3,6 +3,7 @@
   <label>Artist name:</label><input type="text" name="Artist Name" id="artist_name">
   <br></br>
   <%@genres.all.each do |genre|%>
+
   <label><%=genre.name.capitalize%></label><input type="checkbox" name="genres[]" id="<%=genre.name%>" value="<%=genre.id%>"
   <%end%>
   <br></br>
