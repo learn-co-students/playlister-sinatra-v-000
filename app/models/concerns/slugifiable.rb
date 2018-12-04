@@ -1,17 +1,13 @@
 module Slugifiable
-
-  module InstanceMethods
-    def slug
-      name_array = self.name.split(' ')
-      array_downcase = name_array.collect {|word|word.downcase}
-      array_downcase.join('-')
+    module InstanceMethods
+        def slug
+            self.name.gsub(" ", "-").downcase
+        end
     end
-  end
 
-  module ClassMethods
-    def find_by_slug(slug)
-      self.all.select {|instance|instance.slug == slug}[0]
+    module ClassMethods
+        def find_by_slug(slug)
+            self.all.find {|item| item.slug == slug}
+        end
     end
-  end
-
 end
