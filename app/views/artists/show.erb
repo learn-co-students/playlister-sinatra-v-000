@@ -1,0 +1,15 @@
+<h1><%=@artist.name%>'s Page:</h1>
+
+<h2>Songs:</h2>
+
+<% @artist.songs.each.with_index(1) do |song, index|%>
+  <p>
+  <%=index%>. <a href="/songs/<%= song.slug %>"><%= song.name %> </a><br>
+  </p>
+<%end%>
+<h2>Genres associated with <%=@artist.name%></h2>
+    <%@artist.genres.each.with_index(1) do |genre, index|%>
+      <p>
+      <%= index %>. <a href="/genres/<%= genre.slug %>"><%= genre.name %></a>
+      </p>
+      <%end%>
