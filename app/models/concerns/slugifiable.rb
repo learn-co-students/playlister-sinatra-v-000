@@ -17,7 +17,7 @@ module Slugifiable
     end
 
     def format_slug_beginning
-      slug_beginning = @slug.split("-")[0]
+      slug_beginning = @slug.split("-")[0]  
       slug_beginning.prepend("%")
       slug_beginning << "%"
       @short_slug = slug_beginning
