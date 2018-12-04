@@ -6,7 +6,7 @@
   <h3>Genre: </h3>
   <%Genre.all.each do |genre|%>
   <br><label><%= genre.name%></label>
-  <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>" <%='checked' if @song.genres.include?(genre) %>/> 
+  <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>" <%='checked' if @song.genres.include?(genre) %>>
   <%end%>
   <input type="submit" value="Save"/>
 </form>
