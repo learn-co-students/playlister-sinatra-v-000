@@ -1,3 +1,7 @@
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+
 <h3><%=@song.name%></h3>
 <p>Artist: <a href='/artists/<%=@song.artist.slug%>'><%=@song.artist.name%></a></p>
 <p>Genres:</p>
@@ -6,6 +10,3 @@
     <li><a href='/genres/<%=genre.slug%>'><%=genre.name%></a></li>
   <%end%>
 </ul>
-
-<p>Successfully created song.</p>
-<p>Successfully updated song.</p>
