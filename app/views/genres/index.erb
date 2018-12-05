@@ -1,3 +1,5 @@
-<%@genres.each do |g|%>
-    <a href="/genres/<%=g.slug%>"><%=g.name%></a>
+<h1>All Genres</h1>
+
+<%Genre.all.each do |genre|%>
+  <p><%=genre.id%>: <a href="/genres/<%=genre.slug%>"><%=genre.name%></a></p>
 <%end%>
