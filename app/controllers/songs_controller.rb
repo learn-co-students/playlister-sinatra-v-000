@@ -1,52 +1,48 @@
 class SongsController < ApplicationController
+
   get '/songs' do
+    @songs = Song.all.sort_by {|song| song.name}
     erb :'/songs/index'
   end
 
   get '/songs/new' do
-    erb :'/songs/new'
+  	erb :'/songs/new'
   end
 
-  post '/songs/new' do
-    s = Song.new(name: params[:name])
-    params[:genres].each {|genre_id| s.genres << Genre.find(genre_id)}
-    if Artist.find_by(name: params[:artist])
-      s.artist = Artist.find_by(name: params[:artist]) 
-    else
-      s.artist = Artist.new(name: params[:artist])
+  post '/songs' do
+    @song = Song.create(:name => params[:name])
+    artist = Artist.find_or_create_by(:name => params[:artist])
+
+    params[:genres].each do |genre_id|
+      @song.genres << Genre.find_by_id(genre_id)
     end
-    s.save
-    redirect to "/songs/#{s.slug}"
-  end
+    @song.artist = artist
+    @song.save
+    # flash[:message] = "Successfully created song."
+    # redirect to("/songs/#{@song.slug}")
+    erb :'/songs/show', locals: {message: "Successfully created song."}
+end
 
   get '/songs/:slug' do
-    @song = Song.find_by_slug(params[:slug])
-    erb :'/songs/show'
+  	@song = Song.find_by_slug(params[:slug])
+  	erb :'/songs/show'
   end
+
+  patch '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    @song.update(params[:song])
+
+    @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
+    @song.save
+    erb :'/songs/show', locals: {message: "Successfully updated song."}
+  end
+
 
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
     erb :'/songs/edit'
   end
 
-  post '/songs/:slug/edit' do
-    #binding.pry
-    @song = Song.find_by_slug(params[:slug])
-    @song.update(name: params[:name]) if params[:name] != ""
 
-    if params[:artist] != ""
-      if Artist.find_by(name: params[:artist])
-        @song.artist = Artist.find_by(name: params[:artist])
-      else
-        @song.artist = Artist.create(name: params[:artist])
-      end
-    end
 
-    @song.genres.clear
-    params[:genres].each {|genre_id| @song.genres << Genre.find(genre_id)}
-   # binding.pry
-    @song.save
-    redirect to "/songs/#{params[:slug]}"
-  end
-  
 end
