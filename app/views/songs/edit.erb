@@ -14,7 +14,11 @@ Be able to change everything about a song, including the genres associated with 
  <input type="text" name="artist[name]" value="<%= @song.artist.name %>" id="artist_name">
 
  <% Genre.all.each do |genre| %>
+<<<<<<< HEAD
         <input type="checkbox" id="<%= genre.name %>" name="genres[]" value="<%= genre.id %>" <%= 'checked' if @song.genres.include?(genre) %>><%= genre.name %> 
+=======
+        <input type="checkbox" id="<%= genre.name %>" name="genres[]" value="<%= genre.id %>" <%= 'checked' if @song.genres.find_by(id: genre.id) %> > <%= genre.name %>
+>>>>>>> e415e7cd986e05b5834fbcc02fa42d725277e25e
     <% end %>
 
  <input type="submit" value="Save">
