@@ -10,7 +10,7 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    @song = Song.create(params[:song])
+    @song = Song.create(:name => params["Name"])
     if !params["artist_name"].empty?
       @artist = Artist.create(name: params["artist_name"])
       @artist.songs << @song
