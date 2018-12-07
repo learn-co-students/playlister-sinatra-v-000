@@ -1,0 +1,18 @@
+<form action="/songs" method="post">
+
+  <label for="song_name"> Songs: </label>
+
+
+
+    <%Song.all.each do |song|%>
+    <li>
+    <a href="/songs/<%= song.slug %>"> Name: <%= song.name %> </a>
+    </li>
+    <%end%>
+
+    <input type="text" name="genre[name]">
+    <input type="submit" value="Create Genre">
+
+
+
+  </form>

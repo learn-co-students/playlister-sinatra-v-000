@@ -1,0 +1,21 @@
+<form action="/genres" method="post">
+
+<label for="genre_name"> Genre Names </label>
+
+<h4>genre:</h4>
+<ul>
+
+  <%Genre.all.each do |genre|%>
+  <li>
+  <a href="/genres/<%= genre.slug %>"> Name: <%= genre.name %> </a>
+  </li>
+  <%end%>
+
+</ul>
+
+<input type="text" name="genre[name]">
+<input type="submit" value="Create Genre">
+
+
+
+</form>

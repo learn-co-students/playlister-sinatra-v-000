@@ -1,0 +1,18 @@
+<h1>Update Song</h1>
+
+<form action="/songs/<%=@song.id%>" method="POST">
+  <label>Name:</label>
+  <br>
+  <input type="text" name="song[name]" id="song_name" value="<%=@song.name%>">
+  <br>
+
+  <label>Choose an existing artist:</label>
+  <br>
+
+  <label>and/or, create a new artist:</label>
+  <br></br>
+  <label>name:</label>
+    <input  type="text" name="artist[name]" id="artist_name"></input>
+  <br></br>
+  <input type="submit" value="Update song">
+</form>
