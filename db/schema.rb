@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20181208011722) do
     t.string "name"
     t.string "artist"
     t.string "genres"
+    t.string "artist_id"
   end
 
 end
