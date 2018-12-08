@@ -1,4 +1,4 @@
-<h1><%=@art.name %>
+<h1><%=@art.name %> </h1>
 <% @art.genres.each do |gen| %>
   <h2> <a href="/genres/<%= gen.slug %>"> <%= gen.name %> </a> </h2>
 <%end%>
