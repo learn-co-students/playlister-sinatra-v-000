@@ -1,0 +1,6 @@
+<h1>Check out the Artists in my music library:</h1>
+<br>
+<%@artists.each do |artist|%>
+ <h2><%=artist.name%></h2>
+ <a href='/artists/<%=artist.slug%>'>click here to go to the artist's page</a>
+<%end%>

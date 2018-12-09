@@ -1,6 +1,6 @@
-<h1>hey you</h1>
+<h1>Check out my amazing music library:</h1>
+<br>
 <%@songs.each do |song|%>
- <p><%=song.name%></p>
- <a href='/songs/<%=song.id%>'>link</a> 
-  <%end%>
-<h1>hey</h1>
+ <h2><%=song.name%></h2>
+ <a href='/songs/<%=song.slug%>'>click here to go to the song</a>
+<%end%>
