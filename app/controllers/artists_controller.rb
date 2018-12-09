@@ -8,8 +8,8 @@ class ArtistsController < ApplicationController
       end
 
       get '/artists/:slug' do
-        binding.pry
-        @artist = Artist.find_by(name: params[:slug])
+        slug = params[:slug]
+        @artist = Artist.find_by_slug(slug)
       end
 
 end
