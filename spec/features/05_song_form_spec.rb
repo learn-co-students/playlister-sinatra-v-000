@@ -14,16 +14,6 @@ describe "Song Forms" do
     end
 
     context "without an existing artist" do
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
->>>>>>> origin
->>>>>>> 59fcdd050bdcb32ebe31b27573f12073bec2da82
       it "creates a new artist on submit" do
         expect {
           fill_in "Name", with: song_name
@@ -50,16 +40,6 @@ describe "Song Forms" do
         check "New Age Garbage"
         fill_in "Artist Name", with: artist_name
         click_on "Create"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
->>>>>>> origin
->>>>>>> 59fcdd050bdcb32ebe31b27573f12073bec2da82
         expect(page.current_path).to eq('/songs/that-one-with-the-guitar')
       end
     end
@@ -153,16 +133,6 @@ describe "Song Forms" do
         click_on "Save"
         expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
       end
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
->>>>>>> origin
->>>>>>> 59fcdd050bdcb32ebe31b27573f12073bec2da82
     end
   end
 end
