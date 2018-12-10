@@ -1,0 +1,9 @@
+<h1>Playlister List of Genres</h1>
+
+<ul>
+  
+  <%@genres.each do |genre|%>
+    <h3><li><a href='/genres/<%=genre.slug%>'><%=genre.name%></a></li></h3>
+  <%end%>
+  
+</ul>

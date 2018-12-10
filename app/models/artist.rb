@@ -4,12 +4,18 @@ class Artist < ActiveRecord::Base
   
   
   def slug 
-    self.name.downcase.gsub(/\W/, '_')
+    self.name.split(/\W/).map {|word| word.downcase unless word.empty?}.compact.join('-')
   end
   
   def self.find_by_slug(slug)
-    unslug = slug.split('_').collect {|word| word.capitalize}.join(' ')
-    self.find_by_name(unslug)
+    unslugged = []
+    unslug_arr = slug.split('-')
+    self.all.map do |obj| 
+      if obj.name.downcase.include?(unslug_arr[0]) && obj.name.downcase.include?(unslug_arr[-1]) 
+        unslugged << obj
+      end
+    end
+    self.find_by_name(unslugged.first.name)
   end
   
 end
