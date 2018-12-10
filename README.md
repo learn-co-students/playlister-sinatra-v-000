@@ -1,10 +1,5 @@
 # Sinatra Playlister
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 ##Objectives
 
 * Solidify your ActiveRecord understanding
@@ -22,12 +17,7 @@ In the theme of moving from a simple command line application static website to 
 ## File Structure
 
 Your application should use the following file structure. Notice how there are separate controllers for songs, artists, and genres. Separately, we have sub-directories for views for songs, artists, and genres.
-=======
-=======
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
->>>>>>> origin
->>>>>>> 59fcdd050bdcb32ebe31b27573f12073bec2da82
+
 ## Objectives
 
 - Solidify your ActiveRecord understanding
@@ -51,16 +41,6 @@ this lab, you'll be:
 Your application should use the following file structure. Notice how there are
 separate controllers for songs, artists, and genres. Separately, we have
 sub-directories for views for songs, artists, and genres.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
->>>>>>> origin
->>>>>>> 59fcdd050bdcb32ebe31b27573f12073bec2da82
 
 ```
 ├── app
@@ -90,12 +70,6 @@ sub-directories for views for songs, artists, and genres.
 │           ├── index.erb
 │           ├── new.erb
 │           └── show.erb
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 ```
 
 ### Instructions
@@ -132,12 +106,7 @@ To get the data into your database, you will want to figure out how to use your 
 ### How to approach this lab
 
 Get the basics of the app working first, which means we have five specs in total and you should first pass all three model specs.
-=======
-=======
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
->>>>>>> origin
->>>>>>> 59fcdd050bdcb32ebe31b27573f12073bec2da82
+
 ```
 
 ## Instructions
@@ -200,16 +169,6 @@ To get the data into your database, you will want to figure out how to use your
 
 Get the basics of the app working first, which means we have five specs in total
 and you should first pass all three model specs.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
->>>>>>> origin
->>>>>>> 59fcdd050bdcb32ebe31b27573f12073bec2da82
 
 By typing
 
@@ -217,11 +176,6 @@ By typing
 rspec spec/models/01_artist_spec.rb
 ```
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 in your bash/ command line you will only run that spec. It is important to run the specs in their numeric order. You will notice even after adding a table, model, and controller your specs are still not passing, but the error messages are changing. You have to read every error message carefully to understand what to do next.
 
 For the last spec `05_song_form_spec.rb` you need to implement the following features:
@@ -256,12 +210,7 @@ In order to create a check box of all the genres on a new song form, you'll need
 The value attribute should be set to the genre id.
 
 The name attribute should be set to set to `genres[]` because we're dealing with a collection of attributes. This will make the params hash look like this:
-=======
-=======
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
->>>>>>> origin
->>>>>>> 59fcdd050bdcb32ebe31b27573f12073bec2da82
+
 in your bash/ command line you will only run that spec. It is important to run
 the specs in their numeric order. You will notice even after adding a table,
 model, and controller your specs are still not passing, but the error messages
@@ -332,36 +281,12 @@ The value attribute should be set to the genre id.
 The name attribute should be set to `genres[]` because we're dealing with a
 collection of attributes. This will make the params hash look like this:
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
->>>>>>> origin
->>>>>>> 59fcdd050bdcb32ebe31b27573f12073bec2da82
 ```ruby
 params = {
   genres => [ genre1, genre2, genre2]
 }
-<<<<<<< HEAD
 ```
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-```
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
-```
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
-```
->>>>>>> origin
->>>>>>> 59fcdd050bdcb32ebe31b27573f12073bec2da82
+
 
 ```html
 <% Genre.all.each do |genre| %>
@@ -371,11 +296,6 @@ params = {
 
 ## Flash Message
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 You can add a flash message for when a new instance is created. Let's take a new song creation. The controller action that handles the POST request will look something like this:
 
 ```ruby
@@ -394,12 +314,6 @@ views/songs/new.erb
 <% end %>
 ```
 
-=======
-=======
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
->>>>>>> origin
->>>>>>> 59fcdd050bdcb32ebe31b27573f12073bec2da82
 You can add a flash message for when a new instance is created. Let's take a new
 song creation as an example.
 
@@ -435,49 +349,16 @@ To display this message in the view, just add
 
 to the top of the view.
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
->>>>>>> origin
->>>>>>> 59fcdd050bdcb32ebe31b27573f12073bec2da82
 ## A Note on the Database
 
 Remember too that you can drop and recreate your database as much as you need
 to. If you hit a jam, just reset the db, run migrations, and pick up where you
 left off.
 
-<<<<<<< HEAD
-## Resources
-
-- [Clean URL - Slugs](<http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug>)
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 This checks to see if the variable `locals` is empty. If it isn't, then it displays message, which we set in the controller to store `"Successfully created song."`
 
 ### Resources
 * [Clean URL - Slugs](http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug)
-=======
-## Resources
 
-- [Clean URL - Slugs](<http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug>)
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
-## Resources
-
-- [Clean URL - Slugs](<http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug>)
->>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
-=======
-## Resources
-
-- [Clean URL - Slugs](<http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug>)
->>>>>>> origin
->>>>>>> 59fcdd050bdcb32ebe31b27573f12073bec2da82
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/playlister-sinatra' title='Sinatra Playlister'>Sinatra Playlister</a> on Learn.co and start learning to code for free.</p>
