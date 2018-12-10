@@ -29,6 +29,16 @@ describe "Genre" do
     expect(@genre.artists.count).to eq(1)
   end
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+>>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
+=======
+>>>>>>> origin
+>>>>>>> 59fcdd050bdcb32ebe31b27573f12073bec2da82
   it "can slugify its name" do
     genre = Genre.create(:name => "Alternative Rock")
 
@@ -42,4 +52,14 @@ describe "Genre" do
       expect((Genre.find_by_slug(slug)).name).to eq("Alternative Rock")
     end
   end
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+>>>>>>> 4893c8254f01a1e7ac64050428c63757f1574e8d
+=======
+>>>>>>> origin
+>>>>>>> 59fcdd050bdcb32ebe31b27573f12073bec2da82
 end
