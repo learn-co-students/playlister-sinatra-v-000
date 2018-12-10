@@ -9,8 +9,13 @@ class SongsController < ApplicationController
       @songs = Song.all
       erb :'songs/index'
     end
-  # get '/' do
-  #   @songs = LibraryParser.new.call
-  # end
+
+    get '/songs/:slug' do
+      # binding.pry
+      slug = params[:slug]
+      @song = Song.find_by_slug(slug)
+      @genres = Genre.all
+      erb :'songs/show'
+    end
 
 end
