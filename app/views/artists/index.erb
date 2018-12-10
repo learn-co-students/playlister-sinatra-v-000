@@ -1,0 +1,9 @@
+<h1>Playlister List of Artists</h1>
+
+<ul>
+  
+  <%@artists.each do |artist|%>
+    <h5><li><a href='/artists/<%=artist.slug%>'><%=artist.name%></a></li></h5>
+  <%end%>
+  
+</ul>

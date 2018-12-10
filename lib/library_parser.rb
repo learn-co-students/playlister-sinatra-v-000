@@ -16,8 +16,12 @@ class LibraryParser
     artist = artist_match && artist_match[1]
     song   = song_match   && song_match[1]
     genre  = genre_match  && genre_match[1]
-
-    [artist, song, genre]
+    
+    artist_mod = artist.split(/\W/).map {|word| word.capitalize unless word.empty?}.compact.join(' ')
+    song_mod = song.split(/\W/).map {|word| word.capitalize unless word.empty?}.compact.join(' ')
+    genre_mod = genre.split(/\W/).map {|word| word.capitalize unless word.empty?}.compact.join(' ')
+    
+    [artist_mod, song_mod, genre_mod]
   end
 
   def call
@@ -28,6 +32,7 @@ class LibraryParser
   end
 
   def build_objects(artist_name, song_name, genre_name)
+    binding.pry
     song = Song.create(name: song_name)
     genre = Genre.find_or_create_by(name: genre_name)
     artist = Artist.find_or_create_by(name: artist_name)
