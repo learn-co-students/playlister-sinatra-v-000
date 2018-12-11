@@ -1,0 +1,29 @@
+
+
+<h1>Create a new Song</h1>
+
+<form action="/songs" method="POST">
+
+  <label>Artist Name</label>
+  <input type="text" name="Artist Name">
+  <!--   <input type="text" name="artist[name]"> will also create a hash of {"Name =>"Testsong9"}-->
+  <br><br>
+
+  <label>Song Name</label>
+  <input type="text" name="Name">
+<!--   <input type="text" name="song[name]"> will also create a hash of {"Name =>"Testsong9"}-->
+<br><br>
+
+<!--name is what is passed back to params and gives you key/vlaue pair
+#value is what is passed back to controller in params
+#name defines format and type-->
+<label>Genre</label>
+<%@genres.each do |genre|%>
+  <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>"><%= genre.name%></input>
+  <%end%>
+
+<br></br>
+
+  <input type="submit" value="Create">
+
+</form>
