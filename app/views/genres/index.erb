@@ -1,0 +1,11 @@
+<h1>Genre Index</h1>
+ <ol>
+<% @genres.each do |genre| %>
+  <li>
+    <a href="/genres/<%= genre.slug %>">
+      <%= genre.name %>
+    </a>
+  </li>
+<% end %>
+</ol>
+ <a href="/">Click here to go back to the homepage</a>
