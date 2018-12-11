@@ -1,7 +1,12 @@
-<%binding.pry%>
-<h1><%=@artist.name%></h2>
+
+<h1><%=@artist.name%></h1>
   <ul>
     <%@artist.songs.each do |song|%>
-    <li><%song.name%></li>
-    <li><%song.genre%></li>
+    <h2><%=song.name%></h2>
+    <a href='/songs/<%=song.slug%>'>Listen here</a>
+    <%song.genres.each do |genre|%>
+      <p>Genre - <%=genre.name%></p>
+      <a href='/genres/<%=genre.slug%>'>Check out more <%=genre.name%> here</a>
+      <%end%>
+    <%end%>
   </ul>
