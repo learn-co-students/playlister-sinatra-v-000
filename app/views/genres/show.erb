@@ -1,0 +1,4 @@
+<h1>Genres</h1>
+<% @genres.songs.sort {|a, b| a.artist.name <=> b.artist.name}.each do |song| %>
+  <a href="/artists/<%= song.artist.slug %>"><%= song.artist.name %> - <a><a href="/songs/<%= song.slug %>"><%= song.name %><a><br>
+<% end %>
