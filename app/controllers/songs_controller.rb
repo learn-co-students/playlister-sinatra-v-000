@@ -14,9 +14,9 @@ class SongsController < ApplicationController
   post '/songs/new' do
     @artist ||= Artist.create(params[:artist])
     @song ||= Song.create(params[:song])
-    @song.artist = @artist
+    @song.artist_id = @artist.id
     params[:genre][:genres_id].each {|genre_id| @song.genres << Genre.find(genre_id)}
-    
+    binding.pry
     redirect "/songs/#{Song.last.slug}"
 
     # puts params
