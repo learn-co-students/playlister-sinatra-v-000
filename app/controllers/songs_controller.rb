@@ -2,6 +2,8 @@ class SongsController < ApplicationController
   register Sinatra::ActiveRecordExtension
   set :session_secret, "my_application_secret"
   set :views, Proc.new { File.join(root, "../views/") }
+  # enable :sessions
+  # use Rack::Flash
 
 
     get '/songs' do
@@ -27,27 +29,25 @@ class SongsController < ApplicationController
 
     post '/songs' do
 
-      # @genres = Genre.all
-
       @song = Song.create(name: params[:song][:name]) #create a new song using the name entered
 
-      if params[:song][:artist]  #if the user entered a name for the artist
-        @artist = Artist.all.find_by(name: params[:song][:artist][:name]) #look for that artist in our Artist class by name and set to a variable @artist
-          if @artist == nil #if no artist was found
-            @artist = Artist.create(params[:song][:artist]) #create a new artist using the name entered CHECK THIS PARAMS HASH and set to instance variable @artist
-            @song.artist_id = @artist.id #associate the song and the new artist
-            @song.save #save the association
-          else #if an artist WAS found
-            @song.artist_id = @artist.id #associate the song to the artist
-          end
-      else #if the user didn't enter a name for the artist
-        @song = Song.create(name: params[:song][:name]) #create and save a new song with no artist
-      end
+      @artist = Artist.all.find_by(name: params[:song][:artist][:name]) #look for that artist entered in our Artist class by name and set to a variable @artist
 
-      @genre = @genres.find_by(id: params[:song][:genres])
-      @song.genres << @genre
+        if @artist == nil #if no matching artist was found
+          @artist = Artist.create(params[:song][:artist]) #create a new artist using the name entered CHECK THIS PARAMS HASH and set to instance variable @artist
+          @song.artist_id = @artist.id #associate the song and the new artist
+          @artist.songs << @song
+          @song.save #save the association
+        else #if an artist WAS found
+          @song.artist_id = @artist.id #associate the song to the artist
+        end
 
-      redirect "/songs/#{@song.slug}"
+      @song.genres << Genre.all.find_by(id: params[:genres]) #associate the song to the genre chosen
+      @song.save
+      #
+      # flash[:message] = "Successfully created song."
+      # binding.pry
+      redirect "/songs/:#{@song.slug}"
     end
 
 
