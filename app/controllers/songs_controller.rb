@@ -15,8 +15,9 @@ class SongsController < ApplicationController
     @artist ||= Artist.create(params[:artist])
     @song ||= Song.create(params[:song])
     @song.artist_id = @artist.id
+    @song.save
     params[:genre][:genres_id].each {|genre_id| @song.genres << Genre.find(genre_id)}
-    binding.pry
+    
     redirect "/songs/#{Song.last.slug}"
 
     # puts params
