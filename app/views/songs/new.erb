@@ -7,11 +7,14 @@
   <br>
   <label>What genre is this song?</label>
   <%@genres.each do |genre|%>
-  <input type="checkbox" name="song[genre]" id="<%=genre.name%>"><%=genre.name%></input>
+  <input type="checkbox" name="song[genres][]" id="<%=genre.name%>" value="<%=genre.id%>"><%=genre.name%></input>
   <%end%>
 
-  <input type="text" name="song[artist]" id="Artist Name"></input>
+  <h2>Who's song is this?</h2>
+
+  <input type="text" name="song[artist][name]" id="Artist Name"></input>
+
 
  <br>
-  <input type="submit" value="Create Artist">
+  <input type="submit" value="Create Song">
   </form>
