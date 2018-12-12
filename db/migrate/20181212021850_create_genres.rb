@@ -1,6 +1,6 @@
 class CreateGenres < ActiveRecord::Migration
   def change
-    create_table :genres |t| do
+    create_table :genres do |t|
       t.string :name
     end
   end
