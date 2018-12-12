@@ -7,15 +7,17 @@ class SongsController < ApplicationController
 
   get '/songs/new' do
     @genres = Genre.all
+    # binding.pry
     erb :'/songs/new'
   end
 
   post '/songs/new' do
-    @artist = Artist.find_by_name(params[:artist])
-    @artist ||= Artist.new(params[:artist])
-    @song = Song.find_by_name(params[:song][:name])
-    @song ||= Song.new(params[:song][:name])
+    @artist ||= Artist.create(params[:artist])
+    @song ||= Song.create(params[:song])
     @song.artist = @artist
+    params[:genre][:genres_id].each {|genre_id| @song.genres << Genre.find(genre_id)}
+    
+    redirect "/songs/#{Song.last.slug}"
 
     # puts params
   end
