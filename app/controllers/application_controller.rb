@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
   # LibraryParser.new.call
 
   get '/' do
-    # LibraryParser.new.call
+    LibraryParser.new.call
     erb :index
   end
 
