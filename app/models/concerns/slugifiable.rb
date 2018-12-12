@@ -13,15 +13,19 @@
 #   module ClassMethods
 #     extend ActiveSupport::Concern
 #
-#     def find_by_slug(slug)
-#       unslugged = []
-#       unslug_arr = slug.split('-')
-#       self.all.map do |obj|
-#         if obj.name.downcase.include?(unslug_arr[0]) && obj.name.downcase.include?(unslug_arr[-1])
-#           unslugged << obj
-#         end
-#       end
-#       self.find_by_name(unslugged.name)
-#     end
+#
+      # def self.find_by_slug(slug)
+      #   unslugged = nil
+      #   unslug_arr = slug.split('-')
+      #   self.all.map do |obj|
+      #     if obj.name.downcase.include?(unslug_arr[0]) && obj.name.downcase.include?(unslug_arr[-1])
+      #       unslugged = obj
+      #     end
+      #   end
+      #   self.find_by_name(unslugged.name)
+      # end
+
+
+
 #   end
 # end

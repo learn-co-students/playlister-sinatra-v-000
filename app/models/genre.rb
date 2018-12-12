@@ -12,14 +12,14 @@ class Genre < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    unslugged = []
+    unslugged = nil
     unslug_arr = slug.split('-')
     self.all.map do |obj|
       if obj.name.downcase.include?(unslug_arr[0]) && obj.name.downcase.include?(unslug_arr[-1])
-        unslugged << obj
+        unslugged = obj
       end
     end
-    self.find_by_name(unslugged.first.name)
+    self.find_by_name(unslugged.name)
   end
 
 end
