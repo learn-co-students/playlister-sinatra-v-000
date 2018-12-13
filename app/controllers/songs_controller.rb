@@ -17,7 +17,7 @@ class SongsController < ApplicationController
     @song.artist_id = @artist.id
     @song.save
     params[:genre][:genres_id].each {|genre_id| @song.genres << Genre.find(genre_id)}
-    erb :'songs/show', locals: {message: "Successfully created song."}
+    redirect "/songs/#{@song.slug}", locals: {message: "Successfully created song."}
   end
 
   get '/songs/:slug' do
