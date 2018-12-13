@@ -1,0 +1,33 @@
+
+
+<h1>Update Song</h1>
+
+<form action="/songs/<%=@song.slug%>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+
+  <label>Artist Name</label>
+  <input type="text" name="Artist Name" id="Artist Name" value="<%=@song.artist.name %>">
+
+  <!--   <input type="text" name="artist[name]"> will also create a hash of {"Name =>"Testsong9"}-->
+  <br><br>
+
+  <label>Song Name</label>
+  <input type="text" name="Name" id="Name" value="<%=@song.name %>">
+<!--   <input type="text" name="song[name]"> will also create a hash of {"Name =>"Testsong9"}-->
+<br><br>
+
+<!--name is what is passed back to params and gives you key/vlaue pair
+#value is what is passed back to controller in params
+#name defines format and type-->
+<label>Genre</label><br>
+<%@genres.each do |genre|%>
+<label><%= genre.name %></label>
+  <input type="checkbox" name="genres[]" value="<%= genre.id %>" id="<%= genre.name %>" <%='checked' if @song.genres.include?(genre) %>>
+<% end %>
+
+
+<br></br>
+
+  <input type="submit" value="Save">
+
+</form>
