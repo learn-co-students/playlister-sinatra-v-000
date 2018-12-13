@@ -11,16 +11,13 @@ class SongsController < ApplicationController
     erb :'/songs/new'
   end
 
-  post '/songs/new' do
+  post '/songs' do
     @artist ||= Artist.create(params[:artist])
     @song ||= Song.create(params[:song])
     @song.artist_id = @artist.id
     @song.save
     params[:genre][:genres_id].each {|genre_id| @song.genres << Genre.find(genre_id)}
-
-    redirect "/songs/#{Song.last.slug}"
-
-    # puts params
+    erb :'songs/show', locals: {message: "Successfully created song."}
   end
 
   get '/songs/:slug' do
