@@ -3,7 +3,7 @@ class Artist < ActiveRecord::Base
   has_many :genres, :through => :songs
 
   def artist
-    @artist ||= Artist.find_by_name(params[:artist])
+    @artist ||= Artist.find_by_name(params[:artist][:name])
   end
 
   def slug

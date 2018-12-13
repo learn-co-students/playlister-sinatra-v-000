@@ -1,5 +1,5 @@
-<% unless locals.empty? %>
-  <%= "Successfully created song." %>
+<% if !!flash[:message] %>
+  <%= flash[:message] %>
 <% end %>
 
 <h1>Create a new Song</h1>
@@ -17,8 +17,8 @@
 
   <br></br>
 
-  <%@genres.each do |genre|%>
-    <input type="checkbox" name="genre[genres_id][]" value="<%=genre.id%>" id="<%=genre.name%>"><%=genre.name%></input>
+  <%Genre.all.each do |genre|%>
+    <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>"><%=genre.name%></input>
   <%end%>
 
   <br></br>
@@ -28,7 +28,7 @@
   <br></br>
 
   <label>Name:</label>
-  <input type="text" name="Artist Name" id="Artist Name"></input>
+  <input type="text" name="artist[name]" id="Artist Name"></input>
   <br></br>
   <input type="submit" value="Create" id="Submit">
 </form>

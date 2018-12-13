@@ -8,7 +8,7 @@ class Song < ActiveRecord::Base
 
 
   def song
-    @song ||= Song.find_by_name(params[:song])
+    @song ||= Song.find_by_name(params[:song][:name])
   end
 
   def slug
