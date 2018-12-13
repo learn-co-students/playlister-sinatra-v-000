@@ -56,15 +56,13 @@ class SongsController < ApplicationController
     end
 
     patch '/songs/:slug' do
-
+      binding.pry
       @song = Song.find_by_slug(params[:slug])
-      # binding.pry
       @song.artist = Artist.create(name: params[:song][:artist][:name])
-      
+
       params[:song][:genres].each do |genre_id|
         @genre = Genre.find_by(id: genre_id)
         @song.genres << @genre
-        binding.pry
       end
 
       @song.save
