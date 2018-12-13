@@ -1,5 +1,6 @@
 <%=flash[:message]%>
-<h1><%=@song.name%></h1>
+
+<h1>Name: <%=@song.name%></h1>
 <h2><%=@song.artist.name%></h2>
 <%song_genre = SongGenre.all.find_by(song_id: @song.id)%>
 <p><%@genre = @genres.find_by(id: song_genre.genre_id)%></p>
