@@ -1,0 +1,11 @@
+<h1>Update Song</h1>
+
+<p><%=@song.name%></p>
+
+<form action="/songs/<%=@song.slug%>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Name a new artist for this song:</label>
+  <br>
+  <input type="text" name="song[artist][name]" id="Artist Name" value="<%=@song.artist.name%>">
+  <input type="submit" value="Save">
+</form>
