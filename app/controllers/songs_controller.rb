@@ -1,9 +1,10 @@
+require 'rack-flash'
+
 class SongsController < ApplicationController
   register Sinatra::ActiveRecordExtension
   set :session_secret, "my_application_secret"
   set :views, Proc.new { File.join(root, "../views/") }
-  # enable :sessions
-  # use Rack::Flash
+  use Rack::Flash
 
 
     get '/songs' do
@@ -12,14 +13,11 @@ class SongsController < ApplicationController
     end
 
     get '/songs/new' do
-      # @song = Song.create(params)
-      # @artists = Artist.all
       @genres = Genre.all
       erb :'/songs/new'
     end
 
     get '/songs/:slug' do
-      # binding.pry
       slug = params[:slug]
       @song = Song.find_by_slug(slug)
       @genres = Genre.all
@@ -38,16 +36,17 @@ class SongsController < ApplicationController
           @song.artist_id = @artist.id #associate the song and the new artist
           @artist.songs << @song
           @song.save #save the association
-        else #if an artist WAS found
+        else #if an artist WAS found in our DB
           @song.artist_id = @artist.id #associate the song to the artist
+          @song.save
         end
 
-      @song.genres << Genre.all.find_by(id: params[:genres]) #associate the song to the genre chosen
+      @song.genres << Genre.all.find_by(id: params[:song][:genres]) #associate the song to the genre chosen
       @song.save
-      #
-      # flash[:message] = "Successfully created song."
-      # binding.pry
-      redirect "/songs/:#{@song.slug}"
+
+      flash[:message] = "Successfully created song."
+
+      redirect "/songs/#{@song.slug}"
     end
 
 
