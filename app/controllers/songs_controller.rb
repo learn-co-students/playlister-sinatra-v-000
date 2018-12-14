@@ -27,4 +27,17 @@ class SongsController < ApplicationController
     erb :'/songs/show'
   end
 
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'/songs/edit'
+  end
+
+  patch '/songs/:slug' do
+    @song = Song.find_by_name(params[:song][:name])
+    @song.update(params[:song])
+    params[:genres].each {|genre_id| @song.genres << Genre.find(genre_id.to_i)}
+    flash[:message] = "Successfully updated song."
+    redirect "/songs/#{@song.slug}"
+  end
+
 end
