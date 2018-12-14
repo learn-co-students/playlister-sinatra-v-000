@@ -6,14 +6,6 @@ class Song < ActiveRecord::Base
   # include Slugifiable::InstanceMethods
   # extend Slugifiable::ClassMethods
 
-  def song_defined?
-    if Song.find_by_name(params[:song][:name])
-      return true
-    else
-      return false
-    end
-  end
-
   def slug
     self.name.split(/\W/).map {|word| word.downcase unless word.empty?}.compact.join('-')
   end

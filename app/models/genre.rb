@@ -3,14 +3,6 @@ class Genre < ActiveRecord::Base
   has_many :song_genres
   has_many :songs, :through => :song_genres
 
-  def genre_defined?
-    if Genre.find_by_name(params[:genres])
-      return true
-    else
-      return false
-    end
-  end
-
   def slug
     self.name.split(/\W/).map {|word| word.downcase unless word.empty?}.compact.join('-')
   end

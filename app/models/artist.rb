@@ -2,14 +2,6 @@ class Artist < ActiveRecord::Base
   has_many :songs
   has_many :genres, :through => :songs
 
-  def artist_defined?
-    if Artist.find_by_name(params[:artist][:name])
-      return true
-    else
-      return false
-    end
-  end
-
   def slug
     self.name.split(/\W/).map {|word| word.downcase unless word.empty?}.compact.join('-')
   end
