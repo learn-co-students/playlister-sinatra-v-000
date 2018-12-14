@@ -6,9 +6,12 @@ class Song < ActiveRecord::Base
   # include Slugifiable::InstanceMethods
   # extend Slugifiable::ClassMethods
 
-
-  def song
-    @song ||= Song.find_by_name(params[:song][:name])
+  def song_defined?
+    if Song.find_by_name(params[:song][:name])
+      return true
+    else
+      return false
+    end
   end
 
   def slug
