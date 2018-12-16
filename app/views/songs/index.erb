@@ -2,9 +2,10 @@
 <h6>views/songs/index.erb</h6>
 <a href="/"><p>Main Page</p></a>
 <hr>
+
 <ol style="list-style: none">
 <% @songs.each do |song| %>
-<li >
+<li>
   <a href="/songs/<%=song.slug%>">
   <h3>Song name: <%= song.name %></h3>
 </a>

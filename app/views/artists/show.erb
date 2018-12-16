@@ -3,10 +3,20 @@
 <a href="/"><p>Main Page</p></a>
 <hr>
 
-<% @artist.genres.each do |genre| %>
-  <h3><a href="/genres/<%=genre.slug%>">Genre: <%=genre.name%></a></h3>
-  <% genre.songs.each do |song| %>
-    <h3><a href="/songs/<%=song.slug%>">Song: <%=song.name%></a></h3>
+<ul class="list-style:none">
+<% @artist.songs.each do |song| %>
+  <li>
+    <a href="/song/<%=song.slug%>"><h3>Song: <%=song.name%></h3></a>
+  </li>
   <% end %>
-<% end %>
+</ul>
+<hr>
+
+<ul class="list-style:none">
+  <% @artist.genres.each do |genre| %>
+  <li>
+    <a href="/genres/<%=genre.slug%>"><h3>Genre: <%=genre.name%></h3></a>
+  </li>
+  <% end %>
+</ul>
 <hr>
