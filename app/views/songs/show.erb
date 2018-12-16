@@ -1,30 +1,18 @@
-<<<<<<< HEAD
+
 <h1>Show a Song: <%= @song.name %> </h1>
 <h6>views/songs/show.erb</h6>
 
 <a href="/songs/<%= @song.slug %>">
   <h3>Song Name: <%= @song.name %> </h3>
   <br>
-  <h3>by: <a href="/artists/<%=@song.artist.slug%>">
+  <% if @song.artist != nil %>
+    <h3>by: <a href="/artists/<%= @song.artist.slug %>">
     <%= @song.artist.name %></a></h3>
+  <% end %>
   <br>
   <h3>Genres: </h3>
   <% @song.genres.each do |genre|%>
+  <%binding.pry%>
     <a href="/genres/<%=genre.slug%>"><h3> <%=genre.name%> </h3></a>
   <% end %>
 <hr>
-=======
-<h1>Show a Song: <%= @song.name%> </h1>
-<h6>views/songs/show.erb</h6>
-
-<% @song.each do |song| %>
-<a href="/songs/<%=song.slug%>">
-  <h3>Song: <%= song.name %></h3>
-</a>
-<!-- # <% @artist.songs.each do |song| %>
-#   <a href="/songs/<%=song.slug%>">
-#     <p>Song: <%=song.name%> </p>
-#     <%end%> -->
-<hr>
-<% end %>
->>>>>>> 4d182c90dc53a0b783e58a4e9487a2f8114fc339
