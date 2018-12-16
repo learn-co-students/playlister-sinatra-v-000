@@ -6,7 +6,7 @@
 <ul class="list-style:none">
 <% @artist.songs.each do |song| %>
   <li>
-    <a href="/song/<%=song.slug%>"><h3>Song: <%=song.name%></h3></a>
+    <a href="/songs/<%=song.slug%>"><h3>Song: <%=song.name%></h3></a>
   </li>
   <% end %>
 </ul>
@@ -20,5 +20,3 @@
   <% end %>
 </ul>
 <hr>
-<% end %>
-
