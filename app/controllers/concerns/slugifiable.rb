@@ -8,7 +8,7 @@ module Slugifiable
 
   module ClassMethods
     def find_by_slug(slug)
-      self.all.find{|item| item.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') = slug }
+      self.all.find {|item| item.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') == slug }
     end
   end
 
