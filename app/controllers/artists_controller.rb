@@ -5,4 +5,9 @@ class ArtistsController < Sinatra::Base
     erb :'artists/index'
   end
 
+  get "/artists/:slug" do
+    slug=
+    erb :"artists/:slug"
+  end
+
 end
