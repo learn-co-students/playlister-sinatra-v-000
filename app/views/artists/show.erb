@@ -1,8 +1,10 @@
 <h1>Show an Artist: <%= @artist.name %></h1>
 <h6>views/artists/show.erb</h6>
 
-<a href="/artists/<%=artist.slug%>">
-  <h3>Artist name: <%= @artist.name %></h3>
-</a>
-<hr>
+<% @artist.genres.each do |genre| %>
+  <h3><a href="/genres/<%=genre.slug%>">Genre: <%=genre.name%></a></h3>
+  <% genre.songs.each do |song| %>
+    <h3><a href="/songs/<%=song.slug%>">Song: <%=song.name%></a></h3>
+  <% end %>
 <% end %>
+<hr>
