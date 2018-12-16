@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <% if flash.has?(:message) %>
   <%= flash[:message] %>
 <% end %>
@@ -6,7 +5,7 @@
 <h1>Show a Song</h1>
 <h6>views/songs/show.erb</h6>
 <a href="/"><p>Main Page</p></a>
-=======
+
 <h1>Show a Song: <%= @song.name %> </h1>
 <h6>views/songs/show.erb</h6>
 
@@ -24,10 +23,8 @@
   <br>
   <h3>Genres: </h3>
   <% @song.genres.each do |genre|%>
-  <%binding.pry%>
     <a href="/genres/<%=genre.slug%>"><h3> <%=genre.name%> </h3></a>
   <% end %>
->>>>>>> 047bf3d62ac8296d6ea8d172e3e45af8834d13d4
 <hr>
 
 <h1><%=@song.name%></h1>
