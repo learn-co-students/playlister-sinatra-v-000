@@ -9,9 +9,13 @@
   <input type="text" name="artist_name" id="Artist Name">
 </div>
 <div>
-  <label for "genre">Genre:</label>
   <% Genre.all.each do |genre| %>
-    <input type="checkbox" name="song[genres][]" value="<%=genre.id%>" id="<%=genre.name%>"> <%=genre.name%> </input>
+    <input
+    id="<%= genre.name %>"
+    type="checkbox"
+    name="genres[]"
+    value="<%= genre.id %>"
+    >
   <% end %>
 </div>
   <input type="submit" value="Create">

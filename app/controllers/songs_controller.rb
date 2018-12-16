@@ -17,14 +17,12 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    song=Song.create({name: params[:name]})
-    song.artist=Artist.find_or_create_by(name: params[:artist_name])
-    if song.genres != []
-      song.genres << params[:genres].collect {|genre| Genre.find(genre)}
-    end
-    song.save
+    @song=Song.create({name: params[:name]})
+    @song.artist=Artist.find_or_create_by(name: params[:artist_name])
+    @song.genres << params[:genres].collect {|g| Genre.find(g)}
+    @song.save
     flash[:message] = "Successfully created song."
-    redirect to "songs/#{song.slug}"
+    redirect to "/songs/#{@song.slug}"
   end
 
   get '/songs/:slug/edit' do
