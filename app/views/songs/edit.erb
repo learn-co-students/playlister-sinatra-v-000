@@ -1,4 +1,8 @@
 <h1>Edit <%=@song.name%></h1>
+<h6>views/songs/edit.erb</h6>
+<a href="/"><p>Main Page</p></a>
+<hr>
+<br>
 <form method="POST" action="/songs/<%=@song.slug %>" >
   <div>
     <label for "name">Name: </label>

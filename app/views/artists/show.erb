@@ -1,5 +1,7 @@
 <h1>Show an Artist: <%= @artist.name %></h1>
 <h6>views/artists/show.erb</h6>
+<a href="/"><p>Main Page</p></a>
+<hr>
 
 <% @artist.genres.each do |genre| %>
   <h3><a href="/genres/<%=genre.slug%>">Genre: <%=genre.name%></a></h3>

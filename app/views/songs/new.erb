@@ -1,12 +1,17 @@
 <h1>New Song</h1>
+<h6>views/songs/new.erb</h6>
+<a href="/"><p>Main Page</p></a>
+<hr>
 <form method="POST" action="/songs">
 <div>
   <label for "Name">Name: </label>
   <input type="text" name="name" id="Name">
+  <br>
 </div>
 <div>
   <label for "Artist Name">Artist: </label>
   <input type="text" name="artist_name" id="Artist Name">
+  <br>
 </div>
 <div>
   <% Genre.all.each do |genre| %>
@@ -15,7 +20,8 @@
     type="checkbox"
     name="genres[]"
     value="<%= genre.id %>"
-    >
+    ><%= genre.name %>
+    <br>
   <% end %>
 </div>
   <input type="submit" value="Create">
