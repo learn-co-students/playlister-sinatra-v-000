@@ -2,8 +2,8 @@
   <%= flash[:message] %>
 <% end %>
 
-<h1>Show a Song</h1>
-<h6>views/songs/show.erb</h6>
+<span><h1>Show a Song</h1><h6>views/songs/show.erb</h6></span>
+
 <a href="/"><p>Main Page</p></a>
 <hr>
 
@@ -15,4 +15,6 @@
 <% @song.genres.each do |genre|%>
   <a href="/genres/<%=genre.slug%>"><h3> <%=genre.name%> </h3></a>
 <% end %>
+<br>
+<a href="/songs/<%=@song.slug%>/edit">Edit Song</a>
 <hr>

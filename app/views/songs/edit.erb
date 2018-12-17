@@ -21,6 +21,7 @@
       id="<%= genre.name %>"
       <%= "checked" if @song.genres.include?(genre) %>
       > <%= genre.name %>
+      <br>
     </input>
     <% end %>
   <input type="submit" value="Save">

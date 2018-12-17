@@ -9,8 +9,7 @@
   <a href="/songs/<%=song.slug%>">
   <h3>Song Name: <%= song.name %></h3>
   </a>
-  <!-- <a href="/songs/#{@song.slug}">Edit Song</a> -->
-  <a href="/songs/edit">Edit Song</a>
+  <a href="/songs/<%=song.slug%>/edit">Edit Song</a>
 </li>
 <hr>
 <% end %>
