@@ -30,11 +30,6 @@ class SongsController < ApplicationController
     redirect to "/songs/#{@song.slug}"
   end
 
-  get '/songs/:slug/edit' do
-    @song=Song.find_by_slug(params[:slug])
-    erb :'songs/edit'
-  end
-
   post '/songs' do
     @song=Song.create({name: params[:name]})
     @song.artist=Artist.find_or_create_by(name: params[:artist_name])
@@ -49,7 +44,7 @@ class SongsController < ApplicationController
     erb :'songs/edit'
   end
 
-  post '/songs/:slug' do
+  patch '/songs/:slug' do
     @song=Song.find_or_create_by({name: params[:name]})
     @song.artist=Artist.find_or_create_by(name: params[:artist_name])
     @song.genres << params[:genres].collect {|genre| Genre.find(genre)}

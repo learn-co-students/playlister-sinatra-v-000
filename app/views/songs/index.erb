@@ -7,8 +7,10 @@
 <% @songs.each do |song| %>
 <li>
   <a href="/songs/<%=song.slug%>">
-  <h3>Song name: <%= song.name %></h3>
-</a>
+  <h3>Song Name: <%= song.name %></h3>
+  </a>
+  <!-- <a href="/songs/#{@song.slug}">Edit Song</a> -->
+  <a href="/songs/edit">Edit Song</a>
 </li>
 <hr>
 <% end %>
