@@ -1,0 +1,18 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] = "Successfully created song." %>
+  Successfully created song.
+  <%= flash[:message] %>
+<% end %>
+Successfully created song.
+Successfully updated song.
+
+<% #binding.pry %>
+
+<h1><%=@song.name%></h1>
+
+<h2>Artist name: <%=@song.artist.name%>, more about artist: <a href = '/artists/<%=@song.artist.slug%>'>click here</a></h2>
+
+<h2>Song's genres:</h1>
+<%@song.genres.each do |genre|%>
+  <h3>name: <%=genre.name%> learn more about the genre <a href= '/genres/<%=genre.slug%>'>here</a></h3>
+<%end%>
