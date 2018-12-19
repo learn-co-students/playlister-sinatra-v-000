@@ -1,7 +1,8 @@
 <form method = 'POST' action = '/songs/<%=@song.slug%>'>
   <input id="hidden" type="hidden" name="_method" value="PATCH">
-  Song Name: <input type = 'text' name = 'song_name' id = "Name"><br>
-  Artist Name: <input type = 'text' name = 'artist_name' id = "Artist Name" value = <%=@song.artist.name%>><br>
+  Song Name: <input type='text' name='song_name' id="Name"><br>
+  <%#binding.pry%>
+  Artist Name: <input type='text' name='artist_name' id="Artist Name" value="<%=@song.artist.name%>"><br>
   Choose the applicable genres:<br>
 
   <% Genre.all.each do |genre|  %>
@@ -9,5 +10,5 @@
   <% end %>
 
 
-  <input type = 'submit' name = "Save" id = "Save" value = "Save">
+  <input type='submit' name="Save" id="Save" value="Save">
 </form>

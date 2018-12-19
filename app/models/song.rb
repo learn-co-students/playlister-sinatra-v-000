@@ -13,7 +13,7 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    binding.pry
+    #binding.pry
 
     self.all.find(slug) {|name| name.slug == slug}
   end
