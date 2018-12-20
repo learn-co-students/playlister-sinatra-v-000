@@ -1,0 +1,22 @@
+<h1>Show an Artist: <%= @artist.name %></h1>
+<p>views/artists/show.erb</p>
+<a href="/"><p>Main Page</p></a>
+<hr>
+
+<ul class="list-style:none">
+<% @artist.songs.each do |song| %>
+  <li>
+    <a href="/songs/<%=song.slug%>"><h3>Song: <%=song.name%></h3></a>
+  </li>
+  <% end %>
+</ul>
+<hr>
+
+<ul class="list-style:none">
+  <% @artist.genres.each do |genre| %>
+  <li>
+    <a href="/genres/<%=genre.slug%>"><h3>Genre: <%=genre.name%></h3></a>
+  </li>
+  <% end %>
+</ul>
+<hr>

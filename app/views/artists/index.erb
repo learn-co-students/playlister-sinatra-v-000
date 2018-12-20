@@ -1,0 +1,18 @@
+<div>
+<h1>All Artists</h1>
+<p>views/artists/index.erb</p>
+
+<a href="/"><p>Main Page</p></a>
+<hr>
+
+</div>
+<ol style="list-style:none">
+<% @artists.each do |artist| %>
+<li>
+<a href="/artists/<%=artist.slug%>">
+  <h3>Artist name: <%= artist.name %></h3>
+</a>
+</li>
+<hr>
+<% end %>
+</ol>

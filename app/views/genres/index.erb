@@ -1,0 +1,14 @@
+<h1>All Genres</h1>
+<p>views/genres/index.erb</p>
+<a href="/"><p>Main Page</p></a>
+<hr>
+
+<ol style="list-style: none">
+<% @genres.each do |genre| %>
+<li><a href="/genres/<%=genre.slug%>">
+  <h3>Genre name: <%= genre.name %></h3>
+</a>
+</li>
+<hr>
+<% end %>
+</ol>

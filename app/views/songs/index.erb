@@ -1,0 +1,16 @@
+<h1>All Songs</h1>
+<p>views/songs/index.erb</p>
+<a href="/"><p>Main Page</p></a>
+<hr>
+
+<ol style="list-style: none">
+<% @songs.each do |song| %>
+<li>
+  <a href="/songs/<%=song.slug%>">
+  <h3>Song Name: <%= song.name %></h3>
+  </a>
+  <a href="/songs/<%=song.slug%>/edit">Edit Song</a>
+</li>
+<hr>
+<% end %>
+</ol>
