@@ -16,7 +16,15 @@ class LibraryParser
     artist = artist_match && artist_match[1]
     song   = song_match   && song_match[1]
     genre  = genre_match  && genre_match[1]
-
+    
+    # artist_mod = artist.split(/\W/).map {|word| word.capitalize unless word.empty?}.compact.join(' ')
+    # song_mod = song.split(/\W/).map {|word| word.capitalize unless word.empty?}.compact.join(' ')
+    # genre_mod = genre.split(/\W/).map {|word| word.capitalize unless word.empty?}.compact.join(' ')
+    
+    # artist_mod = artist.split(/\W/).map {|word| !word.empty?}.compact.join(' ')
+    # song_mod = song.split(/\W/).map {|word| !word.empty?}.compact.join(' ')
+    # genre_mod = genre.split(/\W/).map {|word| !word.empty?}.compact.join(' ')
+   
     [artist, song, genre]
   end
 
