@@ -18,5 +18,6 @@ class Genre < ActiveRecord::Base
       matching_genre = Genre.find{ |genre| genre.name.downcase == name }
     else
       matching_genre = Genre.find{ |genre| genre.name.downcase == slug}
+    end
   end
 end
