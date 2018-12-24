@@ -14,7 +14,8 @@
   <br>
 
   <%@genres.each do |genre|%>
-    <input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>" id="<%=genre.name%>">
+    <input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>" id="<%=genre.name%>"
+    <%='checked' if @song.genres.include?(Genre.find_by_name(genre.name)) %>>
     <%=genre.name%></input>
   <%end%>
 

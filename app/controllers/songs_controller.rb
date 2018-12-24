@@ -47,12 +47,13 @@ class SongsController < ApplicationController
       @song.artist = Artist.find_by_id(params[:song][:artist_id])
     end
     if !params[:song][:genre_ids].empty?
-      replace_genres(params[:song][:genre_ids])
+      @song.replace_genres(params[:song][:genre_ids])
     end
     if params[:song][:name] != @song.name
       @song.name = params[:song][:name]
     end
     @song.save
+    flash[:message] = "Successfully updated song."
     redirect to ("/songs/#{@song.slug}")
   end
 
