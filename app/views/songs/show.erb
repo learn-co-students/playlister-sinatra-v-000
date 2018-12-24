@@ -1,3 +1,6 @@
+  <%= flash[:message] %>
+
+
 <h1><%= @song.name %></h1>
 <h3>Genres:</h3>
 <ul><% @song.genres.each do |genre| %>

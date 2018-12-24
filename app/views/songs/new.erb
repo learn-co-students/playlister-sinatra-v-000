@@ -9,12 +9,24 @@
 
   <br>
 
+  <label>Choose an existing genre:</label>
+
+  <br>
+
+  <%@genres.each do |genre|%>
+    <input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>" id="<%=genre.name%>">
+    <%=genre.name%></input>
+  <%end%>
+
+  <br>
+
+
   <label>Choose an existing artist:</label>
 
   <br>
 
   <%@artists.each do |artist|%>
-    <input type="checkbox" name="song[artist_ids]" value="<%=artist.id%>" id="<%=artist.name%>">
+    <input type="checkbox" name="song[artist_id]" value="<%=artist.id%>" id="<%=artist.name%>">
     <%=artist.name%></input>
 <%end%>
 
