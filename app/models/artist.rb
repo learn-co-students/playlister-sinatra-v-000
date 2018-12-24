@@ -3,12 +3,20 @@ class Artist < ActiveRecord::Base
   has_many :genres, through: :songs
 
   def slug
-    camel_slug = self.name.gsub! " ", "-"
-    camel_slug.downcase
+    if self.name.include?(' ')
+      camel_slug = self.name.gsub " ", "-"
+      camel_slug.downcase
+    else
+      self.name.downcase
+    end
   end
 
   def self.find_by_slug(slug)
-    name = slug.gsub! "-", " "
-    matching_artist = Artist.find{ |artist| artist.name.downcase == name }
+    if slug.include?('-')
+      name = slug.gsub "-", " "
+      matching_artist = Artist.find{ |artist| artist.name.downcase == name }
+    else
+      matching_artist = Artist.find{ |artist| artist.name.downcase == slug }
+    end
   end
 end

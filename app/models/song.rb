@@ -4,16 +4,20 @@ class Song < ActiveRecord::Base
   has_many :genres, through: :song_genres
 
   def slug
-    if self.name != ""
-      camel_slug = self.name.gsub! " ", "-"
+    if self.name.include?(' ')
+      camel_slug = self.name.gsub " ", "-"
       camel_slug.downcase
     else
-      self.name = "empty"
+      self.name.downcase
     end
   end
 
   def self.find_by_slug(slug)
-    name = slug.gsub! "-", " "
-    matching_song = Song.find{ |song| song.name.downcase == name }
+    if slug.include?('-')
+      name = slug.gsub "-", " "
+      matching_song = Song.find{ |song| song.name.downcase == name }
+    else
+      matching_song = Song.find{ |song| song.name.downcase == slug }
+    end
   end
 end
