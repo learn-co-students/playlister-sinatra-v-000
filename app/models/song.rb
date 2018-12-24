@@ -4,8 +4,12 @@ class Song < ActiveRecord::Base
   has_many :genres, through: :song_genres
 
   def slug
-    camel_slug = self.name.gsub! " ", "-"
-    camel_slug.downcase
+    if self.name != ""
+      camel_slug = self.name.gsub! " ", "-"
+      camel_slug.downcase
+    else
+      self.name = "empty"
+    end
   end
 
   def self.find_by_slug(slug)
