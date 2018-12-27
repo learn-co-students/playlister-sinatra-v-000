@@ -1,29 +1,35 @@
 require "pry"
+require "rack-flash"
+
 class SongsController < ApplicationController
+  enable :sessions
+  use Rack::Flash
+  
   get '/songs' do
     @songs = Song.all
     erb :'songs/index' 
   end
   
   get '/songs/new' do 
-    @genres = Genre.all
     erb :'/songs/new'
   end
   
   post '/songs' do 
-    #binding.pry
     @song = Song.create(name: params["Name"])
     if !params["Artist Name"].empty?
       if Artist.all.find{|artist| artist.name == params["Artist Name"]}
         @song.artist = Artist.all.find{|artist| artist.name == params["Artist Name"]}
+        @song.genre_ids = params[:genres]
         @song.save
       else 
         artist = Artist.create(name: params["Artist Name"])
         @song.artist = artist
+        @song.genre_ids = params[:genres]
         @song.save
       end
     end
-    redirect to "/songs/#{@song.slug}"
+    flash[:message] = "Successfully created song."
+    redirect to("/songs/#{@song.slug}")
   end
   
   get '/songs/:slug' do
