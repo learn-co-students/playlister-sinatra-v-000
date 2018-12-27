@@ -17,19 +17,19 @@ class SongsController < ApplicationController
 
   post '/songs/:slug' do
     @new_song = Song.find_by_slug(params[:slug])
-    binding.pry
-    if params[:"Artist Name"] == nil
+    if Artist.find_by_name(params[:"Artist Name"])
+      @new_song.artist = Artist.find_by_slug(@new_song.artist.slug)
+    else
       @new_artist = Artist.create(name: params[:"Artist Name"])
       @new_song.artist = @new_artist
-    else
-      @new_song.artist = Artist.find_by_slug(@new_song.artist.slug)
     end
-
+    binding.pry
     @new_song.name = params[:"Name"]
-    @new_song.genre_id = params[:genres]
+    params[:genres].each do |genre|
+      @new_song.genres << Genre.find(genre)
+    end
     @new_song.save
-
-    redirect to '/songs/:slug'
+    redirect to "/songs/#{@new_song.slug}"
   end
 
   get '/songs/:slug/edit' do
