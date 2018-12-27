@@ -1,4 +1,8 @@
-<h1><%= @song.artist.name %></h1>
+<% if flash.include?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<h1><%= @song.name %></h1>
 <br>
 <% @song.genres.each do |genre| %>
   <%= genre.name %>
