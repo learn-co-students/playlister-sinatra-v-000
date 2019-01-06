@@ -4,12 +4,24 @@
   <label>Name</label>
   <input type="text" name="song[name]" id="Name">
   
-  <br></br>
-
+  <br></br> 
+ 
+  <label>Choose an existing genre/genres:</label>
+ 
+  <br>
+ 
   <% Genre.all.each do |genre| %>
   <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
   <%= genre.name %>
   <% end %>
+
+  <br></br>
+  
+  <label>and/or, create a new genre:</label>
+
+  <br></br>
+  <label>Genre</label>
+  <input type="text" name="genre[name]" >
 
   <br></br>
 

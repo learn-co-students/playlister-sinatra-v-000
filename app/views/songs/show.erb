@@ -1,5 +1,11 @@
-<h1>Song Title: <%= @song.name %></h1>
+ 
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
 
+<%= binding.pry %>
+
+<h1>Song Title: <%= @song.name %></h1>
 <h2>Artist</h2>
 <a href="/artists/<%= @song.artist.slug %>"><%=  @song.artist.name  %></a>
 <h3>Genres</h3>
