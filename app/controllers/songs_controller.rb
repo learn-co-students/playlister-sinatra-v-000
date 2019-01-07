@@ -46,17 +46,16 @@ class SongsController < ApplicationController
     end
 
     patch '/songs/:slug' do
-
-        if !params[:song].keys.include?(artist_id)
-            params[:song]["artist_id"] = []
-        end 
-
-        
+      
         @song = Song.find_by_slug(params[:slug])
         @song.update(params["artist"])
+
+        if !params["artist"]["name"].empty?
+            binding.pry
+            @song.artist = Artist.create(name: params["artist"]["name"])
+        end
         # @song.update(params["genres"])
 
-        @song.save
         flash[:message] = "Successfully updated song."
         redirect "/songs/#{@song.slug}" 
     end
