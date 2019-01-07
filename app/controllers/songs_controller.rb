@@ -46,6 +46,12 @@ class SongsController < ApplicationController
     end
 
     patch '/songs/:slug' do
+
+        if !params[:song].keys.include?(artist_id)
+            params[:song]["artist_id"] = []
+        end 
+
+        
         @song = Song.find_by_slug(params[:slug])
         @song.update(params["artist"])
         # @song.update(params["genres"])
