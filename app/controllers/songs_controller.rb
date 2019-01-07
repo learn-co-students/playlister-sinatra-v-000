@@ -40,4 +40,23 @@ class SongsController < ApplicationController
         erb :'songs/show'
     end
 
+    get '/songs/:slug/edit' do
+        @song = Song.find_by_slug(params[:slug])
+        erb :'songs/edit'
+    end
+
+    patch '/songs/:slug' do
+        @song = Song.find_by_slug(params[:slug])
+        @song.update(params["artist"])
+        # @song.update(params["genres"])
+
+        @song.save
+        flash[:message] = "Successfully updated song."
+        redirect "/songs/#{@song.slug}" 
+    end
 end
+
+
+
+# I can create a new genre and it saves and renders it, but when I click a new created 
+# genre on the browser in song/:slug, I get an error. Something about .downcase.

@@ -1,9 +1,8 @@
  
-<% if flash.has?(:message) %>
+<% if flash[:message] %>
   <%= flash[:message] %>
 <% end %>
 
-<%= binding.pry %>
 
 <h1>Song Title: <%= @song.name %></h1>
 <h2>Artist</h2>
