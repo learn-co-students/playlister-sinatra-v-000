@@ -4,13 +4,14 @@ class Artist < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    unslugged = slug.split("-")
-    self.all.map do |artist|
-      if artist.name.downcase.include?(unslugged[0]) && artist.name.downcase.include?(unslugged[1])
-        unslugged = artist
-      end
-    end
-    self.find_by_name(unslugged.name)
+    Artist.all.find {|artist| artist.slug == slug}
+    # unslugged = slug.split("-")
+    # self.all.map do |artist|
+    #   if artist.name.downcase.include?(unslugged[0]) && artist.name.downcase.include?(unslugged[1])
+    #     unslugged = artist
+    #   end
+    # end
+    # self.find_by_name(unslugged.name)
   end
 
   has_many :songs
