@@ -7,6 +7,7 @@ class SongsController < ApplicationController
 
   get '/songs/new' do
     @artists = Artist.all
+    @genres = Genre.all
     erb :'/songs/new'
   end
 
@@ -16,10 +17,11 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    @song = Song.create(params[:song])
-    if !params[:artist][:name].empty?
-      @song.artist << Artist.create(params[:artist])
+    @song = Song.create(name: params[:song_name])
+    if !params[:artist_name].empty?
+      @song.artist << Artist.create(name: params[:artist_name])
     end
+    flash[:notice] = "Successfully created song."
     redirect "/songs/#{@song.slug}"
   end
 

@@ -15,5 +15,13 @@
   <label for="artist_name">Artist Name:</label>
   <input type="text" id="artist_name" name="artist_name">
   <br>
-  <button type="submit" value="submit">Submit</button>
+  <br>
+  <label>Select the song's genre:</label>
+  <br>
+  <% @genres.each do |genre| %>
+    <input type="checkbox" id="<%= genre.id %>" name="song[genre_id]" value="<%= genre.id %>"><%= genre.name %></input>
+    <br>
+  <% end %>
+  <br>
+  <button type="submit" value="submit">Create</button>
 </form>
