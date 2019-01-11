@@ -13,5 +13,6 @@
 <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>" <%= "checked" if @song.genres.include?(genre) %>>
 </br>
 <% end %>
+
 <input type="submit" value="Save">
 </form>
