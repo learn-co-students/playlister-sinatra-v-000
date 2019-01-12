@@ -16,12 +16,25 @@ class SongsController < ApplicationController
     erb :'/songs/show'
   end
 
+  # post '/songs' do
+  #   @song = Song.create(:name => params["Name"])
+  #   @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
+  #   @song.genre_ids = params[:genres]
+  #   @song.save
+  #   flash[:message] = "Successfully created song."
+  #   redirect to("/songs/#{@song.slug}")
+  # end
+
   post '/songs' do
-    @song = Song.create(name: params[:song_name])
-    if !params[:artist_name].empty?
-      @song.artist << Artist.create(name: params[:artist_name])
-    end
-    flash[:notice] = "Successfully created song."
+    @song = Song.create(name: params["Name"])
+    @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
+    # if !params[:artist_name].empty?
+    #   @song.artist = Artist.create(name: params[:artist_name])
+    #   @song.save
+    # end
+    @song.save
+    flash[:message] = "Successfully created song."
+
     redirect "/songs/#{@song.slug}"
   end
 
