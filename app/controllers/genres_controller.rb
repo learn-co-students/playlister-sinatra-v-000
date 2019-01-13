@@ -1,7 +1,7 @@
 class GenresController < ApplicationController
 
   get '/genres' do
-    @genres = Genre.all
+    @genres = Genre.all.sort { |a, b| a.name <=> b.name }
     erb :'genres/index'
   end
 

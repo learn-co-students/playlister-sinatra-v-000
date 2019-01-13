@@ -1,20 +1,18 @@
+<h2>Add a song to your library:</h2>
 <form action="/songs" method="POST">
   <label for="song_name">Song Name:</label>
   <input type="text" id="song_name" name="Name">
-  <br>
-  <br>
+  <br><br>
   <label for="artist_name">Artist Name:</label>
   <input type="text" id="artist_name" name="Artist Name">
-  <br>
-  <br>
+  <br><br>
   <label>Select an existing genre:</label>
   <br>
   <% @genres.each do |genre| %>
-    <input type="checkbox" id="<%= genre.name %>" name="song[genre_ids][]" value="<%= genre.id %>"><%= genre.slug %></input>
+    <input type="checkbox" id="<%= genre.name %>" name="song[genre_ids][]" value="<%= genre.id %>"><%= genre.name %></input>
     <br>
   <% end %>
-  <br>
-  <br>
+  <br><br>
   <label for="genre_name">And/or create a new genre:</label>
   <input type="text" id="genre_name" name="Genre Name"></input>
   <br>
