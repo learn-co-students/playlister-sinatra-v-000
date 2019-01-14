@@ -23,7 +23,7 @@ class SongsController < ApplicationController
 
     song.save
 
-    @message = "Successfully created song."
+    flash[:message] = "Successfully created song."
 
     redirect "/songs/#{song.slug}"
   end
@@ -32,5 +32,31 @@ class SongsController < ApplicationController
     @song = Song.find_by_slug(params[:slug])
 
     erb :"/songs/show"
+  end
+
+  get "/songs/:slug/edit" do
+    @song = Song.find_by_slug(params[:slug])
+    @genres = Genre.all
+
+    erb :"/songs/edit"
+  end
+
+  patch "/songs/:slug" do
+    song = Song.find_by_slug(params[:slug])
+
+    if params["Name"] != song.name
+      song.update(name: params["Name"])
+    end
+
+    if params["Artist Name"] != song.artist.name
+      artist = Artist.find_or_create_by(name: params["Artist Name"])
+      song.update(artist: artist)
+    end
+
+    song.update(genre_ids: params[:genres])
+
+    flash[:message] = "Successfully updated song."
+
+    redirect "/songs/#{song.slug}"
   end
 end
