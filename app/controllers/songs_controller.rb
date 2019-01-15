@@ -6,7 +6,7 @@ class SongsController < ApplicationController
   end
 
   get '/songs/new' do
-    @genres = Genre.all
+    @genres = Genre.all.sort { |a, b| a.name <=> b.name }
     erb :'/songs/new'
   end
 
@@ -29,8 +29,7 @@ class SongsController < ApplicationController
 
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
-    @artists = Artist.all
-    @genres = Genre.all
+    @genres = Genre.all.sort { |a, b| a.name <=> b.name }
     erb :'songs/edit'
   end
 
