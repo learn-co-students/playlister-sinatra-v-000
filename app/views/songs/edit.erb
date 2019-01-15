@@ -1,12 +1,16 @@
+<% if flash[:message] %>
+  <span><%= flash[:message] %></span>
+<% end %>
+
 Edit <%= @song.name %>
 
 <form action="/songs/<%= @song.slug %>" method="POST">
   <input type="hidden" name="_method" value="patch">
 
-  <label>Name</label>
+  <label for="name">Name</label>
   <input type="text" name="song[name]" id="name" value="<%= @song.name %>">
 
-  <label>Artist Name</label>
+  <label for="artist_name">Artist Name</label>
   <input type="text" name="artist[name]" id="artist_name" value="<%= @song.artist.name %>">
 
   <label>Genre</label>
