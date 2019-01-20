@@ -1,4 +1,4 @@
-class CreateSongAndGenreTable < ActiveRecord::Migration
+class CreateSongAndGenre < ActiveRecord::Migration
   def change
     create_table :song_genres do |t|
       t.integer  :song_id
