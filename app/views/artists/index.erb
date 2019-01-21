@@ -1,3 +1,6 @@
+<h1>Artists</h1>
+<ol>
   <%@artists.each do |artist|%>
-     <label><%=artist.name%></label>
+     <li><a href="/artists/<%= artist.slug %>"><%= artist.name%></a></li>
      <%end%>
+</ol>
