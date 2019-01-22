@@ -6,4 +6,9 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index
   end
+  
+  # post '/artists' do
+  #   @artist = Artist.create[params[:artist]]
+  #   erb :artists
+  # end
 end
