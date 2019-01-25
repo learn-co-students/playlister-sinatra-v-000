@@ -3,8 +3,6 @@ class CreateGenresTable < ActiveRecord::Migration
     create_table :genres do |t|
       t.string :name
       t.string :slug
-      t.string :artist
-      t.string :song
     end
   end
 end
