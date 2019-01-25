@@ -1,8 +1,7 @@
 class GenresController < ApplicationController
 
     get '/genres' do
-        #list of genres
-        #each is link to show page
+        @genres = Genre.all
         erb :'genres/index'
     end
 
