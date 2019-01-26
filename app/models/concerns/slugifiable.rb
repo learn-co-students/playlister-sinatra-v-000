@@ -1,0 +1,6 @@
+
+module Slug 
+  
+  
+  
+end 
