@@ -1,8 +1,7 @@
 class GenresController < ApplicationController
 
   get '/genres' do
-    # Present the user with a list of genres in the library
-    # Each genre should be a clickable link to that particular genre's show page
+    @genres = Genre.all
     erb :'/genres/index'
   end
 
