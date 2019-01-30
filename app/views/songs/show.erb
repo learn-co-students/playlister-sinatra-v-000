@@ -1,5 +1,6 @@
-<% unless locals.empty? %>
-  <%= message %>
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
 <% end %>
 
 <h1>Song Name: <%= @song.name %></h1>
