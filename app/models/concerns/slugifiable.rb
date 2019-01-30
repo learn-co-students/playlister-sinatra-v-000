@@ -1,13 +1,15 @@
 module Slugifiable
   module InstanceMethods
     def slug
-      self.name.gsub(" ", "-").downcase
+      name.gsub(" ", "-").downcase
     end
   end
 
   module ClassMethods
-    def self.find_by_slug(slug)
-      self.all.find {|s| s.slug == slug}
+    # Don't need to put 'self.' in the Class method modules
+    # Ruby can tell just by the 'extend' keyword
+    def find_by_slug(slug)
+      all.find {|s| s.slug == slug}
     end
   end
 end
