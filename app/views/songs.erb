@@ -1,8 +1,6 @@
-<link rel="stylesheet" href="css/style.css">
-
 <h2>Here is the list of Songs</h2>
 <% Song.all.each do |song| %>
-<a href='songs/<%=song.slug%>'><%=song.name%></a> <br>
+<a href='/songs/<%=song.slug%>'><%=song.name%></a>
 <%end%>
 
 
