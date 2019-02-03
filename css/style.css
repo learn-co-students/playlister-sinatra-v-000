@@ -1,0 +1,3 @@
+a[href='/songs/#{@song.slug}']{
+  color: blue
+}

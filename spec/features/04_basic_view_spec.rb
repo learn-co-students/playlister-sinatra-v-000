@@ -1,3 +1,4 @@
+#require 'pry'
 require 'spec_helper'
 
 describe "Playlister Basics" do
@@ -31,6 +32,7 @@ describe "Playlister Basics" do
       end
 
       it "contains links to each song's show page" do
+ #       binding.pry
         expect(page).to have_css("a[href='/songs/#{@song.slug}']")
       end
     end
