@@ -2,7 +2,8 @@
   <label>Song's name:<input type='text' name="song_name" id="Name"></label><br>
   
   <% Artist.all.each do |artist| %>
-  <input id="<%= artist.name %>" type="checkbox" name="artist_name" value="<%= artist.id %>"> <%=artist.name%> <br>
+  <input type="radio" id="<%= artist.name %>" name="artist_name" value="<%= artist.id %>">
+  <label for="<%= artist.name %>"><%= artist.name %></label>
   <% end %>
   <label>Artist's name:<input type='text' name="artist_name" id="Artist Name"></label><br>
   
@@ -10,7 +11,6 @@
   <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
   <%=genre.name%> <br>
   <% end %>
-  
   <button type="submit" value"Create">Create</button>
 
 </form>
