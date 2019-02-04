@@ -116,15 +116,15 @@ describe "Song Forms" do
       end
 
       it "updates the song's genres" do
-        uncheck "New Age Garbage"
-        check "Hippity Hop"
+        uncheck "Hippity Hop"
+        check "New Age Garbage"
         click_on "Save"
 
         expect(page).to have_content("Successfully updated song.")
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
-        expect(page).to have_content("Hippity Hop")
-        expect(page).not_to have_content("New Age Garbage")
+        expect(page).to have_content("New Age Garbage")
+        expect(page).not_to have_content("Hippity Hop")
       end
 
       it "renders to the song show page" do
