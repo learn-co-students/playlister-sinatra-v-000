@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'sinatra'
 gem 'activerecord', '4.2.5', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
+gem 'rack-flash3'
 gem 'rake'
 gem 'require_all'
 gem 'sqlite3'
@@ -10,7 +11,9 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry'
 
+
 group :test do
+  gem 'launchy'
   gem 'rspec'
   gem 'capybara'
   gem 'rack-test'
