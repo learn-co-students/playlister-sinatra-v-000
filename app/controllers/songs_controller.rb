@@ -23,45 +23,54 @@ class SongsController < ApplicationController
 
   post '/songs' do
 
-    @song = Song.create(params[:song])
-    @song.save
+    @song = Song.create(:name => params[:Name])
 
-    if !params[:artist][:name].empty?
-      @song.artist = Artist.create(params[:artist])
+    if !params[:genres].empty?
+      params[:genres].each do |id|
+        @song.genres << Genre.find_by_id(id)
+      end
+    end
+
+    if !params["Artist Name"].empty? && !Artist.all.find {|artist| artist.name == params["Artist Name"]}
+      @song.artist = Artist.create(:name => params["Artist Name"])
+      @song.save
+    elsif !params["Artist Name"].empty?
+      @song.artist = Artist.find {|artist| artist.name == params["Artist Name"]}
       @song.save
     end
 
-    redirect '/songs/#{@song.slug}'
+
+    flash[:message] = "Successfully created song."
+    redirect "/songs/#{@song.slug}"
 
   end
 
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
+    @genres = Genre.all
     erb :'songs/edit'
   end
 
   patch '/songs/:slug' do
+
     @song = Song.find_by_slug(params[:slug])
-    @artists = Artist.all
-    @genres = Genre.all
 
-    @song.update(params[:song])
+    @song.name = params[:Name]
 
-    if !params[:song][:name].empty?
-      @song.name = params[:song][:name]
+    if !params["Artist Name"].empty? && !Artist.all.find {|artist| artist.name == params["Artist Name"]}
+      @song.artist = Artist.create(:name => params["Artist Name"])
+      @song.save
+    elsif !params["Artist Name"].empty?
+      @song.artist = Artist.find {|artist| artist.name == params["Artist Name"]}
       @song.save
     end
 
-    if !params[:artist][:name].empty?
-      @song.artist = Artist.create(params[:artist])
-      @song.save
+    params[:genres].each do |id|
+      @song.genres << Genre.find_by_id(id)
     end
 
-    if !params[:genre][:name].empty?
-      @song.genres << Genre.create(params[:genre])
-      @song.save
-    end
-
-    redirect '/songs/#{@song.slug}'
+    @song.save
+    
+    redirect "/songs/#{@song.slug}"
   end
 end
