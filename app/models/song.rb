@@ -1,0 +1,20 @@
+class Song < ActiveRecord::Base
+  belongs_to :artist
+  has_many :song_genres
+  has_many :genres, through: :song_genres
+
+  def slug
+    name = self.name.downcase
+    name_array = name.split(/\W/).delete_if {|w| w == "" }
+    slugified_name = name_array.join("-")
+    slugified_name
+  end
+
+  def self.find_by_slug(slug)
+    name_array = slug.split("-")
+    name_array = name_array.map { |w| w.capitalize }
+    deslugged_name = name_array.join(" ")
+    self.find_by(:name => deslugged_name)
+  end
+   
+end
