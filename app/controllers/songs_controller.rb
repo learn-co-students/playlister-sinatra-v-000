@@ -9,7 +9,9 @@ class SongsController < ApplicationController
   end
 
   get '/songs/new' do
+
     @artists = Artist.all
+    @genres = Genre.all
     erb :'songs/new'
   end
 
@@ -31,6 +33,11 @@ class SongsController < ApplicationController
 
     redirect '/songs/#{@song.slug}'
 
+  end
+
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'songs/edit'
   end
 
   patch '/songs/:slug' do
@@ -55,5 +62,6 @@ class SongsController < ApplicationController
       @song.save
     end
 
+    redirect '/songs/#{@song.slug}'
   end
 end
