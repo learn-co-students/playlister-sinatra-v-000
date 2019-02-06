@@ -1,9 +1,9 @@
 require 'pry'
-require 'sinatra/base'
+
 class SongsController < ApplicationController
 
   get '/songs' do
-    binding.pry
+
     @songs = Song.all
     erb :'songs/index'
   end
@@ -14,6 +14,7 @@ class SongsController < ApplicationController
   end
 
   get '/songs/:slug' do
+
     @song = Song.find_by_slug(params[:slug])
     erb :'songs/show'
   end
