@@ -2,6 +2,8 @@ require 'pry'
 
 class SongsController < ApplicationController
 
+  use Rack::Flash
+
   get '/songs' do
 
     @songs = Song.all
@@ -70,7 +72,9 @@ class SongsController < ApplicationController
     end
 
     @song.save
-    
+
+    flash[:message] = "Successfully updated song."
+
     redirect "/songs/#{@song.slug}"
   end
 end
