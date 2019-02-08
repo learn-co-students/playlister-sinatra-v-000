@@ -1,4 +1,8 @@
+require 'rack-flash'
+
 class SongsController < ApplicationController
+  enable :sessions
+  use Rack::Flash
 
   get '/songs' do
     @songs = Song.all
@@ -12,19 +16,22 @@ class SongsController < ApplicationController
 
   post '/songs' do
     @song = Song.create(params[:song])
-    @artist = Artist.find_by(params[:artist])
+    @artist = Artist.find_by(name: params[:artist][:name]) || Artist.create(params[:artist]) if !params[:artist][:name].empty?
+    @song.artist = @artist if @artist
 
-    if @artist
-      @song.artist = @artist
-    else
-      @song.artist = Artist.create(params[:artist])
-    end
-    # binding.pry
+    params[:genres].each { |genre_id| @song.genres << Genre.find_by_id(genre_id) }
+
+    @song.save
+
+    flash[:message] = "Successfully created song."
+
     redirect "/songs/#{@song.slug}"
   end
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
+    @artist = @song.artist
+    @genres = @song.genres
     erb :'/songs/show'
   end
 end
