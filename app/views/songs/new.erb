@@ -1,12 +1,12 @@
 <h1>Create a new song</h1>
 
-<form action="/songs" method="POST">
+<form action="/songs" method="POST" id="new">
   <label>Song Name:</label>
   <br>
-  <input type="text" name="song[name]" id="song_name">
+  <input type="text" name="song[name]" id="Name">
   <br>
   <label>Artist name:</label>
-    <input  type="text" name="song[artist]" id="artist_name"></input>
+    <input  type="text" name="song[artist]" id="Artist Name"></input>
   <br>
 
   <br>
@@ -18,5 +18,5 @@
   <% end %>
  
   <br>
-  <input type="submit" value="Create Song">
+  <input type="submit" value="Create">
 </form>
