@@ -7,9 +7,9 @@ module Slugifiable
 
   module ClassMethods
     def find_by_slug(slug)
-      deslug = slug.gsub("-", " ")
-      name = deslug.split(" ").map { |word| word.capitalize }.join(" ")
-      self.find_by(name: name)
+      self.all.find do |item|
+        item.slug == slug
+      end
     end
   end
 end
