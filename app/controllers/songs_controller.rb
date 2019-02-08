@@ -10,15 +10,9 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do 
-    @song = Song.new(name: params[:name])
-    
-    if !params["artist"]["name"].empty?
-      @song.artist = Artist.create(name: params["artist"]["name"])
-    end
-    flash[:message] = "New artist added: #{@song.artist.name}"
-    if !params["genre"]["name"].empty?
-      @song.genres << Genre.create(name: params["genre"]["name"])
-    end
+    @song = Song.new(name: params[:song][:name]) 
+    @song.artist = Artist.find_or_create_by(name: params[:song][:artist])
+    params[:song][:genres].each {|genre_id| @song.genres << Genre.find(genre_id) }
     @song.save
     flash[:message] = "Successfully created new song: #{@song.name}."
     redirect to "/songs/#{@song.slug}"
@@ -37,13 +31,15 @@ class SongsController < ApplicationController
   patch '/songs/:slug' do 
     @song = Song.find_by_slug(params[:slug])
     @song.update(params[:song])
-    if !params["artist"]["name"].empty?
-      @song.artist = Artist.create(name: params["artist"]["name"])
+    @song.artist = Artist.find_or_create_by(name: params[:song][:artist])
+
+    if @song.genres
+      @song.genres.clear
     end
-    if !params["genre"]["name"].empty?
-      @song.genres << Genre.create(name: params["genre"]["name"])
-    end
+    
+    params[:song][:genres].each {|genre_id| @song.genres << Genre.find(genre_id) }
     @song.save
+    flash[:message] = "Successfully updated song: #{@song.name}."
     redirect to "/songs/#{@song.slug}"
   end
 end
