@@ -8,14 +8,13 @@
         </tr>
     </thead>
     <tbody>
-    		<% @songs.each do |song| %>
+    	<% @songs.each do |song| %>
         <tr>
             <td><a href="/songs/<%= song.slug %>"><%= song.name %></a></td>
-            <td><a href="/artists/<%= song.artist.slug %>"> <%= songs.artist.name %></a></td>
+            <td><%= song.artist.name %></td>
             <td><a href="/songs/<%= song.slug %>/edit">Edit</a></td>
         </tr>
         <% end %>
     </tbody>
 </table>
-<br>
-<a href="/songs/new"><input type="button" value="New Song"></a>
+
