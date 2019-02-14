@@ -22,7 +22,7 @@ describe "Song Forms" do
           click_on "Create"
         }.to change(Artist, :count).by(1)
       end
-
+ 
       it "creates a new song on submit" do
         fill_in "Name", with: song_name
         check "New Age Garbage"
