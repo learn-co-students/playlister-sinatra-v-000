@@ -1,8 +1,6 @@
-<div id='message'>
-
-</div>
+<%= "#{flash[:message]}"%>
 <h1><%=@song.name%></h1>
-<% binding.pry %>
+
 <strong><%=@song.artist.name%></strong>
  <p>View more by <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a></p>
 
