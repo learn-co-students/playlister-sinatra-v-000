@@ -1,0 +1,38 @@
+# display the current song name in a box
+# display the current song artist name in a box
+# display the check boxes for genres
+
+#all this will generate a set of params.
+# take note of what names you use for the params
+
+# the params get sent to your patch route in the controller
+# use the params to update a given song and its associations
+
+<h3>This is the edit page for <%= @song.name %> </h3>
+
+<form action="/songs/<%= @song.slug %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <label>Name</label>
+  <input type="text" name="song[name]" id="name" value="<%= @song.name %>">
+  <br>
+  <br>
+
+  <label>Artist Name</label>
+  <input type="text" name="artist[name]" id="Artist Name" value="<%= @song.artist.name %>">
+  <br>
+  <br>
+
+  <label>Genres</label>
+  <br>
+  <br>
+
+  <%Genre.all.each do |genre|%>
+    <input type="checkbox" name="genres[]" value="<%=genre.id%>" id="<%=genre.name%>" <%= 'checked' if @song.genres.include?(genre) %>><%=genre.name%></input>
+  <%end%>
+
+  <br>
+  <br>
+
+  <input type="submit" value= "Save">
+</form>

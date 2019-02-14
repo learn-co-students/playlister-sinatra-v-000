@@ -1,1 +1,18 @@
-<h1>You've reached the show page for <%=@song.name%></h1>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+<h2>You've reached the show page for <%=@song.name%></h2>
+
+
+<h3><%=@song.name%></h3>
+<br>
+<br>
+<ul>
+  <li>Artist: <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a></li>
+  <li>Genres:</li>
+    <ul>
+      <%@song.genres.each do |genre|%>
+        <li><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
+      <%end%>
+    </ul>
+</ul>
