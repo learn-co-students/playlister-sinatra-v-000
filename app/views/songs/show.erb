@@ -1,4 +1,8 @@
-<h1>Songs Show Page</h2>
+<% if flash.has?(:message) %>
+    <%= flash[:message] %>
+<% end %>
+
+<h1><%=@song.name %></h1>
 
 
 <!--@song.artist.name
@@ -6,7 +10,7 @@
 
 a[href='/artists/#{@artist.slug}']")
 a[href='/genres/#{@genre.slug}']")
--->
+
 
 
         <li><a href='/artists/<%=@artist.slug%>'><%=@artist.name%></a></li>
