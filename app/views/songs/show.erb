@@ -1,4 +1,4 @@
-<%= "#{flash[:message]}"%>
+<%="#{flash[:message]}"%>
 <h1><%=@song.name%></h1>
 
 <strong><%=@song.artist.name%></strong>
@@ -8,3 +8,4 @@
  <strong>Genre:</strong> <%=genre.name%>
  <p>View more <a href="/genres/<%=genre.slug%>"><%= genre.name%></a> songs</p>
 <% end %>
+ 

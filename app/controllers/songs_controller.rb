@@ -11,8 +11,6 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    # binding.pry
-    # {"song"=>{"name"=>"man in the mirror", "genre_id"=>["8"]}, "artist"=>{"name"=>"Michael Jackson"}}
     @song = Song.create(name: params["song"]["name"])
     @song.genre_ids = params["song"]["genre_ids"]
     @artist = Artist.find_or_create_by(name: params["artist"]["name"])
@@ -30,10 +28,19 @@ class SongsController < ApplicationController
   end
 
   get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    @genres = Genre.all
 
+    erb :'/songs/edit'
   end
 
   patch '/songs/:slug' do
+    @song = Song.find_by(params[:id])
+    @song.update(params[:song])
+    @song.artist.update(params[:artist])
 
+    flash[:message] = "Successfully updated song."
+
+    redirect "/songs/#{@song.slug}"
   end
 end
