@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+require 'pry'
 describe "Song Forms" do
   let(:artist_name) { "Person with a Face" }
   let(:genre_1_name) { "Hippity Hop" }
@@ -75,6 +75,7 @@ describe "Song Forms" do
         check "New Age Garbage"
         fill_in "Artist Name", with: artist_name
         click_on "Create"
+        # binding.pry
         expect(page.current_path).to eq('/songs/that-one-with-the-guitar')
       end
     end
