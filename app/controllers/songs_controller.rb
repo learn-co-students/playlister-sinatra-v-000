@@ -1,10 +1,17 @@
 class SongsController < ApplicationController
 
     get '/songs' do
-        #binding.pry
         @songs = Song.all
         erb :'songs/index'
     end
-end
 
-    
+    get '/songs/new' do
+        erb :'songs/new'
+    end
+
+    get '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    @artist = @song.artist
+    erb :'songs/show'
+    end
+end
