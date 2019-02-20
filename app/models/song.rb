@@ -10,11 +10,7 @@ class Song < ActiveRecord::Base
 	end
 
 	def self.find_by_slug(slug)
-		Song.all.each do |a|
-			if a.slug == slug
-				return a
-			end
-		end
+		Song.all.find{ |song| song.slug == slug }
 	end
 
 end
