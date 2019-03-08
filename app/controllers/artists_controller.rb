@@ -1,2 +1,11 @@
 class ArtistsController < ApplicationController
+  
+  
+  
+  
+  
+  
+  
+  
+  
 end
