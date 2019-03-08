@@ -1,0 +1,11 @@
+<h1>All Songs</h1>
+
+<ul>
+  <form action='/songs' method='post'>
+    <% @songs.each do |song| %>
+      <li>
+        <a href='/song/:id/'><%= song.name %></a>
+      </li>
+    <%end %>
+  </form>
+</ul>
