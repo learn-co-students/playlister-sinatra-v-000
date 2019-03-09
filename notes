@@ -6,4 +6,4 @@ rake db:migrate
 rake db:migrate SINATRA_ENV=test
 rake db:seed
 
-rspec spec/features/04_basic_view_spec.rb
+rspec spec/features/04_basic_view_spec.rb --f-f
