@@ -12,8 +12,11 @@ require "rack-flash"
   end
 
   get '/songs/:slug' do
-    @song = Song.find_by_slug(params[:slug])
+    # binding.pry
+    @song = Song.find_by_slug(params["slug"])
     erb :'/songs/show'
   end
+
+
 
 end
