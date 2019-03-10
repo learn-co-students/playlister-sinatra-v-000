@@ -8,9 +8,9 @@ class Genre < ActiveRecord::Base
   end
   
   def self.find_by_slug(slug)
-    name = slug.split("-").map {|s| s.capitalize}
-    full_name = name.join(" ")
-    self.find_by(name: full_name)
+    song = self.all.find do |s|
+      s.slug == slug
+    end
   end
   
 end

@@ -11,7 +11,10 @@ require "rack-flash"
     erb :'artists/index'
   end
   
-  # get '/artist/'
+  get '/artists/:slug' do
+    @artists = Artist.find_by_slug
+    erb :'artists/show'
+  end
   
   
   
