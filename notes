@@ -3,6 +3,7 @@ Commands to run in terminal to start tests:
 gem install bundler:2.0.1
 bundle install
 rake db:migrate SINATRA_ENV=test
+rake db:migrate
 rake db:seed
 
 rspec spec/features/04_basic_view_spec.rb --f-f
