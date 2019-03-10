@@ -12,7 +12,7 @@ require "rack-flash"
   end
   
   get '/artists/:slug' do
-    @artists = Artist.find_by_slug
+    @artist = Artist.find_by_slug(params["slug"])
     erb :'artists/show'
   end
   

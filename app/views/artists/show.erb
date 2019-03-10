@@ -1,1 +1,22 @@
-<h1>All songs by <%= @artist.name %></h1>
+<h1>All Songs by <%= @artist.name %>:</h1>
+<br>
+
+<ul>
+  <% @artist.songs.each do |song| %>
+    <li>
+      <%= song.name %>
+    </li>
+  <% end %>
+</ul>
+
+<br><br>
+
+<h1>All <%= @artist.name %>'s Genres:</h1>
+<br>
+<ul>
+  <% @artist.genres.each do |genre| %>
+    <li>
+      <%= genre.name %>
+    </li>
+  <% end %>
+</ul>
