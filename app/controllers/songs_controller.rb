@@ -5,7 +5,7 @@ require "rack-flash"
   configure do
     enable :sessions
   end
-  
+
   get '/songs' do
     @songs = Song.all
     erb :'songs/index'
@@ -16,6 +16,8 @@ require "rack-flash"
     erb :'/songs/show'
   end
 
-
+  get '/songs/new' do
+    
+  end
 
 end
