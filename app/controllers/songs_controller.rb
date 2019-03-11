@@ -6,6 +6,10 @@ require "rack-flash"
     enable :sessions
   end
 
+  get '/songs/new' do
+    erb :'/songs/new'
+  end
+
   get '/songs' do
     @songs = Song.all
     erb :'songs/index'
@@ -14,10 +18,6 @@ require "rack-flash"
   get '/songs/:slug' do
     @song = Song.find_by_slug(params["slug"])
     erb :'/songs/show'
-  end
-
-  get '/songs/new' do
-    
   end
 
 end
