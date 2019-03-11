@@ -1,9 +1,10 @@
 <h3>Create a new Song:</h3>
 
 <form action='/songs' method='post'>
-  Name: <input type='text' name='song[:name]' id='song_name'>
+  <label>Song Name</label>
+    <input type='text' name='Name'>
+  <label>Artist Name</label>
+    <input type='text' name='Artist Name'>
   <br>
-  Artist Name: <input type='text' name='song[:artist]' id='song_artist'>
-  <br>
-  <input type='submit' value='Create a Song'>
+  <input type='submit' value='Create'>
 </form>
