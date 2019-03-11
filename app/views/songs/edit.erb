@@ -1,0 +1,12 @@
+<h3>Edit the followng song:</h3>
+    <br><br>
+Name: <%=@song.name%>
+Artist: <%=@song.artist.name%>
+Genre(s):
+<ul>
+  <%@song.genre.each do |genre| %>
+    <li>
+      <%=genre.name %>
+    </li>
+  <%end>
+</ul>

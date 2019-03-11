@@ -30,5 +30,9 @@ require "rack-flash"
     redirect "/songs/#{@song.slug}"
   end
 
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params["slug"])
+    erb :"/songs/#{@song.slug}/edit"
+  end
 
 end
