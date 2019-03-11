@@ -18,7 +18,7 @@ this lab, you'll be:
 2.  Creating a few complex forms that allow you to create and edit Artists,
     Songs and Genres.
 
-## File Structurel
+## File Structure
 
 Your application should use the following file structure. Notice how there are
 separate controllers for songs, artists, and genres. Separately, we have
