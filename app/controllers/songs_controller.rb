@@ -1,4 +1,3 @@
-require 'pry'
 require "rack-flash"
   class SongsController < ApplicationController
   use Rack::Flash
@@ -32,7 +31,7 @@ require "rack-flash"
 
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params["slug"])
-    erb :"/songs/#{@song.slug}/edit"
+    erb :'/songs/edit'
   end
 
 end
