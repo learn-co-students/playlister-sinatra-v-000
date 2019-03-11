@@ -1,6 +1,9 @@
-<h1>Create a new Song:</h1>
+<h3>Create a new Song:</h3>
 
 <form action='/songs' method='post'>
-  Name: <input type='text' name='song[name]' id='song_name'>
-  <!-- Artist Name: <input type='text' name='song[artist]' id='song_artist'> -->
+  Name: <input type='text' name='song[:name]' id='song_name'>
+  <br>
+  Artist Name: <input type='text' name='song[:artist]' id='song_artist'>
+  <br>
+  <input type='submit' value='Create a Song'>
 </form>
