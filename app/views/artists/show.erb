@@ -1,5 +1,4 @@
 <h3>All Songs by <%= @artist.name %>:</h3>
-<br>
 
 <ul>
   <% @artist.songs.each do |song| %>
@@ -10,11 +9,9 @@
     </li>
   <% end %>
 </ul>
-<!-- test comment -->
-<br><br>
 
 <h3>All <%= @artist.name %>'s Genres:</h3>
-<br>
+
 <ul>
   <% @artist.genres.each do |genre| %>
     <li>
