@@ -1,12 +1,13 @@
 <h3>Edit the followng song:</h3>
-    <!-- <br><br>
-Name: <%=@song.name%>
-Artist: <%=@song.artist.name%>
-Genre(s):
-<ul>
-  <%@song.genre.each do |genre| %>
-    <li>
-      <%=genre.name %>
-    </li>
-  <%end>
-</ul> -->
+    <br><br>
+
+<form action='/songs/<%=@song.slug%>' method='post'>
+  <input id="hidden" type="hidden" name="_method" value="patch">  
+    <lable>Name:</label>
+      <input type='text' name='Name' value='<%=name%>' id='Name'>
+        <br>
+    <label>Artist:</label>
+      <input type='text' name='Artist Name' value='Artist Name'>
+  
+  <input type="submit" value="Update">
+</form>

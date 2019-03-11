@@ -34,4 +34,15 @@ require "rack-flash"
     erb :'/songs/edit'
   end
 
+  patch '/songs/:slug' do
+    @song = Song.find_by_slug(params["slug"])
+    @song.name = params["Name"]
+    @song.artist.name = params["Artist Name"]
+    if !params["genres"].empty?
+      @song.genre_ids = Genre.create(params["genres"])
+    end
+    @song.save
+    redirect "songs/#{@song.slug}"
+  end
+
 end
