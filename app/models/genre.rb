@@ -1,6 +1,6 @@
 class Genre < ActiveRecord::Base
   has_many :artists
-  has_many :songs, through: :artists #activerecord associations
+  has_many :songs, through: :songgenres #activerecord associations
 
   def slug
     slug = self.name.downcase
