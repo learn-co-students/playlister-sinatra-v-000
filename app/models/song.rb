@@ -14,7 +14,5 @@ class Song < ActiveRecord::Base
     slug
   end
 
-  def self.find_by_slug(slug)
-    binding.pry
-  end
+
 end
