@@ -36,14 +36,21 @@ require "rack-flash"
 
   patch '/songs/:slug' do
     @song = Song.find_by_slug(params["slug"])
-    @song.update(:name => params["Name"], :artists => params["Artist Name"])
+    new_art = Artist.find_or_create_by(:name => params["Artist Name"])
+    @song.update(:name => params["Name"], :artist => new_art)
     if !params["genres"].empty?
-      @song.genre_ids = Genre.create(params["genres"])
+      @song.genre_ids = params["genres"]
     else
-      @song.genre_ids = params("genres")
+      @song.genre_ids = Genre.create(params["genre"])
     end
     @song.save
     redirect "songs/#{@song.slug}"
   end
 
 end
+#
+# {"_method"=>"patch",
+#  "Name"=>"The Great Pan is Dead",
+#  "Artist Name"=>"Cold Cave",
+#  "genres"=>["1", "3", ""],
+ # "slug"=>"the-great-pan-is-dead"}
