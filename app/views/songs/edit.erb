@@ -18,6 +18,12 @@
           <%='checked' if @song.genres.include?(genre.id) %>><%=genre.name%>
         </input>
       <%end%>
+        <br><br>
+      <label>and/or, create a new genre:</label>
+      <br>
+      <label>Genre:</label>
+        <input type="text" name="genres[]" id="genre"></input>
+      <br>
       <br><br>
   <input type="submit" value="Save">
 </form>
