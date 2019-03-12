@@ -1,6 +1,6 @@
 class CreateSonggenres < ActiveRecord::Migration
   def change
-    create_table :songgenres do |t|
+    create_table :song_genres do |t|
       t.string :songs
       t.string :genres
       t.string :song_id
