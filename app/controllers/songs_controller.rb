@@ -40,7 +40,7 @@ require "rack-flash"
     if !params["genres"].empty?
       @song.genre_ids = Genre.create(params["genres"])
     else
-      @song.genre_ids = params("genre")
+      @song.genre_ids = params("genres")
     end
     @song.save
     redirect "songs/#{@song.slug}"
