@@ -1,4 +1,4 @@
-class CreateSonggenres < ActiveRecord::Migration
+class CreateSonggenres < ActiveRecord::Migration #join table here
   def change
     create_table :song_genres do |t|
       t.string :songs
