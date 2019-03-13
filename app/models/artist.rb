@@ -3,7 +3,7 @@ class Artist < ActiveRecord::Base
   #thinking what is needed to be accesed first is most important.
   has_many :genres, through: :songs
 
-    #Visualation of relationships
+    #Visualation of relationships ALWAYS WRITE A VISUALATION WHEN BEFORE DEALING WITH RELATIONSHIPS
     #G <- SG -> S
     #S <- G -> A
 

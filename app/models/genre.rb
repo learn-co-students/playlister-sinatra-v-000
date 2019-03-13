@@ -2,6 +2,8 @@ class Genre < ActiveRecord::Base
   has_many :song_genres #any time through is needed you need has many of something first
   #join table comes first ^ because a bridge is always needed
   has_many :songs, through: :song_genres #activerecord associations
+  #like the bridge in artist class,
+
   has_many :artists, through: :songs #think in terms of links
 
   def slug
