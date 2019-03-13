@@ -1,0 +1,21 @@
+class SongController < ApplicationController
+
+  get '/songs' do
+    @songs = Song.all
+    erb :'/songs/index'
+  end
+
+  get '/songs/new' do
+    @songs = Song.all
+    erb :'/songs/index'
+  end
+
+  post '/songs' do
+
+  end
+
+  get '/songs/:slug' do
+
+  end
+
+end
