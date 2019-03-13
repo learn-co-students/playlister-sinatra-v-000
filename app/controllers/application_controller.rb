@@ -10,6 +10,10 @@ class ApplicationController < Sinatra::Base
   get '/songs' do
   end
 
+  get '/artists' do
+
+  end
+
   get '/genres' do
 
   end
@@ -20,6 +24,10 @@ class ApplicationController < Sinatra::Base
 
   get '/artists/:slug' do
 
+  end
+
+  get '/genres/:slug/' do
+    
   end
 
 end
