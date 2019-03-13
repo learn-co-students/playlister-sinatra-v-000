@@ -8,15 +8,15 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/songs' do
-
+    erb :'/songs/index'
   end
 
   get '/artists' do
-
+    erb :'/artists/index'
   end
 
   get '/genres' do
-
+    erb :'/genres/index'
   end
 
   get '/songs/:slug' do
