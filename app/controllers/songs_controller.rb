@@ -44,6 +44,7 @@ require "rack-flash"
       @song.genre_ids = Genre.create(params["genre"])
     end
     @song.save
+    flash[:message] = "Successfully updated song."
     redirect "songs/#{@song.slug}"
   end
 
