@@ -1,6 +1,11 @@
 class Artist < ActiveRecord::Base
-  has_many :songs
+  has_many :songs #logically thinking the artist can't access genres except through songs
+  #thinking what is needed to be accesed first is most important.
   has_many :genres, through: :songs
+
+    #Visualation of relationships
+    #G <- SG -> S
+    #S <- G -> A
 
   def slug
     slug = self.name.downcase

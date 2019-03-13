@@ -15,33 +15,20 @@ ActiveRecord::Schema.define(version: 20190312191829) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
-    t.string "songs"
-    t.string "genres"
-    t.string "song_id"
-    t.string "genre_id"
   end
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.string "songs"
-    t.string "artists"
-    t.string "song_id"
-    t.string "artist_id"
   end
 
   create_table "song_genres", force: :cascade do |t|
-    t.string "songs"
-    t.string "genres"
     t.string "song_id"
     t.string "genre_id"
   end
 
   create_table "songs", force: :cascade do |t|
     t.string  "name"
-    t.string  "genres"
-    t.string  "artists"
     t.integer "artist_id"
-    t.integer "genre_id"
   end
 
 end
