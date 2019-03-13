@@ -4,8 +4,8 @@ class Artist < ActiveRecord::Base
   has_many :genres, through: :songs
 
     #Visualation of relationships ALWAYS WRITE A VISUALATION WHEN BEFORE DEALING WITH RELATIONSHIPS
-    #G <- SG -> S
-    #S <- G -> A
+    #G <- SG -> S (Join Table Needed)
+    #S <- G -> A (Direct)
 
   def slug
     slug = self.name.downcase
