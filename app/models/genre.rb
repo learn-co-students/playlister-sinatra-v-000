@@ -1,3 +1,4 @@
+
 require_relative 'concerns/slugifiable'
 
 class Genre < ActiveRecord::Base
