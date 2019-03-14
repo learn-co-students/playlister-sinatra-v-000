@@ -1,6 +1,14 @@
 class Genre < ActiveRecord::Base
   has_many :song_genres
-  has_many :artists
+  has_many :artists, through: :songs
   has_many :songs, through: :song_genres
 
-end 
+  def slug
+    name.downcase.strip.gsub(" ","-")
+  end
+
+  def self.find_by_slug(slug)
+    self.all.find{|genre| genre.slug == slug}
+  end
+
+end
