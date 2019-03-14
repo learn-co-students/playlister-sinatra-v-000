@@ -7,3 +7,5 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 end
+
+#you gotta use the other controller files in the config.ru file
