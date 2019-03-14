@@ -8,7 +8,11 @@
 
   <br>
 
-  <label>Choose an existing owner:</label>
+  <label>Choose an existing artist:</label>
+
+  <% Artist.all.each do |artist| %>
+  <input id="<%= artist.name %>" type="checkbox" name="artists[]" value="<%= artist.id %>">
+<% end %>
 
   <!-- rspec spec/features/05_song_form_spec.rb --f-f for quick access-->
   <input type="submit" name="Submit" value="Submit">
