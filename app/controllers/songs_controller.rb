@@ -1,4 +1,4 @@
-class SongController < ApplicationController
+class SongsController < ApplicationController
 
   get '/songs' do
     @songs = Song.all
@@ -7,11 +7,12 @@ class SongController < ApplicationController
 
   get '/songs/new' do
     @songs = Song.all
-    erb :'/songs/index'
+    erb :'/songs/new'
   end
 
   post '/songs' do
     @song = Song.create(params[:song])
+
   end
 
   get '/songs/:slug' do
