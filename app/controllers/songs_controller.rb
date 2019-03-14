@@ -10,7 +10,7 @@ class SongsController < ApplicationController
     erb :'/songs/new'
   end
 
-  post '/songs' do
+  post '/songs/new' do
     @song = Song.create(params[:song])
 
   end

@@ -1,12 +1,14 @@
 <h1>Create a new Song</h1>
-<form class="" action="/songs" method="post"> <!-- posts to index -->
+<form class="" action="/songs/new" method="post"> <!-- posts to index -->
   <label>Name:</label>
 
   <br>
 
-  <input type="text" name="Song[Name]" value="song_name" id="Name">
+  <input type="text" name="song[name]" value="song_name" id="Name">
 
   <br>
+
+  <label>Choose an existing owner:</label>
 
   <!-- rspec spec/features/05_song_form_spec.rb --f-f for quick access-->
   <input type="submit" name="Submit" value="Submit">
