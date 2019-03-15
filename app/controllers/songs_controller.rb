@@ -13,6 +13,11 @@ class SongsController < ApplicationController
   # post 'songs/new' do
   #
   # end
+
+  get 'songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'songs/show'
+  end
   #
   # get 'songs/:slug/edit' do
   # end
