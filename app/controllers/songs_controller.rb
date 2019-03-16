@@ -20,11 +20,12 @@ class SongsController < ApplicationController
       @artist.songs << @song
     end
     @song.save
-    redirect to "/songs/#{@song.name.slug}"
+    redirect to "/songs/#{@song.slug}"
   end
 
   get '/songs/:slug' do
-
+    @song = Song.find_by_slug()
+    erb :'/song/show'
   end
 
 end
