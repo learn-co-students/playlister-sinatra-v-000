@@ -11,6 +11,7 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
+    binding.pry
     @song = Song.create(params[:song])
     if !params["Artist Name"].empty?
       @artist = Artist.create(name: params["Artist Name"])
