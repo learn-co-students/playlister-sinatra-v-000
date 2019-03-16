@@ -15,14 +15,18 @@
   <input id="<%= artist.name %>" type="checkbox" name="artists[]" value="<%= artist.id %>">
   <% end %>
 
+  <% Genre.all.each do |genre| %>
+  <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+  <% end %>
+
 
     <br>
 
     <label>and/or create a new artist:</label>
     <br>
     <label>name:</label>
-    <input type="text" name="artist_name">
+    <input type="text" name="Artist Name">
     <br>
   <!-- rspec spec/features/05_song_form_spec.rb --f-f for quick access-->
-  <input type="submit" name="Submit" value="Submit">
+  <input type="submit" name="Create" value="Create">
 </form>
