@@ -12,16 +12,16 @@ class SongsController < ApplicationController
 
   post '/songs' do
     @song = Song.create(params[:song])
-    if !params["artist_name"].empty?
-      @artist = Artist.create(name: params["artist_name"])
+    if !params["Artist Name"].empty?
+      @artist = Artist.create(name: params["Artist Name"])
       @artist.save
       @song.artist = @artist
       @song.save
       @artist.songs << @song
     end
 
-    if !params["genre_name"].empty?
-      @genre = Genre.create(name: params["genre_name"])
+    if !params["Genre Name"].empty?
+      @genre = Genre.create(name: params["Genre Name"])
       @genre_name.save
       @song.artist = @artist
       @song.save
