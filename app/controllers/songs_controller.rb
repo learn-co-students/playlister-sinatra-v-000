@@ -12,7 +12,7 @@ class SongsController < ApplicationController
 
   post '/songs/new' do
     @song = Song.create(params[:song])
-
+    
   end
 
   get '/songs/:slug' do
