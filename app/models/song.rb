@@ -16,13 +16,18 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    name = slug.split("-")
-    full_name = []
-    name.each do |word|
-      full_name << word.capitalize
+    self.all.each do |song| #because the method itself doesn't account for words with lowercase
+      if song.slug == slug
+        return song
+      end
     end
-    name = full_name.join(" ")
-    Song.find_by(name: name) #uses find_by instead of find because of attribute
+    #name = slug.split("-") removed because of capitalization issues
+    #full_name = []
+    #name.each do |word|
+    #  full_name << word.capitalize
+  #  end
+  #  name = full_name.join(" ")
+  #  Song.find_by(name: name) #uses find_by instead of find because of attribute
   end
 
 end

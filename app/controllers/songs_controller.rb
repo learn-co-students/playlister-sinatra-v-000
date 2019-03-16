@@ -14,18 +14,18 @@ class SongsController < ApplicationController
     @song = Song.create(params[:song])
     if !params["Artist Name"].empty?
       @artist = Artist.create(name: params["Artist Name"])
-      @artist.save
+      #@artist.save
       @song.artist = @artist
       @song.save
-      @artist.songs << @song
+      #@artist.songs << @song
     end
 
     if !params["Genre Name"].empty?
       @genre = Genre.create(name: params["Genre Name"])
-      @genre.save
+      #@genre.save
       @song.artist = @artist
       @song.save
-      @genre.songs << @song
+      #@genre.songs << @song
     end
     @song.save
     redirect to "/songs/#{@song.slug}"
@@ -33,7 +33,7 @@ class SongsController < ApplicationController
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    erb :'/song/show'
+    erb :'/songs/show'
   end
 
 end
