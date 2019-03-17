@@ -3,5 +3,5 @@
 <h1>artist_name</h1> <%= @song.artist.name %>
 <br>
 <% Genre.all.each_with_index do |genre,index| %>
-  <h1>genre_<%=index+1%>_name</h1> <%= genre %>
+ <h1>genre_<%=index+1%>_name</h1> <%= genre.name %>
 <% end %>
