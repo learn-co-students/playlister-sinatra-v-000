@@ -63,6 +63,7 @@ class SongsController < ApplicationController
     if condition
 
     end
+    flash[:message] = "Successfully updated song."
     redirect to()"/songs/#{@song.slug}")
   end
 
