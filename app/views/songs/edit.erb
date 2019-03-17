@@ -10,13 +10,12 @@
   <br>
 
   <label>Change artist:</label>
+
   <br>
-
-
-
   <input id="<%= @artist.name %>" type="text" name="artists[name]" value="<%= @artist.name %>">
 <!-- changes singular artist -->
-
+  <br>
+  <label>Change genre:</label>
   <% Genre.all.each do |genre| %>
   <input id="<%= genre.name %>" type="checkbox" name="genres[name]" value="<%= genre.name %>">
   <label><%= genre.name %></label>

@@ -54,19 +54,21 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug/edit' do
-    if !params[:song].keys.include?("artist_id")
-      params[:song]["artist_id"] = []
-    end
-
+    #if !params[:song].keys.include?("artist_id")
+    #  params[:song]["artist_id"] = []
+    #end
+    #bug fix ^
     @song = Song.find_by_slug(params[:slug])
     @song.update(params[:song])
-    if !params["artist"]["name"].empty?
-      @artist = Artist.create(name: params["artist"]["name"])
-      @song.artist = @artist
-      @song.save
-    end
+    @song.artist = Artist.find_or_create_by(name: params["artist"]["name"])
+    # if !params["artist"]["name"].empty?                            not needed like last lab
+    #@artist = Artist.create(name: params["artist"]["name"])
+    #@song.artist = @artist
+    @song.genre_ids = params[:genres] #will work plural
+    @song.save
+    #end
     flash[:message] = "Successfully updated song."
-    redirect to()"/songs/#{@song.slug}")
+    redirect to("/songs/#{@song.slug}")
   end
 
 end
