@@ -1,14 +1,13 @@
 require 'pry'
-require 'rack-flash' 
+require 'rack-flash'
 class SongsController < ApplicationController
-
+  use Rack::Flash
   get '/songs/new' do
     @songs = Song.all
     erb :'/songs/new'
   end
 
   get '/songs/:slug' do
-    binding.pry
     @song = Song.find_by_slug(params[:slug])
     erb :'/songs/show'
   end
@@ -37,10 +36,8 @@ class SongsController < ApplicationController
       @song.save
       #@genre.songs << @song
     end
-    binding.pry
     @song.save
     flash[:message] = "Successfully created song."
-    binding.pry
     redirect to("/songs/#{@song.slug}")
   end
 
