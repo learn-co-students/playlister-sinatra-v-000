@@ -9,4 +9,5 @@ use Rack::MethodOverride
 use ArtistsController
 use GenresController
 use SongsController
+use Rack::Flash #added from read me
 run ApplicationController
