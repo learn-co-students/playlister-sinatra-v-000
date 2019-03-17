@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head> <%=@song.name %> </head>
+  <head> Song Page </head>
   <body>
-    <h1>,<a href='/artists/<%=@artist.slug%>'><%=@artist.name %></a><%=@artist.name %></h1>
-    <p>Genres: <% @genres.each do |genre| %> </p>
-        <p> <a href='/genres/<%=genre.slug%>'> <%= genre.name %> </a> </p>
-        <% end %>
+    <h1>Song: <%=@song.name %> </h1>
+
+    <h3>Artist: <a href='/artists/<%=@song_artist.slug%>'><%=@song_artist.name %></a></h3>
+
+    <h3> Genres:  </h3>
+    <% @song_genres.each do |genre| %>
+      <ul>
+        <li><a href='/genres/<%=genre.slug%>'><%=genre.name%></a></li>
+      </ul>
+    <% end %>
   </body>
 </html>
