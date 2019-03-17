@@ -21,7 +21,7 @@ class SongsController < ApplicationController
       @song.save
       #@artist.songs << @song
     end
-    binding.pry
+
     if !params["Genre Name"].empty?
       @genre = Genre.create(name: params["Genre Name"])
       #@genre.save
@@ -29,9 +29,9 @@ class SongsController < ApplicationController
       @song.save
       #@genre.songs << @song
     end
+
     @song.save
     flash[:message] = "Successfully created song."
-    binding.pry
     redirect to "/songs/#{@song.slug}"
   end
 
