@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head> <%=@artist.name %> </head>
+
+  <body>
+    <p> Songs: <% @songs.each do |song| %> </p>
+    <p><a href='/artists/<%=song.slug%>'><%=song.name%></a></p>
+      <% end %>
+      <% binding.pry %>
+    <p> Genres: <% @genres.each do |genre| %> </p>
+    <p><a href='/genres/<%=genre.slug%>'><%=genre.name%></a></p>
+      <% end %>
+
+
+
+</body>
+</html>
