@@ -60,8 +60,10 @@ class SongsController < ApplicationController
 
     @song = Song.find_by_slug(params[:slug])
     @song.update(params[:song])
-    if condition
-
+    if !params["artist"]["name"].empty?
+      @artist = Artist.create(name: params["artist"]["name"])
+      @song.artist = @artist
+      @song.save
     end
     flash[:message] = "Successfully updated song."
     redirect to()"/songs/#{@song.slug}")
