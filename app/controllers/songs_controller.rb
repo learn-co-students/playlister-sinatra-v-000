@@ -1,3 +1,4 @@
+require 'pry'
 class SongsController < ApplicationController
 
   get '/songs' do
@@ -29,6 +30,7 @@ class SongsController < ApplicationController
     end
     @song.save
     flash[:message] = "Successfully created song."
+    binding.pry
     redirect to "/songs/#{@song.slug}"
   end
 
