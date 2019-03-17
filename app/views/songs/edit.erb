@@ -1,4 +1,4 @@
-<h1>Create a new Song</h1>
+<h1>Edit a Song</h1>
 <form class="" action="/songs/<%=@song.slug%>" method="post"> <!-- posts to index -->
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label>Name:</label>
@@ -12,29 +12,23 @@
   <label>Choose an existing artist:</label>
   <br>
 
-  <% Artist.all.each do |artist| %>
-  <input id="<%= artist.name %>" type="checkbox" name="artists[]" value="<%= artist.id %>">
-  <% end %>
+
+
+  <input id="<%= @artist.name %>" type="text" name="artists[name]" value="<%= @artist.name %>">
+<!-- changes singular artist -->
 
   <% Genre.all.each do |genre| %>
-  <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+  <input id="<%= genre.name %>" type="checkbox" name="genres[name]" value="<%= genre.name %>">
+  <label><%= genre.name %></label>
   <% end %>
-
-
     <br>
 
     <label>and/or create a new artist:</label>
     <br>
     <label>name:</label>
-    <input type="text" name="Artist Name">
-    <br>
-
-    <label>and/or create a new genre:</label>
-    <br>
-    <label>name:</label>
-    <input type="text" name="Genre Name">
+    <input type="text" name="song[artist][name][]" value="<%=@song.artist.name%>" id="Artist Name">
     <br>
 
   <!-- rspec spec/features/05_song_form_spec.rb --f-f for quick access-->
-  <input type="submit" name="Create" value="Create">
+  <input type="submit" name="Save" value="Save">
 </form>
