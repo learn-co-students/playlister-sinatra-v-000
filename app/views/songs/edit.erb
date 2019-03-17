@@ -1,0 +1,39 @@
+<h1>Create a new Song</h1>
+<form class="" action="/songs" method="post"> <!-- posts to index -->
+  <label>Name:</label>
+
+  <br>
+
+  <input type="text" name="song[name]" value="Song Name" id="Name">
+
+  <br>
+
+  <label>Choose an existing artist:</label>
+  <br>
+
+  <% Artist.all.each do |artist| %>
+  <input id="<%= artist.name %>" type="checkbox" name="artists[]" value="<%= artist.id %>">
+  <% end %>
+
+  <% Genre.all.each do |genre| %>
+  <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+  <% end %>
+
+
+    <br>
+
+    <label>and/or create a new artist:</label>
+    <br>
+    <label>name:</label>
+    <input type="text" name="Artist Name">
+    <br>
+
+    <label>and/or create a new genre:</label>
+    <br>
+    <label>name:</label>
+    <input type="text" name="Genre Name">
+    <br>
+
+  <!-- rspec spec/features/05_song_form_spec.rb --f-f for quick access-->
+  <input type="submit" name="Create" value="Create">
+</form>

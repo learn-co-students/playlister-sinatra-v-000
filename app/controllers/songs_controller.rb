@@ -27,6 +27,11 @@ class SongsController < ApplicationController
       @song.artist = @artist
       @song.save
       #@artist.songs << @song
+    elsif Artist.find_by(name: params["Artist Name"])
+      @artist = Artist.find_by(name: params["Artist Name"])
+      @song.artist = @artist
+      @song.save
+    else
     end
 
     if !params["Genre Name"].empty?
@@ -39,6 +44,13 @@ class SongsController < ApplicationController
     @song.save
     flash[:message] = "Successfully created song."
     redirect to("/songs/#{@song.slug}")
+  end
+
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    @artists = Artist.all
+    @genres = Genres.all
+    erb :"/songs/edit"
   end
 
 
