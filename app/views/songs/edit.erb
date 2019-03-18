@@ -13,27 +13,30 @@
   <label>Change artist:</label>
 
   <br>
-  <label>change from <%= artist.name %> to</label>
-  <input id="<%= @artist.id %>" type="text" name="song[artist_id]" value="<%= @artist.id %>">
+  <h8>change from <%= @artist.name %> to</h8>
+  <input id="<%= @artist.id %>" type="checkbox" name="song[artist_id]" value="<%= @artist.id %>">
+  <input id="<%= @artist.name %>" type="input" name="song[artist][name]" value="<%= @artist.name %>">
 <!-- changes singular artist -->
   <br>
-  <label>Change genre:</label>
+  <h8>Change genre:</h8>
   <% Genre.all.each do |genre| %>
+  <br>
+  <h8>change from <%= genre.name %> to</h8>
   <input id="<%= genre.id %>" type="checkbox" name="song[genre_ids][]" value="<%= genre.id %>">
-  <label><%= genre.name %></label>
+  <input id="<%= genre.name %>" type="input" name="song[genres][name][]" value="<%= genre.name %>">
   <% end %>
     <br>
 
     <label>and/or create a new artist:</label>
     <br>
     <label>name:</label>
-    <input type="text" name="song[artist][name][]" value="<%=@song.artist.name%>" id="Artist Name">
+    <input type="text" name="song[artist][name]" value="<%=@song.artist.name%>" id="Artist Name">
     <br>
 
     <label>and/or create a new genre:</label>
     <br>
     <label>name:</label>
-    <input type="text" name="Genre Name">
+    <input type="text" name="song[genres][name][]">
     <br>
   <!-- rspec spec/features/05_song_form_spec.rb --f-f for quick access-->
   <input type="submit" name="Save" value="Save">
