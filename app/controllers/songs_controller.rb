@@ -13,7 +13,6 @@ class SongsController < ApplicationController
   end
 
   get '/songs' do
-    binding.pry
     @songs = Song.all
     erb :'/songs/index'
   end
@@ -54,12 +53,10 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do #patch is a form of post
-    binding.pry
     if !params[:song].keys.include?("genre_ids")
     params[:song]["genre_ids"] = []
     end
     #bug fix ^
-    binding.pry
     @song = Song.find_by_slug(params[:slug])
     @song.update(params[:song])
     @song.artist = Artist.find_or_create_by(name: params[:song]["artist"]["name"])
