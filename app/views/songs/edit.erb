@@ -13,14 +13,13 @@
   <label>Change artist:</label>
 
   <br>
-  <input id="<%= @artist.name %>" type="text" name="artists[name]" value="<%= @artist.name %>">
-  <!--<%= 'checked' if @song.artist == artist %> add this to ^ then it breaks but its needed for the patch-->
+  <label>change from <%= artist.name %> to</label>
+  <input id="<%= @artist.id %>" type="text" name="song[artist_id]" value="<%= @artist.id %>">
 <!-- changes singular artist -->
   <br>
   <label>Change genre:</label>
   <% Genre.all.each do |genre| %>
-  <input id="<%= genre.name %>" type="checkbox" name="genres[name]" value="<%= genre.name %>">
-  <!--<%= 'checked' if @song.genres.include?(genre)%> add this to ^ then it breaks but its needed for the patch-->
+  <input id="<%= genre.id %>" type="checkbox" name="song[genre_ids][]" value="<%= genre.id %>">
   <label><%= genre.name %></label>
   <% end %>
     <br>
@@ -31,6 +30,11 @@
     <input type="text" name="song[artist][name][]" value="<%=@song.artist.name%>" id="Artist Name">
     <br>
 
+    <label>and/or create a new genre:</label>
+    <br>
+    <label>name:</label>
+    <input type="text" name="Genre Name">
+    <br>
   <!-- rspec spec/features/05_song_form_spec.rb --f-f for quick access-->
   <input type="submit" name="Save" value="Save">
 </form>
