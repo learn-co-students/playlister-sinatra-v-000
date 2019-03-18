@@ -14,11 +14,13 @@
 
   <br>
   <input id="<%= @artist.name %>" type="text" name="artists[name]" value="<%= @artist.name %>">
+  <!--<%= 'checked' if @song.artist == artist %> add this to ^ then it breaks but its needed for the patch-->
 <!-- changes singular artist -->
   <br>
   <label>Change genre:</label>
   <% Genre.all.each do |genre| %>
   <input id="<%= genre.name %>" type="checkbox" name="genres[name]" value="<%= genre.name %>">
+  <!--<%= 'checked' if @song.genres.include?(genre)%> add this to ^ then it breaks but its needed for the patch-->
   <label><%= genre.name %></label>
   <% end %>
     <br>
