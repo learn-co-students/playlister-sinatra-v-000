@@ -62,8 +62,8 @@ class SongsController < ApplicationController
     binding.pry
     @song = Song.find_by_slug(params[:slug])
     @song.update(params[:song])
-    @song.artist = Artist.find_or_create_by(name: params["artist"]["name"])
-    @song.artist = Genre.find_or_create_by(name: params["artist"]["name"])
+    @song.artist = Artist.find_or_create_by(name: params[:song]["artist"]["name"])
+    @song.genres = Genre.find_or_create_by(name: params[:song]["genres"]["name"][])
     # if !params["artist"]["name"].empty?                            not needed like last lab
     #@artist = Artist.create(name: params["artist"]["name"])
     #@song.artist = @artist
