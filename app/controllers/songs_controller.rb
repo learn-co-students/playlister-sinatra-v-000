@@ -53,12 +53,12 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do #patch is a form of post
-    if !params[:song].keys.include?("genre_ids")
-    params[:song]["genre_ids"] = []
+    if !params.keys.include?("genre_ids") #genre_ids and artists shouldn't be in songs it should be sepereate
+    params["genre_ids"] = []
     end
     #bug fix ^
+    #binding.pry
     @song = Song.find_by_slug(params[:slug])
-    binding.pry
     @song.update(params[:song])
     @song.artist = Artist.find_or_create_by(name: params[:song]["artist"]["name"])
     @song.genres = Genre.find_or_create_by(name: params[:song]["genres"]["name"][])
