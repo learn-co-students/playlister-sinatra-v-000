@@ -13,14 +13,16 @@
   <label>Change artist:</label>
 
   <br>
-  <h8>change from <%= @artist.name %> to</h8>
-  <input id="<%= @artist.name %>" type="input" name="artist[name]" value="<%= @artist.name%>">
+  <h8>artist_name</h8>
+  <input id="<%= @artist.id %>" type="checkbox" name="artist_ids[]" value="<%= @artist.id %>" <%='checked' if @song.artist == @artist%>><%= @artist.id %></input>
+  <input id="<%= @artist.name %>" type="radio" name="artist_names" value="<%= @artist.name%>"><%= @artist.name %></input>
 <!-- changes singular artist -->
   <br>
   <h8>Change genre:</h8>
   <% Genre.all.each do |genre| %>
   <br>
-  <input id="<%= genre.name %>" type="checkbox" name="genre_ids[]" value="<%= genre.id %>" <%='checked' if @song.genres.include?(genre)%>><%= genre.name %></input>
+  <input id="<%= genre.id %>" type="checkbox" name="genre_ids[]" value="<%= genre.id %>" <%='checked' if @song.genres.include?(genre)%>><%= genre.name %></input>
+  <input id="<%= genre.name %>" type="checkbox" name="genre_names[]" value="<%= genre.name %>">
   <!-- checked if works if editing a previous has many element -->
   <% end %>
     <br>

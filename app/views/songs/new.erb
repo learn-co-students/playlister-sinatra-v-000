@@ -13,13 +13,11 @@
 
 
   <% Artist.all.each do |artist| %>
-  <input id="<%= artist.name %>" type="checkbox" name="artists[name]" value="<%= artist.name %>">
-  <label><%= artist.name%> </label>
+  <input id="<%= artist.name %>" type="checkbox" name="artists[name]" value="<%= artist.name %>"><%= artist.name%></input>
   <% end %>
 
   <% Genre.all.each do |genre| %>
-  <input id="<%= genre.name %>" type="checkbox" name="genres[name]" value="<%= genre.name %>">
-  <label><%= genre.name %></label>
+  <input id="<%= genre.name %>" type="checkbox" name="genres[name]" value="<%= genre.name %>"><%= genre.name %></input>
   <% end %>
 
 

@@ -56,19 +56,26 @@ class SongsController < ApplicationController
     if !params.keys.include?("genre_ids") #genre_ids and artists shouldn't be in songs it should be sepereate
     params["genre_ids"] = []
     end
-    #bug fix ^
-    #binding.pry
-    @song = Song.find_by_slug(params[:slug])
-    @song.update(params[:song])
-    @song.artist = Artist.find_or_create_by(name: params["artist"]["name"])
-    binding.pry
-    @song.genres = Genre.find_or_create_by(id: params["genre_ids"])
-    # if !params["artist"]["name"].empty?                            not needed like last lab
+
+    #if !params["artist"]["name"].empty?
     #@artist = Artist.create(name: params["artist"]["name"])
     #@song.artist = @artist
-    @song.genre_ids = params[:genres] #will work plural
-    @song.save
     #end
+    #bug fixes ^
+    @song = Song.find_by_slug(params[:slug])
+    @song.update(params[:song])
+    #@song.artist.name = params["Artist Name"] not permanent, doesn't work.
+    @song.artist.update(name: params["Artist Name"])
+    if params["Artist Name"] = ""
+    @artist = @song.artist.update(name: params["Artist Name"])
+    end
+    @song.genres << Genre.find_by(name: params["genre_names"][0])
+      #this was hard, you needed to pry and exit till your reach the error
+      #iterator was needed because it was each.
+      #params revealed ids were a string
+    #value of params["genre_ids"] is an array of ["1"]
+    #genre_id.to_i becaus eparams revealed ids were a string
+    @song.save
     flash[:message] = "Successfully updated song."
     redirect to("/songs/#{@song.slug}")
   end
