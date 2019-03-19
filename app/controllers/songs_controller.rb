@@ -73,7 +73,7 @@ class SongsController < ApplicationController
     #Genre.delete(@genre) wasn't needed
     params["genre_name"] = @song.genres.find_by(id: params["genre_ids"]).name
     #params["genre_name"] was the genre_name that needed to be changed
-
+    #10+ tech coach sessions to figure this out
     @song.genres.find_by(id: params["genre_ids"]).update(name: params["genre_name"])
     #then params["genre_name"] updates specifically using the update method
     #the genre in the song that matches based on id

@@ -6,7 +6,7 @@
 <h1>artist_name</h1> <%= @song.artist.name %>
 <br>
 <h1>song_genres</h1>
-<%if flash[:message] == "Successfully created song."%>
+<%if flash[:message] == "Successfully created song." #shows all genres to pick from%>
   <% Genre.all.each_with_index do |genre,index| %>
   <h1>genre_<%=index+1%>_name</h1> <%= genre.name %>
  <% end %>
