@@ -56,7 +56,7 @@ class SongsController < ApplicationController
     if !params.keys.include?("genre_ids") #genre_ids and artists shouldn't be in songs it should be sepereate
     params["genre_ids"] = []
     end
-
+    binding.pry
     #if !params["artist"]["name"].empty?
     #@artist = Artist.create(name: params["artist"]["name"])
     #@song.artist = @artist
@@ -66,10 +66,11 @@ class SongsController < ApplicationController
     @song.update(params[:song])
     #@song.artist.name = params["Artist Name"] not permanent, doesn't work.
     @song.artist.update(name: params["Artist Name"])
-    if params["Artist Name"] = ""
-    @artist = @song.artist.update(name: params["Artist Name"])
-    end
-    @song.genres << Genre.find_by(name: params["genre_names"][0])
+    #if params["Artist Name"] = ""
+    #@artist = @song.artist.update(name: params["Artist Name"])
+    #end
+    @song.genres << Genre.find_or_create_by(name: params["genre_names"])
+    #@song.song_genres.genres << Genre.find_by(name: params["genre_names"][0])
       #this was hard, you needed to pry and exit till your reach the error
       #iterator was needed because it was each.
       #params revealed ids were a string
