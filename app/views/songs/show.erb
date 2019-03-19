@@ -1,0 +1,12 @@
+<h1>Song: <%=@song.name %></h1>
+<br>
+<h2>Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a></h2><br>
+<br>
+<p><u>Genres:</u></p>
+<ul>
+    <% @song.genres.each do |g| %>
+      <li><a href="/genres/<%= g.slug %>"><%= g.name %></a></li>
+    <% end %>
+</ul>
+
+<a href="/songs/<%= @song.slug %>/edit"><input type="button" value="Edit Song"></a>
