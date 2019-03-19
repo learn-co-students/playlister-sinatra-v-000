@@ -6,23 +6,18 @@
   <br>
 
   <input id="<%= @song.name %>" type="text" name="song[name]" value="<%= @song.name %>">
-
+  <br>
+  <label for="artist_name">Update Artist Name</label>
+  <input id="<%= @song.artist.name %>" type="text" name="artist[name]" value="<%= @song.artist.name %>">
   <br>
 
-
-  <label>Change artist:</label>
-
-  <br>
-  <h8>artist_name</h8>
-  <!-- <input id="<%= @artist.id %>" type="checkbox" name="artist_ids[]" value="<%= @artist.id %>" <%='checked' if @song.artist == @artist%>><%= @artist.name %></input> -->
-  <input type="text" name="artist_name" value="<%=@song.artist.name%>">
 <!-- changes singular artist -->
   <br>
   <h8>Change genre:</h8>
   <% Genre.all.each do |genre| %>
   <br>
-  <input id="<%= genre.id %>" type="checkbox" name="genre_ids[]" value="<%= genre.id %>" <%='checked' if @song.genres.include?(genre)%>><%= genre.name %></input>
-   <input id="<%= genre.name %>" type="checkbox" name="genre_name" value="<%= genre.name %>"><%= genre.name %></input> 
+  <input id="<%= genre.id %>" type="checkbox" name="genre_ids" value="<%= genre.id %>" <%='checked' if @song.genres.include?(genre)%>><%= genre.name %></input>
+   <input id="<%= genre.name %>" type="checkbox" name="genre_name" value="<%= genre.name %>"><%= genre.name %></input>
   <!-- checked if works if editing a previous has many element -->
   <% end %>
     <br>
@@ -38,6 +33,7 @@
     <label>name:</label>
     <input type="text" name="Genre Name">
     <br>
+
   <!-- rspec spec/features/05_song_form_spec.rb --f-f for quick access-->
   <input type="submit" name="Save" value="Save">
 </form>

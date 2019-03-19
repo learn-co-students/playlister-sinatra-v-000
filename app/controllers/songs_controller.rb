@@ -19,7 +19,6 @@ class SongsController < ApplicationController
 
   post '/songs' do
     @song = Song.create(params[:song])
-
     if !params["Artist Name"].empty? && !Artist.find_by(name: params["Artist Name"])
       @artist = Artist.create(name: params["Artist Name"])
       #@artist.save
@@ -33,13 +32,20 @@ class SongsController < ApplicationController
     else
     end
 
-    if !params["Genre Name"].empty?
+    if !params["Genre Name"].empty? #&& !Genre.find_by(name: params["Genre Name"])
       @genre = Genre.create(name: params["Genre Name"])
       #@genre.save
-      @song.artist = @artist
+      @song.genres << @genre
       @song.save
-      #@genre.songs << @song
+=begin
+    elsif Genre.find_by(name: params["Genre Name"])
+      @genre = Genre.find_by(name: params["Genre Name"])
+      @song.genres << @genre
+      @song.save
+    else
+=end
     end
+
     @song.save
     flash[:message] = "Successfully created song."
     redirect to("/songs/#{@song.slug}")
@@ -53,32 +59,26 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do #patch is a form of post
-    if !params.keys.include?("genre_ids") #genre_ids and artists shouldn't be in songs it should be sepereate
-    params["genre_ids"] = []
+    if params["Artist Name"].empty?
+    @artist = Artist.create(name: params["artist"]["name"])
+    params["Artist Name"] = params["artist"]["name"] #bug fix regarding checks for a new blank name
+    #if new name is blank, use old name
     end
-    binding.pry
-    #if !params["artist"]["name"].empty?
-    #@artist = Artist.create(name: params["artist"]["name"])
-    #@song.artist = @artist
-    #end
-    #bug fixes ^
     @song = Song.find_by_slug(params[:slug])
     @song.update(params[:song])
     #@song.artist.name = params["Artist Name"] not permanent, doesn't work.
-    @song.artist.update(name: params["Artist Name"])
-    #if params["Artist Name"] = ""
-    #@artist = @song.artist.update(name: params["Artist Name"])
-    #end
-    @song.genres << Genre.find_or_create_by(name: params["genre_names"])
-    #@song.song_genres.genres << Genre.find_by(name: params["genre_names"][0])
-      #this was hard, you needed to pry and exit till your reach the error
-      #iterator was needed because it was each.
-      #params revealed ids were a string
-    #value of params["genre_ids"] is an array of ["1"]
-    #genre_id.to_i becaus eparams revealed ids were a string
+      @song.artist.update(name: params["Artist Name"])
+    @genre = Genre.find_by(name: params["genre_name"])
+
+    #Genre.delete(@genre) wasn't needed
+    params["genre_name"] = @song.genres.find_by(id: params["genre_ids"]).name
+    #params["genre_name"] was the genre_name that needed to be changed
+
+    @song.genres.find_by(id: params["genre_ids"]).update(name: params["genre_name"])
+    #then params["genre_name"] updates specifically using the update method
+    #the genre in the song that matches based on id
     @song.save
     flash[:message] = "Successfully updated song."
     redirect to("/songs/#{@song.slug}")
   end
-
 end

@@ -5,6 +5,14 @@
 <br>
 <h1>artist_name</h1> <%= @song.artist.name %>
 <br>
-<% Genre.all.each_with_index do |genre,index| %>
- <h1>genre_<%=index+1%>_name</h1> <%= genre.name %>
-<% end %>
+<h1>song_genres</h1>
+<%if flash[:message] == "Successfully created song."%>
+  <% Genre.all.each_with_index do |genre,index| %>
+  <h1>genre_<%=index+1%>_name</h1> <%= genre.name %>
+ <% end %>
+<%end%>
+<%if flash[:message] == "Successfully updated song." #remember = is not ==%>
+  <% @song.genres.all.each_with_index do |genre,index| %>
+  <h1>genre_<%=index+1%>_name</h1> <%= genre.name %>
+ <% end %>
+<%end%>
