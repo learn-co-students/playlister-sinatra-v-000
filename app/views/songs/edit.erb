@@ -22,7 +22,7 @@
   <% Genre.all.each do |genre| %>
   <br>
   <input id="<%= genre.id %>" type="checkbox" name="genre_ids[]" value="<%= genre.id %>" <%='checked' if @song.genres.include?(genre)%>><%= genre.name %></input>
-   <input id="<%= genre.name %>" type="checkbox" name="genre_names[]" value="<%= genre.name %>"><%= genre.name %></input> 
+   <input id="<%= genre.name %>" type="checkbox" name="genre_name" value="<%= genre.name %>"><%= genre.name %></input> 
   <!-- checked if works if editing a previous has many element -->
   <% end %>
     <br>
