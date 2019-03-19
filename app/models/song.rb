@@ -1,6 +1,8 @@
 class Song < ActiveRecord::Base
   belongs_to :artist
   has_many :genres
+  has_many :song_genres
+  has_many :genres, through: :song_genres
 
   def slug
     self.name.gsub(/[^0-9A-Za-z]/, '-').downcase
