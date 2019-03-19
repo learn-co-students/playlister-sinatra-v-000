@@ -2,6 +2,10 @@
 <html>
   <head> Song Page </head>
   <body>
+    <% if flash.has?(:message) %>
+      <%= flash[:message] %>
+    <% end %>
+
     <h1>Song: <%=@song.name %> </h1>
 
     <h3>Artist: <a href='/artists/<%=@song_artist.slug%>'><%=@song_artist.name %></a></h3>
