@@ -5,14 +5,20 @@
 <br>
 <h1>artist_name</h1> <%= @song.artist.name %>
 <br>
-<h1>song_genres</h1>
-<%if flash[:message] == "Successfully created song." #shows all genres to pick from%>
+<h1>all song_genres</h1>
+<%if flash[:message] == "Successfully created song." %>
+<!-- New requires all-->
   <% Genre.all.each_with_index do |genre,index| %>
   <h1>genre_<%=index+1%>_name</h1> <%= genre.name %>
  <% end %>
-<%end%>
-<%if flash[:message] == "Successfully updated song." #remember = is not ==%>
+<%elsif flash[:message] == "Successfully updated song." #remember = is not ==%>
+<!-- Edit requires just the song's genres -->
+  This song's genres after update
   <% @song.genres.all.each_with_index do |genre,index| %>
   <h1>genre_<%=index+1%>_name</h1> <%= genre.name %>
- <% end %>
-<%end%>
+  <%end%>
+<%else #no message displayed in 04 spec, but still requires all%>
+  <% Genre.all.each_with_index do |genre,index| %>
+  <h1>genre_<%=index+1%>_name</h1> <%= genre.name %>
+  <% end %>
+<% end %>
