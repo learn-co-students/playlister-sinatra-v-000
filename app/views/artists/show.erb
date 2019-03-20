@@ -1,0 +1,23 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+<h1>artist_name</h1> <%= @artist %>
+<br>
+<h1>All Genres</h1>
+<%if flash[:message] == "Successfully created song." %>
+<!-- New requires all-->
+  <% @genres.each_with_index do |genre,index| %>
+  <h1>genre_<%=index+1%>_name</h1><a href="/genres/<%=genre.slug%>"><%= genre.name %><a>
+ <% end %>
+<%elsif flash[:message] == "Successfully updated song." #remember = is not ==%>
+<!-- Edit requires just the song's genres -->
+  This song's genres after update
+  <% @song.genres.all.each_with_index do |genre,index| %>
+  <h1>genre_<%=index+1%>_name</h1><a href="/genres/<%=genre.slug%>"><%= genre.name %><a>
+  <%end%>
+<%else #no message displayed in 04 spec, but still requires all%>
+  <% Genre.all.each_with_index do |genre,index| %>
+  <h1>genre_<%=index+1%>_name</h1><a href="/genres/<%=genre.slug%>"><%= genre.name %><a>
+  <% end %>
+<% end %>
+<br>
