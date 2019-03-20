@@ -3,22 +3,23 @@
 <% end %>
 <h1>song_name</h1> <%= @song.name %>
 <br>
-<h1>artist_name</h1> <%= @song.artist.name %>
+<h1>artist_name</h1> <%= @song.artist.name %><a href="/artists/<%=@artist.slug%>"><%=@artist.name%></a>
 <br>
 <h1>all song_genres</h1>
 <%if flash[:message] == "Successfully created song." %>
 <!-- New requires all-->
-  <% Genre.all.each_with_index do |genre,index| %>
-  <h1>genre_<%=index+1%>_name</h1> <%= genre.name %>
+  <% @genres.each_with_index do |genre,index| %>
+  <h1>genre_<%=index+1%>_name</h1><a href="/genres/<%=genre.slug%>"><%= genre.name %><a>
  <% end %>
 <%elsif flash[:message] == "Successfully updated song." #remember = is not ==%>
 <!-- Edit requires just the song's genres -->
   This song's genres after update
   <% @song.genres.all.each_with_index do |genre,index| %>
-  <h1>genre_<%=index+1%>_name</h1> <%= genre.name %>
+  <h1>genre_<%=index+1%>_name</h1><a href="/genres/<%=genre.slug%>"><%= genre.name %><a>
   <%end%>
 <%else #no message displayed in 04 spec, but still requires all%>
   <% Genre.all.each_with_index do |genre,index| %>
-  <h1>genre_<%=index+1%>_name</h1> <%= genre.name %>
+  <h1>genre_<%=index+1%>_name</h1><a href="/genres/<%=genre.slug%>"><%= genre.name %><a>
   <% end %>
 <% end %>
+<br>
