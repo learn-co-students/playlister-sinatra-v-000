@@ -18,6 +18,7 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
+    #copy the rspec from failures to make prying easier.
     @song = Song.create(params[:song])
     if !params["Artist Name"].empty? && !Artist.find_by(name: params["Artist Name"])
       @artist = Artist.create(name: params["Artist Name"])
@@ -73,7 +74,7 @@ class SongsController < ApplicationController
     #Genre.delete(@genre) wasn't needed
     params["genre_name"] = @song.genres.find_by(id: params["genre_ids"]).name
     #params["genre_name"] was the genre_name that needed to be changed
-    #10+ tech coach sessions to figure this out
+    #20+ tech coach sessions to figure this out
     @song.genres.find_by(id: params["genre_ids"]).update(name: params["genre_name"])
     #then params["genre_name"] updates specifically using the update method
     #the genre in the song that matches based on id

@@ -1,0 +1,7 @@
+<h1>List of Artists</h1>
+<% @artists.each do |artist| %>
+  <%= @artist = artist %>
+  <li> <a href="/artists/<%=@artist.slug%>"><%=@artist.name%></a> </li>
+  <!-- reminder on how to do links with interpolation -->
+<%end%>
+<h4></h4>

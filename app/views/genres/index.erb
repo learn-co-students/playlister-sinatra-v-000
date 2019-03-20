@@ -1,0 +1,7 @@
+<h1>List of Genres</h1>
+<% @genres.each do |genre| %>
+  <%= @genre = genre %>
+  <li> <a href="/genres/<%=@genre.slug%>"><%=@genre.name%></a> </li>
+  <!-- reminder on how to do links with interpolation -->
+<%end%>
+<h4></h4>

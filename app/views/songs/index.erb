@@ -1,3 +1,7 @@
 <h1>List of Songs</h1>
-
+<% @songs.each do |song| %>
+  <%= @song = song %>
+  <li> <a href="/songs/<%=@song.slug%>"><%=@song.name%></a> </li>
+  <!-- reminder on how to do links with interpolation -->
+<%end%>
 <h4></h4>
