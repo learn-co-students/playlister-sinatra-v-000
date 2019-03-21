@@ -4,6 +4,7 @@
 
 <h2>Check All that Apply:</h2>
 <% @genres.each do |genre| %>
+<%= genre.name.upcase %>
 <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
 <% end %>
 <h1><button name="Create" type="submit">Create</button></h1>
