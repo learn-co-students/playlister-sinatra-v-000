@@ -6,12 +6,20 @@ class SongsController < ApplicationController
   end
 
   get '/songs/new' do
-    erb :new
+    erb :'/songs/new'
   end
 
   post '/songs' do
-    @song = Song.find(params[:id])
-    @song.name
+    # binding.pry
+    @artist = Artist.find_or_create_by(:name => params["Artist Name"])
+    @genres = params['genres'].map {|genre| Genre.find(genre)}
+    @song = Song.create(:name => params["Name"])#, :genres => @genres)
+    @song.artist = @artist
+    @song.genres = @genres
+    @song.save
+    # flash[:message] = "Successfully created song."
+    # binding.pry
+    redirect "/songs/#{@song.slug}"
   end
 
   get '/songs/:slug' do
