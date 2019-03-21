@@ -2,7 +2,7 @@ class SongsController < ApplicationController
 
   get '/songs' do
     @songs = Song.all
-    erb :index
+    erb :'/songs/index'
   end
 
   get '/songs/new' do
@@ -12,6 +12,10 @@ class SongsController < ApplicationController
   post '/songs' do
     @song = Song.find(params[:id])
     @song.name
+  end
+  
+  get '/songs/:id' do 
+    erb :show 
   end
 
 end
