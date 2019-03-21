@@ -19,12 +19,14 @@ class Genre < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    name = slug.split("-")
-    full_name = []
-    name.each do |word|
-      full_name << word.capitalize
-    end
-    name = full_name.join(" ")
-    Genre.find_by(name: name) #uses find_by instead of find because of attribute
+    Genre.all.find{|genre| genre.slug == slug} #remember yield section another way do end
+    #Keep it simple - Diego
+    #name = slug.split("-")
+    #full_name = []
+    #name.each do |word|
+    #  full_name << word.capitalize
+    #end
+    #name = full_name.join(" ")
+    #Genre.find_by(name: name) #uses find_by instead of find because of attribute
   end
 end
