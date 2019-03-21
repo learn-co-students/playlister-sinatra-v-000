@@ -3,7 +3,7 @@
 <% end %>
 <h1>song_name</h1> <%= @song.name %>
 <br>
-<h1>artist_name</h1> <%= @song.artist.name %><a href="/artists/<%=@artist.slug%>"><%=@artist.name%></a>
+<h1>artist_name</h1><a href="/artists/<%=@artist.slug%>"><%=@artist.name%></a>
 <br>
 <h1>all song_genres</h1>
 <%if flash[:message] == "Successfully created song." %>
