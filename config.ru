@@ -1,15 +1,11 @@
 require './config/environment'
 
-begin
-  fi_check_migration
-
-  use Rack::MethodOverride
-  use SongsController
-  use GenresController
-  use ArtistsController
-  run ApplicationController
-
-rescue ActiveRecord::PendingMigrationError => err
-  STDERR.puts err
-  exit 1
+if ActiveRecord::Base.connection.migration_context.needs_migration?
+  raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
 end
+
+use Rack::MethodOverride
+use SongsController
+use GenresController
+use ArtistsController
+run ApplicationController

@@ -7,7 +7,6 @@ class Artist < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    @deslugged = slug.gsub('-', " ").split.map(&:capitalize).join(' ')
-    self.all.find {|artist| artist.name == @deslugged}
+    self.all.find {|artist| artist.slug == slug}
   end
 end

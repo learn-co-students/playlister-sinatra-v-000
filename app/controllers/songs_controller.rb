@@ -13,9 +13,10 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     @song.name
   end
-  
-  get '/songs/:id' do 
-    erb :show 
+
+  get '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'/songs/show'
   end
 
 end

@@ -8,7 +8,6 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    @deslugged = slug.gsub('-', " ").split.map(&:capitalize).join(' ')
-    self.all.find {|song| song.name == @deslugged}
+    self.all.find {|song| song.slug == slug}
   end
 end
