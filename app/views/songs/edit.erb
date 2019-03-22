@@ -9,8 +9,7 @@
 <h2>Check All that Apply:</h2>
 <% @genres.each do |genre| %>
 <%= genre.name.upcase %>
-<input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>"
- <%= "checked" if @song.genres.include?(genre) %>>
+<input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>" <%= "checked" if @song.genres.include?(genre) %>>
 <% end %>
 <h1><button name="Save" type="submit">Save</button></h1>
 </form>

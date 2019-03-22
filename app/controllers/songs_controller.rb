@@ -33,14 +33,17 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do #edit action
-    @artist = Artist.find_or_create_by(:name => params["Artist Name"])
-    # @genres = params['genres'].map {|genre| Genre.find(genre)}
     @song = Song.find_by_slug(params[:slug])
-    @song.artist = @artist
+    if params["Artist Name"] != ""
+      @artist = Artist.find_or_create_by(:name => params["Artist Name"])
+      @song.artist = @artist
+    end
+    if params["genres"] != []
     @song.genre_ids = params["genres"]
+    end
+    # binding.pry
     @song.save
 
-    # binding.pry
     flash[:message] = "Successfully updated song."
     redirect to "/songs/#{@song.slug}"
   end
