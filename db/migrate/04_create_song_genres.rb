@@ -1,8 +1,8 @@
-class CreateArtists < ActiveRecord::Migration
+class CreateSongGenres < ActiveRecord::Migration[5.2]
   def change
-    create_table :artists do |t|
-      t.string :name
-      t.timestamps null: false
+    create_table :song_genres do |t|
+      t.integer :song_id
+      t.integer :genre_id
     end
   end
 end
