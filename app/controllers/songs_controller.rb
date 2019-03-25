@@ -10,5 +10,16 @@ get '/songs' do
    erb :'songs/show'
  end
 
+ get '/songs/new' do
+   erb :'songs/new'
+ end
+
+ post '/songs' do
+   @song = Song.create(:name => params[:name])
+
+   @song.save
+   redirect to "/songs/#{@song.slug}"
+ end
+
 
 end
