@@ -28,7 +28,7 @@ get '/songs' do
    redirect("/songs/#{@song.slug}")
  end
 
- get '/songs/:id/edit' do
+ get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
     erb :'/songs/edit'
   end
@@ -40,7 +40,7 @@ get '/songs' do
     @song.genre_ids = params[:genres]
 
     @song.save
-    flash[:message] = "Successfully edited song."
+    flash[:message] = "Successfully updated song."
     redirect("/songs/#{@song.slug}")
   end
 
