@@ -1,6 +1,10 @@
 class Artist < ActiveRecord::Base
   has_many :songs
   has_many :genres, through: :songs
+  
+  #if want to extract into module:
+  # require_relative 'concerns/slugifiable.rb'
+  # then include/extend wherever module is
 
   def slug
     #strip string and downcase
