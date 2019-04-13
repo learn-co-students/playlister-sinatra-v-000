@@ -1,6 +1,6 @@
 class Song < ActiveRecord::Base
   belongs_to :artist
-  has_many :songs_genres
+  has_many :genres
   has_many :genres, through: :songs_genres
 end
 
@@ -29,9 +29,6 @@ end
 #   belongs_to :tag
 # end
 
-class Tag
-  has_many :posts_tags
-end
-
-
-***
+# class Tag
+#   has_many :posts_tags
+# end
