@@ -45,9 +45,27 @@ class SongsController < ApplicationController
   end
 
 
-  patch 'songs/:slug' do
+
+
+  patch '/songs/:slug' do
+
+    @song = Song.find_by_slug(params[:slug])
+    @song = Song.update(params[:song])
+    #@song = song.update(params[:song])
+
+    #update song.artist because artist has multiple songs and genres
+    @song.artist =
+binding.pry
+    #update genres because song has multiple genres
+    @song.genre_ids =
+    # @song.genre =
+
+
+
     flash[:message] = "Successfully updated song."
     redirect ("/songs/#{@song.slug}")
     erb :'songs/update'
 
-  end
+
+      end
+end
