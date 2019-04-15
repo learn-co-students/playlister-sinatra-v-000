@@ -18,6 +18,7 @@ class SongsController < ApplicationController
     @song = Song.create(params[:name])
 
     # Song belongs to 1 artist
+<<<<<<< HEAD
     @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
 
     #Song has multiple genres
@@ -26,6 +27,15 @@ class SongsController < ApplicationController
 
     #save instance of a song
     @song.save
+=======
+    @song.artist = Artist.find_or_create_by(:name =>params["Artist Name"])
+
+    #Song has multiple genres
+    # @song.genre = Genre.find
+    # @song.genre = Genre.all
+    # @genre = Genre.find_by_slug(params[:slug])
+
+>>>>>>> 5934f4c2717d6b1d6204d4b8326e4f05f72dd12d
 
     flash[:message] = "Successfully created song"
     redirect("/songs/#{@song.slug}")
