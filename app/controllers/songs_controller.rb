@@ -15,13 +15,14 @@ class SongsController < ApplicationController
 
 
   post '/songs' do
+    
     flash[:message] = "Successfully created song"
     redirect("/songs/#{@song.slug}")
     erb :'songs/show'
   end
 
 
-  get 'song/:slug' do
+  get 'songs/:slug' do
     erb :'songs/show'
   end
 
@@ -31,8 +32,9 @@ class SongsController < ApplicationController
   end
 
 
-  patch 'songs/:slug'do
-    redirect ("songs/#{@song.slug}")
+  patch 'songs/:slug' do
+    flash[:message] = "Successfully updated song."
+    redirect ("/songs/#{@song.slug}")
     erb :'songs/update'
 
   end
