@@ -22,15 +22,27 @@ class SongsController < ApplicationController
     @song = Song.find_by_slug(params[:slug])
     erb :'/songs/show'  
   end
-  
-  #Be able to change everything about a song, including the genres associated with it and its artist. 
 
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
     erb :'/songs/edit'
   end
 
-  patch '/songs/:slug'  do
-    
+  patch '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+
+    if params["Artist Name"] != ""
+      @artist = Artist.find_or_create_by(name: params["Artist Name"])
+      @song.artist = @artist
+    end
+
+    if @song.genres != []
+      @song.genre_ids = params[:genres] 
+    end
+    @song.save
+
+    flash[:message] = "Successfully updated song."
+    redirect to "/songs/#{@song.slug}"
   end
+  
 end
