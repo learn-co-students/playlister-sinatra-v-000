@@ -30,10 +30,9 @@ class SongsController < ApplicationController
 
   patch '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-
+  
     if params["Artist Name"] != ""
-      @artist = Artist.find_or_create_by(name: params["Artist Name"])
-      @song.artist = @artist
+      @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
     end
 
     if @song.genres != []
