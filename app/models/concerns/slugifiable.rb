@@ -1,13 +1,13 @@
 module Concerns
   module Slugifiable
     
-    def find_by_slug(object)
-      binding.pry
-      object.name.downcase.gsub('-', ' ')
+    def find_by_slug(slug)
+      object_name = slug.split('-').each {|w| w.capitalize!}.join(' ')
+      self.find_by(:name => object_name)
     end
     
-    def slug(object)
-      
+    def slug
+      self.name.downcase.gsub(' ', '-')
     end
     
   end

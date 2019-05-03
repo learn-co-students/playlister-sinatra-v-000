@@ -4,4 +4,5 @@ class Song < ActiveRecord::Base
   has_many :genres, through: :song_genres
   
   extend Concerns::Slugifiable
+  include Concerns::Slugifiable
 end
