@@ -2,8 +2,10 @@ module Concerns
   module Slugifiable
     
     def find_by_slug(slug)
-      object_name = slug.split('-').each {|w| w.capitalize!}.join(' ')
-      self.find_by(:name => object_name)
+      self.all.each do |s|
+        @objekt = s if s.slug == slug
+      end
+      @objekt
     end
     
     def slug
