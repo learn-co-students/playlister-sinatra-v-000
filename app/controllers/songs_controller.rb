@@ -1,11 +1,11 @@
 require 'rack-flash'
 
-class SongController < ApplicationController
+class SongsController < ApplicationController
   use Rack::Flash
 
   get '/songs' do
-    @songs = Songs.all
-    erb :'songs/index'
+    @songs = Song.all
+    erb :'/songs/index'
   end
   
    get '/songs/new' do
@@ -15,7 +15,7 @@ class SongController < ApplicationController
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
 
-    erb :'songs/show'
+    erb :'/songs/show'
   end
   
   post '/songs' do
@@ -31,7 +31,7 @@ class SongController < ApplicationController
 
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
-    erb :'songs/edit'
+    erb :'/songs/edit'
   end
 
   patch '/songs/:slug' do
