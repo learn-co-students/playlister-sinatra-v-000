@@ -16,5 +16,9 @@ class SongsController < ApplicationController
     erb :'/songs/show'
   end
   
+  post '/songs/new' do
+    raise params.inspect
+  end
+  
 
 end
