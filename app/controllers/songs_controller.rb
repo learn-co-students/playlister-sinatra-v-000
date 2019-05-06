@@ -26,7 +26,7 @@ class SongsController < ApplicationController
     end
     @song.artist = @artist
     @song.save
-    
+    redirect to "/songs/#{@song.slug}"
   end
   
 
