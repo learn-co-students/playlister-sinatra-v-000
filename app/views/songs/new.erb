@@ -1,13 +1,22 @@
 <h1>Create a song!</h1>
 <form action="something" method="post">
   <input type="text" name="song_name" id="Name">
-  Choose an existing artist:
-  <p><%@artists.each do |a|%>
-    <input type="checkbox" name="artist_name" value="<%=a.name%>" id="Artist">
-  <%end%></p>
+  <br/><br/>
   
-  <input type="text" name="artist_name" id="Artist">
-  <input type="text" name="genre_name" id="Genre">
-  <input type="submit">
-
+  <p>Select an artist:</p>
+  <p><%@artists.each do |a|%>
+    <input type="radio" name="existing_artist" value="<%=a.name%>" id="Artist"><label for="existing_artist"> <%=a.name%></label>
+  <%end%></p>
+  <p>Or, create a new artist.</p>
+  <label for="new_artist">Artist name: </label><input type="text" name="new_artist" id="Artist">
+  <br/><br/>
+  
+  <p>Select one or more genres:</p>
+  <p><%@genres.each do |g|%>
+    <input type="checkbox" name="existing_genre" value="<%=g.name%>" id="Genre"><label for="existing_genre"> <%=g.name%></label>
+  <%end%></p>
+  <p>Or, create a new genre.</p>
+  <label for="new_genre">Genre name: </label><input type="text" name="new_genre" id="Genre">
+  
+  <p><input type="submit" value="Create song!"></p>
 </form>
