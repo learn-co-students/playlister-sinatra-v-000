@@ -8,15 +8,15 @@
     <input type="radio" name="existing_artist" value="<%=a.name%>" id="Artist"><label for="existing_artist"> <%=a.name%></label>
   <%end%></p>
   <p>Or, create a new artist.</p>
-  <label for="new_artist">Artist name: </label><input type="text" name="new_artist" id="Artist">
+  <label for="new_artist">Artist name: </label><input type="text" name="new_artist" id="Artist Name">
   <br/><br/>
   
   <p>Select one or more genres:</p>
   <p><%@genres.each do |g|%>
-    <input type="checkbox" name="existing_genre" value="<%=g.name%>" id="Genre"><label for="existing_genre"> <%=g.name%></label>
+    <input type="checkbox" name="existing_genre" id="<%=g.name%>"><label for="existing_genre"> <%=g.name%></label>
   <%end%></p>
   <p>Or, create a new genre.</p>
   <label for="new_genre">Genre name: </label><input type="text" name="new_genre" id="Genre">
   
-  <p><input type="submit" value="Create song!"></p>
+  <p><input type="submit" value="Create song!" id="Create"></p>
 </form>
