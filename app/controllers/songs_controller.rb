@@ -39,10 +39,9 @@ class SongsController < ApplicationController
       end
     end
     
-    @genres.each do {|g| @song.genres << @genre}
+    @genres.each {|g| @song.genres << g}
     
     @song.save
-    binding.pry
     redirect to "/songs/#{@song.slug}"
   end
   
