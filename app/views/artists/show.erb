@@ -1,0 +1,11 @@
+<h1><%=@artist.name%></h1>
+<%@artist.songs.each do |s|%>
+  <p><%=s.name%> - 
+  <%s.genres.each do |g|%>
+    <%if g == s.genres.last || s.genres.count == 1%>
+      <i><%=g.name%></i>
+    <%else%>
+      <i><%="#{g.name},"%></i>
+    <%end%>
+  <%end%></p>
+<%end%>
