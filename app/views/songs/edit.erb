@@ -1,12 +1,12 @@
 <h1>Edit your song!</h1>
 <form action="/songs/<%=@song.slug%>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <input type="text" name="song_name" id="Name">
+  <input type="text" name="song_name" value="<%=@song.name%>"id="Name">
   <br/><br/>
   
   <p>Select an artist:</p>
   <p><%@artists.each do |a|%>
-    <input type="radio" name="existing_artist" value="<%=a.name%>" id="<%=a.name%>"><label for="existing_artist"> <%=a.name%></label>
+    <input type="radio" name="existing_artist" value="<%=a.name%>" id="<%=a.name%>" <%="checked" if @song.artist == a%>><label for="existing_artist"> <%=a.name%></label>
   <%end%></p>
   <p>Or, create a new artist.</p>
   <label for="new_artist">Artist name: </label><input type="text" name="new_artist" id="Artist Name">
@@ -14,10 +14,10 @@
   
   <p>Select one or more genres:</p>
   <p><%@genres.each do |g|%>
-    <input type="checkbox" name="[existing_genres][]" value="<%=g.name%>" id="<%=g.name%>"><label for="[existing_genres][]"> <%=g.name%></label>
+    <input type="checkbox" name="[existing_genres][]" value="<%=g.name%>" id="<%=g.name%>" <%="checked" if @song.genres.include? g%>><label for="[existing_genres][]"> <%=g.name%></label>
   <%end%></p>
   <p>Or, create a new genre.</p>
   <label for="new_genre">Genre name: </label><input type="text" name="new_genre" id="Genre">
   
-  <p><input type="submit" value="Create song!" id="Create"></p>
+  <p><input type="submit" value="Update song!" id="Update"></p>
 </form>
