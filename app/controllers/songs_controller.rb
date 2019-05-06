@@ -17,7 +17,16 @@ class SongsController < ApplicationController
   end
   
   post '/songs/new' do
-    raise params.inspect
+    #binding.pry
+    @song = Song.create(:name => params[:song_name])
+    if !params[:new_artist].empty?
+      @artist = Artist.create(:name => params[:new_artist])
+    else
+      @artist = Artist.find_by(:name => params[:existing_artist])
+    end
+    @song.artist = @artist
+    @song.save
+    
   end
   
 
