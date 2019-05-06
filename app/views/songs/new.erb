@@ -13,7 +13,7 @@
   
   <p>Select one or more genres:</p>
   <p><%@genres.each do |g|%>
-    <input type="checkbox" name="existing_genre" value="<%=g.name%>" id="<%=g.name%>"><label for="existing_genre"> <%=g.name%></label>
+    <input type="checkbox" name="[existing_genres][]" value="<%=g.name%>" id="<%=g.name%>"><label for="[existing_genres][]"> <%=g.name%></label>
   <%end%></p>
   <p>Or, create a new genre.</p>
   <label for="new_genre">Genre name: </label><input type="text" name="new_genre" id="Genre">

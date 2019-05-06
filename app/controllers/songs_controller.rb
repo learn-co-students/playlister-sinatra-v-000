@@ -17,15 +17,32 @@ class SongsController < ApplicationController
   end
   
   post '/songs/new' do
-    #binding.pry
     @song = Song.create(:name => params[:song_name])
+    
     if !params[:new_artist].empty?
       @artist = Artist.create(:name => params[:new_artist])
     else
       @artist = Artist.find_by(:name => params[:existing_artist])
     end
     @song.artist = @artist
+    
+    @genres = []
+    if !params[:new_genre].empty?
+      genre = Genre.create(:name => params[:new_genre])
+      @genres << genre
+    end
+    
+    if !params[:existing_genres].empty?
+      params[:existing_genres].each do |g|
+        genre = Genre.find_by(:name => g)
+        @genres << genre 
+      end
+    end
+    
+    @genres.each do {|g| @song.genres << @genre}
+    
     @song.save
+    binding.pry
     redirect to "/songs/#{@song.slug}"
   end
   
