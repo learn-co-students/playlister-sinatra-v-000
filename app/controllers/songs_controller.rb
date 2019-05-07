@@ -86,8 +86,8 @@ class SongsController < ApplicationController
     end
     @genres.each {|g| @song.genres << g}
     
-    #binding.pry
-    
+    @song.save
+    flash[:message] = "Successfully updated song."
     redirect to "/songs/#{@song.slug}"
   end
   
