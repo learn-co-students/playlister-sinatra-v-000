@@ -1,0 +1,11 @@
+<h1><%=@artist.name%></h1>
+<%@artist.songs.each do |s|%>
+  <p><a href="/songs/<%=s.slug%>"><%=s.name%></a> - 
+  <%s.genres.each do |g|%>
+    <%if g == s.genres.last || s.genres.count == 1%>
+      <i><a href="/genres/<%=g.slug%>"><%=g.name%></a></i>
+    <%else%>
+      <i><a href="/genres/<%=g.slug%>"><%=g.name%></a><%= + ", "%></i>
+    <%end%>
+  <%end%></p>
+<%end%>
