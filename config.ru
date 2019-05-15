@@ -5,6 +5,11 @@ begin
 
   use Rack::MethodOverride
   run ApplicationController
+  use GenresController
+  use ArtistsController
+  use SongsController
+  run ApplicationController 
+
 rescue ActiveRecord::PendingMigrationError => err
   STDERR.puts err
   exit 1
