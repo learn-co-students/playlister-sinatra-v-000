@@ -1,1 +1,17 @@
-hi, I'm <%=@artist.name%>
+<h1><%=@artist.name%></h1>
+
+<h3>Songs:</h3>
+<ul>
+  <% @artist.songs.each do |song| %>
+    <li><h5><a href="/songs/<%=song.slug%>"><%=song.name%></a></h5></li>
+  <% end %>
+</ul>
+
+<br>
+
+<h3>Genres:</h3>
+<ul>  
+  <% @artist.genres.each do |genre| %>
+    <li><h5><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></h5></li>
+  <% end %>
+</ul>
