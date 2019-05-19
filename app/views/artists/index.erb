@@ -1,6 +1,7 @@
 <h1>Artists</h1>
-<ol>
+
+<ul>
   <% @artists.each do |artist| %>
     <li><h3><a href="/artists/<%=artist.slug%>"><%=artist.name%></a></h3></li>
   <% end %>
-</ol>
+</ul>
