@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>List of Songs</title>
+  </head>
+
+  <body>
+    <h1>List of Songs</h1>
+    <ul>
+      <% @songs.each do |song| %>
+        <li><a href="/show/<%song.id%>"><%=song.name%></a></li>
+      <%end%>
+    </ul>
+    
+  </body>
+</html>

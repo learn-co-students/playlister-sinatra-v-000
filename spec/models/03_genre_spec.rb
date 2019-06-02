@@ -8,7 +8,7 @@ describe "Genre" do
 
     @genre = Genre.create(:name => "Pop")
 
-    blank_space.genre_id = @genre.id
+    blank_space.genre_ids = @genre.id
     
   end
 

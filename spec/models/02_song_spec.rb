@@ -8,7 +8,7 @@ describe "Song" do
 
     pop = Genre.create(:name => "Pop")
 
-    @song.genre_id = pop.id
+    @song.genre_ids = pop.id
     
   end
 
