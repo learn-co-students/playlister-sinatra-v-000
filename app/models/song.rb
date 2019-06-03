@@ -3,6 +3,7 @@ class Song < ActiveRecord::Base
   has_many :song_genres
   has_many :genres, through: :song_genres
 
-  include Slug
+  extend Slug::ClassMethods
+  include Slug::InstanceMethods
 
 end
