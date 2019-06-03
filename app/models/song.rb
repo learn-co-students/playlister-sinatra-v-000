@@ -7,7 +7,14 @@ class Song < ActiveRecord::Base
     self.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   end
 
-  def find_by_slug
+  def self.find_by_slug(slug)
+    song = nil
+    self.all.each do |s|
+      if s.slug == slug
+        song = s
+      end
+    end
+    song
   end
 
 end
