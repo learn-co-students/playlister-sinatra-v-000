@@ -1,4 +1,9 @@
+require 'rack-flash'
+  
 class SongsController < ApplicationController
+  use Rack::Flash
+  
+  enable :sessions
   
   get '/songs' do
     @songs = Song.all
@@ -11,7 +16,7 @@ class SongsController < ApplicationController
     erb :'songs/new'
   end 
   
-  post '/songs/new' do 
+  post '/songs' do 
     binding.pry
     genres = []
     @artist = Artist.find_or_create_by(name: params["song"]["name"])
