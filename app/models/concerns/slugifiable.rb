@@ -6,9 +6,9 @@ module Slugifiable
   end
 
   module ClassMethods
-    def self.find_by_slug(slug)
+    def find_by_slug(slug)
       instance = nil
-      self.all.each do |s|
+      self.all.each do |i|
         if i.slug == slug
           instance = i
         end
