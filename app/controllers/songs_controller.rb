@@ -1,9 +1,9 @@
 require 'sinatra/base'
-require 'rack-flash'
+require 'sinatra/flash'
 
 class SongsController < ApplicationController
   enable :sessions
-  use Rack::Flash
+  register Sinatra::Flash
 
   get '/songs' do
     @songs = Song.all
@@ -28,7 +28,6 @@ class SongsController < ApplicationController
     @song.save
 
     flash[:message] = "Successfully created song."
-    flash[:message]
 
     redirect "songs/#{@song.slug}"
   end
