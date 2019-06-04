@@ -21,7 +21,9 @@ class SongsController < ApplicationController
     genre = Genre.find(params[:genre][:id])
     @song.genres << genre
 
-    if !params[:artist][:name].empty?
+    if Artist.find_by(name: params[:artist][:name])
+      @song.artist = Artist.find_by(name: params[:artist][:name])
+    else
       @song.artist = Artist.create(params[:artist])
     end
 
