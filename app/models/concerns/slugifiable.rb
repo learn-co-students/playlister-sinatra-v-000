@@ -9,6 +9,9 @@ module Slug
     def find_by_slug(slug)
       instance = nil
       self.all.each do |i|
+    def self.find_by_slug(slug)
+      instance = nil
+      self.all.each do |s|
         if i.slug == slug
           instance = i
         end
