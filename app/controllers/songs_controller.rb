@@ -11,7 +11,15 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
+    @song = Song.new(name: params["Name"])
 
+    params["genre_ids"].each do |genre_id|
+      @song.genres << Genre.find(genre_id.to_i)
+    end
+
+    binding.pry
+
+    @song.save
   end
 
   get '/songs/:slug' do
