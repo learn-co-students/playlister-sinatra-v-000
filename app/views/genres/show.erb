@@ -5,7 +5,7 @@
     <title><%= @genre.name %></title>
   </head>
   <body>
-    <h3><%=@genre.name %></h3>
+    <h3><%= @genre.name %></h3>
 
     <% @genre.artists.each do |artist| %>
       <p><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></p>
