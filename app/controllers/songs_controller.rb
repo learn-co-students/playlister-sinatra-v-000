@@ -11,7 +11,7 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    binding.pry
+
   end
 
   get '/songs/:slug' do
