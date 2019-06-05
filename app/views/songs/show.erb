@@ -12,10 +12,6 @@
     <p><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></p>
     <% end %>
 
-    <% if flash.has?(:message) %>
-      <%= flash[:message] %>
-    <% end %>
-
     <p>Successfully created song.</p>
 
   </body>
