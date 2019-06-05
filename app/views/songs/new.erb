@@ -7,17 +7,17 @@
   <body>
     <h3>Create A New Song:</h3>
     <form action="/songs" method="post">
-      <p>Name: <input type="text" name="song[name]"></p>
-      <p>Artist: <input type="text" name="song[artist]"></p>
+      <p>Name: <input id="Artist Name" type="text" name="Name"></p>
+      <p>Artist: <input type="text" name="artist_name"></p>
       <p>Genres:</p>
       <br>
 
       <% @genres.each do |genre| %>
-        <input type="checkbox" name="song[genre_ids][]" value="genre.id"><%= genre.name %>
+        <input id="<%= genre.name %>" type="checkbox" name="genre_ids[]" value="<%= genre.id %>"><%= genre.name %>
         <br>
       <% end %>
 
-      <input type="submit" value="Submit">
+      <input type="submit" value="Create">
 
     </form>
   </body>
