@@ -52,7 +52,7 @@ class SongsController < ApplicationController
     end
 
     @song.save
-
+    binding.pry
     redirect "/songs/#{@song.slug}"
   end
 
