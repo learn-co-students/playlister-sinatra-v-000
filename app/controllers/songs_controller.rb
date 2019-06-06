@@ -43,7 +43,7 @@ class SongsController < ApplicationController
     @song = Song.find(params["song_id"])
     if !!Artist.find_by(name: params["artist_name"])
       @song.artist = Artist.find_by(name: params["artist_name"])
-    else
+    elsif params["artist_name"] != ""
       @song.artist = Artist.new(name: params["artist_name"])
     end
 
@@ -54,7 +54,7 @@ class SongsController < ApplicationController
     end
 
     @song.save
-    binding.pry
+
     redirect "/songs/#{@song.slug}"
   end
 
