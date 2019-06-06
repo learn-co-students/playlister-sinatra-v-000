@@ -40,6 +40,7 @@ class SongsController < ApplicationController
   end
 
   patch '/songs' do
+    @song = Song.find(params["song_id"])
     binding.pry
   end
 

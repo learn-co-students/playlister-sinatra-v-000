@@ -8,6 +8,7 @@
     <h3>Edit <%= @song.name %></h3>
     <form action="/songs" method="post">
       <input type="hidden" id="hidden" name="_method" value="patch">
+      <input type="hidden" id="Song ID" name="song_id" value="<%= @song.id %>">
       <p>Edit Name: <input id="Name" type="text" name="name" placeholder="<%= @song.name %>"></p>
       <p>Edit Artist: <input id="Artist Name" type="text" name="artist_name" placeholder="<%= @song.artist.name %>"></p>
 
