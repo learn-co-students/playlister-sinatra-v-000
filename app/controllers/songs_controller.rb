@@ -48,7 +48,9 @@ class SongsController < ApplicationController
     end
 
     params["genre_ids"].each do |genre_id|
-      @song.genres << Genre.find(genre_id.to_i)
+      if !Genre.find(genre_id.to_i)
+        @song.genres << Genre.find(genre_id.to_i)
+      end
     end
 
     @song.save
