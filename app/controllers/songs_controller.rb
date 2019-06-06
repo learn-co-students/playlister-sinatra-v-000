@@ -41,7 +41,19 @@ class SongsController < ApplicationController
 
   patch '/songs' do
     @song = Song.find(params["song_id"])
-    binding.pry
+    if !!Artist.find_by(name: params["artist_name"])
+      @song.artist = Artist.find_by(name: params["artist_name"])
+    else
+      @song.artist = Artist.new(name: params["artist_name"])
+    end
+
+    params["genre_ids"].each do |genre_id|
+      @song.genres << Genre.find(genre_id.to_i)
+    end
+
+    @song.save
+
+    redirect "/songs/#{@song.slug}"
   end
 
 end
