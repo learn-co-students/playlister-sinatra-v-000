@@ -2,7 +2,7 @@
 <h3><%=@song.name%></h3>
 
 <form action="/songs" method="POST">
-  <input type="hidden" method=""
+  <input type="hidden" name="_method" value="PATCH">
   <label for="song_name">Song Name: </label>
   <input type="text" name="song[name]" id="Name"></br>
   <label for="song_artist">Song Artist: </label>
