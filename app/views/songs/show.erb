@@ -1,7 +1,15 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h1><%=@song.name%></h1>
 
 <h3><a href="/artists/<%=@song.artist.slug%>"><%= @song.artist.name %></a></h3>
-  binding.pry
+
   <% @song.genres.each do |genre| %>
     <h3><a href="/genres/<%=genre.slug%>"><%= genre.name %></a></h3>
   <% end %>
+
+  <form action="/songs/<%=@song.slug%>/edit" method="POST">
+    <input type="submit" value="Edit Song">
+  </form>
