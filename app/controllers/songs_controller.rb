@@ -44,37 +44,43 @@ class SongsController < ApplicationController
     erb :'songs/show'
   end
 
-  post '/songs/:slug/edit' do
+  get '/songs/:slug/edit' do
     @genres = Genre.all
     @song = Song.find_by_slug(params[:slug])
-
     erb :'songs/edit'
   end
 
   patch "/songs/:slug" do
     #binding.pry
     @song = Song.find_by_slug(params[:slug])
+    #@artist = @song.artist
     @song.update(name: params["song"]["name"])
-      if params["song"]["artist"] != nil || params["song"]["artist"] != ""
-        @song.artist.name = params["song"]["artist"]
+      if params["Artist Name"] != nil && params["Artist Name"] != ""
+        #@artist.update(name: params["Artist Name"])
+        @song.artist.name = params["Artist Name"]
+        @song.artist.save
+        #binding.pry
       end
     @song.genres.clear
-      if params["genres"] != nil
+    #binding.pry
+      if !params["genres"].empty?
         params["genres"].each do |genre_id|
-          if Genre.find(genre_id)
+          #binding.pry
+          #if Genre.find(genre_id)
             @song.genres << Genre.find(genre_id)
-          else
-            @genre = Genre.create(name: params["genre"])
-            @song.genres << @genre
-          end
+          #else
+            #@genre = Genre.create(name: params["genre"])
+            #@song.genres << @genre
+          #end
         end
-      else
-        @genre = Genre.create(name: params["genre"][0])
-        @genre.save
+      #else
+        #@genre = Genre.create(name: params["genre"][0])
+        #@genre.save
       end
-
-  flash[:message] = "Successfully edited song."
-  redirect to "songs/#{@song.slug}"
+      @song.save
+      #binding.pry
+  flash[:message] = "Successfully updated song."
+  redirect to :"songs/#{@song.slug}"
   end
 
 end

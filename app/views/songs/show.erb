@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,7 +17,7 @@
         <%end%>
       </ul>
 
-    <form action="/songs/<%=@song.slug%>/edit" method="POST">
+    <form action="/songs/<%=@song.slug%>/edit" method="GET">
       <input type="submit" value="Edit Song">
     </form>
 
