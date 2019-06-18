@@ -8,4 +8,16 @@ class Artist < ActiveRecord::Base
     slug_name = split_name.join("-")
     slug_name
   end
+  
+  def self.find_by_slug(slug)
+    split_slug = slug.split("-")
+    name = split_slug.join(" ")
+    @artist = ""
+    Artist.all.each do |artist|
+      if artist.name == name
+        @artist = artist
+      end
+    end
+    @artist
+  end
 end
