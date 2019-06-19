@@ -11,13 +11,10 @@ class Artist < ActiveRecord::Base
   
   def self.find_by_slug(slug)
     split_slug = slug.split("-")
-    name = split_slug.join(" ")
-    @artist = ""
-    Artist.all.each do |artist|
-      if artist.name == name
-        @artist = artist
-      end
+    split_slug.each do |word|
+      word.capitalize!
     end
-    @artist
+    name = split_slug.join(" ")
+    self.find_by(name: name)
   end
 end
