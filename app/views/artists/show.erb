@@ -1,9 +1,20 @@
 <h1><%=@artist.name%></h1>
 
 <h2>Songs</h2>
+
 <ul>
 <% @songs.each do |song| %>
-  <% if song.artist == @artist.name %>
+  <% if song.artist_id == @artist.id %>
+    <li><%= song.name %></li>
+    <li>1</li>
+  <% end %>
+<% end %>
+</ul>
+
+<h2>Genres</h2>
+<ul>
+<% @songs.each do |song| %>
+  <% if song.artist_id == @artist.id %>
     <li><%= song.name %></li>
     <li>1</li>
   <% end %>
