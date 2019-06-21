@@ -10,7 +10,7 @@ class Artist < ActiveRecord::Base
   end
   
   def self.find_by_slug(slug)
-    stop_words = %w{a an and the or for of nor with}
+    stop_words = %w{a an and the or for of nor with xx}
     split_slug = slug.split("-")
     deslugified_name = split_slug.each_with_index.map{|word, index| stop_words.include?(word) && index > 0 ? word : word.capitalize}.join(" ")
     self.find_by(name: deslugified_name)
