@@ -16,6 +16,10 @@ class SongsController < ApplicationController
       artist = Artist.create(name: params["artist"]["name"])
       @song.artist_id = artist.id
     end
+    if !params["genre"]["name"].empty?
+      genre = Genre.create(name: params["genre"]["name"])
+      @song.artist_id = artist.id
+    end
     @song.save
     redirect "/songs/#{@song.slug}"
   end

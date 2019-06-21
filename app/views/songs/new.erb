@@ -8,10 +8,15 @@
   <input type="text" name="song[name]">
 
   <br>
-  
+  <label>Existing Genre:</label>
   <% @genres.each do |genre| %>
     <input type="checkbox" name="genres[]" value="<%= genre.id %>" id="<%= genre.name %>"><%= genre.name %></input>
   <% end %>
+  
+    <br>
+    <label>New Genre Name:</label>
+      <input type="text" name="genre[name]"></input>
+    <br>
   
     <br>
     <label>Artist Name:</label>
