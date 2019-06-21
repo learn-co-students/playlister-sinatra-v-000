@@ -12,7 +12,6 @@ class SongsController < ApplicationController
  
   post '/songs' do
     @song = Song.create(params[:song])
-    binding.pry
     redirect "/songs/#{@song.slug}"
   end
   
