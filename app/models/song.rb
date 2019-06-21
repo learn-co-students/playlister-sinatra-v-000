@@ -11,13 +11,9 @@ class Song < ActiveRecord::Base
   end
   
   def self.find_by_slug(slug)
+    stop_words = %w{a an and the or for of nor with}
     split_slug = slug.split("-")
-    split_slug.each do |word|
-      if word != "with" || word != "the"
-        word.capitalize!
-      end
-    end
-    deslugified_name = split_slug.join(" ")
+    deslugified_name = split_slug.each_with_index.map{|word, index| stop_words.include?(word) && index > 0 ? word : word.capitalize}.join(" ")
     self.find_by(name: deslugified_name)
   end
 end
