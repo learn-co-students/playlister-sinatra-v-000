@@ -1,5 +1,5 @@
 <h1><%= @song.name %></h1>
 
-<%= @song.artist.name %>
+<a href="/songs/<%= @song.artist.slug %>"><%= @song.artist.name %></a>
 
-<%= @genre.name %>
+<a href="/songs/<%= @genre.slug %>"><%= @genre.name %></a>
