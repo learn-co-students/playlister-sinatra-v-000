@@ -1,1 +1,1 @@
-<h1><%=@song.name%> by <%=@song.artist%> categorized as <%=@song.genre%></h1>
+<h1><%=@song.name%> by <a href="/artists/<%= @song.artist.slug %>"><%=@song.artist%></a> categorized as <a href="/genres/<% @song.genre.slug %>"><%=@song.genre%></a></h1>
