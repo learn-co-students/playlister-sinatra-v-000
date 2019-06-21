@@ -1,7 +1,7 @@
 class Artist < ActiveRecord::Base
   has_many :songs
   has_many :genres, through: :songs
-
+  
   def slug
     name = self.name.downcase
     split_name = name.split(" ")
@@ -10,11 +10,9 @@ class Artist < ActiveRecord::Base
   end
   
   def self.find_by_slug(slug)
+    stop_words = %w{a an and the or for of nor with}
     split_slug = slug.split("-")
-    split_slug.each do |word|
-      word.capitalize!
-    end
-    name = split_slug.join(" ")
-    self.find_by(name: name)
+    deslugified_name = split_slug.each_with_index.map{|word, index| stop_words.include?(word) && index > 0 ? word : word.capitalize}.join(" ")
+    self.find_by(name: deslugified_name)
   end
 end
