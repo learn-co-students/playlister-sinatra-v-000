@@ -13,9 +13,11 @@ class Song < ActiveRecord::Base
   def self.find_by_slug(slug)
     split_slug = slug.split("-")
     split_slug.each do |word|
-      word.capitalize!
+      if word != "with" || word != "the"
+        word.capitalize!
+      end
     end
-    name = split_slug.join(" ")
-    self.find_by(name: name)
+    deslugified_name = split_slug.join(" ")
+    self.find_by(name: deslugified_name)
   end
 end
