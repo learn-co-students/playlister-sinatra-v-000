@@ -24,7 +24,7 @@ class SongsController < ApplicationController
       @song.artist = artist
     end
     @song.save
-    @song.song_genres.build(genre: genre)
+    @song.song_genres.create(genre: genre)
     @song.save
     redirect "/songs/#{@song.slug}"
   end
