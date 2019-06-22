@@ -10,4 +10,6 @@
 <% end %>
 </ul>
 
-<%= @artist.genres %>
+<% @artist.genres.uniq.each do |genre| %>
+  <a href="/genres/<%= genre.slug %>"><%= genre.name %></a>
+<% end %>
