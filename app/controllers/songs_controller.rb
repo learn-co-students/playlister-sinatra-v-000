@@ -50,11 +50,10 @@ class SongsController < ApplicationController
   
   patch '/songs/:slug' do
     @song = Song.find(params[:id])
-    @song.update(params["artist"])
     if !params["artist"]["name"].empty?
       artist = Artist.find_or_create_by(name: params["artist"]["name"])
-      @song.artist_id = artist.id
-      @song.artist = artist
+      @song.update(artist_id: artist.id, artist: artist)
+      @song.save
     end
     if !params["genre"]["name"].empty?
       genre = Genre.find_or_create_by(name: params["genre"]["name"])
