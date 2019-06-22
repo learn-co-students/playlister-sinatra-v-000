@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h1><%=@genre.name%></h1>
 
 <% @genre.song_genres.each do |song| %>
