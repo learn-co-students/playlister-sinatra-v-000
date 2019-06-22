@@ -33,6 +33,7 @@ class SongsController < ApplicationController
     @song.save
     @song.song_genres.create(genre: genre)
     @song.save
+    binding.pry
     flash[:message] = "Successfully created song."
     redirect "/songs/#{@song.slug}"
   end
