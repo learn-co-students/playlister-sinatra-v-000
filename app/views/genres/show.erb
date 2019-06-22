@@ -3,3 +3,7 @@
 <% @genre.song_genres.each do |song| %>
     <a href="/songs/<%= Song.find(song.song_id).slug %>"><%= Song.find(song.song_id).name %></a>
 <% end %>
+
+<% @genre.artists.uniq.each do |artist| %>
+    <a href="/artists/<%= artist.slug %>"><%= artist.name %></a>
+  <% end %>
