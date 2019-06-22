@@ -3,5 +3,5 @@
 <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a>
 
 <% @song.song_genres.each do |genre| %>
-    <%= Genre.find(genre.genre_id).name %>
+    <a href="/genres/<%= Genre.find(genre.genre_id).slug %>"><%= Genre.find(genre.genre_id).name %></a>
 <% end %>
