@@ -12,23 +12,23 @@ class SongsController < ApplicationController
   end
  
   post '/songs' do
-    @song = Song.new(name: params[:song]["name"])
-    if !params["artist"]["name"].empty? && !Artist.find_by(name: params["artist"]["name"])
-      artist = Artist.create(name: params["artist"]["name"])
-      @song.artist_id = artist.id
-    end
+    @song = Song.create(name: params[:song]["name"])
     if !params["genre"]["name"].empty?
-      @genre = Genre.create(name: params["genre"]["name"])
-      @song.genre_id = genre.id
+      genre = Genre.find_or_create_by(name: params["genre"]["name"])
     end
-    @song.genre = @genre
+    if !params["artist"]["name"].empty?
+      artist = Artist.find_or_create_by(name: params["artist"]["name"])
+      @song.artist_id = artist.id
+      @song.artist = artist
+    end
+    @song.save
+    @song.song_genres.build(genre: genre)
     @song.save
     redirect "/songs/#{@song.slug}"
   end
   
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    # @genre = Genre.find_by(@song.genre_id)
     erb :'/songs/show'
   end
 
