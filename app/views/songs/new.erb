@@ -8,9 +8,9 @@
   <input type="text" name="song[name]" id="Name">
 
   <br>
-  <label>Existing Genre:</label>
+  <label>Existing Genre:</label><br>
   <% @genres.each do |genre| %>
-    <input type="checkbox" name="genres[]" value="<%= genre.id %>" id="<%= genre.name %>"><%= genre.name %></input>
+    <input type="checkbox" name="genres[]" value="<%= genre.id %>" id="<%= genre.name %>"><%= genre.name %></input><br>
   <% end %>
   
     <br>
@@ -25,6 +25,7 @@
 
   <label>Existing Artist:</label>
   <select>
+    <option value=""></option>
     <% @artists.each do |artist| %>
       <option value="<%= artist.id %>"><%= artist.name %></option>
     <% end %>
