@@ -23,5 +23,13 @@
       <input type="text" name="artist[name]" id="Artist_Name"></input>
     <br>
 
+  <label>Existing Artist:</label>
+  <select>
+    <% @artists.each do |artist| %>
+      <option value="<%= artist.id %>"><%= artist.name %></option>
+    <% end %>
+  </select>
+
+
   <input type="submit" value="Create Song">
 </form>
