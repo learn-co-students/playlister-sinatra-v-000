@@ -11,9 +11,11 @@
   <br>
   
   <% @genres.each do |genre| %>
-    <input type="checkbox" name="genres[]" value="<%= genre.id %>" id="<%= genre.name %>" <%='checked' if @song.genre_id == genre.id %>><%= genre.name %></input>
+    <input type="checkbox" name="song[genre_id]" value="<%= genre.id %>" id="<%= genre.name %>" <%='checked' if @song.genre_id == genre.id %>><%= genre.name %></input>
   <% end %>
-  
+  <label>New Genre Name:</label>
+  <input type="text" name="genre[name]"></input>
+<br>
     <br>
     <label>Artist Name:</label>
       <input type="text" name="artist[name]" value="<%= @song.artist.name %>" id="Artist_Name"></input>
