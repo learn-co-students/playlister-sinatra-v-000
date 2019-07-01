@@ -1,0 +1,17 @@
+Hello World
+first song: <%=@songs.first.name%>
+song artist: <%=@songs.first.artist.name%>
+
+<br>
+<ol>
+<%@songs.each do |song|%>
+  <li><%=song.name%>
+<%end%>
+</ol>
+
+<br>
+<ol>
+<%@songs.last.genres.each do |genre|%>
+  <li><%=genre.name%>
+<%end%>
+</ol>
