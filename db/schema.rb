@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2019_07_16_181457) do
   end
 
   create_table "songs_genres", force: :cascade do |t|
-    t.integer "songs_id"
-    t.integer "genres_id"
+    t.integer "song_id"
+    t.integer "genre_id"
   end
 
 end
