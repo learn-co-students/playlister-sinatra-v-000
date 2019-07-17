@@ -1,0 +1,4 @@
+<%Song.all.select do |song|%>
+  <% song.artist_id === @artist.id %>
+  <p><%= song.name%></p>
+<%end%>
