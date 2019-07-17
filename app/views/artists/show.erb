@@ -1,4 +1,8 @@
 <%Song.all.select do |song|%>
   <% song.artist_id === @artist.id %>
   <p><%= song.name%></p>
+    <% song.songs_genres.each do |genre| %>
+      <% @g = Genre.find(genre.genre_id) %>
+      <a href="/genres/<%=@g.slug%>"><%= @g.name %></a>
+    <% end %>
 <%end%>
