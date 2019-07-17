@@ -1,0 +1,7 @@
+<% Artist.all.select do |artist| %>
+  <a href="/artists/<%=artist.slug%>"></a> <%= artist.name %></a>
+    <%Song.all.select do |song|%>
+      <% song.artist_id === artist.id %>
+      <a href="/songs/<%=song.slug%>"><%= song.name%></a>
+    <%end%>
+<%end%>
