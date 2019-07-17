@@ -5,9 +5,15 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    @song = Song.create(params)
+    if !params["Artist Name"].empty?
+      @artist = Artist.create(:name => params["Artist Name"])
+      @song = Song.create(params)
+    end
 
-    redirect to "/songs/#{@song.slug}"
+    binding.pry
+
+    redirect "/songs/#{@song.slug}"
+
   end
 
   get '/songs/new' do
