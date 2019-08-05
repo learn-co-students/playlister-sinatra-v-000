@@ -1,0 +1,8 @@
+<h1>Song Name: <%=@song.name%></h1>
+<h1>Song Artist: <%=@song.artist%></h1>
+<h1>Song Genre: <%=@song.genre%></h1>
+
+<form method="post" action="/songs/<%= @song.id %>/delete">
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<input type="submit" value="delete">
+</form>
