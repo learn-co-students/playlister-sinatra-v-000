@@ -5,12 +5,18 @@ class Genre < ActiveRecord::Base
   has_many :artists, through: :songs
 
   def slug
-      self.name.gsub(/ /, '-').downcase
+      unless self.name == nil
+        self.name.gsub(/ /, '-').downcase
+      end 
   end
 
   def self.find_by_slug(slug)
     genre_name = slug.gsub(/-/, ' ')
-    genre_name = genre_name.titleize
-    Genre.find_by name: genre_name
+    Genre.all.each do |genre|
+      if genre.name.downcase == genre_name
+        @genre = genre
+      end
+    end
+    @genre
   end
 end
