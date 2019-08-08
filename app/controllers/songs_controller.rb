@@ -24,16 +24,10 @@ class SongsController < ApplicationController
     @song = Song.create(:name => params[:Name],
     :artist => @artist)
     flash[:message] = "Successfully created song."
-    #genre_match = Genre.find {|genre|
-      #genre.name == params[:genres][]}
-    #if genre_match == nil
     params[:genres].each do |genre_id|
         @song.genres << Genre.find(genre_id)
         @song.save
     end
-      #@genre = Genre.create(:name => params[:genres])
-    #else @genre = genre_match
-    #end
     redirect to "/songs/#{@song.slug}"
 end
 
