@@ -2,9 +2,7 @@ require_relative "./concerns/slugifiable.rb"
 
 class Artist < ActiveRecord::Base
   extend Slugifiable::ClassMethods
-  <<-RUBY
-  include Slugifiable::InstanceMethods
-  RUBY
+  self.include Slugifiable::InstanceMethods
   
   # Whatever I extended or included didn't work, somehow...
   
