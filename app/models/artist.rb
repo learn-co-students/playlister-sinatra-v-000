@@ -4,7 +4,7 @@ class Artist < ActiveRecord::Base
   has_many :genres, through: :artist_genres
   
   def slug
-    # Should return taylor-swift if the artist's name is "Taylor Swift"
-    # Replace blank spaces with -
+    binding.pry
+    # Lowercase the object's name, and replace blank spaces with -
   end
 end
