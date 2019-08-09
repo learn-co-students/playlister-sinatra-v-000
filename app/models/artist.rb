@@ -4,6 +4,8 @@ class Artist < ActiveRecord::Base
   extend Slugifiable::ClassMethods
   include Slugifiable::InstanceMethods
   
+  # Whatever I extended or included didn't work, somehow...
+  
   has_many :songs
   #has_many :artist_genres
   has_many :genres, through: :songs #through: :artist_genres
