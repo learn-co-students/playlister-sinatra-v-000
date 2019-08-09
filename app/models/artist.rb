@@ -1,7 +1,7 @@
 class Artist < ActiveRecord::Base
   has_many :songs
   #has_many :artist_genres
-  has_many :genres, through: :songs #through: :artist_genres
+  has_many :genres #, through: :songs #through: :artist_genres
   
   def slug
     #binding.pry
