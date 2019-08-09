@@ -1,4 +1,5 @@
 require 'rack-flash'
+
 class SongsController < ApplicationController
 
   use Rack::Flash
@@ -10,10 +11,12 @@ class SongsController < ApplicationController
 
   get '/songs/new' do
     @genres = Genre.all
+    @artists = Artist.all
     erb :'/songs/new'
   end
 
   post '/songs' do
+    @genres = Genre.all
     artist_match = Artist.find {|artist|
       artist.name == params["Artist Name"]}
     if artist_match == nil
@@ -29,7 +32,7 @@ class SongsController < ApplicationController
         @song.save
     end
     redirect to "/songs/#{@song.slug}"
-end
+  end
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
@@ -37,17 +40,38 @@ end
   end
 
   get '/songs/:slug/edit' do
+    @genres = Genre.all
     @song = Song.find_by_slug(params[:slug])
-      erb :'/songs/edit'
+    erb :'/songs/edit'
   end
 
-  patch '/songs/:slug' do
+  post '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    @song.name = params[:Name]
-    @song.artist = params["Artist Name"]
-    @song.genres = params[:genres]
-    @song.save
-     erb :'/songs/show'
+    unless params[:Name].empty?
+      @song.name = params[:Name]
+    end
+
+    unless params["Artist Name"].empty?
+      artist_match = Artist.find {|artist|
+        artist.name == params["Artist Name"]}
+      if artist_match == nil
+        @artist = Artist.create(:name => params["Artist Name"])
+      else
+        @artist = artist_match
+      end
+      @song.artist = @artist
+      @song.save
+    end
+
+    unless params[:genres].empty?
+      @song.genres = []
+      params[:genres].each do |genre|
+        @song.genres << Genre.find(genre)
+        @song.save
+      end
+    end
+    flash[:message] = "Successfully updated song." 
+    erb :'/songs/show'
   end
 
 end
