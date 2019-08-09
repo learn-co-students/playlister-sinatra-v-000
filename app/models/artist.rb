@@ -12,5 +12,7 @@ class Artist < ActiveRecord::Base
   def self.find_by_slug(slug)
     # Find the object of this class whose name can be changed into the given slug.
     # Use the #slug instance method.
+    
+    self.all.detect {|artist| artist.slug == slug}
   end
 end
