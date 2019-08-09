@@ -8,4 +8,9 @@ class Artist < ActiveRecord::Base
     # Lowercase the object's name, and replace blank spaces with -
     name.downcase.split.join("-")
   end
+  
+  def self.find_by_slug(slug)
+    # Find the object of this class whose name can be changed into the given slug.
+    # Use the #slug instance method.
+  end
 end
