@@ -4,7 +4,7 @@ class Artist < ActiveRecord::Base
   has_many :genres #, through: :songs #through: :artist_genres
   
   def slug
-    #binding.pry
     # Lowercase the object's name, and replace blank spaces with -
+    name.downcase.split.join("-")
   end
 end
