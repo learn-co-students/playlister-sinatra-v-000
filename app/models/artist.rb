@@ -1,8 +1,9 @@
 require_relative "./concerns/slugifiable.rb"
 
 class Artist < ActiveRecord::Base
-  self.extend Slugifiable::ClassMethods
-  self.include Slugifiable::InstanceMethods
+  extend Slugifiable::ClassMethods
+  self.include Slugifiable::InstanceMethods 
+  # The self keyword is needed because "include" is a Sinatra keyword, too.
   
   # Whatever I extended or included didn't work, somehow...
   
