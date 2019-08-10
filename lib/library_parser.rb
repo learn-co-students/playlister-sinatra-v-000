@@ -37,6 +37,7 @@ class LibraryParser
     
     # Caveat: artist.genres can contain more than one of the SAME instance of Genre, and vice-versa.
     # So, I would need to use artist.genres.uniq when displaying an artist's genres (and vice-versa).
+    # However, the code above was the answer to a nasty rabbit hole question about those AR associations.
   end
 
     #song.song_genres.build(genre: genre)
