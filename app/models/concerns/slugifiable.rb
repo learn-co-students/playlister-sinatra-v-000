@@ -1,4 +1,4 @@
-module Slugifiable
+module Slugifiable # This helps with creating readable URLs
   module ClassMethods
     def find_by_slug(slug)
       # Find the object of this class whose name can be changed into the given slug.
