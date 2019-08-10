@@ -10,8 +10,11 @@ module Slugifiable # This helps with creating readable URLs
   
   module InstanceMethods
     def slug
-      # Lowercase the object's name, and replace blank spaces with -
-      name.downcase.split.join("-")
+      # Lowercase the object's name
+      # Then replace groups of one or more blank spaces and/or special characters with a hyphen -
+      # Some of the slugs are still pretty long, but most are not.
+      
+      name.downcase.split(/\W+/).join("-")
     end
   end
 end
