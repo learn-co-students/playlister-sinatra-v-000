@@ -13,6 +13,7 @@ module Slugifiable # This helps with creating readable URLs
       # Lowercase the object's name
       # Then replace groups of one or more of any character except a letter, number, underscore, or + sign, with a hyphen -
       # Some of the slugs are still pretty long, but most are not.
+      # Later on, I'll change things like I'm and you're to im and youre, instead of i-m and you-re
       
       name.downcase.split(/[^\w\+]+/).join("-")
     end
