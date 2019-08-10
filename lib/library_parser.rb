@@ -31,10 +31,17 @@ class LibraryParser
     song = Song.create(name: song_name)
     genre = Genre.find_or_create_by(name: genre_name)
     artist = Artist.find_or_create_by(name: artist_name)
-
-    song.song_genres.build(genre: genre)
-    song.artist = artist
     
-    song.save
+    artist.songs << song
+    genre.songs << song
+    
+    # Caveat: artist.genres can contain more than one of the SAME instance of Genre, and vice-versa.
+    # So, I would need to use artist.genres.uniq when displaying an artist's genres (and vice-versa).
   end
+
+    #song.song_genres.build(genre: genre)
+    #song.artist = artist
+    #
+    #song.save
+  #end
 end
