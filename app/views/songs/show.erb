@@ -1,4 +1,4 @@
-<h1>Here is your song!</h1>
+<h1>Here is the song that you selected!</h1>
 
 <h3>Name: <%= @song.name %></h3>
 
@@ -6,7 +6,7 @@
 
 <p><strong>Genre(s):</strong></p>
 <ol>
-  <% @song.genres.each do |genre| %>
+  <% @song.genres.sort_by{ |genre| genre.name }.each do |genre| %>
     <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></li>
   <% end %>
 </ol>

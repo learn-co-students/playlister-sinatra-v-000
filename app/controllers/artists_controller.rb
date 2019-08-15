@@ -6,7 +6,8 @@ class ArtistsController < ApplicationController
   end
 
   get '/artists/:slug' do
-    "Here is your artist!"
+    @artist = Artist.find_by_slug(params[:slug])
+    erb :"artists/show"
   end
 
 end
