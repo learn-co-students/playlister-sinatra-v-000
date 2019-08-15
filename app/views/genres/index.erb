@@ -1,0 +1,13 @@
+<h1>J'aime Genres!</h1>
+
+<h2>Click on a genre to learn more about it.</h2>
+
+<h3>Available genres:</h3>
+
+<ol>
+  <% @genres.sort_by{ |genre| genre.name }.each do |genre| %>
+    <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></li>
+  <% end %>
+</ol>
+
+<!-- Note: As much as I'd like to, I can't call #capitalize on genre.name, or it fails the tests. -->

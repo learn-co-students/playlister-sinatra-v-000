@@ -15,7 +15,7 @@ module Slugifiable # This helps with creating readable URLs
       # Some of the slugs are still pretty long, but most are not.
       # Later on, I'll change things like I'm and you're to im and youre, instead of i-m and you-re
       
-      name.downcase.split(/[^\w\+]+/).join("-")
+      name.downcase.split(/[^\w\+\-]+/).join("-")
     end
   end
 end
