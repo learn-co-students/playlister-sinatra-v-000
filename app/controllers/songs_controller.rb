@@ -5,6 +5,10 @@ class SongsController < ApplicationController
     erb :"songs/index"
     # This helped with the syntax above: https://stackoverflow.com/questions/2129504/sinatra-sub-directory-views
   end
+
+  get '/songs/new' do
+    erb :"songs/new"
+  end
   
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
