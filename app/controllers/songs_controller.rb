@@ -18,11 +18,12 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    song = Song.new(params[:name])
-    # song.genre_ids = params[:genres] Something's wrong here.
+    song = Song.new(name: params[:name])
+    song.genre_ids = params[:genres]
     song.artist = Artist.create(name: params[:artist_name])
     song.save
-    #binding.pry
+
+    redirect to "/songs/#{song.slug}"
   end
   
 end
