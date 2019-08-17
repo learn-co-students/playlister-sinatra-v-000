@@ -28,14 +28,26 @@ class LibraryParser
   end
 
   def build_objects(artist_name, song_name, genre_name)
+    
     song = Song.create(name: song_name)
-    genre = Genre.find_or_create_by(name: genre_name)
-    artist = Artist.find_or_create_by(name: artist_name)
+    song.artist = Artist.find_or_create_by(name: artist_name)
+    song.genres << Genre.find_or_create_by(name: genre_name)
+    # song.genre_ids << Genre.find_or_create_by(name: genre_name).id does not work as intended
+    song.save
     
-    artist.songs << song
-    genre.songs << song
+    # I don't know if the caveat for the other code applies to the code above. UPDATE: It does.
+    # A strange thing, though: despite the caveat, song.artist.genres somehow returns UNIQUE genres, but song.genres.artists does NOT.
+
+    #------------ Other Code ------------------
     
-    # Caveat: artist.genres can contain more than one of the SAME instance of Genre, and vice-versa.
+    # song = Song.create(name: song_name)
+    # genre = Genre.find_or_create_by(name: genre_name)
+    # artist = Artist.find_or_create_by(name: artist_name)
+    
+    # artist.songs << song
+    # genre.songs << song
+
+    #----Caveat----- artist.genres can contain more than one of the SAME instance of Genre, and vice-versa.
     # So, I would need to use artist.genres.uniq when displaying an artist's genres (and vice-versa).
     # However, the code above was the answer to a nasty rabbit hole question about those AR associations.
   end
