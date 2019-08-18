@@ -7,11 +7,17 @@
   </p>
 
   <h4>Next, choose one or more of the following genres for your song:</h4>
-  <% @genres.each do |genre| %>
+  <% @genres.sort_by{ |genre| genre.name }.each do |genre| %>
     <input type="checkbox" id="<%= genre.name %>" name="song[genre_ids][]" value="<%= genre.id %>"><%= genre.name %></input>
   <% end %>
 
   <h4>Finally, choose one of the following artists for your song, or make a new artist:</h4>
+  
+  <p>Available artists:</p>
+  <% @artists.sort_by{ |artist| artist.name }.each do |artist| %>
+    <input type="radio" id="<% artist.name %>" name="artist[name]" value="<%= artist.id %>"><%= artist.name %></input>
+  <% end %>
+
   <p>New artist's name: <input type="text" id="Artist Name" name="artist[name]" /></p>
   
   <p>

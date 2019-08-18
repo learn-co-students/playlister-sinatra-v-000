@@ -1,4 +1,7 @@
+require 'rack-flash'
+
 class SongsController < ApplicationController
+  use Rack::Flash
   
   get '/songs' do
     @songs = Song.all
@@ -18,10 +21,15 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
+    binding.pry
     song = Song.create(params[:song])
     song.artist = Artist.find_or_create_by(params[:artist])
     song.save
-    # binding.pry
+    
+    flash[:message] = "Successfully created song."
+    # See https://github.com/treeder/rack-flash#sinatra for how to use Rack Flash.
+    # Note: I still need to see how to display flash.now messages
+
     redirect to "/songs/#{song.slug}"
 
     #-----Earlier code, when certain params had different names-----
