@@ -8,6 +8,10 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get '/error' do
+    erb :error
+  end
+
   # I tried to refactor my index.erb files with the helper method below, but it didn't work.
 
   # helpers do

@@ -15,10 +15,13 @@
   
   <p>Available artists:</p>
   <% @artists.sort_by{ |artist| artist.name }.each do |artist| %>
-    <input type="radio" id="<% artist.name %>" name="artist[name]" value="<%= artist.id %>"><%= artist.name %></input>
+    <input type="radio" id="<% artist.name %>" name="artist[name]" value="<%= artist.name %>"><%= artist.name %></input>
   <% end %>
 
-  <p>New artist's name: <input type="text" id="Artist Name" name="artist[name]" /></p>
+  <p>
+    <label for="Artist Name">New artist's name: </label>
+    <input type="text" id="Artist Name" name="artist_name" />
+  </p>
   
   <p>
     <input type="submit" id="Create" value="Write this song!" />
