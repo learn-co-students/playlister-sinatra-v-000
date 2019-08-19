@@ -54,7 +54,9 @@ class SongsController < ApplicationController
   end
 
   get '/songs/:slug/edit' do
-    "<h1>Edit your song here!</h1>"
+    @song = Song.find_by_slug(params[:slug])
+    @artists, @genres = Artist.all, Genre.all
+    erb :"songs/edit"
   end
   
 end
