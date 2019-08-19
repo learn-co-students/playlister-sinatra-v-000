@@ -52,5 +52,9 @@ class SongsController < ApplicationController
     # song.artist = Artist.create(name: params[:artist_name])
     # song.save
   end
+
+  get '/songs/:slug/edit' do
+    "<h1>Edit your song here!</h1>"
+  end
   
 end
