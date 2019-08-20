@@ -117,7 +117,7 @@ describe "Song Forms" do
       end
 
       it "updates the song's genres" do
-        uncheck "New Age Garbage" # This doesn't work.
+        uncheck "New Age Garbage" # This doesn't work, but I'm getting closer. It now gets an "ambiguous match".
         check "Hippity Hop" # Neither does this.
         click_on "Save"
 
@@ -129,7 +129,7 @@ describe "Song Forms" do
       end
 
       it "renders to the song show page" do
-        uncheck "Hippity Hop" # This doesn't work.
+        uncheck "Hippity Hop" # This doesn't work, but I'm getting closer. It now gets an "ambiguous match".
         check "New Age Garbage" # Neither does this.
         click_on "Save"
         expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
