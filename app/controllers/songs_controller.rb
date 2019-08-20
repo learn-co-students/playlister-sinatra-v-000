@@ -54,7 +54,6 @@ class SongsController < ApplicationController
 
     song = Song.find_by_slug(params[:slug])
     new_artist = find_artist_from(params)
-    binding.pry
 
     ######## Bug fix: set the genre_ids to [] if the genre_ids are nil. ########
     if params[:song][:genre_ids].nil?

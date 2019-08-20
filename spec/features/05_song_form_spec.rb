@@ -117,8 +117,8 @@ describe "Song Forms" do
       end
 
       it "updates the song's genres" do
-        uncheck "New Age Garbage"
-        check "Hippity Hop"
+        uncheck "New Age Garbage" # This doesn't work.
+        check "Hippity Hop" # Neither does this.
         click_on "Save"
 
         expect(page).to have_content("Successfully updated song.")
@@ -129,8 +129,8 @@ describe "Song Forms" do
       end
 
       it "renders to the song show page" do
-        uncheck "Hippity Hop"
-        check "New Age Garbage"
+        uncheck "Hippity Hop" # This doesn't work.
+        check "New Age Garbage" # Neither does this.
         click_on "Save"
         expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
       end
