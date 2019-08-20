@@ -9,6 +9,12 @@
     <input type="text" id="Name" name="song[name]" value="<%= @song.name %>" required />
   </p>
 
+  <h3>Choose one or more new genres from the list below.</h3>
+  <p><strong>Available genres:</strong></p>
+  <% @genres.sort_by{ |genre| genre.name }.each do |genre| %>
+    <input type="checkbox" id="<% genre.name %>" name="song[genre_ids][]" value="<%= genre.id %>" <%= 'checked' if @song.genres.include?(genre) %>><%= genre.name %></input>
+  <% end %>
+
   <h3>Choose a new artist from the list below, or create a new artist yourself.</h3>
 
   <p><strong>Available artists:</strong></p>
