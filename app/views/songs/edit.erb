@@ -1,5 +1,27 @@
 <h1>Edit your song here!</h1>
 
-<form method="post" action="/songs/#{@song.slug}">
-  <input type="hidden" id="hidden" method="_post" value="patch">
+<form method="post" action="/songs/<%= @song.slug %>">
+  <input type="hidden" id="hidden" name="_method" value="patch" />
+
+  <h3>Change your song's name here.</h3>
+  <p>
+    <label for="Name"><strong>Name: </strong></label>
+    <input type="text" id="Name" name="song[name]" value="<%= @song.name %>" required />
+  </p>
+
+  <h3>Choose a new artist from the list below, or create a new artist yourself.</h3>
+
+  <p><strong>Available artists:</strong></p>
+  <% @artists.sort_by{ |artist| artist.name }.each do |artist| %>
+    <input type="radio" id="<% artist.name %>" name="artist[name]" value="<%= artist.name %>" <%= 'checked' if artist == @song.artist %>><%= artist.name %></input>
+  <% end %>
+
+  <p>
+    <label for="Artist Name"><strong>New artist's name: </strong></label>
+    <input type="text" id="Artist Name" name="artist_name" />
+  </p>
+
+  <p>
+    <input type="submit" id="Save" value="Update this song" />
+  </p>
 </form>
