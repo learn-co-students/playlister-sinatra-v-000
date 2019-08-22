@@ -1,0 +1,7 @@
+index.erb
+
+<ul>
+  <% @artists.each do |artist| %>
+  <li><%= artist.name %>, <a href="/artists/<%= artist.slug %>">Click Here to View Artist</a></li>
+  <% end %>
+</ul>
