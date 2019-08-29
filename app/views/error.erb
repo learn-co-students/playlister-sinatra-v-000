@@ -1,0 +1,8 @@
+<h1>Uh-Oh! It looks like something went wrong here.</h1>
+
+<p><a href="/">Click here to go to the home page and try again.</a></p>
+
+<!-- This code doesn't yet work (Flash messages seem to only exist in one route, unless put into the session hash). -->
+<%# if flash.has?(:error) %>
+  <h3><%#= flash[:error] %></h3>
+<%# end %>

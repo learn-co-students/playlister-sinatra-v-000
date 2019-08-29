@@ -86,6 +86,7 @@ describe "Song Forms" do
       artist = Artist.create(name: artist_name)
 
       @song.song_genres.create(genre: genre_1)
+      # @song.song_genres.create(genre: genre_2) # Student's note: This didn't work; not sure why.
       @song.artist = artist
 
       @song.save
@@ -116,8 +117,8 @@ describe "Song Forms" do
       end
 
       it "updates the song's genres" do
-        uncheck "New Age Garbage"
-        check "Hippity Hop"
+        uncheck "New Age Garbage" # This doesn't work, but I'm getting closer. It now gets an "ambiguous match".
+        check "Hippity Hop" # Neither does this.
         click_on "Save"
 
         expect(page).to have_content("Successfully updated song.")
@@ -128,8 +129,8 @@ describe "Song Forms" do
       end
 
       it "renders to the song show page" do
-        uncheck "Hippity Hop"
-        check "New Age Garbage"
+        uncheck "Hippity Hop" # This doesn't work, but I'm getting closer. It now gets an "ambiguous match".
+        check "New Age Garbage" # Neither does this.
         click_on "Save"
         expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
       end

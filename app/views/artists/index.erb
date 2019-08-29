@@ -1,0 +1,11 @@
+<h1>A Lineup of Artists!</h1>
+
+<h2>Click on an artist to learn more about him/her.</h2>
+
+<h3>Available artists:</h3>
+
+<ol>
+  <% @artists.sort_by{ |artist| artist.name }.each do |artist| %>
+    <li><a href="/artists/<%= artist.slug %>"><%= artist.name %></a></li>
+  <% end %>
+</ol>

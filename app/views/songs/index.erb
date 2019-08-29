@@ -1,0 +1,25 @@
+<h1>All the songs!</h1>
+
+<h2>Click on a song to learn more about it.</h2>
+
+<!-- I tried to refactor the rest of this code into the line below, but it doesn't work, for some reason. -->
+<%#= list_all(@songs) %>
+<!-- Some resources that may help:
+  https://stackoverflow.com/questions/10522414/breaking-up-long-strings-on-multiple-lines-in-ruby-without-stripping-newlines/10522472
+  https://www.rubydoc.info/gems/sinatra-partial/1.0.1
+  https://rubygems.org/gems/sinatra-partial
+  https://infinum.co/the-capsized-eight/multiline-strings-ruby-2-3-0-the-squiggly-heredoc
+  https://commandercoriander.net/blog/2014/11/09/a-multiline-string-cheatsheet-for-ruby/
+  http://sinatrarb.com/faq.html#helpview
+  http://recipes.sinatrarb.com/p/helpers/partials_using_the_sinatra-partial_gem?#article
+  http://recipes.sinatrarb.com/
+  http://recipes.sinatrarb.com/p/helpers/partials?#article
+-->
+
+<h3>Available songs:</h3>
+
+<ol>
+  <% @songs.sort_by{ |song| song.name }.each do |song| %>
+    <li><a href="/songs/<%= song.slug %>"><%= song.name %></a></li>
+  <% end %>
+</ol>
