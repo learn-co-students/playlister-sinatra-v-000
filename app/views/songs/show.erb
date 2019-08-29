@@ -1,0 +1,12 @@
+
+
+<%= flash[:message] %>
+
+
+<h1>The Title of your song is: <%= @song.name %> </h1>
+
+The Artist of this song is:<a href="/artists/<%= @song.artist.slug %>"> <%= @song.artist.name %> </a><br>
+
+<% @song.genres.each do |genre| %>
+  The Genre is: <a href="/genres/<%= genre.slug %>"><%= genre.name %> </a>
+<% end %>
