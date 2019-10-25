@@ -94,20 +94,20 @@ describe "Song Forms" do
     end
 
     context "changing a song's artist" do
-      # it "updates the song's artist" do
-      #   fill_in "Artist Name", with: "Some Nobody"
-      #   click_on "Save"
-      #
-      #   # expect(page).to have_content("Successfully Updated Song")
-      #   expect(page).to have_content(song_name)
-      #   expect(page).to have_content("Some Nobody")
-      # end
+      it "updates the song's artist" do
+        fill_in "Artist Name", with: "Some Nobody"
+        click_on "Save"
 
-      # it "renders to the song show page" do
-      #   fill_in "Artist Name", with: "That singer"
-      #   click_on "Save"
-      #   expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
-      # end
+        # expect(page).to have_content("Successfully Updated Song")
+        expect(page).to have_content(song_name)
+        expect(page).to have_content("Some Nobody")
+      end
+
+      it "renders to the song show page" do
+        fill_in "Artist Name", with: "That singer"
+        click_on "Save"
+        expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
+      end
     end
 
     context "changing a song's genres" do

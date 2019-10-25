@@ -1,14 +1,13 @@
 <h1>Edit Song</h1>
-<% #binding.pry %>
 <form action="/songs/<%= @song.slug %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label for="name">Name:</label>
-  <input type="text" name="song[name]" id="name" value="<% @song.name %>">
+  <input type="text" name="song[name]" id="name" value="<%= @song.name %>">
   <label for="artist_name">Artist Name</label>
-  <input type="text" name="artist[name]" id="artist_name" value="<% @song.artist.name %>">
+  <input type="text" name="artist[name]" id="artist_name" value="<%= @song.artist.name %>">
   <fieldset>
     <legend>Genres:</legend>
-      <% @song.genres.each do |genre| %>
+      <% @genres.each do |genre| %>
         <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>" >
         <label for="<%= genre.name %>"><%= genre.name.capitalize %></label><br>
       <% end %>
