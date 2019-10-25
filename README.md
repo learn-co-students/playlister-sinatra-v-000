@@ -216,6 +216,8 @@ section the basics for getting flash messages working with Sinatra.
 (Note: You'll need to `enable :sessions` for your application and `use Rack::Flash`
 in the appropriate controller.)
 
+Require `rack-flash` to the top of the appropriate controller. If this is missed you will receive a `NameError: uninitialized constant Rack::Flash` message.
+
 You'll want to add a flash message to the `post '/songs'` and
 `patch '/songs/:slug'` actions. `post '/songs'` might look something like:
 
