@@ -5,6 +5,10 @@
   </head>
 
   <body>
+    <% if flash[:message] %>
+      <h2><%= flash[:message] %></h2>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
