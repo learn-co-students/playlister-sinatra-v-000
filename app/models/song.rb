@@ -1,2 +1,11 @@
 class Song < ActiveRecord::Base
-end 
+  belongs_to :artist
+  has_many :song_genres
+  has_many :genres, through: :song_genres
+
+  def slug
+    name.downcase.gsub(" ","-")
+  end
+
+
+end
