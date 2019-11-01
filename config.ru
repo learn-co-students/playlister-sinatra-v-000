@@ -9,3 +9,7 @@ rescue ActiveRecord::PendingMigrationError => err
   STDERR.puts err
   exit 1
 end
+
+use SongsController
+use ArtistsController
+use GenresController
