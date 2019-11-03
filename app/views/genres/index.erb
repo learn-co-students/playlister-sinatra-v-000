@@ -5,7 +5,7 @@
   <body>
 
     <% @genres.each do |genre| %>
-    <a href="/genres/:slug"><%= genre.name %></a>
+    <a href="/genres/<%=genre.slug%>"><%= genre.name %></a>
     <% end %>
 
   </body>

@@ -5,7 +5,7 @@
   <body>
 
     <% @songs.each do |song| %>
-    <a href="/songs/:slug"><%= song.name %></a>
+    <a href="/songs/<%=song.slug%>"><%= song.name %></a>
     <% end %>
 
   </body>
