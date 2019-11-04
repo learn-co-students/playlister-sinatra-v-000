@@ -3,10 +3,12 @@
 
   <h1><header>Artists</header></h1>
   <body>
-
+  <ol>
     <% @artists.each do |artist| %>
+    <li>
     <a href="/artists/<%=artist.slug%>"><%= artist.name %></a>
+    </li>
     <% end %>
-
+  </ol>
   </body>
 </html>

@@ -5,10 +5,22 @@
   </header>
   <body>
 
-    <h3>Song Artist: <a href="/artists/<%=@song.artist.slug%>"><%= @song.artist.name %></a></h3>
-    <h4>Song Genres: <% @song.genres.each do |genre| %>
-                   <a href="/genres/<%=genre.slug%>"><%= genre.name %></a>
-                   <% end %></h4>
+    <h3>Song Artist:<ul>
+                     <li>
+                     <a href="/artists/<%=@song.artist.slug%>"><%= @song.artist.name %></a></h3>
+                     </li>
+                   </ul>
+    <h4>Song Genres:
+                 <ul>
+                     <% @song.genres.each do |genre| %>
+                   <li>
+                     <a href="/genres/<%=genre.slug%>"><%= genre.name %></a>
+                   </li>
+                     <% end %></h4>
+                 </ul>
+    <form action="/songs/<%=@song.slug%>/edit" method="GET">
+      <input type="submit" value="Edit"">
+    </form>
 
   </body>
 </html>
