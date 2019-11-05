@@ -17,6 +17,12 @@ class LibraryParser
     song   = song_match   && song_match[1]
     genre  = genre_match  && genre_match[1]
 
+    if genre.include?("-")
+      genre = genre.gsub("-", " ").split(" ").map{|g| g.capitalize}.join("-")
+    else
+      genre = genre.capitalize
+    end
+
     [artist, song, genre]
   end
 
@@ -34,7 +40,7 @@ class LibraryParser
 
     song.song_genres.build(genre: genre)
     song.artist = artist
-    
+
     song.save
   end
 end
