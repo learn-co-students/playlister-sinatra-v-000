@@ -1,5 +1,9 @@
 <!DOCTYPE HTML>
 <html>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
   <header>
     <h1>Song Title: <%=@song.name%></h1>
   </header>
