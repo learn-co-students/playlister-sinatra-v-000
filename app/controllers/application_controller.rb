@@ -1,5 +1,7 @@
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
+  enable :sessions
+  register Sinatra::Flash
   set :session_secret, "my_application_secret"
   set :views, Proc.new { File.join(root, "../views/") }
 
@@ -51,25 +53,28 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/songs' do
+    
     @song = Song.create(params["song"])
     artist = Artist.all.find do |artist|
       artist.slug == params[:artist][:name].downcase.gsub(' ','-')
     end
+
     if artist
       artist.songs << @song
     else
       @artist = Artist.create(name: params[:artist][:name])
       @artist.songs << @song
+     
     end
 
     params[:genres].each do |genre|
       @song.genres << Genre.find(genre)
     end
     flash[:message] = "Successfully created song."
-    redirect to "/songs/#{@song.slug}"
+    redirect "/songs/#{@song.slug}"
   end
   
-  patch '/songs' do
+  patch '/songs/:slug' do
 
     @song = Song.find_by(params[:name])
     @song.update(params[:song])
