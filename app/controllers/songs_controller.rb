@@ -31,7 +31,7 @@ class SongsController < ApplicationController
     end
 
     post '/songs/:slug' do  
-        song = Song.find_or_create_by(:name => params[:song_name])
+        song = Song.find_or_create_by(:name => params[:name])
         song.artist = Artist.find_or_create_by(:name => params[:artist_name])
         song.genres << params[:genres].collect {|genre| Genre.find(g)}
         song.save
