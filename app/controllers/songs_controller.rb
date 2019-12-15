@@ -33,6 +33,7 @@ class SongsController < ApplicationController
     post '/songs/:slug' do  
         song = Song.find_or_create_by(:name => params[:song_name])
         song.artist = Artist.find_or_create_by(:name => params[:artist_name])
+        
         song.save
 
         flash[:message] = "Successfully updated song."
