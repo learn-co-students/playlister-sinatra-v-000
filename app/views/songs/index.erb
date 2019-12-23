@@ -1,0 +1,8 @@
+
+<h1> this is the song index page</h1>
+
+  <ul>
+    <% @songs.each do |song| %>
+    <li><a href="/songs/<%=song.slug%>" value = "slug"><%= song.name %></li>
+      <%end%>
+  </ul>
