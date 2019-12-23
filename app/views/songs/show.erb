@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h1> <%= @song.name%> show page</h1>
 
 <h2> Song Name: <%= @song.name %> </h2>
