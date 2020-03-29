@@ -1,8 +1,10 @@
+
 class LibraryParser
-  def files
-    data_path = File.join(File.dirname(__FILE__), '..', 'db', 'data')
-    Dir.entries(data_path)[2..-1]
-  end
+
+def files
+  data_path = File.join(File.dirname(__FILE__), '..', 'db', 'data')
+  Dir.entries(data_path)[2..-1]
+end
 
   def self.parse
     self.new.call
@@ -23,7 +25,7 @@ class LibraryParser
   def call
     files.each do |filename|
       parts = parse_filename(filename)
-      build_objects(*parts)
+      build_objects(*parts) #this is called a splat operator - allows us to work with an undefined num of arguments. Turns it into an array.
     end
   end
 
