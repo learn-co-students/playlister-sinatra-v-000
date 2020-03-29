@@ -3,10 +3,11 @@
 <head>
 </head>
 <body>
+
 <h1>Edit <%= @song.name %></h1>
 
 <form method="POST" action="/songs/<%= @song.slug %>">
-    <label id="hidden" type="hidden" name="_method" value="patch">
+    <input id="hidden" type="hidden" name="_method" value="patch">
 
     <label for="artist_name">Artist Name</label>
     <input type="text" name="artist[name]" id="artist_name" value="<%=@song.artist.name %>"><br>
