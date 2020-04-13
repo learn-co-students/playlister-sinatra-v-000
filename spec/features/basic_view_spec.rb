@@ -16,14 +16,10 @@ describe "Playlister Basics" do
     @song.save
   end
 
-  describe "index pages" do
+  context "index pages" do
     describe "/songs" do
       before do
         visit "/songs"
-      end
-
-      it 'responds with a 200 status code' do
-        expect(page.status_code).to eq(200)
       end
 
       it "displays a list of songs" do
@@ -40,15 +36,11 @@ describe "Playlister Basics" do
         visit "/artists"
       end
 
-      it 'responds with a 200 status code' do
-        expect(page.status_code).to eq(200)
-      end
-
       it "displays a list of artists" do
         expect(page).to have_content(artist_name)
       end
 
-      it "contains links to each artist's show page" do
+      it "contains links to each song's show page" do
         expect(page).to have_css("a[href='/artists/#{@artist.slug}']")
       end
     end
@@ -58,28 +50,20 @@ describe "Playlister Basics" do
         visit "/genres"
       end
 
-      it 'responds with a 200 status code' do
-        expect(page.status_code).to eq(200)
-      end
-
       it "displays a list of genres" do
         expect(page).to have_content(genre_name)
       end
 
-      it "contains links to each genre's show page" do
+      it "contains links to each song's show page" do
         expect(page).to have_css("a[href='/genres/#{@genre.slug}']")
       end
     end
   end
 
-  describe "show pages" do
+  context "show pages" do
     describe "/songs/:slug" do
       before do
         visit "/songs/#{@song.slug}"
-      end
-
-      it 'responds with a 200 status code' do
-        expect(page.status_code).to eq(200)
       end
 
       it "displays the song's artist" do
@@ -104,10 +88,6 @@ describe "Playlister Basics" do
         visit "/artists/#{@artist.slug}"
       end
 
-      it 'responds with a 200 status code' do
-        expect(page.status_code).to eq(200)
-      end
-
       it "displays the artist's songs" do
         expect(page).to have_content(song_name)
       end
@@ -128,10 +108,6 @@ describe "Playlister Basics" do
     describe "/genres/:slug" do
       before do
         visit "/genres/#{@genre.slug}"
-      end
-
-      it 'responds with a 200 status code' do
-        expect(page.status_code).to eq(200)
       end
 
       it "displays the genre's artists" do
