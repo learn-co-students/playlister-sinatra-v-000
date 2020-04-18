@@ -91,7 +91,7 @@ You should build the following routes:
 
 4.  `/songs/:slug`
 
-- Any given song's show page should have links to that song's artist and the
+- Any given song's show page should have links to that song's artist and
   each genre associated with the song.
 - Pay attention to the order of `/songs/new` and `/songs/:slug`. The route
   `/songs/new` could interpret `new` as a slug if that controller action isn't
@@ -164,7 +164,7 @@ But again, we run into a problem here. We can't have spaces in a URL. In order
 to make it a proper URL, we have to convert the spaces to `-` in the song name.
 This is called a slug.
 
-You are going to need to create some slugs in this lab. A slug is used to create
+You are going to need to create some slugs in this lab. A slug is used to replace
 a name that is not acceptable as a URL for various reasons (special characters,
 spaces, etc). This is great because instead of having a route like `/songs/1`,
 you can have a route `/songs/hotline-bling` which is a much more descriptive
