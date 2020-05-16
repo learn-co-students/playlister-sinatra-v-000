@@ -14,5 +14,4 @@ end
  use ArtistsController
  use GenresController
 
-
  run ApplicationController
