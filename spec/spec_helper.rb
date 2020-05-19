@@ -34,6 +34,7 @@ RSpec.configure do |config|
 end
 
 def app
+  # binding.pry
   Rack::Builder.parse_file('config.ru').first
 end
 
