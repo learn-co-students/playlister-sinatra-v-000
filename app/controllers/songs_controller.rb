@@ -12,19 +12,52 @@ class SongsController < ApplicationController
     end
 
     get '/songs/:slug' do
-        binding.pry
+        
         @song = Song.find_by_slug(params[:slug])
         erb :'/songs/show'
     end
 
     post '/songs' do
+        
         @song = Song.create(:name => params["Name"])
         @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
         @song.genre_ids = params[:genres]
         @song.save
-
+        # @flash = { }
+        # @flash[:message] = "Successfully created song."
         # locals: {message: "Successfully created song."}
-        binding.pry
-        redirect "/songs/#{@song.slug}", locals: {message: "Successfully created song."}
+        redirect "/songs/#{@song.slug}" 
+       
+    end
+
+   
+    #         song.artist = Artist.create(:name => artist_name)
+    #     end
+
+    #     if song.genres
+    #         song.genres.clear
+    #     end
+    #     genres = params[:song][:genres]
+    #     genres.each do |genre|
+    #     song.genres << Genre.find(genre)
+    #     end
+
+    #     song.save
+    # end
+
+    get '/songs/:slug/edit' do
+        @song = Song.find_by_slug(params[:slug])
+
+        erb :'songs/edit'
+    end
+
+    patch '/songs/:slug' do
+        @song = Song.find_by_slug(params[:slug])
+   
+        @song.update(params[:song])
+
+        @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
+        @song.save
+        redirect "/songs/#{@song.slug}"
     end
 end
