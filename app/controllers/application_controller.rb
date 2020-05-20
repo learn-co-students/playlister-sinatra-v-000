@@ -7,9 +7,9 @@ class ApplicationController < Sinatra::Base
      erb :index
   end 
   
-  get '/songs/slug' do
-    @song = Song.find_by_slug(params[:name])
-     erb :index
+  get '/songs/:slug' do
+    # @song = Song.find_by_slug(params[:name])
+    #  erb :index
   end
 
 end
