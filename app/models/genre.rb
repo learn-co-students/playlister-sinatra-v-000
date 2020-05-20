@@ -1,14 +1,7 @@
-class Genre 
+class Genre < ActiveRecord::Base
 
-    attr_accessor :genre, :id
-
-    def initialize(genre, id)
-        @genre= genre
-        @id= id
-    end
-
-    def self.create(name)
-    @name= name
-    end
+    has_many :song_genres
+    has_many :songs, through: :song_genres
+    has_many :artists, through: :songs 
 
 end

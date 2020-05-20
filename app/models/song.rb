@@ -1,13 +1,6 @@
-class Song 
-
-    attr_accessor :song
-
-    def initialize(song)
-        @song= song
-    end
-
-    def self.create(name)
-    @name= name
-    end
+class Song < ActiveRecord::Base
+    belongs_to :artist
+    has_many :song_genres
+    has_many :genres, through: :song_genres
 
 end

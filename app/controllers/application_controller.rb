@@ -4,11 +4,12 @@ class ApplicationController < Sinatra::Base
   set :views, Proc.new { File.join(root, "../views/") }
 
   get '/songs' do
-    erb :index
+     erb :index
+  end 
+  
+  get '/songs/slug' do
+    @song = Song.find_by_slug(params[:name])
+     erb :index
   end
-
-  # get '/songs' do
-   
-  # end
 
 end
