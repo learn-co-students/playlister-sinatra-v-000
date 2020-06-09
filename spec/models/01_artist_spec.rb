@@ -40,3 +40,4 @@ describe "Artist" do
   end
 
 end
+© 2020 GitHub, Inc.
