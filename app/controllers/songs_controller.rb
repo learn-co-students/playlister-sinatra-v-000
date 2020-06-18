@@ -42,7 +42,7 @@ class SongsController < ApplicationController
       @song.genres << Genre.find(genre)
     end
     flash[:message] = "Successfully created song."
-    redirect to "/songs/#{@song.slug}"
+    redirect("/songs/#{@song.slug}")
   end
 
   patch '/songs' do
@@ -62,7 +62,6 @@ class SongsController < ApplicationController
     end
 
     flash[:message] = "Successfully updated song."
-    redirect to("/songs/#{@song.slug}")
-    #redirect to "/songs/#{@song.slug}"
+    redirect("/songs/#{@song.slug}")
   end
 end 
