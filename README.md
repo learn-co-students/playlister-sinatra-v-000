@@ -251,5 +251,3 @@ left off.
 ## Resources
 
 - [Clean URL - Slugs](<http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug>)
-
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/playlister-sinatra' title='Sinatra Playlister'>Sinatra Playlister</a> on Learn.co and start learning to code for free.</p>
