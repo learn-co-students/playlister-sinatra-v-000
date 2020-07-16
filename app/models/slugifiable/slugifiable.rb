@@ -1,6 +1,10 @@
 module Slugifiable
   def slug
-    self.name.downcase.gsub!(/[^a-zA-Z]/, "-")
+    if self.name.include?(" ")
+      self.name.downcase.gsub!(/[^a-zA-Z]/, "-")
+    else
+      self.name.downcase
+    end
   end
 
   # this method hacks the retrieval by reconstructing the slug
