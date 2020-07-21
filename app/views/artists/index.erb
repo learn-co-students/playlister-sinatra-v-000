@@ -1,0 +1,3 @@
+<% @artists.each do |artist| %>
+<p>View Artist ID#: <%= artist.id %> | <a href="/artists/<%= artist.slug %>"><%= artist.name %></a></p>
+<% end %>
