@@ -10,6 +10,6 @@ rescue ActiveRecord::PendingMigrationError => err
   exit 1
 end
 
-use ArtistsController
 use SongsController
+use ArtistsController
 use GenresController
