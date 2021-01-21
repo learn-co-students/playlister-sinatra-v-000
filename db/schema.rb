@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_01_20_051457) do
+=======
+ActiveRecord::Schema.define(version: 2020_11_30_214234) do
+>>>>>>> 417f5d79e15b00b9c86f6cc7b458806eebf90074
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
