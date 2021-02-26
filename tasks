@@ -1,0 +1,5 @@
+1. create models for the 3 categories 
+2. create tables for each including SongGenre join table
+3. create SongGenre models
+4. add slugifier and findslug to relevant models
+5. controllers for each category
