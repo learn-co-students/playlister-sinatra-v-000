@@ -4,7 +4,7 @@
     <input type="text" name="artist[name]" id="song_name"> </br>
 
     <label for="name">Song Name</label>
-    <input type="text" name="song[name]" id="Name" > </br>
+    <input type="text" name="song[name]" id="artist_name" > </br>
 
     <label> Genres </label><br>
     <% @genres.each do |g|%>
@@ -12,3 +12,6 @@
     <%end%>
     <input type="submit" value="Create">
  </form>
+ <% if flash.has?(:message) %>
+   <%= flash[:message] %>
+ <% end %>

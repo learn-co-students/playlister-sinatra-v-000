@@ -13,6 +13,20 @@ class SongsController < ApplicationController
         erb :'songs/new'
    end
 
+
+
+#solution
+  #  post '/songs' do
+  #    @song = Song.create(params[:song])
+  #    @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
+  #    @song.genre_ids = params[:genres]
+  #    @song.save
+   #
+  #    flash[:message] = "Successfully created song."
+  #    redirect("/songs/#{@song.slug}")
+  #  end
+
+   #
    post '/songs' do
           # binding.pry
 
@@ -23,6 +37,7 @@ class SongsController < ApplicationController
                   else
                       @song.artist = Artist.create(params[:artist])
                   end
+
           # @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
           @song.genre_ids = params[:genre]  #array
           @song.save
