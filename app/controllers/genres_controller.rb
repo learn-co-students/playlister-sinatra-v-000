@@ -1,5 +1,7 @@
+require 'rack-flash'
 class GenresController < ApplicationController
-
+   use Rack::Flash #for messages
+   
    get '/genres' do
     @genres=   Genre.all
     erb :'genres/index'
