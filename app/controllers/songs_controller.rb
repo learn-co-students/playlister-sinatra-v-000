@@ -6,6 +6,15 @@ class SongsController < ApplicationController
     erb :'songs/index'
   end
 
+  post '/songs' do
+    raise params.inspect
+  end
+
+  get '/songs/new' do
+
+    erb :'songs/new'
+  end
+
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     @artist = @song.artist
