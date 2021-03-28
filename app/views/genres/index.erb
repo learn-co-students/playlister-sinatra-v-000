@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Songs index page</title>
+</head>
+<body>
+
+<label>All songs:</label>
+<% @genres.each do |genre| %>
+<br>
+<br>
+
+<a href="/genres/<%= genre.slug %>"><%= genre.name %></a>
+
+<% end %>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Songs index page</title>
+</head>
+<body>
+
+<label>All songs:</label>
+<% @songs.each do |song| %>
+<br>
+<br>
+
+<a href="/songs/<%= song.slug %>"><%= song.name %></a>
+
+<% end %>
+</body>
+</html>
