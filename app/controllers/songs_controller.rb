@@ -7,7 +7,21 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    raise params.inspect
+
+    song = Song.create(name: params[:song][:name])
+    if !params[:song][:artist].empty?
+      artist = Artist.new(name: params[:song][:artist])
+      if Artist.find_by_slug(artist.slug)
+        artist = Artist.find_by_slug(artist.slug)
+      else
+        artist.save
+      end
+    end
+
+    song.artist = artist
+    song.save
+
+    redirect "/songs/#{song.slug}"
   end
 
   get '/songs/new' do
