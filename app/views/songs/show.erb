@@ -1,5 +1,4 @@
 <h1><%= @song.name %></h1>
 <ul>
-  <li><%= @song.artist.name %></li>
-  <li><%= @song.genre.name %></li>
+  <li>Artist: <%= @song.artist.name %> - Genre: <%= @song.genres.map {|genre| genre.name}.join(", ") %></li>
 </ul>

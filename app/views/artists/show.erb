@@ -1,1 +1,6 @@
-artist show.erb
+<h1><%= @artist.name %></h1>
+<% @artist.songs.each do |song| %>
+  <ul>
+    <li>Song: <%= song.name %> - Genre: <%= song.genres.map {|genre| genre.name}.join(", ") %></li>
+  </ul>
+<% end %>
