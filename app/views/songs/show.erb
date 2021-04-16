@@ -1,4 +1,7 @@
-<h1><%= @song.name %></h1>
+<h1>Song: <%= @song.name %></h1>
 <ul>
-  <li>Artist: <%= @song.artist.name %> - Genre: <%= @song.genres.map {|genre| genre.name}.join(", ") %></li>
+  <li>Artist: <%= @song.artist.name %> <a href="/artists/<%= @song.artist.slug %>">(link)</a> -
+  <% @song.genres.map do |genre| %>
+    <%= genre.name %> <a href="/genres/<%= genre.slug %>">(link)</a>
+  <% end %></li>
 </ul>
