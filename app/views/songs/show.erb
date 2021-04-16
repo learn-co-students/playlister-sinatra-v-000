@@ -1,7 +1,13 @@
-<h1>Song: <%= @song.name %></h1>
+<p>Successfully created song.</p>
+<h1>Song: <%= @song.name %> <a style="font-size: 14px" href="/songs/<%= @song.slug %>/edit">Edit</a></h1>
 <ul>
   <li>Artist: <%= @song.artist.name %> <a href="/artists/<%= @song.artist.slug %>">(link)</a> -
+  <% x = 0 %>
   <% @song.genres.map do |genre| %>
     <%= genre.name %> <a href="/genres/<%= genre.slug %>">(link)</a>
+    <% x += 1 %>
+    <% if @song.genres.count > x %>
+    <span><%= "," %></span>
+    <% end %>
   <% end %></li>
 </ul>

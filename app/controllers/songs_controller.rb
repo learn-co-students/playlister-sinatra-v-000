@@ -5,6 +5,7 @@ class SongsController < ApplicationController
   end
 
   get '/songs/new' do
+    @genres = Genre.all
     erb :'songs/new'
   end
 
@@ -14,14 +15,19 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    @pet = Pet.create(params[:pet])
-    if params["name"].empty?
-      @owner = Owner.find(params[:owner])
-      @owner.pets << @pet
-    else
-      @owner = Owner.create(:name => params[:name])
-      @owner.pets << @pet
+    @song = Song.find_or_create_by(name: params[:song_name])
+    artist = Artist.find_or_create_by(name: params[:artist_name])
+    params[:genres].each do |genre|
+      genre = Genre.find_or_create_by(id: genre)
+      @song.song_genres.build(genre: genre)
     end
-      redirect to "pets/#{@pet.id}"
+    @song.artist = artist
+    @song.save
+    redirect to "songs/#{@song.slug}"
+  end
+
+  get '/songs/:slug/edit' do
+    @song = Song.find_by(name: params[:slug])
+    erb :'songs/edit'
   end
 end

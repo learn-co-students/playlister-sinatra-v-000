@@ -1,5 +1,4 @@
-<h1>Genres</h1>
-
+<h1>Genres <a style="font-size: 14px" href="/songs/new">(add song)</a></h1>
 <% @genres.each do |genre| %>
   <ul>
     <li><%= genre.name %> <a href="/genres/<%= genre.slug %>">(link)</a></li>

@@ -6,17 +6,17 @@ class LibraryParser
     artist = Artist.all
     genre = Genre.all
 
-    files.each do |f|
-      f_ary = f.split(/\s[\-]\s| \[|\].mp3/)
-        f_artist = f_ary[0]
-        f_song = f_ary[1]
-        f_genre = f_ary[2]
-      a = Artist.find_or_create_by(name: f_artist)
-      g = Genre.find_or_create_by(name: f_genre)
-      s = Song.find_or_create_by(name: f_song)
-      s.song_genres.build(genre: g)
-      s.artist = a
-      s.save
+    files.each do |file|
+      file_ary = file.split(/\s[\-]\s| \[|\].mp3/)
+        file_artist = file_ary[0]
+        file_song = file_ary[1]
+        file_genre = file_ary[2]
+      new_artist = Artist.find_or_create_by(name: file_artist)
+      new_genre = Genre.find_or_create_by(name: file_genre)
+      new_song = Song.find_or_create_by(name: file_song)
+      new_song.song_genres.build(genre: new_genre)
+      new_song.artist = new_artist
+      new_song.save
     end
   end
 

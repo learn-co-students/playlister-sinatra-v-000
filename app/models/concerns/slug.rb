@@ -1,7 +1,7 @@
 module Slug
   module ClassMethods
     def find_by_slug(slug)
-      name = slug.split("-").map{|word| word}.join(" ")
+      name = slug.split("-").map{|word| word}.join("_")
       self.where("LOWER(name) LIKE LOWER(?)", name).first
     end
   end
