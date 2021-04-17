@@ -1,4 +1,25 @@
 class LibraryParser
+
+  def self.parser
+    path = "./db/migrate/data"
+    files = Dir.glob(path + "/*.mp3").collect{|file| file.split(/.+\//).last}
+    artist = Artist.all
+    genre = Genre.all
+
+    files.each do |file|
+      file_ary = file.split(/\s[\-]\s| \[|\].mp3/)
+        file_artist = file_ary[0]
+        file_song = file_ary[1]
+        file_genre = file_ary[2]
+      new_artist = Artist.find_or_create_by(name: file_artist)
+      new_genre = Genre.find_or_create_by(name: file_genre)
+      new_song = Song.find_or_create_by(name: file_song)
+      new_song.song_genres.build(genre: new_genre)
+      new_song.artist = new_artist
+      new_song.save
+    end
+  end
+
   def files
     data_path = File.join(File.dirname(__FILE__), '..', 'db', 'data')
     Dir.entries(data_path)[2..-1]
@@ -34,7 +55,7 @@ class LibraryParser
 
     song.song_genres.build(genre: genre)
     song.artist = artist
-    
+
     song.save
   end
 end
