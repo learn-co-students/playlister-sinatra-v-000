@@ -5,12 +5,12 @@ require 'rack/test'
 require 'capybara/rspec'
 require 'capybara/dsl'
 
-begin
-  fi_check_migration
-rescue ActiveRecord::PendingMigrationError => err
-  STDERR.puts err
-  exit 1
-end
+# begin
+#   fi_check_migration
+# rescue ActiveRecord::PendingMigrationError => err
+#   STDERR.puts err
+#   exit 1
+# end
 
 
 ActiveRecord::Base.logger = nil
